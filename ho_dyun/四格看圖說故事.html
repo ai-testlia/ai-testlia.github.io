@@ -267,7 +267,7 @@ body {
 }
 </style>
 
-  <!-- 列印與儲存 PDF 專用樣式 -->
+    <!-- 列印與儲存 PDF 專用樣式 -->
   <style>
     .print-btn-container {
       margin-top: 2rem;
@@ -296,7 +296,7 @@ body {
       transform: translateY(-2px);
     }
     @media print {
-      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+      .print-btn-container, .btn-ans, .btn-ans + .ans-line {
         display: none !important;
       }
       body {
@@ -317,6 +317,19 @@ body {
         border: 1px solid #eee !important;
         padding: 10px !important;
         margin: 10px 0 !important;
+      }
+      footer {
+        background: transparent !important;
+        border: none !important;
+        color: #555 !important;
+        margin-top: 2rem !important;
+        padding: 1rem 0 0 0 !important;
+        border-top: 0.5px solid #ddd !important;
+        border-radius: 0 !important;
+        display: block !important;
+      }
+      footer * {
+        color: #555 !important;
       }
       .section-block {
         page-break-before: always;
