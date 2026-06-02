@@ -3,7 +3,7 @@ import os
 base_dir = r"C:\Users\balpo\HappyBin\ai-testlia.github.io"
 folders = {
     "Alson": {
-        "title": "Alson 的學習筆記",
+        "title": "子睿 的學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "語文基礎與修辭": [
@@ -16,7 +16,7 @@ folders = {
         }
     },
     "Anson": {
-        "title": "Anson 的學習筆記",
+        "title": "楊逸 的學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "閱讀與範文": [
@@ -56,7 +56,7 @@ folders = {
         }
     },
     "ga_him": {
-        "title": "Ga Him 的學習筆記",
+        "title": "家謙 的學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "DSE 考試策略": [
@@ -69,7 +69,7 @@ folders = {
         }
     },
     "ho_dyun": {
-        "title": "Ho Dyun 的學習筆記",
+        "title": "可端 的學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "語文基礎與成語": [
@@ -86,7 +86,7 @@ folders = {
         }
     },
     "hok_wai": {
-        "title": "Hok Wai 的學習筆記",
+        "title": "學維 的學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "中文科應試與寫作": [
@@ -100,7 +100,7 @@ folders = {
         }
     },
     "zeon_lok": {
-        "title": "Zeon Lok 的學習筆記",
+        "title": "浚樂 的學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "DSE 考試策略": [
@@ -117,7 +117,7 @@ folders = {
         }
     },
     "zeng_han": {
-        "title": "Zeng Han 的學習筆記",
+        "title": "政行 的學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "DSE 考試策略": [

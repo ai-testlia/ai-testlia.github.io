@@ -1,404 +1,648 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>常用修辭手法（小五深進篇）｜潘SIR中文教室</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #555;
-  --color-background-primary: #ffffff;
-  --color-background-secondary: #f5f5f3;
-  --color-border-tertiary: rgba(0,0,0,0.1);
-  --border-radius-md: 8px;
-  --border-radius-lg: 12px;
-  --hero-bg: #0e2244; /* 深藍 - 閱讀/語文類 */
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常用修辭手法｜潘SIR中文教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0, 0, 0, 0.1);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --hero-bg: #0e2244;
+      /* 深藍 - 閱讀/語文類 */
+    }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text-primary: #f0f0f0;
-    --color-text-secondary: #aaa;
-    --color-background-primary: #1c1c1e;
-    --color-background-secondary: #2c2c2e;
-    --color-border-tertiary: rgba(255,255,255,0.1);
-  }
-}
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #f0f0f0;
+        --color-text-secondary: #aaa;
+        --color-background-primary: #1c1c1e;
+        --color-background-secondary: #2c2c2e;
+        --color-border-tertiary: rgba(255, 255, 255, 0.1);
+      }
+    }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  font-family: 'Noto Sans TC', sans-serif;
-  color: var(--color-text-primary);
-  background: var(--color-background-secondary);
-  padding: 2rem 1rem;
-  line-height: 1.8;
-  font-size: 14px;
-}
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-background-secondary);
+      padding: 2rem 1rem;
+      line-height: 1.8;
+      font-size: 14px;
+    }
 
-.wrap { max-width: 820px; margin: 0 auto; }
+    .wrap {
+      max-width: 820px;
+      margin: 0 auto;
+    }
 
-/* HERO */
-.hero {
-  background: var(--hero-bg);
-  color: #fff;
-  border-radius: var(--border-radius-lg);
-  padding: 3rem 2.5rem 2.5rem;
-  margin-bottom: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero-tag {
-  display: inline-block;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.3);
-  padding: 3px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-}
-.hero h1 {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-}
-.hero p { opacity: 0.8; font-size: 14px; }
+    /* HERO */
+    .hero {
+      background: var(--hero-bg);
+      color: #fff;
+      border-radius: var(--border-radius-lg);
+      padding: 3rem 2.5rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-/* TOC */
-.toc {
-  background: var(--color-background-primary);
-  border: 1px solid var(--color-border-tertiary);
-  border-radius: var(--border-radius-lg);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-}
-.toc-title { font-weight: 700; margin-bottom: 1rem; color: var(--color-text-secondary); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
-.toc ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.toc a { color: var(--color-text-primary); text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 8px; }
-.toc a:hover { color: #3a86ff; }
-.toc-num { width: 22px; height: 22px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #555; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
 
-/* SECTION BLOCK */
-.section-block { margin-bottom: 3rem; }
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1.5rem;
-}
-.section-icon { font-size: 24px; }
-.section-header h2 { font-family: 'Noto Serif TC', serif; font-size: 1.6rem; border-bottom: 2px solid var(--color-border-tertiary); flex-grow: 1; padding-bottom: 5px; }
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
 
-/* CARD */
-.card {
-  background: var(--color-background-primary);
-  border: 1px solid var(--color-border-tertiary);
-  border-radius: var(--border-radius-lg);
-  padding: 1.5rem;
-  margin-bottom: 1.2rem;
-}
-.subsection-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 1rem;
-  font-family: 'Noto Serif TC', serif;
-}
-.dot { width: 8px; height: 8px; border-radius: 50%; }
-.dot.blue { background: #3a86ff; }
-.dot.red { background: #ff4d4d; }
-.dot.green { background: #2ecc71; }
-.dot.purple { background: #9b59b6; }
+    .hero p {
+      opacity: 0.8;
+      font-size: 14px;
+    }
 
-/* COMPONENTS */
-.example-box {
-  background: #f0f7ff;
-  border-left: 4px solid #3a86ff;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
-}
-.example-box.pink { background: #fff0f5; border-left-color: #ff69b4; }
-.example-box.amber { background: #fffbeb; border-left-color: #f59e0b; }
-.example-box.teal { background: #f0fdfa; border-left-color: #14b8a6; }
+    /* TOC */
+    .toc {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
 
-.example-label { font-size: 11px; font-weight: 700; color: var(--color-text-secondary); margin-bottom: 4px; text-transform: uppercase; }
-.example-text { font-family: 'Noto Serif TC', serif; font-size: 15px; color: var(--color-text-primary); }
+    .toc-title {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-.alert {
-  display: flex; gap: 12px; padding: 1rem; border-radius: var(--border-radius-md); margin: 1rem 0;
-}
-.alert.tip { background: #eef2ff; border: 1px solid #c7d2fe; }
-.alert.warn { background: #fff1f2; border: 1px solid #fecdd3; }
-.alert.success { background: #f0fdf4; border: 1px solid #bbf7d0; }
-.alert.amber { background: #fffbeb; border: 1px solid #fef3c7; }
-.alert-icon { font-size: 18px; }
-.alert-content b { display: block; margin-bottom: 2px; }
+    .toc ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
 
-.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 1rem 0; }
-.compare-card { padding: 1rem; border-radius: var(--border-radius-md); font-size: 13.5px; }
-.compare-card.bad { background: #fff5f5; border: 1px solid #feb2b2; color: #c53030; }
-.compare-card.good { background: #f0fff4; border: 1px solid #9ae6b4; color: #276749; }
+    .toc a {
+      color: var(--color-text-primary);
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-.keyword-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 1.5rem 0; }
-.kw-card { background: var(--color-background-secondary); padding: 1rem; border-radius: var(--border-radius-md); }
-.kw-word { font-weight: 700; color: #3a86ff; margin-bottom: 5px; font-family: 'Noto Serif TC', serif; }
-.kw-def { font-size: 13px; color: var(--color-text-secondary); }
+    .toc a:hover {
+      color: #3a86ff;
+    }
 
-.formula {
-  background: #1a1a1a;
-  color: #eee;
-  padding: 1.2rem;
-  border-radius: var(--border-radius-md);
-  margin: 1.5rem 0;
-}
-.formula b { color: #3a86ff; }
+    .toc-num {
+      width: 22px;
+      height: 22px;
+      background: #eee;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #555;
+    }
 
-/* PRINT RULES */
-@media print {
-  body { background: white; padding: 0; }
-  .section-block { page-break-before: always; break-before: page; }
-  .hero { page-break-before: avoid; break-before: avoid; }
-  .toc { page-break-after: always; break-after: page; }
-  .example-box, .compare-grid, .alert, .formula, .keyword-grid { page-break-inside: avoid; break-inside: avoid; }
-  .section-header, h2, h3 { page-break-after: avoid; break-after: avoid; }
-}
+    /* SECTION BLOCK */
+    .section-block {
+      margin-bottom: 3rem;
+    }
 
-@media (max-width: 600px) {
-  .toc ul { grid-template-columns: 1fr; }
-  .compare-grid { grid-template-columns: 1fr; }
-}
-</style>
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-icon {
+      font-size: 24px;
+    }
+
+    .section-header h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.6rem;
+      border-bottom: 2px solid var(--color-border-tertiary);
+      flex-grow: 1;
+      padding-bottom: 5px;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .subsection-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 1rem;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dot.blue {
+      background: #3a86ff;
+    }
+
+    .dot.red {
+      background: #ff4d4d;
+    }
+
+    .dot.green {
+      background: #2ecc71;
+    }
+
+    .dot.purple {
+      background: #9b59b6;
+    }
+
+    /* COMPONENTS */
+    .example-box {
+      background: #f0f7ff;
+      border-left: 4px solid #3a86ff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    }
+
+    .example-box.pink {
+      background: #fff0f5;
+      border-left-color: #ff69b4;
+    }
+
+    .example-box.amber {
+      background: #fffbeb;
+      border-left-color: #f59e0b;
+    }
+
+    .example-box.teal {
+      background: #f0fdfa;
+      border-left-color: #14b8a6;
+    }
+
+    .example-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .example-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--color-text-primary);
+    }
+
+    .alert {
+      display: flex;
+      gap: 12px;
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      margin: 1rem 0;
+    }
+
+    .alert.tip {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+    }
+
+    .alert.warn {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+    }
+
+    .alert.success {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .alert.amber {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+    }
+
+    .alert-icon {
+      font-size: 18px;
+    }
+
+    .alert-content b {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 1rem 0;
+    }
+
+    .compare-card {
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      font-size: 13.5px;
+    }
+
+    .compare-card.bad {
+      background: #fff5f5;
+      border: 1px solid #feb2b2;
+      color: #c53030;
+    }
+
+    .compare-card.good {
+      background: #f0fff4;
+      border: 1px solid #9ae6b4;
+      color: #276749;
+    }
+
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .kw-card {
+      background: var(--color-background-secondary);
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+    }
+
+    .kw-word {
+      font-weight: 700;
+      color: #3a86ff;
+      margin-bottom: 5px;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .kw-def {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+
+    .formula {
+      background: #1a1a1a;
+      color: #eee;
+      padding: 1.2rem;
+      border-radius: var(--border-radius-md);
+      margin: 1.5rem 0;
+    }
+
+    .formula b {
+      color: #3a86ff;
+    }
+
+    /* PRINT RULES */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .example-box,
+      .compare-grid,
+      .alert,
+      .formula,
+      .keyword-grid {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .section-header,
+      h2,
+      h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .toc ul {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="wrap">
-  <div class="hero">
-    <div class="hero-tag">語文教學筆記</div>
-    <h1>常用修辭手法（小五深進篇）</h1>
-    <p>潘SIR中文教室編撰</p>
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-tag">語文教學筆記</div>
+      <h1>常用修辭手法</h1>
+      <p>潘SIR中文教室編撰</p>
+    </div>
+
+    <div class="toc">
+      <div class="toc-title">📋 目錄</div>
+      <ul>
+        <li><a href="#section1"><span class="toc-num">1</span>比喻的深層結構：明喻與暗喻</a></li>
+        <li><a href="#section2"><span class="toc-num">2</span>擬人與擬物的微妙區別</a></li>
+        <li><a href="#section3"><span class="toc-num">3</span>排比的氣勢與結構</a></li>
+        <li><a href="#section4"><span class="toc-num">4</span>誇張、反問與設問</a></li>
+        <li><a href="#section5"><span class="toc-num">5</span>考試分析技巧與實戰練習</a></li>
+      </ul>
+    </div>
+
+    <div id="section1" class="section-block">
+      <div class="section-header">
+        <span class="section-icon">✨</span>
+        <h2>一、比喻的深層結構</h2>
+      </div>
+
+      <div class="card">
+        <div class="subsection-title">
+          <div class="dot blue"></div>1. 比喻的三大核心要素
+        </div>
+        <p>比喻不僅僅是「像」，在小五程度中，我們必須清晰分辨三個部分：</p>
+        <div class="keyword-grid">
+          <div class="kw-card">
+            <div class="kw-word">本體</div>
+            <div class="kw-def">被比喻的事物（主體）</div>
+          </div>
+          <div class="kw-card">
+            <div class="kw-word">喻詞</div>
+            <div class="kw-def">連接詞（如：像、是、成了）</div>
+          </div>
+          <div class="kw-card">
+            <div class="kw-word">喻體</div>
+            <div class="kw-def">用來作比的事物（客體）</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="subsection-title">
+          <div class="dot red"></div>2. 明喻 (Simile) vs 暗喻 (Metaphor)
+        </div>
+        <p>這是升中考試最常混淆的考點：</p>
+        <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
+          <tr style="background:#f8f9fa;">
+            <th style="padding:10px; border:1px solid #ddd; text-align:left;">類別</th>
+            <th style="padding:10px; border:1px solid #ddd; text-align:left;">特徵（喻詞）</th>
+            <th style="padding:10px; border:1px solid #ddd; text-align:left;">例子</th>
+          </tr>
+          <tr>
+            <td style="padding:10px; border:1px solid #ddd;"><b>明喻</b></td>
+            <td style="padding:10px; border:1px solid #ddd;">像、好像、彷彿、宛如</td>
+            <td style="padding:10px; border:1px solid #ddd;">書本<b>好像</b>一盞明燈，照亮前程。</td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border:1px solid #ddd;"><b>暗喻</b></td>
+            <td style="padding:10px; border:1px solid #ddd;">是、成了、變成了</td>
+            <td style="padding:10px; border:1px solid #ddd;">老師<b>是</b>勤勞的園丁，細心呵護花朵。</td>
+          </tr>
+        </table>
+
+        <div class="example-box">
+          <div class="example-label">豐富示例</div>
+          <div class="example-text">
+            1. 雲朵<b>好像</b>柔軟的棉花糖。（明喻）<br>
+            2. 秋風中，落葉<b>彷彿</b>翩翩起舞的蝴蝶。（明喻）<br>
+            3. 挫折<b>是</b>一塊磨刀石，磨練人的意志。（暗喻）<br>
+            4. 友誼<b>成了</b>我們共同前行的動力。（暗喻）
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="section2" class="section-block">
+      <div class="section-header">
+        <span class="section-icon">🎭</span>
+        <h2>二、擬人與擬物的微妙區別</h2>
+      </div>
+
+      <div class="card">
+        <div class="subsection-title">
+          <div class="dot green"></div>1. 擬人手法 (Personification)
+        </div>
+        <p>賦予「物」以人的情感、言語或動作。重點在於動詞。</p>
+        <div class="example-box teal">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            1. 頑皮的星星在夜空中<b>眨眼睛</b>。<br>
+            2. 太陽公公<b>露出了紅通通的笑臉</b>。<br>
+            3. 小溪<b>唱著清脆的歌聲</b>奔向大海。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="subsection-title">
+          <div class="dot purple"></div>2. 擬物手法 (Objectification)
+        </div>
+        <p><b>進階考點：</b> 擬物有兩種情況：<br>
+          (A) 把人當作物來寫；(B) 把甲物當成乙物來寫（非人化）。</p>
+        <div class="example-box pink">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            1. 敵人軍隊<b>夾著尾巴逃跑了</b>。（把人擬作動物）<br>
+            2. 他看見美味的蛋糕，便<b>飛快地撲了過去</b>。（把人擬作猛獸/獵物）
+          </div>
+        </div>
+
+        <div class="alert warn">
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-content">
+            <b>常見陷阱：擬人 vs 擬物</b>
+            不要一看到描寫「物」的句子就說是擬人。必須看「物」是否具備了「人類專屬」的特質。如果只是把物寫得像另一種物，那便是擬物或比喻。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="section3" class="section-block">
+      <div class="section-header">
+        <span class="section-icon">🌊</span>
+        <h2>三、排比的氣勢與結構</h2>
+      </div>
+
+      <div class="card">
+        <p><b>定義：</b> 把三個或以上結構相同、語氣一致、意義相關的短語或句子排列在一起。</p>
+
+        <div class="formula">
+          <b>排比的公式：</b> [相同結構 A] + [相同結構 B] + [相同結構 C] = <b>增強氣勢、情感深厚</b>
+        </div>
+
+        <div class="example-box amber">
+          <div class="example-label">豐富示例</div>
+          <div class="example-text">
+            1. <b>我們擁抱</b>春天，<b>我們熱愛</b>夏天，<b>我們讚美</b>秋天，<b>我們敬畏</b>冬天。<br>
+            2. <b>這兒有</b>鮮艷的花朵，<b>這兒有</b>翠綠的樹木，<b>這兒有</b>清澈的小溪。
+          </div>
+        </div>
+
+        <div class="alert tip">
+          <div class="alert-icon">💡</div>
+          <div class="alert-content">
+            <b>考試技巧：如何辨別排比與對偶？</b>
+            排比必須是「三項或以上」；對偶（對仗）通常是「兩項」，且字數相等、詞性相對。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="section4" class="section-block">
+      <div class="section-header">
+        <span class="section-icon">📢</span>
+        <h2>四、誇張、反問與設問</h2>
+      </div>
+
+      <div class="card">
+        <div class="subsection-title">
+          <div class="dot red"></div>1. 誇張 (Hyperbole)
+        </div>
+        <p>故意言過其實，以突顯事物的本質。分為：擴大誇張、縮小誇張、超前誇張。</p>
+        <div class="keyword-grid">
+          <div class="kw-card">
+            <div class="kw-word">擴大</div>
+            <div class="kw-def">教室裡安靜得連針掉在地上都能聽見。</div>
+          </div>
+          <div class="kw-card">
+            <div class="kw-word">縮小</div>
+            <div class="kw-def">這間小房子只有巴掌那麼大。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="subsection-title">
+          <div class="dot blue"></div>2. 反問 vs 設問 (Rhetorical vs Hypophora)
+        </div>
+        <div class="compare-grid">
+          <div class="compare-card bad">
+            <b>反問：答案在問題中</b><br>
+            難道我們不應該珍惜光陰嗎？<br>
+            （強調「必須珍惜」，不需回答。）
+          </div>
+          <div class="compare-card good">
+            <b>設問：自問自答</b><br>
+            幸福是什麼？幸福就是能幫助他人。<br>
+            （先提出疑問，隨後自己回答。）
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="section5" class="section-block">
+      <div class="section-header">
+        <span class="section-icon">✍️</span>
+        <h2>五、實戰練習</h2>
+      </div>
+
+      <div class="card">
+        <div class="subsection-title">📝 課堂練習</div>
+        <p><b>一、辨析題：請指出下列句子運用了哪種修辭手法。</b></p>
+        <ol style="margin-left: 25px;">
+          <li>他的聲音大得能把屋頂震塌了。( ________ )</li>
+          <li>難道我們能眼睜睜看著環境被破壞而坐視不理嗎？( ________ )</li>
+          <li>風兒在林間奔跑，告訴大家秋天來了。( ________ )</li>
+          <li>這本書是一把鑰匙，為我開啟了知識的大門。( ________ )</li>
+        </ol>
+
+        <p style="margin-top: 1.5rem;"><b>二、改寫題：將下列句子改寫為指定的修辭手法。</b></p>
+        <p>1. 這座山很高。（改寫為「誇張」）<br>
+          答：____________________________________________________</p>
+        <p>2. 下雨了。（改寫為「擬人」）<br>
+          答：____________________________________________________</p>
+
+        <p style="margin-top: 1.5rem;"><b>三、短文分析：閱讀下文，指出文中的修辭手法及其作用。</b></p>
+        <div class="example-box teal">
+          「看啊！那盛開的海棠花，有的紅得像火，有的粉得像霞，有的白得像雪。難道這不是大自然最美妙的畫作嗎？」
+        </div>
+        <p>答：__________________________________________________________________________________________</p>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #2ecc71;">
+        <div class="subsection-title">✅ 參考答案</div>
+        <div style="font-size: 13px;">
+          <b>一、辨析題：</b> 1. 誇張 | 2. 反問 | 3. 擬人 | 4. 暗喻<br>
+          <b>二、改寫題：</b> <br>
+          1. 這座山高聳入雲，幾乎要碰到月亮了。<br>
+          2. 天公伯伯正在傷心地流眼淚。<br>
+          <b>三、短文分析：</b><br>
+          運用了<b>排比</b>（紅得像火、粉得像霞、白得像雪）和<b>反問</b>（難道這不是...嗎？）。<br>
+          作用：排比增強了對花朵色彩多樣性的描寫，讓層次感更豐富；反問則加強了語氣，強烈表達出對大自然的讚美之情。
+        </div>
+      </div>
+    </div>
+
+    <footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
   </div>
-
-  <div class="toc">
-    <div class="toc-title">📋 目錄</div>
-    <ul>
-      <li><a href="#section1"><span class="toc-num">1</span>比喻的深層結構：明喻與暗喻</a></li>
-      <li><a href="#section2"><span class="toc-num">2</span>擬人與擬物的微妙區別</a></li>
-      <li><a href="#section3"><span class="toc-num">3</span>排比的氣勢與結構</a></li>
-      <li><a href="#section4"><span class="toc-num">4</span>誇張、反問與設問</a></li>
-      <li><a href="#section5"><span class="toc-num">5</span>考試分析技巧與實戰練習</a></li>
-    </ul>
-  </div>
-
-  <div id="section1" class="section-block">
-    <div class="section-header">
-      <span class="section-icon">✨</span>
-      <h2>一、比喻的深層結構</h2>
-    </div>
-    
-    <div class="card">
-      <div class="subsection-title"><div class="dot blue"></div>1. 比喻的三大核心要素</div>
-      <p>比喻不僅僅是「像」，在小五程度中，我們必須清晰分辨三個部分：</p>
-      <div class="keyword-grid">
-        <div class="kw-card"><div class="kw-word">本體</div><div class="kw-def">被比喻的事物（主體）</div></div>
-        <div class="kw-card"><div class="kw-word">喻詞</div><div class="kw-def">連接詞（如：像、是、成了）</div></div>
-        <div class="kw-card"><div class="kw-word">喻體</div><div class="kw-def">用來作比的事物（客體）</div></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="subsection-title"><div class="dot red"></div>2. 明喻 (Simile) vs 暗喻 (Metaphor)</div>
-      <p>這是升中考試最常混淆的考點：</p>
-      <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
-        <tr style="background:#f8f9fa;">
-          <th style="padding:10px; border:1px solid #ddd; text-align:left;">類別</th>
-          <th style="padding:10px; border:1px solid #ddd; text-align:left;">特徵（喻詞）</th>
-          <th style="padding:10px; border:1px solid #ddd; text-align:left;">例子</th>
-        </tr>
-        <tr>
-          <td style="padding:10px; border:1px solid #ddd;"><b>明喻</b></td>
-          <td style="padding:10px; border:1px solid #ddd;">像、好像、彷彿、宛如</td>
-          <td style="padding:10px; border:1px solid #ddd;">書本<b>好像</b>一盞明燈，照亮前程。</td>
-        </tr>
-        <tr>
-          <td style="padding:10px; border:1px solid #ddd;"><b>暗喻</b></td>
-          <td style="padding:10px; border:1px solid #ddd;">是、成了、變成了</td>
-          <td style="padding:10px; border:1px solid #ddd;">老師<b>是</b>勤勞的園丁，細心呵護花朵。</td>
-        </tr>
-      </table>
-
-      <div class="example-box">
-        <div class="example-label">豐富示例</div>
-        <div class="example-text">
-          1. 雲朵<b>好像</b>柔軟的棉花糖。（明喻）<br>
-          2. 秋風中，落葉<b>彷彿</b>翩翩起舞的蝴蝶。（明喻）<br>
-          3. 挫折<b>是</b>一塊磨刀石，磨練人的意志。（暗喻）<br>
-          4. 友誼<b>成了</b>我們共同前行的動力。（暗喻）
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="section2" class="section-block">
-    <div class="section-header">
-      <span class="section-icon">🎭</span>
-      <h2>二、擬人與擬物的微妙區別</h2>
-    </div>
-
-    <div class="card">
-      <div class="subsection-title"><div class="dot green"></div>1. 擬人手法 (Personification)</div>
-      <p>賦予「物」以人的情感、言語或動作。重點在於動詞。</p>
-      <div class="example-box teal">
-        <div class="example-label">示例</div>
-        <div class="example-text">
-          1. 頑皮的星星在夜空中<b>眨眼睛</b>。<br>
-          2. 太陽公公<b>露出了紅通通的笑臉</b>。<br>
-          3. 小溪<b>唱著清脆的歌聲</b>奔向大海。
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="subsection-title"><div class="dot purple"></div>2. 擬物手法 (Objectification)</div>
-      <p><b>進階考點：</b> 擬物有兩種情況：<br>
-      (A) 把人當作物來寫；(B) 把甲物當成乙物來寫（非人化）。</p>
-      <div class="example-box pink">
-        <div class="example-label">示例</div>
-        <div class="example-text">
-          1. 敵人軍隊<b>夾著尾巴逃跑了</b>。（把人擬作動物）<br>
-          2. 他看見美味的蛋糕，便<b>飛快地撲了過去</b>。（把人擬作猛獸/獵物）
-        </div>
-      </div>
-
-      <div class="alert warn">
-        <div class="alert-icon">⚠️</div>
-        <div class="alert-content">
-          <b>常見陷阱：擬人 vs 擬物</b>
-          不要一看到描寫「物」的句子就說是擬人。必須看「物」是否具備了「人類專屬」的特質。如果只是把物寫得像另一種物，那便是擬物或比喻。
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="section3" class="section-block">
-    <div class="section-header">
-      <span class="section-icon">🌊</span>
-      <h2>三、排比的氣勢與結構</h2>
-    </div>
-
-    <div class="card">
-      <p><b>定義：</b> 把三個或以上結構相同、語氣一致、意義相關的短語或句子排列在一起。</p>
-      
-      <div class="formula">
-        <b>排比的公式：</b> [相同結構 A] + [相同結構 B] + [相同結構 C] = <b>增強氣勢、情感深厚</b>
-      </div>
-
-      <div class="example-box amber">
-        <div class="example-label">豐富示例</div>
-        <div class="example-text">
-          1. <b>我們擁抱</b>春天，<b>我們熱愛</b>夏天，<b>我們讚美</b>秋天，<b>我們敬畏</b>冬天。<br>
-          2. <b>這兒有</b>鮮艷的花朵，<b>這兒有</b>翠綠的樹木，<b>這兒有</b>清澈的小溪。
-        </div>
-      </div>
-
-      <div class="alert tip">
-        <div class="alert-icon">💡</div>
-        <div class="alert-content">
-          <b>考試技巧：如何辨別排比與對偶？</b>
-          排比必須是「三項或以上」；對偶（對仗）通常是「兩項」，且字數相等、詞性相對。
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="section4" class="section-block">
-    <div class="section-header">
-      <span class="section-icon">📢</span>
-      <h2>四、誇張、反問與設問</h2>
-    </div>
-
-    <div class="card">
-      <div class="subsection-title"><div class="dot red"></div>1. 誇張 (Hyperbole)</div>
-      <p>故意言過其實，以突顯事物的本質。分為：擴大誇張、縮小誇張、超前誇張。</p>
-      <div class="keyword-grid">
-        <div class="kw-card"><div class="kw-word">擴大</div><div class="kw-def">教室裡安靜得連針掉在地上都能聽見。</div></div>
-        <div class="kw-card"><div class="kw-word">縮小</div><div class="kw-def">這間小房子只有巴掌那麼大。</div></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="subsection-title"><div class="dot blue"></div>2. 反問 vs 設問 (Rhetorical vs Hypophora)</div>
-      <div class="compare-grid">
-        <div class="compare-card bad">
-          <b>反問：答案在問題中</b><br>
-          難道我們不應該珍惜光陰嗎？<br>
-          （強調「必須珍惜」，不需回答。）
-        </div>
-        <div class="compare-card good">
-          <b>設問：自問自答</b><br>
-          幸福是什麼？幸福就是能幫助他人。<br>
-          （先提出疑問，隨後自己回答。）
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="section5" class="section-block">
-    <div class="section-header">
-      <span class="section-icon">✍️</span>
-      <h2>五、實戰練習</h2>
-    </div>
-
-    <div class="card">
-      <div class="subsection-title">📝 課堂練習</div>
-      <p><b>一、辨析題：請指出下列句子運用了哪種修辭手法。</b></p>
-      <ol style="margin-left: 25px;">
-        <li>他的聲音大得能把屋頂震塌了。( ________ )</li>
-        <li>難道我們能眼睜睜看著環境被破壞而坐視不理嗎？( ________ )</li>
-        <li>風兒在林間奔跑，告訴大家秋天來了。( ________ )</li>
-        <li>這本書是一把鑰匙，為我開啟了知識的大門。( ________ )</li>
-      </ol>
-
-      <p style="margin-top: 1.5rem;"><b>二、改寫題：將下列句子改寫為指定的修辭手法。</b></p>
-      <p>1. 這座山很高。（改寫為「誇張」）<br>
-      答：____________________________________________________</p>
-      <p>2. 下雨了。（改寫為「擬人」）<br>
-      答：____________________________________________________</p>
-
-      <p style="margin-top: 1.5rem;"><b>三、短文分析：閱讀下文，指出文中的修辭手法及其作用。</b></p>
-      <div class="example-box teal">
-        「看啊！那盛開的海棠花，有的紅得像火，有的粉得像霞，有的白得像雪。難道這不是大自然最美妙的畫作嗎？」
-      </div>
-      <p>答：__________________________________________________________________________________________</p>
-    </div>
-
-    <div class="card" style="border-top: 5px solid #2ecc71;">
-      <div class="subsection-title">✅ 參考答案</div>
-      <div style="font-size: 13px;">
-        <b>一、辨析題：</b> 1. 誇張 | 2. 反問 | 3. 擬人 | 4. 暗喻<br>
-        <b>二、改寫題：</b> <br>
-        1. 這座山高聳入雲，幾乎要碰到月亮了。<br>
-        2. 天公伯伯正在傷心地流眼淚。<br>
-        <b>三、短文分析：</b><br>
-        運用了<b>排比</b>（紅得像火、粉得像霞、白得像雪）和<b>反問</b>（難道這不是...嗎？）。<br>
-        作用：排比增強了對花朵色彩多樣性的描寫，讓層次感更豐富；反問則加強了語氣，強烈表達出對大自然的讚美之情。
-      </div>
-    </div>
-  </div>
-
-  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
-    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
-      <span style="font-weight:500; color:var(--color-text-primary);">©2026  潘SIR中文教室</span><br>
-      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
-    </div>
-  </footer>
-</div>
 
 </body>
+
 </html>
