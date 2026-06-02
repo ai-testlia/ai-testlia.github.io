@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>記敘文寫作筆記（小五）｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0f0ee;
+      --color-text-secondary: #aaa;
+      --color-background-primary: #1c1c1e;
+      --color-background-secondary: #2c2c2e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+  /* HERO */
+  .hero {
+    background: #1a0a2e;
+    color: #fff;
+    border-radius: var(--border-radius-lg);
+    padding: 3rem 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero p { opacity: 0.8; font-size: 14px; }
+
+  /* TOC */
+  .toc {
+    background: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc-title { font-family: 'Noto Serif TC', serif; font-weight: 700; margin-bottom: 1rem; color: var(--color-text-secondary); }
+  .toc ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .toc a { text-decoration: none; color: var(--color-text-primary); font-size: 13.5px; transition: 0.2s; }
+  .toc a:hover { color: #6a3fbf; }
+
+  /* SECTION */
+  .section-block { margin-bottom: 3rem; }
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .section-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    background: #f0ebff; color: #6a3fbf; font-size: 20px;
+  }
+  .section-header h2 { font-family: 'Noto Serif TC', serif; font-size: 1.5rem; }
+
+  /* CARD */
+  .card {
+    background: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--color-border-tertiary);
+    margin-bottom: 1rem;
+  }
+  .subsection-title {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; margin-bottom: 1rem; font-family: 'Noto Serif TC', serif;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.purple { background: #6a3fbf; }
+  .dot.teal { background: #1a9a8a; }
+
+  /* EXAMPLE BOX */
+  .example-box {
+    background: #f8f7ff;
+    border-left: 4px solid #6a3fbf;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-box.teal { background: #e6f7f5; border-left-color: #1a9a8a; }
+  .example-label { font-size: 11px; font-weight: 700; color: #6a3fbf; text-transform: uppercase; margin-bottom: 5px; display: block; }
+  .example-box.teal .example-label { color: #1a7a6a; }
+  .example-text { font-style: italic; color: var(--color-text-secondary); }
+
+  /* ALERT */
+  .alert {
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin: 1rem 0;
+    display: flex; gap: 12px;
+  }
+  .alert.tip { background: #eaf4ff; border: 1px solid #3a90e0; color: #0d3d73; }
+  .alert.warn { background: #fff0f0; border: 1px solid #e05555; color: #791f1f; }
+  .alert.success { background: #eafaf2; border: 1px solid #27ae60; color: #1e5c3a; }
+  .alert-icon { font-size: 18px; }
+
+  /* COMPARE GRID */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+  .compare-card { padding: 1rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .compare-card.bad { background: #fff5f5; border-left: 4px solid #fc8181; }
+  .compare-card.good { background: #f0fff4; border-left: 4px solid #68d391; }
+  .compare-tag { font-size: 11px; font-weight: 700; margin-bottom: 5px; display: block; }
+
+  /* FLOW */
+  .flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 1.5rem 0; }
+  .flow-step { background: #6a3fbf; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 13px; }
+  .flow-arrow { color: var(--color-text-secondary); font-weight: 700; }
+
+  /* KEYWORD GRID */
+  .keyword-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .kw-card { background: var(--color-background-secondary); padding: 1rem; border-radius: var(--border-radius-md); text-align: center; }
+  .kw-word { font-family: 'Noto Serif TC', serif; font-weight: 700; color: #6a3fbf; font-size: 16px; display: block; margin-bottom: 5px; }
+  .kw-def { font-size: 12px; color: var(--color-text-secondary); }
+
+  /* FORMULA */
+  .formula { background: #1a1a1a; color: #f5a623; padding: 1.2rem; border-radius: var(--border-radius-md); font-family: 'Noto Serif TC', serif; text-align: center; font-size: 16px; margin: 1.5rem 0; }
+
+  @media print {
+    .section-block { page-break-before: always; break-before: page; }
+    .hero { page-break-before: avoid; break-before: avoid; }
+    .toc { page-break-after: always; break-after: page; }
+    .example-box, .compare-grid, .alert, .formula, .keyword-grid, .flow, .card { page-break-inside: avoid; break-inside: avoid; }
+    .section-header, h2, h3 { page-break-after: avoid; break-after: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .hero { padding: 2rem 1.5rem; }
+    .hero h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>記敘文寫作基礎與技巧</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 章節目錄</div>
+    <ul>
+      <li><a href="#intro">1. 什麼是記敘文？</a></li>
+      <li><a href="#elements">2. 記敘六要素</a></li>
+      <li><a href="#structure">3. 記敘的順序</a></li>
+      <li><a href="#perspective">4. 寫作人稱的選擇</a></li>
+      <li><a href="#skills">5. 五感描寫與情感表達</a></li>
+      <li><a href="#mistakes">6. 常見錯誤與對比</a></li>
+      <li><a href="#practice">7. 隨堂練習</a></li>
+    </ul>
+  </div>
+
+  <div class="section-block" id="intro">
+    <div class="section-header">
+      <div class="section-icon">💡</div>
+      <h2>一、什麼是記敘文？</h2>
+    </div>
+    <div class="card">
+      <p>記敘文是我們在小學階段最常寫的文體。簡單來說，記敘文就是<strong>「說故事」</strong>。它透過描寫人物、事件、環境，來向讀者傳遞某種情感、道理或生活體驗。</p>
+      <div class="example-box">
+        <span class="example-label">核心定義</span>
+        <div class="example-text">「記」是記錄；「敘」是敘述。一份好的記敘文，就像一台攝影機，要把讀者帶進你經歷的世界裡。</div>
+      </div>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">重點回顧</div>
+          <p>小五程度的記敘文，除了要把事情說清楚，更重要的是學會<strong>「借事抒情」</strong>，即是透過這件事，你有什麼感受或反思。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="elements">
+    <div class="section-header">
+      <div class="section-icon">📌</div>
+      <h2>二、記敘六要素</h2>
+    </div>
+    <div class="card">
+      <p>寫故事不能漏掉關鍵資訊，我們用「六要素」來檢查文章是否完整：</p>
+      <div class="keyword-grid">
+        <div class="kw-card"><span class="kw-word">時間</span><span class="kw-def">故事發生在哪個時刻？</span></div>
+        <div class="kw-card"><span class="kw-word">地點</span><span class="kw-def">在哪裡發生的？</span></div>
+        <div class="kw-card"><span class="kw-word">人物</span><span class="kw-def">故事裡有誰？</span></div>
+        <div class="kw-card"><span class="kw-word">起因</span><span class="kw-def">事情為什麼會發生？</span></div>
+        <div class="kw-card"><span class="kw-word">經過</span><span class="kw-def">事情的發展與高潮。</span></div>
+        <div class="kw-card"><span class="kw-word">結果</span><span class="kw-def">事情最後變成了怎樣？</span></div>
+      </div>
+      <div class="alert tip">
+        <div class="alert-icon">💡</div>
+        <div>
+          <div class="alert-label">潘SIR小貼士</div>
+          <p>「經過」必須佔文章最多的篇幅，起因和結果則要簡潔明瞭，避免頭重腳輕。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="structure">
+    <div class="section-header">
+      <div class="section-icon">🔄</div>
+      <h2>三、記敘的順序</h2>
+    </div>
+    <div class="card">
+      <div class="subsection-title"><div class="dot purple"></div>1. 順敘法（最常用）</div>
+      <p>按照事情發生的先後次序來寫，就像播電影一樣。</p>
+      <div class="flow">
+        <div class="flow-step">起因</div><div class="flow-arrow">→</div>
+        <div class="flow-step">經過</div><div class="flow-arrow">→</div>
+        <div class="flow-step">結果</div>
+      </div>
+
+      <div class="subsection-title"><div class="dot teal"></div>2. 倒敘法（加分項）</div>
+      <p>先寫出事情的<strong>結局</strong>或最精彩的<strong>片段</strong>，引起讀者好奇，再回過頭來敘述。小五生若能運用倒敘法，評分會更高！</p>
+      <div class="formula">
+        結局／現況 ➔ 回憶（起因、經過、結果）➔ 總結感想
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="perspective">
+    <div class="section-header">
+      <div class="section-icon">👁️</div>
+      <h2>四、寫作人稱的選擇</h2>
+    </div>
+    <div class="card">
+      <div class="compare-grid">
+        <div class="compare-card good">
+          <span class="compare-tag">第一人稱（我）</span>
+          <p>親切、真實、易於表達內心感受。<strong>適合：</strong>個人經歷、抒情文。</p>
+        </div>
+        <div class="compare-card good" style="background:#eef2ff; border-left-color:#4c51bf;">
+          <span class="compare-tag">第三人稱（他／她）</span>
+          <p>客觀、全面，像旁觀者一樣觀察所有人。<strong>適合：</strong>寫別人、虛構小說。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="skills">
+    <div class="section-header">
+      <div class="section-icon">✍️</div>
+      <h2>五、升級技巧：五感描寫</h2>
+    </div>
+    <div class="card">
+      <p>不要只寫「很美」、「很吵」，要用<strong>感官</strong>去讓讀者「看到」：</p>
+      <div class="keyword-grid">
+        <div class="kw-card"><span class="kw-word">視覺</span><span class="kw-def">顏色、大小、形狀</span></div>
+        <div class="kw-card"><span class="kw-word">聽覺</span><span class="kw-def">腳步聲、喧鬧聲、風聲</span></div>
+        <div class="kw-card"><span class="kw-word">嗅覺</span><span class="kw-def">花香、飯菜味、泥土味</span></div>
+        <div class="kw-card"><span class="kw-word">觸覺</span><span class="kw-def">冰冷、粗糙、柔軟</span></div>
+      </div>
+      <div class="example-box teal">
+        <span class="example-label">範例對比</span>
+        <div class="example-text">
+          普通：公園的花很香。<br>
+          進階：微風吹過，鼻尖傳來一陣淡淡的桂花清香，讓人心曠神怡。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="mistakes">
+    <div class="section-header">
+      <div class="section-icon">⚠️</div>
+      <h2>六、常見錯誤：流水帳</h2>
+    </div>
+    <div class="card">
+      <p>很多同學寫記敘文會變成「早起、刷牙、吃早餐、出門……」，這就是流水帳。我們應該<strong>「詳寫」</strong>重要情節。 </p>
+      <div class="compare-grid">
+        <div class="compare-card bad">
+          <span class="compare-tag">❌ 流水帳（平淡無味）</span>
+          今天我參加了跑步比賽，哨聲響起我就跑，最後我跑了第一名，我很開心。
+        </div>
+        <div class="compare-card good">
+          <span class="compare-tag">✅ 精彩描寫（有張力）</span>
+          「砰！」發令槍聲剛落，我就像離弦的箭般衝出去。風在耳邊呼嘯，我的雙腿彷彿充滿了力量……當我衝過終點線那一刻，汗水與淚水交織，那份激動難以言喻。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="practice">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <h2>七、隨堂練習</h2>
+    </div>
+    <div class="card">
+      <p><strong>練習一：判斷六要素</strong></p>
+      <p>「昨天下午（A），我在學校禮堂（B）參加了演講比賽。雖然我很緊張，但經過半個月的練習，我表現穩定，最終獲得了亞軍（C）。」</p>
+      <ul style="padding-left: 20px; margin-top: 10px;">
+        <li>A 代表：__________</li>
+        <li>B 代表：__________</li>
+        <li>C 代表：__________</li>
+      </ul>
+
+      <p style="margin-top: 20px;"><strong>練習二：擴寫句子（運用五感）</strong></p>
+      <p>將句子「操場上有很多人。」擴寫成包含視覺或聽覺的描寫（約 30 字）。</p>
+      <div style="border: 1px dashed #ccc; height: 60px; margin-top: 10px; border-radius: 5px;"></div>
+
+      <div class="alert amber" style="margin-top: 30px;">
+        <div class="alert-icon">📌</div>
+        <div>
+          <div class="alert-label">練習參考答案</div>
+          <p>
+            1. (A)時間；(B)地點；(C)結果。<br>
+            2. 範例：陽光灑在操場上，一群穿著體育服的同學正興奮地踢球，到處充斥著歡笑聲和打氣聲。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- 返回目錄連結 -->
+  <div style="margin-top: 2rem; text-align: center;">
+    <a href="index.html" style="display: inline-block; padding: 0.8rem 1.6rem; background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); color: var(--color-text-primary); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s ease;" onmouseover="this.style.borderColor='#6b705c'; this.style.color='#6b705c'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--color-border-tertiary)'; this.style.color='var(--color-text-primary)'; this.style.transform='none'">
+      ↩️ 返回筆記目錄
+    </a>
+  </div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

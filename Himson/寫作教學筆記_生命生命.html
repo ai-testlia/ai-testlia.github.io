@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寫作教學筆記：《生命生命》｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #9a9488;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #2c2c2e;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+  }
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  padding: 2rem 1rem;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.wrap { max-width: 820px; margin: 0 auto; padding-bottom: 3rem; }
+
+/* HERO */
+.hero {
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: inherit;
+  line-height: 1.4;
+}
+.hero p { font-size: 13px; }
+
+/* 寫作性質：霧玫瑰色系 */
+.hero.writing { background: #E8D5C8; color: #2E1A12; }
+.hero.writing .hero-tag {
+  border: 1px solid rgba(46,26,18,0.3);
+  color: rgba(46,26,18,0.65);
+}
+.hero.writing p { color: rgba(46,26,18,0.5); }
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.toc-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.6rem;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px;
+}
+.toc-item {
+  display: flex; align-items: center; gap: 8px;
+}
+.toc-num {
+  width: 20px; height: 20px;
+  background: #2E1A12; color: #E8D5C8;
+  border-radius: 50%; font-size: 11px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.toc-label { font-size: 13px; color: var(--color-text-primary); }
+
+/* SECTION */
+.section { margin-bottom: 2.5rem; }
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  margin: 2rem 0 1rem; padding-bottom: 0.5rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.section-icon {
+  width: 34px; height: 34px; border-radius: var(--border-radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.icon-rose { background: #F5EAE1; }
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--color-text-primary);
+}
+.section-num { font-size: 11px; color: var(--color-text-secondary); margin-left: auto; letter-spacing: 1px; }
+
+/* SUBSECTION */
+.subsection {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1rem;
+}
+.subsection-title {
+  font-size: 14px; font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.6rem;
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'Noto Serif TC', serif;
+}
+.sub-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.dot-rose { background: #8A6F5D; }
+
+.subsection p, .subsection li {
+  font-size: 13.5px; color: var(--color-text-primary); line-height: 1.85;
+}
+.subsection ul, .subsection ol { padding-left: 1.3rem; margin-top: 0.3rem; }
+.subsection li { margin-bottom: 0.4rem; }
+.subsection p + p { margin-top: 0.6rem; }
+
+/* BOXES */
+.example-box {
+  background: var(--color-background-secondary);
+  border-left: 3px solid #8A6F5D;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 0.8rem 1.1rem; margin-top: 0.7rem;
+}
+.example-box.blue { border-left-color: #4A6FA5; }
+.example-box.green { border-left-color: #4E8752; }
+
+.example-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.2rem; color: #5C4637;
+}
+.example-box.blue .example-label { color: #2F4858; }
+.example-box.green .example-label { color: #2D5A27; }
+.example-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px; color: var(--color-text-primary); line-height: 1.8;
+}
+
+/* ALERT */
+.alert {
+  border-radius: var(--border-radius-md);
+  padding: 0.8rem 1.1rem; margin-top: 0.8rem;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.alert-icon { font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+.alert-content { flex: 1; }
+.alert-label { font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+.alert-text  { font-size: 13px; line-height: 1.7; }
+
+.alert.warn { background: #FAF0EC; border: 0.5px solid #F3C6B6; }
+.alert.warn .alert-label { color: #A94424; }
+.alert.warn .alert-text  { color: #6E2914; }
+
+.alert.tip { background: #EBF3F5; border: 0.5px solid #BCD3D6; }
+.alert.tip .alert-label { color: #2B5861; }
+.alert.tip .alert-text  { color: #16353B; }
+
+.alert.success { background: #EDF5EE; border: 0.5px solid #C4E0C7; }
+.alert.success .alert-label { color: #2D5F33; }
+.alert.success .alert-text  { color: #183B1C; }
+
+/* COMPARE GRID */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 0.8rem; }
+.compare-card { border-radius: var(--border-radius-md); padding: 0.9rem 1.1rem; }
+.compare-card.bad { background: #FDF3F2; border: 0.5px solid #F5C6C2; }
+.compare-card.good { background: #F2F7F3; border: 0.5px solid #C6E2CD; }
+.compare-label { font-size: 11px; font-weight: 700; margin-bottom: 0.4rem; }
+.compare-card.bad .compare-label { color: #C0392B; }
+.compare-card.good .compare-label { color: #27AE60; }
+.compare-text { font-size: 13px; line-height: 1.75; }
+
+/* KEYWORD GRID */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px; margin-top: 0.8rem;
+}
+.keyword-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.8rem 1rem;
+}
+.kw-word { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: #8A6F5D; margin-bottom: 0.3rem; }
+.kw-def { font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.6; }
+
+/* FORMULA */
+.formula {
+  background: #2E1A12;
+  color: #F5EAE1;
+  border-radius: var(--border-radius-md);
+  padding: 1rem 1.3rem; margin-top: 0.8rem;
+}
+.formula-label { font-size: 11px; color: #E8D5C8; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+.formula-text  { font-family: 'Noto Serif TC', serif; font-size: 13.5px; line-height: 1.8; }
+
+/* FLOW */
+.flow { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin: 0.8rem 0; }
+.flow-step {
+  background: #F5EAE1; color: #4A3325;
+  font-size: 12px; font-weight: 500;
+  padding: 5px 12px; border-radius: var(--border-radius-md);
+}
+.flow-arrow { font-size: 13px; color: var(--color-text-secondary); font-weight: bold; }
+
+/* PRINT/PDF OPTIMIZATION */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; color: #000; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .subsection, .example-box, .alert, .formula, .compare-card, .keyword-card { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero writing">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>記敘抒情文專題寫作：<br>《生命生命》——從微小中看見堅韌</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📌 筆記核心導航</div>
+    <div class="toc-grid">
+      <div class="toc-item"><span class="toc-num">1</span><span class="toc-label">題目全面拆解與情感核心</span></div>
+      <div class="toc-item"><span class="toc-num">2</span><span class="toc-label">寫作構思指引（起、承、轉、合）</span></div>
+      <div class="toc-item"><span class="toc-num">3</span><span class="toc-label">詳細寫作步驟與避雷技巧</span></div>
+      <div class="toc-item"><span class="toc-num">4</span><span class="toc-label">高分詞彙、成語與修辭提升</span></div>
+      <div class="toc-item"><span class="toc-num">5</span><span class="toc-label">常犯錯誤與佳作改寫對比</span></div>
+      <div class="toc-item"><span class="toc-num">6</span><span class="toc-label">考場不敗範文大綱公式</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-rose">🔍</div>
+      <div class="section-title">一、題目全面拆解與情感核心</div>
+      <div class="section-num">CHAPTER 01</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot dot-rose"></div>關鍵詞精準解讀</div>
+      <p>《生命生命》是一道要求從具體事物昇華到抽象道理的經典題目。我們以<strong>「水晶蝦」</strong>為題材，進行審題拆解：</p>
+      <ul>
+        <li><strong>「生命」（重複兩次）：</strong> 第一個「生命」指具體的生物實體（你觀察到的動植物）；第二個「生命」則指抽象的生命意義（你獲得的感悟與啟示）。疊詞強調了對生命的驚嘆。</li>
+        <li><strong>「接觸的經歷」：</strong> 必須描寫互動或近距離觀察的過程。例如：飼養水晶蝦需要極大的耐性去控溫、換水，這份「細心照顧」本身就是最好的接觸經歷。</li>
+        <li><strong>「感悟或啟示」：</strong> 文章的靈魂，必須回答「這個生命教會了我什麼？」水晶蝦雖然微小且容易逝去，但牠們在水中忙碌生存、努力脫殼的樣子，能引發我們對生命<strong>「脆弱與強大」</strong>的思考。</li>
+      </ul>
+
+      <div class="alert warn">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-content">
+          <div class="alert-label">寫作重點：鎖定情感核心</div>
+          <div class="alert-text">
+            <strong>1. 脆弱與珍貴：</strong> 水晶蝦（體長僅約2厘米）對水質極敏感，一點波動就可能失去生命。這讓我們明白生命需要被溫柔對待。<br>
+            <strong>2. 成長的磨練：</strong> 觀察水晶蝦「脫殼」的過程，象徵著生命為了成長，必須經歷痛苦、冒險，甚至是生命的威脅。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-rose">📐</div>
+      <div class="section-title">二、寫作構思指引（起承轉合）</div>
+      <div class="section-num">CHAPTER 02</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot dot-rose"></div>情節演變黃金框架</div>
+      <p>寫作這類詠物抒情的文章，最怕寫成流水帳。潘SIR建議利用「觀察 → 轉折 → 反思」的邏輯來推進：</p>
+      
+      <div class="flow">
+        <div class="flow-step">【起】視覺切入，營造氛圍</div><div class="flow-arrow">→</div>
+        <div class="flow-step">【承】觀察動態，細節特寫</div><div class="flow-arrow">→</div>
+        <div class="flow-step">【轉】意外發現，心理起伏</div><div class="flow-arrow">→</div>
+        <div class="flow-step">【合】聯想人生，昇華主題</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">💡 題材設計示範（水晶蝦篇）</div>
+        <div class="example-text">
+          <strong>觀察（承）：</strong> 描寫牠晶瑩剔透的身軀，以及不停撥動的小足，展現生機勃勃的忙碌模樣。<br>
+          <strong>轉折（轉）：</strong> 突然發現水缸底有一層透明的「蝦殼」，起初以為蝦死了，內心充滿驚嚇與納悶；後來才發現那是牠成長的證明，化驚嚇為驚喜。<br>
+          <strong>反思（合）：</strong> 這麼微小的生物都要冒著危險努力脫殼成長，我們遇到困難又怎能輕言放棄？
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-rose">✨</div>
+      <div class="section-title">三、詳細寫作步驟與避雷技巧</div>
+      <div class="section-num">CHAPTER 03</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot dot-rose"></div>三步走寫作法</div>
+      
+      <div class="example-box blue">
+        <div class="example-label">1. 開頭：吸引讀者，營造氛圍</div>
+        <div class="example-text">
+          <strong>技巧：</strong>從視覺色彩入手，不寫廢話，直接帶讀者進入你的觀察世界。<br>
+          <strong>示例：</strong>「在我的書桌旁，有一個小小的水世界。幾隻紅白相間的小精靈正悠然自得地穿梭在綠茸茸的水草間，牠們就是我最珍愛的——水晶蝦。」
+        </div>
+      </div>
+
+      <div class="example-box green">
+        <div class="example-label">2. 中段：細節描寫（多感官與修辭）</div>
+        <div class="example-text">
+          <strong>外貌（視覺）：</strong>紅色的斑紋像火，白色的部分像雪。<br>
+          <strong>動態與心理：</strong>運用擬人法，並寫出發現蝦殼時的心理轉折。<br>
+          <strong>示例：</strong>「我仔細觀察，牠那幾對細長如絲的觸鬚不停地探索著前方，數不清的小足像是在鋼琴鍵上飛舞。那天，我發現缸底躺著一個透明的身影。我愣住了，心裡一陣納悶：『難道牠死了嗎？』直到看見一隻顏色更鮮艷的水晶蝦躲在石縫中，我才恍然大悟：原來，那是一場勇敢的脫殼表演。」
+        </div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">3. 結尾：昇華主題</div>
+        <div class="example-text">
+          <strong>技巧：</strong>將小蝦的行為聯想到人的生活與精神。<br>
+          <strong>示例：</strong>「水晶蝦雖然渺小，但為了成長，牠不惜冒著生命危險褪去舊殼。這小小的生命教會了我：成長需要勇氣，這份感悟將令我終身受用。」
+        </div>
+      </div>
+
+      <div class="alert tip">
+        <div class="alert-icon">💡</div>
+        <div class="alert-content">
+          <div class="alert-label">潘SIR避雷指南：如何避免流水帳？</div>
+          <div class="alert-text">
+            <strong>不要只寫「動作」：</strong>「我每天給牠餵食、換水」是枯燥的。要把焦點放在水晶蝦最特別的地方，例如牠的「忙碌」或「脫殼」，並加入你當下的感受。<br>
+            <strong>以小見大：</strong>從水晶蝦對水質的要求，聯想到環境保護；或從脫殼的困難，聯想到學習上的挫折。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-rose">📚</div>
+      <div class="section-title">四、高分詞彙、成語與修辭提升</div>
+      <div class="section-num">CHAPTER 04</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot dot-rose"></div>核心詞語與應用</div>
+      <div class="keyword-grid">
+        <div class="keyword-card">
+          <div class="kw-word">晶瑩剔透</div>
+          <div class="kw-def">形容水晶蝦的身體光亮透明，宛如藝術品。</div>
+        </div>
+        <div class="keyword-card">
+          <div class="kw-word">納悶</div>
+          <div class="kw-def">心中充滿疑惑，用來描寫看到空蝦殼時的真實反應。</div>
+        </div>
+        <div class="keyword-card">
+          <div class="kw-word">脫胎換骨</div>
+          <div class="kw-def">原指修道成仙，此處生動比喻水晶蝦脫殼後的成長與蛻變。</div>
+        </div>
+        <div class="keyword-card">
+          <div class="kw-word">震懾</div>
+          <div class="kw-def">內心感到極大的震動與敬畏，形容被小蝦強大的生命力所打動。</div>
+        </div>
+        <div class="keyword-card">
+          <div class="kw-word">凜冽</div>
+          <div class="kw-def">形容極度寒冷。可比喻成長過程中遇到的殘酷挑戰與逆境。</div>
+        </div>
+        <div class="keyword-card">
+          <div class="kw-word">終身受用</div>
+          <div class="kw-def">得到的啟示或學問，一輩子都能得到好處。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot dot-rose"></div>考場吸睛佳句（建議背誦）</div>
+      <div class="example-box green">
+        <div class="example-label">🌟 修辭佳句仿寫</div>
+        <div class="example-text">
+          1. <strong>（比喻）</strong>牠那紅白相間的身軀，在陽光折射下，宛如一顆在水中游動的紅寶石。<br>
+          2. <strong>（對比）</strong>生命之美，不在於體型的大小，而在於面對成長挑戰時的那份堅持與強大。<br>
+          3. <strong>（擬人）</strong>牠們在綠茸茸的莫絲草上靈活跳躍，像是一位位巡視領地的小武士，即使面對凜冽的考驗也毫不退縮。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-rose">❌</div>
+      <div class="section-title">五、常犯錯誤與佳作改寫對比</div>
+      <div class="section-num">CHAPTER 05</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot dot-rose"></div>診斷與升格演練</div>
+      <p>寫動物時最容易犯的毛病是「百科全書式的平鋪直敘」。請對比以下寫法：</p>
+
+      <div class="compare-grid">
+        <div class="compare-card bad">
+          <div class="compare-label">❌ 缺點：平鋪直敘，枯燥無味</div>
+          <div class="compare-text">
+            我家養了水晶蝦，牠很漂亮，紅紅白白的，只有兩厘米長。牠每天一直在水裡游泳，吃東西，我覺得牠很有趣。
+          </div>
+        </div>
+        <div class="compare-card good">
+          <div class="compare-label">✅ 優點：生動描寫，帶有情感</div>
+          <div class="compare-text">
+            水晶蝦身披紅白相間的戰袍，在水中優雅地穿梭。仔細一看，牠那細長如絲的觸鬚小心翼翼地探索著前方，幾對小足像在鋼琴鍵上飛舞，不停地搜尋著食物，顯得既忙碌又生機勃勃。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-rose">✏️</div>
+      <div class="section-title">六、考場不敗範文大綱公式</div>
+      <div class="section-num">CHAPTER 06</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot dot-rose"></div>結構框架解構</div>
+      
+      <div class="formula">
+        <div class="formula-label">📋 潘SIR寫作大綱公式</div>
+        <div class="formula-text">
+          <strong>第一段（起）：【介紹對象】</strong> 介紹家中的水族缸，引出主角「水晶蝦」，交代牠是一個微小但奇妙的生命。<br><br>
+          <strong>第二段（承）：【外貌與動態】</strong> 運用多感官描寫水晶蝦的外貌（紅白顏色、晶瑩剔透），並細膩刻畫牠用小足忙碌覓食的樣子。<br><br>
+          <strong>第三段（轉）：【意外與轉折】</strong> 描寫一次意外發現：看見缸底透明的蝦殼，內心感到納悶與焦慮，以為生命逝去。隨後發現躲在石縫中顏色更鮮艷的蝦，明白那是「脫殼」，深刻感受到生命的脆弱與堅韌，內心備受震懾。<br><br>
+          <strong>第四段（合）：【感悟與昇華】</strong> 總結道理。水晶蝦雖然渺小，但牠對生存的執著讓人肅然起敬。明白生命雖然脆弱，但只要有勇氣接受磨練，也能迎來脫胎換骨的光彩。
+        </div>
+      </div>
+
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div class="alert-content">
+          <div class="alert-label">導師的話</div>
+          <div class="alert-text">
+            在工作紙的「感悟到的道理」一欄，同學們可以寫下這句金句：<strong>「生命的強大不在於體積的龐大，而是在於克服困難、努力成長的勇氣。」</strong> 這樣寫會非常有深度，絕對能讓閱卷老師眼前一亮！加油！
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- 返回目錄連結 -->
+  <div style="margin-top: 2rem; text-align: center;">
+    <a href="index.html" style="display: inline-block; padding: 0.8rem 1.6rem; background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); color: var(--color-text-primary); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s ease;" onmouseover="this.style.borderColor='#6b705c'; this.style.color='#6b705c'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--color-border-tertiary)'; this.style.color='var(--color-text-primary)'; this.style.transform='none'">
+      ↩️ 返回筆記目錄
+    </a>
+  </div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

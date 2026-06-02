@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>比喻手法教學筆記（小四）｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --hero-bg: #1a0a2e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0f0ee;
+      --color-text-secondary: #aaa;
+      --color-background-primary: #1c1c1e;
+      --color-background-secondary: #2c2c2e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 2rem 1.2rem 3rem; }
+
+  /* HERO */
+  .hero {
+    background: var(--hero-bg);
+    color: #fff;
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .hero p { font-size: 13px; opacity: 0.8; }
+
+  /* TOC */
+  .toc {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.6rem;
+  }
+  .toc-item {
+    display: block;
+    font-size: 13.5px;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+  }
+  .toc-item:last-child { border-bottom: none; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex; align-items: center; gap: 0.8rem;
+    margin: 2.5rem 0 1.2rem;
+  }
+  .section-icon {
+    width: 36px; height: 36px;
+    background: var(--color-background-primary);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; border: 1px solid var(--color-border-tertiary);
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem; font-weight: 700;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .subsection-title {
+    display: flex; align-items: center;
+    font-weight: 700; font-size: 15px;
+    margin-bottom: 0.8rem;
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+  .dot.purple { background: #6a3fbf; }
+  .dot.teal { background: #1a9a8a; }
+
+  /* EXAMPLE BOX */
+  .example-box {
+    background: #f8f6ff;
+    border-left: 4px solid #6a3fbf;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    padding: 1rem; margin: 1rem 0;
+  }
+  .example-box.teal { background: #e6f7f5; border-left-color: #1a7a6a; }
+  .example-label {
+    font-size: 11px; font-weight: 700; color: var(--color-text-secondary);
+    text-transform: uppercase; margin-bottom: 4px; display: block;
+  }
+  .example-text { font-size: 14px; }
+
+  /* ALERT */
+  .alert {
+    display: flex; gap: 0.8rem;
+    border-radius: var(--border-radius-md);
+    padding: 1rem; margin: 1rem 0;
+    font-size: 13.5px;
+  }
+  .alert.tip { background: #eaf4ff; border-left: 4px solid #3a90e0; }
+  .alert.warn { background: #fff0f0; border-left: 4px solid #e05555; }
+  .alert.success { background: #eafaf2; border-left: 4px solid #27ae60; }
+  .alert-icon { font-size: 16px; }
+
+  /* COMPARE GRID */
+  .compare-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;
+  }
+  .compare-card {
+    padding: 1rem; border-radius: var(--border-radius-md); font-size: 13px;
+  }
+  .compare-card.bad { background: #fff0f0; border: 1px solid #f9d7d7; }
+  .compare-card.good { background: #eafaf2; border: 1px solid #d1eada; }
+  .compare-tag { font-weight: 700; margin-bottom: 5px; display: block; }
+  .compare-card.bad .compare-tag { color: #c0392b; }
+  .compare-card.good .compare-tag { color: #27ae60; }
+
+  /* FORMULA */
+  .formula {
+    background: #1a1a1a; color: #f0f0ee;
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.4rem;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px; text-align: center; margin: 1rem 0;
+  }
+  .formula span { color: #f5a623; font-weight: 700; }
+
+  /* EXERCISE */
+  .ex-item { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border-tertiary); }
+  .ex-q { font-weight: 600; margin-bottom: 8px; }
+  .ex-ans {
+    margin-top: 10px; padding: 0.8rem; background: #f9f9f9; border-radius: 6px;
+    font-size: 13px; color: #444; display: none;
+  }
+  .show-ans:checked ~ .ex-ans { display: block; }
+  .ans-btn {
+    font-size: 12px; color: #6a3fbf; cursor: pointer; text-decoration: underline;
+  }
+
+  footer { margin-top: 2rem; padding: 1.2rem 1.5rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); text-align: center; }
+
+  @media (max-width: 600px) {
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>神奇的魔法棒：比喻手法</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 目錄</div>
+    <a href="#sec1" class="toc-item">一、什麼是比喻？（魔法的定義）</a>
+    <a href="#sec2" class="toc-item">二、比喻的三零件：本體、喻詞、喻體</a>
+    <a href="#sec3" class="toc-item">三、明喻與暗喻</a>
+    <a href="#sec4" class="toc-item">四、常見錯誤與避雷指南</a>
+    <a href="#sec5" class="toc-item">五、課堂挑戰</a>
+  </div>
+
+  <div id="sec1" class="section-header">
+    <div class="section-icon">✨</div>
+    <h2>一、什麼是比喻？</h2>
+  </div>
+  <div class="card">
+    <div class="subsection-title"><div class="dot purple"></div>讓文字「活」起來</div>
+    <p>比喻就是「打比方」，把一個事物比作另一個與它有相似點的事物。它能將冷冰冰的物件變得有「溫度」。</p>
+    <div class="example-box teal">
+      <span class="example-label">精選示例</span>
+      <p class="example-text">那種光芒像是在空氣中滴入了水彩，將街道輪廓柔化。</p>
+    </div>
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>好的比喻能賦予文字「靈魂」，讓讀者透過呼吸感受文字的脈搏。</div>
+    </div>
+  </div>
+
+  <div id="sec2" class="section-header">
+    <div class="section-icon">🧩</div>
+    <h2>二、比喻的三零件</h2>
+  </div>
+  <div class="card">
+    <div class="formula">
+      <span>本體</span>（主角） + <span>喻詞</span>（橋樑） + <span>喻體</span>（配角）
+    </div>
+    <div class="example-box">
+      <p class="example-text">紅紅的太陽（本體）<span>好像</span>（喻詞）一個大火球（喻體）。</p>
+    </div>
+  </div>
+
+  <div id="sec3" class="section-header">
+    <div class="section-icon">⚖️</div>
+    <h2>三、明喻與暗喻</h2>
+  </div>
+  <div class="card">
+    <div class="subsection-title"><div class="dot teal"></div>1. 明喻：開門見山</div>
+    <p>常用詞：像、好像、彷彿、如、若。</p>
+    <div class="example-box">
+      <p class="example-text">霓虹招牌<span>像</span>葫蘆形狀的光影圖騰。</p>
+    </div>
+    <div class="subsection-title" style="margin-top:1.5rem;"><div class="dot purple"></div>2. 暗喻：合二為一</div>
+    <p>常用詞：是、成了、變成了。</p>
+    <div class="example-box teal">
+      <p class="example-text">老師<span>是</span>引領我們前進的指路燈。</p>
+    </div>
+  </div>
+
+  <div id="sec4" class="section-header">
+    <div class="section-icon">⚠️</div>
+    <h2>四、避雷指南</h2>
+  </div>
+  <div class="card">
+    <div class="alert warn">
+      <div class="alert-icon">⚠</div>
+      <div><strong>注意：</strong> 同類事物（人比人）的比較不是比喻！</div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <span class="compare-tag">❌ 只是「比較」</span>
+        小明長得<span>像</span>哥哥。<br>
+        <small>（兩者都是人，沒有跨界想像力。）</small>
+      </div>
+      <div class="compare-card good">
+        <span class="compare-tag">✅ 才是「比喻」</span>
+        小明的笑臉<span>像</span>陽光般燦爛。<br>
+        <small>（臉比作陽光，跨界聯想成功！）</small>
+      </div>
+    </div>
+  </div>
+
+  <div id="sec5" class="section-header">
+    <div class="section-icon">✏️</div>
+    <h2>五、課堂挑戰</h2>
+  </div>
+  <div class="card">
+    <div class="ex-item">
+      <div class="ex-q">1. 請判斷手法： 「這場繁華的幻夢正在醒來。」</div>
+      <label class="ans-btn" for="ans1">點擊顯示答案</label>
+      <input type="checkbox" id="ans1" class="show-ans" style="display:none;">
+      <div class="ex-ans">答案：暗喻（將繁華比作幻夢）。</div>
+    </div>
+    <div class="ex-item">
+      <div class="ex-q">2. 仿作練習： 把「雨點落在湖面上」改寫成比喻句。</div>
+      <label class="ans-btn" for="ans2">點擊顯示答案</label>
+      <input type="checkbox" id="ans2" class="show-ans" style="display:none;">
+      <div class="ex-ans">參考答案：雨點落在湖面上，像是在平滑的鏡子上點綴了無數珍珠。</div>
+    </div>
+  </div>
+
+  
+  <!-- 返回目錄連結 -->
+  <div style="margin-top: 2rem; text-align: center;">
+    <a href="index.html" style="display: inline-block; padding: 0.8rem 1.6rem; background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); color: var(--color-text-primary); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s ease;" onmouseover="this.style.borderColor='#6b705c'; this.style.color='#6b705c'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--color-border-tertiary)'; this.style.color='var(--color-text-primary)'; this.style.transform='none'">
+      ↩️ 返回筆記目錄
+    </a>
+  </div>
+<footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+</div>
+</body>
+</html>

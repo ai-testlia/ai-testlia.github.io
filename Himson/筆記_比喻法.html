@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>比喻手法深度教學筆記｜潘SIR中文教室</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0, 0, 0, 0.1);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #f0ede8;
+        --color-text-secondary: #aaa;
+        --color-background-primary: #1c1c1e;
+        --color-background-secondary: #2c2c2e;
+        --color-border-tertiary: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-primary);
+      background: var(--color-background-secondary);
+    }
+
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: #1a0a2e;
+      color: #fff;
+      padding: 3.5rem 2.5rem 3rem;
+      border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #e8d5ff;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.1rem;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.6rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .toc-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1.5rem;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--color-text-primary);
+      font-size: 13px;
+      padding: 0.3rem 0;
+      border-bottom: 1px dashed var(--color-border-tertiary);
+      transition: color 0.2s;
+    }
+
+    .toc-item:hover {
+      color: #7c3aed;
+    }
+
+    .toc-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: #7c3aed;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION BLOCK ── */
+    .section-block {
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px solid var(--color-border-tertiary);
+    }
+
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: #7c3aed;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .section-icon {
+      font-size: 1.4rem;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 0.8rem;
+      color: var(--color-text-primary);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot.purple {
+      background: #7c3aed;
+    }
+
+    .dot.teal {
+      background: #0d9488;
+    }
+
+    .dot.coral {
+      background: #e85d4a;
+    }
+
+    .dot.amber {
+      background: #d97706;
+    }
+
+    .dot.pink {
+      background: #db2777;
+    }
+
+    .dot.blue {
+      background: #2563eb;
+    }
+
+    /* ── EXAMPLE BOX ── */
+    .example-box {
+      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+      border-left: 4px solid #7c3aed;
+      border-radius: var(--border-radius-md);
+      padding: 1rem 1.2rem;
+      margin: 0.7rem 0;
+      break-inside: avoid;
+    }
+
+    .example-box.teal {
+      background: linear-gradient(135deg, #ccfbf1, #99f6e4);
+      border-left-color: #0d9488;
+    }
+
+    .example-box.coral {
+      background: linear-gradient(135deg, #fee2e2, #fecaca);
+      border-left-color: #e85d4a;
+    }
+
+    .example-box.amber {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border-left-color: #d97706;
+    }
+
+    .example-box.pink {
+      background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+      border-left-color: #db2777;
+    }
+
+    .example-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #7c3aed;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+
+    .example-box.teal .example-label {
+      color: #0d9488;
+    }
+
+    .example-box.coral .example-label {
+      color: #e85d4a;
+    }
+
+    .example-box.amber .example-label {
+      color: #d97706;
+    }
+
+    .example-box.pink .example-label {
+      color: #db2777;
+    }
+
+    .example-text {
+      font-size: 14px;
+      color: var(--color-text-primary);
+      line-height: 1.85;
+    }
+
+    .example-note {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    /* ── ALERT ── */
+    .alert {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      border-radius: var(--border-radius-md);
+      padding: 1rem 1.2rem;
+      margin: 0.8rem 0;
+      break-inside: avoid;
+    }
+
+    .alert.tip {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+    }
+
+    .alert.warn {
+      background: #fff1f2;
+      border-left: 4px solid #e85d4a;
+    }
+
+    .alert.success {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+    }
+
+    .alert.amber {
+      background: #fffbeb;
+      border-left: 4px solid #d97706;
+    }
+
+    .alert-icon {
+      font-size: 1.1rem;
+      margin-top: 1px;
+    }
+
+    .alert-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.2rem;
+    }
+
+    .alert.tip .alert-label {
+      color: #2563eb;
+    }
+
+    .alert.warn .alert-label {
+      color: #e85d4a;
+    }
+
+    .alert.success .alert-label {
+      color: #16a34a;
+    }
+
+    .alert.amber .alert-label {
+      color: #d97706;
+    }
+
+    .alert-text {
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.8;
+    }
+
+    /* ── COMPARE GRID ── */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 0.8rem 0;
+      break-inside: avoid;
+    }
+
+    .compare-card {
+      border-radius: var(--border-radius-md);
+      padding: 1rem 1.1rem;
+    }
+
+    .compare-card.bad {
+      background: #fff1f2;
+      border: 1px solid #fca5a5;
+    }
+
+    .compare-card.good {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+    }
+
+    .compare-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .compare-card.bad .compare-label {
+      color: #e85d4a;
+    }
+
+    .compare-card.good .compare-label {
+      color: #16a34a;
+    }
+
+    .compare-text {
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.8;
+    }
+
+    /* ── FORMULA ── */
+    .formula {
+      background: #1e1b4b;
+      color: #e0e7ff;
+      border-radius: var(--border-radius-lg);
+      padding: 1.4rem 1.8rem;
+      margin: 1rem 0;
+      font-family: 'Noto Serif TC', serif;
+      line-height: 2;
+      break-inside: avoid;
+    }
+
+    .formula-title {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: #a5b4fc;
+      margin-bottom: 0.6rem;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .formula-body {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .formula-sub {
+      font-size: 12px;
+      color: #c7d2fe;
+      margin-top: 0.5rem;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    /* ── KEYWORD GRID ── */
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.7rem;
+      margin: 0.8rem 0;
+    }
+
+    .kw-card {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-top: 3px solid #7c3aed;
+      border-radius: var(--border-radius-md);
+      padding: 0.9rem 1rem;
+    }
+
+    .kw-word {
+      font-weight: 700;
+      font-size: 14px;
+      color: #7c3aed;
+      margin-bottom: 0.3rem;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .kw-def {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── FLOW ── */
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.8rem 0;
+      break-inside: avoid;
+    }
+
+    .flow-step {
+      background: #7c3aed;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .flow-arrow {
+      color: #7c3aed;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    /* ── PRACTICE ── */
+    .practice-block {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1rem;
+      break-inside: avoid;
+    }
+
+    .practice-q {
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 0.6rem;
+      font-size: 14px;
+    }
+
+    .practice-content {
+      font-size: 13.5px;
+      color: var(--color-text-primary);
+      line-height: 1.9;
+      margin-bottom: 0.8rem;
+    }
+
+    .answer-toggle {
+      display: inline-block;
+      background: #ede9fe;
+      color: #7c3aed;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      user-select: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .answer-box {
+      background: #f5f3ff;
+      border-left: 3px solid #7c3aed;
+      border-radius: var(--border-radius-md);
+      padding: 0.8rem 1rem;
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.85;
+      display: none;
+    }
+
+    .answer-box.open {
+      display: block;
+    }
+
+    /* ── TAG CHIPS ── */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.6rem 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ede9fe;
+      color: #6d28d9;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── PRINT / PDF ── */
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .hero {
+        border-radius: 0;
+      }
+
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .example-box,
+      .compare-grid,
+      .alert,
+      .formula,
+      .keyword-grid,
+      .flow,
+      .practice-block {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .section-header,
+      h2,
+      h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      .answer-box {
+        display: block !important;
+      }
+
+      .answer-toggle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-tag">寫作教學筆記</div>
+      <h1>比喻手法深度教學</h1>
+      <p>潘SIR中文教室編撰</p>
+    </div>
+
+    <!-- TOC -->
+    <div class="toc">
+      <div class="toc-title">📋 目錄</div>
+      <div class="toc-grid">
+        <a class="toc-item" href="#s1"><span class="toc-num">1</span>什麼是比喻？</a>
+        <a class="toc-item" href="#s2"><span class="toc-num">2</span>比喻的三大要素</a>
+        <a class="toc-item" href="#s3"><span class="toc-num">3</span>比喻的種類</a>
+        <a class="toc-item" href="#s4"><span class="toc-num">4</span>好比喻 vs 壞比喻</a>
+        <a class="toc-item" href="#s5"><span class="toc-num">5</span>比喻的深層效果</a>
+        <a class="toc-item" href="#s6"><span class="toc-num">6</span>考試答題技巧</a>
+        <a class="toc-item" href="#s7"><span class="toc-num">7</span>課堂練習</a>
+      </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="section-block" id="s1">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <span class="section-icon">🔍</span>
+        <div class="section-title">什麼是比喻？</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot purple"></span>定義</div>
+        <p>比喻，就是用一件<strong>大家都熟悉的事物</strong>，去描述另一件<strong>比較抽象或難以想像的事物</strong>，令讀者一看就明白、一讀就感受到。</p>
+      </div>
+
+      <div class="keyword-grid">
+        <div class="kw-card">
+          <div class="kw-word">本體</div>
+          <div class="kw-def">被描述的對象，即作者真正想說的那件事物。</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">喻體</div>
+          <div class="kw-def">用來比喻的事物，必須是讀者熟悉、具體的東西。</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">喻詞</div>
+          <div class="kw-def">連接本體與喻體的詞語，如「像」、「如」、「是」等。</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">相似點</div>
+          <div class="kw-def">本體與喻體之間共同擁有的特質，是比喻成立的關鍵。</div>
+        </div>
+      </div>
+
+      <div class="example-box teal">
+        <div class="example-label">📌 生活例子</div>
+        <div class="example-text">
+          媽媽的笑容<strong>像</strong>冬日的陽光，令我感到溫暖。<br>
+          <span style="color:#0d9488; font-size:13px;">本體：媽媽的笑容　喻詞：像　喻體：冬日的陽光　相似點：溫暖、令人舒服</span>
+        </div>
+      </div>
+
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">核心概念</div>
+          <div class="alert-text">比喻的目的是「以熟喻生」——用熟悉的喻體，令讀者輕鬆理解陌生的本體。好的比喻能讓文字從平淡變得生動，從空洞變得具體。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section-block" id="s2">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <span class="section-icon">🧩</span>
+        <div class="section-title">比喻的三大要素</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot purple"></span>三大要素缺一不可</div>
+        <p>一個完整的比喻，必須同時具備以下三項。缺少任何一項，就不算是比喻句，只是一般的描述。</p>
+      </div>
+
+      <div class="flow">
+        <div class="flow-step">① 本體（被比喻的事物）</div>
+        <div class="flow-arrow">＋</div>
+        <div class="flow-step">② 喻詞（像／如／是……）</div>
+        <div class="flow-arrow">＋</div>
+        <div class="flow-step">③ 喻體（用來比喻的事物）</div>
+        <div class="flow-arrow">＝</div>
+        <div class="flow-step" style="background:#16a34a;">✅ 完整比喻</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">例句分析 ①</div>
+        <div class="example-text">
+          他的頭髮<strong>（本體）</strong>像<strong>（喻詞）</strong>一團亂草<strong>（喻體）</strong>，怎麼梳也梳不平。<br>
+          <span style="color:#7c3aed; font-size:12px;">➜ 相似點：凌亂、難以整理</span>
+        </div>
+      </div>
+
+      <div class="example-box amber">
+        <div class="example-label">例句分析 ②</div>
+        <div class="example-text">
+          她的歌聲<strong>（本體）</strong>如<strong>（喻詞）</strong>山間清泉<strong>（喻體）</strong>，清脆悅耳。<br>
+          <span style="color:#d97706; font-size:12px;">➜ 相似點：清澈、悅耳、自然流暢</span>
+        </div>
+      </div>
+
+      <div class="example-box pink">
+        <div class="example-label">例句分析 ③</div>
+        <div class="example-text">
+          童年<strong>（本體）</strong>是<strong>（喻詞）</strong>一本沒有寫完的故事書<strong>（喻體）</strong>，充滿了無限可能。<br>
+          <span style="color:#db2777; font-size:12px;">➜ 相似點：有趣、充滿想像、值得回味</span>
+        </div>
+      </div>
+
+      <div class="alert warn">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-label">常見陷阱</div>
+          <div class="alert-text">「他像爸爸一樣高大」——這<strong>不是</strong>比喻！因為「他」和「爸爸」都是真實的人，並非用一件事物去比喻另一件完全不同的事物，而只是作比較。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="section-block" id="s3">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <span class="section-icon">🌿</span>
+        <div class="section-title">比喻的種類</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot teal"></span>明喻——最常見，喻詞清楚可見</div>
+        <p>明喻是最基本的比喻形式，喻詞（像、如、好像、仿佛、宛如）清楚出現在句中，讀者一眼就能看出這是比喻。</p>
+        <div class="example-box teal" style="margin-top:0.8rem;">
+          <div class="example-label">明喻例句</div>
+          <div class="example-text">
+            • 弟弟的眼睛<strong>像</strong>兩顆黑葡萄，又圓又亮。<br>
+            • 秋天的楓葉<strong>宛如</strong>一片片紅色的蝴蝶，在風中飄舞。<br>
+            • 這道數學題<strong>好像</strong>一座高山，令我望而生畏。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot coral"></span>暗喻——高級寫法，轉化喻詞</div>
+        <p>暗喻直接說「本體"是"喻體」，不用像、如等，而是用「是」當喻詞，語氣更直接、更有力，令比喻更緊密融入句子之中，是較高層次的寫法。</p>
+        <div class="example-box coral" style="margin-top:0.8rem;">
+          <div class="example-label">暗喻例句</div>
+          <div class="example-text">
+            • 書本<strong>是</strong>開啟知識大門的鑰匙。<br>
+            • 老師<strong>是</strong>園丁，學生<strong>是</strong>花朵，課室<strong>是</strong>一個充滿生機的花園。<br>
+            • 時間<strong>是</strong>一條河流，一去不復返。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot amber"></span>借喻——最高級，直接用喻體代替本體</div>
+        <p>借喻最為精煉，完全省略本體和喻詞，直接以喻體代替本體出現，需要讀者憑語境去推斷。這是最有文學感的比喻方式。</p>
+        <div class="example-box amber" style="margin-top:0.8rem;">
+          <div class="example-label">借喻例句</div>
+          <div class="example-text">
+            • 一群白色的<strong>蝴蝶</strong>在空中飛舞。（實際上是指梨花花瓣）<br>
+            • 她的笑聲是一串<strong>銀鈴</strong>，響徹整個走廊。（銀鈴指輕脆的笑聲）
+          </div>
+        </div>
+      </div>
+
+      <div class="formula">
+        <div class="formula-title">📊 三種比喻一覽</div>
+        <div class="formula-body">
+          明喻：本體 ＋ 像／如／宛如 ＋ 喻體<br>
+          暗喻：本體 ＋ 是／成為／變成 ＋ 喻體<br>
+          借喻：（省略本體）直接以喻體出現
+        </div>
+        <div class="formula-sub">小四重點掌握：明喻 ＋ 暗喻，借喻作了解即可</div>
+      </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="section-block" id="s4">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <span class="section-icon">⚖️</span>
+        <div class="section-title">好比喻 vs 壞比喻</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot pink"></span>什麼是「好的比喻」？</div>
+        <p>比喻並非愈多愈好，愈花哨愈好。好的比喻必須符合以下條件：</p>
+        <div class="tag-row" style="margin-top:0.6rem;">
+          <span class="tag">① 相似點真實</span>
+          <span class="tag">② 喻體具體易懂</span>
+          <span class="tag">③ 能加強情感</span>
+          <span class="tag">④ 配合文章氣氛</span>
+        </div>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card bad">
+          <div class="compare-label">❌ 壞比喻</div>
+          <div class="compare-text">他跑步的速度像一隻烏龜，非常快。<br><br><em
+              style="font-size:12px; color:#888;">問題：本體與喻體的相似點矛盾，烏龜代表慢，與「非常快」完全不符。</em></div>
+        </div>
+        <div class="compare-card good">
+          <div class="compare-label">✅ 好比喻</div>
+          <div class="compare-text">他跑步的速度像一道閃電，眨眼間已衝過終點線。<br><br><em
+              style="font-size:12px; color:#555;">優點：閃電代表極快，相似點清晰，而且「眨眼間」進一步強化效果。</em></div>
+        </div>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card bad">
+          <div class="compare-label">❌ 壞比喻</div>
+          <div class="compare-text">她的臉像一張臉，非常漂亮。<br><br><em
+              style="font-size:12px; color:#888;">問題：喻體等於本體，完全沒有新資訊，毫無比喻的意義。</em></div>
+        </div>
+        <div class="compare-card good">
+          <div class="compare-label">✅ 好比喻</div>
+          <div class="compare-text">她的臉像一朵盛開的牡丹，令人一見難忘。<br><br><em
+              style="font-size:12px; color:#555;">優點：牡丹代表嬌艷、高貴，帶出了具體的美的意象。</em></div>
+        </div>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card bad">
+          <div class="compare-label">❌ 壞比喻（老套）</div>
+          <div class="compare-text">她的眼睛像星星一樣閃亮。<br><br><em
+              style="font-size:12px; color:#888;">問題：此比喻過於老套，毫無新意，讀者已完全無感。</em></div>
+        </div>
+        <div class="compare-card good">
+          <div class="compare-label">✅ 好比喻（有創意）</div>
+          <div class="compare-text">她的眼睛像兩泓深潭，平靜中藏著無盡的故事。<br><br><em
+              style="font-size:12px; color:#555;">優點：深潭帶出「深邃」和「神秘」，更具文學感和個性。</em></div>
+        </div>
+      </div>
+
+      <div class="alert tip">
+        <div class="alert-icon">💡</div>
+        <div>
+          <div class="alert-label">寫作秘訣</div>
+          <div class="alert-text">避免使用「眼睛像星星」、「笑容像太陽」等老套比喻。嘗試從生活中尋找新鮮的喻體——你觀察到的事物愈獨特，比喻就愈有個人風格。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="section-block" id="s5">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <span class="section-icon">🎨</span>
+        <div class="section-title">比喻的深層效果</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot blue"></span>比喻能做到什麼？</div>
+        <p>好的比喻不只是「把事物說得像什麼」，它還能帶出情感、塑造氣氛、引發聯想。以下是四種深層效果：</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">效果 ① 使描寫具體化</div>
+        <div class="example-text">
+          原句（平淡）：風很大，吹到臉上很痛。<br>
+          比喻句：寒風像一把把細針，不停地刺在臉上。<br>
+          <span style="color:#7c3aed; font-size:12px;">➜「細針」令讀者彷彿感受到刺痛感，比「很痛」生動百倍。</span>
+        </div>
+      </div>
+
+      <div class="example-box teal">
+        <div class="example-label">效果 ② 加強情感渲染</div>
+        <div class="example-text">
+          原句（平淡）：他很想念媽媽。<br>
+          比喻句：對媽媽的思念像一塊大石頭，壓得他喘不過氣來。<br>
+          <span style="color:#0d9488; font-size:12px;">➜「大石頭壓著」令思念變得有重量，情感更加真切。</span>
+        </div>
+      </div>
+
+      <div class="example-box coral">
+        <div class="example-label">效果 ③ 創造畫面感</div>
+        <div class="example-text">
+          原句（平淡）：夕陽很美。<br>
+          比喻句：夕陽像一個熔化的蛋黃，緩緩沉入山後，將天邊染成橙紅色。<br>
+          <span style="color:#e85d4a; font-size:12px;">➜「熔化的蛋黃」讓讀者立即在腦海浮現鮮艷的視覺畫面。</span>
+        </div>
+      </div>
+
+      <div class="example-box amber">
+        <div class="example-label">效果 ④ 引發讀者共鳴</div>
+        <div class="example-text">
+          原句（平淡）：考試前很緊張。<br>
+          比喻句：考試前的緊張感像一隻手緊緊掐住我的心臟，令我無法喘息。<br>
+          <span style="color:#d97706; font-size:12px;">➜ 讀者曾有類似感受，「緊掐心臟」立刻引發共鳴。</span>
+        </div>
+      </div>
+
+      <div class="formula">
+        <div class="formula-title">✍️ 寫作公式</div>
+        <div class="formula-body">平淡句 ＋ 找出核心感受 ＋ 尋找具體喻體 ＋ 加入動態細節 ＝ 精彩比喻句</div>
+        <div class="formula-sub">記住：喻體愈具體、愈有畫面感，比喻的效果就愈強。</div>
+      </div>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="section-block" id="s6">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <span class="section-icon">📝</span>
+        <div class="section-title">考試答題技巧</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot purple"></span>辨認題——如何判斷是否比喻？</div>
+        <p>閱讀理解中常見題型：「以下句子用了什麼修辭手法？」</p>
+      </div>
+
+      <div class="flow">
+        <div class="flow-step">第一步：找出有沒有喻詞（像／如／是）</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">第二步：確認本體與喻體是否兩件不同的事物</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">第三步：找出相似點</div>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <div class="alert tip">
+          <div class="alert-icon">💡</div>
+          <div>
+            <div class="alert-label">考試答題格式（必記）</div>
+            <div class="alert-text">
+              <strong>作者用了比喻的手法，</strong>把「＿＿（本體）」比喻為「＿＿（喻體）」，<strong>形象地</strong>描寫出＿＿（相似點），令讀者感受到＿＿（效果／情感）。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">📋 套用示範</div>
+        <div class="example-text">
+          題目句子：「她的笑聲像一串銀鈴，清脆悅耳，響徹整個操場。」<br><br>
+          <strong>模範答案：</strong><br>
+          作者用了比喻的手法，把「她的笑聲」比喻為「一串銀鈴」，形象地描寫出笑聲清脆、悅耳的特點，令讀者如聞其聲，感受到她快樂開朗的性格。
+        </div>
+      </div>
+
+      <div class="alert warn">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-label">常見失分位</div>
+          <div class="alert-text">
+            很多同學只寫「用了比喻，把A比喻成B」就停下來，沒有說明<strong>相似點</strong>和<strong>效果</strong>，這樣最多只能得一半分數。答題必須「點出手法 → 說明內容 →
+            分析效果」三步到位。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 7 -->
+    <div class="section-block" id="s7">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <span class="section-icon">✏️</span>
+        <div class="section-title">課堂練習</div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="practice-block">
+        <div class="practice-q">練習一：辨認比喻手法</div>
+        <div class="practice-content">
+          閱讀以下句子，判斷哪些是比喻句，並填寫本體、喻體和相似點。<br><br>
+          （甲）爸爸的雙手像樹皮一樣粗糙，佈滿了歲月的痕跡。<br>
+          （乙）小明的成績比小華好。<br>
+          （丙）月亮是一盞銀色的燈籠，照亮了整條寂靜的小巷。<br>
+          （丁）她跑得像媽媽一樣快。
+        </div>
+        <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">▶ 查看參考答案</span>
+        <div class="answer-box">
+          （甲）✅ 是比喻句。本體：爸爸的雙手　喻體：樹皮　相似點：粗糙、佈滿紋路<br><br>
+          （乙）❌ 不是比喻句。只是比較兩個同類事物（成績），並非以一物喻另一物。<br><br>
+          （丙）✅ 是比喻句（暗喻）。本體：月亮　喻體：銀色的燈籠　相似點：圓形、發光、照亮黑暗<br><br>
+          （丁）❌ 不是比喻句。「她」和「媽媽」都是人，只是作比較，非比喻。
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="practice-block">
+        <div class="practice-q">練習二：改寫比喻句</div>
+        <div class="practice-content">
+          以下句子描述平淡，請運用比喻手法將它們改寫，令句子更生動。<br><br>
+          （一）今天的太陽很大，天氣很熱。<br>
+          （二）媽媽的聲音很好聽。<br>
+          （三）他非常疲倦，走路都走不穩。
+        </div>
+        <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">▶ 查看參考答案</span>
+        <div class="answer-box">
+          （一）今天的太陽像一個燃燒的大火球，把整條街道都烤得滾燙，連路上的空氣也在顫抖。<br><br>
+          （二）媽媽的聲音如一首輕柔的搖籃曲，每次聽到，心裏的煩躁都會慢慢消散。<br><br>
+          （三）他疲倦得像一根被風吹彎的蠟燭，每走一步都搖搖欲墜，彷彿下一秒就會倒下。
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="practice-block">
+        <div class="practice-q">練習三：分析題（閱讀理解格式）</div>
+        <div class="practice-content">
+          閱讀以下文段，回答問題：<br><br>
+          <em
+            style="background:#f5f3ff; padding:0.3rem 0.5rem; border-radius:4px; display:block; margin:0.5rem 0;">「期末考試的成績單像一把利劍，直插進我的心裏。看著那一列列紅色的分數，我的眼淚像決堤的洪水，怎麼也止不住。」</em><br>
+          問：文中用了哪些比喻手法？各有什麼效果？
+        </div>
+        <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">▶ 查看參考答案</span>
+        <div class="answer-box">
+          <strong>比喻一：</strong>作者把「成績單」比喻為「一把利劍」，形象地描寫出成績單帶來的強烈衝擊和傷痛，令讀者感受到主角看到成績時的沮喪和心碎。<br><br>
+          <strong>比喻二：</strong>作者把「眼淚」比喻為「決堤的洪水」，生動地寫出眼淚洶湧、難以控制的樣子，有效地渲染出主角的傷心和絕望，令讀者產生共鳴。
+        </div>
+      </div>
+
+      <div class="alert amber">
+        <div class="alert-icon">📌</div>
+        <div>
+          <div class="alert-label">溫馨提示</div>
+          <div class="alert-text">練習時如果想不到好的喻體，可以先問自己：「這個事物讓我想到什麼？」然後從日常生活、大自然、食物、動物中尋找靈感。多讀好書，你的比喻詞庫自然會愈來愈豐富！</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    
+  <!-- 返回目錄連結 -->
+  <div style="margin-top: 2rem; text-align: center;">
+    <a href="index.html" style="display: inline-block; padding: 0.8rem 1.6rem; background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); color: var(--color-text-primary); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s ease;" onmouseover="this.style.borderColor='#6b705c'; this.style.color='#6b705c'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--color-border-tertiary)'; this.style.color='var(--color-text-primary)'; this.style.transform='none'">
+      ↩️ 返回筆記目錄
+    </a>
+  </div>
+<footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>

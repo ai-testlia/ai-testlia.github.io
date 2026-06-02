@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作文專題拔尖筆記：《我終於明白了他的用心》｜潘SIR中文教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0, 0, 0, 0.1);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #ede8e0;
+        --color-text-secondary: #9a9488;
+        --color-background-primary: #1c1c1e;
+        --color-background-secondary: #2c2c2e;
+        --color-border-tertiary: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-background-secondary);
+      padding: 2rem 1rem;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding-bottom: 3rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-lg);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.7rem;
+      color: inherit;
+      line-height: 1.4;
+    }
+
+    .hero p {
+      font-size: 13px;
+    }
+
+    /* 寫作性質：霧玫瑰色系 */
+    .hero.writing {
+      background: #E8D5C8;
+      color: #2E1A12;
+    }
+
+    .hero.writing .hero-tag {
+      border: 1px solid rgba(46, 26, 18, 0.3);
+      color: rgba(46, 26, 18, 0.65);
+    }
+
+    .hero.writing p {
+      color: rgba(46, 26, 18, 0.5);
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .toc-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      margin-bottom: 0.6rem;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 8px;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-num {
+      width: 20px;
+      height: 20px;
+      background: #2E1A12;
+      color: #E8D5C8;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .toc-label {
+      font-size: 13px;
+      color: var(--color-text-primary);
+    }
+
+    /* SECTION */
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .section-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .icon-rose {
+      background: #F5EAE1;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    .section-num {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-left: auto;
+      letter-spacing: 1px;
+    }
+
+    /* SUBSECTION */
+    .subsection {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .subsection-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .sub-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-rose {
+      background: #8A6F5D;
+    }
+
+    .subsection p,
+    .subsection li {
+      font-size: 13.5px;
+      color: var(--color-text-primary);
+      line-height: 1.85;
+    }
+
+    .subsection ul,
+    .subsection ol {
+      padding-left: 1.3rem;
+      margin-top: 0.3rem;
+    }
+
+    .subsection li {
+      margin-bottom: 0.4rem;
+    }
+
+    .subsection p+p {
+      margin-top: 0.6rem;
+    }
+
+    /* BOXES */
+    .example-box {
+      background: var(--color-background-secondary);
+      border-left: 3px solid #8A6F5D;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      padding: 0.8rem 1.1rem;
+      margin-top: 0.7rem;
+    }
+
+    .example-box.blue {
+      border-left-color: #4A6FA5;
+    }
+
+    .example-box.green {
+      border-left-color: #4E8752;
+    }
+
+    .example-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+      color: #5C4637;
+    }
+
+    .example-box.blue .example-label {
+      color: #2F4858;
+    }
+
+    .example-box.green .example-label {
+      color: #2D5A27;
+    }
+
+    .example-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.8;
+    }
+
+    /* ALERT */
+    .alert {
+      border-radius: var(--border-radius-md);
+      padding: 0.8rem 1.1rem;
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .alert-icon {
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    .alert-label {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .alert-text {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .alert.warn {
+      background: #FAF0EC;
+      border: 0.5px solid #F3C6B6;
+    }
+
+    .alert.warn .alert-label {
+      color: #A94424;
+    }
+
+    .alert.warn .alert-text {
+      color: #6E2914;
+    }
+
+    .alert.tip {
+      background: #EBF3F5;
+      border: 0.5px solid #BCD3D6;
+    }
+
+    .alert.tip .alert-label {
+      color: #2B5861;
+    }
+
+    .alert.tip .alert-text {
+      color: #16353B;
+    }
+
+    .alert.success {
+      background: #EDF5EE;
+      border: 0.5px solid #C4E0C7;
+    }
+
+    .alert.success .alert-label {
+      color: #2D5F33;
+    }
+
+    .alert.success .alert-text {
+      color: #183B1C;
+    }
+
+    /* COMPARE GRID */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 0.8rem;
+    }
+
+    .compare-card {
+      border-radius: var(--border-radius-md);
+      padding: 0.9rem 1.1rem;
+    }
+
+    .compare-card.bad {
+      background: #FDF3F2;
+      border: 0.5px solid #F5C6C2;
+    }
+
+    .compare-card.good {
+      background: #F2F7F3;
+      border: 0.5px solid #C6E2CD;
+    }
+
+    .compare-label {
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .compare-card.bad .compare-label {
+      color: #C0392B;
+    }
+
+    .compare-card.good .compare-label {
+      color: #27AE60;
+    }
+
+    .compare-text {
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    /* KEYWORD GRID */
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 0.8rem;
+    }
+
+    .keyword-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 0.8rem 1rem;
+    }
+
+    .kw-word {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #8A6F5D;
+      margin-bottom: 0.3rem;
+    }
+
+    .kw-def {
+      font-size: 12.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* FORMULA */
+    .formula {
+      background: #2E1A12;
+      color: #F5EAE1;
+      border-radius: var(--border-radius-md);
+      padding: 1rem 1.3rem;
+      margin-top: 0.8rem;
+    }
+
+    .formula-label {
+      font-size: 11px;
+      color: #E8D5C8;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+
+    .formula-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13.5px;
+      line-height: 1.8;
+    }
+
+    /* FLOW */
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0.8rem 0;
+    }
+
+    .flow-step {
+      background: #F5EAE1;
+      color: #4A3325;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: var(--border-radius-md);
+    }
+
+    .flow-arrow {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      font-weight: bold;
+    }
+
+    /* PRINT/PDF OPTIMIZATION */
+    @media print {
+      @page {
+        margin: 12mm 10mm;
+      }
+
+      body {
+        background: white;
+        color: #000;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .toc {
+        display: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card,
+      .subsection,
+      .example-box,
+      .alert,
+      .formula,
+      .compare-card,
+      .keyword-card {
+        page-break-inside: avoid;
+      }
+
+      .section-header {
+        page-break-before: always;
+        page-break-after: avoid;
+      }
+
+      .section-header:first-of-type {
+        page-break-before: auto;
+      }
+
+      .hero {
+        page-break-after: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="hero writing">
+      <div class="hero-tag">寫作教學筆記</div>
+      <h1>記敘抒情文拔尖專題：<br>《我終於明白了他的用心》</h1>
+      <p>潘SIR中文教室編撰</p>
+    </div>
+
+    <div class="toc">
+      <div class="toc-title">📌 筆記核心導航</div>
+      <div class="toc-grid">
+        <div class="toc-item"><span class="toc-num">1</span><span class="toc-label">題目全面拆解與審題陷阱</span></div>
+        <div class="toc-item"><span class="toc-num">2</span><span class="toc-label">情節發展建議（起、承、轉、合）</span></div>
+        <div class="toc-item"><span class="toc-num">3</span><span class="toc-label">核心技巧：情感層次與以小見大</span></div>
+        <div class="toc-item"><span class="toc-num">4</span><span class="toc-label">高分詞彙、佳句與成語提升</span></div>
+        <div class="toc-item"><span class="toc-num">5</span><span class="toc-label">常犯錯誤與佳作改寫示範</span></div>
+        <div class="toc-item"><span class="toc-num">6</span><span class="toc-label">模擬實戰練習與寫作大綱解構</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-rose">🔍</div>
+        <div class="section-title">一、題目全面拆解與審題陷阱</div>
+        <div class="section-num">CHAPTER 01</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="sub-dot dot-rose"></div>核心字眼精準解讀
+        </div>
+        <p>《我終於明白了他的用心》是一篇極具代表性的高小記敘抒情題目。要在這類題目中奪取高分，關鍵在於精確捕捉四個核心詞彙之間的邏輯關係：</p>
+        <ul>
+          <li><strong>「終於」：</strong>這是全篇的<strong>靈魂紐帶</strong>。代表「明白」並非一步到位，中間必須經歷一個「不解、埋怨、對立」的時間推移或誤會過程，以此形成強烈的張力。</li>
+          <li><strong>「明白」：</strong>屬於心理狀態的<strong>覺醒與領悟</strong>。文章必須展現出從「外在事件的發生」轉化為「內在情感的觸動」的關鍵節點。</li>
+          <li><strong>「他」：</strong>描寫對象。可以是朝夕相對的父母、老師、同學，甚至是日常生活裡容易被忽略的基層人物（如學校工友、大廈保安員）。</li>
+          <li><strong>「用心」：</strong>隱藏在行動背後的<strong>良苦用心、深層愛意或人生教誨</strong>。這份用心往往被表面的「嚴厲、冷漠、嘮叨」所包裹。</li>
+        </ul>
+
+        <div class="alert warn">
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-content">
+            <div class="alert-label">考場三大致命陷阱（避雷針）</div>
+            <div class="alert-text">
+              1. <strong>平鋪直敘，缺乏轉折：</strong>寫成「他做了一件對我很好的事，我馬上覺得他很好」，這完全抹殺了「終於」所帶來的層次感。<br>
+              2. <strong>主題錯位，形同讚美文：</strong>通篇都在歌頌「他」的優點，卻沒有突出「我」從「誤解到和解」的心理變化軌跡。<br>
+              3. <strong>用心過於表面：</strong>寫「媽媽買冰淇淋給我，我明白她的用心」，這只是單純的給予，稱不上具有深刻教育意義或情感含量的「良苦用心」。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-rose">📐</div>
+        <div class="section-title">二、寫作構思與情節發展（起承轉合）</div>
+        <div class="section-num">CHAPTER 02</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="sub-dot dot-rose"></div>情節演變黃金框架
+        </div>
+        <p>採用經典的「起、承、轉、合」縱向結構來布局，讓情感的起伏跟隨情節的推進而自然流露：</p>
+
+        <div class="flow">
+          <div class="flow-step">【起】設置懸念，交代誤解</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">【承】具體事件，衝突加劇</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">【轉】核心契機，驚悉真相</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">【合】情感昇華，後悔感激</div>
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">💡 題材甄選錦囊</div>
+          <div class="example-text">
+            <strong>題材 A（嚴厲的愛）：</strong>嚴厲的父親平日對我的學業或體能訓練要求極高，甚至近乎冷酷，後來我才發現這是為了磨練我抗挫折的堅韌意志。<br>
+            <strong>題材 B（放手的愛）：</strong>「冷漠」的好友在我遭遇失敗、尋求幫助時拒絕直接施予援手，而是逼我獨立面對，最終我明白他是為了讓我學會自立。<br>
+            <strong>題材 C（嘮叨的愛）：</strong>外婆總是不厭其煩地叮囑種種瑣碎的生活細節，我覺得厭煩，直到我獨自外宿遇到突發狀況，才發現那些嘮叨全是防患未然的智慧。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-rose">✨</div>
+        <div class="section-title">三、核心寫作技巧講解</div>
+        <div class="section-num">CHAPTER 03</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="sub-dot dot-rose"></div>技巧一：細膩的心靈特寫（情感層次感）
+        </div>
+        <p>優秀的作文必須做到「情動於中而形於言」。不要直接寫「我很不開心」，而是要利用<strong>外在動作、生理反應</strong>來側寫心理：</p>
+
+        <div class="example-box blue">
+          <div class="example-label">📝 情感對比示範</div>
+          <div class="example-text">
+            <strong>【前半段：怨恨與不解】</strong><br>
+            他沉著臉，將那張佈滿紅叉的試卷重重地摔在桌上，冷冷地拋下兩個字：「重做。」我緊緊咬著下唇，淚水在眼眶裡瘋狂打轉，雙手把衣角揉得發白。我在心裡無數次埋怨：為什麼他總是這麼不近人情？<br><br>
+            <strong>【後半段：震撼與愧疚】</strong><br>
+            那一刻，微弱的燈光將他那佝僂的背影拉得好長好長。我看見他一邊揉著發紅的雙眼，一邊用那粗糙、貼滿關節止痛膏的手指，一筆一劃地在我的錯題本上寫下詳細的步驟提示……微風吹過，我的心頭猛地一震，眼眶熱得發燙。
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="sub-dot dot-rose"></div>技巧二：以小見大（具體意象寄情）
+        </div>
+        <p>高小學生往往誤以為要寫「救人於水火」的大事才能感人。其實，生活中微不足道的<strong>物件或細節</strong>，往往承載著最深的「用心」。</p>
+
+        <div class="alert tip">
+          <div class="alert-icon">💡</div>
+          <div class="alert-content">
+            <div class="alert-label">潘SIR點撥：尋找你的「情感寄託物」</div>
+            <div class="alert-text">
+              文章中可以貫穿一個具體的物件，例如：一本寫滿密密麻麻批註的舊字典、一把在暴雨中總是向我傾斜的褪色雨傘、一雙因長期為我削鉛筆而長滿厚繭的手。利用物件的「舊」與「無聲」，來反襯對方愛的「深」與「長久」。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-rose">📚</div>
+        <div class="section-title">四、高分詞彙、佳句與成語提升</div>
+        <div class="section-num">CHAPTER 04</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="sub-dot dot-rose"></div>核心關鍵詞庫
+        </div>
+        <div class="keyword-grid">
+          <div class="keyword-card">
+            <div class="kw-word">良苦用心</div>
+            <div class="kw-def">費盡心思，深埋在心底、出自好意的特殊安排。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">語重心長</div>
+            <div class="kw-def">言語沉甸甸、情意深長，形容長輩誠懇的教誨。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">冰釋前嫌</div>
+            <div class="kw-def">過去的誤會與隔閡像冰塊一樣融化消逝，彼此和好。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">如夢初醒</div>
+            <div class="kw-def">過去像在夢中一樣糊塗，在某個契機下突然猛然醒悟。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">恨鐵不成鋼</div>
+            <div class="kw-def">對期望極高的人要求嚴格，因其不爭氣而感到焦急、惋惜。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">微不足道</div>
+            <div class="kw-def">微小得不值一提，可用來反襯細節背後巨大的愛。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="sub-dot dot-rose"></div>考場吸睛修辭佳句（建議背誦）
+        </div>
+        <div class="example-box green">
+          <div class="example-label">🌟 滿分句式仿寫</div>
+          <div class="example-text">
+            1. <strong>（比喻與對比）</strong>那份曾被我視為嚴冬寒風的嚴厲，如今才明白，那是一場及時的春雨，只為滋潤我荒蕪、驕傲的心田。<br>
+            2. <strong>（轉折感悟）</strong>歲月無聲，在轉角處留留下他無言的愛；而我，卻兜兜轉轉了數年，才終於讀懂了那雙滿是皺紋的眼睛背後的期盼。<br>
+            3. <strong>（細節融情）</strong>看著那疊被整理得井井有條、甚至邊緣已被撫平的錯題集，過去的任性與怨恨頓時煙消雲散，只留下滿腔的愧疚與感動。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-rose">❌</div>
+        <div class="section-title">五、常犯錯誤與佳作改寫示範</div>
+        <div class="section-num">CHAPTER 05</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="sub-dot dot-rose"></div>診斷與升格演練
+        </div>
+        <p>許多同學具備基本寫作實力，但往往卡在抒情流於表面。請看以下針對常見問題做出的「整容級」改寫：</p>
+
+        <div class="compare-grid">
+          <div class="compare-card bad">
+            <div class="compare-label">❌ 缺點：情感空洞，流於口號</div>
+            <div class="compare-text">
+              爸爸對我很嚴格，每天都要我做很多練習題，我很討厭他。直到後來我生病了，他很照顧我，我感動了。我終於明白他是為我好，他的用心真的很偉大。
+            </div>
+          </div>
+          <div class="compare-card good">
+            <div class="compare-label">✅ 優點：細節豐滿，轉折自然</div>
+            <div class="compare-text">
+              過去的我，總把父親的嚴格當作沉重的枷鎖，對那厚厚一疊練習題充滿抗拒與怨恨。直到那個發燒的深夜，我在迷糊中張開眼，看見一向頂天立地的父親正弓著背，焦急地為我更換額上的冰毛巾，口中還喃喃自語：「孩子，你要快點強大起來啊……」那一刻，堅冰般的誤解在溫熱的淚水中徹底融化。
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-grid">
+          <div class="compare-card bad">
+            <div class="compare-label">❌ 缺點：缺乏「催化劑」，轉折太突兀</div>
+            <div class="compare-text">
+              陳老師總是批評我的字寫得不好看，我很不高興。第二天，我回到學校，看著自己的功課，突然之間，我就明白了陳老師的良苦用心，決定以後好好寫字。
+            </div>
+          </div>
+          <div class="compare-card good">
+            <div class="compare-label">✅ 優點：加入合理契機，心理演變清晰</div>
+            <div class="compare-text">
+              陳老師連續幾天嚴厲的訓斥，成了我心中揮之不去的陰霾。直到放學後我回課室取遺留的課本，無意中瞥見辦公室窗前，陳老師正就著昏黃的燈光，揉著酸痛的頸椎，卻堅持用紅筆在我的作業本上圈出一個個歪斜的字，並在一旁端端正正地寫下示範字體。那一幕，如同驚雷敲醒了我的自私，我如夢初醒，原來嚴厲的背後，是他毫無保留的付出。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-rose">✏️</div>
+        <div class="section-title">六、模擬實戰練習與寫作大綱解構</div>
+        <div class="section-num">CHAPTER 06</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="sub-dot dot-rose"></div>課堂結構思維訓練
+        </div>
+        <p>請根據今日所學，完成以下三道思維演練題。這能有效防止你在考場上大腦一片空白：</p>
+
+        <ol>
+          <li><strong>【情境思維】</strong>若你選擇「嚴厲的班主任」為對象，請設計一個合理的<strong>「衝突點（承）」</strong>與一個<strong>「真相契機（轉）」</strong>。
+          </li>
+          <li><strong>【修辭仿寫】</strong>嘗試運用<strong>「排比」</strong>或<strong>「前後呼應」</strong>的手法，為本文撰寫一個點明主題的結尾段（40–50字）。</li>
+          <li><strong>【情感刻畫】</strong>請描寫一個關於「手」的細節特寫，用以表現對象的辛苦與付出。</li>
+        </ol>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">
+          <div class="sub-dot dot-rose"></div>高分作文架構示範（以《嚴厲的爸爸》為例）
+        </div>
+
+        <div class="formula">
+          <div class="formula-label">📋 考場不敗大綱公式</div>
+          <div class="formula-text">
+            <strong>第一段（起）：【倒敘設疑】</strong>由眼前的某個物件（如書桌上的厚練習簿）切入，感歎自己長大後，終於讀懂了父親隱藏在嚴厲面具下的深沉愛意，引出下文。<br><br>
+            <strong>第二段（承）：【具體衝突】</strong>詳細描寫一次數學測驗不及格，父親沒有一句溫柔的安慰，反而冷冷地扔過來一本嶄新的練習集，命令我每天加做三頁。我內心委屈、憤恨，甚至關上房門抗議，與父親陷入冷戰。<br><br>
+            <strong>第三段（轉）：【核心轉機】</strong>某天深夜因口渴起來，驚見父親的書房依然亮著燈。悄悄走近，看見父親正疲憊地一頁頁翻看我的練習簿，把我做錯的題目細心地抄錄在另一本筆記上，並用不同顏色的筆寫下解題思路。那一刻，所有的怨恨瞬間化為震撼。<br><br>
+            <strong>第四段（合）：【反思昇華】</strong>我如夢初醒，明白父親的「鐵面無私」是怕我日後吃生活的苦。那些沉重的練習題，其實是他親手為我鋪設的成長台階。結尾點題，表達內疚與由衷的感激。
+          </div>
+        </div>
+
+        <div class="alert success">
+          <div class="alert-icon">✅</div>
+          <div class="alert-content">
+            <div class="alert-label">導師的話</div>
+            <div class="alert-text">
+              寫這篇文章時，同學們不妨試著閉上眼睛，在記憶中搜尋：有沒有哪一個長輩的舉動曾讓你感到「討厭」或「不耐煩」？現在重新站在他們的角度思考，他們當時承受了甚麼？那樣做是不是為了你的將來？<strong>把當初的「羞愧感」與現在的「感恩之心」真誠地寫出來</strong>，這篇文章的骨架就有了，拿高分自然水到渠成！
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  <!-- 返回目錄連結 -->
+  <div style="margin-top: 2rem; text-align: center;">
+    <a href="index.html" style="display: inline-block; padding: 0.8rem 1.6rem; background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); color: var(--color-text-primary); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s ease;" onmouseover="this.style.borderColor='#6b705c'; this.style.color='#6b705c'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--color-border-tertiary)'; this.style.color='var(--color-text-primary)'; this.style.transform='none'">
+      ↩️ 返回筆記目錄
+    </a>
+  </div>
+<footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>
