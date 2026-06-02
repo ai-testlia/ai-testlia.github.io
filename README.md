@@ -56,15 +56,18 @@ ai-testlia.github.io/
 本專案使用 Python 腳本 `generate_indexes.py` 來維護所有目錄頁面，避免人工修改 HTML 造成的樣式不一致。
 
 ### 1. 新增學生 或 為學生新增筆記檔
-若要為某個學生加入新的 HTML 筆記，或新增一位學生，請直接編輯 [generate_indexes.py](file:///c:/Users/balpo/HappyBin/ai-testlia.github.io/generate_indexes.py) 中的 `folders` 字典設定：
+
+若要為某個學生加入新的 HTML 筆記，或新增一位學生，請直接編輯 [generate_indexes.py](file:///c:/Users/ai-testlia.github.io/generate_indexes.py) 中的 `folders` 字典設定：
 
 * **新增學生**：仿照其他學生，在 `folders` 中新增一個鍵值（如 `"new_student"`），填入 `title`、`tag` 以及 `categories` 分類。
 * **新增筆記檔案**：在該學生的 `categories` 對應分類列表中，新增一個字典項，例如：
+
   ```python
   {"file": "新筆記檔名.html", "title": "顯示在目錄的標題", "desc": "簡短描述說明"}
   ```
 
 ### 2. 生成與套用更新
+
 在編輯完 `generate_indexes.py` 之後，請於本機執行該腳本。腳本會自動抓取最新的配置，並重新為所有學生輸出排版美觀、格式統一的 `index.html` 門戶頁面：
 
 ```bash
@@ -72,6 +75,7 @@ python generate_indexes.py
 ```
 
 ### 3. 提交並發佈至 GitHub
+
 完成生成且本機測試無誤後，請將變更提交並推送至 GitHub：
 
 ```bash
