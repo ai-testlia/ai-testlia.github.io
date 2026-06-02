@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>語文基礎與實用寫作教學筆記｜潘SIR中文教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0, 0, 0, 0.1);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #f0f0ee;
+        --color-text-secondary: #aaa;
+        --color-background-primary: #1c1c1e;
+        --color-background-secondary: #2c2c2e;
+        --color-border-tertiary: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      font-size: 14px;
+      line-height: 1.8;
+      padding: 2rem 1rem;
+    }
+
+    .wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding-bottom: 3rem;
+    }
+
+    /* HERO - 寫作類 (霧玫瑰) */
+    .hero {
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-lg);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.7rem;
+      color: inherit;
+      line-height: 1.4;
+    }
+
+    .hero p {
+      font-size: 13px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero.writing {
+      background: #E8D5C8;
+      color: #2E1A12;
+    }
+
+    .hero.writing .hero-tag {
+      border: 1px solid rgba(46, 26, 18, 0.3);
+      color: rgba(46, 26, 18, 0.65);
+    }
+
+    .hero.writing p {
+      color: rgba(46, 26, 18, 0.5);
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+    }
+
+    .toc-title {
+      grid-column: 1 / -1;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+    }
+
+    .toc-num {
+      width: 22px;
+      height: 22px;
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* SECTION */
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+
+    .section-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .icon-red {
+      background: #FAEAE6;
+    }
+
+    .icon-gold {
+      background: #FAF0DA;
+    }
+
+    .icon-teal {
+      background: #E1F5EE;
+    }
+
+    .icon-blue {
+      background: #E6F1FB;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    /* CARD & SUBSECTION */
+    .card {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-red {
+      background: #C94B2A;
+    }
+
+    .dot-gold {
+      background: #B88A10;
+    }
+
+    .dot-teal {
+      background: #1D9E75;
+    }
+
+    .dot-blue {
+      background: #378ADD;
+    }
+
+    /* EXERCISE SECTION HEADER (Inner) */
+    .exercise-header {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px dashed var(--color-border-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    /* EXAMPLE BOX */
+    .example-box {
+      background: var(--color-background-secondary);
+      border-left: 3px solid #C94B2A;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      padding: 0.8rem 1.2rem;
+      margin: 0.8rem 0;
+    }
+
+    .example-box.teal {
+      border-left-color: #1D9E75;
+    }
+
+    .example-box.blue {
+      border-left-color: #378ADD;
+    }
+
+    .example-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+      color: var(--color-text-secondary);
+    }
+
+    .example-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--color-text-primary);
+      line-height: 1.85;
+    }
+
+    /* ALERT */
+    .alert {
+      border-radius: var(--border-radius-md);
+      padding: 0.9rem 1.2rem;
+      margin: 1rem 0;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .alert-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 3px;
+    }
+
+    .alert-text {
+      font-size: 13.5px;
+      line-height: 1.75;
+    }
+
+    .alert.tip {
+      background: #E6F1FB;
+      border: 1px solid #93C4F5;
+    }
+
+    .alert.tip .alert-label {
+      color: #1a5faa;
+    }
+
+    .alert.tip .alert-text {
+      color: #0d3d73;
+    }
+
+    .alert.warn {
+      background: #FCEBEB;
+      border: 1px solid #F09595;
+    }
+
+    .alert.warn .alert-label {
+      color: #A32D2D;
+    }
+
+    .alert.warn .alert-text {
+      color: #791F1F;
+    }
+
+    /* COMPARE GRID */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 1rem 0;
+    }
+
+    .compare-card {
+      border-radius: var(--border-radius-md);
+      padding: 1rem;
+    }
+
+    .compare-card.bad {
+      background: #FCEBEB;
+      border: 1px dashed #F09595;
+    }
+
+    .compare-card.good {
+      background: #EAF3DE;
+      border: 1px solid #97C459;
+    }
+
+    .compare-label {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .compare-card.bad .compare-label {
+      color: #A32D2D;
+    }
+
+    .compare-card.good .compare-label {
+      color: #3B6D11;
+    }
+
+    .compare-text {
+      font-size: 14px;
+      line-height: 1.7;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    /* KEYWORD GRID */
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 0.8rem;
+    }
+
+    .keyword-card {
+      background: var(--color-background-secondary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 0.9rem 1.2rem;
+    }
+
+    .kw-word {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #C94B2A;
+    }
+
+    .kw-def {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
+    }
+
+    .kw-eg {
+      font-size: 12.5px;
+      color: var(--color-text-primary);
+      border-top: 1px dashed var(--color-border-tertiary);
+      padding-top: 0.4rem;
+    }
+
+    /* FORMULA */
+    .formula {
+      background: #1c1c1e;
+      color: #f0f0ee;
+      border-radius: var(--border-radius-md);
+      padding: 1rem 1.4rem;
+      margin: 1rem 0;
+    }
+
+    .formula-label {
+      font-size: 11.5px;
+      color: #aaa;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .formula-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #fff;
+    }
+
+    /* TABLE */
+    .ht {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 1rem 0;
+    }
+
+    .ht th {
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 2px solid var(--color-border-tertiary);
+    }
+
+    .ht td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+      color: var(--color-text-primary);
+      line-height: 1.7;
+      vertical-align: top;
+    }
+
+    /* EXERCISE LIST & HIDDEN ANSWERS */
+    .ex-item {
+      padding: 1rem 0;
+      border-bottom: 1px dashed var(--color-border-tertiary);
+    }
+
+    .ex-item:last-child {
+      border-bottom: none;
+    }
+
+    .ex-q {
+      font-size: 14.5px;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      line-height: 1.8;
+    }
+
+    .ex-blank {
+      display: inline-block;
+      width: 60px;
+      border-bottom: 1px solid var(--color-text-primary);
+      margin: 0 4px;
+    }
+
+    details.ans-toggle {
+      margin-top: 8px;
+    }
+
+    details.ans-toggle summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-background-secondary);
+      border: 1px solid var(--color-border-tertiary);
+      color: var(--color-text-secondary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      list-style: none;
+      /* Hide default arrow */
+      user-select: none;
+    }
+
+    details.ans-toggle summary::-webkit-details-marker {
+      display: none;
+      /* Hide default arrow for Safari/Chrome */
+    }
+
+    details.ans-toggle summary:hover {
+      background: var(--color-border-tertiary);
+      color: var(--color-text-primary);
+    }
+
+    details.ans-toggle[open] summary {
+      background: #EAF3DE;
+      border-color: #97C459;
+      color: #27500A;
+      margin-bottom: 8px;
+    }
+
+    .ans-text {
+      background: #EAF3DE;
+      border-left: 4px solid #97C459;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      padding: 0.7rem 1rem;
+      font-size: 14px;
+      font-weight: 600;
+      color: #27500A;
+      line-height: 1.6;
+    }
+
+    /* PRINT RULES */
+    @media print {
+      @page {
+        margin: 12mm 10mm;
+      }
+
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .toc {
+        display: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card,
+      .keyword-card,
+      .example-box,
+      .alert,
+      .formula,
+      .ex-item {
+        page-break-inside: avoid;
+      }
+
+      .section-header {
+        page-break-before: always;
+        page-break-after: avoid;
+      }
+
+      .section-header:first-of-type {
+        page-break-before: auto;
+      }
+
+      .hero {
+        page-break-after: avoid;
+      }
+
+      /* Print expanding details */
+      details.ans-toggle[open] .ans-text {
+        display: block;
+      }
+    }
+  </style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--theme-primary, #6b705c);
+      color: var(--theme-primary, #6b705c);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      footer {
+        background: transparent !important;
+        border: none !important;
+        color: #555 !important;
+        margin-top: 2rem !important;
+        padding: 1rem 0 0 0 !important;
+        border-top: 0.5px solid #ddd !important;
+        border-radius: 0 !important;
+        display: block !important;
+      }
+      footer * {
+        color: #555 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="hero writing">
+      <div class="hero-tag">寫作與閱讀基礎筆記</div>
+      <h1>語文能力強化——<br>生活與校園篇</h1>
+      <p>潘SIR中文教室編撰</p>
+    </div>
+
+    <div class="toc">
+      <div class="toc-title">📋 本課目錄</div>
+      <div class="toc-item">
+        <div class="toc-num">1</div>核心詞彙精解與應用
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">2</div>必學成語與語境配對
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">3</div>句式結構與改寫技巧
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">4</div>閱讀與段落理解技巧
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-red">📚</div>
+        <div class="section-title">第一部分：核心詞彙精解與應用</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-red"></div>高頻實用語詞教學
+        </div>
+        <p style="font-size: 13.5px; color: var(--color-text-secondary); margin-bottom: 1rem;">
+          在寫作或閱讀理解中，準確運用詞語是取分的關鍵。以下是校園及生活題材中常見的「高級詞彙」。</p>
+
+        <div class="keyword-grid">
+          <div class="keyword-card">
+            <div class="kw-word">落實</div>
+            <div class="kw-def">將計劃、政策或決定付諸實行。</div>
+            <div class="kw-eg">✅ 搭配：落實方案 / 落實分工</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">優化</div>
+            <div class="kw-def">加以改善，使事物變得更加完善、優秀。</div>
+            <div class="kw-eg">✅ 搭配：優化系統 / 優化溝通</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">協調</div>
+            <div class="kw-def">使各方面配合得當，步調一致。</div>
+            <div class="kw-eg">✅ 搭配：協調工作 / 協調各界</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">機制</div>
+            <div class="kw-def">泛指一個組織或系統的運作規則與流程。</div>
+            <div class="kw-eg">✅ 搭配：投訴機制 / 獎勵機制</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">評估</div>
+            <div class="kw-def">對人或事物的價值、風險或影響進行評價。</div>
+            <div class="kw-eg">✅ 搭配：評估風險 / 評估性能</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">侷限</div>
+            <div class="kw-def">限制在某個狹窄的範圍內。</div>
+            <div class="kw-eg">✅ 搭配：受預算侷限 / 打破侷限</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">範疇</div>
+            <div class="kw-def">領域、範圍（多指學術、工作或活動）。</div>
+            <div class="kw-eg">✅ 搭配：學習範疇 / 服務範疇</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">趨勢</div>
+            <div class="kw-def">事物發展的動向或方向。</div>
+            <div class="kw-eg">✅ 搭配：發展趨勢 / 社會趨勢</div>
+          </div>
+        </div>
+
+        <div class="exercise-header">📝 隨堂練習：供詞填充（選詞作答）</div>
+        <div
+          style="background: var(--color-background-secondary); padding: 1rem; border-radius: var(--border-radius-md); margin-bottom: 1.5rem; font-weight: 600; text-align: center; letter-spacing: 2px;">
+          侷限｜協調｜關鍵｜評估｜落實<br>範疇｜核心｜趨勢｜優化｜機制
+        </div>
+
+        <div class="ex-item">
+          <div class="ex-q">1. 想要學好一門新語言，多聽多講才是最 <span class="ex-blank"></span> 的方法。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：關鍵</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">2. 這次學社聯歡會辦得成，全靠組長努力 <span class="ex-blank"></span> 各隊員的工作。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：協調</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">3. 他的興趣很廣泛，從踢波到研究歷史都屬於他的學習 <span class="ex-blank"></span>。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：範疇</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">4. 雖然我很想買最新的遊戲機，但受預算 <span class="ex-blank"></span>，只能打消念頭。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：侷限</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">5. 買這部二手電腦前，你最好先 <span class="ex-blank"></span> 一下它的性能。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：評估</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">6. 這位籃球員是球隊的 <span class="ex-blank"></span> 人物，沒了他球隊很難贏波。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：核心</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">7. 班會剛剛通過了去燒烤的提議，現在要開始 <span class="ex-blank"></span> 分工了。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：落實</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">8. 網上短影片近年大行其道，已經成為青少年娛樂的新 <span class="ex-blank"></span>。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：趨勢</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">9. 為了 <span class="ex-blank"></span> 學校無線網絡的運作，IT 部門決定更換新系統。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：優化</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">10. 這間學校有一套完善的投訴 <span class="ex-blank"></span>，同學有意見可以隨時反映。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：機制</div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-gold">🎯</div>
+        <div class="section-title">第二部分：必學成語與語境配對</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-gold"></div>校園與生活實用成語
+        </div>
+        <table class="ht">
+          <thead>
+            <tr>
+              <th width="20%">成語</th>
+              <th width="35%">釋義精解</th>
+              <th width="45%">寫作語境示範</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>言簡意賅</strong></td>
+              <td>言語簡練，但意思完備無遺。</td>
+              <td>上台演講時，與其長篇大論，不如<strong>言簡意賅</strong>地帶出重點。</td>
+            </tr>
+            <tr>
+              <td><strong>墨守成規</strong></td>
+              <td>思想保守，守著老規矩不肯改變。</td>
+              <td>時代不斷進步，我們不能<strong>墨守成規</strong>，必須勇於創新。</td>
+            </tr>
+            <tr>
+              <td><strong>如履薄冰</strong></td>
+              <td>像走在薄冰上，比喻行事極為謹慎。</td>
+              <td>處理這份極機密的文件，他<strong>如履薄冰</strong>，不敢有半點馬虎。</td>
+            </tr>
+            <tr>
+              <td><strong>未雨綢繆</strong></td>
+              <td>在未下雨前就先修補好門窗，比喻事先做好準備。</td>
+              <td>出發旅行前，媽媽總會<strong>未雨綢繆</strong>，把各類平安藥準備妥當。</td>
+            </tr>
+            <tr>
+              <td><strong>截然不同</strong></td>
+              <td>形容事物或情況完全不同。</td>
+              <td>這對雙胞胎的外貌雖然相似，但性格卻<strong>截然不同</strong>。</td>
+            </tr>
+            <tr>
+              <td><strong>面面俱到</strong></td>
+              <td>各方面都照顧到，沒有遺漏。</td>
+              <td>班長處事大公無私，總能做到<strong>面面俱到</strong>，深得同學信賴。</td>
+            </tr>
+            <tr>
+              <td><strong>開門見山</strong></td>
+              <td>比喻說話或寫文章直截了當，一開始就進入正題。</td>
+              <td>既然時間緊迫，我就<strong>開門見山</strong>地說出這次會議的目的吧。</td>
+            </tr>
+            <tr>
+              <td><strong>事半功倍</strong></td>
+              <td>花費一半的力氣，卻能得到雙倍的效果。</td>
+              <td>只要掌握正確的溫習技巧，學習自然能<strong>事半功倍</strong>。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="alert tip">
+          <div class="alert-icon">💡</div>
+          <div>
+            <div class="alert-label">考試技巧</div>
+            <div class="alert-text">填充成語時，必須留意句子的「前文後理」。例如看到「不肯改變」、「老規矩」，即聯想「墨守成規」；看到「直截了當」、「不兜圈子」，即聯想「開門見山」。</div>
+          </div>
+        </div>
+
+        <div class="exercise-header">📝 隨堂練習：不供詞填充（成語運用）</div>
+        <p style="font-size: 13.5px; color: var(--color-text-secondary); margin-bottom: 1rem;">根據句意及括號內的提示，填上合適的四字成語。
+        </p>
+
+        <div class="ex-item">
+          <div class="ex-q">1. 他們兩兄弟的性格 <span class="ex-blank"></span>（意指：完全不同），一個好動，一個好靜。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：截然不同</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">2. 上台發表專題簡報時，他 <span class="ex-blank"></span>（意指：說話簡練而意思完整），絕不拖泥帶水。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：言簡意賅</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">3. 老師勸過他很多次，但他依然 <span class="ex-blank"></span>（意指：死守舊規矩，不肯改變），不肯嘗試新的讀書方法。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：墨守成規</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">4. 遇到這份這麼難的測驗卷，大家都覺得 <span class="ex-blank"></span>（意指：非常小心，像踩在薄冰上），每答一題都很謹慎。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：如履薄冰</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">5. 去旅行前，阿媽一早 <span class="ex-blank"></span>（意指：預先做好準備），買齊了所有藥物防身。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：未雨綢繆</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">6. 遲到對於他來說，已經是 <span class="ex-blank"></span>（意指：經常見到，不足為奇）的事，大家都習慣了。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：司空見慣</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">7. 班長處事大公無私，這次分組名單大家都覺得他做到了 <span class="ex-blank"></span>（意指：照顧到每一方，周到沒有遺漏）。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：面面俱到</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">8. 與其不斷兜圈子，不如 <span class="ex-blank"></span>（意指：直截了當）地說出你今天找我的真正目的。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：開門見山</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">9. 如果你能找到學習的竅門，做起功課來自然 <span class="ex-blank"></span>（意指：用一半力得到雙倍效果）。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：事半功倍</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">10. 他對這次的校際鋼琴比賽非常有信心，決定 <span class="ex-blank"></span>（意指：使出全部力量，絕不保留）去應戰。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：全力以赴</div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-teal">✍️</div>
+        <div class="section-title">第三部分：句式結構與改寫技巧</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-teal"></div>遠離「口語化」與「歐化中文」
+        </div>
+        <p style="font-size: 14px; margin-bottom: 0.5rem;">許多同學在寫作時，經常會不自覺地混入廣東話口語，或者受到英文文法影響（即歐化中文），導致文句累贅、不通順。</p>
+
+        <div class="formula">
+          <div class="formula-label">📝 常見歐化語病診斷</div>
+          <div class="formula-text">
+            ❌ 濫用「作出」：作出調查 ➔ ✅ 調查<br>
+            ❌ 濫用「被」字：被他發現 ➔ ✅ 遭他發現 / 讓他發現了<br>
+            ❌ 直譯名詞作動詞：給出一個建議 (make a suggestion) ➔ ✅ 建議
+          </div>
+        </div>
+
+        <div class="compare-grid">
+          <div class="compare-card bad">
+            <div class="compare-label">❌ 英式邏輯 / 口語化</div>
+            <div class="compare-text">如果你唔快啲交功課，老師會變到好生氣。 (You will make the teacher become angry)</div>
+          </div>
+          <div class="compare-card good">
+            <div class="compare-label">✅ 自然書面語</div>
+            <div class="compare-text">如果你不盡快提交功課，老師會非常生氣。</div>
+          </div>
+        </div>
+
+        <div class="card-title" style="margin-top: 1.5rem;">
+          <div class="dot dot-teal"></div>關聯詞與句構重組
+        </div>
+        <p style="font-size: 14px;">在重組句子中，找出「關聯詞」是成功的一半。常見結構包括：</p>
+        <div class="example-box teal">
+          <div class="example-label">選擇 / 比較結構</div>
+          <div class="example-text"><strong>與其</strong>（互相抱怨浪費時間），<strong>不如</strong>（抓緊時間溫習）。</div>
+        </div>
+        <div class="example-box teal">
+          <div class="example-label">條件結構</div>
+          <div class="example-text"><strong>只有</strong>（努力練習），我們<strong>才能</strong>（在比賽中獲勝）。</div>
+        </div>
+
+        <div class="exercise-header">📝 隨堂練習：改寫句子（轉化為標準書面語）</div>
+        <p style="font-size: 13.5px; color: var(--color-text-secondary); margin-bottom: 1rem;">
+          請將下列口語化或「英式邏輯」的句子，改寫為自然、流暢的書面語。</p>
+
+        <div class="ex-item">
+          <div class="ex-q">1. （口語）佢打機打到好勁，全班同學都好佩服佢。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：他擅長電子遊戲，令全班同學非常佩服。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">2. （英式）如果你唔快啲交功課，老師會變到好生氣。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：如果你不盡快提交功課，老師會非常生氣。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">3. （口語）呢兩個體育老師諗嘅嘢好唔同。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：這兩位體育老師的教學觀念截然不同。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">4. （英式）我寫呢個 Message 係想同你講，我聽日去唔到你生日 Party。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：我傳送這個訊息是想告訴你，我明天無法出席你的生日派對。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">5. （口語）雖然呢個方法好似好正，但其實好多同學都做唔到。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：雖然這個方法看似完美，但其實大部份同學都難以做到。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">6. （英式）多謝你嘅 Suggestion，我會試吓改改個 Project。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：謝謝你的建議，我會嘗試修改我的專題研習。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">7. （口語）你咁樣同媽咪頂嘴，佢實會傷心死，你諗吓先啦。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：你這樣和母親頂嘴，她一定會十分傷心，請你務必三思。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">8. （英式）我哋一定要 Meet 個 Deadline，唔係就要扣分。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：我們必須按時提交作業，否則會被扣分。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">9. （口語）班長講啲嘢好混亂，搞到大家都好 Confuse。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：班長的發言非常混亂，讓大家都感到困惑。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">10. （口語）我哋要搵出點解全班成績差嘅原因，唔好只係瘋狂做 Dummy 練習。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：我們需要找出全班成績不理想的根源，而不是盲目地做重覆的練習。</div>
+          </details>
+        </div>
+
+        <div class="exercise-header" style="margin-top: 2rem;">📝 隨堂練習：重組句子</div>
+
+        <div class="ex-item">
+          <div class="ex-q">1. 與其 / 浪費時間 / 溫習 / 互相抱怨 / 不如 / 抓緊時間</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：與其互相抱怨浪費時間，不如抓緊時間溫習。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">2. 只有 / 才能 / 努力練習 / 比賽中 / 獲勝 / 在 / 我們</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：只有努力練習，我們才能在比賽中獲勝。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">3. 旨在 / 這個 / 社區活動 / 建立 / 互助精神 / 鄰里間 / 讓 / 並 / 效益最大化（補充）</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：這個社區活動旨在建立鄰里間的互助精神，並讓效益最大化。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">4. 雖然 / 艱巨 / 任務 / 我們 / 卻 / 從未 / 放棄</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：雖然任務艱巨，我們卻從未放棄。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">5. 有見及此 / 決定 / 調整 / 班主任 / 座位 / 秩序 / 改善 / 為了</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：有見及此，班主任決定調整座位以改善秩序。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">6. 言簡意賅 / 演講 / 這場 / 點出了 / 學生 / 的 / 心理痛點</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：這場言簡意賅的演講點出了學生的心理痛點。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">7. 既 / 他的 / 提議 / 有趣 / 又 / 具備 / 可行性</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：他的提議既有趣，又具備可行性。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">8. 面對 / 挑戰 / 必須 / 我們 / 沉著應戰 / 突然其來的</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：面對突然其來的挑戰，我們必須沉著應戰。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">9. 由於 / 因素 / 陸運會 /被迫 / 天氣 / 延期 / 舉行</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：由於天氣因素，陸運會被迫延期舉行。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">10. 同學 / 應該 / 意見 / 積極 / 聽取 / 彼此的 / 分組時</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：分組時，同學應該積極聽取彼此的意見。</div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">📖</div>
+        <div class="section-title">第四部分：閱讀與段落理解技巧</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-blue"></div>閱讀理解拆題法
+        </div>
+        <p style="font-size: 14px; margin-bottom: 0.5rem;">應付閱讀理解，首先要學會從段落中尋找線索。以下是兩個非常實用的技巧：</p>
+
+        <div class="example-box blue">
+          <div class="example-label">技巧一：留意「總結性」字眼</div>
+          <div class="example-text">
+            段落中若出現「總括而言」、「因此」、「由此可見」，其後多為段落的<strong>中心主旨</strong>。回答「段落大意」或「作者想分享的道理」時，需從這些句子中提煉答案。</div>
+        </div>
+
+        <div class="example-box blue">
+          <div class="example-label">技巧二：利用「前文後理」推敲詞義</div>
+          <div class="example-text">
+            若題目要求解釋詞語（例如：優化、範疇），不要死背字典解釋。嘗試把詞語從句子中抽離，看看用甚麼<strong>日常詞彙替換</strong>後，句意依然通順，這便是最佳答案。</div>
+        </div>
+
+        <div class="exercise-header">📝 隨堂練習：段落理解</div>
+
+        <div
+          style="background: var(--color-background-secondary); padding: 1rem 1.2rem; border-left: 4px solid #378ADD; margin-bottom: 1.5rem; line-height: 1.8;">
+          <strong>【段落一】</strong><br>
+          「在學校生活中，與同學相處是一門大學問。與其遇到誤會時互相猜忌，不如開門見山地把問題說清楚。同時，我們應該隨時優化自己的溝通方式，力求言簡意賅，因為這樣不但能減少不必要的爭吵，更能和大家建立深厚的友誼。」
+        </div>
+
+        <div class="ex-item">
+          <div class="ex-q">1. 文中建議遇到誤會時應該怎麼做？</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：開門見山地把問題說清楚。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">2. 為什麼與同學說話時要力求「言簡意賅」？</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：因為這樣能減少不必要的爭吵，與大家建立深厚友誼。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">3. 「優化」在文中是指什麼？</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：改善 / 改進（說話或溝通的方法）。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">4. 這段文字主要想分享什麼道理？</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：坦誠與精煉的溝通對與同學相處非常重要。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">5. 請為這段文字加一個合適的小標題。</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：同學之間的相處之道 / 溝通的藝術（意近即可）。</div>
+          </details>
+        </div>
+
+        <div
+          style="background: var(--color-background-secondary); padding: 1rem 1.2rem; border-left: 4px solid #378ADD; margin: 2rem 0 1.5rem 0; line-height: 1.8;">
+          <strong>【段落二】</strong><br>
+          「網絡遊戲近年已成為青少年的主要社交媒介，甚至成為一種趨勢。雖然打機在放鬆心情和廣結朋友等範疇都有其好處，但同學必須注意時間的侷限，不能玩物喪志。因此，我們在享受打機樂趣的同時，也必須認真評估它對我們日常生活和學業帶來的長遠影響。」
+        </div>
+
+        <div class="ex-item">
+          <div class="ex-q">6. 文中提到的「趨勢」是指什麼？</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：網絡遊戲成為青少年的主要社交媒介。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">7. 根據段落，打機有哪些好處？（列出兩項）</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：放鬆心情、廣結朋友。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">8. 作者提醒同學打機時要注意什麼限制？</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：時間的限制（不能玩物喪志）。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">9. 文中「範疇」一詞可以換成哪一個日常詞語？</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：領域 / 方面。</div>
+          </details>
+        </div>
+        <div class="ex-item">
+          <div class="ex-q">10. 為什麼我們在打機的同時，還需要「評估」其長遠影響？</div>
+          <details class="ans-toggle">
+            <summary>👁️ 觀看答案</summary>
+            <div class="ans-text">✏️ 答案：因為要確保打機不會對日常生活和學業造成負面影響。</div>
+          </details>
+        </div>
+
+      </div>
+    </div>
+
+    
+    <!-- 返回目錄及列印按鈕 -->
+    <div class="print-btn-container">
+      <a href="index.html" class="print-btn">↩️ 返回筆記目錄</a>
+      <button onclick="window.print()" class="print-btn">🖨️ 列印此頁 / 儲存 PDF</button>
+    </div>
+<footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>
