@@ -20,6 +20,7 @@ folders = {
         "tag": "學生個人專屬",
         "categories": {
             "閱讀與範文": [
+                {"file": "DSE 中文閱讀卷高分作戰藍圖.html", "title": "中文閱讀卷高分作戰藍圖", "desc": "DSE 閱讀策略"},
                 {"file": "《逍遙遊》DSE應試極致筆記_潘SIR中文教室.html", "title": "《逍遙遊》應試極致筆記", "desc": "DSE 範文深造"},
                 {"file": "中六閱讀：〈廢墟與記憶的辯證〉分析.html", "title": "〈廢墟與記憶的辯證〉分析", "desc": "中六課外閱讀"}
             ],
@@ -102,6 +103,9 @@ folders = {
         "title": "Zeon Lok 的學習筆記",
         "tag": "學生個人專屬",
         "categories": {
+            "DSE 考試策略": [
+                {"file": "DSE 中文閱讀卷高分作戰藍圖.html", "title": "中文閱讀卷高分作戰藍圖", "desc": "DSE 閱讀策略"}
+            ],
             "寫作技巧": [
                 {"file": "《那次，我流下了悔恨的淚水》寫作教學筆記.html", "title": "《那次，我流下了悔恨的淚水》", "desc": "寫作教學筆記"},
                 {"file": "抒情文進階：從「觸景生情」到「意象重構」.html", "title": "抒情文進階", "desc": "觸景生情與意象重構"},
@@ -319,6 +323,14 @@ icons = ["📚", "🧭", "🔥", "⚡", "⚖️"]
 
 for folder_name, data in folders.items():
     content_html = ""
+    has_dse = False
+    for category, items in data["categories"].items():
+        if "DSE" in category:
+            has_dse = True
+        for item in items:
+            if "DSE" in item.get("file", "") or "DSE" in item.get("title", "") or "DSE" in item.get("desc", ""):
+                has_dse = True
+
     icon_idx = 0
     for category, items in data["categories"].items():
         icon = icons[icon_idx % len(icons)]
@@ -337,6 +349,17 @@ for folder_name, data in folders.items():
     </a>
 '''
         content_html += '  </div>\n'
+
+    if folder_name != "DSE_HTML_Notes" and has_dse:
+        dse_banner = """  <div class="nav-grid" style="grid-template-columns: 1fr; margin-bottom: 1.5rem;">
+    <a href="../DSE_HTML_Notes/index.html" class="nav-card" style="margin-bottom: 0;">
+      <div class="dot">🔥</div>
+      <h3>DSE 12篇範文精讀筆記</h3>
+      <p>中六・文憑試十二篇範文深造系列目錄</p>
+    </a>
+  </div>
+"""
+        content_html = dse_banner + content_html
     
     final_html = html_template.format(title=data["title"], tag=data["tag"], content=content_html)
     
