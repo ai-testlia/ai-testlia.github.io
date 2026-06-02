@@ -116,6 +116,11 @@ folders = {
             ]
         }
     },
+    "zeng_han": {
+        "title": "Zeng Han 的學習筆記",
+        "tag": "學生個人專屬",
+        "categories": {}
+    },
     "DSE_HTML_Notes": {
         "title": "中六・文憑試十二篇範文深造系列",
         "tag": "文言教學筆記目錄",
@@ -324,6 +329,8 @@ icons = ["📚", "🧭", "🔥", "⚡", "⚖️"]
 for folder_name, data in folders.items():
     content_html = ""
     has_dse = False
+    if folder_name == "zeng_han":
+        has_dse = True
     for category, items in data["categories"].items():
         if "DSE" in category:
             has_dse = True
