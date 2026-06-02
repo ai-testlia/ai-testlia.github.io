@@ -119,7 +119,18 @@ folders = {
     "zeng_han": {
         "title": "Zeng Han 的學習筆記",
         "tag": "學生個人專屬",
-        "categories": {}
+        "categories": {
+            "DSE 考試策略": [
+                {"file": "DSE 中文閱讀卷高分作戰藍圖.html", "title": "中文閱讀卷高分作戰藍圖", "desc": "DSE 閱讀策略"}
+            ],
+            "寫作進階技巧": [
+                {"file": "抒情文進階：從「觸景生情」到「意象重構」.html", "title": "抒情文進階", "desc": "觸景生情與意象重構"},
+                {"file": "記敘文進階：細節的溫度與情感的留白.html", "title": "記敘文進階", "desc": "細節溫度與情感留白"}
+            ],
+            "語文基礎與修辭": [
+                {"file": "筆記_常用修辭手法.html", "title": "常用修辭手法", "desc": "小五深進篇"}
+            ]
+        }
     },
     "DSE_HTML_Notes": {
         "title": "中六・文憑試十二篇範文深造系列",
