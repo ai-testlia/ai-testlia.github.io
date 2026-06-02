@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜荀子《勸學》全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6f6f4;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>荀子《勸學》（節錄）<br>DSE文憑試高級深造筆記</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、核心字詞與通假現象（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、經典語句文法與特殊句式拆解</a></li>
+      <li><a href="#sec-3">三、說理框架：學習的意義、方法與態度</a></li>
+      <li><a href="#sec-4">四、DSE 閱卷陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、核心字詞與通假現象（DSE必考語譯點）</h2>
+  </div>
+  <p>荀子《勸學》一文語言精練，當中充斥著一字多義、詞類活用及通假字，這正是文憑試卷一「字詞解釋」的搶分重鎮。以下為必背的摘星字詞：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">核心字詞</th>
+        <th style="width: 25%;">精確文言釋義</th>
+        <th>課文原句語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>已</b></td>
+        <td>停止 / 放棄</td>
+        <td>「學不可以<b>已</b>。」<br><small>解析：動詞。文章的中心論點，指學習是沒有止境的，不可半途而廢。</small></td>
+      </tr>
+      <tr>
+        <td><b>中</b></td>
+        <td>符合 / 合乎</td>
+        <td>「木直<b>中</b>繩，輮以為輪，其曲<b>中</b>規。」<br><small>解析：讀音 zhòng。動詞。指木材的直度符合墨線，彎曲度符合圓規。</small></td>
+      </tr>
+      <tr>
+        <td><b>參</b></td>
+        <td>多次 / 反覆</td>
+        <td>「君子博學而日<b>參</b>省乎己。」<br><small>解析：副詞。切忌譯為「參加」。意指每天多次反省自己。</small></td>
+      </tr>
+      <tr>
+        <td><b>假</b></td>
+        <td>借助 / 憑藉</td>
+        <td>「<b>假</b>輿馬者，非利足也，而致千里。」<br><small>解析：動詞。指善於利用外物來彌補自身的不足。</small></td>
+      </tr>
+      <tr>
+        <td><b>絕</b></td>
+        <td>橫渡 / 越過</td>
+        <td>「假舟楫者，非能水也，而<b>絕</b>江河。」<br><small>解析：動詞。不可誤譯為「絕對」或「斷絕」。</small></td>
+      </tr>
+      <tr>
+        <td><b>疾</b></td>
+        <td>宏大 / 響亮</td>
+        <td>「順風而呼，聲非加<b>疾</b>也，而聞者彰。」<br><small>解析：形容詞。指聲音宏亮，並非指「疾病」或「快速」。</small></td>
+      </tr>
+      <tr>
+        <td><b>一</b></td>
+        <td>專一 / 專心</td>
+        <td>「用心<b>一</b>也。」<br><small>解析：數詞活用為形容詞。指蚯蚓雖然先天條件差，但因為用心專一而能成功。</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>DSE 必考：通假字大全</h3>
+    <ul>
+      <li>「<b>輮</b>以為輪」：通「煣」，指用火烤木材使之彎曲。</li>
+      <li>「雖<b>有</b>槁暴」：通「又」，副詞，指「即使再次枯乾」。</li>
+      <li>「則<b>知</b>明而行無過矣」：通「智」，名詞，指智慧。</li>
+      <li>「君子<b>生</b>非異也」：通「性」，名詞，指天賦的本性/資質。</li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、經典語句文法與特殊句式拆解</h2>
+  </div>
+  <p>荀子善用文言文的精煉語法來增強論辯的氣勢。掌握這些特殊句式能讓你在翻譯題中萬無一失：</p>
+
+  <div class="keyword-grid">
+    <div class="kw-box">
+      <div class="kw-word">1. 介詞結構後置（狀語後置）</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「青，取<b>之於藍</b>，而青<b>於藍</b>；冰，水為之，而寒<b>於水</b>。」</p>
+        <p><strong>精確語譯：</strong>靛青，是從蓼藍草中提煉出來的，卻比蓼藍草更青；冰，是水凝結而成的，卻比水更寒冷。</p>
+        <p><strong>滿分技巧：</strong>文言文常將「於+名詞」放在動詞或形容詞之後。翻譯時須將其調回前面，如「（比）水寒冷」、「（從）藍草取之」。</p>
+      </div>
+    </div>
+    
+    <div class="kw-box">
+      <div class="kw-word">2. 詞類活用：名詞作動詞</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「假舟楫者，非能<b>水</b>也，而絕江河。」</p>
+        <p><strong>精確語譯：</strong>借助船隻的人，並不是善於<b>游泳</b>，卻能橫渡長江黃河。</p>
+        <p><strong>滿分技巧：</strong>「水」本為名詞，這裏活用作動詞「游泳」或「泅水」。</p>
+      </div>
+    </div>
+
+    <div class="kw-box">
+      <div class="kw-word">3. 詞類活用：名詞作狀語</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「<b>上</b>食埃土，<b>下</b>飲黃泉，用心一也。」</p>
+        <p><strong>精確語譯：</strong>（蚯蚓能）<b>向上</b>吃地面的泥土，<b>向下</b>飲地底的泉水，這是因為牠用心專一啊。</p>
+        <p><strong>滿分技巧：</strong>「上」、「下」為名詞，此處修飾動詞「食」和「飲」，用作狀語，解作「向上」、「向下」。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、說理框架：學習的意義、方法與態度</h2>
+  </div>
+  <p>荀子的《勸學》結構極為嚴密。他開門見山提出「學不可以已」的中心論點，隨後透過大量比喻，分三個層次（意義、方法、態度）層層推進論證。</p>
+
+  <div class="flow">
+    <div class="flow-step"><strong>1. 學習的意義：改變本性，提升自我</strong><br>以「青出於藍」、「冰寒於水」比喻學習能改變和超越本性；以「輮木為輪」比喻學習能使人變惡為善（荀子主張性惡論，強調後天改造）；以「木受繩則直，金就礪則利」比喻學習能提升人的能力和品德。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>2. 學習的方法：善假於物</strong><br>指出空想不如實地學習（「吾嘗終日而思矣，不如須臾之所學也」）。並以「登高而招」、「順風而呼」、「假輿馬」、「假舟楫」四個比喻，說明君子的天賦與常人無異，成功的秘訣在於善於借助外物（後天學習）。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>3. 學習的態度：積累、堅持、專一</strong><br>
+    • <b>積累：</b>「積土成山」、「積水成淵」、「不積跬步」、「不積小流」。<br>
+    • <b>堅持：</b>以「騏驥一躍」對比「駑馬十駕」，以「朽木不折」對比「金石可鏤」，強調「鍥而不舍」。<br>
+    • <b>專一：</b>以「螾（蚯蚓）」先天條件差卻能上食下飲（用心一），對比「蟹」先天條件好卻無可寄託（用心躁）。</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>滿分寫作手法剖析：博喻與對比的藝術</h3>
+    <ul>
+      <li><strong>博喻（連續設喻）：</strong>荀子善於運用多個比喻來反覆說明同一個道理，使抽象的哲理變得具體生動。例如在論述「學習的態度」時，連續用了十個比喻（積土、積水、跬步、小流、騏驥、駑馬、朽木、金石、螾、蟹），氣勢磅礡。</li>
+      <li><strong>對比論證：</strong>
+        <ul>
+          <li><b>天資對比：</b>「騏驥」（駿馬）對比「駑馬」（劣馬）。</li>
+          <li><b>態度對比：</b>「鍥而舍之」對比「鍥而不舍」；「螾」（用心專一）對比「蟹」（用心浮躁）。</li>
+          <li><b>效果對比：</b>朽木不折 vs 金石可鏤；上食下飲 vs 無可寄託。</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、DSE 閱卷陷阱與常犯錯誤對比</h2>
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 潘SIR提醒：</strong>DSE 考問《勸學》時，極愛要求考生區分「比喻論證」和「類比論證」。雖然兩者相似，但若題目特定問及「積土成山，風雨興焉；積水成淵，蛟龍生焉；積善成德，而神明自得...」，這屬於<strong>類比論證</strong>（由自然現象的積累，推論至人美品德的積累）。
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 凡人失分答法</div>
+      <p><strong>題目：</strong>荀子以「螾」和「蟹」作比喻，旨要說明甚麼道理？（4分）</p>
+      <p><strong>典型劣答：</strong>荀子說蚯蚓沒有鋒利的爪牙和強壯的骨，但可以吃到泥土喝到泉水；而螃蟹有八隻腳和兩隻鉗，卻只能住在蛇和鱔的洞裡。這說明了天生條件不好不重要，只要努力就能成功。</p>
+      <p><em>關鍵敗因：只翻譯了字面意思，沒有點出核心概念「專一」與「浮躁」的對比，失分嚴重！</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>荀子以「螾」和「蟹」作比喻，旨要說明甚麼道理？（4分）</p>
+      <p><strong>星級滿分答法：</strong>荀子運用了<b>對比論證</b>（1分）。他指出蚯蚓先天條件差，缺乏鋒利的爪牙與強健的筋骨，卻能向上吃泥土，向下飲泉水，是因為牠<b>「用心專一」</b>（1分）；相反，螃蟹先天條件優越，有六腳二鉗，卻因<b>「用心浮躁」</b>，只能寄居在蛇鱔的洞穴中（1分）。作者藉此對比，說明學習的成敗不在於先天資質，而在於後天學習時<b>必須專心致志，切忌浮躁不專</b>（1分）。</p>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">🔥</div>
+    <h2>五、文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 在《勸學》（節錄）中，荀子說「木受繩則直，金就礪則利，君子博學而日參省乎己，則知明而行無過矣。」他運用這個比喻來說明甚麼道理？（4分）</div>
+    <div class="example-box" style="margin-top:0.5rem;">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p>荀子以木材用墨線量過就能取直，刀劍用磨刀石磨過就會變得鋒利作為比喻（1分），論證人如果能夠像木受繩、金就礪一樣，經歷後天的學習與改造（1分），廣泛地學習並且每天多次反省自己（1分），就能夠智慧明達，行為不再有過失，從而提升自己的品德和能力，成為一個君子（1分）。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 試根據《勸學》（節錄）的內容，指出「君子」與常人在天賦資質上有何異同，並說明君子能超越常人的原因。（4分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>異同：</strong>荀子認為「君子生非異也」，即君子與常人在先天的本性與天賦資質上是完全一樣的，並無分別（2分）。</p>
+      <p><strong>超越的原因：</strong>君子之所以能成為君子，超越常人，是因為他們「善假於物也」（1分）。即君子善於借助外在的事物和後天的學習來彌補自身的不足，透過不斷積累和自我反省，最終提升了自己的道德修養與智慧（1分）。</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：跨篇章比較（《勸學》 vs 《魚我所欲也》）</span>
+    DSE 極愛考兩篇先秦諸子說理文的比較。記住以下萬用框架：<br>
+    <strong>【對本性的看法】</strong>荀子主張<strong>「性惡論」</strong>（君子生非異也，透過「輮」等外力改造本性）；孟子主張<strong>「性善論」</strong>（人皆有不忍人之心/羞惡之心，非獨賢者有是心也）。<br>
+    <strong>【對學習/修養的目的】</strong>荀子認為學習是為了<strong>「變惡為善」</strong>，靠後天積累（積善成德）來克制本性；孟子認為修養是為了<strong>「保存/擴充本心」</strong>（賢者能勿喪耳），避免因物慾誘惑而「失其本心」。<br>
+    <strong>【論證手法】</strong>兩者皆極為擅長<strong>比喻論證</strong>與<strong>對比論證</strong>，說理形象生動。
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

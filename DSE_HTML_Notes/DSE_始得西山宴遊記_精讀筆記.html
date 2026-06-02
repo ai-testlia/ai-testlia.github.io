@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜柳宗元《始得西山宴遊記》全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6f6f4;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>柳宗元《始得西山宴遊記》<br>DSE文憑試高級深造筆記</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、 核心字詞深度義訓（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、 情景交融：從「惴慄」到「冥合」的心路歷程</a></li>
+      <li><a href="#sec-3">三、 滿分寫作手法剖析：襯托與象徵的極致</a></li>
+      <li><a href="#sec-4">四、 DSE 閱卷陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、 文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、 核心字詞深度義訓（DSE必考語譯點）</h2>
+  </div>
+  <p>《始得西山宴遊記》是柳宗元「永州八記」之首，文辭精鍊，當中不少字詞的解釋是歷屆 DSE 的必考點。掌握以下詞彙，是穩奪語譯分數的關鍵：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">核心字詞</th>
+        <th style="width: 25%;">精確文言釋義</th>
+        <th>課文原句語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>僇人</b></td>
+        <td>有罪受辱的人</td>
+        <td>「自余為<b>僇人</b>，居是州，恆惴慄。」<br><small>解析：指作者因參與政治改革失敗被貶為永州司馬，帶罪之身。</small></td>
+      </tr>
+      <tr>
+        <td><b>隙</b></td>
+        <td>空閑 / 閑暇</td>
+        <td>「其<b>隙</b>也，則施施而行，漫漫而遊。」<br><small>解析：指公餘空閑的時間。</small></td>
+      </tr>
+      <tr>
+        <td><b>窮</b></td>
+        <td>走到盡頭</td>
+        <td>「入深林，<b>窮</b>迴谿。」<br><small>解析：動詞。走到曲折溪流的盡頭，表現出作者尋幽探秘的執着。</small></td>
+      </tr>
+      <tr>
+        <td><b>極 / 趣</b></td>
+        <td>至、達到 / 趨向</td>
+        <td>「意有所<b>極</b>，夢亦同<b>趣</b>。」<br><small>解析：「趣」通「趨」。指心裏想到哪個地方，做夢也就去到那個地方。</small></td>
+      </tr>
+      <tr>
+        <td><b>際</b></td>
+        <td>交會 / 相接</td>
+        <td>「外與天<b>際</b>，四望如一。」<br><small>解析：動詞。指西山遠處的景物與天邊相接。</small></td>
+      </tr>
+      <tr>
+        <td><b>特立</b></td>
+        <td>獨特高聳</td>
+        <td>「然後知是山之<b>特立</b>，不與培塿為類。」<br><small>解析：西山卓然獨立，這正是作者清高傲世、不隨波逐流的人格寫照。</small></td>
+      </tr>
+      <tr>
+        <td><b>嚮</b></td>
+        <td>以前 / 從前</td>
+        <td>「然後知吾<b>嚮</b>之未始遊，遊於是乎始。」<br><small>解析：時間副詞。指以前的遊歷都不算真正的遊歷，點題「始得」。</small></td>
+      </tr>
+      <tr>
+        <td><b>志</b></td>
+        <td>記錄</td>
+        <td>「故為之文以<b>志</b>。」<br><small>解析：動詞，通「誌」。指寫下這篇文章來記錄這次難忘的遊歷。</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、 情景交融：從「惴慄」到「冥合」的心路歷程</h2>
+  </div>
+  <p>本文是一篇「貶謫文學」，表面寫遊山玩水，實則是記錄作者心靈得到救贖與昇華的過程。請緊記以下的情感轉折路徑：</p>
+
+  <div class="flow">
+    <div class="flow-step"><strong>1. 貶謫永州，內心恐懼（恆惴慄）</strong><br>作者以帶罪之身（僇人）被貶永州，對政治迫害充滿陰影，日夜憂懼不安。為了排遣恐懼，他選擇寄情山水。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>2. 漫遊諸山，未得解脫（覺而起，起而歸）</strong><br>初到永州時，他雖然遊遍群山（幽泉怪石，無遠不到），但這只是「為遊而遊」，醉後便睡，醒了便走，毫無留戀。大自然並未真正走入他的內心，他的鬱結仍未解開。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>3. 始得西山，見其特立（不與培塿為類）</strong><br>偶然發現西山，披荊斬棘登頂後，發現西山高峻特立，視野無比廣闊（尺寸千里）。西山的「怪特」震撼了作者。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>4. 宴遊頓悟，精神解脫（心凝形釋，與萬化冥合）</strong><br>在西山之巔，作者的心神凝聚安定，形體的拘束彷彿消散了，與大自然渾然融合。此時，他終於忘卻了被貶的政治煩惱，達到精神的徹底解放。</div>
+  </div>
+
+  <div class="alert tip">
+    <strong>💡 DSE 必背概念：</strong>「心凝形釋，與萬化冥合」是道家「天人合一」、「物我兩忘」的最高境界。大自然治癒了柳宗元的政治創傷，令他重獲精神的自由。
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、 滿分寫作手法剖析：襯托與象徵的極致</h2>
+  </div>
+  <p>柳宗元的山水遊記冠絕唐代，在《始得西山宴遊記》中，他將「襯托」和「象徵」的手法運用得淋漓盡致，這是考評局極度重視的考點。</p>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>1. 多層次的「襯托」手法</h3>
+    <ul>
+      <li><strong>以「昔遊」襯托「今遊」（情感反襯）：</strong>第一段寫以前遊覽永州其他山水，醉醒後「覺而起，起而歸」，毫無留戀；反襯遊西山時，即使「蒼然暮色……而猶不欲歸」，突顯西山的極度吸引力。</li>
+      <li><strong>以「群山」襯托「西山」（景物正襯與反襯）：</strong>作者登頂後，寫附近數州的土地「皆在衽席之下」（在坐席之下），又寫群山「若垤若穴」（像小土堆和螞蟻洞），以群山的矮小，<b>反襯</b>出西山的高聳入雲、卓爾不凡。</li>
+      <li><strong>製造懸念（結構襯托）：</strong>文章題為「始得西山」，但第一段卻偏偏不寫西山，而大寫特寫永州的其他山水，並說「以為凡是州之山水有異態者，皆我有也」，以此鋪墊，從而襯托出後文發現西山時的驚喜與西山的「怪特」。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>2. 託物言志的「象徵」藝術</h3>
+    <div class="example-box classical">
+      <span class="example-label">西山 = 柳宗元的人格化身</span>
+      <span class="example-text">西山被隱沒在永州，無人賞識 ➔ 象徵作者<b>懷才不遇、被貶謫荒遠之地</b>的悲涼際遇。<br><br>
+      西山「特立，不與培塿為類」 ➔ 象徵作者<b>孤高傲世、特立獨行</b>，絕不與朝廷中那些趨炎附勢的小人（培塿）同流合污的高尚情操。</span>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、 DSE 閱卷陷阱與常犯錯誤對比</h2>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 凡人失分答法</div>
+      <p><strong>題目：</strong>文章第一段，作者指出自己經常在永州到處遊山玩水，原因何在？（2分）</p>
+      <p><strong>典型劣答：</strong>因為作者被貶職後工作很清閒，有很多空餘時間，所以他四處遊山玩水來打發時間，欣賞永州美麗的風景。</p>
+      <p><em>關鍵敗因：完全忽視了「自余為僇人，居是州，恆惴慄」這句核心情感。遊山玩水只是手段，真正的目的是為了「逃避現實的恐懼」。</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>文章第一段，作者指出自己經常在永州到處遊山玩水，原因何在？（2分）</p>
+      <p><strong>星級滿分答法：</strong>因為作者身為帶罪被貶的官員（僇人），內心經常感到<b>憂懼不安（恆惴慄）</b>（1分）。為了<b>排遣這種政治迫害帶來的恐懼與苦悶</b>，他才趁着空暇時間寄情山水，希望在大自然中尋求心靈的麻醉（1分）。</p>
+      <p><em>摘星要訣：必須點出作者被貶後的「負面心理狀態（恆惴慄）」，以及遊水玩水「排遣愁悶」的深層動機。</em></p>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 潘SIR提醒：</strong>「始得」的「始」字極易被誤解！它不僅解作「開始發現/初次遊覽」，在文末更有着「精神洗禮後，真正遊歷的開始」之昇華意義（遊於是乎始）。
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">🔥</div>
+    <h2>五、 文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 柳宗元在文章開首寫道：「以為凡是州之山水有異態者，皆我有也，而未始知西山之怪特。」這兩句在文章結構上起着甚麼作用？試加以說明。（4分）</div>
+    <div class="example-box" style="margin-top:0.5rem;">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p>這兩句在結構上起着<b>承上啟下（或製造懸念／襯托）</b>的作用（1分）。</p>
+      <p>「以為凡是州之山水有異態者，皆我有也」承接上文，總結了作者發現西山前遊覽永州群山的經驗，以為已盡覽奇景（1分）。而「而未始知西山之怪特」一句則語氣一轉，指出原來自己還未發現奇異獨特的西山，從而<b>引出下文作者發現西山的經過</b>，以及具體描寫西山的「怪特」之處（2分）。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 試根據《始得西山宴遊記》的內容，說明作者在遊覽西山後，達到了一種怎樣的思想境界？他為甚麼會有這種轉變？（5分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><b>思想境界：</b>作者在西山之巔，達到了一種<b>「心凝形釋，與萬化冥合」</b>（道家天人合一）的思想境界（1分）。他的心神安定，形體的拘束感消失了，感覺自己完全與大自然融為一體，忘卻了世俗的榮辱與個人的得失（1分）。</p>
+      <p><b>轉變原因：</b>因為作者登上西山後，看見「尺寸千里」、「外與天際」的壯闊奇景，感受到宇宙的浩瀚無垠（1分）；相較之下，世俗的權力鬥爭、個人被貶的挫折與恐懼（恆惴慄）變得微不足道（1分）。西山那種「特立不羣」的氣象，也引起了作者人格上的共鳴，使他的精神得到徹底的解脫與昇華（1分）。</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：跨篇章比較（《始得西山宴遊記》 vs 《岳陽樓記》）</span>
+    DSE 非常喜歡比較柳宗元與范仲淹面對「被貶（逆境）」時的不同人生態度：<br>
+    <strong>【相同之處】</strong>兩人同為遭貶謫的官員，同樣面對仕途的挫折，並且同樣藉着<b>「寄情山水／登高望遠」</b>來抒發個人情懷。<br>
+    <strong>【相異之處（核心）】</strong><br>
+    • <b>柳宗元（《始》）傾向「道家」的遁世解脫：</b>他藉西山的壯闊，領悟到宇宙的浩瀚，追求「與萬化冥合」，以<b>忘卻世俗煩惱、尋求心靈上的自我超脫</b>為最終歸宿。<br>
+    • <b>范仲淹（《岳》）傾向「儒家」的積極入世：</b>他並未因景色的壯美而忘卻現實，反而提出「不以物喜，不以己悲」，無論在朝在野都堅持「先天下之憂而憂，後天下之樂而樂」，表現出<b>不計個人得失、堅守政治抱負、以天下為己任</b>的積極態度。
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

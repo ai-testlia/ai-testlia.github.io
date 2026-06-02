@@ -138,7 +138,10 @@ folders = {
         "categories": {
             "十二篇範文精讀": [
                 {"file": "DSE_出師表_精讀筆記.html", "title": "《出師表》", "desc": "諸葛亮"},
+                {"file": "DSE_勸學_精讀筆記.html", "title": "《勸學》", "desc": "荀子"},
+                {"file": "DSE_始得西山宴遊記_精讀筆記.html", "title": "《始得西山宴遊記》", "desc": "柳宗元"},
                 {"file": "DSE_宋詞三首_精讀筆記.html", "title": "《宋詞三首》", "desc": "蘇軾、李清照、辛棄疾"},
+                {"file": "DSE_岳陽樓記_精讀筆記.html", "title": "《岳陽樓記》", "desc": "范仲淹"},
                 {"file": "DSE_廉頗藺相如列傳_精讀筆記.html", "title": "《廉頗藺相如列傳》", "desc": "司馬遷"},
                 {"file": "DSE_論仁論孝論君子_精讀筆記.html", "title": "論仁、論孝、論君子", "desc": "《論語》"},
                 {"file": "DSE_逍遙遊_精讀筆記.html", "title": "《逍遙遊》", "desc": "莊子"},
