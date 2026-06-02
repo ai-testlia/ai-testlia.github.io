@@ -16,7 +16,7 @@ folders = {
         }
     },
     "Anson": {
-        "title": "楊逸 的學習筆記",
+        "title": "楊逸 的DSE中文科學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "閱讀與範文": [
@@ -56,7 +56,7 @@ folders = {
         }
     },
     "ga_him": {
-        "title": "家謙 的學習筆記",
+        "title": "家謙 的DSE中文科學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "DSE 考試策略": [
@@ -86,7 +86,7 @@ folders = {
         }
     },
     "hok_wai": {
-        "title": "學維 的學習筆記",
+        "title": "學維 的DSE中文科學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "中文科應試與寫作": [
@@ -100,7 +100,7 @@ folders = {
         }
     },
     "zeon_lok": {
-        "title": "浚樂 的學習筆記",
+        "title": "浚樂 的DSE中文科學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "DSE 考試策略": [
@@ -117,7 +117,7 @@ folders = {
         }
     },
     "zeng_han": {
-        "title": "政行 的學習筆記",
+        "title": "政行 的DSE中文科學習筆記",
         "tag": "學生個人專屬",
         "categories": {
             "DSE 考試策略": [
