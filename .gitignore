@@ -1,0 +1,5 @@
+master_index.html
+generate_master.py
+__pycache__/
+*.pyc
+.venv/
