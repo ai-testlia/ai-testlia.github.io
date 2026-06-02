@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中國歷史教學筆記：晚明至清初</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f4f0;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --color-border-primary: rgba(0,0,0,0.3);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #9a9488;
+    --color-background-primary: #1e1c19;
+    --color-background-secondary: #27251f;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+    --color-border-primary: rgba(255,255,255,0.3);
+  }
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  padding: 2rem 1rem;
+  line-height: 1.6;
+}
+
+.wrap { max-width: 780px; margin: 0 auto; padding-bottom: 3rem; }
+
+/* HERO */
+.hero {
+  background: #1c0a08;
+  border-radius: var(--border-radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '清';
+  position: absolute; right: -10px; top: -20px;
+  font-size: 140px;
+  font-family: 'Noto Serif TC', serif;
+  color: rgba(255,255,255,0.04);
+  font-weight: 700; line-height: 1;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(220,120,80,0.2);
+  color: #f0aa88;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 3px 10px; border-radius: 20px;
+  border: 0.5px solid rgba(220,120,80,0.35);
+  margin-bottom: 0.8rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px; font-weight: 700;
+  color: #f5e8de; line-height: 1.4; margin-bottom: 0.4rem;
+}
+.hero p { font-size: 13px; color: rgba(220,185,165,0.65); line-height: 1.6; }
+
+/* TOC */
+.toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 8px; margin-bottom: 2rem;
+}
+.toc-item {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.6rem 0.8rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.toc-num {
+  width: 22px; height: 22px;
+  background: #5c1a0a; color: #f0aa88;
+  border-radius: 50%; font-size: 11px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.toc-label { font-size: 12px; color: var(--color-text-secondary); line-height: 1.3; }
+
+/* SECTION */
+.section { margin-bottom: 2.8rem; }
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 1.2rem; padding-bottom: 0.7rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.section-icon {
+  width: 32px; height: 32px; border-radius: var(--border-radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; flex-shrink: 0;
+}
+.icon-red    { background: #FAEAE6; }
+.icon-gold   { background: #FAF0DA; }
+.icon-teal   { background: #E1F5EE; }
+.icon-blue   { background: #E6F1FB; }
+.icon-purple { background: #EEEDFE; }
+.icon-green  { background: #EAF3DE; }
+.icon-pink   { background: #FBEAF0; }
+.icon-grey   { background: #F0F0EE; }
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px; font-weight: 700;
+  color: var(--color-text-primary);
+}
+.section-num { font-size: 12px; color: var(--color-text-secondary); margin-left: auto; }
+
+/* SUBSECTION */
+.subsection {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.8rem;
+}
+.subsection-title {
+  font-size: 14px; font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.6rem;
+  display: flex; align-items: center; gap: 6px;
+}
+.sub-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.dot-red    { background: #C94B2A; }
+.dot-gold   { background: #B88A10; }
+.dot-teal   { background: #1D9E75; }
+.dot-blue   { background: #378ADD; }
+.dot-purple { background: #7F77DD; }
+.dot-green  { background: #639922; }
+.dot-pink   { background: #D4537E; }
+.dot-grey   { background: #888; }
+
+.subsection p, .subsection li {
+  font-size: 14px; color: var(--color-text-primary); line-height: 1.85;
+}
+.subsection ul, .subsection ol { padding-left: 1.3rem; }
+.subsection li { margin-bottom: 0.3rem; }
+.subsection p + p { margin-top: 0.5rem; }
+
+/* EXAMPLE / QUOTE BOX */
+.example-box {
+  background: var(--color-background-secondary);
+  border-left: 3px solid #C94B2A;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 0.7rem 1rem; margin-top: 0.6rem;
+}
+.example-box.gold   { border-left-color: #B88A10; }
+.example-box.teal   { border-left-color: #1D9E75; }
+.example-box.blue   { border-left-color: #378ADD; }
+.example-box.purple { border-left-color: #7F77DD; }
+.example-box.green  { border-left-color: #639922; }
+
+.example-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.08em; margin-bottom: 0.3rem;
+}
+.example-box .example-label { color: #8a2a10; }
+.example-box.gold .example-label { color: #7a5a05; }
+.example-box.teal .example-label { color: #0F6E56; }
+.example-box.blue .example-label { color: #1a5faa; }
+.example-box.purple .example-label { color: #534AB7; }
+.example-box.green .example-label { color: #3B6D11; }
+
+.example-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px; color: var(--color-text-primary); line-height: 1.85;
+}
+
+/* ALERT */
+.alert {
+  border-radius: var(--border-radius-md);
+  padding: 0.7rem 1rem; margin-top: 0.7rem;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.alert-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; margin-bottom: 2px; }
+.alert-text  { font-size: 13px; line-height: 1.75; }
+
+.alert.tip     { background: #E6F1FB; border: 0.5px solid #93C4F5; }
+.alert.tip .alert-label { color: #1a5faa; }
+.alert.tip .alert-text  { color: #0d3d73; }
+
+.alert.warn    { background: #FCEBEB; border: 0.5px solid #F09595; }
+.alert.warn .alert-label { color: #A32D2D; }
+.alert.warn .alert-text  { color: #791F1F; }
+
+.alert.success { background: #EAF3DE; border: 0.5px solid #97C459; }
+.alert.success .alert-label { color: #3B6D11; }
+.alert.success .alert-text  { color: #27500A; }
+
+.alert.gold    { background: #FAF0DA; border: 0.5px solid #E5B84A; }
+.alert.gold .alert-label { color: #7a5a05; }
+.alert.gold .alert-text  { color: #4a3600; }
+
+.alert.red     { background: #FAEAE6; border: 0.5px solid #E09080; }
+.alert.red .alert-label { color: #8a2a10; }
+.alert.red .alert-text  { color: #5a1005; }
+
+/* COMPARE GRID */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 0.6rem; }
+.compare-card { border-radius: var(--border-radius-md); padding: 0.75rem 1rem; }
+.compare-card.red  { background: #FAEAE6; border: 0.5px solid #E09080; }
+.compare-card.gold { background: #FAF0DA; border: 0.5px solid #E5B84A; }
+.compare-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+.compare-card.red  .compare-label { color: #8a2a10; }
+.compare-card.gold .compare-label { color: #7a5a05; }
+.compare-text { font-size: 13px; line-height: 1.75; }
+.compare-card.red  .compare-text { color: #5a1005; }
+.compare-card.gold .compare-text { color: #4a3600; }
+
+/* KEYWORD GRID */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+  gap: 8px; margin-bottom: 0.8rem;
+}
+.keyword-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.75rem 1rem;
+}
+.kw-word { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; margin-bottom: 0.3rem; }
+.kw-red    { color: #8a2a10; }
+.kw-gold   { color: #7a5a05; }
+.kw-teal   { color: #0F6E56; }
+.kw-blue   { color: #1a5faa; }
+.kw-purple { color: #534AB7; }
+.kw-def { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+
+/* FORMULA / DARK BOX */
+.formula {
+  background: #1c0a08;
+  border-radius: var(--border-radius-md);
+  padding: 0.9rem 1.2rem; margin-top: 0.6rem;
+}
+.formula-label { font-size: 11px; color: #f0aa88; font-weight: 500; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+.formula-text  { font-family: 'Noto Serif TC', serif; font-size: 14px; color: #f5e8de; line-height: 1.85; }
+
+/* FLOW */
+.flow { display: flex; align-items: center; flex-wrap: wrap; gap: 0; margin: 0.8rem 0; }
+.flow-step {
+  background: #FAEAE6; color: #6b2010;
+  font-size: 12px; font-weight: 500;
+  padding: 6px 14px; border-radius: var(--border-radius-md); white-space: nowrap;
+}
+.flow-step.gold { background: #FAF0DA; color: #5a3800; }
+.flow-arrow { font-size: 14px; color: var(--color-text-secondary); padding: 0 4px; }
+
+/* TABLE */
+.ht { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 0.6rem; }
+.ht th {
+  background: #1c0a08; color: #f0aa88;
+  font-family: 'Noto Serif TC', serif; font-weight: 500;
+  padding: 7px 10px; text-align: left; font-size: 12px;
+}
+.ht td {
+  padding: 7px 10px; border-bottom: 0.5px solid var(--color-border-tertiary);
+  color: var(--color-text-primary); line-height: 1.7; vertical-align: top;
+}
+.ht tr:last-child td { border-bottom: none; }
+.ht tr:nth-child(even) td { background: var(--color-background-secondary); }
+
+/* PEOPLE GRID */
+.people-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 8px; margin-top:0.4rem; }
+.person-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.75rem 1rem;
+}
+.person-name { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: #8a2a10; margin-bottom: 0.3rem; }
+.person-role { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 0.4rem; font-weight: 500; letter-spacing: 0.05em; }
+.person-desc { font-size: 12px; color: var(--color-text-primary); line-height: 1.65; }
+
+/* EXAM BOX */
+.exam-box {
+  border-radius: var(--border-radius-lg);
+  padding: 1rem 1.25rem; margin-bottom: 0.8rem;
+}
+.exam-box.short { background: #EAF3DE; border: 0.5px solid #97C459; }
+.exam-box.long  { background: #E6F1FB; border: 0.5px solid #93C4F5; }
+.exam-box.think { background: #EEEDFE; border: 0.5px solid #B8B4F0; }
+.exam-box-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+.exam-box.short .exam-box-label { color: #3B6D11; }
+.exam-box.long  .exam-box-label { color: #1a5faa; }
+.exam-box.think .exam-box-label { color: #534AB7; }
+.exam-q { font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.5rem; line-height: 1.7; }
+.exam-body { font-size: 13px; color: var(--color-text-primary); line-height: 1.85; }
+.exam-body ul { padding-left: 1.2rem; }
+.exam-body li { margin-bottom: 0.25rem; }
+
+/* DIVIDER */
+.divider { height: 0.5px; background: var(--color-border-tertiary); margin: 0.7rem 0; }
+
+/* BADGE */
+.badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; margin-right: 4px; }
+.badge-red  { background: #FAEAE6; color: #6b2010; }
+.badge-gold { background: #FAF0DA; color: #5a3800; }
+.badge-teal { background: #E1F5EE; color: #085041; }
+.badge-blue { background: #E6F1FB; color: #0d3d73; }
+
+/* FOOTER */
+footer {
+  margin-top: 2rem; padding: 1.2rem 1.5rem;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg); text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">歷史教學筆記</div>
+  <h1>晚明政局、清朝統一與清初盛衰</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-item"><div class="toc-num">一</div><div class="toc-label">晚明政局與明朝滅亡</div></div>
+  <div class="toc-item"><div class="toc-num">二</div><div class="toc-label">清朝的統一與清初盛世</div></div>
+  <div class="toc-item"><div class="toc-num">三</div><div class="toc-label">清朝對各民族及地區的統治</div></div>
+  <div class="toc-item"><div class="toc-num">四</div><div class="toc-label">清朝的中衰</div></div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TOPIC 1 -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-red">🏯</div>
+    <div class="section-title">課題一：晚明政局與明朝滅亡</div>
+    <div class="section-num">Topic 01</div>
+  </div>
+
+  <!-- 時代背景 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-red"></div>📍 時代背景</div>
+    <p>明朝中後期，皇帝怠政、宦官專權、黨爭不斷，政治日趨腐敗。與此同時，東北女真族迅速崛起，內憂外患夾攻之下，明朝國力大衰，終至覆滅。</p>
+    <div class="flow" style="margin-top:0.8rem;">
+      <div class="flow-step">皇帝怠政</div><div class="flow-arrow">→</div>
+      <div class="flow-step">宦官干政</div><div class="flow-arrow">→</div>
+      <div class="flow-step">黨爭激烈</div><div class="flow-arrow">→</div>
+      <div class="flow-step">農民起義</div><div class="flow-arrow">→</div>
+      <div class="flow-step">明朝滅亡</div>
+    </div>
+  </div>
+
+  <!-- 宦官禍 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-red"></div>📍 關鍵概念：明代宦禍</div>
+    <p>明成祖因宦官協助奪位，故重用宦官。明宣宗時更設立內書堂，教宦官讀書識字，令宦官具備干政的能力。明中葉後，君主多昏庸怠惰，負責奏章傳遞的宦官因而<strong>乘機預聞機要</strong>，甚至代皇帝「批紅」，嚴重干預朝政。</p>
+    <div class="alert warn">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-label">易錯概念</div>
+        <div class="alert-text">宦官干政的根本原因是皇帝懶理政事，而非宦官主動奪權。考試常問「明代宦禍的成因」，要從皇帝怠政、制度漏洞兩方面分析。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 東林黨爭 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-red"></div>📍 東林黨爭與魏忠賢</div>
+    <div class="people-grid">
+      <div class="person-card">
+        <div class="person-name">東林黨</div>
+        <div class="person-role">改革派士大夫</div>
+        <div class="person-desc">明神宗時，一批關心國事的士人在東林書院議論朝政，批評宦官，被稱為「東林黨」。</div>
+      </div>
+      <div class="person-card">
+        <div class="person-name">非東林黨</div>
+        <div class="person-role">依附宦官的官員</div>
+        <div class="person-desc">依附宦官、與東林黨對立的官員，稱「非東林黨」，雙方黨爭激烈，嚴重內耗朝廷。</div>
+      </div>
+      <div class="person-card">
+        <div class="person-name">魏忠賢</div>
+        <div class="person-role">明熹宗時期大宦官</div>
+        <div class="person-desc">明熹宗時權傾朝野，與非東林黨勾結，迫害東林黨人，拆毀全國書院。人稱「九千歲」。</div>
+      </div>
+    </div>
+    <div class="example-box" style="margin-top:0.8rem;">
+      <div class="example-label">因果分析</div>
+      <div class="example-text">黨爭更禍 → 邊防將帥人心渙散 → 女真族（後金）乘機入侵 → 加速明朝滅亡</div>
+    </div>
+  </div>
+
+  <!-- 後金崛起 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-red"></div>📍 女真崛起與後金建立</div>
+    <table class="ht">
+      <tr><th>人物</th><th>事件</th><th>歷史意義</th></tr>
+      <tr><td><strong>努爾哈赤</strong></td><td>1616年建立「後金」，舉兵侵明，在薩爾滸之役大敗明軍，奪取瀋陽、遼陽等地</td><td>女真族正式建國，確立與明朝對抗的局面</td></tr>
+      <tr><td><strong>皇太極</strong></td><td>努爾哈赤死後繼位，改族名為「滿洲」，改國號「大清」，攻佔山海關以外地區</td><td>由地方政權發展為具規模的帝國，威脅日益擴大</td></tr>
+    </table>
+  </div>
+
+  <!-- 明亡 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-red"></div>📍 明朝的最終覆滅</div>
+    <div class="people-grid">
+      <div class="person-card">
+        <div class="person-name">李自成（闖王）</div>
+        <div class="person-role">農民起義領袖</div>
+        <div class="person-desc">陝西大災荒，李自成乘機起事，自稱「闖王」，在西安建國號「大順」，後攻入北京，明思宗自盡，明朝亡。</div>
+      </div>
+      <div class="person-card">
+        <div class="person-name">張獻忠</div>
+        <div class="person-role">另一農民起義領袖</div>
+        <div class="person-desc">同樣趁大災荒起事，在四川建國號「大西」，自稱「大西國王」，與李自成並為明末兩大農民起義。</div>
+      </div>
+      <div class="person-card">
+        <div class="person-name">吳三桂</div>
+        <div class="person-role">山海關守將</div>
+        <div class="person-desc">明朝亡後，向滿清投降，引清兵入關。李自成兵敗南逃，清兵佔據北京，滿洲人由此入主中原。</div>
+      </div>
+    </div>
+    <div class="alert red">
+      <div class="alert-icon">⭐</div>
+      <div>
+        <div class="alert-label">考試重點</div>
+        <div class="alert-text">明朝滅亡的直接原因是農民起義（李自成攻入北京）；根本原因是政治腐敗、宦官干政、黨爭內耗。考試常問兩者之分，需清楚分辨。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 南明 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-red"></div>📍 南明與鄭成功的抗清</div>
+    <p>清兵入關後，先後有幾名明朝宗室在南方各地建立南明政權，包括<strong>福王、唐王、魯王及桂王</strong>，仍然堅持與清朝對抗，但清軍倚賴明降將，逐一消滅南明。</p>
+    <p>南明政權消滅後，<strong>鄭成功</strong>驅逐台灣的荷蘭人，以台灣為基地繼續抗清，建立鄭氏勢力。直至其孫<strong>鄭克塽</strong>向康熙帝投降，反清抗爭才告終結——此距滿清入關已歷四十年，終於完成全國統一。</p>
+  </div>
+
+  <!-- 模擬試題 -->
+  <div class="exam-box short">
+    <div class="exam-box-label">📝 模擬短答題</div>
+    <div class="exam-q">試解釋「明代宦禍」，並說明它如何影響明朝政局。（4分）</div>
+    <div class="exam-body">
+      <ul>
+        <li>【解釋】明代宦官因皇帝怠政，得以干預奏章傳遞，甚至代批奏章（批紅），掌握實權（2分）</li>
+        <li>【影響】宦官干政導致忠臣受壓、政令不通，並加劇黨爭，令朝政腐敗，邊防廢弛，最終加速明朝滅亡（2分）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-box long">
+    <div class="exam-box-label">📝 模擬長答題</div>
+    <div class="exam-q">試析明朝滅亡的原因。（8分）</div>
+    <div class="exam-body">
+      <ul>
+        <li>【內部因素】皇帝怠政 → 宦官干政（魏忠賢） → 東林黨爭 → 政治腐敗</li>
+        <li>【天災人禍】陝西大饑荒 → 農民起義（李自成、張獻忠）→ 直接攻破北京</li>
+        <li>【外部因素】女真崛起 → 後金/清朝不斷入侵 → 邊防壓力極大</li>
+        <li>【結論】內外夾攻，國力耗盡，明朝在1644年終於滅亡</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-box think">
+    <div class="exam-box-label">🧠 高階思考題</div>
+    <div class="exam-q">有人認為「明朝的滅亡，宦官的責任最大」。你是否同意？試加以分析。</div>
+    <div class="exam-body">
+      提示：可從「同意」（宦官干政令政令癱瘓、加劇黨爭、削弱軍備）與「不同意」（皇帝怠政是根本、天災加速農民起義、女真外患更直接）兩方面立論，最後作出有據可依的結論。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TOPIC 2 -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-gold">👑</div>
+    <div class="section-title">課題二：清朝的統一與清初盛世</div>
+    <div class="section-num">Topic 02</div>
+  </div>
+
+  <!-- 背景 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-gold"></div>📍 時代背景</div>
+    <p>滿清入關後，面對的最大挑戰是如何鞏固政權、消滅反清勢力，同時爭取漢人的配合。清初三代帝王——康熙、雍正、乾隆——各有施政重點，合力開創了一百三十多年的「康雍乾盛世」。</p>
+  </div>
+
+  <!-- 三藩之亂 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-gold"></div>📍 三藩之亂（清初最大的內部危機）</div>
+    <p>清軍入關前，明室將領<strong>耿仲明、尚可喜、吳三桂</strong>先後降清，三人因功封為藩王。<strong>康熙帝</strong>即位後，決心削藩（削減藩王勢力）。吳三桂首先作叛，其餘兩位藩王相繼響應。清廷派兵平亂，前後歷時<strong>八年</strong>，史稱「三藩之亂」。</p>
+    <div class="alert gold">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">重點</div>
+        <div class="alert-text">三藩之亂的平定，標誌康熙帝成功鞏固中央集權，消除地方割據，為盛世奠定基礎。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 康雍乾盛世 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-gold"></div>📍 康雍乾盛世：三帝的施政重點</div>
+    <table class="ht">
+      <tr><th>帝王</th><th>主要貢獻</th><th>歷史意義</th></tr>
+      <tr>
+        <td><strong>康熙帝</strong></td>
+        <td>平定三藩之亂、統一台灣（鄭克塽降清）、親征準噶爾、奠定盛世基礎</td>
+        <td>解除地方割據，完成全國統一，確立清朝統治</td>
+      </tr>
+      <tr>
+        <td><strong>雍正帝</strong></td>
+        <td>勤於政事、整頓吏治、打擊貪污、推行耗羨歸公等財政改革</td>
+        <td>吏治清明，財政充裕，為乾隆盛世提供雄厚基礎</td>
+      </tr>
+      <tr>
+        <td><strong>乾隆帝</strong></td>
+        <td>開拓疆域（十全武功）、安定民生、重視學術（編修四庫全書）</td>
+        <td>版圖達最大，文化建設豐富，但晚期開始走向中衰</td>
+      </tr>
+    </table>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">記憶口訣</div>
+        <div class="alert-text">康熙「統一」、雍正「整頓」、乾隆「開拓」——三字記清三帝各自重點。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 海禁、遷界令 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-gold"></div>📍 打擊鄭成功的措施</div>
+    <div class="compare-grid">
+      <div class="compare-card red">
+        <div class="compare-label">🚢 海禁令（1656年）</div>
+        <div class="compare-text">清廷勒令不准任何船隻下海，令沿海居民生計大受打擊，目的是切斷沿海居民對鄭成功的支援。</div>
+      </div>
+      <div class="compare-card gold">
+        <div class="compare-label">🏠 遷界令（1661年）</div>
+        <div class="compare-text">清廷勒令包括香港在內的沿海地區民眾，均須向內陸遷徙，強制隔絕與鄭成功的聯繫。</div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-label">易錯概念</div>
+        <div class="alert-text">「海禁令」與「遷界令」經常混淆。前者是禁止船隻出海；後者是強制沿海居民內遷。兩者目的相同（打擊鄭成功），但手段不同，需清楚分辨。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模擬試題 -->
+  <div class="exam-box short">
+    <div class="exam-box-label">📝 模擬短答題</div>
+    <div class="exam-q">清廷為打擊鄭成功，採取了哪兩項主要措施？試加以解釋。（4分）</div>
+    <div class="exam-body">
+      <ul>
+        <li>【海禁令】1656年勒令禁止船隻出海，阻截沿海居民為鄭成功提供物資補給（2分）</li>
+        <li>【遷界令】1661年強制沿海居民向內陸遷移，從根本上切斷與鄭成功的地理聯繫（2分）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-box long">
+    <div class="exam-box-label">📝 模擬長答題</div>
+    <div class="exam-q">試評述康雍乾三帝在鞏固清朝統治方面的貢獻。（10分）</div>
+    <div class="exam-body">
+      <ul>
+        <li>【引言】康雍乾三帝各有重點，合力造就清朝盛世</li>
+        <li>【康熙】平三藩、統台灣 → 解決內外割據，確立統治</li>
+        <li>【雍正】整吏治、除貪腐 → 令國家行政更有效率</li>
+        <li>【乾隆】拓版圖、修四庫 → 展現國威，文治武功並重</li>
+        <li>【結論】三帝各有側重，相輔相成，成就一百三十年盛世</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-box think">
+    <div class="exam-box-label">🧠 高階思考題</div>
+    <div class="exam-q">試比較「海禁令」與「遷界令」的異同，並評價其對沿海居民的影響。</div>
+    <div class="exam-body">
+      提示：相同點（目的：打擊鄭成功）；不同點（手段：禁出海 vs 強制遷移）；影響（沿海經濟癱瘓，居民流離失所，代價沉重）。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TOPIC 3 -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-teal">🗺️</div>
+    <div class="section-title">課題三：清朝對各民族及地區的統治政策</div>
+    <div class="section-num">Topic 03</div>
+  </div>
+
+  <!-- 概覽 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-teal"></div>📍 總體策略：剛柔並重</div>
+    <p>清朝以少數民族身份統治龐大的多民族帝國，採取<strong>「高壓」與「懷柔」並行</strong>的雙軌策略：對漢人思想嚴加管控（防叛），同時以利益收買爭取各民族配合（穩局）。</p>
+    <div class="compare-grid">
+      <div class="compare-card red">
+        <div class="compare-label">🔒 高壓政策（對付漢人）</div>
+        <div class="compare-text">為防漢人反叛及反清思想傳播，採取一系列強硬措施，包括：揚州十日、嘉定三屠（屠殺）、強令薙髮留辮、大興文字獄、嚴禁士人結社講學等。</div>
+      </div>
+      <div class="compare-card gold">
+        <div class="compare-label">🤝 懷柔政策（爭取漢人）</div>
+        <div class="compare-text">為穩定局勢及爭取漢人支持：厚葬明思宗皇后、錄用歸順的明朝舊臣、廢除明末「三餉」（苛捐雜稅）、恢復科舉、推崇儒學、編修書籍等。</div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-label">常見陷阱</div>
+        <div class="alert-text">考生常混淆「高壓」與「懷柔」的具體措施。記法：高壓 = 殺、禁、強迫；懷柔 = 給好處、恢復傳統、拉攏人心。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重點概念解釋 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-teal"></div>📍 重點概念詳解</div>
+    <div class="keyword-grid">
+      <div class="keyword-card">
+        <div class="kw-word kw-red">薙髮留辮</div>
+        <div class="kw-def">滿清入關後強迫漢人男子剃去頭頂四周頭髮、留中間頭髮編成長辮垂於腦後，違抗者處死。目的是壓制漢人的民族意識，令其服從滿清統治。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word kw-red">文字獄</div>
+        <div class="kw-def">清廷以文字入罪，凡士人創作涉嫌反對朝廷或懷念明朝，作者及相關人士會被重罰甚至處死。目的是壓制反清思想，令士人不敢妄議朝政。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word kw-gold">四庫全書</div>
+        <div class="kw-def">乾隆時下令編纂的巨籍，使漢族士人專注編修典籍，一方面緩和其排滿情緒；另一方面可藉機收藏並銷毀不利滿族統治的書籍。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word kw-teal">理藩院</div>
+        <div class="kw-def">清廷特設的機構，專責處理邊疆民族的事務，並對各族採取「分而治之」的策略，防止各族團結對抗清朝。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 各地區統治 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-teal"></div>📍 對各民族及地區的具體措施</div>
+    <table class="ht">
+      <tr><th>地區／民族</th><th>政策</th><th>目的與意義</th></tr>
+      <tr>
+        <td><strong>蒙古族</strong></td>
+        <td>盟旗制：把蒙古族各部落分成若干組「盟」、「旗」，分散管理</td>
+        <td>防止蒙古各部落團結一致，難以再形成威脅清朝的力量</td>
+      </tr>
+      <tr>
+        <td><strong>藏族</strong></td>
+        <td>大力支持喇嘛教的地位，冊封宗教領袖「達賴」喇嘛及「班禪」喇嘛；設駐藏大臣管理西藏事務</td>
+        <td>藉宗教安撫藏族，以駐藏大臣監控西藏，達到政教並用的效果</td>
+      </tr>
+      <tr>
+        <td><strong>西南少數民族（苗、瑤等）</strong></td>
+        <td>改土歸流：以朝廷委派的「流官」取代當地世襲的「土司」，治理西南地區</td>
+        <td>加強中央政府對西南邊疆的直接控制，消除地方土官割據的隱患</td>
+      </tr>
+      <tr>
+        <td><strong>新疆（回族）</strong></td>
+        <td>設伊犁將軍管理新疆事務；採用「分化」手段，挑起教派衝突，使伊斯蘭教各派不能團結</td>
+        <td>削弱新疆的宗教凝聚力，令各派互相制衡，便於清朝管治</td>
+      </tr>
+    </table>
+
+    <div class="example-box teal" style="margin-top:0.8rem;">
+      <div class="example-label">重點概念：改土歸流</div>
+      <div class="example-text">
+        「土司」→ 當地世襲的地方官（土著首領），難以被中央控制。<br>
+        「流官」→ 由朝廷委派、可定期調任的官員，直接向中央負責。<br>
+        「改土歸流」即以流官取代土司 → 加強中央集權、防止地方割據。
+      </div>
+    </div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">考試技巧</div>
+        <div class="alert-text">答「清朝對邊疆民族的統治政策」題時，記住分「懷柔」（如支持喇嘛教、冊封達賴班禪）和「控制」（如理藩院、盟旗制、改土歸流）兩類作答，層次更清晰。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模擬試題 -->
+  <div class="exam-box short">
+    <div class="exam-box-label">📝 模擬短答題</div>
+    <div class="exam-q">解釋「改土歸流」，並說明清廷推行此政策的目的。（4分）</div>
+    <div class="exam-body">
+      <ul>
+        <li>【解釋】清朝以朝廷委派的流官，取代西南地區原有的世襲土司，直接治理當地（2分）</li>
+        <li>【目的】加強中央對邊疆地區的直接控制，消除地方土官割據，鞏固清朝的統一統治（2分）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-box long">
+    <div class="exam-box-label">📝 模擬長答題</div>
+    <div class="exam-q">試比較清朝對漢人的「高壓政策」與「懷柔政策」，並分析清廷採取雙軌策略的原因。（10分）</div>
+    <div class="exam-body">
+      <ul>
+        <li>【高壓】薙髮留辮、文字獄、揚州十日等 → 手段強硬，以恐嚇壓制反抗意志</li>
+        <li>【懷柔】恢復科舉、錄用明臣、廢三餉等 → 以利益爭取漢族士人配合</li>
+        <li>【原因】滿洲人口少，無法單靠武力長期統治大量漢人，必須剛柔並施</li>
+        <li>【結論】雙軌策略有效穩定清初局勢，為盛世奠定基礎</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-box think">
+    <div class="exam-box-label">🧠 高階思考題</div>
+    <div class="exam-q">清廷對蒙古族採用「盟旗制」，對藏族支持喇嘛教——試分析清廷因應不同民族而採取不同統治方式的原因。</div>
+    <div class="exam-body">
+      提示：蒙古族以武力著稱，故以分化瓦解為主；藏族以宗教為精神核心，故以宗教安撫為主。清廷因地制宜，以各民族文化弱點入手，達到以最小代價換取最大服從的效果。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TOPIC 4 -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-grey">📉</div>
+    <div class="section-title">課題四：清朝的中衰</div>
+    <div class="section-num">Topic 04</div>
+  </div>
+
+  <!-- 背景 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-grey"></div>📍 時代背景：盛極而衰</div>
+    <p>乾隆晚期，清朝由盛轉衰，史稱「中衰」。導致中衰的原因是多方面的：軍事過度擴張、官員貪腐成風、財政空虛、人口急增與土地不足，加上宗教起義四起，令清朝國力大損。</p>
+    <div class="flow">
+      <div class="flow-step gold">十全武功（過度擴張）</div><div class="flow-arrow">→</div>
+      <div class="flow-step gold">國庫空虛</div><div class="flow-arrow">→</div>
+      <div class="flow-step gold">和珅貪腐</div><div class="flow-arrow">→</div>
+      <div class="flow-step gold">民變四起</div><div class="flow-arrow">→</div>
+      <div class="flow-step gold">清朝中衰</div>
+    </div>
+  </div>
+
+  <!-- 十全武功與和珅 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-grey"></div>📍 十全武功與和珅貪腐</div>
+    <div class="people-grid">
+      <div class="person-card">
+        <div class="person-name">十全武功</div>
+        <div class="person-role">乾隆帝時期的十次大規模戰爭</div>
+        <div class="person-desc">戰爭雖大多勝利，但大量損兵折將，總軍費超過<strong>一億二千萬兩</strong>，令清朝國庫空虛，由盛轉衰。</div>
+      </div>
+      <div class="person-card">
+        <div class="person-name">和珅</div>
+        <div class="person-role">中國歷史上最著名的貪官</div>
+        <div class="person-desc">受乾隆帝庇護，長期把持朝政。乾隆帝死後，嘉慶帝即下旨抄家，發現和珅在任二十多年所聚財富，超過清朝政府<strong>十年財政收入的總和</strong>。</div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-label">考試重點</div>
+        <div class="alert-text">十全武功是清朝中衰的重要原因之一，但不是唯一原因。答題時需同時提及和珅貪腐、人口問題及民變，才算全面。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 軍備廢弛 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-grey"></div>📍 軍備廢弛：八旗兵的沒落</div>
+    <table class="ht">
+      <tr><th>軍隊</th><th>情況</th><th>影響</th></tr>
+      <tr>
+        <td><strong>八旗兵</strong></td>
+        <td>入關後享受特權，日漸腐化，喪失戰鬥力，成為「不能打仗」的特權階層</td>
+        <td>清廷失去最精銳的武裝力量，被迫依靠其他軍隊</td>
+      </tr>
+      <tr>
+        <td><strong>綠營兵</strong></td>
+        <td>八旗兵衰退後，康熙帝以漢兵組成的綠營兵平定三藩之亂；乾隆末年綠營兵亦漸趨腐化</td>
+        <td>清朝軍備全面廢弛，面對民變愈來愈難以鎮壓</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 民變 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-grey"></div>📍 人口問題與民變四起</div>
+    <p>由於人口激增，但耕地增長有限，加上土地兼併盛行，農民生計艱難，社會矛盾尖銳。乾隆及嘉慶年間，以宗教（清水教、白蓮教）為號召的民變接連爆發，清廷疲於奔命，國力進一步耗損。</p>
+    <div class="formula">
+      <div class="formula-label">中衰成因總結公式</div>
+      <div class="formula-text">
+        軍事（十全武功 → 國庫空虛）<br>
+        ＋ 政治（和珅貪腐 → 官場腐化）<br>
+        ＋ 軍備（八旗兵/綠營兵廢弛 → 無力鎮壓）<br>
+        ＋ 社會（人口膨脹、土地兼併 → 民變四起）<br>
+        ＝ 清朝由盛轉衰（中衰）
+      </div>
+    </div>
+  </div>
+
+  <!-- 重點整理時間線 -->
+  <div class="subsection">
+    <div class="subsection-title"><div class="sub-dot dot-grey"></div>📍 清朝盛衰時間線（重點整理）</div>
+    <table class="ht">
+      <tr><th>時期</th><th>重要事件</th><th>影響</th></tr>
+      <tr><td>1616年</td><td>努爾哈赤建後金</td><td>女真正式建國</td></tr>
+      <tr><td>1636年</td><td>皇太極改國號「大清」</td><td>正式稱帝，威脅加劇</td></tr>
+      <tr><td>1644年</td><td>滿清入關，入主中原</td><td>清朝統治全國開始</td></tr>
+      <tr><td>1661年</td><td>遷界令頒布</td><td>打擊沿海支持鄭成功的民眾</td></tr>
+      <tr><td>1673–1681年</td><td>三藩之亂（歷時8年）</td><td>康熙平亂，鞏固中央集權</td></tr>
+      <tr><td>1683年</td><td>鄭克塽降清，台灣納入版圖</td><td>全國正式統一</td></tr>
+      <tr><td>1736–1796年</td><td>乾隆帝執政（十全武功）</td><td>版圖最廣，但國庫漸虛</td></tr>
+      <tr><td>乾隆/嘉慶年間</td><td>和珅貪腐、民變四起（白蓮教等）</td><td>清朝正式由盛轉衰</td></tr>
+    </table>
+  </div>
+
+  <!-- 模擬試題 -->
+  <div class="exam-box short">
+    <div class="exam-box-label">📝 模擬短答題</div>
+    <div class="exam-q">解釋和珅在清朝中衰中所扮演的角色。（4分）</div>
+    <div class="exam-body">
+      <ul>
+        <li>【身份】和珅是乾隆帝的寵臣，受庇護而長期掌權（1分）</li>
+        <li>【貪腐】他趁機大肆貪污，所聚財富超過清廷十年財政收入，令官場貪腐成風（2分）</li>
+        <li>【影響】官場腐敗削弱清朝施政能力，加速中衰（1分）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-box long">
+    <div class="exam-box-label">📝 模擬長答題</div>
+    <div class="exam-q">試析清朝由盛轉衰（中衰）的原因。（10分）</div>
+    <div class="exam-body">
+      <ul>
+        <li>【軍事擴張】十全武功雖勝，但損耗極大，國庫空虛，由盛轉衰（3分）</li>
+        <li>【政治腐敗】和珅貪腐、官場風氣敗壞，政令失效（2分）</li>
+        <li>【軍備廢弛】八旗兵、綠營兵均腐化，無力應對民變（2分）</li>
+        <li>【社會矛盾】人口激增、土地兼併，農民生計艱難，清水教、白蓮教等起義不斷（2分）</li>
+        <li>【結論】以上各因素互為因果，共同導致清朝中衰（1分）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-box think">
+    <div class="exam-box-label">🧠 高階思考題</div>
+    <div class="exam-q">有人認為「清朝中衰，乾隆帝責任最大」。你是否同意？試加以分析。</div>
+    <div class="exam-body">
+      提示：同意方向——乾隆推動十全武功（耗空國庫）、縱容和珅（官場腐化），其決策直接導致中衰。不同意方向——中衰是結構性問題（人口、土地），非一人之責；八旗兵的腐化早在入關後即開始，非乾隆造成。作出有據立場後，再評價乾隆責任的輕重。
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

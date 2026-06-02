@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜《孟子‧魚我所欲也》全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6f6f4;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>《孟子‧魚我所欲也》<br>DSE文憑試高級深造筆記</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、核心字詞深度義訓（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、說理框架與論證手法剖析</a></li>
+      <li><a href="#sec-3">三、「本心」的迷失與堅守（核心哲學）</a></li>
+      <li><a href="#sec-4">四、DSE 閱卷陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、核心字詞深度義訓（DSE必考語譯點）</h2>
+  </div>
+  <p>《魚我所欲也》是孟子說理散文的代表作，詞鋒銳利，當中不少古今異義詞及詞類活用是文憑試的搶分關鍵。以下為必背的摘星字詞：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">核心字詞</th>
+        <th style="width: 25%;">精確文言釋義</th>
+        <th>課文原句語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>苟得</b></td>
+        <td>隨便苟且取得 / 苟且偷生</td>
+        <td>「故不為<b>苟得</b>也。」<br><small>解析：指為了生存而不擇手段，隨便苟且地保全性命。</small></td>
+      </tr>
+      <tr>
+        <td><b>辟</b></td>
+        <td>逃避 / 躲避</td>
+        <td>「故患有所不<b>辟</b>也。」<br><small>解析：通假字，通「避」。不可誤譯為開闢的「闢」。</small></td>
+      </tr>
+      <tr>
+        <td><b>嘑</b></td>
+        <td>呼喝 (態度傲慢)</td>
+        <td>「<b>嘑</b>爾而與之。」<br><small>解析：指態度惡劣、無禮地大聲喝罵着給予。引伸為侮辱性的施捨。</small></td>
+      </tr>
+      <tr>
+        <td><b>蹴</b></td>
+        <td>踐踏 / 踏踩</td>
+        <td>「<b>蹴</b>爾而與之，乞人不屑也。」<br><small>解析：動詞。用腳踐踏過的食物，即使是乞丐也不屑一顧。</small></td>
+      </tr>
+      <tr>
+        <td><b>萬鍾</b></td>
+        <td>豐厚的俸祿</td>
+        <td>「<b>萬鍾</b>則不辯禮義而受之。」<br><small>解析：「鍾」是古代容量單位。此處借代極為優厚的高官厚祿。</small></td>
+      </tr>
+      <tr>
+        <td><b>辯</b></td>
+        <td>分辨 / 辨別</td>
+        <td>「萬鍾則不<b>辯</b>禮義而受之。」<br><small>解析：通假字，通「辨」。指不分辨是否合乎禮義。</small></td>
+      </tr>
+      <tr>
+        <td><b>鄉</b></td>
+        <td>從前 / 過去</td>
+        <td>「<b>鄉</b>為身死而不受。」<br><small>解析：通假字，通「向」。指過往寧願死也不肯接受侮辱。</small></td>
+      </tr>
+      <tr>
+        <td><b>得</b></td>
+        <td>感激 / 恩惠</td>
+        <td>「今為所識窮乏者<b>得</b>我而為之。」<br><small>解析：通假字，通「德」，名詞作動詞用，解作「感激我」。此為DSE極高頻伏位！</small></td>
+      </tr>
+      <tr>
+        <td><b>已</b></td>
+        <td>停止 / 放棄</td>
+        <td>「是亦不可以<b>已</b>乎？」<br><small>解析：動詞。指這種為物慾而見利忘義的行為，難道不可以停止嗎？</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、說理框架與論證手法剖析</h2>
+  </div>
+  <p>孟子的文章氣勢磅礡，說理透闢。他巧妙地運用了多種論證手法，層層遞進地論證「捨生取義」的核心觀點：</p>
+
+  <div class="flow">
+    <div class="flow-step"><strong>1. 比喻論證：由淺入深引出論點</strong><br>以「魚」與「熊掌」不可兼得時，人們會「舍魚而取熊掌」的生活常理，自然地引伸出當「生」與「義」不可兼得時，理應「舍生而取義者也」。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>2. 正反論證：推論捨生取義之心</strong><br>
+    正面：因為人渴望「義」多於「生」，厭惡「不義」多於「死」，故不願苟且偷生。<br>
+    反面：假設人最渴望的是「生」，最厭惡的是「死」，那麼人為了求生避死甚麼都會做；但現實中人卻「有不用、有不為」，反證了「義」超越生死。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>3. 舉例與對比論證：證明「人皆有是心」與「失其本心」</strong><br>
+    舉例：「一簞食，一豆羹」對行道之人與乞丐是保命之物，但若「嘑爾 / 蹴爾」，他們寧死不吃，證明最低微的人也有尊嚴（本心）。<br>
+    對比：將上述寧死不吃侮辱食物的窮人，與那些為了「萬鍾（宮室、妻妾、虛榮）」而不辨禮義的達官貴人作強烈對比。</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>善用修辭，增強氣勢</h3>
+    <div class="example-box classical">
+      <span class="example-label">排比與對比的極致（鄉為...今為...）</span>
+      <span class="example-text">「鄉為身死而不受，今為宮室之美為之；<br>鄉為身死而不受，今為妻妾之奉為之；<br>鄉為身死而不受，今為所識窮乏者得我而為之。」<br>
+      以三個結構相同的排比句，將同一人「過去（寧死守義）」與「現在（見利忘義）」作強烈對比，充滿諷刺意味，氣勢凌厲。</span>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、「本心」的迷失與堅守（核心哲學）</h2>
+  </div>
+  <p>理解《魚我所欲也》，必須扣緊孟子「性善論」的哲學核心。文章的靈魂在於「本心」二字。</p>
+
+  <div class="keyword-grid">
+    <div class="kw-box">
+      <div class="kw-word">甚麼是「本心」？</div>
+      <div class="kw-def">
+        <p>「本心」即是人天生固有的善性。在本文的語境中，具體指<strong>「羞惡之心」</strong>（對不義之事感到羞恥），以及由此衍生的<strong>「捨生取義之心」</strong>。</p>
+      </div>
+    </div>
+    
+    <div class="kw-box">
+      <div class="kw-word">誰擁有「本心」？</div>
+      <div class="kw-def">
+        <p>「非獨賢者有是心也，<strong>人皆有之</strong>，賢者能勿喪耳。」孟子強調，這種道德本能並非聖賢獨有，而是每個人天生具備的（如行道之人、乞人皆有）。聖賢之所以為聖賢，只是因為他們能<strong>堅守</strong>本心而不喪失。</p>
+      </div>
+    </div>
+
+    <div class="kw-box">
+      <div class="kw-word">為何會「失其本心」？</div>
+      <div class="kw-def">
+        <p>人之所以喪失本心，是因為受到後天<strong>物慾和虛榮的誘惑</strong>。文中具體指出了三大誘惑：<br>
+        1. <strong>宮室之美</strong>（貪圖華美的居室，物質享受）<br>
+        2. <strong>妻妾之奉</strong>（貪圖妻妾的侍奉，聲色之娛）<br>
+        3. <strong>所識窮乏者得我</strong>（貪圖貧窮熟人的感激，虛榮名利）</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、DSE 閱卷陷阱與常犯錯誤對比</h2>
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 潘SIR提醒：</strong>DSE 極常考核「得我」一詞的解釋與語譯！很多同學直譯為「得到我」，這是致命錯誤！必須譯作「感激我」。
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 凡人失分答法</div>
+      <p><strong>題目：</strong>作者以「一簞食，一豆羹」的例子，旨在說明甚麼道理？</p>
+      <p><strong>典型劣答：</strong>作者想說明就算是乞丐，肚子很餓，如果別人態度不好，他也不會吃。這證明了乞丐也很有骨氣，不受嗟來之食。</p>
+      <p><em>關鍵敗因：只停留在表面的故事復述，沒有將例子昇華到孟子要說明的核心理論（人皆有捨生取義的本心）。</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>作者以「一簞食，一豆羹」的例子，旨在說明甚麼道理？</p>
+      <p><strong>星級滿分答法：</strong>作者旨在論證<strong>「人人皆有捨生取義的本心」</strong>（1分）。「一簞食，一豆羹」雖微薄，卻是路人與乞丐保命的關鍵；但若施予者態度呼喝或踐踏食物（不合禮義），他們寧願餓死也不接受（1分）。這證明了即使是地位最低微、面臨生死關頭的人，也將「義」（尊嚴）看得比「生」更重要，證成了「非獨賢者有是心，人皆有之」的論點（2分）。</p>
+      <p><em>摘星要訣：必須扣連「生死關頭」、「不合禮義」以及最終帶出的核心論點「人皆有本心（羞惡之心）」。</em></p>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">🔥</div>
+    <h2>五、文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 在《魚我所欲也》中，孟子如何運用「對比論證」來指出物慾會令人喪失本心？試從文中摘錄有關句子，並略加說明。（4分）</div>
+    <div class="example-box" style="margin-top:0.5rem;">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>(1) 摘錄句子：</strong>「鄉為身死而不受，今為宮室之美為之；鄉為身死而不受，今為妻妾之奉為之；鄉為身死而不受，今為所識窮乏者得我而為之。」（1分）</p>
+      <p><strong>(2) 說明：</strong>作者以同一人「今昔的不同行為」作強烈對比（1分）。指出人過去寧願犧牲生命也不接受不義之財（堅守本心）；現在卻為了華美的居室、妻妾的侍奉，以及換取窮困熟人的感激（萬鍾之祿）而接受不義之財（1分）。藉此論證人之所以「見利忘義」，皆因受不住物質與虛榮的誘惑，從而失去了捨生取義的「本心」（1分）。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 孟子在文中先從正面論述，再從反面論述，試根據以下引文，說明其「正反論證」的推論過程。（4分）<br>
+    「由是則生而有不用也，由是則可以辟患而有不為也。是故所欲有甚於生者，所惡有甚於死者。」
+    </div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>正面論述：</strong>孟子指出，因為人渴求「義」甚於生存，厭惡「不義」甚於死亡，所以即使有方法可以求生避死，只要該方法不合乎禮義，人也不會採用，證明人有捨生取義之心（2分）。</p>
+      <p><strong>反面論述：</strong>孟子反面假設，如果人最渴望的只是生存，最厭惡的只是死亡，那麼人為了求生避死，理應甚麼不擇手段的事都會做。但現實中人卻「有不用、有不為」，這就反證了生命並非最寶貴，死亡並非最可怕，從而確證「義重於生」的觀點（2分）。</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：跨篇章比較（《魚我所欲也》 vs 《論仁》）</span>
+    DSE 極愛考兩篇先秦諸子說理文的比較。記住以下萬用框架：<br>
+    <strong>【核心概念互通】</strong>孔子論「仁」與孟子論「義」，皆強調其價值高於生命。<br>
+    <strong>【《論語》觀點】</strong>孔子提倡「無求生以害仁，有殺身以成仁」；面對貧富時「不以其道得之，不處也」。<br>
+    <strong>【《孟子》觀點】</strong>孟子主張「二者不可得兼，舍生而取義者也」；面對萬鍾時「不辯禮義而受之」便是「失其本心」。<br>
+    <strong>【總結】</strong>兩者皆認為道德原則（仁義本心）超越生死與物質利益，在生死名利關頭，君子必須堅守道德底線。
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

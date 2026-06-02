@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高級行政中文與語境轉換練習（中四至中六／DSE 卷三強化）｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #9a9488;
+    --color-background-primary: #1e1c19;
+    --color-background-secondary: #27251f;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+  }
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  padding: 2rem 1rem;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.wrap { max-width: 820px; margin: 0 auto; padding-bottom: 3rem; }
+
+/* HERO */
+.hero {
+  background: #1a0a2e;
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem 2rem 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '文';
+  position: absolute; right: -5px; top: -15px;
+  font-size: 130px;
+  font-family: 'Noto Serif TC', serif;
+  color: rgba(255,255,255,0.03);
+  font-weight: 700; line-height: 1;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(160,120,230,0.2);
+  color: #c5a8f0;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 4px 12px; border-radius: 20px;
+  border: 0.5px solid rgba(160,120,230,0.35);
+  margin-bottom: 0.8rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 24px; font-weight: 700;
+  color: #f3ebfc; line-height: 1.4; margin-bottom: 0.5rem;
+}
+.hero p { font-size: 13px; color: rgba(210,195,230,0.7); letter-spacing: 0.5px; }
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.toc-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px; font-weight: 700;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.6rem;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 6px;
+}
+.toc-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--color-text-primary);
+}
+.toc-num {
+  width: 20px; height: 20px;
+  background: #534AB7; color: #fff;
+  border-radius: 50%; font-size: 10px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+/* SECTION */
+.section { margin-bottom: 2.5rem; }
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 1.2rem; padding-bottom: 0.5rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.section-icon {
+  width: 32px; height: 32px; border-radius: var(--border-radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; flex-shrink: 0; background: #EEEDFE;
+}
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--color-text-primary);
+}
+.section-badge {
+  font-size: 11px; font-weight: 600; padding: 2px 8px;
+  border-radius: 20px; background: #f0ebff; color: #6a3fbf;
+  margin-left: auto;
+}
+
+/* SUBSECTION */
+.subsection {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.subsection-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14.5px; font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.7rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.sub-dot { width: 6px; height: 6px; border-radius: 50%; background: #534AB7; flex-shrink: 0; }
+
+/* TABLE */
+.idiom-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 0.5rem 0 1rem; }
+.idiom-table th {
+  background: #534AB7; color: #fff;
+  padding: 8px 12px; text-align: left; font-weight: 500; font-size: 13px;
+}
+.idiom-table th:first-child { border-radius: 6px 0 0 0; }
+.idiom-table th:last-child { border-radius: 0 6px 0 0; }
+.idiom-table td {
+  padding: 10px 12px; border-bottom: 0.5px solid var(--color-border-tertiary);
+  vertical-align: top; line-height: 1.7;
+}
+.idiom-table tr:nth-child(even) td { background: var(--color-background-secondary); }
+.word-tag { font-family: 'Noto Serif TC', serif; font-weight: 700; color: #534AB7; }
+
+/* EXERCISE COMPONENTS */
+.ex-box {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden; margin-bottom: 1.5rem;
+}
+.ex-head {
+  background: linear-gradient(135deg, #4a3eb3 0%, #6355cc 100%);
+  color: #fff; padding: 0.9rem 1.25rem;
+  font-family: 'Noto Serif TC', serif; font-size: 14.5px; font-weight: 600;
+}
+.ex-body { padding: 1.25rem 1.5rem; }
+.ex-intro { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px dashed var(--color-border-tertiary); }
+.pool-box {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.8rem 1rem; margin-bottom: 1.2rem;
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+}
+.pool-item { font-weight: 600; color: #4a3eb3; background: var(--color-background-primary); padding: 2px 10px; border-radius: 4px; border: 0.5px solid var(--color-border-tertiary); font-size: 13px; }
+.q-item { display: flex; gap: 8px; align-items: flex-start; padding: 0.7rem 0; border-bottom: 0.5px solid var(--color-border-tertiary); line-height: 1.8; }
+.q-item:last-child { border-bottom: none; }
+.q-num { min-width: 20px; height: 20px; background: #534AB7; color: #fff; border-radius: 50%; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 4px; }
+.q-text { width: 100%; }
+.blank-line { display: inline-block; border-bottom: 1px solid var(--color-text-primary); min-width: 80px; text-align: center; margin: 0 4px; }
+
+/* COMPARE GRID */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0.6rem 0; }
+.compare-card { border-radius: var(--border-radius-md); padding: 0.8rem 1rem; font-size: 13px; }
+.compare-card.bad { background: #fff0f0; border-left: 3px solid #e05555; color: #791f1f; }
+.compare-card.good { background: #f0fbee; border-left: 3px solid #27ae60; color: #1e5c30; }
+.compare-label { font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 2px; letter-spacing: 0.5px; }
+
+/* ALERTS */
+.alert { border-radius: var(--border-radius-md); padding: 0.8rem 1.2rem; margin: 0.8rem 0; display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
+.alert-icon { font-size: 15px; flex-shrink: 0; }
+.alert-content { line-height: 1.7; }
+.alert-title { font-weight: 700; margin-bottom: 2px; }
+.alert.tip { background: #eaf4ff; border-left: 4px solid #3a90e0; color: #1a5faa; }
+.alert.warn { background: #fff5e6; border-left: 4px solid #e6a23c; color: #a26f18; }
+
+/* ANSWERS COMPONENT */
+.ans-box { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; margin-top: 1.5rem; }
+.ans-head { background: #2c5f3a; color: #fff; padding: 0.8rem 1.25rem; font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 600; }
+.ans-body { padding: 1.25rem 1.5rem; }
+.ans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+.ans-card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 0.5rem 0.8rem; display: flex; gap: 6px; font-size: 13px; }
+.ans-num { font-weight: 700; color: #2c5f3a; }
+.ans-text { font-weight: 600; }
+
+.ans-long-item { margin-bottom: 1rem; border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 0.8rem; }
+.ans-long-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.ans-long-q { font-weight: 700; color: #2c5f3a; margin-bottom: 4px; font-size: 13.5px; }
+.ans-long-a { font-size: 13.5px; line-height: 1.75; }
+
+/* PRINT RULES */
+@media print {
+  .example-box, .compare-grid, .alert, .formula, .keyword-grid, .flow {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>高級行政中文與語境轉換練習（中四至中六／DSE 卷三強化）</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 筆記章節導航</div>
+    <div class="toc-grid">
+      <div class="toc-item"><span class="toc-num">1</span>核心思維：何謂行政與博弈語境？</div>
+      <div class="toc-item"><span class="toc-num">2</span>高階詞彙與策略成語詳解</div>
+      <div class="toc-item"><span class="toc-num">3</span>實戰練習：第一階段（卷三：專業對弈）</div>
+      <div class="toc-item"><span class="toc-num">4</span>參考答案與高階思維批註</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💡</div>
+      <div class="section-title">一、核心思維：何謂行政與博弈語境？</div>
+      <span class="section-badge">卷三必備能力</span>
+    </div>
+    
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot"></div>📍 從「通順」跨越到「典雅與精準」</div>
+      <p>在香港中學文憑試（DSE）卷三聆聽及綜合能力考核中，不論是撰寫<strong>書信、演講辭還是報告</strong>，考生往往只能做到字面上的「語意通順」，卻缺乏了符合身分（如：學生會會長、諮詢顧問、項目經理）的<strong>「行政色彩」</strong>與<strong>「語境意識（Register）」</strong>。</p>
+      <p>高級行政中文的核心在於：<strong>去口語化、精準概括、論述具大局觀、措辭得體而具備博弈思維</strong>。特別是面對意見衝突或需要提出變革方案時，如何用詞得當、不卑不亢，是奪取上品（5**）的關鍵所在。</p>
+      
+      <div class="alert tip">
+        <div class="alert-icon">💡</div>
+        <div class="alert-content">
+          <div class="alert-title">潘SIR高分秘訣</div>
+          <div>多運用「雙字高階動詞／名詞」（如：變革、決策、磨合、契機）來取代冗長的白話敘述，能大幅提升文章的行政洗練感與邏輯密度。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🔍</div>
+      <div class="section-title">二、高階詞彙與策略成語詳解</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot"></div>📍 本課核心高階行政詞彙</div>
+      <table class="idiom-table">
+        <thead>
+          <tr>
+            <th style="width:20%">高階詞彙</th>
+            <th style="width:40%">行政語境釋義</th>
+            <th style="width:40%">專業行政例句</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="word-tag">宏觀</span></td>
+            <td>自大局、長遠及整體發展角度作考量。</td>
+            <td>成功的管理者需要具備<span class="word-tag">宏觀</span>的視野，不應只糾結於微小的細節。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">抵觸</span></td>
+            <td>兩項政策、利益或法規之間產生衝突或矛盾。</td>
+            <td>這項新政策與現有的勞工法例有所<span class="word-tag">抵觸</span>，必須重新修訂。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">變革</span></td>
+            <td>組織或制度上本質性的重大改變。</td>
+            <td>面對瞬息萬變的市場，企業若不主動進行<span class="word-tag">變革</span>，最終會被淘汰。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">決策</span></td>
+            <td>具備法律或行政效力的重大決定。</td>
+            <td>任何重大的投資<span class="word-tag">決策</span>都必須經過董事會的嚴格審批。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">磨合</span></td>
+            <td>團隊或制度在初期運作時相互適應的過程。</td>
+            <td>雖然兩間公司合併了，但團隊之間仍需要一段時間<span class="word-tag">磨合</span>才能產生默契。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">審慎</span></td>
+            <td>謹慎、周密，多用於財務、法律或危機處理。</td>
+            <td>我們必須<span class="word-tag">審慎</span>處理客戶的個人資料，以符合最新的私隱條例。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">契機</span></td>
+            <td>事物轉化、發展或扭轉局面的關鍵機會。</td>
+            <td>這次經濟下行雖然是挑戰，但也是企業重新整合資源的<span class="word-tag">契機</span>。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">脈絡</span></td>
+            <td>事情發展的前因後果、邏輯與條理。</td>
+            <td>讀書不應死記硬背，而要理清文章的邏輯<span class="word-tag">脈絡</span>。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">規範</span></td>
+            <td>使行為或流程符合標準、制度與常規。</td>
+            <td>為了確保服務質素，我們建立了一套標準化的操作<span class="word-tag">規範</span>。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">轉嫁</span></td>
+            <td>將風險、成本或責任不當移轉予他人。</td>
+            <td>原材料成本上漲後，廠商被迫將壓力<span class="word-tag">轉嫁</span>給消費者。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title"><div class="sub-dot"></div>📍 本課職場與博弈高階成語</div>
+      <table class="idiom-table">
+        <thead>
+          <tr>
+            <th style="width:25%">策略成語</th>
+            <th style="width:35%">精準定義</th>
+            <th style="width:40%">高階應用場景（綜合寫作）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="word-tag">舉足輕重</span></td>
+            <td>處於關鍵地位，一舉一動均影響全局。</td>
+            <td>這件事關係到公司的未來，在行業中具有<span class="word-tag">舉足輕重</span>的分量。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">破釜沉舟</span></td>
+            <td>下定決心，不留後路，拚死一戰。</td>
+            <td>既然舊方法已經失效，我們必須<span class="word-tag">破釜沉舟</span>去嘗試新方案。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">顧此失彼</span></td>
+            <td>顧及一方卻忽略了另一方，缺乏全面。</td>
+            <td>處理公關危機時，如果不分輕重，很容易會<span class="word-tag">顧此失彼</span>。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">責無旁貸</span></td>
+            <td>自己應盡的責任，絕不能推卸給別人。</td>
+            <td>這次事故是由於管理層疏忽所致，相關負責人實在<span class="word-tag">責無旁貸</span>。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">刻不容緩</span></td>
+            <td>形勢極為緊迫，一刻也不能拖延。</td>
+            <td>改善環境污染的問題，實在是<span class="word-tag">刻不容緩</span>。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">魚目混珠</span></td>
+            <td>以假貨冒充真貨，或以次充好。</td>
+            <td>市場上的產品良莠不齊，常有商家以<span class="word-tag">魚目混珠</span>來欺騙消費者。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">隨機應變</span></td>
+            <td>根據情況的具體變化，靈活採取對策。</td>
+            <td>一位優秀的公關必須具備<span class="word-tag">隨機應變</span>的能力。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">集思廣益</span></td>
+            <td>廣泛聽取並吸收各方意見，以優化決策。</td>
+            <td>為了提高研發成功率，我們應該<span class="word-tag">集思廣益</span>，優化現有藍圖。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">揚湯止沸</span></td>
+            <td>比喻辦法不徹底，只治標不治本。</td>
+            <td>這份計劃書只是<span class="word-tag">揚湯止沸</span>，未能觸及問題的核心。</td>
+          </tr>
+          <tr>
+            <td><span class="word-tag">面面俱到</span></td>
+            <td>各方面都照顧得很周到，沒有遺漏。</td>
+            <td>他在商場打滾多年，處事成熟，務求做到<span class="word-tag">面面俱到</span>。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">✏️</div>
+      <div class="section-title">三、實戰練習：第一階段（卷三：專業對弈）</div>
+      <span class="section-badge">限時：45分鐘</span>
+    </div>
+
+    <div class="ex-box">
+      <div class="ex-head">一、 供詞填充（每題 1 分，共 10 分）</div>
+      <div class="ex-body">
+        <div class="ex-intro">請從字詞池中選擇最合適的高階詞彙填入橫線上，使句子邏輯完整、語境得體。</div>
+        <div class="pool-box">
+          <span class="pool-item">宏觀</span><span class="pool-item">變革</span><span class="pool-item">決策</span><span class="pool-item">脈絡</span><span class="pool-item">審慎</span>
+          <span class="pool-item">磨合</span><span class="pool-item">規範</span><span class="pool-item">契機</span><span class="pool-item">抵觸</span><span class="pool-item">轉嫁</span>
+        </div>
+        
+        <div class="q-item">
+          <div class="q-num">1</div>
+          <div class="q-text">成功的管理者需要具備 <span class="blank-line">&nbsp;</span> 的視野，不應只糾結於微小的細節。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">2</div>
+          <div class="q-text">這項新政策與現有的勞工法例有所 <span class="blank-line">&nbsp;</span>，必須重新修訂。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">3</div>
+          <div class="q-text">面對瞬息萬變的市場，企業若不主動進行 <span class="blank-line">&nbsp;</span>，最終會被淘汰。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">4</div>
+          <div class="q-text">任何重大的投資 <span class="blank-line">&nbsp;</span> 都必須經過董事會的嚴格審批。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">5</div>
+          <div class="q-text">雖然兩間公司合併了，但團隊之間仍需要一段時間 <span class="blank-line">&nbsp;</span> 才能產生默契。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">6</div>
+          <div class="q-text">我們必須 <span class="blank-line">&nbsp;</span> 處理客戶的個人資料，以符合最新的私隱條例。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">7</div>
+          <div class="q-text">這次經濟下行雖然是挑戰，但也是企業重新整合資源的 <span class="blank-line">&nbsp;</span>。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">8</div>
+          <div class="q-text">讀書不應死記硬背，而要理清文章的邏輯 <span class="blank-line">&nbsp;</span>。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">9</div>
+          <div class="q-text">為了確保服務質素，我們建立了一套標準化的操作 <span class="blank-line">&nbsp;</span>。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">10</div>
+          <div class="q-text">原材料成本上漲後，廠商被迫將壓力 <span class="blank-line">&nbsp;</span> 給消費者。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-box">
+      <div class="ex-head">二、 不供詞填充（每題 1 分，共 10 分）</div>
+      <div class="ex-body">
+        <div class="ex-intro">請根據括號內的提示，填上本課所學之「高階策略成語」，注意字形正確。</div>
+        
+        <div class="q-item">
+          <div class="q-num">1</div>
+          <div class="q-text">這件事關係到公司的未來，在行業中具有 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：地位極其重要，足以影響全局）的分量。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">2</div>
+          <div class="q-text">既然舊方法已經失效，我們必須 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：下定決心，不留後路地拚死一戰）去嘗試新方案。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">3</div>
+          <div class="q-text">處理公關危機時，如果不分輕重，很容易會 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：顧了這邊卻忽略了那邊）。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">4</div>
+          <div class="q-text">這次事故是由於管理層疏忽所致，相關負責人實在 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：難以逃避罪責，應當全力承擔）。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">5</div>
+          <div class="q-text">改善環境污染的問題 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：非常緊迫，一刻也不能延遲）。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">6</div>
+          <div class="q-text">市場上的產品良莠不齊，常有商家以 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：用假貨冒充真貨）來欺騙消費者。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">7</div>
+          <div class="q-text">一位優秀的公關必須具備 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：根據情況的變化，靈活地採取對應措施）的能力。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">8</div>
+          <div class="q-text">為了提高研發成功率，我們應該 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：廣泛聽取各方意見，吸收有益的成分）。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">9</div>
+          <div class="q-text">這份計劃書只是 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：僅治標而不治本，未能從根本上解決問題），未能觸及問題的核心。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">10</div>
+          <div class="q-text">他在商場打滾多年，處事 <span class="blank-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（意指：經驗豐富且周到，沒有遺漏）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-box">
+      <div class="ex-head">三、 改寫句子（每題 2 分，共 20 分）</div>
+      <div class="ex-body">
+        <div class="ex-intro">請將下列帶有口語或英式思維（Chinglish）的句子，改寫為專業、體面且具備「行政色彩」的書面語。</div>
+        
+        <div class="q-item">
+          <div class="q-num">1</div>
+          <div class="q-text">
+            <strong>（口語）</strong> 你最好先同我講吓你個 Plan 係點。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+        
+        <div class="q-item">
+          <div class="q-num">2</div>
+          <div class="q-text">
+            <strong>（英式）</strong> 如果我哋唔快啲做嘢，我哋會輸好多錢。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-num">3</div>
+          <div class="q-text">
+            <strong>（口語）</strong> 佢係一個好老細，所有人都好鍾意佢。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-num">4</div>
+          <div class="q-text">
+            <strong>（英式）</strong> 我寫呢份 Report 係想 Show 俾你睇個 Project 嘅進度。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-num">5</div>
+          <div class="q-text">
+            <strong>（口語）</strong> 呢個方法雖然好似好正，但其實好難做到。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-num">6</div>
+          <div class="q-text">
+            <strong>（英式）</strong> 非常多謝你嘅 Suggestion，我哋會考慮吓。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-num">7</div>
+          <div class="q-text">
+            <strong>（口語）</strong> 你咁樣做會整壞公司個名，你要諗清楚。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-num">8</div>
+          <div class="q-text">
+            <strong>（英式）</strong> 我哋一定要 Meet 個 Deadline，唔係就大鑊。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-num">9</div>
+          <div class="q-text">
+            <strong>（口語）</strong> 佢講嘢好玄，搞到大家都有啲 Confuse。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-num">10</div>
+          <div class="q-text">
+            <strong>（口語）</strong> 我哋要搵出個問題嘅根源，唔好只係執手尾。<br>
+            <strong>【改寫】</strong> <span class="blank-line" style="width:90%"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-box">
+      <div class="ex-head">四、 重組句子（每題 2 分，共 20 分）</div>
+      <div class="ex-body">
+        <div class="ex-intro">請將下列散落的詞組重新組合，並加上適當標點，成為通順且邏輯層次嚴密的書面語。</div>
+        
+        <div class="q-item"><div class="q-num">1</div><div class="q-text">倘若 / 恐怕 / 難以 / 方案 / 落實 / 達成 / 預期 / 目標 / 準確</div></div>
+        <div class="q-item"><div class="q-num">2</div><div class="q-text">旨在 / 這種 / 資源 / 分配 / 效益 / 最大化 / 讓 / 核心 / 競爭力 / 並 / 提升</div></div>
+        <div class="q-item"><div class="q-num">3</div><div class="q-text">既 / 他的 / 方案 / 具備 / 宏觀 / 視野 / 又 / 實踐 / 兼顧 / 細節 / 的</div></div>
+        <div class="q-item"><div class="q-num">4</div><div class="q-text">有見及此 / 決定 / 調整 / 策略 / 管理層 / 以 / 應對 / 挑戰 / 市場 / 的</div></div>
+        <div class="q-item"><div class="q-num">5</div><div class="q-text">雖然 / 艱巨 / 任務 / 我們 / 卻 / 從未 / 動搖 / 目標 / 達成 / 的 / 決心</div></div>
+        <div class="q-item"><div class="q-num">6</div><div class="q-text">洞察 / 變化 / 領導者 / 能夠 / 敏銳地 / 市場 / 並 / 契機 / 尋找 / 發展</div></div>
+        <div class="q-item"><div class="q-num">7</div><div class="q-text">由於 / 因素 / 計劃 /被迫 / 技術 / 延期 / 實施 / 導致 / 損失 / 額外</div></div>
+        <div class="q-item"><div class="q-num">8</div><div class="q-text">與其 / 互相推諉 / 不如 / 共同 / 責任 / 承擔 / 尋找 / 出路</div></div>
+        <div class="q-item"><div class="q-num">9</div><div class="q-text">規範 / 流程 / 為了 / 決定 / 內部 / 建立 / 機制 / 監管 / 完善 / 的</div></div>
+        <div class="q-item"><div class="q-num">10</div><div class="q-text">只有 / 才能 / 不斷學習 / 競爭力 / 保持 / 職場中 / 在 / 立於不敗之地</div></div>
+      </div>
+    </div>
+
+    <div class="ex-box">
+      <div class="ex-head">五、 段落理解（每題 2 分，共 20 分）</div>
+      <div class="ex-body">
+        <div class="subsection" style="background:var(--color-background-secondary);">
+          <div class="subsection-title">【段落一】</div>
+          <p>「在企業管理中，審慎的財務決策與大膽的技術變革同等重要。管理者若只專注於短期效益，往往會忽視長遠的風險。因此，建立一套透明且高效的溝通機制，不但能促進部門間的磨合，更能確保企業在動盪的市場中保持核心競爭力。」</p>
+        </div>
+        <div style="padding-left:0.5rem; margin-bottom:1.5rem;">
+          <p><strong>1. 管理者如果只追求短期效益，會有什麼後果？</strong><br><span class="blank-line" style="width:100%"></span></p>
+          <p><strong>2. 文中提到哪兩樣東西在管理中「同等重要」？</strong><br><span class="blank-line" style="width:100%"></span></p>
+          <p><strong>3. 建立溝通機制有哪些具體好處？（列出兩項）</strong><br><span class="blank-line" style="width:100%"></span></p>
+          <p><strong>4. 請解釋文中「審慎」在財務決策上的重要性。</strong><br><span class="blank-line" style="width:100%"></span></p>
+          <p><strong>5. 這段文字主要想表達什麼管理智慧？</strong><br><span class="blank-line" style="width:100%"></span></p>
+        </div>
+
+        <div class="subsection" style="background:var(--color-background-secondary);">
+          <div class="subsection-title">【段落二】</div>
+          <p>「職場中的情緒智商（EQ）往往比技術能力更具關鍵影響。一位能隨機應變且懂得面面俱到的領袖，更能贏得下屬的推心置腹。面對利益衝突時，若能以互惠互利為原則，往往能化解矛盾，甚至將危機轉化為合作的契機。」</p>
+        </div>
+        <div style="padding-left:0.5rem;">
+          <p><strong>6. 文中認為在職場中，什麼能力比技術能力更重要？</strong><br><span class="blank-line" style="width:100%"></span></p>
+          <p><strong>7. 一位成功的領袖應該具備哪兩種特質？（運用文中四字詞作答）</strong><br><span class="blank-line" style="width:100%"></span></p>
+          <p><strong>8. 面對衝突時，應以什麼原則來處理？</strong><br><span class="blank-line" style="width:100%"></span></p>
+          <p><strong>9. 「推心置腹」在文中形容什麼樣的關係？</strong><br><span class="blank-line" style="width:100%"></span></p>
+          <p><strong>10. 根據段落，危機在什麼情況下可以變成「契機」？</strong><br><span class="blank-line" style="width:100%"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">✅</div>
+      <div class="section-title">四、標準答案與高階思維批註</div>
+    </div>
+
+    <div class="ans-box">
+      <div class="ans-head">🔑 一、供詞填充 &amp; 二、不供詞填充答案</div>
+      <div class="ans-body">
+        <div class="subsection-title">一、供詞填充</div>
+        <div class="ans-grid" style="margin-bottom:1.5rem;">
+          <div class="ans-card"><span class="ans-num">1.</span><span class="ans-text">宏觀</span></div>
+          <div class="ans-card"><span class="ans-num">2.</span><span class="ans-text">抵觸</span></div>
+          <div class="ans-card"><span class="ans-num">3.</span><span class="ans-text">變革</span></div>
+          <div class="ans-card"><span class="ans-num">4.</span><span class="ans-text">決策</span></div>
+          <div class="ans-card"><span class="ans-num">5.</span><span class="ans-text">磨合</span></div>
+          <div class="ans-card"><span class="ans-num">6.</span><span class="ans-text">審慎</span></div>
+          <div class="ans-card"><span class="ans-num">7.</span><span class="ans-text">契機</span></div>
+          <div class="ans-card"><span class="ans-num">8.</span><span class="ans-text">脈絡</span></div>
+          <div class="ans-card"><span class="ans-num">9.</span><span class="ans-text">規範</span></div>
+          <div class="ans-card"><span class="ans-num">10.</span><span class="ans-text">轉嫁</span></div>
+        </div>
+
+        <div class="subsection-title">二、不供詞填充（成語）</div>
+        <div class="ans-grid">
+          <div class="ans-card"><span class="ans-num">1.</span><span class="ans-text">舉足輕重</span></div>
+          <div class="ans-card"><span class="ans-num">2.</span><span class="ans-text">破釜沉舟</span></div>
+          <div class="ans-card"><span class="ans-num">3.</span><span class="ans-text">顧此失彼</span></div>
+          <div class="ans-card"><span class="ans-num">4.</span><span class="ans-text">責無旁貸</span></div>
+          <div class="ans-card"><span class="ans-num">5.</span><span class="ans-text">刻不容緩</span></div>
+          <div class="ans-card"><span class="ans-num">6.</span><span class="ans-text">魚目混珠</span></div>
+          <div class="ans-card"><span class="ans-num">7.</span><span class="ans-text">隨機應變</span></div>
+          <div class="ans-card"><span class="ans-num">8.</span><span class="ans-text">集思廣益</span></div>
+          <div class="ans-card"><span class="ans-num">9.</span><span class="ans-text">揚湯止沸</span></div>
+          <div class="ans-card"><span class="ans-num">10.</span><span class="ans-text">面面俱到</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ans-box">
+      <div class="ans-head">🔑 三、改寫句子（語境轉換批註）</div>
+      <div class="ans-body">
+        <div class="alert tip">
+          <div class="alert-icon">💡</div>
+          <div class="alert-content"><strong>潘SIR點撥：</strong>改寫的關鍵在於將口語中的動作（講、做嘢、諗）提煉為名詞化的行政述語。</div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">1. 你最好先同我講吓你個 Plan 係點。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>建議閣下先向本會／本部門簡述該項計劃的具體藍圖。<br>
+            <span class="word-tag">【高階解析】</span>以「閣下」及「簡述」建立專業距離感，「Plan」精準對譯為「藍圖」或「企劃案」。
+          </div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">2. 如果我哋唔快啲做嘢，我哋會輸好多錢。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>倘若我方未能及時採取應對措施，恐將面臨嚴重的財政虧損。<br>
+            <span class="word-tag">【高階解析】</span>「快啲做嘢」轉化為「及時採取應對措施」；「輸好多錢」高階化為「面臨嚴重的財政虧損」。
+          </div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">3. 佢係一個好老細，所有人都好鍾意佢。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>彼為人主管高風亮節（或：處事英明），因而深受全體同仁之愛戴。<br>
+            <span class="word-tag">【高階解析】</span>「好老細」在行政公文中應寫為「深具遠見的主管」或「開明的主管」，「鍾意」改為「愛戴」。
+          </div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">4. 我寫呢份 Report 係想 Show 俾你睇個 Project 嘅進度。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>本報告旨在向 閣下匯報該項項目的最新發展進度。<br>
+            <span class="word-tag">【高階解析】</span>「Show 俾你睇」是不合格的西式中文，行政公文必用「旨在……向 閣下匯報」。
+          </div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">5. 呢個方法雖然好似好正，但其實好難做到。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>此方案固然具備一定優勢，惟於實際執行層面上恐存有高度難度。<br>
+            <span class="word-tag">【高階解析】</span>運用「固然……惟……」的讓步轉折句式，比「雖然……但……」更顯客觀與大局觀。
+          </div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">6. 非常多謝你嘅 Suggestion，我哋會考慮吓。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>由衷鳴謝 閣下提出的寶貴建議，本會定當審慎考量其可行性。<br>
+            <span class="word-tag">【高階解析】</span>拒絕口語化的「考慮吓」，改以「審慎考量其可行性」收尾，是商業與行政書信的標準格式。
+          </div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">7. 你咁樣做會整壞公司個名，你要諗清楚。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>閣下之舉措恐有損本公司之商譽，務請三思並重新評估其後果。<br>
+            <span class="word-tag">【高階解析】</span>「整壞個名」的標準行政用語為「有損商譽」或「損及名聲」；「諗清楚」改為「務請三思」。
+          </div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">8. 我哋一定要 Meet 個 Deadline，唔係就大鑊。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>我方務必於截止日期前妥善完成任務，否則後果堪虞（或：否則將對大局造成嚴重衝擊）。<br>
+            <span class="word-tag">【高階解析】</span>「Meet Deadline」轉為「於截止日期前妥善完成」；「大鑊」轉化為修辭典雅的「後果堪虞」。
+          </div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">9. 佢講嘢好玄，搞到大家都有啲 Confuse。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>其論述流於抽象（或：含混不清），以致全體同仁莫衷一是（或：無所適從）。<br>
+            <span class="word-tag">【高階解析】</span>「好玄」改為「流於抽象／語意含混」；「Confuse」改為成語「莫衷一是」或「無所適從」。
+          </div>
+        </div>
+
+        <div class="ans-long-item">
+          <div class="ans-long-q">10. 我哋要搵出個問題嘅根源，唔好只係執手尾。</div>
+          <div class="ans-long-a">
+            <span class="word-tag">【標準答案】</span>我等應當追本溯源以根治核心問題，切忌流於被動的對策補救。<br>
+            <span class="word-tag">【高階解析】</span>「搵出根源」精煉為「追本溯源」；「執手尾」高階化為「被動的補救措施」或「治標之舉」。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ans-box">
+      <div class="ans-head">🔑 四、重組句子標準答案</div>
+      <div class="ans-body">
+        <div class="ans-long-item">
+          <div class="ans-long-a">
+            1. 倘若方案落實不準確，恐怕難以達成預期目標。<br>
+            2. 這種資源分配旨在讓效益最大化，並提升核心競爭力。<br>
+            3. 他的方案既具備宏觀視野，又兼顧實踐的細節。<br>
+            4. 有見及此，管理層決定調整策略，以應對市場的挑戰。<br>
+            5. 雖然任務艱巨，我們卻從未動搖達成目標的決心。<br>
+            6. 領導者能夠敏銳地洞察市場變化，並尋找發展契機。<br>
+            7. 由於技術因素導致計劃被迫延期，實施帶來額外損失。<br>
+            8. 與其互相推諉，不如共同承擔責任，尋找出路。<br>
+            9. 為了規範內部流程，決定建立完善的監管機制。<br>
+            10. 只有不斷學習，才能在職場中保持競爭力，立於不敗之地。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ans-box">
+      <div class="ans-head">🔑 五、段落理解答案及踩分點</div>
+      <div class="ans-body">
+        <div class="subsection-title">【段落一剖析】</div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">1. 管理者如果只追求短期效益，會有什麼後果？</div>
+          <div class="ans-long-a">往往會忽視長遠的風險。</div>
+        </div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">2. 文中提到哪兩樣東西在管理中「同等重要」？</div>
+          <div class="ans-long-a">審慎的財務決策 與 大膽的技術變革。</div>
+        </div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">3. 建立溝通機制有哪些具體好處？（列出兩項）</div>
+          <div class="ans-long-a">（一）能促進部門間的磨合；（二）能確保企業在動盪的市場中保持核心競爭力。</div>
+        </div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">4. 請解釋文中「審慎」在財務決策上的重要性。</div>
+          <div class="ans-long-a">「審慎」意味著周密考量、規避風險。在財務決策上，審慎能避免企業因盲目追求眼前利益而陷入財務危機，確保資金鏈長遠穩健。</div>
+        </div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">5. 這段文字主要想表達什麼管理智慧？</div>
+          <div class="ans-long-a">真正的管理智慧在於「平衡」——即在長遠風險（審慎財務）與未來發展（大膽變革）之間取得平衡，並透過機制凝聚團隊。</div>
+        </div>
+
+        <div class="subsection-title">【段落二剖析】</div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">6. 文中認為在職場中，什麼能力比技術能力更重要？</div>
+          <div class="ans-long-a">情緒智商（EQ）。</div>
+        </div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">7. 一位成功的領袖應該具備哪兩種特質？</div>
+          <div class="ans-long-a">「隨機應變」與「面面俱到」。</div>
+        </div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">8. 面對衝突時，應以什麼原則來處理？</div>
+          <div class="ans-long-a">互惠互利原則。</div>
+        </div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">9. 「推心置腹」在文中形容什麼樣的關係？</div>
+          <div class="ans-long-a">形容領袖與下屬之間彼此高度信任、坦誠相待、真心服從的良性互動關係。</div>
+        </div>
+        <div class="ans-long-item">
+          <div class="ans-long-q">10. 根據段落，危機在什麼情況下可以變成「契機」？</div>
+          <div class="ans-long-a">當面對利益衝突時，若能秉持「互惠互利」的博弈原則來化解矛盾，危機便能轉化為合作的契機。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

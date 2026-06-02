@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3分鐘應試奇蹟：「四格看圖說故事」高分速成與實戰技巧筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #aaa;
+    --color-background-primary: #121212;
+    --color-background-secondary: #1e1e1e;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+
+.container { max-width: 800px; margin: 0 auto; }
+
+/* Hero 區塊 */
+.hero {
+  background: #112233; /* 其他類：深藍黑色調 */
+  color: #ffffff;
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+.hero p { font-size: 13px; opacity: 0.8; }
+
+/* 目錄 */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.toc-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 0.4rem; }
+.toc a { color: var(--color-text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.toc a:hover { text-decoration: underline; color: #2563eb; }
+
+/* 分區標題 */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2.5rem 0 1.2rem;
+}
+.section-num {
+  background: #2563eb;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.section-header h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* 內容卡片 */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.card-title {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 0.8rem;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+.dot.purple { background: #8b5cf6; }
+.dot.teal { background: #0d9488; }
+.dot.coral { background: #f43f5e; }
+.dot.amber { background: #d97706; }
+
+/* 示例框 */
+.example-box {
+  background: var(--color-background-secondary);
+  border-left: 4px solid #3b82f6;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.example-box.teal { border-left-color: #0d9488; }
+.example-box.coral { border-left-color: #f43f5e; }
+.example-box.amber { border-left-color: #d97706; }
+.example-box.pink { border-left-color: #ec4899; }
+
+.example-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: var(--color-text-secondary);
+}
+.example-text { font-size: 13.5px; }
+
+/* 提示框 */
+.alert {
+  display: flex;
+  gap: 10px;
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  margin: 1rem 0;
+  font-size: 13.5px;
+}
+.alert.tip { background: #eff6ff; border-left: 4px solid #3b82f6; color: #1e3a8a; }
+.alert.warn { background: #fff1f2; border-left: 4px solid #f43f5e; color: #881337; }
+.alert.success { background: #f0fdf4; border-left: 4px solid #22c55e; color: #14532d; }
+.alert.amber { background: #fffbeb; border-left: 4px solid #f59e0b; color: #78350f; }
+
+/* 對比框 */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.compare-card {
+  border-radius: var(--border-radius-md);
+  padding: 1rem;
+}
+.compare-card.bad {
+  background: #fdf2f2;
+  border: 1px solid #fde2e2;
+}
+.compare-card.good {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+.compare-title { font-weight: 700; margin-bottom: 0.5rem; font-size: 13px; }
+.compare-card.bad .compare-title { color: #991b1b; }
+.compare-card.good .compare-title { color: #166534; }
+
+/* 流程箭頭 */
+.flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1rem 0;
+}
+.flow-step {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  padding: 6px 12px;
+  border-radius: var(--border-radius-md);
+  font-size: 13px;
+}
+.flow-arrow { color: var(--color-text-secondary); font-weight: 700; }
+
+/* 關鍵詞卡片 */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.keyword-card {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1rem;
+}
+.kw-word { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 15px; color: #2563eb; margin-bottom: 4px; }
+.kw-def { font-size: 13px; color: var(--color-text-secondary); }
+
+/* 公式框 */
+.formula {
+  background: #1e293b;
+  color: #f8fafc;
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem;
+  margin: 1rem 0;
+  font-family: 'Noto Serif TC', serif;
+}
+
+/* 練習題區塊 */
+.exercise-box {
+  background: var(--color-background-primary);
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+.exercise-title { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; margin-bottom: 1rem; color: #1e293b; }
+.question { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--color-border-tertiary); }
+.question:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.q-text { font-weight: 500; margin-bottom: 0.5rem; }
+.answer-area { background: #f8fafc; border-radius: var(--border-radius-md); padding: 1rem; margin-top: 0.5rem; font-size: 13px; }
+.answer-label { font-weight: 700; color: #166534; margin-bottom: 4px; }
+
+@media (max-width: 640px) {
+  .compare-grid { grid-template-columns: 1fr; }
+}
+
+/* 列印／PDF 分頁規則 */
+@media print {
+  body { background: #fff; color: #000; }
+  .hero { background: #112333 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .example-box, .compare-grid, .alert, .formula, .keyword-grid, .flow, .card, .exercise-box {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero 區塊 -->
+  <div class="hero">
+    <div class="hero-tag">說話教學筆記</div>
+    <h1>3分鐘應試奇蹟：「四格看圖說故事」高分速成與實戰技巧</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <!-- 目錄 -->
+  <div class="toc">
+    <div class="toc-title">📌 筆記核心思維導航</div>
+    <ul>
+      <li><a href="#section-1">1. 時間分配黃金法則：穩住說話節奏</a></li>
+      <li><a href="#section-2">2. 觀察圖片結構：由全局到局部的透視法</a></li>
+      <li><a href="#section-3">3. 萬能骨架公式：起、承、轉、合的標準配置</a></li>
+      <li><a href="#section-4">4. 破譯圖中「隱藏密碼」：解讀象徵與話外之音</a></li>
+      <li><a href="#section-5">5. 巧妙串連與有聲有色：告別流水帳的秘訣</a></li>
+      <li><a href="#section-6">6. 錯誤示範與考場實戰練習</a></li>
+    </ul>
+  </div>
+
+  <!-- 核心講解 1 -->
+  <div class="section-header" id="section-1">
+    <span class="section-num">01</span>
+    <h2>時間分配黃金法則：穩住說話節奏</h2>
+  </div>
+  <p>在「3分鐘準備、1分鐘演說」的嚴格限制下，控時就是決勝關鍵。同學切忌在一開始的圖畫花費太多時間，導致結局草草收場。以下是考場必背的配速黃金比例：</p>
+  
+  <div class="card">
+    <div class="card-title"><span class="dot purple"></span>3分鐘準備策略（默讀與構思）</div>
+    <div class="flow">
+      <div class="flow-step">第1分鐘：大局觀（確立主題與起因結局）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">第1.5分鐘：細節描寫（為主角設計靈魂對話）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">最後0.5分鐘：大腦預演（用連接詞串連節奏）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot teal"></span>1分鐘演說配速（總時長 60 秒）</div>
+    <div class="flow">
+      <div class="flow-step">圖一（起）：10 - 12秒</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">圖二（承）：12 - 15秒</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">圖三（轉）：15 - 18秒（全篇高潮）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">圖四（合）：12 - 15秒（反思點題）</div>
+    </div>
+  </div>
+
+  <!-- 核心講解 2 -->
+  <div class="section-header" id="section-2">
+    <span class="section-num">02</span>
+    <h2>觀察圖片結構：由全局到局部的透視法</h2>
+  </div>
+  <p>看圖時切忌東張西望，必須遵循「由遠及近、由大到小」的觀察結構，將考卷上的圖畫層層拆解：</p>
+  
+  <div class="keyword-grid">
+    <div class="keyword-card">
+      <div class="kw-word">遠景：全局環境</div>
+      <div class="kw-def">觀察天氣（晴天／雨天）、地點（校園／公園／家裏）及時間（清晨／黃昏），奠定故事的背景基調。</div>
+    </div>
+    <div class="keyword-card">
+      <div class="kw-word">中景：主體與關係</div>
+      <div class="kw-def">找出主角是誰？角色的站位如何？他們之間是同學、父子還是陌生人的關係？</div>
+    </div>
+    <div class="keyword-card">
+      <div class="kw-word">近景：神情與動作</div>
+      <div class="kw-def">聚焦主角的眼神、面部表情（皺眉／微笑／流汗）以及手勢（指點／擺手／緊握），這些微小之處往往是情節推進的暗示。</div>
+    </div>
+  </div>
+
+  <!-- 核心講解 3 -->
+  <div class="section-header" id="section-3">
+    <span class="section-num">03</span>
+    <h2>萬能骨架公式：起、承、轉、合的標準配置</h2>
+  </div>
+  <p>利用「起、承、轉、合」萬能骨架公式，能確保故事不偏題、不漏講，邏輯絲絲入扣：</p>
+  
+  <div class="formula">
+    <strong>【萬能骨架公式】</strong><br>
+    • <strong>圖一（起）：</strong> 在一個 [天氣] 的 [時間]，[人物] 正在 [地點] 做 [事情]……<br>
+    • <strong>圖二（承）：</strong> 為了完成目標，主角採取了 [行動]，過程中注意到了 [細節]……<br>
+    • <strong>圖三（轉）：</strong> 說時遲，那時快！／ 意想不到的事情發生了！描寫突發事件或衝突。<br>
+    • <strong>圖四（合）：</strong> 經過這次事件，主角終於 [結果]。這件事讓他明白到了 [道理／啟發]。
+  </div>
+
+  <!-- 核心講解 4 -->
+  <div class="section-header" id="section-4">
+    <span class="section-num">04</span>
+    <h2>破譯圖中「隱藏密碼」：解讀象徵與話外之音</h2>
+  </div>
+  <p>優秀的故事不能停留在表面描寫。考卷上的圖畫往往隱含著許多「話外之音」，學生必須學會將以下四個維度的隱含信息，轉化為高級的敘事語言：</p>
+
+  <div class="card">
+    <div class="card-title"><span class="dot coral"></span>4大核心隱含密碼解密</div>
+    
+    <div class="example-box teal">
+      <div class="example-label">密碼 1：核心物件 → 隱含「特定節日與文化意義」</div>
+      <div class="example-text">
+        • <strong>月餅、燈籠、圓月：</strong> 暗示「中秋佳節」，隱含着「人月兩團圓」、「思念遠方親人」的意義。<br>
+        • <strong>揮春、利是、桃花：</strong> 暗示「農曆新年」，象徵喜慶、祝賀與萬象更新。<br>
+        • <strong>粽子、龍舟舟影：</strong> 暗示「端午節」，象徵傳統文化與熱鬧氣氛。<br>
+        • <strong>康乃馨／心意卡：</strong> 暗示「母親節／父親節」，隱含着感恩與孝道。
+      </div>
+    </div>
+
+    <div class="example-box coral">
+      <div class="example-label">密碼 2：關鍵道具 → 隱含「情節發展與角色心理」</div>
+      <div class="example-text">
+        • <strong>一封蓋有郵戳的信件：</strong> 象徵「遠方的牽掛」或「相聚的契機」，往往是主角出發或改變的起因。<br>
+        • <strong>行李箱／背包：</strong> 隱含著「即將踏上旅程」，代表着期待、離別或探親的心理準備。<br>
+        • <strong>翻倒的垃圾桶／地上香蕉皮：</strong> 象徵「潛在的危機」，暗示下一格將會發生意外或衝突。<br>
+        • <strong>指向特定時間的時鐘：</strong> 象徵「時間緊迫」，用來烘托主角焦慮、緊張的心情。
+      </div>
+    </div>
+
+    <div class="example-box amber">
+      <div class="example-label">密碼 3：環境與天氣 → 隱含「角色心情的晴雨表」</div>
+      <div class="example-text">
+        • <strong>烏雲密佈／傾盆大雨：</strong> 象徵主角內心的「沮喪、無助、憤怒」，或暗示即將遭遇挫折。<br>
+        • <strong>雨過天晴／出現彩虹：</strong> 象徵「危機解除、化險為夷」，或主角心情由陰轉晴、雙方達成和解。<br>
+        • <strong>落葉紛飛／枯樹：</strong> 象徵「孤獨、淒涼」；相反，<strong>繁花盛開</strong>則象徵「生機與希望」。
+      </div>
+    </div>
+
+    <div class="example-box pink">
+      <div class="example-label">密碼 4：空間距離 → 隱含「人際關係與情感代價」</div>
+      <div class="example-text">
+        • <strong>隔着漫長旅途：</strong> 象徵「相見不易」，可強調主角為了團聚所付出的努力與愛。<br>
+        • <strong>人物距離遙遠或背對背：</strong> 象徵彼此之間有「隔閡、誤會或矛盾」。<br>
+        • <strong>人物並肩而行或手拉手：</strong> 象徵「團結、信任與親密無間」。
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心講解 5 -->
+  <div class="section-header" id="section-5">
+    <span class="section-num">05</span>
+    <h2>巧妙串連與有聲有色：告別流水帳的秘訣</h2>
+  </div>
+  <p>平庸的故事只會不斷重覆「然後……然後……接著……」。高分演說必須運用具有邏輯性與時間推移感的連接詞，並為故事注入「聲音」與「畫面」。</p>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">萬能連接詞工具箱</div>
+      <div class="alert-text">
+        • <strong>順接（圖一 → 圖二）：</strong> 「果不其然……」、「正當此際……」、「隨後……」<br>
+        • <strong>轉折（圖二 → 圖三）：</strong> 「天有不測之風雲……」、「怎料晴天霹靂……」、「意想不到的是……」<br>
+        • <strong>結果（圖三 → 圖四）：</strong> 「幸好……」、「最終化險為夷……」、「經過一番努力……」
+      </div>
+    </div>
+  </div>
+
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div>
+      <div class="alert-label">有聲有色的感官與心理描寫</div>
+      <div class="alert-text">
+        • <strong>描寫意外（擬聲詞）：</strong> 「砰砰！一聲巨響，小明不小心把花盆撞倒了。」<br>
+        • <strong>描寫緊張（細節描寫）：</strong> 「小明屏足呼吸，目不轉睛地盯著計時器。」<br>
+        • <strong>描寫喜悅（神態形容詞）：</strong> 「看著失而復得的錢包，陳阿姨笑逐顏開，連聲道謝。」
+      </div>
+    </div>
+  </div>
+
+  <!-- 錯誤對比 -->
+  <div class="section-header" id="section-6">
+    <span class="section-num">06</span>
+    <h2>錯誤示範與考場實戰練習</h2>
+  </div>
+  
+  <p><strong>【錯誤寫法 vs 高分寫法對比】</strong></p>
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-title">❌ 平庸流水帳（低分）</div>
+      <div class="compare-text">小明看到花瓶碎了，心裏很害怕。後來媽媽回來了，他跟媽媽說對不起。</div>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-title">品味進階寫法（高分）</div>
+      <div class="compare-text">小明看著滿地的花瓶碎片，嚇得面如土色，心裏暗叫：「糟糕了！這下該怎麼向媽媽交代呢？」</div>
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-title">❌ 忽略環境暗示（低分）</div>
+      <div class="compare-text">下雨了，小明沒帶傘，他覺得很倒楣，然後走路回家。</div>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-title">品味進階寫法（高分）</div>
+      <div class="compare-text">天空突然烏雲密佈，傾盆大雨鋪天蓋地而來。冰冷的雨水打在臉上，正好烘托出小明此時沮喪、無助的心情。</div>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div>
+      <div class="alert-label">常見應試陷阱</div>
+      <div class="alert-text">很多同學在講到第四幅圖（結尾）時，只說「故事完了」或「他們高興地回家了」。高分關鍵在於<strong>抒發反思與道理</strong>，讓故事層次昇華。</div>
+    </div>
+  </div>
+
+  <!-- 課堂練習 -->
+  <div class="exercise-box">
+    <div class="exercise-title">📝 課堂實戰演練</div>
+    
+    <div class="question">
+      <div class="q-text">Q1. 連接詞與配速應用：在看圖說故事的「轉折」部分（即圖三出現意外或衝突時），以下哪一個連接詞最能吸引評判的注意？</div>
+      <p>A) 隨後　B) 說時遲，那時快　C) 然後　D) 久而久之</p>
+      <div class="answer-area">
+        <div class="answer-label">參考答案：B</div>
+        <div>「說時遲，那時快」具有强烈的畫面感與突發感，最適合用於引導第三幅圖的高潮情節，能瞬間拉緊故事節奏。</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Q2. 隱藏密碼解讀：若在一幅圖畫中看見「地上有翻倒的垃圾桶與大片水漬」，在故事推進中這象徵著甚麼？</div>
+      <div class="answer-area">
+        <div class="answer-label">參考答案：</div>
+        <div>這象徵著「潛在的危機」或「意外的伏筆」。在說故事時，可以預告主角因行色匆匆而忽略了這個危機，從而流暢地引導出下一幅圖畫中主角滑倒或撞翻物件的衝突情節。</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Q3. 修辭與高級描寫改寫：請將普通句子「陳伯伯看見不見了的貓咪，十分開心。」改寫成包含「神態描寫」與「對話／心理描寫」的高級寫法。</div>
+      <div class="answer-area">
+        <div class="answer-label">參考答案（高分示範）：</div>
+        <div>看著失而復得的貓咪，陳伯伯頓時笑逐顏開，緊緊地把小貓抱在懷裏，激動地說：「謝天謝地！你這小頑皮可把我嚇壞了！」（運用神態描寫「笑逐顏開」與生動的對話，令角色形象躍然紙上）。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert amber">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">潘SIR應試精金一句話</div>
+      <div class="alert-text"><strong>「定時看全局，入題莫遲疑；轉折造高潮，點題顯心思。」</strong> 只要穩住心神，看穿隱藏密碼，你就是故事大師！</div>
+    </div>
+  </div>
+
+  <!-- 版權聲明 -->
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

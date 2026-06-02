@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寫作教學筆記：勸導信（小五）｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 基礎變數定義 */
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #9a9488;
+    --color-background-primary: #1e1c19;
+    --color-background-secondary: #27251f;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  padding: 2rem 1rem;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.wrap { max-width: 800px; margin: 0 auto; padding-bottom: 3rem; }
+
+/* 連結還原 */
+a { color: inherit; text-decoration: none; }
+
+/* HERO 區塊共用與特定主題結構 */
+.hero {
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: inherit;
+  line-height: 1.4;
+}
+.hero p { font-size: 13px; font-weight: 500; }
+
+/* 寫作：霧玫瑰 */
+.hero.writing { background: #E8D5C8; color: #2E1A12; }
+.hero.writing .hero-tag {
+  border: 1px solid rgba(46,26,18,0.3);
+  color: rgba(46,26,18,0.65);
+}
+.hero.writing p { color: rgba(46,26,18,0.5); }
+
+/* TOC 目錄 */
+.toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px; margin-bottom: 2.5rem;
+}
+.toc-item {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.8rem 1rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.toc-num {
+  width: 24px; height: 24px;
+  background: #2E1A12; color: #E8D5C8;
+  border-radius: 50%; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.toc-label { font-size: 13.5px; font-weight: 500; color: var(--color-text-primary); }
+
+/* SECTION 分區標題 */
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  margin: 2.5rem 0 1.2rem; padding-bottom: 0.7rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.section-icon {
+  width: 32px; height: 32px; border-radius: var(--border-radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+  background: #E8D5C8;
+}
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--color-text-primary);
+}
+.section-num { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-left: auto; letter-spacing: 1px; }
+
+/* 卡片與通用區塊 */
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.card-title {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 15px; font-weight: 700;
+  margin-bottom: 0.8rem; color: var(--color-text-primary);
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot.coral { background: #E07A5F; }
+.dot.teal { background: #3D8C84; }
+.dot.amber { background: #E5A93B; }
+.dot.purple { background: #7A658E; }
+.dot.blue { background: #4A7A96; }
+
+/* 流程箭頭 */
+.flow { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin: 0.8rem 0; }
+.flow-step {
+  background: var(--color-background-secondary); 
+  border: 1px solid var(--color-border-tertiary);
+  color: var(--color-text-primary);
+  font-size: 13px; font-weight: 500;
+  padding: 6px 14px; border-radius: 20px; white-space: nowrap;
+}
+.flow-arrow { font-size: 14px; color: var(--color-text-secondary); }
+
+/* 提示框 */
+.alert {
+  border-radius: var(--border-radius-md);
+  padding: 0.9rem 1.2rem; margin: 1rem 0;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+.alert-label { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 4px; }
+.alert-text  { font-size: 13.5px; line-height: 1.75; color: var(--color-text-secondary); }
+
+.alert.tip     { background: #E6F1FB; border: 0.5px solid #93C4F5; }
+.alert.tip .alert-label { color: #1a5faa; }
+.alert.warn    { background: #FCEBEB; border: 0.5px solid #F09595; }
+.alert.warn .alert-label { color: #A32D2D; }
+.alert.amber   { background: #FAF0DA; border: 0.5px solid #E5B84A; }
+.alert.amber .alert-label { color: #7a5a05; }
+
+/* 示例框 */
+.example-box {
+  background: var(--color-background-secondary);
+  border-left: 4px solid #7A658E;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 1rem 1.2rem; margin: 1rem 0;
+}
+.example-box.coral { border-left-color: #E07A5F; }
+.example-box.teal { border-left-color: #3D8C84; }
+.example-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.5rem; color: #5c4b6b;
+}
+.example-box.coral .example-label { color: #9c4c38; }
+.example-box.teal .example-label { color: #235c56; }
+.example-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14.5px; color: var(--color-text-primary); line-height: 1.85;
+}
+
+/* 對比框 */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1rem 0; }
+.compare-card { border-radius: var(--border-radius-md); padding: 1rem 1.2rem; }
+.compare-card.bad  { background: #FCEBEB; border: 0.5px solid #F09595; }
+.compare-card.good { background: #EAF3DE; border: 0.5px solid #97C459; }
+.compare-label { font-size: 12px; font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
+.compare-card.bad  .compare-label { color: #A32D2D; }
+.compare-card.good .compare-label { color: #3B6D11; }
+.compare-text { font-family: 'Noto Serif TC', serif; font-size: 14px; line-height: 1.8; color: var(--color-text-primary); }
+
+/* 關鍵詞卡片 */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px; margin: 1rem 0;
+}
+.keyword-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.9rem 1.2rem;
+}
+.kw-word { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; margin-bottom: 0.4rem; color: #E07A5F; }
+.kw-def { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+
+/* 公式框 */
+.formula {
+  background: #2E1A12;
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem 1.5rem; margin: 1rem 0;
+}
+.formula-label { font-size: 12px; color: #E8D5C8; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+.formula-text  { font-family: 'Noto Serif TC', serif; font-size: 15px; color: #F5EBE6; line-height: 1.9; }
+
+/* 練習題區塊 */
+.qbox {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem 1.5rem; margin-bottom: 1rem;
+}
+.qbox-title { font-weight: 700; font-size: 14.5px; margin-bottom: 0.8rem; color: #4A7A96; }
+.qbox-text { font-size: 14px; margin-bottom: 1rem; line-height: 1.8; }
+.ans-box {
+  background: var(--color-background-secondary);
+  border-left: 3px solid #97C459;
+  padding: 0.8rem 1rem; margin-top: 1rem;
+  font-size: 13.5px;
+}
+.ans-label { font-weight: 700; color: #3B6D11; margin-bottom: 4px; font-size: 12px; }
+
+/* 列印／PDF 分頁規則 (強制規範) */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula, .compare-grid { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero writing">
+  <div class="hero-tag">寫作教學筆記</div>
+  <h1>實用文寫作教學<br>勸導信：不要沉迷電子遊戲</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc">
+  <div class="toc-item"><div class="toc-num">1</div><div class="toc-label">審題與文章結構</div></div>
+  <div class="toc-item"><div class="toc-num">2</div><div class="toc-label">書信格式大解構</div></div>
+  <div class="toc-item"><div class="toc-num">3</div><div class="toc-label">內容構思與展開</div></div>
+  <div class="toc-item"><div class="toc-num">4</div><div class="toc-label">佳詞佳句推薦</div></div>
+  <div class="toc-item"><div class="toc-num">5</div><div class="toc-label">寫作對比示範</div></div>
+  <div class="toc-item"><div class="toc-num">6</div><div class="toc-label">課後實戰練習</div></div>
+</div>
+
+<div class="section-header">
+  <div class="section-icon">🎯</div>
+  <div class="section-title">1. 審題與文章結構</div>
+  <div class="section-num">STEP 01</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><div class="dot coral"></div>題目分析</div>
+  <p><strong>題目要求：</strong>你發現同班的好朋友最近沉迷電子遊戲，不但上課時精神不振，連學業成績也退步了。請你寫一封信勸導他/她，分析沉迷遊戲的壞處，並提出改善的建議。</p>
+  <ul style="padding-left: 1.5rem; margin-top: 0.8rem; line-height: 1.8;">
+    <li><strong>寫作對象：</strong>同班的好朋友（語氣應親切、誠懇，帶有同理心，避免說教或責罵）。</li>
+    <li><strong>寫作身份：</strong>關心對方的朋友。</li>
+    <li><strong>核心任務：</strong>指出問題（精神不振、成績退步） ＋ 分析壞處 ＋ 提出改善建議。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title"><div class="dot teal"></div>勸導信的黃金結構</div>
+  <p>寫勸導信時，我們必須循序漸進，才能令對方聽得入耳。你可以跟隨以下五個步驟來組織段落：</p>
+  <div class="flow">
+    <div class="flow-step">第一段：問候與寫信目的</div><div class="flow-arrow">→</div>
+    <div class="flow-step">第二段：分析壞處（健康與精神）</div><div class="flow-arrow">→</div>
+    <div class="flow-step">第三段：分析壞處（學業）</div><div class="flow-arrow">→</div>
+    <div class="flow-step">第四段：提出改善建議</div><div class="flow-arrow">→</div>
+    <div class="flow-step">第五段：總結鼓勵與祝頌</div>
+  </div>
+</div>
+
+<div class="section-header">
+  <div class="section-icon">✉️</div>
+  <div class="section-title">2. 書信格式大解構</div>
+  <div class="section-num">STEP 02</div>
+</div>
+
+<p>私函（寫給親友的書信）有嚴格的格式要求，漏寫或寫錯位置都會被扣分！請牢記以下「六大元素」：</p>
+
+<div class="formula">
+  <div class="formula-label">📐 實用文：私函標準格式</div>
+  <div class="formula-text">
+    <strong>上款：</strong>寫在第一行頂格（不用空兩格），加上冒號。<br>
+    <strong>問候語：</strong>第二行空兩格寫（如：近來好嗎？）。<br>
+    <strong>正文：</strong>分段書寫，每段開頭空兩格。<br>
+    <strong>祝頌語：</strong>正文完結後，下一行空兩格寫「祝」，再下一行頂格寫祝福語（如「學業進步」）。<br>
+    <strong>署名（下款）：</strong>寫在祝頌語之下，靠右。先寫身分（如「你的好友」），下一行寫名字。<br>
+    <strong>日期：</strong>寫在署名之下，靠右。（如：二零二六年五月二十三日）
+  </div>
+</div>
+
+<div class="example-box coral">
+  <div class="example-label">📝 格式示範圖</div>
+  <div class="example-text" style="font-family: 'Noto Sans TC', sans-serif;">
+    允行：<br>
+    &emsp;&emsp;近來好嗎？<br>
+    &emsp;&emsp;（正文第一段：點明寫信目的......）<br>
+    &emsp;&emsp;（正文第二段：分析壞處......）<br>
+    &emsp;&emsp;（正文第三段：提出建議......）<br>
+    &emsp;&emsp;祝<br>
+    學業進步<br>
+    <div style="text-align: right;">你的好友<br>一心<br>二零二六年五月二十三日</div>
+  </div>
+</div>
+
+<div class="alert warn">
+  <div class="alert-icon">⚠</div>
+  <div>
+    <div class="alert-label">常見格式陷阱</div>
+    <div class="alert-text">
+      1. 上款忘記加「冒號（：）」。<br>
+      2. 「祝」字與「祝福內容（如：身體健康）」寫在同一行（必須分開兩行寫）。<br>
+      3. 日期格式錯誤，中文書信的日期應盡量使用漢字（如：二零二六年），避免使用阿拉伯數字混搭。
+    </div>
+  </div>
+</div>
+
+<div class="section-header">
+  <div class="section-icon">🧠</div>
+  <div class="section-title">3. 內容構思與展開</div>
+  <div class="section-num">STEP 03</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><div class="dot amber"></div>痛點分析：沉迷遊戲的壞處</div>
+  <p>要勸服別人，不能只說「打機不好」，必須具體指出對方的改變。可以從<strong>生理</strong>與<strong>心理/學業</strong>兩方面入手：</p>
+  <ul style="padding-left: 1.5rem; line-height: 1.8; margin-top: 0.5rem;">
+    <li><strong>生理影響：</strong>熬夜打機導致睡眠不足，上課時經常打瞌睡，精神不振；長時間注視屏幕，導致視力下降。</li>
+    <li><strong>學業影響：</strong>把溫習和做功課的時間都花在遊戲上，導致功課馬虎，測驗成績一落千丈，辜負了老師和父母的期望。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title"><div class="dot blue"></div>對症下藥：改善建議</div>
+  <p>作為好朋友，提出具體且可行的建議，才能展現你的關心：</p>
+  <ul style="padding-left: 1.5rem; line-height: 1.8; margin-top: 0.5rem;">
+    <li><strong>時間管理：</strong>建議對方制定時間表，規定每天只能在完成功課後玩半小時遊戲，做到「勞逸結合」。</li>
+    <li><strong>轉移視線：</strong>邀請對方週末一起去打籃球、跑步或圖書館看書，培養健康的課餘愛好，戒除網癮。</li>
+    <li><strong>同伴同行：</strong>主動提出放學後陪他一起留在學校完成功課，互相督促。</li>
+  </ul>
+</div>
+
+<div class="section-header">
+  <div class="section-icon">🌟</div>
+  <div class="section-title">4. 佳詞佳句推薦</div>
+  <div class="section-num">STEP 04</div>
+</div>
+
+<div class="keyword-grid">
+  <div class="keyword-card">
+    <div class="kw-word">無精打采</div>
+    <div class="kw-def">形容提不起精神，沒有活力的樣子。可用來描寫朋友上課時的狀態。</div>
+  </div>
+  <div class="keyword-card">
+    <div class="kw-word">一落千丈</div>
+    <div class="kw-def">比喻地位、成績等急劇下降。用來形容朋友退步的學業。</div>
+  </div>
+  <div class="keyword-card">
+    <div class="kw-word">懸崖勒馬</div>
+    <div class="kw-def">比喻到了危險的邊緣及時清醒回頭。非常適合用於勸導信。</div>
+  </div>
+  <div class="keyword-card">
+    <div class="kw-word">勞逸結合</div>
+    <div class="kw-def">把工作/學習和休息結合起來。用在給朋友的改善建議中。</div>
+  </div>
+</div>
+
+<div class="example-box teal">
+  <div class="example-label">💡 百搭佳句</div>
+  <div class="example-text">
+    1. 「水能載舟，亦能覆舟。電子遊戲雖然能為我們減壓，但一旦沉迷，便會荒廢學業，損害健康。」<br>
+    2. 「我深知萬事起頭難，戒掉遊戲癮並非一朝一夕的事。但請你記住，作為你的好朋友，我一定會在你身邊支持你、督促你。」<br>
+    3. 「古語有云：『一寸光陰一寸金』，我們不應把寶貴的青春虛耗在虛擬的遊戲世界裡。」
+  </div>
+</div>
+
+<div class="section-header">
+  <div class="section-icon">⚖️</div>
+  <div class="section-title">5. 寫作對比示範</div>
+  <div class="section-num">STEP 05</div>
+</div>
+
+<p>寫勸導信時，語氣是成功的關鍵。太嚴厲會變成責罵，太隨便又達不到勸導的效果。來看看以下對比：</p>
+
+<div class="compare-grid">
+  <div class="compare-card bad">
+    <div class="compare-label">❌ 錯誤示範（語氣生硬、指責）</div>
+    <div class="compare-text">你最近每天都在玩遊戲，上課時一直在睡覺，成績退步得這麼厲害，真是太沒用了！如果你再這樣下去，我就不跟你做朋友了，你自己好好反省一下吧！</div>
+  </div>
+  <div class="compare-card good">
+    <div class="compare-label">✅ 正確示範（誠懇關心、具同理心）</div>
+    <div class="compare-text">最近我留意到你上課時總是無精打采，就連上次的數學測驗也不及格。得知你最近迷上了電子遊戲，作為你的好朋友，我實在感到十分擔憂，不忍心看著你繼續退步。</div>
+  </div>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card bad">
+    <div class="compare-label">❌ 錯誤示範（建議不切實際）</div>
+    <div class="compare-text">你從明天開始，馬上把手機和電腦裡的遊戲全部刪掉，一天都不能玩，以後每天放學只能在家裡溫習五個小時。</div>
+  </div>
+  <div class="compare-card good">
+    <div class="compare-label">✅ 正確示範（建議具體可行）</div>
+    <div class="compare-text">我建議你可以為自己制定一個時間表，做到勞逸結合。例如每天先完成功課，才可以玩半小時遊戲作為獎勵。這個週末，不如我們一起去體育館打羽毛球，放鬆一下身心吧！</div>
+  </div>
+</div>
+
+<div class="section-header">
+  <div class="section-icon">📝</div>
+  <div class="section-title">6. 課後實戰練習</div>
+  <div class="section-num">STEP 06</div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-title">第一題：書信格式糾錯</div>
+  <div class="qbox-text">以下是一封書信的結尾部分，當中有<strong>三個</strong>格式錯誤，請找出來並更正。</div>
+  <div style="background:#f9f9f9; padding: 10px; border: 1px dashed #ccc; margin-bottom: 15px; font-family: 'Noto Serif TC', serif;">
+    &emsp;&emsp;希望你能聽取我的建議，早日戒除網癮。<br>
+    &emsp;&emsp;祝學業進步<br>
+    <br>
+    你的好友子健<br>
+    5月23日
+  </div>
+  <details>
+    <summary style="cursor: pointer; color: #4A7A96; font-weight: 700; margin-bottom: 10px;">👉 點擊查看答案</summary>
+    <div class="ans-box">
+      <div class="ans-label">參考答案：</div>
+      1. <strong>祝頌語寫錯位置：</strong>「祝」字應獨立佔一行，並空兩格；「學業進步」應在下一行頂格書寫。<br>
+      2. <strong>署名格式錯誤：</strong>身分（你的好友）與名字（子健）應分開兩行書寫，並靠右。<br>
+      3. <strong>日期格式不佳：</strong>應使用中文數字，寫成「五月二十三日」（建議加上年份）。
+    </div>
+  </details>
+</div>
+
+<div class="qbox">
+  <div class="qbox-title">第二題：擴寫句子（加入成語與細節）</div>
+  <div class="qbox-text">請運用本課學過的四字詞語（如：無精打采、一落千丈、勞逸結合、懸崖勒馬），將以下基本句子擴寫成內容豐富的勸導句。<br><br>
+  <strong>基本句：</strong>你上課很累，成績差了，你要少玩遊戲多休息。</div>
+  <details>
+    <summary style="cursor: pointer; color: #4A7A96; font-weight: 700; margin-bottom: 10px;">👉 點擊查看答案</summary>
+    <div class="ans-box">
+      <div class="ans-label">參考答案：</div>
+      最近，我發現你上課時總是<strong>無精打采</strong>，測驗成績更是<strong>一落千丈</strong>。我希望你能<strong>懸崖勒馬</strong>，不要再沉迷遊戲，學會<strong>勞逸結合</strong>，讓身體得到充分的休息。
+    </div>
+  </details>
+</div>
+
+<div class="qbox">
+  <div class="qbox-title">第三題：大綱寫作</div>
+  <div class="qbox-text">根據今天的筆記，請為這封勸導信寫下「提出改善建議」這一段的大綱（列出兩項具體建議即可）。</div>
+  <details>
+    <summary style="cursor: pointer; color: #4A7A96; font-weight: 700; margin-bottom: 10px;">👉 點擊查看答案</summary>
+    <div class="ans-box">
+      <div class="ans-label">參考大綱示範：</div>
+      建議一：時間管理。訂立每天的作息時間表，規定自己必須先完成功課和溫習，才能玩 30 分鐘遊戲，培養自律精神。<br>
+      建議二：培養健康愛好。提議週末陪伴他去圖書館借書或去公園跑步，把注意力從虛擬世界轉移到現實生活中。
+    </div>
+  </details>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

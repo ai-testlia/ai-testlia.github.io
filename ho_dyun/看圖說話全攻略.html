@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看圖說話全攻略：四幅圖的時間掌控與結構技巧｜潘SIR中文教室</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --hero-bg: #0f2626;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0f0ee;
+      --color-text-secondary: #aaa;
+      --color-background-primary: #1c1c1e;
+      --color-background-secondary: #2c2c2e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* HERO */
+  .hero {
+    background: var(--hero-bg);
+    color: #fff;
+    border-radius: var(--border-radius-lg);
+    padding: 3rem 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+  }
+  .hero p { font-size: 14px; opacity: 0.75; letter-spacing: 1px; }
+
+  /* TOC */
+  .toc {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.6rem;
+  }
+  .toc-item {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 13.5px; color: var(--color-text-primary);
+    text-decoration: none;
+  }
+  .toc-num {
+    width: 24px; height: 24px;
+    background: #1a4a4a; color: #fff;
+    border-radius: 50%; font-size: 11px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-weight: 700;
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex; align-items: center; gap: 0.8rem;
+    margin: 2.5rem 0 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 22px;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  /* CARD */
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* SUBSECTION TITLE */
+  .subsection-title {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.15rem; font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: var(--color-text-primary);
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot.purple { background: #6a3fbf; }
+  .dot.teal   { background: #1a9a8a; }
+  .dot.coral  { background: #e05555; }
+  .dot.amber  { background: #e09a1a; }
+
+  /* FLOW */
+  .flow {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0;
+    background: var(--color-background-secondary);
+    padding: 1rem; border-radius: var(--border-radius-md);
+  }
+  .flow-step {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    padding: 0.6rem 1rem; border-radius: var(--border-radius-md);
+    text-align: center; flex: 1; min-width: 140px;
+  }
+  .flow-step h4 { font-family: 'Noto Serif TC', serif; color: #1a4a4a; margin-bottom: 0.2rem; }
+  .flow-step p { font-size: 12px; color: var(--color-text-secondary); }
+  .flow-arrow { font-size: 18px; color: var(--color-text-secondary); font-weight: bold; }
+
+  /* KEYWORD GRID */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem; margin: 1rem 0;
+  }
+  .kw-card {
+    background: var(--color-background-secondary);
+    border-left: 4px solid #1a4a4a;
+    padding: 0.8rem 1.2rem; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.3rem; }
+  .kw-def { font-size: 13px; color: var(--color-text-secondary); }
+
+  /* EXAMPLES */
+  .example-box {
+    background: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    padding: 1rem 1.2rem; margin: 1rem 0;
+  }
+  .example-box.teal { background: #f0fdfa; border-left-color: #14b8a6; }
+  .example-box.coral { background: #fff5f5; border-left-color: #f87171; }
+  .example-box.amber { background: #fffbeb; border-left-color: #fbbf24; }
+  .example-box.pink { background: #fdf2f8; border-left-color: #f472b6; }
+  
+  .example-label {
+    display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px;
+    border-radius: 4px; margin-bottom: 0.5rem; text-transform: uppercase;
+  }
+  .example-box .example-label { background: #dbeafe; color: #1e40af; }
+  .example-box.teal .example-label { background: #ccfbf1; color: #115e59; }
+  .example-box.coral .example-label { background: #fee2e2; color: #991b1b; }
+  .example-box.amber .example-label { background: #fef3c7; color: #92400e; }
+  .example-box.pink .example-label { background: #fce7f3; color: #9d174d; }
+  .example-text { font-size: 13.5px; color: var(--color-text-primary); }
+
+  /* COMPARE GRID */
+  .compare-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0;
+  }
+  .compare-card { border-radius: var(--border-radius-md); padding: 1rem 1.2rem; border: 1px solid var(--color-border-tertiary); }
+  .compare-card.bad { background: #fff5f5; border-left: 4px solid #ef4444; }
+  .compare-card.good { background: #f0fdf4; border-left: 4px solid #22c55e; }
+  .compare-label { font-size: 12px; font-weight: 700; margin-bottom: 0.4rem; }
+  .compare-card.bad .compare-label { color: #b91c1c; }
+  .compare-card.good .compare-label { color: #166534; }
+  .compare-text { font-size: 13px; color: var(--color-text-primary); }
+
+  /* ALERT */
+  .alert {
+    display: flex; gap: 0.8rem; align-items: flex-start;
+    border-radius: var(--border-radius-md); padding: 1rem 1.2rem; margin: 1.2rem 0;
+  }
+  .alert.tip { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+  .alert.warn { background: #fff1f2; border: 1px solid #fecdd3; color: #991b1b; }
+  .alert.success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+  .alert-icon { font-size: 18px; line-height: 1; }
+  .alert-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 0.2rem; }
+  .alert-content p { font-size: 13px; opacity: 0.9; line-height: 1.6; }
+
+  /* FORMULA */
+  .formula {
+    background: #1e293b; color: #f8fafc;
+    border-radius: var(--border-radius-md); padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0; font-size: 14px;
+  }
+  .formula h4 { font-family: 'Noto Serif TC', serif; color: #38bdf8; margin-bottom: 0.5rem; font-size: 15px; }
+  .formula-content { font-family: monospace; font-size: 13px; line-height: 1.7; background: rgba(0,0,0,0.2); padding: 0.8rem; border-radius: 6px; }
+
+  /* EXERCISE */
+  .exercise-block { margin-top: 1rem; }
+  .q-item { margin-bottom: 1.5rem; padding-bottom: 1.2rem; border-bottom: 1px dashed var(--color-border-tertiary); }
+  .q-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; gap: 0.5rem; }
+  .q-num { background: #1a4a4a; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+  .q-text { font-size: 14px; }
+  .ans-box { background: var(--color-background-secondary); padding: 1rem; border-radius: var(--border-radius-md); margin-top: 0.6rem; font-size: 13.5px; }
+  .ans-box strong { color: #166534; }
+
+  /* PRINT / PDF PAGES */
+  @media print {
+    body { background: #fff; color: #000; font-size: 12px; }
+    .wrap { max-width: 100%; padding: 0; }
+    .section-block {
+      page-break-before: always;
+      break-before: page;
+    }
+    .hero {
+      page-break-before: avoid;
+      break-before: avoid;
+      background: #000 !important; color: #fff !important;
+    }
+    .toc {
+      page-break-after: always;
+      break-after: page;
+    }
+    .example-box, .compare-grid, .alert, .formula, .keyword-grid, .flow, .card {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .section-header, h2, h3 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO 區塊 -->
+  <div class="hero">
+    <div class="hero-tag">說話教學筆記</div>
+    <h1>看圖說話全攻略：四幅圖的時間掌控與結構技巧</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <!-- 目錄 -->
+  <div class="toc">
+    <div class="toc-title">📋 筆記目錄</div>
+    <div class="toc-grid">
+      <a href="#sec1" class="toc-item"><span class="toc-num">1</span> 核心結構與黃金時間分配</a>
+      <a href="#sec2" class="toc-item"><span class="toc-num">2</span> 四幅圖分步拆解與豐富示例</a>
+      <a href="#sec3" class="toc-item"><span class="toc-num">3</span> 常見錯誤與對比示範</a>
+      <a href="#sec4" class="toc-item"><span class="toc-num">4</span> 應試高分公式與答題技巧</a>
+      <a href="#sec5" class="toc-item"><span class="toc-num">5</span> 課堂實戰練習與參考答案</a>
+    </div>
+  </div>
+
+  <!-- 主要章節 1 -->
+  <div class="section-block" id="sec1">
+    <div class="section-header">
+      <span class="section-icon">🎯</span>
+      <h2>一、核心結構與黃金時間分配</h2>
+    </div>
+    
+    <div class="card">
+      <p>看圖說話是考察同學<strong>觀察力、邏輯思維</strong>及<strong>口語表達</strong>能力的關鍵題型。要考取高分，秘訣在於將故事流暢地納入「起、承、轉、合」的四步框架中，並嚴格控制每幅圖的說話時間，避免頭重腳輕。[cite: 1]</p>
+      
+      <!-- 流程圖 -->
+      <div class="flow">
+        <div class="flow-step">
+          <h4>【起】第一幅圖</h4>
+          <p>⏳ 10 - 12 秒</p>
+          <p>快速入題，交代背景[cite: 1]</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <h4>【承】第二幅圖</h4>
+          <p>⏳ 12 - 15 秒</p>
+          <p>承接起因，展開行動[cite: 1]</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <h4>【轉】第三幅圖</h4>
+          <p>⏳ 15 - 18 秒</p>
+          <p>全篇高潮，突發危機[cite: 1]</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <h4>【合】第四幅圖</h4>
+          <p>⏳ 12 - 15 秒</p>
+          <p>交代結局，反思點題[cite: 1]</p>
+        </div>
+      </div>
+
+      <div class="keyword-grid">
+        <div class="kw-card">
+          <div class="kw-word">起（開端）</div>
+          <div class="kw-def">交代時間、人物、地點、起因。不宜贅言，一筆入題。[cite: 1]</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">承（發展）</div>
+          <div class="kw-def">描寫情節的推進，注意人物的動作、表情及細節。[cite: 1]</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">轉（高潮）</div>
+          <div class="kw-def">故事的轉折點，描寫突發事件、衝突或危機，語調要轉為緊湊。[cite: 1]</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">合（結局）</div>
+          <div class="kw-def">交代事情最終的結果，並從中抒發啟發、反思或點題，提升層次。[cite: 1]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要章節 2 -->
+  <div class="section-block" id="sec2">
+    <div class="section-header">
+      <span class="section-icon">📖</span>
+      <h2>二、四幅圖分步拆解與豐富示例</h2>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot purple"></span>1. 第一幅圖「起」：快速交代，切忌拖沓</div>
+      <p><strong>教學重點：</strong>必須包含「時、人、地、事」。多運用修辭（如疊字、擬人）令開頭更生動。</p>
+      <div class="example-box">
+        <div class="example-label">示例一（公園場景）</div>
+        <div class="example-text">「一個陽光普照的假日下午，小明和媽媽興高采烈地到公園散步。公園裏鳥語花香，小明一邊走，一邊津津有味地吃着香甜的香蕉。」</div>
+      </div>
+      <div class="example-box teal">
+        <div class="example-label">示例二（校園場景）</div>
+        <div class="example-text">「小學的小息鐘聲響起，校園裏頓時熱鬧起來。一心和志明在走廊裏一邊興奮地談笑，一邊快步奔向小食部。」</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot teal"></span>2. 第二幅圖「承」：細節描寫，豐富情節</div>
+      <p><strong>教學重點：</strong>觀察圖中人物的「動作」和「心理活動」，利用連接詞令過渡自然。</p>
+      <div class="example-box coral">
+        <div class="example-label">示例三（隨手丟垃圾）</div>
+        <div class="example-text">「吃完香蕉後，小明貪圖方便，竟然神不知鬼不覺地把香蕉皮隨手扔在人行道上，完全沒有意識到自己的行為是不公德的。」</div>
+      </div>
+      <div class="example-box amber">
+        <div class="example-label">示例四（走廊追逐）</div>
+        <div class="example-text">「走廊上明明掛着『請勿奔跑』的告示牌，但他們兩人充耳不聞，繼續在熙來攘往的通道上互相追逐，玩得不亦樂乎。」</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>3. 第三幅圖「轉」：高潮突現，語氣緊湊</div>
+      <p><strong>教學重點：</strong>這是全篇靈魂！[cite: 1] 運用感嘆詞和形容詞，將緊張感、衝突感或意外受傷的畫面具體描繪出來。</p>
+      <div class="example-box pink">
+        <div class="example-label">示例五（意外發生）</div>
+        <div class="example-text">「說時遲，那時快！一位老伯伯正專心致志地迎面走來，一個不小心，右腳剛好踩中那塊香蕉皮。只聽見『啊』的一聲慘叫，老伯伯失去平衡，狠狠地摔倒在地上，動彈不得！」</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot amber"></span>4. 第四幅圖「合」：點明結局，深化主題</div>
+      <p><strong>教學重點：</strong>除了交代結局（如：送院、道歉），最重要是<strong>扣緊品德情意</strong>進行反思。</p>
+      <div class="example-box teal">
+        <div class="example-label">示例六（反思點題）</div>
+        <div class="example-text">「看到這幕，小明羞愧得滿臉通紅，馬上扶起老伯伯並誠懇道歉。這件事讓小明明白到公德心的重要性，我們切勿因一時自私而作惡，否則便會害人害己。」</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要章節 3 -->
+  <div class="section-block" id="sec3">
+    <div class="section-header">
+      <span class="section-icon">❌</span>
+      <h2>三、常見錯誤與對比示範</h2>
+    </div>
+
+    <div class="card">
+      <div class="alert warn">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-content">
+          <h4>常見陷阱：流水帳與時間失衡</h4>
+          <p>很多同學誤以為看圖說話就是「看圖解說」，把所有時間平均分配，甚至在第一幅圖浪費太多時間，導致最重要的「轉」和「合」草草收尾。[cite: 1]</p>
+        </div>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card bad">
+          <div class="compare-label">❌ 錯誤示範（單薄、缺乏結構）</div>
+          <div class="compare-text">
+            「第一幅圖，小明在公園吃香蕉。第二幅圖，他扔了香蕉皮。第三幅圖，一個老伯伯踩到跌倒了。第四幅圖，小明跟老伯伯說對不起，故事完結。」<br>
+            <strong style="color:#b91c1c;">評語：</strong>流於表面，毫無修飾，缺乏情節過渡與反思，時間過短。
+          </div>
+        </div>
+        <div class="compare-card good">
+          <div class="compare-label">✅ 正確示範（豐富、時間精準）</div>
+          <div class="compare-text">
+            「星期天，小明和媽媽到公園散步。小明一邊走一邊吃香蕉（起）。吃完後，他貪方便把蕉皮拋在地上（承）。突然，一位老伯伯踩中蕉皮，『哎呀』一聲重重摔倒（轉）。小明感到十分後悔，立刻上前道歉。這件事教訓我們要有公德心，不能自私（合）。」<br>
+            <strong style="color:#166534;">評語：</strong>起承轉合層次分明，有擬聲詞、心理描寫及深刻反思。[cite: 1]
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要章節 4 -->
+  <div class="section-block" id="sec4">
+    <div class="section-header">
+      <span class="section-icon">💡</span>
+      <h2>四、應試高分公式與答題技巧</h2>
+    </div>
+
+    <div class="card">
+      <div class="alert tip">
+        <div class="alert-icon">💡</div>
+        <div class="alert-content">
+          <h4>潘SIR名師醒你：考試必殺技</h4>
+          <p>1. <strong>眼神游走法：</strong>看圖時，先看主角，再看配角，最後看背景細節（如告示牌、天氣、垃圾桶）。</p>
+          <p>2. <strong>情緒詞語庫：</strong>多用「驚慌失措」、「羞愧萬分」、「手忙腳亂」等四字詞語提升語文層次。</p>
+        </div>
+      </div>
+
+      <div class="formula">
+        <h4>✨ 萬能結尾反思公式（適用於大部分公德／公民教育題型）</h4>
+        <div class="formula-content">
+          「正所謂『勿以惡小而為之，勿以善小而不為』。這次經歷雖然是一次慘痛的教訓，但卻深刻地提醒了（主角/我），在公眾地方必須時刻體諒他人、顧及安全。我們應當以此為鑑，共同維護社會的公德。」
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要章節 5 -->
+  <div class="section-block" id="sec5">
+    <div class="section-header">
+      <span class="section-icon">📝</span>
+      <h2>五、課堂實戰練習與參考答案</h2>
+    </div>
+
+    <div class="card exercise-block">
+      <p style="margin-bottom: 1rem;">請根據以下提供的四幅圖情節大綱，嘗試在腦海中組織或口頭演練，並閱讀隨後的參考答案。</p>
+
+      <!-- 練習 1 -->
+      <div class="q-item">
+        <div class="q-title">
+          <span class="q-num">1</span>
+          <span class="q-text">【主題：圖書館內】圖一：小華在圖書館一邊聽音樂一邊大聲唱歌；圖二：身旁溫習的同學不滿地盯着他；圖三：圖書館管理員前來嚴厲警告他；圖四：小華面紅耳赤地關掉音樂並致歉。</span>
+        </div>
+        <div class="ans-box">
+          <strong>💡 潘SIR參考答案（合共約 55 秒）：</strong><br>
+          「在一個寧靜的下午，小華到公共圖書館溫習。由於他戴着耳機，不自覺地隨着音樂大聲哼唱起來（起）。身旁正在埋頭苦幹的同學們紛紛投來不滿和憤怒的目光，但小華沉浸在音樂中，完全沒有察覺（承）。突然，一位面帶慍色的圖書館管理員走到他面前，對他作出了嚴厲的口頭警告（轉）。小華這才如夢初醒，他登時面紅耳赤，羞愧地關掉音樂並向大家鞠躬致歉。這件事讓我們明白，在公共場所必須保持安靜，尊重他人的使用權益（合）。」[cite: 1]
+        </div>
+      </div>
+
+      <!-- 練習 2 -->
+      <div class="q-item">
+        <div class="q-title">
+          <span class="q-num">2</span>
+          <span class="q-text">【主題：馬路安全】圖一：志成在看手機遊戲；圖二：他沒看清紅綠燈就橫過馬路；圖三：一輛私家車緊急煞車發出巨響；圖四：志成嚇得跌倒在地上，猶有餘悸。</span>
+        </div>
+        <div class="ans-box">
+          <strong>💡 潘SIR參考答案（合共約 55 秒）：</strong><br>
+          「放學路上，志成一邊走路，一邊目不轉睛地盯着手機上的網絡遊戲（起）。當走到十字路口時，他頭也不抬，竟然沒看清此時行人過路燈是紅燈，便稀里糊塗地橫過馬路（承）。就在這千鈞一髮之際，一輛私家車迎面駛至，司機大驚失色，立刻緊急煞車，現場傳出刺耳的『吱——』一聲（轉）。志成嚇得雙腿一軟，跌坐在地上，幸好司機及時煞車才沒有釀成慘劇。經此一役，志成吸取了嚴正的教訓，明白到『道路安全，人人有責』，過馬路時絕不能當『低頭族』。」
+        </div>
+      </div>
+
+      <!-- 練習 3 -->
+      <div class="q-item">
+        <div class="q-title">
+          <span class="q-num">3</span>
+          <span class="q-text">【核心任務】請同學根據本課所學的「黃金時間分配法」，嘗試為練習 2 的四幅圖，自行分配口述時的時間預算。[cite: 1]</span>
+        </div>
+        <div class="ans-box">
+          <strong>💡 參考答案：</strong><br>
+          * <strong>第一幅圖（起）：</strong>10秒。快速交代放學時間、志成在路上玩手機。[cite: 1]<br>
+          * <strong>第二幅圖（承）：</strong>13秒。描寫他過馬路時「低頭」的動作，以及忽視紅綠燈的細節。[cite: 1]<br>
+          * <strong>第三幅圖（轉）：</strong>17秒。全篇高潮，詳細描寫煞車聲、司機驚恐表情及驚險一刻。[cite: 1]<br>
+          * <strong>第四幅圖（合）：</strong>15秒。交代志成跌倒、害怕的心理，並加上「過馬路勿玩手機」的反思點題。[cite: 1]
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 版權聲明 -->
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>句意辨析攻略（小六 TSA 強化篇）｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --color-reading-deep: #0e2244;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #aaaaaa;
+    --color-background-primary: #1a1a1a;
+    --color-background-secondary: #121212;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background-color: var(--color-background-secondary);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+  background-color: var(--color-reading-deep);
+  color: #ffffff;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+  margin-bottom: 2rem;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-block {
+  background: var(--color-background-primary);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--color-background-secondary);
+  padding-bottom: 0.5rem;
+}
+
+.section-header h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.5rem;
+  color: var(--color-reading-deep);
+}
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc li {
+  margin-bottom: 0.5rem;
+}
+
+.toc a {
+  text-decoration: none;
+  color: var(--color-reading-deep);
+  font-weight: 500;
+}
+
+/* Elements */
+.card {
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.dot.blue { background-color: #2563eb; }
+.dot.red { background-color: #ef4444; }
+.dot.green { background-color: #10b981; }
+
+.example-box {
+  background-color: #f0f7ff;
+  border-left: 4px solid #2563eb;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.example-label {
+  font-weight: bold;
+  color: #2563eb;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.compare-card {
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+}
+
+.compare-card.bad {
+  background-color: #fff1f2;
+  border: 1px solid #fecdd3;
+}
+
+.compare-card.good {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  margin: 1rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.alert.tip { background-color: #fef9c3; border: 1px solid #fde047; }
+.alert.warn { background-color: #ffedd5; border: 1px solid #fed7aa; }
+.alert.success { background-color: #dcfce7; border: 1px solid #bbf7d0; }
+
+.formula {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  font-family: 'Noto Serif TC', serif;
+  margin: 1.5rem 0;
+}
+
+.flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.flow-step {
+  background: var(--color-background-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.kw-word {
+  font-weight: bold;
+  color: var(--color-reading-deep);
+  display: block;
+}
+
+.kw-def {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+/* Print Rules */
+@media print {
+  .section-block {
+    page-break-before: always;
+    break-before: page;
+    box-shadow: none;
+    border: 1px solid #eee;
+  }
+  .hero {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+  .toc {
+    page-break-after: always;
+    break-after: page;
+  }
+  .example-box, .compare-grid, .alert, .formula, .keyword-grid, .flow {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .section-header, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  body { background: white; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">閱讀教學筆記</div>
+  <h1>句意辨析攻略（小六 TSA 強化篇）</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="container">
+  <div class="toc">
+    <h3>📌 目錄</h3>
+    <ul>
+      <li><a href="#section1">1. 什麼是句意辨析？</a></li>
+      <li><a href="#section2">2. 三大核心辨析技巧</a></li>
+      <li><a href="#section3">3. 常見陷阱：事實與推論</a></li>
+      <li><a href="#section4">4. TSA 高階應試策略</a></li>
+      <li><a href="#section5">5. 課堂深度練習</a></li>
+    </ul>
+  </div>
+
+  <div id="section1" class="section-block">
+    <div class="section-header">
+      <h2>一、什麼是句意辨析？</h2>
+    </div>
+    <p>句意辨析不僅是「讀懂」字面意思，更要求學生分析句子的<strong>深層含義、語氣、邏輯關係</strong>以及作者隱含的<strong>態度</strong>。在 TSA 或升中分班試中，這類題目往往以「以下哪一項最符合文意？」或「作者這句話暗示了什麼？」的形式出現。</p>
+    
+    <div class="card">
+      <span class="dot blue"></span><strong>基礎層次：</strong>理解詞義與句式（誰做了什麼？）。<br>
+      <span class="dot blue"></span><strong>進階層次：</strong>辨別邏輯（因果、轉折、並列）。<br>
+      <span class="dot blue"></span><strong>高階層次：</strong>體察語境與言外之意（諷刺、感嘆、否定）。
+    </div>
+  </div>
+
+  <div id="section2" class="section-block">
+    <div class="section-header">
+      <h2>二、三大核心辨析技巧</h2>
+    </div>
+    
+    <h3>1. 捕捉關聯詞（邏輯之眼）</h3>
+    <p>關聯詞決定了句子的「骨架」。即使字面相似，關聯詞一變，意思可能完全相反。</p>
+    
+    <div class="keyword-grid">
+      <div class="card">
+        <span class="kw-word">只要...就...</span>
+        <span class="kw-def">充分條件（只要滿足 A，必有 B）</span>
+      </div>
+      <div class="card">
+        <span class="kw-word">只有...才...</span>
+        <span class="kw-def">唯一條件（沒有 A，絕沒有 B）</span>
+      </div>
+      <div class="card">
+        <span class="kw-word">固然...但是...</span>
+        <span class="kw-def">轉折重心（強調「但是」後的內容）</span>
+      </div>
+    </div>
+
+    <h3>2. 區分語氣與情感（字裡行間）</h3>
+    <div class="example-box">
+      <span class="example-label">例句 A：</span>
+      <p class="example-text">難道我們不應該為保護環境出一分力嗎？</p>
+      <span class="example-label">辨析：</span>
+      <p class="example-text">這是一個<strong>反問句</strong>，表面是問句，實際意思是強大的肯定：「我們絕對應該為保護環境出力。」</p>
+    </div>
+
+    <div class="example-box teal">
+      <span class="example-label">例句 B：</span>
+      <p class="example-text">他這次考了滿分，真是「厲害」啊！</p>
+      <span class="example-label">辨析：</span>
+      <p class="example-text">若結合語境發現他平時不學無術且作弊，這裡的「厲害」就是<strong>諷刺</strong>，實際含義是否定。 </p>
+    </div>
+  </div>
+
+  <div id="section3" class="section-block">
+    <div class="section-header">
+      <h2>三、常見陷阱：事實與推論</h2>
+    </div>
+    <p>學生最常犯的錯誤是將句子中「部分事實」擴大為「全部事實」，或將「可能」誤認為「必然」。</p>
+
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="example-label">❌ 錯誤解讀（過度推論）</div>
+        <p class="compare-text">原文：「這場雨緩解了農田的旱情。」<br><strong>解讀：</strong>這場雨解決了所有農業問題。</p>
+      </div>
+      <div class="compare-card good">
+        <div class="example-label">✅ 正確解讀（精準抓取）</div>
+        <p class="compare-text"><strong>解讀：</strong>這場雨對農作物生長有正面幫助，但未必徹底消除乾旱。</p>
+      </div>
+    </div>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-content">
+        <strong>常見陷阱詞：</strong>「全部」、「所有」、「必定」、「唯一」、「經常」。當選項出現這些極端詞彙時，必須回原文反覆核對。
+      </div>
+    </div>
+  </div>
+
+  <div id="section4" class="section-block">
+    <div class="section-header">
+      <h2>四、TSA 高階應試策略</h2>
+    </div>
+    
+    <div class="formula">
+      公式：句意 = 字面義 + 邏輯重心 + 情感色彩
+    </div>
+
+    <p>面對深層句意辨析題，請遵循以下步驟：</p>
+    
+    <div class="flow">
+      <div class="flow-step">1. 圈出關鍵字</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">2. 判斷邏輯關係</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">3. 排除干擾項</div>
+    </div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div class="alert-content">
+        <strong>技巧：代入法</strong><br>
+        試將選項的解釋代入原文中。如果語感通順且沒有改變作者的原意，該選項極有可能是正確答案。
+      </div>
+    </div>
+  </div>
+
+  <div id="section5" class="section-block">
+    <div class="section-header">
+      <h2>五、課堂深度練習</h2>
+    </div>
+
+    <div class="card">
+      <p><strong>Q1. 閱讀以下句子，選出最符合句意的一項：</strong></p>
+      <p>「小明雖然在比賽中落敗了，但他那份永不放棄的精神，難道不值得我們學習嗎？」</p>
+      <ol type="A">
+        <li>小明贏得了比賽，值得學習。</li>
+        <li>小明輸了比賽，精神一般。</li>
+        <li>小明落敗了，但他的精神非常值得學習。</li>
+        <li>我們不需要向失敗者學習。</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <p><strong>Q2. 辨析以下語句的邏輯關係：</strong></p>
+      <p>「除非你現在開始努力，否則無法追上進度。」這句話的意思與下列哪句最接近？</p>
+      <ol type="A">
+        <li>只要你現在努力，就一定能追上進度。</li>
+        <li>只有現在開始努力，才有可能追上進度。</li>
+        <li>你現在不努力，也可能追上進度。</li>
+        <li>追上進度的唯一方法是放棄努力。</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <p><strong>Q3. 體察語氣：</strong></p>
+      <p>媽媽對著一直玩遊戲的小強說：「你可真勤奮啊，連飯都不想吃了！」媽媽的真實意思是：</p>
+      <ol type="A">
+        <li>讚揚小強玩遊戲很專心。</li>
+        <li>擔心小強肚子餓。</li>
+        <li>批評小強過度沉迷遊戲，不顧正事。</li>
+        <li>希望小強繼續努力玩遊戲。</li>
+      </ol>
+    </div>
+
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div class="alert-content">
+        <strong>【參考答案】</strong><br>
+        Q1: <strong>C</strong> (反問句表示強烈肯定)<br>
+        Q2: <strong>B</strong> (「除非...否則不...」等同於「只有...才...」)<br>
+        Q3: <strong>C</strong> (反語/諷刺語法)
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

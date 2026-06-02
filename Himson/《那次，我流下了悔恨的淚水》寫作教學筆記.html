@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《那次，我流下了悔恨的淚水》寫作教學筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --color-border-primary: rgba(0,0,0,0.3);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #9a9488;
+    --color-background-primary: #1e1c19;
+    --color-background-secondary: #27251f;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+    --color-border-primary: rgba(255,255,255,0.3);
+  }
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  padding: 2rem 1rem;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+.hero {
+  background: #1a0a2e;
+  border-radius: var(--border-radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '淚';
+  position: absolute;
+  right: -10px;
+  top: -20px;
+  font-size: 140px;
+  font-family: 'Noto Serif TC', serif;
+  color: rgba(255,255,255,0.04);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(178,150,255,0.18);
+  color: #c4a8ff;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 0.5px solid rgba(178,150,255,0.3);
+  margin-bottom: 0.8rem;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f0eaff;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.hero p {
+  font-size: 13px;
+  color: rgba(200,185,230,0.7);
+  line-height: 1.6;
+}
+
+.toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.toc-item {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toc-num {
+  width: 20px; height: 20px;
+  background: #3C3489;
+  color: #CECBF6;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.toc-label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+.section { margin-bottom: 2.5rem; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.section-icon {
+  width: 32px; height: 32px;
+  border-radius: var(--border-radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.icon-purple { background: #EEEDFE; }
+.icon-teal   { background: #E1F5EE; }
+.icon-coral  { background: #FAECE7; }
+.icon-amber  { background: #FAEEDA; }
+.icon-blue   { background: #E6F1FB; }
+.icon-pink   { background: #FBEAF0; }
+.icon-green  { background: #EAF3DE; }
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.section-num {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-left: auto;
+}
+
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-purple { background: #7F77DD; }
+.dot-teal   { background: #1D9E75; }
+.dot-coral  { background: #D85A30; }
+.dot-amber  { background: #BA7517; }
+.dot-blue   { background: #378ADD; }
+.dot-pink   { background: #D4537E; }
+.dot-green  { background: #639922; }
+
+.card p, .card li {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.8;
+}
+
+.card ul { padding-left: 1.2rem; }
+.card li { margin-bottom: 0.2rem; }
+
+.example-box {
+  background: var(--color-background-secondary);
+  border-left: 3px solid #7F77DD;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 0.7rem 1rem;
+  margin-top: 0.6rem;
+}
+
+.example-label {
+  font-size: 11px;
+  color: #534AB7;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.example-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.example-box.teal { border-left-color: #1D9E75; }
+.example-box.teal .example-label { color: #0F6E56; }
+.example-box.coral { border-left-color: #D85A30; }
+.example-box.coral .example-label { color: #993C1D; }
+.example-box.amber { border-left-color: #BA7517; }
+.example-box.amber .example-label { color: #854F0B; }
+.example-box.pink { border-left-color: #D4537E; }
+.example-box.pink .example-label { color: #993556; }
+
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.keyword-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.75rem 1rem;
+}
+
+.kw-word {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.kw-purple { color: #534AB7; }
+.kw-teal   { color: #0F6E56; }
+.kw-coral  { color: #993C1D; }
+
+.kw-def {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0.8rem 0;
+  flex-wrap: wrap;
+}
+
+.flow-step {
+  background: #EEEDFE;
+  color: #3C3489;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--border-radius-md);
+  white-space: nowrap;
+}
+
+.flow-arrow {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  padding: 0 4px;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.compare-card {
+  border-radius: var(--border-radius-md);
+  padding: 0.75rem 1rem;
+}
+
+.compare-card.bad {
+  background: #FCEBEB;
+  border: 0.5px solid #F09595;
+}
+
+.compare-card.good {
+  background: #EAF3DE;
+  border: 0.5px solid #97C459;
+}
+
+.compare-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.compare-card.bad .compare-label { color: #A32D2D; }
+.compare-card.good .compare-label { color: #3B6D11; }
+
+.compare-text { font-size: 13px; line-height: 1.7; }
+.compare-card.bad .compare-text { color: #791F1F; }
+.compare-card.good .compare-text { color: #27500A; }
+
+.chengyu-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 0.5rem 0;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.chengyu-row:last-child { border-bottom: none; }
+
+.cy-word {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #534AB7;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+.cy-def {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.outline-step {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.outline-num {
+  width: 28px; height: 28px;
+  background: #1a0a2e;
+  color: #CECBF6;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.outline-body { flex: 1; }
+
+.outline-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.outline-desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.tip-box {
+  background: #FAEEDA;
+  border: 0.5px solid #EF9F27;
+  border-radius: var(--border-radius-md);
+  padding: 0.7rem 1rem;
+  margin-top: 0.6rem;
+}
+
+.tip-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #633806;
+  margin-bottom: 0.2rem;
+}
+
+.tip-text {
+  font-size: 13px;
+  color: #412402;
+  line-height: 1.7;
+}
+
+.divider {
+  height: 0.5px;
+  background: var(--color-border-tertiary);
+  margin: 0.6rem 0;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.badge-purple { background: #EEEDFE; color: #3C3489; }
+.badge-teal   { background: #E1F5EE; color: #085041; }
+.badge-coral  { background: #FAECE7; color: #712B13; }
+
+.vocab-row {
+  padding: 0.55rem 0;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+.vocab-row:last-child { border-bottom: none; }
+
+.vocab-word {
+  font-size: 14px;
+  font-weight: 500;
+  color: #534AB7;
+}
+
+.vocab-def {
+  font-size: 13px;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+.vocab-eg {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-top: 2px;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">寫作教學筆記</div>
+  <h1>《那次，我流下了悔恨的淚水》</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc">
+  <div class="toc-item"><div class="toc-num">1</div><div class="toc-label">題目分析</div></div>
+  <div class="toc-item"><div class="toc-num">2</div><div class="toc-label">寫作構思</div></div>
+  <div class="toc-item"><div class="toc-num">3</div><div class="toc-label">詳細步驟</div></div>
+  <div class="toc-item"><div class="toc-num">4</div><div class="toc-label">寫作技巧</div></div>
+  <div class="toc-item"><div class="toc-num">5</div><div class="toc-label">詞語提升</div></div>
+  <div class="toc-item"><div class="toc-num">6</div><div class="toc-label">常見錯誤</div></div>
+  <div class="toc-item"><div class="toc-num">7</div><div class="toc-label">範文大綱</div></div>
+</div>
+
+
+<!-- SECTION 1 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-purple">🔍</div>
+    <div class="section-title">一、題目分析</div>
+    <div class="section-num">Section 01</div>
+  </div>
+
+  <div class="keyword-grid">
+    <div class="keyword-card">
+      <div class="kw-word kw-purple">那次</div>
+      <div class="kw-def">指定一個具體、過去的事件，必須聚焦在「某一件事」，不能泛泛而談或描寫多件事。提醒學生：要選一個印象最深刻的事件。</div>
+    </div>
+    <div class="keyword-card">
+      <div class="kw-word kw-coral">悔恨</div>
+      <div class="kw-def">核心情感關鍵詞。指因過去的錯誤或過失，而感到後悔與痛恨自己。必須詳細描寫這種情緒的來源、過程與變化。</div>
+    </div>
+    <div class="keyword-card">
+      <div class="kw-word kw-teal">淚水</div>
+      <div class="kw-def">淚水是情感的外在表現，是全文情緒的高峰。寫作時要解釋清楚：為什麼流淚？是因為後悔、自責，還是因為明白了某道理？</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-purple"></div>情感核心與寫作重點</div>
+    <p>本題的核心是「悔恨」——這種情感必須是真實的、有層次的。故事的起點是一個過失或錯誤，中段要寫出事件的發展與心理掙扎，結尾則要流露悔恨之淚，並帶出反思或成長。<br><br>
+    重點公式：事件（做錯了什麼）→ 發現後果（意識到錯誤）→ 悔恨（情感爆發、流淚）→ 反思領悟</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-coral"></div>常見離題與薄弱問題</div>
+    <ul>
+      <li>只寫了傷心或感動的淚水，沒有扣緊「悔恨」</li>
+      <li>流水帳式地敘述事件，缺乏心理描寫與情感深度</li>
+      <li>事件太大（如親人去世）反而難以寫出「我的錯誤」</li>
+      <li>淚水出現在文章開頭，沒有情感鋪墊，顯得突兀</li>
+      <li>結尾只說「我以後不會再這樣做」，反思空洞無力</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 2 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-teal">💡</div>
+    <div class="section-title">二、寫作構思指引</div>
+    <div class="section-num">Section 02</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-teal"></div>建議題材選擇</div>
+    <ul>
+      <li><span class="badge badge-purple">推薦</span> 因一時說謊而傷害了家人或朋友的信任</li>
+      <li><span class="badge badge-purple">推薦</span> 因嫉妒或衝動而說了傷人的話，導致友誼破裂</li>
+      <li><span class="badge badge-purple">推薦</span> 因貪玩、偷懶而錯過了為長輩盡孝的機會</li>
+      <li><span class="badge badge-teal">可用</span> 因驕傲自大而嘲笑同學，事後發現對方很努力</li>
+      <li><span class="badge badge-teal">可用</span> 因一時不耐煩而對長輩發脾氣，其後長輩卻突然生病</li>
+      <li><span class="badge badge-coral">慎選</span> 親人去世（難以寫出「自己的過失」，容易偏題）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-teal"></div>情節發展建議</div>
+    <div class="flow">
+      <div class="flow-step">起因：背景與過失</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">經過：事件發展</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">高潮：後果顯現</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">結尾：悔恨與反思</div>
+    </div>
+    <div class="divider"></div>
+    <div style="margin-top:0.6rem;">
+      <div style="font-size:13px; color:var(--color-text-secondary); margin-bottom:0.3rem; font-weight:500;">以「傷害朋友」為例：</div>
+      <ul style="font-size:13px; color:var(--color-text-primary); line-height:1.9; padding-left:1.2rem;">
+        <li><strong>起因</strong>：我與好友小明因一件小事爭吵，我在氣頭上說了很傷人的話</li>
+        <li><strong>經過</strong>：小明沉默離開，我事後覺得自己沒錯；但朋友告訴我小明那天其實遇到了家中不幸</li>
+        <li><strong>高潮</strong>：我想道歉卻不知從何說起；翌日小明轉校，我再也找不到他</li>
+        <li><strong>結尾</strong>：多年後仍自責，悔恨的淚水流下，明白了體諒比自尊更重要</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-teal"></div>如何鋪排情感轉折</div>
+    <p style="font-size:14px; line-height:1.8;">情感轉折是本文的靈魂。建議採用「三層情感」結構：</p>
+    <div style="margin-top:0.7rem; display:flex; flex-direction:column; gap:6px;">
+      <div style="background:#E1F5EE; border-radius:var(--border-radius-md); padding:0.6rem 0.9rem;">
+        <div style="font-size:12px; color:#0F6E56; font-weight:500; margin-bottom:2px;">第一層：自以為是 / 理直氣壯</div>
+        <div style="font-size:13px; color:#085041;">事發時，「我」認為自己沒有錯，甚至感到委屈或憤怒</div>
+      </div>
+      <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:0.6rem 0.9rem;">
+        <div style="font-size:12px; color:#633806; font-weight:500; margin-bottom:2px;">第二層：逐漸察覺 / 開始動搖</div>
+        <div style="font-size:13px; color:#412402;">隨著某個細節或他人的話，「我」開始懷疑自己是否真的有錯</div>
+      </div>
+      <div style="background:#FAECE7; border-radius:var(--border-radius-md); padding:0.6rem 0.9rem;">
+        <div style="font-size:12px; color:#712B13; font-weight:500; margin-bottom:2px;">第三層：悔恨爆發 / 淚水流下</div>
+        <div style="font-size:13px; color:#4A1B0C;">某個事件讓「我」猛然明白後果，悔恨如潮水湧來，淚水在此時落下</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION 3 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-coral">✏️</div>
+    <div class="section-title">三、詳細寫作步驟</div>
+    <div class="section-num">Section 03</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-coral"></div>開頭：吸引讀者、營造氣氛</div>
+    <p style="font-size:13px; color:var(--color-text-secondary); margin-bottom:0.5rem;">三種常用開頭方式：</p>
+    <ul style="font-size:14px; line-height:1.9; padding-left:1.2rem; margin-bottom:0.7rem;">
+      <li><strong>倒敘法</strong>：先寫流淚的一刻，再回憶事件始末，製造懸念</li>
+      <li><strong>環境描寫法</strong>：用景物烘托情緒，暗示悔恨的氣氛</li>
+      <li><strong>觸景傷情法</strong>：以某件物品或場景引起回憶</li>
+    </ul>
+    <div class="example-box coral">
+      <div class="example-label">示例：倒敘開頭</div>
+      <div class="example-text">窗外的雨聲淅淅瀝瀝，我望着手中那張泛黃的照片，眼眶不禁酸澀起來。那件事，我已記不清發生在多少年前，但那份悔恨，卻像一根刺，深深地扎在我心底。</div>
+    </div>
+    <div class="example-box teal" style="margin-top:0.5rem;">
+      <div class="example-label">示例：環境描寫開頭</div>
+      <div class="example-text">那是一個陰沉的下午，烏雲壓頂，空氣中彷彿藏着什麼難以言說的悲傷。我站在空曠的操場上，腦海中不斷浮現起那一幕……</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-coral"></div>中段：事件描寫、心理刻畫、細節描寫</div>
+    <ul style="font-size:14px; line-height:1.9; padding-left:1.2rem; margin-bottom:0.7rem;">
+      <li>用具體細節交代事件起因（時間、地點、人物）</li>
+      <li>詳細描寫過失發生的過程，包括行動與對話</li>
+      <li>穿插心理活動（內心獨白），展示情感變化</li>
+      <li>加入感官描寫（聽到、看到、感覺到）令場景真實</li>
+    </ul>
+    <div class="example-box coral">
+      <div class="example-label">示例：心理刻畫</div>
+      <div class="example-text">我看見她的眼眶慢慢泛紅，嘴唇微微顫抖，卻沒有說一句話。那一刻，我心裏有一個聲音說：「你做錯了。」但另一個更強硬的聲音卻說：「是她先惹你的！」我選擇了聽信那個錯的聲音，轉身離去。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-coral"></div>結尾：昇華主題、反思與領悟</div>
+    <ul style="font-size:14px; line-height:1.9; padding-left:1.2rem; margin-bottom:0.7rem;">
+      <li>描寫悔恨之淚的那一刻（具體、細膩）</li>
+      <li>說清楚：為什麼此刻才真正悔恨？</li>
+      <li>點出反思：從這次錯誤中，學到了什麼道理？</li>
+      <li>可呼應開頭，形成首尾呼應的結構</li>
+    </ul>
+    <div class="example-box coral">
+      <div class="example-label">示例：結尾昇華</div>
+      <div class="example-text">我終於忍不住，讓淚水決堤而出。那不是委屈的淚，而是悔恨的淚——悔恨自己當日的自私，悔恨那些再也說不出口的道歉。我明白了，有些話，錯過了時機，便再也補不回來。</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION 4 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-amber">🎨</div>
+    <div class="section-title">四、寫作技巧講解</div>
+    <div class="section-num">Section 04</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-amber"></div>情感描寫技巧</div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap:8px; margin-bottom:0.6rem;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:0.7rem; text-align:center;">
+        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:0.3rem;">內心獨白</div>
+        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">直接寫出角色心裏的想法，令讀者了解情感</div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:0.7rem; text-align:center;">
+        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:0.3rem;">動作描寫</div>
+        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">透過細微動作（顫抖、咬唇、握拳）傳遞情緒</div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:0.7rem; text-align:center;">
+        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:0.3rem;">環境烘托</div>
+        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">用景物（陰天、黑夜、枯葉）烘托悲傷心境</div>
+      </div>
+    </div>
+    <div class="example-box amber">
+      <div class="example-label">技巧示例：三者結合</div>
+      <div class="example-text">窗外突然颳起一陣風，把樹葉吹得嘩嘩作響（環境烘托）。我的手指不自覺地收緊，指甲幾乎掐進掌心（動作描寫）。心裏有個聲音在問：「如果當初你說了對不起，今天又會怎樣？」（內心獨白）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-amber"></div>如何「以小見大」</div>
+    <p style="font-size:14px; line-height:1.8; margin-bottom:0.6rem;">「以小見大」是指用一件小事、一個細節，引出更深刻的道理或情感。不要選太戲劇性的事件，普通的小事反而更真實感人。</p>
+    <div class="tip-box">
+      <div class="tip-label">實用建議</div>
+      <div class="tip-text">例如：「忘了給媽媽倒一杯水」這件小事，可以帶出「親情的珍貴與無私」這個大主題。選材越具體、越生活化，讀者越容易產生共鳴。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-amber"></div>避免流水帳的方法</div>
+    <ul style="font-size:14px; line-height:1.9; padding-left:1.2rem;">
+      <li>不要按時間順序記流水帳，要突出最重要的場景</li>
+      <li>選擇一至兩個關鍵場景，詳細描寫（而非均等描寫所有事情）</li>
+      <li>多加心理活動，打斷單調的敘事節奏</li>
+      <li>善用對話，令文章有生氣、有節奏感</li>
+      <li>避免用「然後……然後……然後……」連接句子</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 5 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-blue">📚</div>
+    <div class="section-title">五、詞語與表達提升</div>
+    <div class="section-num">Section 05</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-blue"></div>關鍵詞解釋及例句</div>
+    <div>
+      <div class="vocab-row">
+        <div class="vocab-word">悔恨</div>
+        <div>
+          <div class="vocab-def">對過去做錯的事感到後悔，心中充滿痛苦</div>
+          <div class="vocab-eg">例：他心中充滿悔恨，恨不得時間可以倒流。</div>
+        </div>
+      </div>
+      <div class="vocab-row">
+        <div class="vocab-word">內疚</div>
+        <div>
+          <div class="vocab-def">因為做錯了傷害別人的事而感到愧對</div>
+          <div class="vocab-eg">例：看到她傷心的樣子，我心中充滿內疚。</div>
+        </div>
+      </div>
+      <div class="vocab-row">
+        <div class="vocab-word">自責</div>
+        <div>
+          <div class="vocab-def">責備自己，不原諒自己的過失</div>
+          <div class="vocab-eg">例：他不斷自責，覺得一切都是自己的錯。</div>
+        </div>
+      </div>
+      <div class="vocab-row">
+        <div class="vocab-word">懊悔</div>
+        <div>
+          <div class="vocab-def">事後感到後悔，覺得當時不應該那樣做</div>
+          <div class="vocab-eg">例：我懊悔不已，若能重來，我絕不會說出那些話。</div>
+        </div>
+      </div>
+      <div class="vocab-row">
+        <div class="vocab-word">悔不當初</div>
+        <div>
+          <div class="vocab-def">非常後悔當初的決定或行為</div>
+          <div class="vocab-eg">例：事到如今，我悔不當初，後悔當日的衝動。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-blue"></div>精選佳句（可直接套用或改寫）</div>
+    <div style="display:flex; flex-direction:column; gap:6px; margin-top:0.2rem;">
+      <div class="example-box"><div class="example-text">悔恨如一塊巨石，壓在我的胸口，令我幾乎無法呼吸。</div></div>
+      <div class="example-box teal"><div class="example-text">淚水終於衝破了我的防線，無聲地滑落臉頰，每一滴都是悔恨。</div></div>
+      <div class="example-box coral"><div class="example-text">我想開口說「對不起」，卻發現那三個字已經遲到了太久。</div></div>
+      <div class="example-box amber"><div class="example-text">那一刻，我才真正明白，有些事做錯了，道歉再真誠，也彌補不了那條裂縫。</div></div>
+      <div class="example-box pink"><div class="example-text">眼眶酸澀，視線模糊，我知道那是悔恨的淚水，是我欠給她的。</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-blue"></div>合適成語（附解釋及用法）</div>
+    <div>
+      <div class="chengyu-row">
+        <div class="cy-word">追悔莫及</div>
+        <div class="cy-def">後悔也來不及了。用法：「我追悔莫及，恨自己當日的衝動。」</div>
+      </div>
+      <div class="chengyu-row">
+        <div class="cy-word">痛改前非</div>
+        <div class="cy-def">徹底改正過去的錯誤。用法：「我暗下決心，要痛改前非，不再重蹈覆轍。」</div>
+      </div>
+      <div class="chengyu-row">
+        <div class="cy-word">幡然醒悟</div>
+        <div class="cy-def">突然明白過來，覺悟了。用法：「那一刻，我幡然醒悟，才明白自己錯得多深。」</div>
+      </div>
+      <div class="chengyu-row">
+        <div class="cy-word">肝腸寸斷</div>
+        <div class="cy-def">形容極度傷心痛苦。用法：「聽到這消息，我如肝腸寸斷，悔恨難以言表。」</div>
+      </div>
+      <div class="chengyu-row">
+        <div class="cy-word">一失足成千古恨</div>
+        <div class="cy-def">一次的錯誤釀成了無窮遺憾。用法：「正所謂一失足成千古恨，當日若能忍讓片刻，又怎會落得如此局面。」</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION 6 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-pink">⚠️</div>
+    <div class="section-title">六、常見錯誤與改進建議</div>
+    <div class="section-num">Section 06</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-pink"></div>問題一：情感空洞，只說不寫</div>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">修改前（薄弱）</div>
+        <div class="compare-text">我感到很後悔，非常難過，覺得自己做錯了。</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">修改後（具體有力）</div>
+        <div class="compare-text">一股說不清的滋味湧上喉嚨，眼眶慢慢發熱，我咬緊下唇，卻已忍不住，淚水悄悄滑落——那是悔恨的重量。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-pink"></div>問題二：情節單薄，缺乏細節</div>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">修改前（薄弱）</div>
+        <div class="compare-text">我對媽媽發了脾氣，她哭了，我後悔了。</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">修改後（豐富具體）</div>
+        <div class="compare-text">我摔上房間的門，不理會媽媽顫抖的聲音。直到深夜，我走出去，看見她獨自坐在昏黃的燈下，眼眶通紅，手裏還握着我沒吃完的飯盒——那一刻，我的心如同被人狠狠揪住。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-pink"></div>問題三：結尾無力，反思流於表面</div>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">修改前（薄弱）</div>
+        <div class="compare-text">我知道我錯了，以後一定不會再這樣做，要改過自新。</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">修改後（深刻有力）</div>
+        <div class="compare-text">悔恨的淚水，不是用來洗刷錯誤的，而是讓我永遠記住：真正的愛，是在對方需要你的時候，你沒有轉身離開。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION 7 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-green">📋</div>
+    <div class="section-title">七、範文大綱</div>
+    <div class="section-num">Section 07</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-green"></div>題材：因說謊而失去好友的信任</div>
+    <div style="margin-top:0.5rem;">
+      <div class="outline-step">
+        <div class="outline-num">開</div>
+        <div class="outline-body">
+          <div class="outline-title">倒敘開頭——觸景傷情</div>
+          <div class="outline-desc">以舊照片或某物件引起回憶；點出「悔恨」的情緒已在心中壓了很久；製造懸念，帶出「那次」的事件</div>
+        </div>
+      </div>
+      <div class="outline-step">
+        <div class="outline-num">1</div>
+        <div class="outline-body">
+          <div class="outline-title">起因：說謊的那一天</div>
+          <div class="outline-desc">交代我與好友阿偉的深厚友情；描寫我為了貪圖方便或保護自己，對阿偉說了一個謊；當時心裏的自我安慰（第一層情感：理直氣壯）</div>
+        </div>
+      </div>
+      <div class="outline-step">
+        <div class="outline-num">2</div>
+        <div class="outline-body">
+          <div class="outline-title">經過：謊言被揭穿</div>
+          <div class="outline-desc">描寫阿偉發現真相的那一刻；阿偉的反應（沉默比憤怒更令人難受）；我想解釋卻說不出口；心裏開始動搖（第二層情感：逐漸察覺）</div>
+        </div>
+      </div>
+      <div class="outline-step">
+        <div class="outline-num">3</div>
+        <div class="outline-body">
+          <div class="outline-title">高潮：後果顯現——友情破裂</div>
+          <div class="outline-desc">阿偉疏遠了我；我數次想道歉卻錯失機會；某天阿偉突然告訴我他要搬走轉校；細節描寫送別的場景；悔恨的淚水終於決堤（第三層情感：悔恨爆發）</div>
+        </div>
+      </div>
+      <div class="outline-step">
+        <div class="outline-num">結</div>
+        <div class="outline-body">
+          <div class="outline-title">結尾：首尾呼應——反思昇華</div>
+          <div class="outline-desc">回應開頭的照片或物件；點出從這次悔恨中領悟的道理（誠信的重要、把握道歉的時機）；以一句有力量的金句作結</div>
+        </div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:0.7rem;">
+      <div class="tip-label">導師提示</div>
+      <div class="tip-text">大綱是地圖，不是枷鎖。鼓勵學生根據自身真實經歷調整題材，最重要是情感真誠，細節具體，反思有深度。字數建議：600–800字。</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

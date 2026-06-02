@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《逍遙遊》DSE 應試極致筆記｜潘SIR中文教室</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f8f9fa;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 15px;
+    --hero-bg: #2d1600; /* 深沈古籍色 */
+    --accent-gold: #b8860b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #e0e0e0;
+      --color-text-secondary: #bbb;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1e;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background-secondary);
+    line-height: 1.8;
+  }
+  header {
+    background-color: var(--color-background-primary);
+    padding: 1rem 5%;
+    border-bottom: 2px solid var(--hero-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo { font-weight: 700; font-size: 1.4rem; color: var(--hero-bg); font-family: 'Noto Serif TC', serif; }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(rgba(45,22,0,0.85), rgba(45,22,0,0.85)), url('https://www.transparenttextures.com/patterns/paper-fibers.png'), #2d1600;
+    color: #f4e4bc;
+    padding: 6rem 5%;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid #f4e4bc;
+    padding: 5px 15px;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 3px;
+  }
+  .hero h1 { font-family: 'Noto Serif TC', serif; font-size: 3.5rem; margin: 0 0 1rem 0; letter-spacing: 5px; }
+  .hero p { opacity: 0.9; max-width: 800px; margin: 0 auto; font-size: 1.3rem; font-weight: 300; }
+
+  .container { max-width: 1000px; margin: 2rem auto; padding: 0 5%; }
+
+  /* TOC */
+  .toc {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: var(--border-radius-md);
+    margin-top: -4rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc-title { font-weight: 700; margin-bottom: 1.5rem; font-size: 1.2rem; border-left: 4px solid var(--hero-bg); padding-left: 15px; }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+  .toc-item { color: var(--color-text-secondary); text-decoration: none; font-size: 1rem; transition: 0.2s; }
+  .toc-item:hover { color: var(--accent-gold); transform: translateX(5px); }
+
+  /* Keywords Grid */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .keyword-card {
+    background: var(--color-background-primary);
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    border: 1px solid var(--color-border-tertiary);
+    transition: 0.3s;
+  }
+  .keyword-card:hover { border-color: var(--accent-gold); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+  .keyword-card strong { display: block; font-size: 1.5rem; color: var(--hero-bg); margin-bottom: 0.8rem; font-family: 'Noto Serif TC', serif;}
+  .keyword-card span { font-size: 0.95rem; color: var(--color-text-secondary); }
+
+  /* Section Styles */
+  .section-header { display: flex; align-items: center; margin: 5rem 0 2rem 0; border-bottom: 2px solid #eee; padding-bottom: 1rem; }
+  .section-icon { font-size: 2rem; margin-right: 15px; }
+  
+  .card {
+    background: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .card h3 { font-family: 'Noto Serif TC', serif; color: var(--hero-bg); font-size: 1.6rem; margin-top: 0; }
+
+  .alert {
+    background: #fdfaf0;
+    border-left: 6px solid var(--accent-gold);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+  }
+  .alert-title { font-weight: 700; color: #856404; margin-bottom: 0.8rem; font-size: 1.1rem; }
+
+  /* Table Style */
+  .idiom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+  .idiom-table th { background: #f4f1ea; padding: 18px; text-align: left; border-bottom: 3px solid var(--hero-bg); font-weight: 700; }
+  .idiom-table td { padding: 18px; border-bottom: 1px solid #eee; }
+  .word-highlight { color: #800; font-weight: 700; font-size: 1.15rem; }
+
+  /* Answer Styles */
+  .ans-header { background: var(--hero-bg); color: #f4e4bc; padding: 1.5rem 3rem; font-weight: 600; font-size: 1.2rem; }
+  .ans-body { background: #fff; padding: 3rem; border: 1px solid #ddd; }
+  .ans-card { margin-bottom: 2rem; border-bottom: 1px dashed #ccc; padding-bottom: 1.5rem; }
+  .q-no { font-weight: 900; color: #800; font-size: 1.3rem; margin-right: 10px; }
+  .marking-scheme { background: #f0f7f0; padding: 15px; border-radius: 5px; margin-top: 10px; font-size: 0.95rem; color: #1b5e20; }
+
+  footer { text-align: center; padding: 4rem; color: #888; font-size: 0.9rem; border-top: 1px solid #eee; }
+
+  @media (max-width: 768px) {
+    .keyword-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.5rem; }
+    .card { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">潘SIR中文教室</div>
+</header>
+
+<section class="hero">
+  <div class="hero-tag">DSE 指定經典篇章 5** 攻略</div>
+  <h1>《逍遙遊》節錄深度精讀</h1>
+  <p>超越世俗功利，領悟「無用之用」的大智慧：從字詞、結構到高階思想的全方位拆解。</p>
+</section>
+
+<div class="container">
+  
+  <nav class="toc">
+    <div class="toc-title">📍 學習導覽 (按此跳轉)</div>
+    <div class="toc-grid">
+      <a href="#vocab" class="toc-item">1. 字詞精解 (23個核心詞)</a>
+      <a href="#structure" class="toc-item">2. 課文結構：破立邏輯</a>
+      <a href="#allegory" class="toc-item">3. 寓言與說理手法</a>
+      <a href="#philosophy" class="toc-item">4. 思想焦點：何謂「大用」？</a>
+      <a href="#compare" class="toc-item">5. 跨篇比較 (荀子/韓愈)</a>
+      <a href="#modern" class="toc-item">6. 現代意義與文化反思</a>
+      <a href="#exam" class="toc-item">7. DSE 模擬試題挑戰</a>
+      <a href="#ans" class="toc-item">8. 評分準則 (Marking)</a>
+    </div>
+  </nav>
+
+  <div class="keyword-grid">
+    <div class="keyword-card">
+      <strong>無待</strong>
+      <span>不依憑任何條件，達至絕對自由。</span>
+    </div>
+    <div class="keyword-card">
+      <strong>蓬之心</strong>
+      <span>比喻見識淺陋，內心受蒙蔽。</span>
+    </div>
+    <div class="keyword-card">
+      <strong>無用之用</strong>
+      <span>擺脫工具性價值，方能保全天年。</span>
+    </div>
+  </div>
+
+  <div id="vocab" class="section-header">
+    <div class="section-icon">📜</div>
+    <h2>一、重點字詞精解 (嚴選 DSE 必考)</h2>
+  </div>
+  <div class="card" style="padding: 1rem;">
+    <table class="idiom-table">
+      <thead>
+        <tr>
+          <th>重點字詞</th>
+          <th>意思詳解</th>
+          <th>用法/活用</th>
+          <th>DSE 考點提醒</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="word-highlight">貽</td>
+          <td>贈送</td>
+          <td>動詞</td>
+          <td>魏王<strong>貽</strong>我大瓠之種。</td>
+        </tr>
+        <tr>
+          <td class="word-highlight">樹</td>
+          <td>種植</td>
+          <td>名詞作動詞</td>
+          <td>我<strong>樹</strong>之成而實五石。</td>
+        </tr>
+        <tr>
+          <td class="word-highlight">實</td>
+          <td>容量有... (作動詞用)</td>
+          <td>名詞作動詞</td>
+          <td>結出的果實<strong>容量有</strong>五石。</td>
+        </tr>
+        <tr>
+          <td class="word-highlight">掊</td>
+          <td>擊破、打碎</td>
+          <td>動詞</td>
+          <td>吾為其無用而<strong>掊</strong>之。</td>
+        </tr>
+        <tr>
+          <td class="word-highlight">龜</td>
+          <td>皮膚凍裂</td>
+          <td>通假字 (通「皸」)</td>
+          <td>不<strong>龜</strong>手之藥。(音：君)</td>
+        </tr>
+        <tr>
+          <td class="word-highlight">洴澼絖</td>
+          <td>在水中漂洗絲絮</td>
+          <td>專有名詞/動作</td>
+          <td>常見於譯寫題，需譯全。</td>
+        </tr>
+        <tr>
+          <td class="word-highlight">將</td>
+          <td>率領軍隊</td>
+          <td>名詞作動詞</td>
+          <td>吳王使之<strong>將</strong>。</td>
+        </tr>
+        <tr>
+          <td class="word-highlight">去</td>
+          <td>離棄 / 拋棄</td>
+          <td>動詞 (古今異義)</td>
+          <td>眾所同<strong>去</strong>也。</td>
+        </tr>
+        <tr>
+          <td class="word-highlight">中</td>
+          <td>符合、合乎</td>
+          <td>動詞</td>
+          <td>而不<strong>中</strong>規矩。</td>
+        </tr>
+        <tr>
+          <td class="word-highlight">卑身</td>
+          <td>低身 / 彎下身軀</td>
+          <td>詞組</td>
+          <td>形容狸狌捕獵之態。</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="alert">
+      <div class="alert-title">💡 專家點評：詞類活用</div>
+      DSE 卷一好鍾意考「名詞活用作動詞」，例如<strong>「樹」</strong>（種植）、<strong>「將」</strong>（統帥）。如果只係解做「樹木」或者「將軍」，會成題 0 分！
+    </div>
+  </div>
+
+  <div id="structure" class="section-header">
+    <div class="section-icon">🏗️</div>
+    <h2>二、課文結構：先破後立的論辯邏輯</h2>
+  </div>
+  <div class="card">
+    <h3>1. 第一回合：大瓠之辯 (大用 vs 小用)</h3>
+    <p><strong>惠子之「破」：</strong>以大瓠盛水「其堅不能自舉」，做瓢「瓠落無所容」，結論是「大而無用」而「掊之」。</p>
+    <p><strong>莊子之「立」：</strong>舉「不龜手之藥」為例。宋人用於漂洗（小用）；客用於水戰封地（大用）。</p>
+    <p><strong>核心哲理：</strong>「所用之異」。事物價值取決於人的眼界。莊子提出「大樽」浮游江湖，是超越物質容器的功能，轉化為精神愉悅的工具。</p>
+
+    <h3>2. 第二回合：大樗之辯 (無用 vs 有用)</h3>
+    <p><strong>惠子之「破」：</strong>大樗「臃腫不中繩墨」，比喻莊子之言「大而無用」，眾人摒棄。</p>
+    <p><strong>莊子之「立」：</strong>以「狸狌」（有用致禍）對比「斄牛」（無用保身）。</p>
+    <p><strong>核心哲理：</strong>「無用之用」。不符合世俗木材標準的大樹，反而能「不夭斤斧」，種在「無何有之鄉」，達致逍遙。</p>
+  </div>
+
+  <div id="philosophy" class="section-header">
+    <div class="section-icon">🧘</div>
+    <h2>三、思想焦點：何謂莊子的「大用」？</h2>
+  </div>
+  <div class="card">
+    <p>莊子認為，世俗所謂「有用」，往往是<strong>工具性</strong>的（對他人、對社會有貢獻），但這往往以犧牲生命本身為代價。而「無用」則是<strong>生命性</strong>的。</p>
+    <div class="alert">
+      <div class="alert-title">🎯 DSE 高階思考題：象牙與犀角 (參考附件進階思考)</div>
+      點解大象同犀牛會瀕臨絕種？正正因為佢哋嘅牙同角「有用」。如果切除咗，佢哋就變得「無用」，獵人唔會再殺佢哋。呢個就係莊子講嘅「無用」反而能「保全生命」嘅<strong>大用</strong>。
+    </div>
+    <h3>「逍遙」的關鍵條件：</h3>
+    <ul>
+      <li><strong>無己：</strong>放下自我偏見 (破除「蓬之心」)。</li>
+      <li><strong>無待：</strong>不依賴外在條件，心靈不為外物所動。</li>
+      <li><strong>順應自然：</strong>將樹種在「廣莫之野」，不強求改變其本性。</li>
+    </ul>
+  </div>
+
+  <div id="compare" class="section-header">
+    <div class="section-icon">⚖️</div>
+    <h2>四、跨篇比較 (高分關鍵)</h2>
+  </div>
+  <div class="card">
+    <table class="idiom-table">
+      <thead>
+        <tr>
+          <th>比較項</th>
+          <th>《逍遙遊》(莊子)</th>
+          <th>《勸學》(荀子)</th>
+          <th>《師說》(韓愈)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>對待「物」</strong></td>
+          <td>不為物累，順應自然。</td>
+          <td>善假於物，補己不足。</td>
+          <td>/</td>
+        </tr>
+        <tr>
+          <td><strong>論證手法</strong></td>
+          <td>比喻、寓言、對比。</td>
+          <td>大量排比、博喻。</td>
+          <td>對比、引用孔子言行。</td>
+        </tr>
+        <tr>
+          <td><strong>對待規矩</strong></td>
+          <td>樗樹「不中繩墨」方能逍遙。</td>
+          <td>「木受繩則直」，強調規範。</td>
+          <td>強調「古道」、「聖人之心」。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="modern" class="section-header">
+    <div class="section-icon">🌍</div>
+    <h2>五、現代意義與文化反思</h2>
+  </div>
+  <div class="card">
+    <p><strong>大學選科：</strong>現今社會追求醫科、商科（世俗標準之「有用」），認為純文學、哲學（「無用」）就業難。但莊子會認為，文學哲學能提供心靈安頓，讓人喺壓力山大嘅社會度「逍遙」，呢個係更高層次嘅精神價值。</p>
+    <p><strong>社會發展：</strong>(參考試題庫反思題) 如果人人都追求莊子嘅「逍遙」，社會發展可能會停滯（因為冇人想做「工具」）。呢個係道家學說喺現代社會應用時嘅侷限性，答題時可適度評價。</p>
+  </div>
+
+  <div id="exam" class="section-header">
+    <div class="section-icon">✍️</div>
+    <h2>六、DSE 模擬試題挑戰 (全真模擬)</h2>
+  </div>
+  <div class="card">
+    <div class="ex-item">
+      <div class="ex-q">1. 莊子以「狸狌」與「斄牛」對比，主要想說明甚麼道理？ (4分)</div>
+      <p style="color: #666; font-size: 0.9rem;">(提示：需說明兩者身形、才能、下場及寓意。)</p>
+    </div>
+    <div class="ex-item">
+      <div class="ex-q">2. 惠子提及大樗「立之塗，匠者不顧」，運用了甚麼寫作手法？ (2分)</div>
+      <div class="ex-options">
+        <div class="ex-opt">A. 步步進逼</div>
+        <div class="ex-opt">B. 間接描寫</div>
+        <div class="ex-opt">C. 引用論證</div>
+        <div class="ex-opt">D. 借代手法</div>
+      </div>
+    </div>
+    <div class="ex-item">
+      <div class="ex-q">3. 莊子批評惠子有「蓬之心」，你認同嗎？試結合現實情況評論。 (6分)</div>
+    </div>
+  </div>
+
+  <div id="ans" class="section-header">
+    <div class="section-icon">✔️</div>
+    <h2>七、評分準則詳解 (Marking Scheme)</h2>
+  </div>
+  <div class="ans-header">🔑 5** 參考答案</div>
+  <div class="ans-body">
+    <div class="ans-card">
+      <span class="q-no">1.</span>
+      <span><strong>道理：有用致禍，無用保身。</strong>
+        <div class="marking-scheme">
+          • 狸狌靈活善捕（1分），卻因捕獵而中機關陷阱而死（1分）；<br>
+          • 斄牛體型龐大不能捕鼠（1分），卻能保全性命，免於禍害（1分）。<br>
+          • 結論：說明世俗視為「有用」的才能反招殺身之禍，而「無用」才是保全生命的大用。
+        </div>
+      </span>
+    </div>
+    <div class="ans-card">
+      <span class="q-no">2.</span>
+      <span><strong>B. 間接描寫。</strong>
+        <div class="marking-scheme">
+          透過專業木匠對大樗「不顧」的反應（1分），襯托/突出大樗的不成材和無用（1分）。
+        </div>
+      </span>
+    </div>
+    <div class="ans-card">
+      <span class="q-no">3.</span>
+      <span><strong>開放題評分點：</strong>
+        <div class="marking-scheme">
+          • 認同：惠子受固有觀念束縛，只看到物質功利用途，思維狹隘（2分）。<br>
+          • 現實連結：如現今社會只重金錢回報，忽略精神富足（2分）。<br>
+          • 評論：若不打破此成心，人便無法獲得真正的安寧（2分）。
+        </div>
+      </span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2024 潘SIR中文教室 | 精準對應 DSE 考評局要求</p>
+  <p>備註：本筆記綜合教圖、啟思、培生三大試題庫精華，嚴禁轉載。</p>
+</footer>
+
+</body>
+</html>

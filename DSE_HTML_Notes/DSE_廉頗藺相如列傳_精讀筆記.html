@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜司馬遷《廉頗藺相如列傳》全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6f6f4;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>司馬遷《廉頗藺相如列傳》<br>DSE文憑試高級深造筆記</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、核心字詞與多義詞（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、經典語句文法與特殊句式拆解</a></li>
+      <li><a href="#sec-3">三、三大核心事件與人物刻畫分析</a></li>
+      <li><a href="#sec-4">四、DSE 閱卷陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、核心字詞與多義詞（DSE必考語譯點）</h2>
+  </div>
+  <p>《廉頗藺相如列傳》是史傳散文的巔峰之作，當中的字詞變化極多，尤其是「負」、「引」、「卻」等多義詞，歷年文憑試屢次設題考核。請務必牢記以下核心字詞：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">核心字詞</th>
+        <th style="width: 25%;">精確文言釋義</th>
+        <th>課文原句語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>竊</b></td>
+        <td>私下 / 私自</td>
+        <td>「臣嘗有罪，<b>竊</b>計欲亡走燕。」<br><small>解析：副詞，用作自謙之詞。解作私下打算、私自盤算。</small></td>
+      </tr>
+      <tr>
+        <td><b>曲</b></td>
+        <td>理虧</td>
+        <td>「秦以城求璧而趙不許，<b>曲</b>在趙。」<br><small>解析：名詞，指無理、理虧的一方。相對詞為「直」。</small></td>
+      </tr>
+      <tr>
+        <td><b>孰</b></td>
+        <td>仔細地</td>
+        <td>「唯大王與羣臣<b>孰</b>計議之。」<br><small>解析：通假字，通「熟」。不可誤譯為「誰」。</small></td>
+      </tr>
+      <tr>
+        <td><b>靡</b></td>
+        <td>退卻 / 倒下</td>
+        <td>「相如張目叱之，左右皆<b>靡</b>。」<br><small>解析：動詞，指秦王的侍從被藺相如的氣勢嚇退。</small></td>
+      </tr>
+      <tr>
+        <td><b>竟</b></td>
+        <td>完畢 / 結束</td>
+        <td>「秦王<b>竟</b>酒，終不能加勝於趙。」<br><small>解析：動詞。指澠池之會的酒宴完結。</small></td>
+      </tr>
+      <tr>
+        <td><b>顧</b></td>
+        <td>只是 / 不過</td>
+        <td>「<b>顧</b>吾念之，彊秦之所以不敢加兵於趙者……」<br><small>解析：副詞，表轉折。切忌譯作《出師表》中的「拜訪」。</small></td>
+      </tr>
+      <tr>
+        <td><b>幸</b></td>
+        <td>僥倖 / 幸而</td>
+        <td>「則<b>幸</b>得脫矣。」<br><small>解析：副詞，指幸虧、僥倖能夠逃脫。</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>DSE「一字多義」必殺技：【負】字專解</h3>
+    <p>「負」字在本文中出現多次，每次意思均有不同，是極高頻的考點：</p>
+    <ul>
+      <li><strong>使……承擔：</strong>「均之二策，寧許以<b>負</b>秦曲。」（寧可答應秦國，使秦國承擔理虧的責任）</li>
+      <li><strong>辜負 / 對不起：</strong>「臣誠恐見欺於王而<b>負</b>趙。」（實在害怕被大王欺騙而辜負了趙國）</li>
+      <li><strong>違背 / 違棄：</strong>「相如度秦王雖齋，決<b>負</b>約不償城。」（一定會違背諾言）</li>
+      <li><strong>倚仗 / 憑恃：</strong>「秦貪，<b>負</b>其彊。」（秦國貪婪，倚仗它的強大）</li>
+      <li><strong>背負：</strong>「肉袒<b>負</b>荊，因賓客至藺相如門謝罪。」（脫去上衣，背着荊條）</li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、經典語句文法與特殊句式拆解</h2>
+  </div>
+  <p>司馬遷的文筆精練，多運用文言特殊句式來推進敘事。以下是DSE翻譯題中的常客：</p>
+
+  <div class="keyword-grid">
+    <div class="kw-box">
+      <div class="kw-word">1. 被動句：「見……於……」</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「臣誠恐<b>見</b>欺<b>於</b>王而負趙。」</p>
+        <p><strong>精確語譯：</strong>我實在害怕<b>被</b>大王欺騙而辜負趙國。</p>
+        <p><strong>滿分技巧：</strong>「見……於」是標準的被動標誌。翻譯時必須補出「被」字，不可直譯為「看見大王欺騙」。</p>
+      </div>
+    </div>
+    
+    <div class="kw-box">
+      <div class="kw-word">2. 使動用法：使……怎麼樣</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「卒廷見相如，畢禮而<b>歸</b>之。」</p>
+        <p><strong>精確語譯：</strong>最終在朝廷上接見藺相如，完成外交禮節後，<b>使</b>他回<b>歸</b>（趙國）。</p>
+        <p><strong>滿分技巧：</strong>「歸」本是不及物動詞，此處帶賓語「之」，為使動用法。同理，「寧許以<b>負</b>秦曲」也是使秦國負上理虧（使動）。</p>
+      </div>
+    </div>
+
+    <div class="kw-box">
+      <div class="kw-word">3. 詞類活用：名詞作動詞</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「乃使其從者<b>衣</b>褐，懷其璧。」</p>
+        <p><strong>精確語譯：</strong>於是派他的隨從<b>穿上</b>粗布便服，懷裏藏着那塊和氏璧。</p>
+        <p><strong>滿分技巧：</strong>「衣」字讀音為 yi4（意），由名詞（衣服）活用為動詞（穿上）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、三大核心事件與人物刻畫分析</h2>
+  </div>
+  <p>《史記》最為人稱道的是「藉事見人」。本文透過三個層層遞進的故事，將藺相如和廉頗的性格刻畫得栩栩如生。</p>
+
+  <div class="flow">
+    <div class="flow-step"><strong>事件一：完璧歸趙（智勇雙全）</strong><br>趙王得和氏璧，秦王欲以城易璧。趙國君臣束手無策時，藺相如挺身而出。在秦廷上，他識破秦王無意割城，以「璧有瑕」智取玉璧；又以「頭與璧俱碎於柱」要脅秦王，展現不畏強權的勇氣；最後暗派隨從「衣褐懷璧」逃回趙國，保全了國體。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>事件二：澠池之會（維護國威）</strong><br>秦王約趙王於澠池相會。秦王命趙王鼓瑟並命史官記錄以作羞辱。藺相如挺身而出，以「頸血濺大王」逼令秦王擊缻，並以秦國首都咸陽為趙王祝壽，在外交辭令上寸步不讓，成功維護國家尊嚴。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>事件三：負荊請罪（先公後私，知錯能改）</strong><br>藺相如因功拜為上卿，廉頗居功自傲，揚言羞辱他。相如處處退讓迴避。門客不解，相如以「兩虎共鬥，其勢不俱生」及「先國家之急而後私讎」的道理點醒眾人。廉頗聞之慚愧，肉袒負荊請罪，二人結為刎頸之交。</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>描寫手法大拆解：如何把人物寫「活」？</h3>
+    <ul>
+      <li><strong>肖像描寫：</strong>「相如因持璧卻立，倚柱，<b>怒髮上衝冠</b>」、「<b>張目叱之</b>，左右皆靡」。以誇張的神態描寫，突顯藺相如在危急關頭的威武與義憤填膺。</li>
+      <li><strong>語言描寫：</strong>藺相如對秦王說：「五步之內，相如請得以頸血濺大王矣！」言語短促有力，展現其視死如歸的氣魄。</li>
+      <li><strong>反襯手法：</strong>
+        <ul>
+          <li>以<b>趙國君臣的「計未定」</b>，反襯藺相如的冷靜果斷與深謀遠慮。</li>
+          <li>以<b>門客的「短視、只顧顏面」</b>（認為相如怯懦而欲辭去），反襯藺相如「先國家之急」的宏大格局與廣闊胸襟。</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、DSE 閱卷陷阱與常犯錯誤對比</h2>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 凡人失分答法</div>
+      <p><strong>題目：</strong>綜合全文，試分析廉頗的人物性格。（4分）</p>
+      <p><strong>典型劣答：</strong>廉頗是一個很勇敢的將軍，他在戰場上打敗了齊國，很厲害。另外他也很有禮貌，因為他最後向藺相如道歉了。</p>
+      <p><em>關鍵敗因：形容詞不精確，且遺漏了廉頗在「負荊請罪」前那種「心胸狹隘、居功自傲」的性格特質。人物分析必須全面！</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>綜合全文，試分析廉頗的人物性格。（4分）</p>
+      <p><strong>星級滿分答法：</strong>廉頗具有複雜而立體的性格。首先，他<b>勇武善戰，思慮周密</b>。他伐齊大勝，在澠池之會前又替趙王作好「三十日不還，立太子為王」的部署，斷絕秦國要脅的念頭（2分）。其次，他曾<b>居功自傲，心胸狹隘</b>，不滿出身卑微的相如位居其上而揚言羞辱他；但當他得知相如「先公後私」的苦心後，卻能<b>勇於認錯，坦率真誠</b>，親自「肉袒負荊」向相如請罪，展現出知錯能改的大將風度（2分）。</p>
+      <p><em>摘星要訣：人物分析必須緊扣「事例 + 性格特徵」，並留意人物性格在不同事件中的轉變與多面性。</em></p>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 潘SIR提醒：</strong>不要把《廉頗藺相如列傳》和《出師表》的字義搞混！例如「顧」字，諸葛亮「三顧草廬」是「拜訪」；但藺相如「顧吾念之」則是「只是 / 不過」。
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">🔥</div>
+    <h2>五、文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 藺相如面對門客的批評和請辭時，用甚麼情況來比喻自己跟廉頗的衝突？（1分）這比喻有何作用？試略加說明。（3分）</div>
+    <div class="example-box" style="margin-top:0.5rem;">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>比喻情況：</strong>兩虎相鬥（今兩虎共鬥，其勢不俱生）。（1分）</p>
+      <p><strong>作用說明：</strong>藺相如運用了<b>借喻</b>的手法（1分）。他將自己與廉將軍比喻為兩隻猛虎，指出如果將相不和，互相爭鬥，必定會有一方受傷甚至死亡（1分）。秦國之所以不敢攻打趙國，全因有他們兩人一文一武坐鎮。若二人相鬥，只會削弱趙國的實力，讓秦國有機可乘。相如藉此比喻向門客解釋，自己對廉頗處處退讓，絕非出於怯懦，而是<b>「先國家之急而後私讎」</b>，為了顧全大局。（1分）</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 司馬遷在文章開首，特意交代了廉頗和藺相如二人懸殊的出身地位。作者這樣寫有何作用？（4分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p>首先，作者交代廉頗是戰功彪炳、身分尊貴的「趙之良將」，而藺相如只是地位卑微的「宦者令繆賢之舍人」，這種強烈的<b>地位對比</b>，突顯了藺相如起點之低（1分）。其次，這為後文的衝突<b>埋下伏筆</b>（1分）。正因為相如出身低微，後來卻憑「口舌為勞」位居廉頗之上，才引發了廉頗的不滿與嫉妒，從而合理地推動了「負荊請罪」這一情節的發展（1分）。最後，這也襯托出藺相如不靠背景，全憑非凡的智勇而拜為上卿的卓越才能（1分）。</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：分析人物描寫手法</span>
+    當題目問及「如何刻畫人物形象」時，緊記套用此公式：<br>
+    <strong>【手法指出】</strong>作者運用了（語言／行動／肖像／心理／襯托）描寫。<br>
+    <strong>【引述原文】</strong>例如文中提及「（摘錄或語譯相關句子）」...<br>
+    <strong>【推論性格】</strong>生動地表現了人物在該情境下的（反應／狀態），從而突顯出他（果敢／智勇／狹隘／大度等）的性格特徵。
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

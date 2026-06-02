@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜宋詞三首全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6f6f4;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>DSE文憑試高級深造筆記<br>宋詞三首滿分拆解</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、 核心字詞與意象深究（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、 三首詞的意境與寫作手法剖析</a></li>
+      <li><a href="#sec-3">三、 DSE 跨篇章比較：詞風與情感的碰撞</a></li>
+      <li><a href="#sec-4">四、 DSE 摘星陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、 文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、 核心字詞與意象深究（DSE必考語譯點）</h2>
+  </div>
+  <p>《宋詞三首》涵蓋了豪放派與婉約派的巔峰之作。DSE 考試極常考核當中生僻字詞及意象的深層含義。以下為必背的摘星字詞：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">出處與詞語</th>
+        <th style="width: 25%;">精確釋義</th>
+        <th>課文語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>《念奴嬌》<b>檣櫓</b></td>
+        <td>船的桅杆與大槳（借代戰船）</td>
+        <td>「談笑間、<b>檣櫓</b>灰飛煙滅」<br><small>解析：以局部借代整體（曹軍戰船），突顯周瑜談笑用兵、輕易擊敗強敵的儒將風範。</small></td>
+      </tr>
+      <tr>
+        <td>《念奴嬌》<b>酹</b></td>
+        <td>把酒灑在地上祭奠</td>
+        <td>「一尊還<b>酹</b>江月」<br><small>解析：讀音「淚」。蘇軾將酒灑向長江祭奠明月與古人，表現其徹悟人生如夢後的曠達。</small></td>
+      </tr>
+      <tr>
+        <td>《聲聲慢》<b>將息</b></td>
+        <td>調養、休息</td>
+        <td>「乍煖還寒時候，最難<b>將息</b>」<br><small>解析：指在忽冷忽熱的秋天，最難以調養身體與平息愁緒。</small></td>
+      </tr>
+      <tr>
+        <td>《聲聲慢》<b>次第</b></td>
+        <td>光景 / 情形</td>
+        <td>「這次第，怎一箇愁字了得」<br><small>解析：指眼前這重重疊疊的淒涼光景，總結前文種種愁苦。</small></td>
+      </tr>
+      <tr>
+        <td>《青玉案》<b>闌珊</b></td>
+        <td>稀疏、零落 / 昏暗</td>
+        <td>「那人卻在、燈火<b>闌珊</b>處」<br><small>解析：指遠離繁華喧鬧，燈光暗淡的地方。反襯「那人」不慕繁華的孤高。</small></td>
+      </tr>
+      <tr>
+        <td>《青玉案》<b>驀然</b></td>
+        <td>忽然 / 不經意地</td>
+        <td>「<b>驀然</b>迴首」<br><small>解析：表達出眾裏尋他千百度後，不期而遇的驚喜與頓悟。</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、 三首詞的意境與寫作手法剖析</h2>
+  </div>
+  
+  <div class="card">
+    <h3><span class="dot classical"></span>1. 蘇軾《念奴嬌‧赤壁懷古》（豪放派代表）</h3>
+    <p><strong>寫作手法：</strong>借景抒情、借事抒情、對比反襯</p>
+    <ul>
+      <li><strong>豪放寫景：</strong>「亂石穿空，驚濤拍岸，捲起千堆雪。」運用誇張與借喻（雪喻浪花），從視覺與聽覺營造出磅礡、雄奇的古戰場氣勢。</li>
+      <li><strong>反襯英雄：</strong>以「小喬初嫁了」的美人形象，從側面烘托周瑜年輕得志、英雄配美人的風發意氣。</li>
+      <li><strong>以古怨今：</strong>將<b>周瑜（年少得志、建功立業）</b>與<b>蘇軾自己（早生華髮、功業未成、被貶黃州）</b>作強烈對比，抒發歲月流逝、人生如夢的感慨。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>2. 李清照《聲聲慢‧秋情》（婉約派代表）</h3>
+    <p><strong>寫作手法：</strong>疊字藝術、借景抒情（多感官描寫）、直抒胸臆</p>
+    <div class="example-box classical">
+      <span class="example-label">疊字的極致運用</span>
+      <span class="example-text">「尋尋覓覓，冷冷清清，悽悽慘慘戚戚」<br>
+      由外在動作（尋覓無果）→ 環境氣氛（冷清孤寂）→ 內心感受（悽慘悲痛），層層遞進，定下全詞悲涼的感情基調。</span>
+    </div>
+    <ul>
+      <li><strong>秋雁的意象：</strong>「雁過也，正傷心，卻是舊時相識。」見北方南下之秋雁，觸發詞人經歷國破家亡、南渡避難的故國之思與淪落天涯的傷感。</li>
+      <li><strong>黃花與梧桐：</strong>「滿地黃花」暗喻自己容顏憔悴；「梧桐更兼細雨」以聽覺渲染黃昏時分點滴不絕的哀愁，將無形的「愁」具象化。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>3. 辛棄疾《青玉案‧元夕》（豪放詞人的婉約筆觸＋政治寄託）</h3>
+    <p><strong>寫作手法：</strong>反襯手法、借代、暗喻（自喻）</p>
+    <ul>
+      <li><strong>極寫繁華：</strong>「東風夜放花千樹，更吹落、星如雨。」以誇張及明喻寫元夕燈火之絢爛。「寶馬雕車」、「蛾兒雪柳」借代富貴人家與盛裝仕女。</li>
+      <li><strong>強烈反襯：</strong>以元宵佳節滿城的燈火輝煌、世俗仕女的笑語盈盈（熱鬧），<b>反襯</b>「那人」獨處燈火闌珊處的冷清與孤寂。</li>
+      <li><strong>政治寄託：</strong>「那人」實為作者的<b>自喻</b>。辛棄疾藉此表達自己不願與南宋偏安朝廷（沉醉於歌舞昇平）同流合污，堅持抗金復國的孤高與高潔情操。</li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、 DSE 跨篇章比較：詞風與情感的碰撞</h2>
+  </div>
+  <p>DSE 最愛考核三首詞在「情感表達」與「意象運用」上的比較。記住以下萬用比較框架：</p>
+
+  <div class="compare-grid">
+    <div class="compare-card good">
+      <div class="compare-header">🍶 借酒消愁的分別：《念奴嬌》 vs 《聲聲慢》</div>
+      <p><strong>蘇軾《念奴嬌》：</strong>「一尊還酹江月」<br>蘇軾雖感歎功業未成，但最終能悟出「人間如夢」的哲理。他灑酒祭江，選擇以<b>豁達超脫</b>的態度來化解執念，酒是釋懷的媒介。</p>
+      <p><strong>李清照《聲聲慢》：</strong>「三杯兩盞淡酒，怎敵他晚來風急！」<br>李清照飽受國破家亡喪夫之痛，愁緒深重。淡酒根本無法驅散內心的淒寒與悲痛，愁緒無法排遣，酒反而凸顯了她的<b>無力與絕望</b>。</p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">愁的層次：《聲聲慢》 vs 《青玉案》</div>
+      <p><strong>李清照的愁：</strong>源於個人遭遇與時代悲劇。是真真切切的「身世飄零、孤苦無依」之愁，情感基調是<b>悲涼悽愴</b>的。</p>
+      <p><strong>辛棄疾的孤獨：</strong>源於政治抱負無法實現。他的孤獨是主動選擇的，是「不肯趨炎附勢」的孤高，情感基調是<b>孤芳自賞、堅定不屈</b>的。</p>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、 DSE 摘星陷阱與常犯錯誤對比</h2>
+  </div>
+
+  <div class="alert warn">
+    很多同學在回答《青玉案‧元夕》時，只當作一般愛情詞來解釋，完全忽略了詞人「辛棄疾」作為南宋抗金名將的背景，這是嚴重的失分陷阱！
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 凡人失分答法</div>
+      <p><strong>題目：</strong>《青玉案‧元夕》中，「那人卻在、燈火闌珊處」有何深意？</p>
+      <p><strong>作答：</strong>作者在元宵節的花燈晚會上尋找他喜歡的女子。找了很久都找不到，但突然回頭一看，發現他心愛的女子原來站在沒有甚麼燈光的地方等他，表達了作者找到情人的驚喜之情。</p>
+      <p><em>評語：只作字面解釋，當作世俗愛情詞，完全遺漏了「自喻」及「政治寄託」的核心重點，最多只能拿 1-2 分。</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>《青玉案‧元夕》中，「那人卻在、燈火闌珊處」有何深意？</p>
+      <p><strong>作答：</strong>作者運用了「自喻（象徵）」及「反襯」的手法（1分）。「那人」並不熱衷於湊熱鬧賞燈，遠離喧囂，實為作者的自我寫照（1分）。當時南宋朝廷偏安江左，達官貴人沉醉於表面繁華；作者藉「那人」在燈火闌珊處的孤獨身影，反襯出世俗仕女的庸俗（1分），從而寄託自己不肯趨炎附勢、不願與主和派同流合污的孤高品格與抗金復國的堅定抱負（2分）。</p>
+      <p><em>評語：準確指出「反襯 + 自喻 + 南宋偏安背景 + 高潔品格」，論述飽滿透徹。</em></p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：賞析詞的「情景交融」</span>
+    當題目問及寫景如何抒情時（特別是《聲聲慢》）：<br>
+    <strong>【景物描寫】</strong>指出詞人運用了什麼感官（視覺/聽覺/觸覺）描寫什麼景物（如：秋雁、黃花、梧桐細雨）。<br>
+    <strong>【營造氣氛】</strong>這些景物共同渲染了（蕭瑟、孤寂、淒涼）的秋意氣氛。<br>
+    <strong>【觸景生情】</strong>此情此景觸動了詞人（國破家亡/年華老去/壯志未酬）的深沉愁緒，達致情景交融。
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">📝</div>
+    <h2>五、 文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 試根據李清照《聲聲慢‧秋情》一詞，回答以下問題。詞中「雁過也，正傷心，卻是舊時相識」一句，為何「雁過」會惹起作者的「傷心」？試加以說明。（4分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【官方標準答案】</span>
+      <p>第一，作者昔日與丈夫趙明誠曾有過「雁字回時，月滿西樓」的傳書期盼，如今丈夫已逝，再見秋雁，已無人可以傳遞書信，不禁觸景傷情，悲痛不已（2分）。</p>
+      <p>第二，秋雁是由北方南飛，而作者亦是因避戰亂而從北方故鄉逃難到南方（南渡）。「舊時相識」的北雁勾起了她強烈的故國之思與身世飄零的淪落之感，故感傷心（2分）。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 蘇軾在《念奴嬌‧赤壁懷古》中，對周瑜的形象刻畫入微。試指出作者從哪三個方面（手法）描寫周瑜，並說明其用意。（6分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【官方標準答案】</span>
+      <p><b>1. 側面烘托：</b>「小喬初嫁了」，以美人（小喬）下嫁英雄（周瑜），襯托出周瑜當時年輕得意、意氣風發的形象（2分）。</p>
+      <p><b>2. 肖像描寫：</b>「羽扇綸巾」，描寫周瑜手執羽扇、頭戴青絲頭巾，展現其從容不迫、儒雅倜儻的儒將風度（2分）。</p>
+      <p><b>3. 行動描寫：</b>「談笑間、檣櫓灰飛煙滅」，描寫周瑜在談笑自若間便將曹操的龐大水軍燒毀，突出其卓越的軍事才華與指揮若定的魄力（2分）。<br>
+      <i>（用意：作者極力塑造周瑜的完美形象，是為了反襯自己年華老去卻功業未成，從而抒發「人間如夢」的感慨。）</i></p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">3</span> 辛棄疾在《青玉案‧元夕》上片描寫了元宵節的哪些盛況？這些描寫對表達詞的主旨有何作用？（4分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【官方標準答案】</span>
+      <p><b>盛況描寫：</b>作者從多感官描寫元宵盛況。視覺上寫滿城花燈如千樹花開，煙火如雨；聽覺上寫鳳簫聲動，遊人笑語盈盈；嗅覺上寫寶馬雕車與仕女經過時留下的暗香（2分）。</p>
+      <p><b>寫作作用：</b>作者極力渲染元宵佳節繁華熱鬧的景象，以及世俗仕女爭相遊賞的歡樂，是為了運用<b>反襯手法</b>（1分）。以群俗的喧鬧，強烈反襯出下片「那人」獨處燈火闌珊處的冷清與不慕繁華，從而凸顯作者不願同流合污、孤高傲世的高尚情操（1分）。</p>
+    </div>
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜《論語》〈論仁、論孝、論君子〉全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6f6f4;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>《論語》〈論仁、論孝、論君子〉<br>DSE文憑試高級深造筆記</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、 核心字詞深度義訓（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、 核心概念拆解：仁、孝、君子的哲學</a></li>
+      <li><a href="#sec-3">三、 論說技巧與語錄體特色剖析</a></li>
+      <li><a href="#sec-4">四、 DSE 閱卷陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、 文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、 核心字詞深度義訓（DSE必考語譯點）</h2>
+  </div>
+  <p>《論語》的語言精煉，常有一字多義或古今異義的現象。掌握以下核心字詞的精確解釋，是取得文言語譯滿分的關鍵：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">核心字詞</th>
+        <th style="width: 25%;">精確文言釋義</th>
+        <th>課文原句語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>約</b></td>
+        <td>窮困 / 貧困</td>
+        <td>「不仁者，不可以久處<b>約</b>。」<br><small>解析：指沒有仁德的人不能長期忍受貧困的生活，容易為非作歹。</small></td>
+      </tr>
+      <tr>
+        <td><b>惡</b></td>
+        <td>厭惡 (wu4) / 怎麼 (wu1)</td>
+        <td>1. 「貧與賤，是人之所<b>惡</b>也。」（動詞：厭惡）<br>2. 「君子去仁，<b>惡</b>乎成名？」（疑問代詞：怎麼、哪裏）</td>
+      </tr>
+      <tr>
+        <td><b>去</b></td>
+        <td>擺脫 / 拋棄 / 離開</td>
+        <td>「君子<b>去</b>仁，惡乎成名？」<br><small>解析：動詞。君子如果拋棄了仁德，怎麼能成就君子的名聲呢？</small></td>
+      </tr>
+      <tr>
+        <td><b>造次 / 顛沛</b></td>
+        <td>倉卒匆忙 / 困頓流離</td>
+        <td>「<b>造次</b>必於是，<b>顛沛</b>必於是。」<br><small>解析：指君子無論在甚麼短暫或惡劣的環境下，都絕對不會背離仁德。</small></td>
+      </tr>
+      <tr>
+        <td><b>違</b></td>
+        <td>違反禮法 (名詞/動詞)</td>
+        <td>「孟懿子問孝。子曰：『無<b>違</b>。』」<br><small>解析：此處非指盲目順從父母，而是指事奉父母不可違背「禮法」。</small></td>
+      </tr>
+      <tr>
+        <td><b>幾</b></td>
+        <td>輕微 / 委婉</td>
+        <td>「事父母<b>幾</b>諫。」<br><small>解析：指父母有過失時，子女應以委婉溫和的態度勸諫。</small></td>
+      </tr>
+      <tr>
+        <td><b>色難</b></td>
+        <td>和顏悅色是最難的</td>
+        <td>「子夏問孝。子曰：『<b>色難</b>。』」<br><small>解析：孝順父母，最難得的是時刻保持和顏悅色，發自內心的敬愛。</small></td>
+      </tr>
+      <tr>
+        <td><b>病</b></td>
+        <td>擔憂 / 憂慮</td>
+        <td>「君子<b>病</b>無能焉，不病人之不己知也。」<br><small>解析：動詞。君子只擔憂自己沒有才能，不擔憂別人不賞識自己。</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、 核心概念拆解：仁、孝、君子的哲學</h2>
+  </div>
+  <p>《論語》選篇圍繞儒家的三大核心價值展開，我們必須理清當中的邏輯與層次：</p>
+
+  <div class="flow">
+    <div class="flow-step"><strong>1. 論「仁」：儒家最高道德標準</strong><br>
+    - <b>實踐方法</b>：「克己復禮為仁」，即克制私慾，使言語行為都合乎禮（非禮勿視、聽、言、動）。<br>
+    - <b>仁者修養</b>：「無求生以害仁，有殺身以成仁」，在生死關頭，仁者寧可犧牲生命也要成全仁德。<br>
+    - <b>仁與知</b>：「仁者安仁（自然而然實行），知者利仁（知道行仁有好處而實行）」。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>2. 論「孝」：重敬與合禮</strong><br>
+    - <b>重於內心</b>：「今之孝者，是謂能養。至於犬馬，皆能有養；不敬，何以別乎？」強調孝道不只是物質供養，關鍵在於內心的「敬」與外在的「和顏悅色（色難）」。<br>
+    - <b>合乎禮法</b>：「生，事之以禮；死，葬之以禮，祭之以禮。」</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>3. 論「君子」：理想的人格典範（常與小人對比）</strong><br>
+    - <b>心境</b>：「君子坦蕩蕩（心胸廣闊），小人長戚戚（經常憂愁煩惱）」。<br>
+    - <b>處事</b>：「君子成人之美，不成人之惡（助人為善）」。<br>
+    - <b>責任</b>：「君子求諸己（自我反省），小人求諸人（推卸責任）」。</div>
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、 論說技巧與語錄體特色剖析</h2>
+  </div>
+  
+  <div class="card">
+    <h3><span class="dot classical"></span>語錄體的文學特色</h3>
+    <ul>
+      <li><strong>言簡意賅：</strong>文字簡練，含義深遠。如「無違」、「色難」僅以二字便點出孝的精髓。</li>
+      <li><strong>善用對話，因材施教：</strong>記錄了孔子與弟子的問答。孔子會根據學生不同的性格與理解能力，給予不同的解答。例如同是「問孝」，對孟懿子強調「無違」，對子游則強調「色難」。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>豐富的修辭與說理手法</h3>
+    <div class="example-box classical">
+      <span class="example-label">對比說理（極高頻考點）</span>
+      <span class="example-text">孔子極愛用「君子」與「小人」、「仁者」與「不仁者」作對比。例如：「君子求諸己，小人求諸人」，強烈對比出君子勇於承擔、小人推卸責任的特質。</span>
+    </div>
+    <div class="example-box classical">
+      <span class="example-label">反問與設問</span>
+      <span class="example-text">反問：「為仁由己，而由人乎哉？」（點出實踐仁德全憑自己）<br>反問：「君子去仁，惡乎成名？」（點出仁德是君子的根本）</span>
+    </div>
+    <div class="example-box classical">
+      <span class="example-label">排比與對偶</span>
+      <span class="example-text">排比：「非禮勿視，非禮勿聽，非禮勿言，非禮勿動。」（氣勢充沛）<br>對偶：「無求生以害仁，有殺身以成仁。」（句式工整）</span>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、 DSE 閱卷陷阱與常犯錯誤對比</h2>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 常犯錯誤：誤解字義與儒家思想</div>
+      <p><strong>題目：</strong>孔子說「父母之年，不可不知也。一則以喜，一則以懼。」為何會有「懼」的心情？</p>
+      <p><strong>劣答：</strong>因為害怕父母年紀大了會死掉，自己會沒有人照顧和供養，所以感到恐懼。</p>
+      <p><em>關鍵敗因：嚴重曲解儒家孝道！「懼」是出於對父母健康的擔憂和關愛，而非擔心自己無人照顧。</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>孔子說「父母之年，不可不知也。一則以喜，一則以懼。」為何會有「懼」的心情？</p>
+      <p><strong>滿分答法：</strong>「懼」是指憂懼（1分）。為人子女時刻記掛父母的年齡，一方面會因為父母長壽而感到歡喜，另一方面也會因為父母年事漸高、身體日漸衰老而感到擔憂和恐懼（1分）。這反映了子女對父母無微不至的關愛與深切的孝心（1分）。</p>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 潘SIR提醒：</strong>當解釋「犬馬，皆能有養」時，緊記點出「敬」字。孔子的重點是：如果只提供物質食物（能養），而缺乏內心的尊敬（不敬），那麼供養父母和飼養狗馬便沒有分別！
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">🔥</div>
+    <h2>五、 文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 根據〈論仁〉，孔子說：「克己復禮為仁」，試說明「克己」與「復禮」的意思，並指出孔子教導顏淵實踐「仁」的四個具體條目。（5分）</div>
+    <div class="example-box" style="margin-top:0.5rem;">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p>「克己」是指克制自己的私慾（1分）；「復禮」是指使自己的言語行為都合乎禮節規範（1分）。</p>
+      <p>孔子教導顏淵實踐「仁」的四個具體條目是：不合乎禮節的事就<b>不看</b>、<b>不聽</b>、<b>不說</b>、<b>不做</b>（即「非禮勿視，非禮勿聽，非禮勿言，非禮勿動」）（答齊四項得3分）。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 試根據〈論孝〉中「事父母幾諫」一則，指出當父母有過失時，子女應採取甚麼態度？如果父母不接納勸告，子女又應怎樣做？（4分）這反映了儒家孝道的甚麼特點？（2分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><b>態度與做法：</b>當父母有過失時，子女應採取<b>委婉溫和（幾諫）</b>的態度來勸告他們（1分）。如果父母不願接納勸告，子女仍然要<b>保持恭敬（敬不違）</b>（1分），不冒犯他們，並繼續辛勞地侍奉他們而<b>不生怨恨（勞而不怨）</b>（2分）。</p>
+      <p><b>孝道特點：</b>這反映了儒家認為「孝」並非盲目順從，父母有錯亦須勸諫（1分）；但同時強調「敬」，在勸諫過程中絕不能違背對長輩的禮節與尊重（1分）。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">3</span> 以下兩段引文均運用了對比手法，試分別指出它們對比了君子與小人的甚麼特質，並說明這種修辭手法如何加強說理效果。（6分）<br>
+    甲：「君子坦蕩蕩，小人長戚戚。」<br>
+    乙：「君子求諸己，小人求諸人。」
+    </div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><b>引文甲：</b>對比了君子與小人的<b>心境 / 情緒</b>（1分）。君子心胸廣闊平靜，而小人則經常憂愁煩惱（1分）。</p>
+      <p><b>引文乙：</b>對比了君子與小人的<b>處事態度 / 責任感</b>（1分）。君子遇到問題時會自我反省，要求自己；小人則會推卸責任，苛求別人（1分）。</p>
+      <p><b>說理效果：</b>通過將君子的正面特質與小人的反面特質並列對比（1分），能鮮明地突顯出君子理想的人格典範，使讀者知所效法，大大增強了文章的說服力與感染力（1分）。</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：孔子的「因材施教」</span>
+    當DSE考問為何孔子對同一問題有不同答案時：<br>
+    <strong>【指出對象差異】</strong>孔子因應學生的<b>性格缺點、身份地位或理解能力</b>而給予不同教導。<br>
+    <strong>【對比內容】</strong>例如問「孝」：孟懿子是權臣，易僭越禮制，故答「無違（合禮）」；子游/子夏是學生，可能忽略了內心的敬意，故答「能養不敬如同犬馬」及「色難」。<br>
+    <strong>【總結論點】</strong>這體現了孔子<b>「因材施教」</b>的教育理念，務求對症下藥，指正學生的盲點。
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

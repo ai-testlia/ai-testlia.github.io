@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜諸葛亮《出師表》全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6f6f4;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>諸葛亮《出師表》<br>DSE文憑試高級深造筆記</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、核心字詞深度義訓（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、治國三大方針與人才部署</a></li>
+      <li><a href="#sec-3">三、滿分寫作手法剖析：情理交融的遊說技巧</a></li>
+      <li><a href="#sec-4">四、DSE 閱卷陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、核心字詞深度義訓（DSE必考語譯點）</h2>
+  </div>
+  <p>掌握文言字詞的精確含義是奪取DSE文言部分滿分的基石。《出師表》不僅考字義，還常考「詞類活用」及「古今異義」。以下為核心字詞拆解：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">核心字詞</th>
+        <th style="width: 25%;">精確文言釋義</th>
+        <th>課文原句語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>秋</b></td>
+        <td>時刻 / 時期</td>
+        <td>「此誠危急存亡之<b>秋</b>也。」<br><small>解析：此處非指秋天，而是指關鍵時刻。古今異義詞。</small></td>
+      </tr>
+      <tr>
+        <td><b>陟、罰、臧、否</b></td>
+        <td>晉升、懲罰、讚賞（善）、批評（惡）</td>
+        <td>「<b>陟罰臧否</b>，不宜異同。」<br><small>解析：「臧」為善，活用為動詞作獎賞；「否」為惡，活用作懲罰。合指賞善罰惡。</small></td>
+      </tr>
+      <tr>
+        <td><b>遺</b></td>
+        <td>留給 / 餽贈</td>
+        <td>「是以先帝簡拔以<b>遺</b>陛下。」<br><small>解析：讀音為 wei6（胃），動詞，指先帝留下（人才）給後主。</small></td>
+      </tr>
+      <tr>
+        <td><b>顧</b></td>
+        <td>拜訪 / 探望</td>
+        <td>「三<b>顧</b>臣於草蘆之中。」<br><small>解析：動詞，此處指劉備放下身段，三次親自拜訪。不可譯作「照顧」。</small></td>
+      </tr>
+      <tr>
+        <td><b>卑鄙</b></td>
+        <td>身份低微，見識淺陋</td>
+        <td>「先帝不以臣<b>卑鄙</b>。」<br><small>解析：古今異義詞。古義為謙詞；今義指品格惡劣。絕對不能用現代漢語意思語譯。</small></td>
+      </tr>
+      <tr>
+        <td><b>效</b></td>
+        <td>成功 / 實現 / 效命</td>
+        <td>「恐託付不<b>效</b>，以傷先帝之明。」<br><small>解析：動詞。諸葛亮擔心未能完成任務，損害了先帝知人善任的英明。</small></td>
+      </tr>
+      <tr>
+        <td><b>駑鈍</b></td>
+        <td>劣馬和鈍刀，比喻平庸的才能</td>
+        <td>「庶竭<b>駑鈍</b>，攘除姦凶。」<br><small>解析：借喻手法，亦是諸葛亮的自謙之詞。</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、治國三大方針與人才部署</h2>
+  </div>
+  <p>諸葛亮即將率軍北伐，最擔憂後主劉禪年幼無知，受小人蒙蔽而導致後方政局動蕩。因此在表中提出了三項關鍵的治國建議：</p>
+
+  <div class="flow">
+    <div class="flow-step"><strong>1. 廣開言路（虛懷納諫）</strong><br>「誠宜開張聖聽，以光先帝遺德」：勸諫後主廣泛聽取臣下的意見，不可「妄自菲薄，引喻失義」，以免阻塞忠臣進諫的道路。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>2. 賞罰分明（內外異法）</strong><br>「宮中、府中，俱為一體」：宮中（內朝侍衞）與府中（外廷相府官員）的賞罰標準必須一致，應交由主管官員（有司）決定，不可偏私。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>3. 親賢遠佞（核心重點）</strong><br>「親賢臣，遠小人」：這是蜀漢能否長治久安的關鍵。諸葛亮特意為後主安排了文臣（郭攸之、費禕、董允）處理宮中政事，武將（向寵）處理營中軍務。</div>
+  </div>
+
+  <div class="alert tip">
+    <strong>💡 考試技巧：</strong>若題目問及這三項建議的關係，緊記<strong>「親賢遠佞」是核心</strong>。只有親近賢臣，才能做到「廣開言路」（聽得進雅言）和「賞罰分明」（不偏私小人）。
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、滿分寫作手法剖析：情理交融的遊說技巧</h2>
+  </div>
+  <p>《出師表》之所以感人肺腑，在於諸葛亮完美地融合了「說之以理」與「動之以情」，並靈活切換「君臣」與「父執」的雙重身份。</p>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>1. 剛柔並濟：「君臣語」與「父子語」的運用</h3>
+    <div class="example-box classical">
+      <span class="example-label">君臣語（謹守臣子本分，措辭恭敬）</span>
+      <span class="example-text">如多次稱呼「陛下」，提出建議時使用「誠宜」、「不宜」、「亦宜」等字眼，義正詞婉，體現君尊臣卑，消除後主的戒心。</span>
+    </div>
+    <div class="example-box classical">
+      <span class="example-label">父子語（長輩口吻，循循善誘）</span>
+      <span class="example-text">如十三次提及「先帝」，以劉備的權威與遺訓來教導、警醒劉禪。用語懇切，如「此臣所以報先帝而忠陛下之職分也」，如慈父般叮嚀。</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>2. 說之以理：正反對比與引用史例</h3>
+    <ul>
+      <li><strong>正反對比：</strong>將「親賢臣，遠小人」的先漢（興隆）與「親小人，遠賢臣」的後漢（傾頹）作對比。從歷史教訓中，帶出用人之道是國家興亡的關鍵。</li>
+      <li><strong>對比句式：</strong>文中多次以「宜……不宜……」的句式，明確指示後主甚麼該做，甚麼不該做，使治國方針一目了然。</li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、DSE 閱卷陷阱與常犯錯誤對比</h2>
+  </div>
+  <p>在解答關於諸葛亮「自述身世」的題目時，許多考生未能點出其背後的「政治目的」，導致只能獲取一半分數。</p>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 凡人失分答法</div>
+      <p><strong>題目：</strong>諸葛亮在第六段自述「三顧草廬」及「臨崩託孤」的經歷，有甚麼用意？（4分）</p>
+      <p><strong>作答：</strong>諸葛亮想告訴後主，自己本來是個農夫，是先帝劉備親自來請他，他才出山的。後來先帝死前把國家交給他，他一直很努力工作，五月渡過瀘水去打仗。他寫這些是想表達自己對先帝的感激之情。</p>
+      <p><em>評語：只將原文語譯了一次，完全沒有分析其「遊說策略」及「釋除疑慮」的深層意圖。</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>諸葛亮在第六段自述「三顧草廬」及「臨崩託孤」的經歷，有甚麼用意？（4分）</p>
+      <p><strong>作答：</strong>首先，諸葛亮旨在表明自己本淡泊名利，出仕全因感激先帝的知遇之恩，藉此<strong>釋除後主對他手握大權的猜疑</strong>（2分）。其次，提及「臨危受命」與「託孤」，是為了強調先帝對他的極度信任。諸葛亮期望以先帝的眼光，促使後主也能<strong>對他投以絕對的信任</strong>，將北伐重任放心交託給他，並在他遠征時不要聽信小人的讒言（2分）。</p>
+      <p><em>評語：精準點出「釋除猜疑（防小人）」與「爭取信任（傳承先帝遺志）」的核心政治用意，直擊滿分要點。</em></p>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">🔥</div>
+    <h2>五、文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 諸葛亮在《出師表》中提及了兩次「感激」，這兩次「感激」的原因分別是甚麼？（4分）這反映了諸葛亮怎樣的人物形象？（2分）</div>
+    <div class="example-box" style="margin-top:0.5rem;">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>第一次感激：</strong>因為先帝劉備不嫌棄他出身低微，放下帝王之尊，三次親自到草廬拜訪，並虛心向他請教國家大事，他為報答這份<strong>知遇之恩</strong>而感激，從而答應為先帝效命奔走。（2分）</p>
+      <p><strong>第二次感激：</strong>在文章末段，諸葛亮勸勉後主應自行謀劃，廣納雅言，並深切追念先帝的遺詔。若後主能做到這些治國要求，成為明君，諸葛亮便覺得是對他最大的回報，因而感到<strong>受恩感激</strong>。（2分）</p>
+      <p><strong>人物形象：</strong>這兩次感激反映了諸葛亮知恩圖報、忠貞愛國。他對先帝忠心不二，將這份忠誠延續至後主身上，鞠躬盡瘁，死而後已。（2分）</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 試指出以下兩段引文同樣運用了哪一種修辭手法（1分），並說明這種手法對論述觀點起甚麼效果（3分）。<br>
+    甲：「庶竭駑鈍，攘除姦凶。」<br>
+    乙：「後值傾覆，受任於敗軍之際。」
+    </div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>修辭手法：</strong>借喻。（1分）</p>
+      <p><strong>效果說明：</strong>引文甲以「駑」（劣馬）和「鈍」（不鋒利的刀）來比喻自己平庸的才能，這是諸葛亮的自謙之詞，旨在表明自己會傾盡微薄的才力復興漢室，顯出其懇切誠智（1.5分）；引文乙以「傾覆」（車船翻倒）來比喻國家戰敗、政權面臨危亡的惡劣局勢，生動形象地突顯了當年臨危受命的艱難，從而襯托出自己與蜀漢共患難的忠心（1.5分）。</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：跨篇章比較（《出師表》 vs 《六國論》）</span>
+    DSE 極愛考兩篇議論文的比較。記住以下萬用框架：<br>
+    <strong>【寫作背景】</strong>《出師表》是國家偏安一隅（益州疲弊），欲主動出擊（北伐中原）；《六國論》是國家龐大但受外族侵擾，卻消極退讓（輸幣求和）。<br>
+    <strong>【論證手法】</strong>兩文皆善用<strong>對比論證</strong>與<strong>借古史為鑑</strong>。《出師表》以先漢/後漢對比，屬「正反勸勉」；《六國論》以戰勝所得/賂秦所亡對比，屬「借古諷今」。<br>
+    <strong>【核心主張】</strong>兩者皆強調<strong>人才的重要性</strong>。諸葛亮要求「親賢臣，遠小人」；蘇洵要求「以事秦之心，禮天下之奇才」。
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

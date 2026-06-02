@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成語填充練習（小五）｜潘SIR中文教室</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --hero-bg: #7a2600;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0f0ee;
+      --color-text-secondary: #aaa;
+      --color-background-primary: #1c1c1e;
+      --color-background-secondary: #2c2c2e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+  /* HERO */
+  .hero {
+    background: var(--hero-bg);
+    color: #fff;
+    border-radius: var(--border-radius-lg);
+    padding: 2.8rem 2.4rem 2.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 0.9rem;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .hero p { font-size: 13px; opacity: 0.7; letter-spacing: 1px; }
+
+  /* TOC */
+  .toc {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+  .toc-item {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 13.5px; color: var(--color-text-primary);
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+  }
+  .toc-item:last-child { border-bottom: none; }
+  .toc-num {
+    width: 22px; height: 22px;
+    background: #b5451b; color: #fff;
+    border-radius: 50%; font-size: 11px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-weight: 700;
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex; align-items: center; gap: 0.8rem;
+    margin: 2.2rem 0 1.2rem;
+  }
+  .section-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .section-icon.orange { background: #fff0e6; }
+  .section-icon.teal   { background: #e6f7f5; }
+  .section-icon.purple { background: #f0ebff; }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.22rem; font-weight: 700;
+    color: var(--color-text-primary);
+  }
+  .section-header .badge {
+    margin-left: auto;
+    font-size: 11.5px; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px;
+    background: #f0ebff; color: #6a3fbf;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1.1rem;
+  }
+
+  /* IDIOM TABLE */
+  .idiom-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .idiom-table th {
+    background: #b5451b; color: #fff;
+    padding: 9px 14px; text-align: left;
+    font-weight: 600; font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  .idiom-table th:first-child { border-radius: 8px 0 0 0; }
+  .idiom-table th:last-child  { border-radius: 0 8px 0 0; }
+  .idiom-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-border-tertiary);
+    vertical-align: top;
+    line-height: 1.75;
+    color: var(--color-text-primary);
+  }
+  .idiom-table tr:last-child td { border-bottom: none; }
+  .idiom-table tr:nth-child(even) td { background: var(--color-background-secondary); }
+  .idiom-word {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px; font-weight: 700;
+    color: #b5451b;
+    white-space: nowrap;
+  }
+  .pinyin { font-size: 11.5px; color: var(--color-text-secondary); display: block; margin-top: 2px; }
+  .tag-near, .tag-opp {
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    border-radius: 4px; padding: 1px 7px;
+    margin-right: 4px; margin-bottom: 3px;
+  }
+  .tag-near { background: #e6f7f5; color: #1a7a6a; }
+  .tag-opp  { background: #fce8e8; color: #c0392b; }
+  .eg { font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; }
+  .eg span { color: #b5451b; font-weight: 600; }
+
+  /* ALERT */
+  .alert {
+    display: flex; gap: 0.9rem; align-items: flex-start;
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.2rem; margin: 1rem 0;
+    font-size: 13.5px;
+  }
+  .alert.tip    { background: #eaf4ff; border-left: 4px solid #3a90e0; }
+  .alert.warn   { background: #fff0f0; border-left: 4px solid #e05555; }
+  .alert.success{ background: #eafaf2; border-left: 4px solid #27ae60; }
+  .alert.amber  { background: #fff8e6; border-left: 4px solid #e09a1a; }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-label { font-weight: 700; font-size: 13px; margin-bottom: 3px; }
+  .alert-text  { color: var(--color-text-secondary); line-height: 1.7; }
+
+  /* EXERCISE SECTION */
+  .ex-header {
+    background: linear-gradient(135deg, #b5451b 0%, #e06030 100%);
+    color: #fff;
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+    padding: 1.1rem 1.6rem;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.05rem; font-weight: 700;
+  }
+  .ex-body {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .ex-instruction {
+    font-size: 13.5px; color: var(--color-text-secondary);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+  }
+  .ex-item {
+    display: flex; gap: 0.7rem; align-items: flex-start;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--color-border-tertiary);
+    font-size: 14.5px; line-height: 1.85;
+  }
+  .ex-item:last-child { border-bottom: none; }
+  .ex-num {
+    min-width: 28px; height: 28px;
+    background: #b5451b; color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0; margin-top: 3px;
+  }
+  .blank {
+    display: inline-block;
+    border-bottom: 2px solid #b5451b;
+    min-width: 90px; width: 90px;
+    margin: 0 4px;
+  }
+
+  /* ANSWER SECTION */
+  .ans-header {
+    background: #2c5f3a;
+    color: #fff;
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+    padding: 1rem 1.6rem;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1rem; font-weight: 700;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .ans-body {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+    padding: 1.3rem 1.8rem;
+  }
+  .ans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+  }
+  .ans-card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 0.6rem 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 13.5px;
+  }
+  .ans-card .q { font-weight: 700; color: #2c5f3a; min-width: 20px; }
+  .ans-card .a { font-family: 'Noto Serif TC', serif; font-weight: 700; color: var(--color-text-primary); }
+
+  /* KEYWORD GRID */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+  }
+  .kw-card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 0.75rem 1rem;
+  }
+  .kw-word {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px; font-weight: 700; color: #b5451b;
+    margin-bottom: 3px;
+  }
+  .kw-def { font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.65; }
+
+  /* FORMULA */
+  .formula {
+    background: #1a1a1a; color: #f0f0ee;
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.4rem;
+    font-size: 13.5px; line-height: 1.9;
+    margin: 0.8rem 0;
+  }
+  .formula strong { color: #f5a623; }
+
+  /* DOT COLORS */
+  .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; margin-right: 6px; flex-shrink: 0; }
+  .dot.orange { background: #e06030; }
+  .dot.teal   { background: #1a9a8a; }
+  .dot.purple { background: #6a3fbf; }
+  .dot.blue   { background: #2563eb; }
+  .dot.green  { background: #27ae60; }
+  .dot.red    { background: #e05555; }
+
+  .subsection-title {
+    display: flex; align-items: center;
+    font-weight: 700; font-size: 15px;
+    margin-bottom: 0.7rem;
+    font-family: 'Noto Serif TC', serif;
+  }
+
+  footer {
+    margin-top: 2rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+  }
+  footer div {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.9;
+  }
+
+  @media (max-width: 600px) {
+    .ans-grid { grid-template-columns: repeat(2, 1fr); }
+    .keyword-grid { grid-template-columns: repeat(2, 1fr); }
+    .idiom-table { font-size: 13px; }
+    .hero h1 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">詞語練習</div>
+    <h1>成語教學與填充練習（小五）</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">📋 目錄</div>
+    <div class="toc-item"><span class="toc-num">一</span>本課成語一覽表</div>
+    <div class="toc-item"><span class="toc-num">二</span>成語詳解（釋義、近反義、例句）</div>
+    <div class="toc-item"><span class="toc-num">三</span>不供詞填充練習（共12題）</div>
+    <div class="toc-item"><span class="toc-num">四</span>標準答案</div>
+  </div>
+
+  <!-- SECTION ONE: OVERVIEW -->
+  <div class="section-header">
+    <div class="section-icon orange">📖</div>
+    <h2>一、本課成語一覽表</h2>
+    <span class="badge">小五程度</span>
+  </div>
+
+  <div class="card">
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">披荊斬棘</div><div class="kw-def">克服困難，艱苦奮鬥</div></div>
+      <div class="kw-card"><div class="kw-word">江郎才盡</div><div class="kw-def">文思枯竭，再無佳作</div></div>
+      <div class="kw-card"><div class="kw-word">千鈞一髮</div><div class="kw-def">情況萬分危急</div></div>
+      <div class="kw-card"><div class="kw-word">裹足不前</div><div class="kw-def">心懷疑慮，停步不前</div></div>
+      <div class="kw-card"><div class="kw-word">臨渴掘井</div><div class="kw-def">事到臨頭才想辦法</div></div>
+      <div class="kw-card"><div class="kw-word">塞翁失馬</div><div class="kw-def">不利或可變為有利</div></div>
+      <div class="kw-card"><div class="kw-word">樂極生悲</div><div class="kw-def">快樂至極往往生悲</div></div>
+      <div class="kw-card"><div class="kw-word">含辛茹苦</div><div class="kw-def">忍受或吃盡種種辛苦</div></div>
+      <div class="kw-card"><div class="kw-word">孤掌難鳴</div><div class="kw-def">一個人力量薄弱難成事</div></div>
+      <div class="kw-card"><div class="kw-word">循序漸進</div><div class="kw-def">按次序逐步前進</div></div>
+      <div class="kw-card"><div class="kw-word">措手不及</div><div class="kw-def">事出突然，來不及應付</div></div>
+      <div class="kw-card"><div class="kw-word">顧此失彼</div><div class="kw-def">難以全面兼顧</div></div>
+    </div>
+  </div>
+
+  <!-- SECTION TWO: DETAILED -->
+  <div class="section-header">
+    <div class="section-icon teal">🔍</div>
+    <h2>二、成語詳解</h2>
+  </div>
+
+  <div class="card" style="padding:0; overflow:hidden;">
+    <table class="idiom-table">
+      <thead>
+        <tr>
+          <th style="width:18%">成語</th>
+          <th style="width:28%">釋義</th>
+          <th style="width:22%">近義 / 反義</th>
+          <th style="width:32%">例句</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="idiom-word">披荊斬棘</div><span class="pinyin">pī jīng zhǎn jí</span></td>
+          <td>荊、棘，多刺的植物。比喻克服困難，艱苦奮鬥。</td>
+          <td><span class="tag-near">近</span>乘風破浪<br><span class="tag-near">近</span>排除萬難</td>
+          <td class="eg">創業初期，他<span>披荊斬棘</span>，從不輕言放棄，終於建立了自己的品牌。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">江郎才盡</div><span class="pinyin">jiāng láng cái jìn</span></td>
+          <td>比喻文人才思枯竭，再也寫不出好作品。</td>
+          <td><span class="tag-near">近</span>才思枯竭<br><span class="tag-opp">反</span>文思泉湧</td>
+          <td class="eg">這位作家連續出版暢銷書後，突然沉寂多年，難道已<span>江郎才盡</span>？</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">千鈞一髮</div><span class="pinyin">qiān jūn yī fà</span></td>
+          <td>用一根頭髮懸掛千鈞重物。比喻情況萬分危急。</td>
+          <td><span class="tag-near">近</span>岌岌可危<br><span class="tag-opp">反</span>安如泰山</td>
+          <td class="eg">消防員在<span>千鈞一髮</span>之際衝進火場，成功救出被困的孩子。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">裹足不前</div><span class="pinyin">guǒ zú bù qián</span></td>
+          <td>縛住腳不能前進。形容心懷疑慮，停步不前。</td>
+          <td><span class="tag-near">近</span>畏縮不前<br><span class="tag-opp">反</span>勇往直前</td>
+          <td class="eg">面對艱難的挑戰，他不應<span>裹足不前</span>，而要鼓起勇氣嘗試。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">臨渴掘井</div><span class="pinyin">lín kě jué jǐng</span></td>
+          <td>口渴了才去挖井。比喻事到臨頭才想辦法，為時已晚。</td>
+          <td><span class="tag-near">近</span>臨陣磨槍<br><span class="tag-opp">反</span>有備無患</td>
+          <td class="eg">考試前夕才開始溫習，無異於<span>臨渴掘井</span>，難以應付難題。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">塞翁失馬</div><span class="pinyin">sài wēng shī mǎ</span></td>
+          <td>比喻不利的情況可能變為有利的情況，禍福難料。</td>
+          <td><span class="tag-near">近</span>因禍得福<br><span class="tag-opp">反</span>樂極生悲</td>
+          <td class="eg">他因受傷缺賽，反而得到充分休息，真是<span>塞翁失馬</span>，焉知非福。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">樂極生悲</div><span class="pinyin">lè jí shēng bēi</span></td>
+          <td>快樂到極點，往往會發生悲傷的事。</td>
+          <td><span class="tag-near">近</span>物極必反<br><span class="tag-opp">反</span>苦盡甘來</td>
+          <td class="eg">慶功宴上大家盡情歡笑，不料<span>樂極生悲</span>，其中一人突然扭傷了腳。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">含辛茹苦</div><span class="pinyin">hán xīn rú kǔ</span></td>
+          <td>茹，吃。形容忍受或吃盡種種辛苦。</td>
+          <td><span class="tag-near">近</span>千辛萬苦<br><span class="tag-near">近</span>飽經風霜</td>
+          <td class="eg">母親<span>含辛茹苦</span>地獨力養大三個孩子，令人深感敬佩。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">孤掌難鳴</div><span class="pinyin">gū zhǎng nán míng</span></td>
+          <td>一隻手拍不出聲音。比喻一個人力量薄弱，難以成事。</td>
+          <td><span class="tag-near">近</span>獨木難支<br><span class="tag-opp">反</span>眾志成城</td>
+          <td class="eg">這項計畫規模龐大，單靠他一人推動，難免<span>孤掌難鳴</span>。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">循序漸進</div><span class="pinyin">xún xù jiàn jìn</span></td>
+          <td>指按照次序逐步前進，不躐等求速。</td>
+          <td><span class="tag-near">近</span>按部就班<br><span class="tag-opp">反</span>揠苗助長</td>
+          <td class="eg">學習樂器必須<span>循序漸進</span>，不可貪快，否則根基不穩。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">措手不及</div><span class="pinyin">cuò shǒu bù jí</span></td>
+          <td>形容事出突然，來不及應付。</td>
+          <td><span class="tag-near">近</span>猝不及防<br><span class="tag-opp">反</span>胸有成竹</td>
+          <td class="eg">系統突然崩潰，令技術團隊<span>措手不及</span>，被迫緊急搶修。</td>
+        </tr>
+        <tr>
+          <td><div class="idiom-word">顧此失彼</div><span class="pinyin">gù cǐ shī bǐ</span></td>
+          <td>注意這個，卻忽略了那個。形容做事時不能全面兼顧。</td>
+          <td><span class="tag-near">近</span>應接不暇<br><span class="tag-opp">反</span>面面俱到</td>
+          <td class="eg">同時兼顧學業和社團工作，很容易<span>顧此失彼</span>，兩者皆難做好。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">成語辨析提示</div>
+      <div class="alert-text">
+        「措手不及」側重來不及<strong>應付</strong>；「猝不及防」側重來不及<strong>防備</strong>。<br>
+        「孤掌難鳴」偏重於難以<strong>成事</strong>；「獨木難支」偏重於難以<strong>支撐</strong>。<br>
+        「含辛茹苦」側重對辛苦的<strong>忍受承擔</strong>；「千辛萬苦」側重辛苦的<strong>繁多沉重</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION THREE: EXERCISE -->
+  <div class="section-header">
+    <div class="section-icon purple">✏️</div>
+    <h2>三、不供詞填充練習</h2>
+    <span class="badge">共12題</span>
+  </div>
+
+  <div class="ex-header">📝 填充練習（不供詞）</div>
+  <div class="ex-body">
+    <div class="ex-instruction">
+      請根據句子的意思及語境，在橫線上填上最恰當的成語。（每題只填一個成語，每個成語只可使用一次。）
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">1</div>
+      <div>運動員在比賽中途突然抽筋倒地，教練和醫療團隊立即衝入場內，在<span class="blank">&nbsp;</span>之際將他扶起急救。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">2</div>
+      <div>祖母獨力將五個孩子撫養成人，數十年來<span class="blank">&nbsp;</span>，從無怨言，令晚輩由衷敬佩。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">3</div>
+      <div>這位備受期待的年輕詩人，近年來作品質素大幅下滑，文壇開始擔心他是否已<span class="blank">&nbsp;</span>。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">4</div>
+      <div>他同時應付三份兼職，每天疲於奔命，往往<span class="blank">&nbsp;</span>，工作表現每況愈下。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">5</div>
+      <div>颱風突然改變路徑，直撲本港，令市民<span class="blank">&nbsp;</span>，許多人來不及準備糧食和應急物資。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">6</div>
+      <div>學好中文並非一蹴而就，必須廣泛閱讀，<span class="blank">&nbsp;</span>地積累詞彙，才能厚積薄發。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">7</div>
+      <div>這個社區復興計畫牽涉多個政府部門及民間團體，光靠一個非政府組織推動，實在<span class="blank">&nbsp;</span>，難以見效。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">8</div>
+      <div>當年他因公司倒閉而一無所有，被迫重新出發，反而走上創業之路，成就非凡，真是<span class="blank">&nbsp;</span>，焉知非福。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">9</div>
+      <div>同學們在聯歡晚會上盡情歡笑，哪知<span class="blank">&nbsp;</span>，一位同學在台上跌倒，令氣氛頓時凝固。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">10</div>
+      <div>不少同學平日對功課漫不經心，臨近考試才徹夜苦讀，無異於<span class="blank">&nbsp;</span>，難以彌補長期鬆散的習慣。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">11</div>
+      <div>他明知前路充滿挑戰，卻始終<span class="blank">&nbsp;</span>，不願踏出第一步，白白錯失了寶貴的機會。</div>
+    </div>
+
+    <div class="ex-item">
+      <div class="ex-num">12</div>
+      <div>先輩們<span class="blank">&nbsp;</span>，克服重重困難，才為我們開創了今日繁榮穩定的社會，我們應銘記於心。</div>
+    </div>
+  </div>
+
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div>
+      <div class="alert-label">答題技巧</div>
+      <div class="alert-text">填充前先細讀整句，留意句中的<strong>關鍵詞語</strong>（如「危急」、「突然」、「逐步」等），這些詞語往往是辨別成語的重要線索。每個成語只可使用一次，填寫後可打剔核對，避免重複使用。</div>
+    </div>
+  </div>
+
+  <!-- SECTION FOUR: ANSWERS -->
+  <div class="section-header">
+    <div class="section-icon orange">✅</div>
+    <h2>四、標準答案</h2>
+  </div>
+
+  <div class="ans-header">🔑 參考答案</div>
+  <div class="ans-body">
+    <div class="ans-grid">
+      <div class="ans-card"><span class="q">1.</span><span class="a">千鈞一髮</span></div>
+      <div class="ans-card"><span class="q">2.</span><span class="a">含辛茹苦</span></div>
+      <div class="ans-card"><span class="q">3.</span><span class="a">江郎才盡</span></div>
+      <div class="ans-card"><span class="q">4.</span><span class="a">顧此失彼</span></div>
+      <div class="ans-card"><span class="q">5.</span><span class="a">措手不及</span></div>
+      <div class="ans-card"><span class="q">6.</span><span class="a">循序漸進</span></div>
+      <div class="ans-card"><span class="q">7.</span><span class="a">孤掌難鳴</span></div>
+      <div class="ans-card"><span class="q">8.</span><span class="a">塞翁失馬</span></div>
+      <div class="ans-card"><span class="q">9.</span><span class="a">樂極生悲</span></div>
+      <div class="ans-card"><span class="q">10.</span><span class="a">臨渴掘井</span></div>
+      <div class="ans-card"><span class="q">11.</span><span class="a">裹足不前</span></div>
+      <div class="ans-card"><span class="q">12.</span><span class="a">披荊斬棘</span></div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

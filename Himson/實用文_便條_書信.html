@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>實用文寫作教學筆記──便條與書信</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --purple: #6c3fc5;
+    --blue: #2563eb;
+    --teal: #0d9488;
+    --coral: #e05252;
+    --amber: #d97706;
+    --green: #15803d;
+    --pink: #db2777;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0ece4;
+      --color-text-secondary: #a8a29e;
+      --color-background-primary: #1c1917;
+      --color-background-secondary: #292524;
+      --color-border-tertiary: rgba(255,255,255,0.08);
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 1.2rem 3rem; }
+
+  /* HERO */
+  .hero {
+    background: #1a0a2e;
+    color: #fff;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.8);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin-bottom: 0.7rem;
+  }
+  .hero p { color: rgba(255,255,255,0.6); font-size: 13px; }
+
+  /* TOC */
+  .toc {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 0.9rem;
+    color: var(--color-text-primary);
+  }
+  .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 1.5rem; }
+  .toc-item {
+    font-size: 13px;
+    color: var(--purple);
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.15rem 0;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+  }
+  .toc-item:hover { color: var(--coral); }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 2.5rem 0 1.2rem;
+  }
+  .section-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .icon-purple { background: rgba(108,63,197,0.12); }
+  .icon-blue   { background: rgba(37,99,235,0.12); }
+  .icon-teal   { background: rgba(13,148,136,0.12); }
+  .icon-coral  { background: rgba(224,82,82,0.12); }
+  .icon-amber  { background: rgba(217,119,6,0.12); }
+  .icon-green  { background: rgba(21,128,61,0.12); }
+  .section-meta { flex: 1; }
+  .section-num { font-size: 11px; color: var(--color-text-secondary); letter-spacing: 0.08em; }
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+  .section-divider { height: 2px; background: linear-gradient(90deg, var(--purple), transparent); border: none; margin-bottom: 1.2rem; }
+
+  /* CARD */
+  .card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.3rem 1.5rem;
+    margin-bottom: 1.1rem;
+  }
+  .card-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-purple { background: var(--purple); }
+  .dot-blue   { background: var(--blue); }
+  .dot-teal   { background: var(--teal); }
+  .dot-coral  { background: var(--coral); }
+  .dot-amber  { background: var(--amber); }
+  .dot-green  { background: var(--green); }
+  .dot-pink   { background: var(--pink); }
+
+  /* EXAMPLE BOX */
+  .example-box {
+    border-left: 3px solid var(--purple);
+    background: rgba(108,63,197,0.06);
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    padding: 0.9rem 1.1rem;
+    margin: 0.8rem 0;
+  }
+  .example-box.teal  { border-left-color: var(--teal);  background: rgba(13,148,136,0.06); }
+  .example-box.coral { border-left-color: var(--coral); background: rgba(224,82,82,0.06); }
+  .example-box.amber { border-left-color: var(--amber); background: rgba(217,119,6,0.06); }
+  .example-box.blue  { border-left-color: var(--blue);  background: rgba(37,99,235,0.06); }
+  .example-box.green { border-left-color: var(--green); background: rgba(21,128,61,0.06); }
+  .example-box.pink  { border-left-color: var(--pink);  background: rgba(219,39,119,0.06); }
+  .example-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+  .example-text {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--color-text-primary);
+    white-space: pre-line;
+  }
+
+  /* ALERT */
+  .alert {
+    display: flex; gap: 0.85rem; align-items: flex-start;
+    border-radius: var(--border-radius-md);
+    padding: 0.85rem 1.1rem;
+    margin: 0.8rem 0;
+  }
+  .alert.tip     { background: rgba(37,99,235,0.07);  border: 0.5px solid rgba(37,99,235,0.2); }
+  .alert.warn    { background: rgba(224,82,82,0.07);  border: 0.5px solid rgba(224,82,82,0.2); }
+  .alert.success { background: rgba(21,128,61,0.07);  border: 0.5px solid rgba(21,128,61,0.2); }
+  .alert.amber   { background: rgba(217,119,6,0.07);  border: 0.5px solid rgba(217,119,6,0.2); }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-label { font-weight: 700; font-size: 12px; letter-spacing: 0.06em; margin-bottom: 0.2rem; }
+  .alert.tip .alert-label     { color: var(--blue); }
+  .alert.warn .alert-label    { color: var(--coral); }
+  .alert.success .alert-label { color: var(--green); }
+  .alert.amber .alert-label   { color: var(--amber); }
+  .alert-text { font-size: 13.5px; line-height: 1.8; }
+
+  /* COMPARE GRID */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0.8rem 0; }
+  .compare-card {
+    border-radius: var(--border-radius-md);
+    padding: 0.85rem 1rem;
+  }
+  .compare-card.bad  { background: rgba(224,82,82,0.07);  border: 0.5px solid rgba(224,82,82,0.25); }
+  .compare-card.good { background: rgba(21,128,61,0.07);  border: 0.5px solid rgba(21,128,61,0.25); }
+  .compare-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+  .compare-card.bad  .compare-label { color: var(--coral); }
+  .compare-card.good .compare-label { color: var(--green); }
+  .compare-body { font-size: 13.5px; line-height: 1.8; }
+
+  /* FLOW */
+  .flow {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: 0.4rem; margin: 0.8rem 0;
+  }
+  .flow-step {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 0.4rem 0.8rem;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .flow-arrow { color: var(--purple); font-size: 18px; font-weight: 700; }
+
+  /* KEYWORD GRID */
+  .keyword-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.7rem; margin: 0.8rem 0; }
+  .kw-card {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 0.7rem 0.9rem;
+  }
+  .kw-word { font-weight: 700; font-size: 14px; color: var(--purple); margin-bottom: 0.25rem; }
+  .kw-def { font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.6; }
+
+  /* FORMULA */
+  .formula {
+    background: #1a0a2e;
+    color: #fff;
+    border-radius: var(--border-radius-lg);
+    padding: 1.1rem 1.4rem;
+    margin: 0.8rem 0;
+    font-size: 13.5px;
+    line-height: 2;
+  }
+  .formula-title { font-weight: 700; font-size: 13px; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); margin-bottom: 0.4rem; }
+
+  /* TABLE */
+  .styled-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 0.8rem 0; }
+  .styled-table th {
+    background: #1a0a2e;
+    color: #fff;
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .styled-table td {
+    padding: 0.6rem 0.9rem;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    vertical-align: top;
+  }
+  .styled-table tr:nth-child(even) td { background: var(--color-background-secondary); }
+
+  /* QUESTION BOX */
+  .qbox {
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: 1.2rem;
+    overflow: hidden;
+  }
+  .qbox-header {
+    padding: 0.65rem 1.1rem;
+    font-weight: 700;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .qbox-body { padding: 0.9rem 1.1rem; }
+  .qbox-q1 .qbox-header { background: rgba(108,63,197,0.1); color: var(--purple); }
+  .qbox-q2 .qbox-header { background: rgba(13,148,136,0.1); color: var(--teal); }
+  .qbox-q3 .qbox-header { background: rgba(217,119,6,0.1);  color: var(--amber); }
+  .qbox-q4 .qbox-header { background: rgba(21,128,61,0.1);  color: var(--green); }
+  .qbox-q5 .qbox-header { background: rgba(219,39,119,0.1); color: var(--pink); }
+  .qbox-q6 .qbox-header { background: rgba(37,99,235,0.1);  color: var(--blue); }
+  .step-list { list-style: none; counter-reset: step-counter; }
+  .step-list li {
+    counter-increment: step-counter;
+    padding: 0.45rem 0 0.45rem 2.2rem;
+    position: relative;
+    font-size: 13.5px;
+    border-bottom: 0.5px dashed var(--color-border-tertiary);
+    line-height: 1.8;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-list li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    width: 20px; height: 20px;
+    background: var(--purple);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .subsection { margin-top: 0.8rem; }
+  .subsection-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    .toc-grid { grid-template-columns: 1fr; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.4rem; }
+  }
+
+
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-tag">寫作教學筆記</div>
+  <h1>實用文寫作教學<br>便條與書信</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="wrap">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">📋 目錄</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="#sec1">一、便條的基礎知識</a>
+      <a class="toc-item" href="#sec2">二、便條的格式與寫法</a>
+      <a class="toc-item" href="#sec3">三、便條常見題目與範文</a>
+      <a class="toc-item" href="#sec4">四、書信的基礎知識</a>
+      <a class="toc-item" href="#sec5">五、書信的格式與寫法</a>
+      <a class="toc-item" href="#sec6">六、書信常見題目與範文</a>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 第一章：便條基礎知識 -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="sec1">
+    <div class="section-icon icon-purple">📝</div>
+    <div class="section-meta">
+      <div class="section-num">CHAPTER 01</div>
+      <div class="section-title">便條的基礎知識</div>
+    </div>
+  </div>
+  <hr class="section-divider">
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-purple"></span>什麼是便條？</div>
+    <p>便條（Note）是日常生活中最常用的<strong>短訊溝通文體</strong>。它篇幅簡短，專門用於傳遞簡單訊息、交代事項或作出提醒，適用於家人之間、師生之間或朋友之間的即時通知。</p>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">考試要點</div>
+        <div class="alert-text">便條的核心特點是「簡」──語言簡潔、格式簡單、訊息清晰。切忌長篇大論，一般以五至八行為限。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-teal"></span>便條的常見用途</div>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">📢 通知事項</div><div class="kw-def">告知對方某件事情或安排</div></div>
+      <div class="kw-card"><div class="kw-word">🙏 請假留言</div><div class="kw-def">向老師或家長交代缺席原因</div></div>
+      <div class="kw-card"><div class="kw-word">🔔 提醒備忘</div><div class="kw-def">提示對方勿忘某件事情</div></div>
+      <div class="kw-card"><div class="kw-word">🙌 請求幫忙</div><div class="kw-def">請對方代勞或協助某事</div></div>
+      <div class="kw-card"><div class="kw-word">📬 轉達信息</div><div class="kw-def">代人傳遞某個訊息或消息</div></div>
+      <div class="kw-card"><div class="kw-word">❌ 取消安排</div><div class="kw-def">取消或更改原本的計劃</div></div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 第二章：便條格式 -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="sec2">
+    <div class="section-icon icon-teal">📐</div>
+    <div class="section-meta">
+      <div class="section-num">CHAPTER 02</div>
+      <div class="section-title">便條的格式與寫法</div>
+    </div>
+  </div>
+  <hr class="section-divider">
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-teal"></span>便條的四大格式要素</div>
+    <table class="styled-table">
+      <thead><tr><th>格式要素</th><th>位置</th><th>說明</th><th>示例</th></tr></thead>
+      <tbody>
+        <tr><td><strong>稱謂</strong></td><td>第一行，頂格</td><td>寫出收條人的稱呼，後加冒號「：」</td><td>媽媽：／陳老師：</td></tr>
+        <tr><td><strong>正文</strong></td><td>第二行起，空兩格</td><td>簡短說明事由，包含時間、地點、原因等要點</td><td>交代清楚「何事、何時、何地」</td></tr>
+        <tr><td><strong>署名</strong></td><td>正文後，右下方</td><td>寫出寫條人的名字或稱謂</td><td>囡囡　敬上／學生　小明</td></tr>
+        <tr><td><strong>日期</strong></td><td>署名下方，右對齊</td><td>填上寫便條的日期</td><td>二○二四年十一月十八日</td></tr>
+      </tbody>
+    </table>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見錯誤</div>
+        <div class="alert-text">①忘記寫日期或署名。②稱謂後忘記加冒號。③正文事項不夠清晰，遺漏時間或原因等重要信息。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-coral"></span>便條格式示範</div>
+    <div class="example-box teal">
+      <div class="example-label">標準便條格式</div>
+      <div class="example-text">媽媽：
+　　今天放學後，我要到同學家做功課，大約在六時才回家。請勿為我擔心，晚飯無須等我。
+
+囡囡　敬上
+二○二四年十一月十八日</div>
+    </div>
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>
+        <div class="alert-label">格式重點</div>
+        <div class="alert-text">稱謂後有冒號 → 正文空兩格開始 → 說清「去哪裏」「幾點回」→ 署名在右下 → 日期緊接署名下方。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-amber"></span>寫好便條正文的三步法</div>
+    <div class="flow">
+      <div class="flow-step">第一步：交代事由</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">第二步：說明細節</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">第三步：提出請求</div>
+    </div>
+    <div class="subsection">
+      <p style="font-size:13.5px; margin-bottom:0.5rem;">以「請假便條」為例：</p>
+      <div class="example-box amber">
+        <div class="example-label">三步法應用</div>
+        <div class="example-text">① 交代事由：「明日（十九日）因身體不適，未能回校上課……」
+② 說明細節：「已到醫生處求診，醫生建議休息一天……」
+③ 提出請求：「懇請老師批准請假一天，並煩請同學代取當天功課，感激不盡。」</div>
+      </div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">語氣提示</div>
+        <div class="alert-text">便條語氣視乎對象而定：寫給長輩（父母、老師）宜用謙遜禮貌語氣；寫給同輩（朋友、同學）可用自然輕鬆語氣，但仍需清晰有禮。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 第三章：便條題目與範文 -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="sec3">
+    <div class="section-icon icon-coral">✏️</div>
+    <div class="section-meta">
+      <div class="section-num">CHAPTER 03</div>
+      <div class="section-title">便條常見題目與範文</div>
+    </div>
+  </div>
+  <hr class="section-divider">
+
+  <!-- 便條題目一 -->
+  <div class="qbox qbox-q1">
+    <div class="qbox-header">📌 題目一：請假便條</div>
+    <div class="qbox-body">
+      <div class="subsection">
+        <div class="subsection-title">題目內容</div>
+        <p style="font-size:13.5px; line-height:1.9;">明天（十一月二十日）你因為發燒，需要留家休息，不能上學。請你以學生身份，寫一張便條給班主任陳老師，向她請假一天，並請她安排同學代你取回當天的功課。</p>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">逐步思考</div>
+        <ul class="step-list">
+          <li><strong>釐清身份與對象</strong>：寫條人＝學生（我），收條人＝班主任陳老師。</li>
+          <li><strong>確定請假原因</strong>：發燒，需留家休息（可加上「已看醫生」使理由更充分）。</li>
+          <li><strong>列出請求事項</strong>：① 批准請假一天（明確說明日期）；② 煩請同學代取功課。</li>
+          <li><strong>決定語氣</strong>：寫給老師，語氣宜謙遜有禮，開頭可用「敬啟者」或直接稱謂加冒號。</li>
+          <li><strong>安排格式</strong>：稱謂→正文（空兩格）→署名→日期，缺一不可。</li>
+        </ul>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">範文示例</div>
+        <div class="example-box">
+          <div class="example-text">陳老師：
+　　明天（二十日）我因為發燒，身體極為不適，已到醫生處求診，醫生囑咐我需要在家休息一天。因此，我未能如常回校上課，懇請老師批准我請假一天。
+　　另外，煩請老師安排同學代我取回當天的功課，我定會盡快補做，感激不盡。
+
+學生　陳小明　敬上
+二○二四年十一月十九日</div>
+        </div>
+      </div>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">得分要點</div>
+          <div class="alert-text">①請假原因充分（發燒＋看醫生）。②明確說明請假日期。③提出代取功課的附帶請求，顯示責任心。④語氣謙遜，結尾「感激不盡」有禮。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 便條題目二 -->
+  <div class="qbox qbox-q2">
+    <div class="qbox-header">📌 題目二：通知安排便條</div>
+    <div class="qbox-body">
+      <div class="subsection">
+        <div class="subsection-title">題目內容</div>
+        <p style="font-size:13.5px; line-height:1.9;">你的媽媽今天臨時要加班，不能在下午三時半回家接你放學。她請你獨自乘坐校車回家，回家後先吃桌上的零食，並先完成功課，等她回家。請你代媽媽寫一張便條給你自己（即留在家中給你看的便條）。</p>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">逐步思考</div>
+        <ul class="step-list">
+          <li><strong>釐清身份與對象</strong>：此題特殊──寫條人是媽媽，收條人是孩子（你自己）。</li>
+          <li><strong>梳理交代的事項</strong>：① 媽媽加班，不能接孩子；② 孩子自行乘校車回家；③ 回家後先吃零食；④ 先完成功課；⑤ 等媽媽回家。</li>
+          <li><strong>安排信息順序</strong>：按時序排列：原因→孩子的行動→提醒事項。</li>
+          <li><strong>決定語氣</strong>：媽媽寫給孩子，語氣可親切溫暖，體現關愛。</li>
+          <li><strong>套入格式</strong>：稱謂（囡囡／小明）→正文→媽媽署名→日期。</li>
+        </ul>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">範文示例</div>
+        <div class="example-box teal">
+          <div class="example-text">小明：
+　　媽媽今天臨時要加班，未能在三時半回家接你放學，對不起！請你自行乘坐校車回家，回家後記得鎖好門窗。
+　　桌上有你最喜歡的餅乾，可以先吃一點，然後請乖乖先完成當天的功課，等媽媽回家後再一起吃晚飯。
+　　媽媽愛你！
+
+媽媽
+二○二四年十一月十八日</div>
+        </div>
+      </div>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">得分要點</div>
+          <div class="alert-text">①交代清楚加班原因。②按順序列出孩子回家後的行動。③語氣親切，體現媽媽的關愛之情，令便條更有人情味。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 便條題目三 -->
+  <div class="qbox qbox-q3">
+    <div class="qbox-header">📌 題目三：提醒與請求便條</div>
+    <div class="qbox-body">
+      <div class="subsection">
+        <div class="subsection-title">題目內容</div>
+        <p style="font-size:13.5px; line-height:1.9;">你的同班同學李大偉明天要代表學校參加朗誦比賽，你擔心他太緊張而忘記帶所需物品。請你寫一張便條給他，提醒他明天要帶的東西，並給予他鼓勵。</p>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">逐步思考</div>
+        <ul class="step-list">
+          <li><strong>釐清身份與對象</strong>：寫條人＝我，收條人＝同學李大偉，對象是同輩。</li>
+          <li><strong>列出提醒事項</strong>：比賽所需的物品（如參賽證、校服、稿件等）及注意事項（如準時到達）。</li>
+          <li><strong>加入鼓勵內容</strong>：題目要求給予鼓勵，這是得分重點，切勿遺漏。</li>
+          <li><strong>決定語氣</strong>：寫給同學，語氣輕鬆友好，可帶點幽默，但要真誠。</li>
+          <li><strong>套入格式</strong>：稱謂（大偉）→提醒→鼓勵→署名→日期。</li>
+        </ul>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">範文示例</div>
+        <div class="example-box amber">
+          <div class="example-text">大偉：
+　　明天就是朗誦比賽了，你一定要記得帶齊以下物品：參賽證、整齊的校服，以及你的稿件（以防萬一）。另外，記得明早提早二十分鐘到達比賽場地，以便熟悉環境。
+　　你平日練習得那麼認真，我相信你一定能夠在台上發揮最好的水準！加油，我為你打氣！
+
+你的好朋友　志偉
+二○二四年十一月十八日</div>
+        </div>
+      </div>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">得分要點</div>
+          <div class="alert-text">①具體列出提醒物品，切合比賽情境。②加入「提早到達」等實用建議。③以真誠話語給予鼓勵，完全回應題目要求。④「以防萬一」等口語化表達令便條更自然親切。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 第四章：書信基礎知識 -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="sec4">
+    <div class="section-icon icon-blue">✉️</div>
+    <div class="section-meta">
+      <div class="section-num">CHAPTER 04</div>
+      <div class="section-title">書信的基礎知識</div>
+    </div>
+  </div>
+  <hr class="section-divider">
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-blue"></span>什麼是書信？</div>
+    <p>書信（Letter）是一種正式的書面溝通方式，比便條更為正式、詳細，適用於向長輩表達心意、向機構提出建議或投訴、與遠方的朋友聯繫等較重要的場合。書信講求<strong>格式完整、語氣適當、內容豐富</strong>。</p>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">書信 vs 便條</div>
+        <div class="alert-text">書信比便條更正式、篇幅更長、內容更詳盡，且包含「稱謂語」「問候語」「結束語」等完整格式，適合需要詳述事情的場合。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-blue"></span>書信的種類</div>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">💌 私人書信</div><div class="kw-def">寫給家人、朋友，語氣親切自然</div></div>
+      <div class="kw-card"><div class="kw-word">📋 公開信</div><div class="kw-def">寫給機構、報刊，語氣較為正式</div></div>
+      <div class="kw-card"><div class="kw-word">📮 感謝信</div><div class="kw-def">向對方表達謝意</div></div>
+      <div class="kw-card"><div class="kw-word">🙏 道歉信</div><div class="kw-def">向對方表達歉意</div></div>
+      <div class="kw-card"><div class="kw-word">💡 建議信</div><div class="kw-def">向機構提出改善建議</div></div>
+      <div class="kw-card"><div class="kw-word">✍️ 邀請信</div><div class="kw-def">邀請對方出席活動</div></div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 第五章：書信格式 -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="sec5">
+    <div class="section-icon icon-green">📋</div>
+    <div class="section-meta">
+      <div class="section-num">CHAPTER 05</div>
+      <div class="section-title">書信的格式與寫法</div>
+    </div>
+  </div>
+  <hr class="section-divider">
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-green"></span>書信的七大格式要素</div>
+    <table class="styled-table">
+      <thead><tr><th>格式要素</th><th>位置</th><th>說明</th><th>私人信示例</th></tr></thead>
+      <tbody>
+        <tr><td><strong>① 稱謂語</strong></td><td>第一行，頂格</td><td>稱呼收信人，後加冒號</td><td>外婆大人：／親愛的志偉：</td></tr>
+        <tr><td><strong>② 問候語</strong></td><td>第二行，空兩格</td><td>問候收信人的近況</td><td>您好！近來身體可好？／見字如晤，近來好嗎？</td></tr>
+        <tr><td><strong>③ 正文</strong></td><td>第三行起，空兩格</td><td>詳述信件主旨與內容</td><td>分段陳述，條理清晰</td></tr>
+        <tr><td><strong>④ 結束語</strong></td><td>正文後，空兩格</td><td>表達祝福或期望</td><td>此致……祝您身體健康、萬事如意！</td></tr>
+        <tr><td><strong>⑤ 祝頌語</strong></td><td>結束語下，頂格或空兩格</td><td>簡短祝願語，與結束語呼應</td><td>敬祝　健康快樂！</td></tr>
+        <tr><td><strong>⑥ 署名</strong></td><td>右下方</td><td>寫信人名字及稱謂</td><td>外孫女　小雯　敬上</td></tr>
+        <tr><td><strong>⑦ 日期</strong></td><td>署名下方</td><td>填上寫信日期</td><td>二○二四年十一月十八日</td></tr>
+      </tbody>
+    </table>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見格式錯誤</div>
+        <div class="alert-text">①問候語與結束語混淆或遺漏。②「此致」後不換行，「敬禮」未頂格。③正文段落未空兩格。④日期格式有誤（宜用中文格式）。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-purple"></span>不同對象的稱謂語與結束語對照</div>
+    <table class="styled-table">
+      <thead><tr><th>寫信對象</th><th>稱謂語</th><th>結束祝頌語</th><th>署名自稱</th></tr></thead>
+      <tbody>
+        <tr><td>祖父母／外祖父母</td><td>祖父大人：／外婆大人：</td><td>敬祝　健康長壽！</td><td>孫兒（孫女）…敬上</td></tr>
+        <tr><td>父母</td><td>爸爸媽媽：／親愛的爸爸：</td><td>祝　身體健康！</td><td>兒（女）…敬上</td></tr>
+        <tr><td>老師</td><td>敬愛的…老師：</td><td>敬祝　身體健康、工作順利！</td><td>學生…敬上</td></tr>
+        <tr><td>同學／朋友</td><td>親愛的…：／…你好：</td><td>祝　萬事如意！</td><td>你的好友…上</td></tr>
+        <tr><td>機構（校長、負責人）</td><td>敬啟者：／…校長：</td><td>敬請　垂注，謝謝！</td><td>…謹啟</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-coral"></span>書信正文的寫作步驟</div>
+    <div class="flow">
+      <div class="flow-step">① 開場白<br><small>交代寫信緣由</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">② 詳述主體<br><small>分段說明要點</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">③ 補充說明<br><small>加深內容或抒情</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">④ 結束收尾<br><small>總結＋再次致意</small></div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">寫作提醒</div>
+        <div class="alert-text">書信正文宜分段，每段集中一個重點。私人書信可加入個人感受與細節，令信件更有感情；公開信（如建議信）則宜有條理地列出論點，語氣客觀有禮。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-amber"></span>正確格式對比示範</div>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">❌ 錯誤示範</div>
+        <div class="compare-body" style="white-space:pre-line; font-size:13px;">老師你好，
+我想問下可唔可以幫我…
+此致
+敬禮
+學生 小明
+2024.11.18</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">✅ 正確示範</div>
+        <div class="compare-body" style="white-space:pre-line; font-size:13px;">敬愛的陳老師：
+　　老師，您好！希望您近來身體健康，工作愉快。
+　　（正文內容……）
+　　敬祝
+工作順利、身體健康！
+學生　陳小明　敬上
+二○二四年十一月十八日</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 第六章：書信題目與範文 -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="sec6">
+    <div class="section-icon icon-pink">✏️</div>
+    <div class="section-meta">
+      <div class="section-num">CHAPTER 06</div>
+      <div class="section-title">書信常見題目與範文</div>
+    </div>
+  </div>
+  <hr class="section-divider">
+
+  <!-- 書信題目一 -->
+  <div class="qbox qbox-q4">
+    <div class="qbox-header">📌 題目一：感謝信（寫給老師）</div>
+    <div class="qbox-body">
+      <div class="subsection">
+        <div class="subsection-title">題目內容</div>
+        <p style="font-size:13.5px; line-height:1.9;">你的班主任陳老師一向對同學非常關心，在你最近因家中遭遇困難而情緒低落時，她特別花時間輔導你，並鼓勵你振作。你感到十分感激，決定寫一封信向她道謝。請寫出這封感謝信的全文。</p>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">逐步思考</div>
+        <ul class="step-list">
+          <li><strong>確定信件種類與對象</strong>：感謝信，收信人是班主任，長輩關係，語氣宜謙遜誠懇。</li>
+          <li><strong>規劃正文內容（三段）</strong>：
+            <br>第一段：交代寫信緣由（感謝老師的關心）
+            <br>第二段：具體描述老師所做的事及帶給自己的幫助
+            <br>第三段：表達決心與再次致謝</li>
+          <li><strong>加入具體細節</strong>：不要只說「謝謝老師」，要寫出老師做了「什麼」，以及自己有何改變，令感謝更具感染力。</li>
+          <li><strong>套入完整書信格式</strong>：稱謂語→問候語→正文→結束語→祝頌語→署名→日期。</li>
+        </ul>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">範文示例</div>
+        <div class="example-box green">
+          <div class="example-text">敬愛的陳老師：
+　　老師，您好！希望您近來身體健康，工作愉快。
+
+　　早前，我因家中遭遇困難，情緒一度十分低落，上課時常常心神恍惚，您細心地察覺到我的異樣。您抽出寶貴的課後時間，耐心地聆聽我傾訴心中的煩惱，並以溫暖的說話鼓勵我振作，讓我感到非常窩心。
+
+　　在您的關心與開導下，我漸漸走出了困境，重新找回學習的動力。老師的一番話，令我明白到困難只是暫時的，只要積極面對，定能一一克服。您對我的付出，我銘記於心，實在難以用言語表達我的感激之情。
+
+　　謹以此信向您致以最誠摯的謝意，感謝您在我最需要幫助的時候，伸出援手。學生定會努力向上，以優秀的成績回報老師的厚愛。
+
+　　敬祝
+工作順利、身體健康！
+
+學生　陳小雯　敬上
+二○二四年十一月十八日</div>
+        </div>
+      </div>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">得分要點</div>
+          <div class="alert-text">①格式完整，七大要素俱全。②正文分三段，條理清晰。③具體描述老師所做的事（聆聽、開導），非泛泛之辭。④點出自己的改變（走出困境、重獲動力），令感謝更有說服力。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 書信題目二 -->
+  <div class="qbox qbox-q5">
+    <div class="qbox-header">📌 題目二：建議信（寫給校長）</div>
+    <div class="qbox-body">
+      <div class="subsection">
+        <div class="subsection-title">題目內容</div>
+        <p style="font-size:13.5px; line-height:1.9;">你認為學校圖書館的藏書不夠多，而且座位不足，令很多同學放學後無法留在圖書館閱讀或做功課。請你以學生身份，寫一封信給校長，提出你的改善建議。</p>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">逐步思考</div>
+        <ul class="step-list">
+          <li><strong>確定信件種類與對象</strong>：建議信，收信人是校長，正式場合，語氣要客觀有禮，不可帶有指責語氣。</li>
+          <li><strong>明確點出問題</strong>：問題一：藏書不足；問題二：座位不足。</li>
+          <li><strong>提出具體可行的建議</strong>：
+            <br>針對藏書：定期採購新書、向社會徵集圖書捐贈等
+            <br>針對座位：擴大圖書館範圍、增添桌椅等</li>
+          <li><strong>表達出發點</strong>：說明提建議的原因是關心同學的閱讀風氣，展示正面態度，令校長更易接受。</li>
+          <li><strong>套入格式</strong>：公開信格式，稱謂「敬愛的校長：」，結尾「敬請　垂注，謝謝！」</li>
+        </ul>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">範文示例</div>
+        <div class="example-box pink">
+          <div class="example-text">敬愛的校長：
+　　您好！我是本校五年級的學生陳大明，我非常喜愛閱讀，是圖書館的常客。謹此就圖書館的設施提出一些改善建議，敬請垂注。
+
+　　首先，圖書館現有的藏書數量不足，許多同學希望借閱的書籍均已絕版或缺乏。我建議學校每個學期定期採購一批新書，涵蓋文學、科學及歷史等不同範疇，以豐富館藏，滿足同學的閱讀需求。
+
+　　其次，圖書館現有的座位十分有限，放學後往往座無虛席，令不少同學無法留下閱讀或溫習。我建議學校重新規劃圖書館的空間，增添適量的桌椅，讓更多同學能夠在安靜舒適的環境中學習。
+
+　　以上建議純粹出於對學校的關心及對閱讀的熱愛，希望校長能夠考慮。若有不妥之處，懇請包涵。
+
+　　敬請　垂注，謝謝！
+
+學生　陳大明　謹啟
+二○二四年十一月十八日</div>
+        </div>
+      </div>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">得分要點</div>
+          <div class="alert-text">①開首自我介紹，說明寫信身份。②問題與建議一一對應，結構清晰。③建議具體可行（定期採購、增添桌椅），非空泛要求。④語氣客觀有禮，無指責之意，末段謙遜表態加分。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 書信題目三 -->
+  <div class="qbox qbox-q6">
+    <div class="qbox-header">📌 題目三：私人書信（寫給遠方朋友）</div>
+    <div class="qbox-body">
+      <div class="subsection">
+        <div class="subsection-title">題目內容</div>
+        <p style="font-size:13.5px; line-height:1.9;">你的好朋友志偉一年前隨父母移居英國，你們一直保持聯絡。最近你們的學校舉辦了一次春季旅行，你感到十分開心，想把這次難忘的經歷與他分享。請寫一封信給志偉，描述旅行的情況，並告訴他你十分想念他。</p>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">逐步思考</div>
+        <ul class="step-list">
+          <li><strong>確定信件種類與對象</strong>：私人書信，收信人是好朋友，語氣輕鬆親切，可帶感情。</li>
+          <li><strong>構思旅行細節</strong>：地點（如西貢、科學館）、活動（如行山、參觀）、印象最深的事、有趣小插曲等。</li>
+          <li><strong>加入感情抒發</strong>：題目要求表達思念之情，這是重點，不要只顧描述旅行而忽略了。</li>
+          <li><strong>規劃正文結構</strong>：
+            <br>第一段：問候＋交代寫信緣由
+            <br>第二段：描述旅行經歷（具體細節）
+            <br>第三段：抒發感受＋思念之情</li>
+          <li><strong>套入格式</strong>：私人書信格式，稱謂「親愛的志偉：」，署名「你的好友…上」。</li>
+        </ul>
+      </div>
+      <div class="subsection" style="margin-top:1rem;">
+        <div class="subsection-title">範文示例</div>
+        <div class="example-box blue">
+          <div class="example-text">親愛的志偉：
+　　好久不見！你在英國生活一切都好嗎？天氣是否仍然寒冷？我非常掛念你，最近學校發生了一件開心的事，忍不住要與你分享！
+
+　　上個星期，我們學校舉辦了一次春季旅行，目的地是西貢郊野公園。我們一大早便出發，沿着蜿蜒的山路徒步前行，欣賞沿途翠綠的山景和一望無際的海灣，景色美得令人屏息。最有趣的是，班上的同學阿強在下山時不小心滑倒，雖然沒有受傷，但那副狼狽的樣子令大家笑了好久！午飯時，我們在樹蔭下野餐，大家有說有笑，十分愜意。整天的旅程令我既疲倦又開心，是本學年最快樂的回憶之一。
+
+　　旅行途中，我想到如果你也在場，一定會和我一起爬上最高的山頂，大聲呼喊，說不定還會大叫你的名字呢！你移居英國已經一年了，我真的非常想念你。希望你暑假有機會回港，我一定要帶你去吃我們最愛的那家魚蛋粉！
+
+　　期待你的回信！
+
+　　祝　萬事如意、學業進步！
+
+你的好友　小明　上
+二○二四年十一月十八日</div>
+        </div>
+      </div>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">得分要點</div>
+          <div class="alert-text">①開首問候朋友近況，切合私人書信語氣。②旅行描述具體生動（地點、活動、小插曲）。③思念之情自然流露，以「一定要帶你去吃魚蛋粉」等具體細節表達友情，情感真摯動人。④全文語氣輕鬆，符合同輩書信風格。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 總結公式 -->
+  <div class="formula">
+    <div class="formula-title">📌 便條 vs 書信 — 一眼分清</div>
+    <table style="width:100%; border-collapse:collapse; font-size:13.5px; color:#fff;">
+      <thead><tr>
+        <th style="padding:0.5rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.2); text-align:left;">比較項目</th>
+        <th style="padding:0.5rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.2); text-align:left;">便條</th>
+        <th style="padding:0.5rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.2); text-align:left;">書信</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">正式程度</td><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">較非正式</td><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">較正式</td></tr>
+        <tr><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">篇幅長度</td><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">簡短（五至八行）</td><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">較長（至少三段）</td></tr>
+        <tr><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">格式要素</td><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">稱謂、正文、署名、日期（四項）</td><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">稱謂語、問候語、正文、結束語、祝頌語、署名、日期（七項）</td></tr>
+        <tr><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">問候語</td><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">❌ 無須</td><td style="padding:0.45rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.08);">✅ 必須</td></tr>
+        <tr><td style="padding:0.45rem 0.8rem;">適用場合</td><td style="padding:0.45rem 0.8rem;">傳遞簡單、即時訊息</td><td style="padding:0.45rem 0.8rem;">詳述事情、抒發感情、提出建議</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 版權 -->
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div><!-- /wrap -->
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成語填充練習（小五）｜潘SIR中文教室</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --hero-bg: #7a2000;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0ede8;
+      --color-text-secondary: #aaa;
+      --color-background-primary: #1c1c1e;
+      --color-background-secondary: #2c2c2e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+  /* HERO */
+  .hero {
+    background: var(--hero-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 2.8rem 2.5rem 2.2rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 220px; height: 220px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 0.25rem 1rem;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.9rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.6rem;
+  }
+  .hero p { font-size: 13px; opacity: 0.75; letter-spacing: 0.05em; }
+
+  /* TOC */
+  .toc {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.4rem 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .toc-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .toc-item {
+    background: var(--color-background-secondary);
+    border-radius: 20px;
+    padding: 0.3rem 1rem;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    cursor: default;
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 2rem 0 1.2rem;
+  }
+  .section-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .section-num {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 12px;
+    padding: 0.2rem 0.7rem;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+
+  /* QUESTION LIST */
+  .q-list { counter-reset: qnum; list-style: none; }
+  .q-item {
+    counter-increment: qnum;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    padding: 1rem 0;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+  }
+  .q-item:last-child { border-bottom: none; }
+  .q-num {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: #b5451b;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .q-text {
+    flex: 1;
+    font-size: 15px;
+    line-height: 2;
+    color: var(--color-text-primary);
+  }
+  .blank {
+    display: inline-block;
+    width: 90px;
+    border-bottom: 2px solid #b5451b;
+    margin: 0 4px;
+    vertical-align: bottom;
+  }
+
+  /* ALERT */
+  .alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1rem 0;
+    border: 1px solid transparent;
+  }
+  .alert.tip { background: #eff6ff; border-color: #bfdbfe; }
+  .alert.warn { background: #fff1f2; border-color: #fecdd3; }
+  .alert.success { background: #f0fdf4; border-color: #bbf7d0; }
+  .alert.amber { background: #fffbeb; border-color: #fde68a; }
+  @media (prefers-color-scheme: dark) {
+    .alert.tip { background: #1e3a5f; border-color: #3b6cb5; }
+    .alert.warn { background: #5c1a1a; border-color: #b91c1c; }
+    .alert.success { background: #14532d; border-color: #166534; }
+    .alert.amber { background: #451a03; border-color: #92400e; }
+  }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--color-text-secondary); margin-bottom: 0.2rem; }
+  .alert-text { font-size: 14px; line-height: 1.7; }
+
+  /* ANSWER SECTION */
+  .answer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.8rem;
+  }
+  .answer-item {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 0.65rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .ans-num {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: #b5451b;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ans-word {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #b5451b;
+  }
+
+  /* FORMULA / INSTRUCTION BOX */
+  .formula {
+    background: #2d1a10;
+    color: #f5e6d8;
+    border-radius: var(--border-radius-lg);
+    padding: 1.2rem 1.6rem;
+    margin-bottom: 1.2rem;
+    font-size: 14px;
+    line-height: 1.9;
+    border-left: 4px solid #b5451b;
+  }
+  .formula strong { color: #ffb07a; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 2rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+  }
+  footer div {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.9;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">詞語練習</div>
+    <h1>成語填充練習（小五）</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <div class="toc-items">
+      <div class="toc-item">📋 練習指示</div>
+      <div class="toc-item">✏️ 填充題（共12題）</div>
+      <div class="toc-item">✅ 參考答案</div>
+    </div>
+  </div>
+
+  <!-- INSTRUCTION -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#fff3e0;">📋</div>
+    <h2>練習指示</h2>
+    <span class="section-num">INSTRUCTIONS</span>
+  </div>
+  <div class="formula">
+    <strong>不供詞填充題</strong><br>
+    以下各題句子中均有一個空格。請根據句子的意思，在空格內填上最適當的成語。<br>
+    本練習共 <strong>12 題</strong>，每題只有一個最合適的答案。請細心閱讀句子，選填最恰當的成語。
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">溫馨提示</div>
+      <div class="alert-text">填寫前先理解句子的整體意思，再想想哪個成語最符合語境，切勿倉卒作答。</div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#fce4ec;">✏️</div>
+    <h2>填充題</h2>
+    <span class="section-num">QUESTIONS</span>
+  </div>
+
+  <div class="card">
+    <ol class="q-list">
+
+      <li class="q-item">
+        <div class="q-num">1</div>
+        <div class="q-text">
+          暑假開學在即，小明才匆忙溫習，這種<span class="blank">&nbsp;</span>的態度，實在不值得效法。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">2</div>
+        <div class="q-text">
+          消防員在濃煙密佈的火場中，<span class="blank">&nbsp;</span>地救出被困的長者，令在場的市民都不禁鼓掌。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">3</div>
+        <div class="q-text">
+          這位老師獨力承擔全校的課外活動籌備工作，實在<span class="blank">&nbsp;</span>，難以做得盡善盡美。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">4</div>
+        <div class="q-text">
+          父母<span class="blank">&nbsp;</span>，省吃儉用，只盼子女能接受良好的教育，將來出人頭地。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">5</div>
+        <div class="q-text">
+          學習語文須要<span class="blank">&nbsp;</span>，從基本的字詞認讀開始，逐步提升閱讀和寫作能力。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">6</div>
+        <div class="q-text">
+          颱風突然轉向正面吹襲，令戶外攤位的商販<span class="blank">&nbsp;</span>，來不及收拾貨物便遭受損失。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">7</div>
+        <div class="q-text">
+          她雖然同時兼任兩個職位，卻常常<span class="blank">&nbsp;</span>，每樣工作都未能做得稱職。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">8</div>
+        <div class="q-text">
+          這位著名作曲家近年創作銳減，樂迷都擔心他是否已<span class="blank">&nbsp;</span>，再難寫出膾炙人口的作品。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">9</div>
+        <div class="q-text">
+          他因公司裁員而被迫轉行，沒想到新工作反而更適合自己，真是<span class="blank">&nbsp;</span>。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">10</div>
+        <div class="q-text">
+          弟弟面對困難總是<span class="blank">&nbsp;</span>，每次要參加比賽，都要父母再三鼓勵才肯上場。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">11</div>
+        <div class="q-text">
+          她在生日派對上興奮地跳舞，不料腳踩空了，<span class="blank">&nbsp;</span>地扭傷了腳踝。
+        </div>
+      </li>
+
+      <li class="q-item">
+        <div class="q-num">12</div>
+        <div class="q-text">
+          這位科學家在研究道路上<span class="blank">&nbsp;</span>，克服重重困難，終於取得突破性的成果。
+        </div>
+      </li>
+
+    </ol>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-label">注意</div>
+      <div class="alert-text">請先獨立完成所有題目，再翻閱下方答案，以測試自己的真實程度。</div>
+    </div>
+  </div>
+
+  <!-- ANSWERS -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f5e9;">✅</div>
+    <h2>參考答案</h2>
+    <span class="section-num">ANSWERS</span>
+  </div>
+
+  <div class="card">
+    <div class="answer-grid">
+      <div class="answer-item"><div class="ans-num">1</div><div class="ans-word">臨渴掘井</div></div>
+      <div class="answer-item"><div class="ans-num">2</div><div class="ans-word">千鈞一髮</div></div>
+      <div class="answer-item"><div class="ans-num">3</div><div class="ans-word">孤掌難鳴</div></div>
+      <div class="answer-item"><div class="ans-num">4</div><div class="ans-word">含辛茹苦</div></div>
+      <div class="answer-item"><div class="ans-num">5</div><div class="ans-word">循序漸進</div></div>
+      <div class="answer-item"><div class="ans-num">6</div><div class="ans-word">措手不及</div></div>
+      <div class="answer-item"><div class="ans-num">7</div><div class="ans-word">顧此失彼</div></div>
+      <div class="answer-item"><div class="ans-num">8</div><div class="ans-word">江郎才盡</div></div>
+      <div class="answer-item"><div class="ans-num">9</div><div class="ans-word">塞翁失馬</div></div>
+      <div class="answer-item"><div class="ans-num">10</div><div class="ans-word">裹足不前</div></div>
+      <div class="answer-item"><div class="ans-num">11</div><div class="ans-word">樂極生悲</div></div>
+      <div class="answer-item"><div class="ans-num">12</div><div class="ans-word">披荊斬棘</div></div>
+    </div>
+  </div>
+
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div>
+      <div class="alert-label">自我評估</div>
+      <div class="alert-text">答對 10–12 題：成語掌握優秀！｜答對 7–9 題：繼續努力，多加溫習！｜答對 6 題或以下：建議重新溫習成語的釋義及例句。</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

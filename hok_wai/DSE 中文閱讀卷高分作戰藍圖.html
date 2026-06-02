@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSE 中文閱讀卷高分作戰藍圖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --color-border-primary: rgba(0,0,0,0.3);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #9a9488;
+    --color-background-primary: #1e1c19;
+    --color-background-secondary: #27251f;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+    --color-border-primary: rgba(255,255,255,0.3);
+  }
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  padding: 2rem 1rem;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+/* HERO */
+.hero {
+  background: #0e2244;
+  border-radius: var(--border-radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '閱';
+  position: absolute;
+  right: -10px;
+  top: -20px;
+  font-size: 140px;
+  font-family: 'Noto Serif TC', serif;
+  color: rgba(255,255,255,0.04);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(80,140,255,0.2);
+  color: #a8ccff;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 0.5px solid rgba(100,160,255,0.35);
+  margin-bottom: 0.8rem;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ddeeff;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.hero p {
+  font-size: 13px;
+  color: rgba(170,200,245,0.65);
+  line-height: 1.6;
+}
+
+/* TOC */
+.toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.toc-item {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toc-num {
+  width: 20px; height: 20px;
+  background: #1a3a6e;
+  color: #93c4ff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.toc-label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+/* SECTION */
+.section { margin-bottom: 2.5rem; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.section-icon {
+  width: 32px; height: 32px;
+  border-radius: var(--border-radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.icon-blue   { background: #E6F1FB; }
+.icon-teal   { background: #E1F5EE; }
+.icon-coral  { background: #FAECE7; }
+.icon-amber  { background: #FAEEDA; }
+.icon-purple { background: #EEEDFE; }
+.icon-green  { background: #EAF3DE; }
+.icon-pink   { background: #FBEAF0; }
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.section-num {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-left: auto;
+}
+
+/* CARD */
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.dot-blue   { background: #378ADD; }
+.dot-teal   { background: #1D9E75; }
+.dot-coral  { background: #D85A30; }
+.dot-amber  { background: #BA7517; }
+.dot-purple { background: #7F77DD; }
+.dot-green  { background: #639922; }
+.dot-pink   { background: #D4537E; }
+
+.card p, .card li {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.85;
+}
+
+.card ul, .card ol { padding-left: 1.3rem; }
+.card li { margin-bottom: 0.3rem; }
+.card p + p { margin-top: 0.6rem; }
+
+/* EXAMPLE BOX */
+.example-box {
+  background: var(--color-background-secondary);
+  border-left: 3px solid #378ADD;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 0.7rem 1rem;
+  margin-top: 0.6rem;
+}
+
+.example-label {
+  font-size: 11px;
+  color: #1a5faa;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.example-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  line-height: 1.85;
+  font-style: italic;
+}
+
+.example-box.teal  { border-left-color: #1D9E75; }
+.example-box.teal .example-label  { color: #0F6E56; }
+.example-box.coral { border-left-color: #D85A30; }
+.example-box.coral .example-label { color: #993C1D; }
+.example-box.amber { border-left-color: #BA7517; }
+.example-box.amber .example-label { color: #854F0B; }
+.example-box.purple{ border-left-color: #7F77DD; }
+.example-box.purple .example-label{ color: #534AB7; }
+.example-box.pink  { border-left-color: #D4537E; }
+.example-box.pink .example-label  { color: #993556; }
+
+/* ALERT BOXES */
+.alert {
+  border-radius: var(--border-radius-md);
+  padding: 0.7rem 1rem;
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+.alert-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.alert-text {
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.alert.tip    { background: #E6F1FB; border: 0.5px solid #93C4F5; }
+.alert.tip .alert-label { color: #1a5faa; }
+.alert.tip .alert-text  { color: #0d3d73; }
+
+.alert.warn   { background: #FCEBEB; border: 0.5px solid #F09595; }
+.alert.warn .alert-label { color: #A32D2D; }
+.alert.warn .alert-text  { color: #791F1F; }
+
+.alert.success{ background: #EAF3DE; border: 0.5px solid #97C459; }
+.alert.success .alert-label { color: #3B6D11; }
+.alert.success .alert-text  { color: #27500A; }
+
+.alert.amber  { background: #FAEEDA; border: 0.5px solid #EF9F27; }
+.alert.amber .alert-label { color: #633806; }
+.alert.amber .alert-text  { color: #412402; }
+
+/* FLOW */
+.flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0.8rem 0;
+}
+
+.flow-step {
+  background: #E6F1FB;
+  color: #1a3a6e;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--border-radius-md);
+  white-space: nowrap;
+}
+
+.flow-arrow {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  padding: 0 4px;
+}
+
+/* FORMULA BOX */
+.formula {
+  background: #0d1f3c;
+  border-radius: var(--border-radius-md);
+  padding: 0.9rem 1.2rem;
+  margin-top: 0.6rem;
+}
+
+.formula-label {
+  font-size: 11px;
+  color: #93c4ff;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.formula-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: #e8f0ff;
+  line-height: 1.8;
+}
+
+/* COMPARE GRID */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 0.6rem;
+}
+
+.compare-card { border-radius: var(--border-radius-md); padding: 0.75rem 1rem; }
+.compare-card.bad  { background: #FCEBEB; border: 0.5px solid #F09595; }
+.compare-card.good { background: #EAF3DE; border: 0.5px solid #97C459; }
+
+.compare-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.compare-card.bad  .compare-label { color: #A32D2D; }
+.compare-card.good .compare-label { color: #3B6D11; }
+
+.compare-text { font-size: 13px; line-height: 1.75; }
+.compare-card.bad  .compare-text { color: #791F1F; }
+.compare-card.good .compare-text { color: #27500A; }
+
+/* STEPS */
+.step-list { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.4rem; }
+
+.step-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.step-num {
+  width: 24px; height: 24px;
+  background: #1a3a6e;
+  color: #93c4ff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-body { flex: 1; }
+
+.step-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.step-desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+/* KEYWORD GRID */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+  gap: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.keyword-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.75rem 1rem;
+}
+
+.kw-word {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.kw-blue   { color: #1a5faa; }
+.kw-teal   { color: #0F6E56; }
+.kw-coral  { color: #993C1D; }
+.kw-amber  { color: #854F0B; }
+
+.kw-def { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+
+/* CHECKLIST */
+.checklist { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.75;
+}
+
+.checklist li::before {
+  content: '☐';
+  font-size: 14px;
+  color: #378ADD;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* DIVIDER */
+.divider { height: 0.5px; background: var(--color-border-tertiary); margin: 0.7rem 0; }
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-right: 4px;
+}
+.badge-blue   { background: #E6F1FB; color: #1a3a6e; }
+.badge-teal   { background: #E1F5EE; color: #085041; }
+.badge-coral  { background: #FAECE7; color: #712B13; }
+.badge-amber  { background: #FAEEDA; color: #5a3300; }
+
+/* FOOTER */
+footer {
+  margin-top: 2rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">閱讀教學筆記</div>
+  <h1>DSE 中文閱讀卷高分作戰藍圖</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-item"><div class="toc-num">1</div><div class="toc-label">白話文：概括段意與寓意</div></div>
+  <div class="toc-item"><div class="toc-num">2</div><div class="toc-label">文言文：破解大魔王</div></div>
+  <div class="toc-item"><div class="toc-num">3</div><div class="toc-label">高分萬用框架</div></div>
+  <div class="toc-item"><div class="toc-num">4</div><div class="toc-label">考場心態與細節</div></div>
+</div>
+
+
+<!-- INTRO -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-blue">📖</div>
+    <div class="section-title">前言：為什麼你需要這份藍圖？</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><div class="dot dot-blue"></div>拿高分，靠的是策略，不是死記硬背</div>
+    <p>很多同學面對中文閱讀卷，都有同樣的困惑：「我明明讀完整篇文章，但就是不知道答案在哪。」或者：「時間永遠不夠用，後面的長題目根本沒時間寫完。」這些問題的根源，不在於你中文能力不夠，而在於你還沒有掌握一套聰明的應試策略。</p>
+    <p>DSE 中文閱讀卷的設計是有規律的。每一種題型，背後都有固定的得分邏輯。一旦你學懂了這套邏輯，答題就不再是「靠感覺」，而是「按步驟執行」。</p>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">核心觀念</div>
+        <div class="alert-text">閱讀卷不是考你背了多少書，而是考你「看懂」能力和「表達」能力。學懂方法，分數自然來。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION 1 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-blue">📝</div>
+    <div class="section-title">第一部分：白話文——概括段意與寓意</div>
+    <div class="section-num">Section 01</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-blue"></div>為什麼概括段意是高頻失分題？</div>
+    <p>概括段意聽起來簡單，但失分率偏高，原因有三：第一，很多人以為「抄文章」就等於概括，其實不然；第二，不懂辨別文體，動詞選錯，印象分大打折扣；第三，只說事件，忘記點出作者情感，答案因此不完整。</p>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見陷阱</div>
+        <div class="alert-text">直接把原文句子複製貼上不算概括！老師要看的是你能否「用自己的話」提煉核心意思，抄原文只能拿零分或極低分。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-blue"></div>改變閱讀方式：學會「掃讀」</div>
+    <p>很多人閱讀的習慣是「一字一字精讀」，這在考試裡是最耗時間的做法。正確策略是：先快速掃讀全文，掌握大方向，然後在答題時才回頭細看相關段落。</p>
+    <p><strong>掃讀的重點位置：</strong>每段的首句和末句（通常是主旨句）、段與段之間的過渡詞（例如「然而」、「因此」、「總而言之」）。看這些地方，你能用最短時間抓住文章骨幹。</p>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">考試技巧</div>
+        <div class="alert-text">拿到試卷，先看題目，再帶著問題去閱讀文章。這樣閱讀時目標更清晰，效率大幅提升。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-blue"></div>劃分意義段：從「自然段」到「意義段」</div>
+    <p>文章的「自然段」是作者分行的段落，但考試裡我們要找的是「意義段」——即把幾個講同一主題的自然段合併成一個大意義段。</p>
+    <p><strong>具體做法：</strong>閱讀時用鉛筆在段落間畫橫線，把話題相同的段落圈在一起。例如文章連續三段都在描寫「童年回憶」，那就劃為同一意義段，用一句話概括即可。</p>
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>
+        <div class="alert-label">重點</div>
+        <div class="alert-text">意義段的劃分沒有絕對答案，只要你的劃分有合理依據，並能準確概括，老師都會接受。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-blue"></div>概括段意黃金四步驟</div>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">辨別文體</div>
+          <div class="step-desc">先判斷眼前這段是記敘文（講故事、描寫人物）、議論文（提出論點、說道理）還是說明文（介紹知識、解釋現象）。文體不同，用的動詞就不同，千萬不能混淆。</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">選對核心動詞（至關重要！）</div>
+          <div class="step-desc">動詞選錯，整條概括段意就變味了。記住以下對應關係，考試時照著用：</div>
+        </div>
+      </div>
+    </div>
+    <div class="keyword-grid" style="margin-top:0.7rem;">
+      <div class="keyword-card">
+        <div class="kw-word kw-blue">記敘文</div>
+        <div class="kw-def">用「記敘」、「描寫」、「敘述」——講故事、寫人物的段落用這類動詞</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word kw-teal">議論文</div>
+        <div class="kw-def">用「指出」、「論述」、「強調」——提出觀點、說道理的段落用這類動詞</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word kw-coral">說明文</div>
+        <div class="kw-def">用「說明」、「介紹」、「闡述」——解釋知識、介紹事物的段落用這類動詞</div>
+      </div>
+    </div>
+    <div class="step-list" style="margin-top:0.4rem;">
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">歸納內容重點</div>
+          <div class="step-desc">把段落的核心事件或論點，用自己的話精簡表達。重點是「言之有物」，要有具體內容，不能只寫「講了一件事」這樣空洞的句子。</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">點出思想感情</div>
+          <div class="step-desc">這一步是很多人忽略的得分點。作者寫這段有什麼情感或意圖？是表達懷念、批評、讚美，還是提出警示？一定要點出來。</div>
+        </div>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="formula-label">黃金公式（缺一不可）</div>
+      <div class="formula-text">【核心動詞】+【內容重點】+【思想感情／作者意圖】</div>
+    </div>
+    <div class="example-box" style="margin-top:0.7rem;">
+      <div class="example-label">示例（記敘文）</div>
+      <div class="example-text">本段記敘作者童年與祖母採茶的情景，流露出對往昔歲月的深切懷念。</div>
+    </div>
+    <div class="example-box teal" style="margin-top:0.5rem;">
+      <div class="example-label">示例（議論文）</div>
+      <div class="example-text">本段指出過度依賴科技會削弱人際溝通能力，警示讀者反思現代生活方式。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-teal"></div>寓意分析三部曲——拉開分差的關鍵</div>
+    <p>「寓意」題是閱讀卷中最能拉開高下的題型。很多人只講了故事內容，卻忘記說明作者的深層用意，結果白白丟分。以《自相矛盾》為例，以下是完整的三步走法：</p>
+    <div class="step-list" style="margin-top:0.7rem;">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">述事：用自己的話簡述故事</div>
+          <div class="step-desc">不要抄原文，用一至兩句話把故事說清楚。例如：「故事講述一個賣矛又賣盾的商人，先說盾堅不可穿，又說矛無堅不摧，前後說法自相矛盾。」</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">提煉：從故事提煉核心道理</div>
+          <div class="step-desc">把故事背後的教訓或道理說出來。例如：「這個故事說明說話辦事必須前後一致、自圓其說，否則只會令人難以信服。」</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">扣連：把道理與文章主題掛鉤</div>
+          <div class="step-desc">說明作者引用這個故事的目的，以及它如何支撐全文主旨。例如：「作者以此故事諷刺現實中言行不一的人，進一步強調誠信的重要性。」</div>
+        </div>
+      </div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">考試技巧</div>
+        <div class="alert-text">寓意題最忌只停在第一步（述事）就收筆。沒有「提煉」和「扣連」，最多只能拿一半分數。記得走完三步！</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION 2 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-teal">⚔️</div>
+    <div class="section-title">第二部分：挑戰大魔王——文言文</div>
+    <div class="section-num">Section 02</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-teal"></div>為什麼文言文其實不難？</div>
+    <p>很多同學一看到文言文就怕，其實文言文就像一種「密碼」——字面上難明，但背後的意思並不深奧。只要你有對的「解碼器」，翻譯就能又快又準。關鍵在於：<strong>語感要靠練習累積，不能靠臨急抱佛腳。</strong></p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-teal"></div>最強解碼器：文白對讀法</div>
+    <p>「文白對讀」是訓練文言語感最有效的方法。做法很簡單：練習時，把文言文放在左邊，對應的白話文翻譯放在右邊，<strong>不是叫你背答案</strong>，而是叫你對照、觀察、發現規律。</p>
+    <p>例如，你會慢慢發現「之」字在不同情況下有不同用法，「乃」通常解作「於是」，「其」多指「他的」。這些規律記在心裏，遇到新文章也能應用。</p>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">重點</div>
+        <div class="alert-text">每週選一篇曾考過的文言文，做文白對讀練習。讀多了，語感自然提升，考試時翻譯速度快一倍。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-teal"></div>翻譯句子三步曲</div>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">審視結構：圈出關鍵字</div>
+          <div class="step-desc">翻譯前先不要急著動筆，先把句子裡的關鍵實詞（名詞、動詞、形容詞）圈出來。知道每個關鍵字的意思，翻譯就成功了一半。</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">字字對應：逐字翻譯，補足省略</div>
+          <div class="step-desc">文言文經常省略主語（「我」、「他」、「她」），翻譯時要記得用括號補上。例如原句「見漁人，乃大驚」，翻譯為「（村民）見到漁人，於是大為驚訝」，補上主語才完整。</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">通讀檢查：確保流暢自然</div>
+          <div class="step-desc">翻譯完成後，把整句白話文讀一遍。如果讀起來很彆扭或意思不通，就要回去調整用詞或句序。白話文翻譯要流暢，不能比文言文更難懂。</div>
+        </div>
+      </div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">錯誤示範（逐字死譯）</div>
+        <div class="compare-text">「見漁人，乃大驚」→ 見到漁人，乃大驚。（沒有補主語，仍留文言字眼）</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">正確示範（意譯加補充）</div>
+        <div class="compare-text">「見漁人，乃大驚」→（村民）看見漁人，頓時大為驚訝。（補主語，意思完整流暢）</div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見陷阱</div>
+        <div class="alert-text">翻譯時不要把文言字眼（如「乃」、「其」、「之」）直接留在白話文裡。老師看到白話文中仍有文言字，會扣分。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION 3 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-purple">🔑</div>
+    <div class="section-title">第三部分：高分萬用框架</div>
+    <div class="section-num">Section 03</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-purple"></div>為什麼要有固定答題框架？</div>
+    <p>長題目（尤其是4分、6分題）是最能拉開分差的部分，也是最多人沒時間完成的部分。原因很簡單：沒有框架，下筆就慢，而且容易寫了一大堆卻不知道自己在說什麼。</p>
+    <p>高分框架的作用，是讓你思路清晰、表達有邏輯，同時令老師一眼就看到你的論點，大大提升得分機率。</p>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">最致命的錯誤</div>
+        <div class="alert-text">直接抄錄原文！老師要看的是你對文章的理解和分析，不是你的複製能力。即使你抄了很長，分數也可能是零。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-purple"></div>萬能鑰匙：論點＋論據＋解釋</div>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">論</div>
+        <div class="step-body">
+          <div class="step-title">論點：直接亮出你的答案</div>
+          <div class="step-desc">第一句就說出你的核心答案，不要拐彎抹角。例如：「作者對故鄉充滿深切的懷念之情。」開門見山，讓老師立刻知道你答對了。</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">據</div>
+        <div class="step-body">
+          <div class="step-title">論據：從文章找出具體證據</div>
+          <div class="step-desc">引用文章的具體內容作支持，可以是直接引用（加引號），或者用自己的話描述某個情節、細節。引用時要說清楚在哪段、哪個位置。</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">釋</div>
+        <div class="step-body">
+          <div class="step-title">解釋：說明證據如何支持論點</div>
+          <div class="step-desc">這一步最多人忘記寫！你要解釋：「從這個細節可以看出……」，把論據和論點之間的邏輯關係說清楚。沒有解釋，論據就只是漂浮著，說服力大打折扣。</div>
+        </div>
+      </div>
+    </div>
+    <div class="example-box purple" style="margin-top:0.8rem;">
+      <div class="example-label">完整示範（作者情感題）</div>
+      <div class="example-text">【論點】作者對故鄉懷有深切的思念。【論據】文中第三段寫道，作者每逢看到街角的榕樹，心中便湧起「說不清的滋味」。【解釋】榕樹是南方農村的標誌性景物，作者將個人情感投射於此，可見他對兒時故鄉生活念念不忘，思念之情溢於言表。</div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">考試技巧</div>
+        <div class="alert-text">如果題目是4分題，寫兩個論點（各附論據和解釋）即可；6分題寫三個。每個論點都要完整走一遍「論點→論據→解釋」，不能只列出三個論點就停。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION 4 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-amber">🧠</div>
+    <div class="section-title">第四部分：考場心態與細節</div>
+    <div class="section-num">Section 04</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-amber"></div>為什麼下筆前那一分鐘最重要？</div>
+    <p>很多同學拿到題目就立刻動筆，結果寫到一半才發現題目看錯了，或者自己的方向完全偏離。改正需要時間，心情也因此慌亂，後面的題目全受影響。</p>
+    <p>養成「下筆前先想一分鐘」的習慣，實際上可以幫你<strong>節省更多時間</strong>，而且答案質素會大大提升。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-amber"></div>下筆前 1 分鐘必問清單</div>
+    <ul class="checklist">
+      <li>這題的關鍵字是什麼？（圈出來！）</li>
+      <li>題目考的是「段意」、「寓意」、「感受」、還是「手法」？</li>
+      <li>這題有幾分？我應該寫多長？（通常1分對應1個論點）</li>
+      <li>我需要去哪一段或哪幾段找答案？</li>
+      <li>我的主要論點是什麼？（先在腦裏說一遍）</li>
+    </ul>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">重點</div>
+        <div class="alert-text">圈出關鍵字這個動作，能幫你鎖定答題方向，防止你答了一大段卻完全離題。每道題都要這樣做，養成習慣。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-amber"></div>常見失分陷阱與破解方法</div>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">陷阱一：看錯題目</div>
+        <div class="compare-text">題目問「作者的情感」，卻答成「文章的主旨」，雖然相關，但方向不對，白白丟分。</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">破解方法</div>
+        <div class="compare-text">下筆前，把題目裡的問題類型（情感／主旨／手法／寓意）用筆圈出，讓自己時刻記住答題方向。</div>
+      </div>
+    </div>
+    <div class="compare-grid" style="margin-top:0.6rem;">
+      <div class="compare-card bad">
+        <div class="compare-label">陷阱二：內容空洞</div>
+        <div class="compare-text">答案只有「作者很懷念故鄉」，沒有任何具體證據或解釋，無論寫多少字都只是重複同一空話。</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">破解方法</div>
+        <div class="compare-text">每寫一個論點，立刻自問：「我有沒有從文章找到具體例子？我有沒有解釋它跟論點的關係？」兩個都有才算完整。</div>
+      </div>
+    </div>
+    <div class="alert warn" style="margin-top:0.7rem;">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見陷阱</div>
+        <div class="alert-text">寫長不等於寫好。一個有論點、論據、解釋的完整論點，遠勝三個沒有根據的空洞論點。質比量重要。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION: 結語 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-green">🎯</div>
+    <div class="section-title">結語：把方法練成本能</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><div class="dot dot-green"></div>從「懂得方法」到「自動反應」</div>
+    <p>這份作戰藍圖裡的所有技巧，你現在看完可能覺得「明白了」——但「明白」和「考試時能用出來」是兩回事。真正的高分，來自於你把這些步驟練到變成本能反應。</p>
+    <p>建議你每次做練習卷，都有意識地套用這些框架：概括段意時自問「文體是什麼？動詞選對了嗎？情感點出來了嗎？」長題目時自問「我有沒有走完論點→論據→解釋三步？」</p>
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>
+        <div class="alert-label">最後叮嚀</div>
+        <div class="alert-text">DSE 中文閱讀卷不是玄學，它是有跡可循的。只要你掌握正確方法，勤加練習，考場上你面對的不再是難題，而是一道道你熟悉的題型。祝大家考試順利，拿出最好的成績！</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

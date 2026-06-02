@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六級中文科閱讀訓練：〈廢墟與記憶的辯證〉｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --hero-bg: #0e2244; /* 深藍色：閱讀類 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #9a9488;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #2c2c2e;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 2rem 1.2rem;
+}
+
+.wrap { max-width: 860px; margin: 0 auto; }
+
+/* HERO */
+.hero {
+  background: var(--hero-bg);
+  color: #fff;
+  border-radius: var(--border-radius-lg);
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '閱';
+  position: absolute; right: -20px; bottom: -30px;
+  font-size: 180px; font-family: 'Noto Serif TC';
+  opacity: 0.08; font-weight: 700;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 12px; font-weight: 500;
+  padding: 4px 12px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.2rem; line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+.hero p { font-size: 14px; opacity: 0.8; letter-spacing: 1px; }
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.toc-title { font-weight: 700; margin-bottom: 1rem; color: var(--color-text-secondary); font-size: 13px; letter-spacing: 2px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.toc-item { font-size: 14px; color: var(--color-text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.toc-item:hover { color: #2563eb; }
+.toc-num { width: 20px; height: 20px; background: var(--hero-bg); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+
+/* SECTION BLOCK */
+.section-block { margin-bottom: 3rem; }
+
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.5rem;
+}
+.section-icon {
+  width: 40px; height: 40px; background: #e0e7ff; color: #3730a3;
+  border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.section-header h2 { font-family: 'Noto Serif TC', serif; font-size: 1.4rem; font-weight: 700; }
+
+/* CARD */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.dot-title { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Noto Serif TC'; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.blue { background: #3b82f6; }
+.dot.purple { background: #8b5cf6; }
+.dot.teal { background: #14b8a6; }
+
+/* EXAMPLE BOX */
+.example-box {
+  background: #f8fafc;
+  border-left: 4px solid #6366f1;
+  padding: 1.2rem; border-radius: 0 8px 8px 0; margin: 1rem 0;
+}
+.example-label { font-size: 11px; font-weight: 700; color: #4338ca; text-transform: uppercase; margin-bottom: 4px; display: block; }
+.example-text { font-family: 'Noto Serif TC'; font-size: 14px; color: var(--color-text-primary); }
+
+/* ALERT */
+.alert {
+  display: flex; gap: 12px; padding: 1rem; border-radius: var(--border-radius-md); margin: 1rem 0;
+}
+.alert.tip { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+.alert.warn { background: #fff7ed; border: 1px solid #ffedd5; color: #9a3412; }
+.alert.success { background: #f0fdf4; border: 1px solid #dcfce7; color: #166534; }
+.alert-icon { font-size: 18px; }
+
+/* KEYWORD GRID */
+.keyword-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.kw-card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); padding: 1.2rem; border-radius: var(--border-radius-md); }
+.kw-word { font-family: 'Noto Serif TC'; font-weight: 700; font-size: 16px; color: #1e40af; margin-bottom: 6px; }
+.kw-def { font-size: 13px; color: var(--color-text-secondary); }
+
+/* FORMULA */
+.formula {
+  background: #1e293b; color: #f8fafc; padding: 1.5rem; border-radius: var(--border-radius-md); margin: 1.5rem 0;
+}
+.formula-label { color: #94a3b8; font-size: 12px; font-weight: 500; margin-bottom: 8px; display: block; }
+.formula-text { font-family: 'Noto Serif TC'; font-size: 15px; line-height: 1.6; }
+
+/* EXERCISE SECTION */
+.exercise-item { border-bottom: 1px dashed var(--color-border-tertiary); padding: 1.2rem 0; }
+.exercise-item:last-child { border-bottom: none; }
+.q-num { font-weight: 700; color: #1e40af; margin-right: 8px; }
+
+/* PRINT RULES */
+@media print {
+  body { background: white; padding: 0; }
+  .section-block { page-break-before: always; break-before: page; }
+  .hero { page-break-before: avoid; break-before: avoid; }
+  .toc { page-break-after: always; break-after: page; }
+  .example-box, .alert, .formula, .kw-card, .card { page-break-inside: avoid; break-inside: avoid; }
+  .section-header, h2, h3 { page-break-after: avoid; break-after: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>中六級閱讀訓練：〈廢墟與記憶的辯證〉</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">筆記目錄</div>
+    <div class="toc-grid">
+      <a href="#s1" class="toc-item"><span class="toc-num">1</span> 文章主旨與核心意象</a>
+      <a href="#s2" class="toc-item"><span class="toc-num">2</span> 關鍵意象與修辭解析</a>
+      <a href="#s3" class="toc-item"><span class="toc-num">3</span> 互文性解構：文學引用</a>
+      <a href="#s4" class="toc-item"><span class="toc-num">4</span> 題目解析與答題技巧</a>
+      <a href="#s5" class="toc-item"><span class="toc-num">5</span> 參考答案與評分準則</a>
+    </div>
+  </div>
+
+  <div class="section-block" id="s1">
+    <div class="section-header">
+      <div class="section-icon">📖</div>
+      <h2>一、文章主旨與核心意象</h2>
+    </div>
+
+    <div class="card">
+      <div class="dot-title"><div class="dot blue"></div>內容提要</div>
+      <p>本文是一篇典型的<strong>哲理性散文</strong>，探討現代都市發展（進步）與歷史記憶（傳統）之間的衝突。作者以「銀匠街」的拆遷為線索，思考空間作為記憶容器的意義。文章最終提出，城市發展不應是毀滅，而應是新舊交織的「文本」。</p>
+    </div>
+
+    <div class="keyword-grid">
+      <div class="kw-card">
+        <div class="kw-word">廢墟（Ruins）</div>
+        <div class="kw-def">並非無用的殘骸，而是一種「強而有力的敘事」，證明過去的存在，是記憶的最後防線。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">記憶（Memory）</div>
+        <div class="kw-def">具有「流動性」，需要具體的「空間容器」依附，否則會乾涸消逝。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">現代化（Modernity）</div>
+        <div class="kw-def">追求效率、規整、商業化，往往以「秩序」之名抹除「手工溫情」的混亂。</div>
+      </div>
+    </div>
+
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>
+        <div class="alert-label">核心觀點</div>
+        <div class="alert-text">「城市的發展不應是毀滅後的重建，而應是層層堆疊的文本。」——這句話強調了文化保育與發展應是並行的，而非零和遊戲。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="s2">
+    <div class="section-header">
+      <div class="section-icon">🔍</div>
+      <h2>二、關鍵意象與修辭解析</h2>
+    </div>
+
+    <div class="card">
+      <div class="dot-title"><div class="dot purple"></div>1. 比喻與象徵的運用</div>
+      <p>作者善於將抽象的「記憶」轉化為具體的意象，增強感染力：</p>
+      
+      <div class="example-box">
+        <span class="example-label">比喻：記憶如液體</span>
+        <p class="example-text">「空間是記憶的容器，當容器破碎時，記憶便會像液體一樣流失，最終乾涸於無形。」</p>
+      </div>
+      
+      <div class="example-box purple">
+        <span class="example-label">象徵：苦楝樹</span>
+        <p class="example-text">「從裂縫中鑽出」的苦楝樹，象徵記憶頑強的生命力，即使在功利時代的「廢墟」中仍能重申存在。</p>
+      </div>
+    </div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">考試技巧：賞析意象</div>
+        <div class="alert-text">
+          在處理「象徵」類題目時，應遵循：<strong>「物體特徵 + 連結點 + 象徵意義」</strong>。例如：苦楝樹（在惡劣環境生長）→ 連結到記憶被排擠的現狀 → 象徵不屈的文化傳承。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="s3">
+    <div class="section-header">
+      <div class="section-icon">📚</div>
+      <h2>三、互文性解構：文學引用</h2>
+    </div>
+
+    <div class="card">
+      <p>中六級程度的閱讀篇章，常涉及「互文性」（Intertextuality），即引用其他文學作品來深化主題：</p>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+        <thead>
+          <tr style="background: var(--hero-bg); color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd;">引用對象</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">核心意象</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">在本文的作用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">也斯〈春秧街〉</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">電車與菜市場的混雜</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">對比「銀匠街」被打破的平衡，肯定舊區生活的活力。</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">龍應台《散步》</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">失智母親與豆漿味</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">展現人類在現代化衝擊下的心理焦慮與鄉愁。</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">張曉風〈母親的羽衣〉</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">仙女羽衣（母性）</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">象徵傳統價值與美感雖然被隱藏，但仍透過血脈傳遞。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">答題框架：引用分析</span>
+      <div class="formula-text">
+        1. 指出引用來源及其基本含義。<br>
+        2. 尋找引用內容與本文「銀匠街/廢墟」的關聯。<br>
+        3. 總結其對深化「記憶/文化傳承」主旨的昇華作用。
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="s4">
+    <div class="section-header">
+      <div class="section-icon">✍️</div>
+      <h2>四、題目解析與答題技巧</h2>
+    </div>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-label">常見陷阱：過於片面的理解</div>
+        <div class="alert-text">
+          學生常誤以為作者全盤否定現代化。實際上，作者強調的是<strong>「辯證」</strong>。他承認「遮打花園」的現代化美感，只是反對以「毀滅過去」為代價。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="dot-title"><div class="dot teal"></div>長問答攻略</div>
+      <p><strong>問：分析「靈魂跟不上腳步」的原因？</strong></p>
+      <p>答題點：
+        1. 「腳步」象徵：科技與城市發展的速度。<br>
+        2. 「靈魂」象徵：人類的情感、記憶與心理安頓。<br>
+        3. 結論：當外在環境變化過快，人們無法在心理上產生認同感，導致焦慮與迷失感。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-block" id="s5">
+    <div class="section-header">
+      <div class="section-icon">✅</div>
+      <h2>五、參考答案與評分準則</h2>
+    </div>
+
+    <div class="card">
+      <div class="dot-title"><div class="dot blue"></div>（一）多項選擇題答案</div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+        <p>1. <strong>B</strong> (權力的剝奪)</p>
+        <p>2. <strong>C</strong> (比喻：如潮汐)</p>
+        <p>3. <strong>C</strong> (和諧共存)</p>
+        <p>4. <strong>C</strong> (承受磨難)</p>
+        <p>5. <strong>B</strong> (科技與心靈落差)</p>
+        <p>6. <strong>A</strong> (頑強生命與記憶)</p>
+        <p>7. <strong>C</strong> (重申意義的敘事)</p>
+        <p>8. <strong>C</strong> (疊羅漢般並存)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="dot-title"><div class="dot purple"></div>（二）長問答參考答案</div>
+      <div class="exercise-item">
+        <p><strong>Q1：文學意象引用的幫助（6分）</strong></p>
+        <p>【參考答案】：
+          1. <strong>深化主題</strong>：借經典意象如《春秧街》的動態平衡，強化讀者對「銀匠街」生活感的理解。（2分）<br>
+          2. <strong>拓展時空</strong>：引用《散步》與《母親的羽衣》，將一個舊區的拆遷提升到對人類共同焦慮與跨代傳承的普遍思考，使主旨更具深度。（2分）<br>
+          3. <strong>豐富美感</strong>：利用文學典故（如介之推）為「記憶的隱遁」增添文化厚度，使文章層次由具體寫景昇華至抽象思辨。（2分）
+        </p>
+      </div>
+      <div class="exercise-item">
+        <p><strong>Q2：對「層層堆疊的文本」的理解（8分）</strong></p>
+        <p>【參考答案】：
+          1. <strong>核心定義</strong>：這句話主張發展不應推倒重來，而是保留歷史層次，讓新舊共榮。（2分）<br>
+          2. <strong>舉例論證</strong>：例如香港的「大館」（中區警署建築群）。（2分）<br>
+          3. <strong>分析例子</strong>：它保留了舊有的監獄與警署結構（舊文本），但注入了當代藝術展演的功能（新文本）。（2分）<br>
+          4. <strong>總結昇華</strong>：這讓市民在享受現代設施的同時，亦能直觀地「閱讀」城市的歷史軌跡，這才是具有韌性與性格的發展模式。（2分）
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

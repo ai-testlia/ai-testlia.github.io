@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中文能力強化練習：卷三・專業對弈｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #f0ece6;
+    --color-text-secondary: #aaa;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #2a2a2e;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* HERO */
+.hero {
+  background: #D8CDD8;
+  border-radius: var(--border-radius-lg);
+  padding: 2.8rem 2.5rem 2.2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(80,50,100,0.08);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  border: 1px solid rgba(40,20,60,0.3);
+  color: rgba(40,20,60,0.65);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #28143C;
+  line-height: 1.35;
+  margin-bottom: 0.6rem;
+}
+.hero p {
+  font-size: 13px;
+  color: rgba(40,20,60,0.5);
+  font-weight: 400;
+}
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.4rem 1.8rem;
+  margin-bottom: 2rem;
+}
+.toc-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.8rem;
+}
+.toc-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; }
+.toc-list li a {
+  font-size: 13px;
+  color: #7c4dab;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.toc-list li a:hover { text-decoration: underline; }
+
+/* SECTION HEADER */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2.5rem 0 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid var(--color-border-tertiary);
+}
+.section-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.section-icon.purple { background: #f0e8f8; }
+.section-icon.blue { background: #e8f0f8; }
+.section-icon.teal { background: #e0f4f0; }
+.section-icon.coral { background: #faeae6; }
+.section-icon.amber { background: #fef3e0; }
+.section-meta { flex: 1; }
+.section-num { font-size: 11px; color: var(--color-text-secondary); letter-spacing: 0.08em; }
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+.section-badge {
+  font-size: 11px;
+  background: #f0e8f8;
+  color: #7c4dab;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* CARDS */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1rem;
+}
+.card-title {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 600; font-size: 14px;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.dot.purple { background: #9c6dca; }
+.dot.blue { background: #4d8ac8; }
+.dot.teal { background: #3daa8a; }
+.dot.coral { background: #e06848; }
+.dot.amber { background: #d4922a; }
+.dot.pink { background: #d46890; }
+
+/* VOCAB TABLE */
+.vocab-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.vocab-table th {
+  background: #f0e8f8;
+  color: #5a2d8a;
+  padding: 8px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+.vocab-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--color-border-tertiary);
+  color: var(--color-text-primary);
+}
+.vocab-table tr:last-child td { border-bottom: none; }
+.vocab-table tr:nth-child(even) td { background: var(--color-background-secondary); }
+.vocab-chip {
+  display: inline-block;
+  background: #f0e8f8;
+  color: #7c4dab;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  margin: 2px;
+}
+
+/* QBOX */
+.qbox {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1rem 1.4rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+.q-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.4rem;
+}
+.q-text { font-size: 14px; line-height: 1.85; color: var(--color-text-primary); }
+.q-blank {
+  display: inline-block;
+  min-width: 80px;
+  border-bottom: 2px solid #9c6dca;
+  padding: 0 4px;
+  text-align: center;
+  color: #7c4dab;
+  font-weight: 600;
+}
+.q-hint {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+.q-mark {
+  position: absolute;
+  top: 10px; right: 14px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  background: var(--color-background-secondary);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ANSWER TOGGLE */
+.answer-toggle {
+  margin-top: 0.5rem;
+}
+.toggle-btn {
+  font-size: 11px;
+  color: #7c4dab;
+  background: #f0e8f8;
+  border: none;
+  padding: 3px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 600;
+}
+.toggle-btn:hover { background: #e0d0f0; }
+.answer-box {
+  display: none;
+  background: #faf5ff;
+  border-left: 3px solid #9c6dca;
+  padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #5a2d8a;
+  font-weight: 600;
+}
+.answer-box.open { display: block; }
+
+/* EXAMPLE BOX */
+.example-box {
+  background: #f8f0ff;
+  border-left: 4px solid #9c6dca;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 1rem 1.3rem;
+  margin: 0.7rem 0;
+}
+.example-box.teal { background: #f0faf7; border-left-color: #3daa8a; }
+.example-box.coral { background: #fff5f2; border-left-color: #e06848; }
+.example-box.amber { background: #fffbf0; border-left-color: #d4922a; }
+.example-box.blue { background: #f0f5ff; border-left-color: #4d8ac8; }
+.example-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--color-text-secondary); margin-bottom: 5px; }
+.example-text { font-size: 14px; line-height: 1.8; color: var(--color-text-primary); }
+.bad-text { color: #c0392b; }
+.good-text { color: #27ae60; }
+
+/* COMPARE GRID */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0.8rem 0; }
+@media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+.compare-card { border-radius: var(--border-radius-md); padding: 1rem 1.2rem; }
+.compare-card.bad { background: #fff5f5; border: 1px solid #f5c6c6; }
+.compare-card.good { background: #f0fff5; border: 1px solid #b8e8c8; }
+.compare-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 6px; }
+.compare-card.bad .compare-label { color: #c0392b; }
+.compare-card.good .compare-label { color: #27ae60; }
+.compare-text { font-size: 13.5px; line-height: 1.8; color: var(--color-text-primary); }
+
+/* ALERT */
+.alert {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--border-radius-md);
+  margin: 0.7rem 0;
+}
+.alert.tip { background: #eff6ff; border: 1px solid #bfdbfe; }
+.alert.warn { background: #fff5f5; border: 1px solid #fecaca; }
+.alert.success { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.alert.amber { background: #fffbeb; border: 1px solid #fde68a; }
+.alert-icon { font-size: 18px; flex-shrink: 0; }
+.alert-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 3px; color: var(--color-text-secondary); }
+.alert-text { font-size: 13.5px; line-height: 1.75; color: var(--color-text-primary); }
+
+/* FLOW */
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.8rem 0; }
+.flow-step {
+  background: #f0e8f8;
+  color: #5a2d8a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.flow-arrow { color: #9c6dca; font-size: 18px; font-weight: 700; }
+
+/* KEYWORD GRID */
+.keyword-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.8rem; margin: 0.8rem 0; }
+.kw-card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.9rem 1rem;
+  border-top: 3px solid #9c6dca;
+}
+.kw-word { font-size: 16px; font-weight: 700; color: #7c4dab; font-family: 'Noto Serif TC', serif; margin-bottom: 5px; }
+.kw-def { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+
+/* FORMULA */
+.formula {
+  background: #2a1a3e;
+  color: #e8d8f8;
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem 1.5rem;
+  margin: 0.8rem 0;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.formula-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b890e0; margin-bottom: 8px; }
+
+/* PARAGRAPH READING */
+.reading-passage {
+  background: linear-gradient(135deg, #f8f4ff 0%, #f0f8ff 100%);
+  border: 1px solid #d0b8e8;
+  border-radius: var(--border-radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1rem;
+  font-size: 14.5px;
+  line-height: 2;
+  color: var(--color-text-primary);
+  font-family: 'Noto Serif TC', serif;
+}
+.passage-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #7c4dab; margin-bottom: 0.7rem; }
+
+/* SECTION DIVIDER */
+.section-divider { margin: 2rem 0 0; }
+
+/* FOOTER */
+footer {
+  margin-top: 2rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+}
+
+/* PRINT */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula, .compare-card { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+  .toggle-btn { display: none; }
+  .answer-box { display: block !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">語文能力強化練習</div>
+  <h1>中文能力強化練習<br>第一階段・卷三：專業對弈</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">📋 練習目錄</div>
+  <ul class="toc-list">
+    <li><a href="#sec1">一 供詞填充</a></li>
+    <li><a href="#sec2">二 不供詞填充</a></li>
+    <li><a href="#sec3">三 改寫句子</a></li>
+    <li><a href="#sec4">四 重組句子</a></li>
+    <li><a href="#sec5">五 段落理解</a></li>
+  </ul>
+</div>
+
+<!-- INTRO ALERT -->
+<div class="alert tip">
+  <div class="alert-icon">🎯</div>
+  <div>
+    <div class="alert-label">練習定位</div>
+    <div class="alert-text">本卷屬<strong>第三型進階練習（專業對弈）</strong>，目標由「通順」進入「典雅」與「精準」。詞彙涉及決策、管理及宏觀分析術語；成語側重策略思考與職場博弈。</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 1 ===== -->
+<div class="section-divider" id="sec1">
+  <div class="section-header">
+    <div class="section-icon purple">📝</div>
+    <div class="section-meta">
+      <div class="section-num">PART ONE</div>
+      <div class="section-title">供詞填充</div>
+    </div>
+    <div class="section-badge">每題 1 分・共 10 分</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title"><div class="dot purple"></div>詞彙選項</div>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; padding: 4px 0;">
+    <span class="vocab-chip">宏觀</span>
+    <span class="vocab-chip">變革</span>
+    <span class="vocab-chip">決策</span>
+    <span class="vocab-chip">脈絡</span>
+    <span class="vocab-chip">審慎</span>
+    <span class="vocab-chip">磨合</span>
+    <span class="vocab-chip">規範</span>
+    <span class="vocab-chip">契機</span>
+    <span class="vocab-chip">抵觸</span>
+    <span class="vocab-chip">轉嫁</span>
+  </div>
+</div>
+
+<div class="alert amber">
+  <div class="alert-icon">📌</div>
+  <div>
+    <div class="alert-label">作答指示</div>
+    <div class="alert-text">從上表選擇最合適的詞彙填入橫線，每詞只能用一次。留意語境（Register）及詞彙的搭配習慣。</div>
+  </div>
+</div>
+
+<!-- Q1-10 -->
+<div class="qbox">
+  <div class="q-num">第 1 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">成功的管理者需要具備 <span class="q-blank">　　　　</span> 的視野，不應只糾結於微小的細節。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">宏觀</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 2 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">這項新政策與現有的勞工法例有所 <span class="q-blank">　　　　</span>，必須重新修訂。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">抵觸</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 3 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">面對瞬息萬變的市場，企業若不主動進行 <span class="q-blank">　　　　</span>，最終會被淘汰。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">變革</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 4 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">任何重大的投資 <span class="q-blank">　　　　</span> 都必須經過董事會的嚴格審批。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">決策</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 5 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">雖然兩間公司合併了，但團隊之間仍需要一段時間 <span class="q-blank">　　　　</span> 才能產生默契。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">磨合</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 6 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">我們必須 <span class="q-blank">　　　　</span> 處理客戶的個人資料，以符合最新的私隱條例。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">審慎</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 7 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">這次經濟下行雖然是挑戰，但也是企業重新整合資源的 <span class="q-blank">　　　　</span>。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">契機</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 8 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">讀書不應死記硬背，而要理清文章的邏輯 <span class="q-blank">　　　　</span>。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">脈絡</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 9 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">為了確保服務質素，我們建立了一套標準化的操作 <span class="q-blank">　　　　</span>。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">規範</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 10 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">原材料成本上漲後，廠商被迫將壓力 <span class="q-blank">　　　　</span> 給消費者。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">轉嫁</div></div>
+</div>
+
+<!-- ===== SECTION 2 ===== -->
+<div class="section-divider" id="sec2">
+  <div class="section-header">
+    <div class="section-icon blue">✍️</div>
+    <div class="section-meta">
+      <div class="section-num">PART TWO</div>
+      <div class="section-title">不供詞填充</div>
+    </div>
+    <div class="section-badge">每題 1 分・共 10 分</div>
+  </div>
+</div>
+
+<div class="alert tip">
+  <div class="alert-icon">💡</div>
+  <div>
+    <div class="alert-label">考試技巧</div>
+    <div class="alert-text">根據括號內的意思推敲答案，答案多為<strong>四字成語</strong>或高階詞彙。先理解字義，再配對腦海中已學成語。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 1 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">這件事關係到公司的未來，在行業中具有 <span class="q-blank">　　　　　　</span> 的分量。</div>
+  <div class="q-hint">💬 意指：地位極其重要，足以影響全局</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">舉足輕重</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 2 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">既然舊方法已經失效，我們必須 <span class="q-blank">　　　　　　</span> 去嘗試新方案。</div>
+  <div class="q-hint">💬 意指：下定決心，不留後路地拚死一戰</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">破釜沉舟</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 3 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">處理公關危機時，如果不分輕重，很容易會 <span class="q-blank">　　　　　　</span>。</div>
+  <div class="q-hint">💬 意指：顧了這邊卻忽略了那邊</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">顧此失彼</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 4 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">這次事故是由於管理層疏忽所致，相關負責人實在 <span class="q-blank">　　　　　　</span>。</div>
+  <div class="q-hint">💬 意指：難以逃避罪責</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">難辭其咎</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 5 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">改善環境污染的問題 <span class="q-blank">　　　　　　</span>。</div>
+  <div class="q-hint">💬 意指：非常緊迫，一刻也不能延遲</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">刻不容緩</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 6 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">市場上的產品良莠不齊，常有商家以 <span class="q-blank">　　　　　　</span> 來欺騙消費者。</div>
+  <div class="q-hint">💬 意指：用假貨冒充真貨</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">以假亂真</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 7 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">一位優秀的公關必須具備 <span class="q-blank">　　　　　　</span> 的能力。</div>
+  <div class="q-hint">💬 意指：根據情況的變化，靈活地採取對應措施</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">隨機應變</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 8 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">為了提高研發成功率，我們應該 <span class="q-blank">　　　　　　</span>。</div>
+  <div class="q-hint">💬 意指：廣泛聽取各方意見，吸收有益的成分</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">博採眾長</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 9 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">這份計劃書只是 <span class="q-blank">　　　　　　</span>，未能觸及問題的核心。</div>
+  <div class="q-hint">💬 意指：從根本上解決問題（此處為反諷）</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">治標不治本</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 10 題</div>
+  <div class="q-mark">1分</div>
+  <div class="q-text">他在商場打滾多年，處事 <span class="q-blank">　　　　　　</span>。</div>
+  <div class="q-hint">💬 意指：經驗豐富且周到，沒有遺漏</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button><div class="answer-box">面面俱到</div></div>
+</div>
+
+<!-- ===== SECTION 3 ===== -->
+<div class="section-divider" id="sec3">
+  <div class="section-header">
+    <div class="section-icon teal">🔄</div>
+    <div class="section-meta">
+      <div class="section-num">PART THREE</div>
+      <div class="section-title">改寫句子</div>
+    </div>
+    <div class="section-badge">每題 2 分・共 20 分</div>
+  </div>
+</div>
+
+<div class="alert warn">
+  <div class="alert-icon">⚠️</div>
+  <div>
+    <div class="alert-label">常見陷阱</div>
+    <div class="alert-text">改寫後須呈現「行政色彩」的書面語：<strong>避免口語化語氣詞</strong>（如「吓」、「好正」）、<strong>英語借詞</strong>（如 Plan、Report、Show），改以正式詞彙替代。</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title"><div class="dot teal"></div>改寫技巧要點</div>
+  <div class="flow">
+    <div class="flow-step">識別口語／英語詞</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">換成書面詞彙</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">調整句式結構</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">確認語境正式</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 1 題 【口語】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">你最好先同我講吓你個 Plan 係點。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：煩請閣下先向本人講解貴方案的具體內容。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 2 題 【英式】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">如果我哋唔快啲做嘢，我哋會輸好多錢。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：倘若我方未能及時採取行動，恐將蒙受重大的財務損失。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 3 題 【口語】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">佢係一個好老細，所有人都好鍾意佢。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：他是一位深受同仁愛戴的出色管理者。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 4 題 【英式】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">我寫呢份 Report 係想 Show 俾你睇個 Project 嘅進度。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：本報告旨在向閣下呈示本項目目前的推進進度。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 5 題 【口語】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">呢個方法雖然好似好正，但其實好難做到。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：此方案表面上固然理想，然而實際執行上存在相當大的困難。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 6 題 【英式】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">非常多謝你嘅 Suggestion，我哋會考慮吓。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：衷心感謝閣下提出寶貴意見，我方將認真研究並作出考量。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 7 題 【口語】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">你咁樣做會整壞公司個名，你要諗清楚。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：閣下此舉恐將損害公司的聲譽，懇請三思而後行。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 8 題 【英式】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">我哋一定要 Meet 個 Deadline，唔係就大鑊。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：我方務必於截止期限前完成任務，否則後果將不堪設想。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 9 題 【口語】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">佢講嘢好玄，搞到大家都有啲 Confuse。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：其發言措辭晦澀，令在座各人未能充分理解其意思。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 10 題 【口語】</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text">我哋要搵出個問題嘅根源，唔好只係執手尾。</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 參考答案：我方應深入探究問題的根本成因，而非僅作表面的補救處理。</div></div>
+</div>
+
+<!-- ===== SECTION 4 ===== -->
+<div class="section-divider" id="sec4">
+  <div class="section-header">
+    <div class="section-icon coral">🧩</div>
+    <div class="section-meta">
+      <div class="section-num">PART FOUR</div>
+      <div class="section-title">重組句子</div>
+    </div>
+    <div class="section-badge">每題 2 分・共 20 分</div>
+  </div>
+</div>
+
+<div class="alert tip">
+  <div class="alert-icon">💡</div>
+  <div>
+    <div class="alert-label">答題策略</div>
+    <div class="alert-text">先找<strong>主語</strong>，再定<strong>謂語</strong>，最後安排<strong>修飾語</strong>位置。留意關聯詞（倘若、既…又、雖然…卻）能提示句子結構。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 1 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：倘若 / 恐怕 / 難以 / 方案 / 落實 / 達成 / 預期 / 目標 / 準確</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 倘若方案未能準確落實，恐怕難以達成預期目標。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 2 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：旨在 / 這種 / 資源 / 分配 / 效益 / 最大化 / 讓 / 核心 / 競爭力 / 並 / 提升</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 這種資源分配旨在讓效益最大化，並提升核心競爭力。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 3 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：既 / 他的 / 方案 / 具備 / 宏觀 / 視野 / 又 / 實踐 / 兼顧 / 細節 / 的</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 他的方案既具備宏觀視野，又兼顧實踐的細節。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 4 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：有見及此 / 決定 / 調整 / 策略 / 管理層 / 以 / 應對 / 挑戰 / 市場 / 的</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 有見及此，管理層決定調整策略，以應對市場的挑戰。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 5 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：雖然 / 艱巨 / 任務 / 我們 / 卻 / 從未 / 動搖 / 目標 / 達成 / 的 / 決心</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 雖然任務艱巨，我們卻從未動搖達成目標的決心。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 6 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：洞察 / 變化 / 領導者 / 能夠 / 敏銳地 / 市場 / 並 / 契機 / 尋找 / 發展</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 領導者能夠敏銳地洞察市場變化，並尋找發展契機。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 7 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：由於 / 因素 / 計劃 / 被迫 / 技術 / 延期 / 實施 / 導致 / 損失 / 額外</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 由於技術因素，計劃被迫延期實施，導致額外損失。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 8 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：與其 / 互相推諉 / 不如 / 共同 / 責任 / 承擔 / 尋找 / 出路</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 與其互相推諉，不如共同承擔責任，尋找出路。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 9 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：規範 / 流程 / 為了 / 決定 / 內部 / 建立 / 機制 / 監管 / 完善 / 的</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 為了規範內部流程，決定建立完善的監管機制。</div></div>
+</div>
+
+<div class="qbox">
+  <div class="q-num">第 10 題</div>
+  <div class="q-mark">2分</div>
+  <div class="q-text" style="color:var(--color-text-secondary); font-size:13px; margin-bottom:6px;">詞組：只有 / 才能 / 不斷學習 / 競爭力 / 保持 / 職場中 / 在 / 立於不敗之地</div>
+  <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+  <div class="answer-box">✅ 在職場中，只有不斷學習，才能保持競爭力，立於不敗之地。</div></div>
+</div>
+
+<!-- ===== SECTION 5 ===== -->
+<div class="section-divider" id="sec5">
+  <div class="section-header">
+    <div class="section-icon amber">📖</div>
+    <div class="section-meta">
+      <div class="section-num">PART FIVE</div>
+      <div class="section-title">段落理解</div>
+    </div>
+    <div class="section-badge">每題 2 分・共 20 分</div>
+  </div>
+</div>
+
+<!-- Passage 1 -->
+<div class="reading-passage">
+  <div class="passage-label">【段落一】</div>
+  「在企業管理中，審慎的財務決策與大膽的技術變革同等重要。管理者若只專注於短期效益，往往會忽視長遠的風險。因此，建立一套透明且高效的溝通機制，不但能促進部門間的磨合，更能確保企業在動盪的市場中保持核心競爭力。」
+</div>
+
+<div class="card">
+  <div class="card-title"><div class="dot purple"></div>段落一：理解題</div>
+
+  <div class="qbox">
+    <div class="q-num">第 1 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">管理者如果只追求短期效益，會有什麼後果？</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ 往往會忽視長遠的風險，危及企業的可持續發展。</div></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-num">第 2 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">文中提到哪兩樣東西在管理中「同等重要」？</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ 「審慎的財務決策」與「大膽的技術變革」。</div></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-num">第 3 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">建立溝通機制有哪些具體好處？（列出兩項）</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ ①促進部門間的磨合；②確保企業在動盪市場中保持核心競爭力。</div></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-num">第 4 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">請解釋文中「審慎」在財務決策上的重要性。</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ 財務決策一旦失誤，後果重大且難以逆轉。「審慎」意味著在決策前充分評估風險，避免因草率行事而蒙受財務損失，確保企業財務穩健。</div></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-num">第 5 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">這段文字主要想表達什麼管理智慧？</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ 優秀的管理者應兼顧穩健與創新，在審慎決策的同時敢於變革；並透過建立溝通機制，令企業在逆境中維持競爭力。</div></div>
+  </div>
+</div>
+
+<!-- Passage 2 -->
+<div class="reading-passage" style="background: linear-gradient(135deg, #f0fff8 0%, #f0f8ff 100%); border-color: #a8d8c0;">
+  <div class="passage-label" style="color: #2d8a6a;">【段落二】</div>
+  「職場中的情緒智商（EQ）往往比技術能力更具關鍵影響。一位能隨機應變且懂得面面俱到的領袖，更能贏得下屬的推心置腹。面對利益衝突時，若能以互惠互利為原則，往往能化解矛盾，甚至將危機轉化為合作的契機。」
+</div>
+
+<div class="card">
+  <div class="card-title"><div class="dot teal"></div>段落二：理解題</div>
+
+  <div class="qbox">
+    <div class="q-num">第 6 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">文中認為在職場中，什麼能力比技術能力更重要？</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ 情緒智商（EQ）。</div></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-num">第 7 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">一位成功的領袖應該具備哪兩種特質？（運用文中四字詞）</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ ①隨機應變；②面面俱到。</div></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-num">第 8 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">面對衝突時，應以什麼原則來處理？</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ 以「互惠互利」為原則。</div></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-num">第 9 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">「推心置腹」在文中形容什麼樣的關係？</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ 形容下屬對領袖的信任，願意真誠地向其傾訴心聲，即一種坦誠相待、互相信賴的上下屬關係。</div></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-num">第 10 題</div>
+    <div class="q-mark">2分</div>
+    <div class="q-text">根據段落，危機在什麼情況下可以變成「契機」？</div>
+    <div class="answer-toggle"><button class="toggle-btn" onclick="toggleAnswer(this)">查看答案</button>
+    <div class="answer-box">✅ 當各方能以「互惠互利」為原則處理利益衝突，化解矛盾時，危機便可轉化為雙方合作的契機。</div></div>
+  </div>
+</div>
+
+<!-- KEYWORDS SUMMARY -->
+<div class="section-divider">
+  <div class="section-header" style="margin-top:1.5rem;">
+    <div class="section-icon purple">🔑</div>
+    <div class="section-meta">
+      <div class="section-num">VOCABULARY BANK</div>
+      <div class="section-title">本卷重點詞彙一覽</div>
+    </div>
+  </div>
+</div>
+
+<div class="keyword-grid">
+  <div class="kw-card"><div class="kw-word">宏觀</div><div class="kw-def">從整體、全局角度看問題</div></div>
+  <div class="kw-card"><div class="kw-word">審慎</div><div class="kw-def">謹慎小心，充分考慮後才行動</div></div>
+  <div class="kw-card"><div class="kw-word">磨合</div><div class="kw-def">不同個體逐漸協調適應的過程</div></div>
+  <div class="kw-card"><div class="kw-word">契機</div><div class="kw-def">有利的時機或機遇</div></div>
+  <div class="kw-card"><div class="kw-word">脈絡</div><div class="kw-def">事物發展的線索與條理</div></div>
+  <div class="kw-card"><div class="kw-word">轉嫁</div><div class="kw-def">將責任或負擔轉移給他人</div></div>
+  <div class="kw-card"><div class="kw-word">舉足輕重</div><div class="kw-def">地位重要，能左右大局</div></div>
+  <div class="kw-card"><div class="kw-word">顧此失彼</div><div class="kw-def">照顧一方而忽略另一方</div></div>
+  <div class="kw-card"><div class="kw-word">難辭其咎</div><div class="kw-def">難以推卸責任</div></div>
+  <div class="kw-card"><div class="kw-word">刻不容緩</div><div class="kw-def">形勢緊迫，不能延誤</div></div>
+  <div class="kw-card"><div class="kw-word">隨機應變</div><div class="kw-def">靈活因應情況採取對策</div></div>
+  <div class="kw-card"><div class="kw-word">面面俱到</div><div class="kw-def">各方面都照顧到，無所疏漏</div></div>
+</div>
+
+<div class="formula">
+  <div class="formula-title">📊 本卷分數分佈</div>
+  一、供詞填充：10分　｜　二、不供詞填充：10分　｜　三、改寫句子：20分<br>
+  四、重組句子：20分　｜　五、段落理解：20分　｜　<strong style="color:#e8c8ff;">合計：80分</strong>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div><!-- end .wrap -->
+
+<script>
+function toggleAnswer(btn) {
+  const box = btn.nextElementSibling;
+  if (box.classList.contains('open')) {
+    box.classList.remove('open');
+    btn.textContent = '查看答案';
+  } else {
+    box.classList.add('open');
+    btn.textContent = '收起答案';
+  }
+}
+</script>
+</body>
+</html>
