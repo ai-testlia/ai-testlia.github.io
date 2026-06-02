@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>子睿語文基礎 Final 練習｜潘SIR中文教室</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #2e1a12;
+    --color-text-secondary: #5a453d;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #fdfbf9;
+    --color-border-tertiary: rgba(46, 26, 18, 0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5e8de;
+      --color-text-secondary: #c8b5ab;
+      --color-background-primary: #1e1512;
+      --color-background-secondary: #2a1f1b;
+      --color-border-tertiary: rgba(245, 232, 222, 0.15);
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-size: 14px;
+    line-height: 1.8;
+    padding: 2rem 1rem;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding-bottom: 3rem; }
+
+  /* HERO */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero.writing { background: #E8D5C8; color: #2E1A12; }
+  .hero.writing .hero-tag {
+    border: 1px solid rgba(46,26,18,0.3);
+    color: rgba(46,26,18,0.65);
+  }
+  .hero.writing p { color: rgba(46,26,18,0.5); }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; }
+
+  /* TOC */
+  .toc {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 13.5px;
+    color: var(--color-text-primary);
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+    text-decoration: none;
+  }
+  .toc-item:last-child { border-bottom: none; }
+  .toc-num {
+    width: 22px;
+    height: 22px;
+    background: #2e1a12;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 2.5rem 0 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    background: #e8d5c8;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  /* CARD */
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .subsection-title {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 0.8rem;
+    font-family: 'Noto Serif TC', serif;
+    color: #2e1a12;
+  }
+  @media (prefers-color-scheme: dark) {
+    .subsection-title { color: #f5e8de; }
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    flex-shrink: 0;
+    background: #b5451b;
+  }
+
+  /* FORMULA & BOXES */
+  .formula {
+    background: #2e1a12;
+    color: #f5e8de;
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.2rem;
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin: 0.8rem 0;
+  }
+  .formula strong { color: #e8d5c8; }
+  
+  .example-box {
+    background: var(--color-background-secondary);
+    border-left: 4px solid #b5451b;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    padding: 0.8rem 1.2rem;
+    margin: 0.8rem 0;
+  }
+  .example-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #b5451b;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .example-text {
+    font-size: 13.5px;
+    color: var(--color-text-primary);
+  }
+
+  /* 藍色 Example Box Variant */
+  .example-box.blue {
+    background: #f0f7ff;
+    border-left-color: #2b7de2;
+  }
+  .example-box.blue .example-label {
+    color: #1a4575;
+  }
+  @media (prefers-color-scheme: dark) {
+    .example-box.blue {
+      background: #182535;
+      border-left-color: #3a90e0;
+    }
+    .example-box.blue .example-label {
+      color: #90bbf0;
+    }
+  }
+
+  .alert {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 13.5px;
+  }
+  .alert.tip { background: #eaf4ff; border-left: 4px solid #3a90e0; color: #1a4a75; }
+  .alert.warn { background: #fff0f0; border-left: 4px solid #e05555; color: #7a2525; }
+  .alert-icon { font-size: 16px; flex-shrink: 0; }
+  .alert-label { font-weight: 700; margin-bottom: 2px; }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .compare-card {
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    font-size: 13.5px;
+  }
+  .compare-card.bad { background: #fff0f0; border: 1px solid #fcaaaa; color: #7a2525; }
+  .compare-card.good { background: #f0fbf0; border: 1px solid #aafca2; color: #257a25; }
+  .compare-label { font-weight: 700; margin-bottom: 4px; font-size: 12px; }
+
+  /* EXERCISE ELEMENTS */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .q-text {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 0.8rem;
+  }
+  .ans-line {
+    border-bottom: 1px dashed var(--color-text-secondary);
+    opacity: 0.4;
+    height: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  .btn-ans {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    color: var(--color-text-primary);
+    padding: 5px 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-ans:hover {
+    background: #e8d5c8;
+    border-color: #2e1a12;
+  }
+  .ans-content {
+    display: none;
+    margin-top: 0.8rem;
+    padding: 0.8rem 1rem;
+    background: #f0f7ff;
+    border-left: 4px solid #2b7de2;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #1a4575;
+    font-weight: 500;
+  }
+  @media (prefers-color-scheme: dark) {
+    .ans-content {
+      background: #182535;
+      color: #90bbf0;
+      border-left-color: #3a90e0;
+    }
+  }
+
+  /* PRINT OPTIMIZATION */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; color: black; font-size: 12px; }
+    .wrap { max-width: 100%; padding: 0; }
+    .toc, .btn-ans { display: none !important; }
+    .ans-line { display: none; }
+    .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .ans-content {
+      display: block !important;
+      background: #fafafa !important;
+      color: #000 !important;
+      border: 1px solid #ccc !important;
+      border-left: 4px solid #333 !important;
+      margin-top: 5px;
+    }
+  }
+</style>
+<script>
+  function toggleAns(id) {
+    var content = document.getElementById('ans-' + id);
+    var btn = document.getElementById('btn-' + id);
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+      btn.innerHTML = '👀 觀看答案';
+    } else {
+      content.style.display = 'block';
+      btn.innerHTML = '🙈 隱藏答案';
+    }
+  }
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero writing">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>子睿語文基礎 Final 練習<br>全方位綜合教學與專屬卷</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">📋 章節目錄</div>
+    <a href="#section1" class="toc-item"><span class="toc-num">1</span>「把」字句與「被」字句的轉換及應用</a>
+    <a href="#section2" class="toc-item"><span class="toc-num">2</span>關聯詞的精準運用 (因果、轉折、承接)</a>
+    <a href="#section3" class="toc-item"><span class="toc-num">3</span>寫作手法特訓——倒敘法的縱橫運用</a>
+    <a href="#section4" class="toc-item"><span class="toc-num">4</span>修辭手法精講——排比與反復之辨析</a>
+    <a href="#section5" class="toc-item"><span class="toc-num">5</span>高階寫作元素——立體人物描寫三重奏</a>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div id="section1" class="section-header">
+    <div class="section-icon">📝</div>
+    <h2>一、「把」字句與「被」字句的轉換及應用</h2>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><div class="dot"></div>詳細核心知識導學</div>
+    <p>「把」字句和「被」字句是漢語中改變語序以達到不同強調目的的重要句型。它們的本質在於強調<strong>動作對受事主體所帶來的改變、處置或結果</strong>。</p>
+    
+    <div class="formula">
+      <strong>【把字句公式】</strong> 施事者（做動作的人/物） + <strong>把</strong> + 受事者（承受動作的人/物） + 動作補語（結果）
+    </div>
+    <p style="margin-bottom: 1rem; font-size: 13px; color: var(--color-text-secondary);">例：清潔工人<strong>把</strong>街道上的垃圾清理了。</p>
+
+    <div class="formula">
+      <strong>【被字句公式】</strong> 受事者（承受動作的人/物） + <strong>被</strong> + 施事者（做動作的人/物） + 動作補語（結果）
+    </div>
+    <p style="font-size: 13px; color: var(--color-text-secondary);">例：街道上的垃圾<strong>被</strong>清潔工人清理了。</p>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">小三深程度進階重點：不可遺漏動作的結果</div>
+        <div>在進行句型轉換時，動詞後方絕對<strong>不能只有單一動詞</strong>，必須帶有結果補語或時態助詞（如「了」、「完」、「破」、「得粉碎」）。</div>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">❌ 錯誤轉換示例</div>
+        <div>弟弟把遙控車弄。（句意未完結，動詞孤立）</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">✅ 正確完整寫法</div>
+        <div>弟弟把遙控車<strong>弄壞了</strong>。（帶有完整的結果补语）</div>
+      </div>
+    </div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">潘SIR獨家技巧：修飾語「整體移動」</div>
+        <div>名詞前方的形容詞或修飾語（例如：「火紅的」太陽、「這個古董」花瓶）在移位時，必須<strong>整個名詞詞組保持完整移動</strong>，絕不能拆散！</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title"><div class="dot"></div>甲部：將下列句子改寫為「把」字句（10條）</div>
+  
+  <div class="qbox">
+    <div class="q-text">1. 頑皮的猴子偷走了遊客放在長椅上的背包。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q1" onclick="toggleAns('q1')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q1">頑皮的猴子把遊客放在長椅上的背包偷走了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">2. 突如其來的暴雨淋濕了掛在陽台上的衣服。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q2" onclick="toggleAns('q2')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q2">突如其來的暴雨把掛在陽台上的衣服淋濕了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">3. 老師詳細地解答了同學們在課堂上提出的疑問。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q3" onclick="toggleAns('q3')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q3">老師詳細地把同學們在課堂上提出的疑問解答了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">4. 救援人員成功救出了被困在倒塌大廈裡的災民。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q4" onclick="toggleAns('q4')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q4">救援人員成功把被困在倒塌大廈裡的災民救出了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">5. 我已經寫完了週末的中文和數學功課。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q5" onclick="toggleAns('q5')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q5">我已經把週末的中文和數學功課寫完了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">6. 圖書館管理員整理好書架上散落的圖書。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q6" onclick="toggleAns('q6')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q6">圖書館管理員把書架上散落的圖書整理好了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">7. 魔術師神奇地變走了一頂黑色的帽子。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q7" onclick="toggleAns('q7')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q7">魔術師神奇地把一頂黑色的帽子變走了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">8. 弟弟不小心撕破了那本從圖書館借來的故事書。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q8" onclick="toggleAns('q8')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q8">弟弟不小心把那本從圖書館借來的故事書撕破了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">9. 溫暖的春風吹綠了河邊一排排的柳樹。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q9" onclick="toggleAns('q9')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q9">溫暖的春風把河邊一排排的柳樹吹綠了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">10. 外婆的大叫聲嚇跑了準備偷東西的小偷。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q10" onclick="toggleAns('q10')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q10">外婆的大叫聲把準備偷東西的小偷嚇跑了。</div>
+  </div>
+
+  <div class="subsection-title" style="margin-top: 2rem;"><div class="dot"></div>乙部：將下列句子改寫為「被」字句（10條）</div>
+
+  <div class="qbox">
+    <div class="q-text">11. 狡猾的狐狸騙走了烏鴉嘴裡那塊美味的肉。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q11" onclick="toggleAns('q11')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q11">烏鴉嘴裡那塊美味的肉被狡猾的狐狸騙走了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">12. 哥哥把剛買回來的巧克力蛋糕吃得一乾二淨。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q12" onclick="toggleAns('q12')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q12">剛買回來的巧克力蛋糕被哥哥吃得一乾二淨。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">13. 猛烈的海浪把沙灘上的沙堡沖毀了。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q13" onclick="toggleAns('q13')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q13">沙灘上的沙堡被猛烈的海浪沖毀了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">14. 粗心的志明把圖書館的借書證遺留在巴士上。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q14" onclick="toggleAns('q14')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q14">圖書館的借書證被粗心的志明遺留在巴士上。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">15. 警察把潛逃多年的犯罪集團首腦繩之於法了。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q15" onclick="toggleAns('q15')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q15">潛逃多年的犯罪集團首腦被警察繩之於法了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">16. 厚厚的白雪把整座山林覆蓋得嚴嚴實實。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q16" onclick="toggleAns('q16')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q16">整座山林被厚厚的白雪覆蓋得嚴嚴實實。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">17. 媽媽把這件不合身的舊毛衣送給了鄰居。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q17" onclick="toggleAns('q17')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q17">這件不合身的舊毛衣被媽媽送給了鄰居。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">18. 我把這個古董花瓶抱得緊緊的。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q18" onclick="toggleAns('q18')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q18">這個古董花瓶被我抱得緊緊的。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">19. 烈日把這片廣闊的土地烤得乾裂了。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q19" onclick="toggleAns('q19')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q19">這片廣闊的土地被烈日烤得乾裂了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">20. 爸爸把準備去旅行的行李箱收拾妥當了。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-q20" onclick="toggleAns('q20')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-q20">準備去旅行的行李箱被爸爸收拾妥當了。</div>
+  </div>
+
+
+  <!-- SECTION 2 -->
+  <div id="section2" class="section-header">
+    <div class="section-icon">🔗</div>
+    <h2>二、關聯詞的運用（因果、轉折、承接）</h2>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><div class="dot"></div>關聯詞三大邏輯體系詳解</div>
+    <p>關聯詞是複句的靈魂，用來明確揭示分句與分句之間的邏輯網絡。小三深程度學生必須從口語過渡到書面語關聯詞：</p>
+    
+    <div class="example-box blue">
+      <div class="example-label">① 因果複句（核心：前因後果）</div>
+      <div class="example-text">
+        除了基礎的「因為……所以……」，必須熟練掌握更具書面語色彩的 <strong>「由於……所以……」</strong>。
+        <br>💡 <em>例句：由於昨晚下了一場暴雨，所以今天的校運會被迫取消了。</em>
+      </div>
+    </div>
+
+    <div class="example-box blue">
+      <div class="example-label">② 轉折複句（核心：意料之外的反差）</div>
+      <div class="example-text">
+        前後意思相反。重點區分：<br>
+        - <strong>「雖然……卻/但是……」</strong>：語氣較平緩。<br>
+        - <strong>「儘管……還是……」</strong>：語氣極強烈，強調在<strong>極端或惡劣的條件下</strong>，結果依然不可動搖。<br>
+        💡 <em>例句：儘管這道數學題十分複雜，志明還是憑著不屈不撓的精神把它解開了。</em>
+      </div>
+    </div>
+
+    <div class="example-box blue">
+      <div class="example-label">③ 承接複句（核心：時間與動作的連續性）</div>
+      <div class="example-text">
+        - <strong>「先……然後……」</strong>：強調步驟的條理與先後清晰。<br>
+        - <strong>「一……就……」</strong>：強調兩個動作發生的時間間隔極短，具備<strong>即時反應</strong>的色彩。<br>
+        - <strong>「……便……」</strong>：語氣自然流暢。<br>
+        💡 <em>例句：魔術師的手一揮，籠子裡的白鴿就神奇地消失了。</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title"><div class="dot"></div>甲部：選出適當的關聯詞填在橫線上（10條）</div>
+  <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem;">（供詞：由於...所以... / 儘管...還是... / 雖然...卻... / 先...然後... / 一...就...）</p>
+
+  <div class="qbox">
+    <div class="q-text">1. (_______) 爺爺的年紀很大了，(_______) 他每天堅持到公園晨運。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c1" onclick="toggleAns('c1')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c1">雖然...卻...</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">2. 我每天早上起牀後，都會 (_______) 刷牙洗臉，(_______) 才吃早餐。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c2" onclick="toggleAns('c2')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c2">先...然後...</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">3. (_______) 我們在比賽中落後了十幾分，大家 (_______) 沒有放棄，奮力拼搏到最後一刻。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c3" onclick="toggleAns('c3')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c3">儘管...還是...</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">4. 膽小的妹妹 (_______) 聽到雷聲，(_______) 嚇得躲進媽媽的懷裡。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c4" onclick="toggleAns('c4')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c4">一...就...</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">5. (_______) 天氣非常寒冷，(_______) 無阻市民外出觀看煙花匯演的熱情。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c5" onclick="toggleAns('c5')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c5">雖然...卻...</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">6. (_______) 交通擠塞，(_______) 爸爸今天上班遲到了。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c6" onclick="toggleAns('c6')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c6">由於...所以...</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">7. 這條項鍊 (_______) 不是名貴的珠寶，(_______) 是祖母留給我的珍貴紀念品。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c7" onclick="toggleAns('c7')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c7">雖然...卻...</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">8. 媽媽下班回家，(_______) 放下手提包，(_______) 走進廚房準備晚飯。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c8" onclick="toggleAns('c8')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c8">先...然後...（註：填「一......就......」亦可接受）</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">9. (_______) 這篇文章很長，(_______) 內容十分生動有趣，引人入勝。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c9" onclick="toggleAns('c9')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c9">雖然...卻...</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">10. (_______) 在外國生活了許多年，(_______) 無法適應當地的飲食習慣。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c10" onclick="toggleAns('c10')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c10">儘管...還是...</div>
+  </div>
+
+  <div class="subsection-title" style="margin-top: 2rem;"><div class="dot"></div>乙部：運用括號內的關聯詞，把兩個短句合併為一個複句（10條）</div>
+
+  <div class="qbox">
+    <div class="q-text">11. 弟弟感到身體不適。弟弟繼續參加足球訓練。（雖然.....但是）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c11" onclick="toggleAns('c11')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c11">雖然弟弟感到身體不適，但是他繼續參加足球訓練。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">12. 天空突然烏雲密佈。下起滂沱大雨來。（一......就......）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c12" onclick="toggleAns('c12')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c12">天空一烏雲密佈，就下起滂沱大雨來。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">13. 志明平日沒有溫習。志明在這次考試中不及格。（因為......所以......）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c13" onclick="toggleAns('c13')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c13">因為志明平日沒有溫習，所以他在這次考試中不及格。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">14. 狐狸十分狡猾。農夫看穿了牠的詭計。（儘管.......還是......）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c14" onclick="toggleAns('c14')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c14">儘管狐狸十分狡猾，農夫還是看穿了牠的詭計。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">15. 我們到達營地。我們搭建帳篷。我們生火煮食。（先.......然後......）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c15" onclick="toggleAns('c15')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c15">我們到達營地後，先搭建帳篷，然後生火煮食。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">16. 哥哥每天鍛鍊身體。哥哥的體魄非常強健。（由於......所以......）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c16" onclick="toggleAns('c16')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c16">由於哥哥每天鍛鍊身體，所以他的體魄非常強健。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">17. 這件衣服的款式很新穎。這件衣服的價錢太昂貴了。（雖然.....卻）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c17" onclick="toggleAns('c17')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c17">雖然這件衣服的款式很新穎，價錢卻太昂貴了。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">18. 同學聽到火警鐘聲響起。同學立刻在操場集合。（.......便......）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c18" onclick="toggleAns('c18')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c18">同學聽到火警鐘聲響起，便立刻在操場集合。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">19. 大家勸阻了他很久。他一意孤行，不肯改變主意。（儘管......還是......）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c19" onclick="toggleAns('c19')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c19">儘管大家勸阻了他很久，他還是一意孤行，不肯改變主意。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">20. 媽媽把材料洗乾淨。媽媽把它們放進鍋裡熬湯。（先.......然後......）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-c20" onclick="toggleAns('c20')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-c20">媽媽先把材料洗乾淨，然後把它們放進鍋裡熬湯。</div>
+  </div>
+
+
+  <!-- SECTION 3 -->
+  <div id="section3" class="section-header">
+    <div class="section-icon">⏪</div>
+    <h2>三、寫作手法——倒敘法</h2>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><div class="dot"></div>倒敘法的高階排佈與作用</div>
+    <p>順敘法是老老實實按照時間推進（起因 ➔ 經過 ➔ 結果），而<strong>「倒敘法」</strong>則是打破時間線性結構：</p>
+    
+    <div class="formula">
+      <strong>【倒敘結構】</strong> 先把事情的<strong>「結果」</strong>或最引人注目的<strong>「場景」</strong>提到文章開頭，製造強烈的懸念，再回頭順敘事情的起因與經過。
+    </div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">潘SIR特訓：絕妙的「過渡銜接句」</div>
+        <div>從開頭的「結果」跳回過去的「起因」時，必須有清晰的時空過渡詞句，否則讀者會感到混亂。常用過渡技巧：<br>
+        - <em>「這件事要從上星期說起……」</em><br>
+        - <em>「每當我看到這道疤痕，就會想起那次經歷……」</em><br>
+        - <em>「原來，這一切都是因為……」</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title"><div class="dot"></div>甲部：判斷下列段落是運用了「順敘法」還是「倒敘法」（10條）</div>
+
+  <div class="qbox">
+    <div class="q-text">1. 星期天早上，我們一家人乘車到西貢。到達後，我們租了一條小船出海。中午時分，我們在島上野餐。傍晚，我們才依依不捨地回家。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d1" onclick="toggleAns('d1')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d1">順敘法</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">2. 自從那次大病初癒後，哥哥變得非常注重飲食健康。記得幾個月前，他因為暴飲暴食，結果急性腸胃炎入院……（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d2" onclick="toggleAns('d2')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d2">倒敘法</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">3. 站在頒獎台上，我激動得流下了眼淚。為了今天的演講比賽，我在過去一個月裡每天對著鏡子苦練……（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d3" onclick="toggleAns('d3')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d3">倒敘法</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">4. 由於連日暴雨，山上的泥土鬆脫，最終引發了嚴重的山泥傾瀉，阻斷了整條公路。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d4" onclick="toggleAns('d4')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d4">順敘法</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">5. 這隻流浪狗現在已經成了我們家的一份子。幾個月前的一個雨夜，我在垃圾站旁發現了瑟瑟發抖的牠……（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d5" onclick="toggleAns('d5')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d5">倒敘法</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">6. 學校舉辦了陸運會。起步槍一響，運動員像箭一樣飛奔出去。最後，我們班的明輝奪得了冠軍。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d6" onclick="toggleAns('d6')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d6">順敘法</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">7. 這條美麗的村莊曾經是一片荒蕪的廢墟。十年前，一場無情的洪水摧毀了這裡的一切……（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d7" onclick="toggleAns('d7')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d7">倒敘法</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">8. 我小心翼翼地把這張褪色的舊照片夾在日記本裡。照片中那個笑顏如花的小女孩，是我多年前搬到外國的好友。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d8" onclick="toggleAns('d8')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d8">倒敘法</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">9. 早上，我匆忙出門，卻忘了帶雨傘。放學時天降大雨，我只好冒雨跑回家，結果第二天就感冒了。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d9" onclick="toggleAns('d9')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d9">順敘法</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">10. 小豬現在是一隻時刻都勤奮工作的動物。但以前的牠可不是這樣的，有一次……（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-d10" onclick="toggleAns('d10')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-d10">倒敘法</div>
+  </div>
+
+  <div class="subsection-title" style="margin-top: 2rem;"><div class="dot"></div>乙部：段落重組及改寫（10條）</div>
+  <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem;">（第11-15題：按時間順序排列下列事件。請填寫順序例如 A-&gt;B-&gt;C）</p>
+
+  <div class="qbox">
+    <div class="q-text">11. A.我把花盆放在窗台上細心照顧。 B.經過一個月的努力，種子終於發芽了。 C.老師派發了向日葵的種子。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr11" onclick="toggleAns('dr11')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr11">C -&gt; A -&gt; B</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">12. A.消防員奮力撲救。 B.大廈高層突然冒出濃煙。 C.大火最終被撲滅，沒有人受傷。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr12" onclick="toggleAns('dr12')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr12">B -&gt; A -&gt; C</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">13. A.媽媽為我準備了豐富的晚餐慶祝。 B.我在全港繪畫比賽中獲得金獎。 C.我花了整整兩星期構思和作畫。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr13" onclick="toggleAns('dr13')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr13">C -&gt; B -&gt; A</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">14. A.狐狸向烏鴉說盡好話。 B.烏鴉高興得張開嘴巴唱歌。 C.肉掉在地上，被狐狸叼走了。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr14" onclick="toggleAns('dr14')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr14">A -&gt; B -&gt; C</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">15. A.警察成功佈下天羅地網。 B.珠寶店發生了嚴重的劫案。 C.匪徒被一網打盡。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr15" onclick="toggleAns('dr15')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr15">B -&gt; A -&gt; C</div>
+  </div>
+
+  <p style="font-size: 13px; color: var(--color-text-secondary); margin-top: 1.5rem; margin-bottom: 1rem;">（第16-20題：運用上述11-15題的事件，將其改寫為「倒敘法」的開頭段落。）</p>
+
+  <div class="qbox">
+    <div class="q-text">16. （改寫第11題開頭）：看著窗台上__________________，我感到無比自豪。這件事要從一個月前說起……</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr16" onclick="toggleAns('dr16')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr16">看著窗台上那盆剛發芽的向日葵，我感到無比自豪。這件事要從一個月前說起……</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">17. （改寫第12題開頭）：這座大廈現在已經回復平靜，誰能想到幾小時前，這裡__________________呢？</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr17" onclick="toggleAns('dr17')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr17">這座大廈現在已經回復平靜，誰能想到幾小時前，這裡曾經發生過驚險的火災呢？</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">18. （改寫第13題開頭）：我吃著媽媽準備的豐富晚餐，心裡甜滋滋的，因為今天我__________________。回想這兩個星期……</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr18" onclick="toggleAns('dr18')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr18">我吃著媽媽準備的豐富晚餐，心裡甜滋滋的，因為今天我在全港繪畫比賽中獲得了金獎。回想這兩個星期……</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">19. （改寫第14題開頭）：烏鴉看著狐狸叼著肉遠去的背影，後悔莫及。這一切都是因為剛才__________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr19" onclick="toggleAns('dr19')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr19">烏鴉看著狐狸叼著肉遠去的背影，後悔莫及。這一切都是因為剛才輕信了狐狸的甜言蜜語。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">20. （改寫第15題開頭）：新聞報道指這宗轟動一時的珠寶店劫案，匪徒終於__________________。案件發生在一個月前.......</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-dr20" onclick="toggleAns('dr20')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-dr20">新聞報道指這宗轟動一時的珠寶店劫案，匪徒終於被警察繩之於法了。案件發生在一個月前.......</div>
+  </div>
+
+
+  <!-- SECTION 4 -->
+  <div id="section4" class="section-header">
+    <div class="section-icon">🎭</div>
+    <h2>四、修辭手法——排比與反復</h2>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><div class="dot"></div>修辭精準對比與心法</div>
+    <p>排比與反復在文章中都能增強節奏感，但結構截然不同，極容易混淆：</p>
+
+    <div class="compare-grid">
+      <div class="compare-card good" style="background: var(--color-background-secondary); border: 1px solid var(--color-border-tertiary);">
+        <div class="compare-label" style="color: #b5451b;">🌟 排比句（結構同，詞語變）</div>
+        <div>必須由<strong>三個或以上</strong>結構相同、語氣一致、內容相關的句子或詞組排列而成。
+        <br>❌ <em>注意：只有兩項（例：「我愛唱歌，也愛跳舞」）只是並列，不算排比！</em></div>
+      </div>
+      <div class="compare-card good" style="background: var(--color-background-secondary); border: 1px solid var(--color-border-tertiary);">
+        <div class="compare-label" style="color: #b5451b;">🌟 反復句（字眼原封不動）</div>
+        <div>為了突出某種強烈的感情（焦急、興奮、悲傷），<strong>刻意原封不動地重複</strong>相同的詞語或句子。
+        <br>例：<em>「太好了！太好了！初雪降臨了！」</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title"><div class="dot"></div>甲部：分辨下列句子運用了哪種修辭手法（10條）</div>
+  <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem;">（填「排比」或「反復」，如兩者皆非填「×」）</p>
+
+  <div class="qbox">
+    <div class="q-text">1. 努力吧！努力吧！只要不放棄，我們一定會成功的！（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r1" onclick="toggleAns('r1')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r1">反復</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">2. 天上的白雲，有的像軟綿綿的羊群，有的像奔騰的野馬，有的像美味的棉花糖。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r2" onclick="toggleAns('r2')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r2">排比</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">3. 我喜歡吃蘋果，哥哥喜歡吃香蕉。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r3" onclick="toggleAns('r3')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r3">×（註：只有兩項，屬並列）</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">4. 回家了！回家了！離鄉多年的遊子終於可以回家了！（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r4" onclick="toggleAns('r4')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r4">反復</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">5. 誠實是一束陽光，能照亮人的心靈；誠實是一座橋樑，能連接人與人的信任；誠實是一把鑰匙，能打開友誼的大門。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r5" onclick="toggleAns('r5')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r5">排比</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">6. 糟了！糟了！我把明天的測驗範圍全忘記了！（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r6" onclick="toggleAns('r6')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r6">反復</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">7. 小河是如此清澈；草原是如此寬廣；大自然是如此奇妙。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r7" onclick="toggleAns('r7')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r7">排比</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">8. 香港的夜景，是繁華的，是璀璨的，是迷人的。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r8" onclick="toggleAns('r8')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r8">排比</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">9. 他跑得很快，像一陣風似的。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r9" onclick="toggleAns('r9')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r9">×（註：屬明喻法）</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">10. 時間，對農夫來說就是豐收；時間，對醫生來說就是生命；時間，對學生來說就是知識。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-r10" onclick="toggleAns('r10')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-r10">排比</div>
+  </div>
+
+  <div class="subsection-title" style="margin-top: 2rem;"><div class="dot"></div>乙部：根據括號內的修辭手法指示，擴寫或完成下列句子（10條）</div>
+
+  <div class="qbox">
+    <div class="q-text">11. （反復）聽到香港隊在奧運奪金的消息，全場觀眾激動地高呼：「__________________！」</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re11" onclick="toggleAns('re11')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re11">贏了！贏了！贏了！</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">12. （排比）花園裡的花朵五彩繽紛，有紅色的玫瑰，有__________________，有__________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re12" onclick="toggleAns('re12')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re12">有黃色的向日葵，有紫色的薰衣草。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">13. （反復）媽媽焦急地到處尋找走失的小狗，一邊跑一邊喊：「__________________！」</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re13" onclick="toggleAns('re13')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re13">豆豆，你在哪裡！豆豆，你在哪裡！</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">14. （排比）星期天，公園裡十分熱鬧，有人在草地上野餐，有人__________________，有人__________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re14" onclick="toggleAns('re14')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re14">有人在跑道上緩步跑，有人在遊樂場裡嬉戲。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">15. （反復）望著快要趕不上的巴士，我心裡著急地唸著：「__________________！」</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re15" onclick="toggleAns('re15')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re15">快點！快點！快點！</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">16. （排比） 大海有時是平靜的，有時是__________________，有時是__________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re16" onclick="toggleAns('re16')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re16">有時是波濤洶湧的，有時是憤怒咆哮的。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">17. （排比）校園充滿了歡樂：操場上有同學奔跑的身影，課室裡有__________________，圖書館裡有__________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re17" onclick="toggleAns('re17')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re17">課室裡有朗朗的讀書聲，圖書館裡有安靜溫習的同學。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">18. （反復）經過不懈的努力，__________________，我終於學會踏單車了！</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re18" onclick="toggleAns('re18')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re18">成功了！成功了！</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">19. （排比）童年是一首歌，童年是__________________，童年是__________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re19" onclick="toggleAns('re19')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re19">童年是一幅色彩斑斕的畫，童年是一首充滿幻想的詩。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">20. （反復）火警鐘響起，老師大聲指揮同學：「__________________！」</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-re20" onclick="toggleAns('re20')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-re20">快走！快走！快走！</div>
+  </div>
+
+
+  <!-- SECTION 5 -->
+  <div id="section5" class="section-header">
+    <div class="section-icon">👤</div>
+    <h2>五、人物描寫方法 語言、動作、表情</h2>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><div class="dot"></div>高階人物刻畫心法</div>
+    <p>刻畫人物切忌使用空泛無力的詞彙（如：「他很生氣」、「她很害怕」）。必須將抽象的情緒拆解為具體的肉體細節反應：</p>
+    
+    <div class="example-box">
+      <div class="example-label">✍️ 語言描寫</div>
+      <div class="example-text">揭示說話內容及獨特的語氣、音量。</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">✍️ 表情（神態）描寫</div>
+      <div class="example-text">捕捉面部五官的細微變化（例如：生氣時「雙眉倒豎」、害怕時「面色蒼白」）。</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">✍️ 動作描寫</div>
+      <div class="example-text">刻畫肢體行為（例如：緊張時「緊緊抓著衣角」）。</div>
+    </div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">潘SIR深度提醒：三合一寫作大法</div>
+        <div>真正高層次的寫作，會將這三種方法**融會貫通於一體**，令角色活靈活現。
+        <br><em>範例：玲玲擔心得臉色發白（表情），兩隻手緊緊抓著衣角（動作），低聲嘀咕：「怎麼辦？我忘記了今天是中文測驗日。」（語言）</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title"><div class="dot"></div>甲部：分辨下列句子運用了哪種或哪些人物描寫方法（10條）</div>
+  <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem;">（填代號，可選多於一項：A. 語言 / B. 表情 / C. 動作）</p>
+
+  <div class="qbox">
+    <div class="q-text">1. 弟弟看著櫥窗裡的玩具，眼睛發亮，嘴角忍不住往上揚。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p1" onclick="toggleAns('p1')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p1">B. 表情</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">2. 裁判一吹哨子，志明便像獵豹般向前衝刺，雙手奮力擺動。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p2" onclick="toggleAns('p2')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p2">C. 動作</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">3. 妹妹扁著小嘴，低聲說：「媽媽，對不起，我不小心把杯子摔破了。」（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p3" onclick="toggleAns('p3')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p3">A. 語言, B. 表情</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">4. 那個無家者雙手顫抖著，接過義工送給他的熱飯盒。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p4" onclick="toggleAns('p4')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p4">C. 動作</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">5. 班長站在講台上，充滿自信地宣佈：「今年的聖誕聯歡會由我們班負責籌備！」（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p5" onclick="toggleAns('p5')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p5">A. 語言, B. 表情, C. 動作（註：充滿自信屬神態/表情，宣佈屬語言，站屬動作）</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">6. 聽到這個壞消息，她頓時面如死灰，雙眼睜得大大的，呆立在當場。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p6" onclick="toggleAns('p6')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p6">B. 表情, C. 動作</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">7. 爺爺氣喘吁吁地扶著樓梯扶手，慢慢地一步一步往上爬。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p7" onclick="toggleAns('p7')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p7">B. 表情, C. 動作（註：氣喘吁吁包含神態表情，扶、爬屬動作）</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">8. 老師皺著眉頭，搖了搖頭嘆息道：「你們這次測驗的成績實在令人失望。」（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p8" onclick="toggleAns('p8')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p8">A. 語言, B. 表情, C. 動作</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">9. 志明看著滿分的成績表，臉上露出了燦爛的笑容。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p9" onclick="toggleAns('p9')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p9">B. 表情</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">10. 小偷左顧右盼，躡手躡腳地靠近那輛名貴的跑車。（ ）</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-p10" onclick="toggleAns('p10')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-p10">B. 表情, C. 動作（註：左顧右盼屬神態/動作，躡手躡腳屬動作）</div>
+  </div>
+
+  <div class="subsection-title" style="margin-top: 2rem;"><div class="dot"></div>乙部：根據提示的情緒或性格，運用指定的描寫方法完成句子（10條）</div>
+
+  <div class="qbox">
+    <div class="q-text">11. （情緒：高興 / 方法：動作+表情）得知明天不用上學，志明________________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe11" onclick="toggleAns('pe11')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe11">開心地跳了起來(動作)，臉上掛著無比燦爛的笑容(表情)。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">12. （情緒：憤怒 / 方法：語言+動作）看到同學故意破壞公物，班長____________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe12" onclick="toggleAns('pe12')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe12">氣得指著他(動作)大罵：「你怎麼可以這樣自私！」(語言)。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">13. （情緒：害怕 / 方法：表情+動作）走進漆黑的鬼屋，妹妹__________________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe13" onclick="toggleAns('pe13')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe13">嚇得面色蒼白(表情)，雙手緊緊抓著我的手臂不放(動作)。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">14. （情緒：焦急 / 方法：語言+表情）看著手錶上指著八點的指針，哥哥____________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe14" onclick="toggleAns('pe14')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe14">急得滿頭大汗(表情)，大喊：「糟了，要遲到了！」(語言)。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">15. （性格：有禮貌 / 方法：語言+動作）遇到鄰居陳婆婆，小明__________________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe15" onclick="toggleAns('pe15')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe15">微微鞠躬(動作)，微笑著說：「陳婆婆，早晨！」(語言)。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">16. （情緒：傷心 / 方法：表情+動作）心愛的氣球飛走了，小男孩__________________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe16" onclick="toggleAns('pe16')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe16">眼眶紅紅的(表情)，忍不住蹲在地上(動作)哭了起來。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">17. （情緒：驚訝 / 方法：語言+表情）看到魔術師大變活人，觀眾__________________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe17" onclick="toggleAns('pe17')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe17">驚訝得張大了嘴巴(表情)，紛紛讚嘆：「太神奇了！」(語言)。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">18. （性格：調皮 / 方法：動作）趁著老師轉身寫黑板，強強__________________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe18" onclick="toggleAns('pe18')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe18">偷偷地把手裡的紙飛機扔向前面的同學(動作)。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">19. （情緒：疲倦 / 方法：表情+動作）經過一整天的遠足，爸爸__________________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe19" onclick="toggleAns('pe19')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe19">累得雙眼無神(表情)，一回到家便整個人癱倒在沙發上(動作)。</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-text">20. （情緒：得意/驕傲 / 方法：語言+動作）拿著繪畫比賽的冠軍獎盃，她____________________________________________。</div>
+    <div class="ans-line"></div>
+    <button class="btn-ans" id="btn-pe20" onclick="toggleAns('pe20')">👀 觀看答案</button>
+    <div class="ans-content" id="ans-pe20">高高舉起獎盃(動作)，自豪地說：「這是我努力得來的榮耀！」(語言)。</div>
+  </div>
+
+
+  <!-- FOOTER -->
+  
+  <!-- 返回目錄連結 -->
+  <div style="margin-top: 2rem; text-align: center;">
+    <a href="index.html" style="display: inline-block; padding: 0.8rem 1.6rem; background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); color: var(--color-text-primary); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s ease;" onmouseover="this.style.borderColor='#6b705c'; this.style.color='#6b705c'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--color-border-tertiary)'; this.style.color='var(--color-text-primary)'; this.style.transform='none'">
+      ↩️ 返回筆記目錄
+    </a>
+  </div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -7,7 +7,8 @@ folders = {
         "tag": "學生個人專屬",
         "categories": {
             "語文基礎與修辭": [
-                {"file": "s3_rhetoric_fianl.html", "title": "修辭學總複習", "desc": "語文基礎強化"}
+                {"file": "s3_rhetoric_fianl.html", "title": "修辭學總複習", "desc": "語文基礎強化"},
+                {"file": "Zirui_Chinese_Basics_Final.html", "title": "語文基礎 Final 練習", "desc": "綜合語文基礎練習"}
             ],
             "說話與寫作技巧": [
                 {"file": "四格看圖說故事.html", "title": "四格看圖說故事", "desc": "看圖說話訓練"}
