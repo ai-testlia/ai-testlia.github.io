@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜唐詩三首全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6f6f4;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>唐詩三首<br>DSE文憑試高級深造筆記</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、 核心字詞深度義訓（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、 各詩意象與寫作手法剖析</a></li>
+      <li><a href="#sec-3">三、 DSE 跨篇章比較：三位詩人的情懷與境界</a></li>
+      <li><a href="#sec-4">四、 DSE 閱卷陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、 文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、 核心字詞深度義訓（DSE必考語譯點）</h2>
+  </div>
+  <p>《唐詩三首》包含了王維的《山居秋暝》、李白的《月下獨酌》（其一）及杜甫的《登樓》。這三首詩涵蓋了盛唐至中唐不同的時代背景與個人情懷。以下為必背的摘星字詞：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">出處</th>
+        <th style="width: 15%;">核心字詞</th>
+        <th style="width: 25%;">精確文言釋義</th>
+        <th>課文原句語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>《山居》</td>
+        <td><b>暝</b></td>
+        <td>日落 / 傍晚</td>
+        <td>「山居秋<b>暝</b>」<br><small>解析：點出時間是秋天的傍晚，為全詩定下清幽的基調。</small></td>
+      </tr>
+      <tr>
+        <td>《山居》</td>
+        <td><b>歇</b></td>
+        <td>凋謝 / 衰敗</td>
+        <td>「隨意春芳<b>歇</b>」<br><small>解析：動詞。任憑春天的花草凋謝。帶出詩人對秋天景色的偏愛。</small></td>
+      </tr>
+      <tr>
+        <td>《月下》</td>
+        <td><b>解</b></td>
+        <td>懂得 / 理解</td>
+        <td>「月既不<b>解</b>飲」<br><small>解析：動詞。指月亮根本不懂得飲酒，突顯詩人嘗試在無情之物中尋找慰藉的孤獨。</small></td>
+      </tr>
+      <tr>
+        <td>《月下》</td>
+        <td><b>將</b></td>
+        <td>和 / 與 / 帶領</td>
+        <td>「暫伴月<b>將</b>影」<br><small>解析：連詞/介詞。指姑且與明月和影子作伴。</small></td>
+      </tr>
+      <tr>
+        <td>《月下》</td>
+        <td><b>期 / 邈</b></td>
+        <td>約定 / 遙遠</td>
+        <td>「相<b>期邈</b>雲漢」<br><small>解析：指與月和影相約在遙遠的銀河（雲漢）再聚。表現詩人超脫世俗的道家境界。</small></td>
+      </tr>
+      <tr>
+        <td>《登樓》</td>
+        <td><b>客心</b></td>
+        <td>作客異鄉的愁苦</td>
+        <td>「花近高樓傷<b>客心</b>」<br><small>解析：杜甫當時流落蜀地，登樓看見繁花，反惹起流落異鄉的傷感。</small></td>
+      </tr>
+      <tr>
+        <td>《登樓》</td>
+        <td><b>聊</b></td>
+        <td>姑且 / 勉強</td>
+        <td>「日暮<b>聊</b>為《梁甫吟》」<br><small>解析：副詞。指在日落時分姑且吟誦《梁甫吟》，抒發報國無門的無奈。</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、 各詩意象與寫作手法剖析</h2>
+  </div>
+  
+  <div class="card">
+    <h3><span class="dot classical"></span>1. 王維《山居秋暝》（山水田園詩）</h3>
+    <ul>
+      <li><strong>善用倒裝，平添動感：</strong><br>「竹喧歸浣女，蓮動下漁舟」原句語序應為「浣女歸竹喧，漁舟下蓮動」。詩人將動詞「歸」和「下」前置，突出了動作，使靜謐的秋夜充滿生機與活力，而且配合了律詩的平仄格律。</li>
+      <li><strong>反襯手法（以動襯靜）：</strong><br>以清泉流動的聲音、浣衣女子的喧鬧聲、漁舟划過蓮葉的聲響，反襯出秋夜山間的極度幽靜。</li>
+      <li><strong>反用典故：</strong><br>「隨意春芳歇，王孫自可留」反用了《楚辭‧招隱士》中「王孫兮歸來，山中兮不可以久留」的典故。原意是勸人離開山林，王維卻反過來說任憑春草凋謝，山中秋景依然迷人，王孫（自喻）自可留在山中。表達了對官場的厭倦及對隱居生活的嚮往。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>2. 李白《月下獨酌》（浪漫主義古詩）</h3>
+    <p>全詩以「獨」字為核心，展現了詩人情感的四次起伏（先抑後揚的步移法）：</p>
+    <div class="flow">
+      <div class="flow-step"><strong>抑（孤獨）：</strong>「花間一壺酒，獨酌無相親。」身處花間美景，卻無人共飲，倍感淒涼。</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><strong>揚（狂放）：</strong>「舉杯邀明月，對影成三人。」運用<b>擬人手法</b>，主動邀請明月和影子共飲，氣氛頓時變得熱鬧。</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><strong>抑（轉念落寞）：</strong>「月既不解飲，影徒隨我身。」猛然驚覺月亮不懂飲酒，影子也只是白白跟隨自己，熱鬧終究是虛幻的。</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><strong>揚（昇華超脫）：</strong>「永結無情遊，相期邈雲漢。」詩人決定超越世俗的羈絆，與這兩個「無情之物」結下忘年之交，相約在九天銀河重聚。表現出達觀超脫的道家精神。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>3. 杜甫《登樓》（現實主義律詩）</h3>
+    <ul>
+      <li><strong>借景抒情與反襯：</strong><br>「花近高樓傷客心」，以繁花盛開的明媚春色（樂景），反襯詩人流落他鄉、國家多難的哀傷（悲情）。</li>
+      <li><strong>借喻與雙關（極高頻考點）：</strong><br>
+        「<b>玉壘浮雲變古今</b>」：以浮雲的變幻莫測，借喻世事興衰及大唐政局的動盪不安。<br>
+        「<b>北極朝廷終不改</b>」：以北極星居天正中、恆久不動，借喻大唐國運安穩，不容外族（吐蕃/寇盜）侵犯。
+      </li>
+      <li><strong>借古諷今：</strong><br>「可憐後主還祠廟」，借蜀漢後主劉禪寵信宦官而亡國的史事，暗諷當時唐代宗同樣寵信宦官，導致國勢衰弱。</li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、 DSE 跨篇章比較：三位詩人的情懷與境界</h2>
+  </div>
+  <p>DSE 試卷極常要求考生將三首詩的思想感情進行對比。請熟記以下分析框架：</p>
+
+  <div class="compare-grid">
+    <div class="compare-card good">
+      <div class="compare-header">🌿 王維：清雅脫俗（出世）</div>
+      <p>王維信奉佛教，追求內心的平靜。面對官場的腐敗，他選擇<b>退避</b>，寄情山水。他的情懷是<b>恬淡、閒適、安於隱居</b>的。在《山居秋暝》中，他看見浣女與漁舟的純樸生活，便堅定了「王孫自可留」的歸隱決心。</p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">🍷 李白：狂放超脫（遊世）</div>
+      <p>李白深受道家思想影響。他有政治抱負卻不獲朝廷重用，內心極度孤寂。但他不會沉溺於悲痛，而是發揮極致的浪漫想像，與日月星辰對話（相期邈雲漢）。他的情懷是<b>狂放不羈、孤芳自賞、自我超脫</b>的。</p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">🏛️ 杜甫：憂國憂民（入世）</div>
+      <p>杜甫是典型的儒家知識分子。即使自己流落異鄉、生活困苦，他登樓時首先想到的仍是「萬方多難」。他的情懷是<b>沉鬱頓挫、心繫家國、悲天憫人</b>的。在《登樓》中，他借「日暮聊為《梁甫吟》」抒發自己空有報國之志卻苦無出路的無奈。</p>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、 DSE 閱卷陷阱與常犯錯誤對比</h2>
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 潘SIR提醒：</strong>切勿以為王維的「王孫自可留」是指「勸王孫（貴族）留在這裏」。這裏的「王孫」是詩人的自喻 / 自稱，是指<b>他自己</b>決定留在山中隱居！
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 凡人失分答法</div>
+      <p><strong>題目：</strong>李白在《月下獨酌》中寫「舉杯邀明月，對影成三人」，這反映了他當時心情十分開心，真的嗎？</p>
+      <p><strong>作答：</strong>是的，他很開心。因為他本來是一個人喝酒很悶，後來他請了月亮和影子一起喝，變成了三個人，氣氛變得很熱鬧，所以他心情變得很高興。</p>
+      <p><em>關鍵敗因：只看到表面的「熱鬧」，沒有看出這是一種「以樂寫哀」的浪漫想像，完全錯失了詩人深層的孤獨感。</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>李白在《月下獨酌》中寫「舉杯邀明月，對影成三人」，這反映了他當時心情十分開心，真的嗎？</p>
+      <p><strong>作答：</strong>不是（1分）。這其實是詩人運用浪漫的想像，以擬人手法邀請明月和影子共飲，製造出表面熱鬧的氣氛（1分）。但這種「熱鬧」只是虛幻的，詩人之所以要邀請無情的月和影，正正反映出現實中他知音難求、無人陪伴的極度空虛與寂寞（1分）。這種寫法是「以樂襯哀」，使詩人內心的孤獨感顯得更為深沉（1分）。</p>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">🔥</div>
+    <h2>五、 文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 在王維《山居秋暝》中，「竹喧歸浣女，蓮動下漁舟」兩句在句式上有甚麼特點？（2分）這安排對表達詩境有何作用？（2分）</div>
+    <div class="example-box" style="margin-top:0.5rem;">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>句式特點：</strong>這兩句運用了<b>倒裝句</b>（1分）。原本應為「浣女歸而竹喧，漁舟下而蓮動」，詩人將動詞「歸」和「下」前置（1分）。</p>
+      <p><strong>作用：</strong>這種倒裝句法突出了「歸」和「下」的動作，令原本寧靜的山林平添了一份生機與動感（1分）。同時，這種「未見其人，先聞其聲/先見其動」的描寫順序，更符合真實的感知過程，把山村傍晚村民勤勞樸實的生活寫得生動傳神（1分）。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 杜甫在《登樓》一詩中，如何通過對歷史人物的懷想來抒發個人情懷？試以「可憐後主還祠廟，日暮聊為《梁甫吟》」兩句加以分析說明。（6分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p>杜甫運用了<b>借古諷今</b>及<b>自比</b>的手法來抒發情懷。（1分）</p>
+      <p>首先，他提到「可憐後主還祠廟」，是以三國時蜀漢後主劉禪寵信宦官而招致亡國的歷史（1分），暗諷當時唐代宗同樣寵信宦官，導致朝政敗壞、外族入侵的時弊，抒發了他憂國憂民的沉痛心情。（2分）</p>
+      <p>其次，他寫「日暮聊為《梁甫吟》」，《梁甫吟》是諸葛亮隱居時常吟誦的詩歌。杜甫以此自比諸葛亮（1分），慨歎自己雖然擁有如諸葛亮般濟世報國的才華和志向，卻未能如他一樣遇到明君賞識，抒發了自己懷才不遇、報國無門的無奈與抑鬱。（2分）</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：分析「借景抒情」</span>
+    DSE 經常要求考生分析詩歌如何「借景抒情」。請套用以下滿分結構：<br>
+    <strong>【指明感官與景物】</strong>詩人運用了（視覺/聽覺等）描寫了（摘錄詩句並語譯景物）。<br>
+    <strong>【點出景物特徵與氣氛】</strong>這些景物呈現出（生機盎然/蕭瑟淒涼/空曠寧靜）的特徵，營造了……的氣氛。<br>
+    <strong>【扣連內心情感】</strong>此情此景，觸發了詩人（樂景襯悲/觸景傷情/情景交融），從而抒發了他（思鄉/憂國/嚮往隱居）的深沉情感。
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

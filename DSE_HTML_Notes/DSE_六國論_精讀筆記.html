@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜蘇洵《六國論》全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #444444;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f6f6f4;
+    --color-border-tertiary: rgba(0,0,0,0.15);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>蘇洵《六國論》<br>DSE文憑試高級深造筆記</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、核心字詞深度義訓（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、經典語句文法與特殊句式拆解</a></li>
+      <li><a href="#sec-3">三、說理框架與論證手法剖析</a></li>
+      <li><a href="#sec-4">四、DSE 閱卷陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、核心字詞深度義訓（DSE必考語譯點）</h2>
+  </div>
+  <p>掌握文言字詞的精確含義是奪取DSE文言部分滿分的基石。《六國論》是一篇極為嚴密的政論文，當中不少一字多義、古今異義詞及詞類活用是文憑試的搶分關鍵。以下為必背的摘星字詞：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">核心字詞</th>
+        <th style="width: 25%;">精確文言釋義</th>
+        <th>課文原句語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>兵</b></td>
+        <td>兵器／武器</td>
+        <td>「非<b>兵</b>不利，戰不善。」<br><small>解析：名詞。指六國滅亡並非因為武器不鋒利。切忌誤譯為「士兵」。</small></td>
+      </tr>
+      <tr>
+        <td><b>虧</b></td>
+        <td>虧損／削弱</td>
+        <td>「賂秦而力<b>虧</b>，破滅之道也。」<br><small>解析：動詞。指割地賂秦導致自身國力嚴重虧損。</small></td>
+      </tr>
+      <tr>
+        <td><b>率</b></td>
+        <td>全部／一概</td>
+        <td>「六國互喪，<b>率</b>賂秦耶？」<br><small>解析：副詞。表範圍，意為「無一例外地、全都」。</small></td>
+      </tr>
+      <tr>
+        <td><b>完</b></td>
+        <td>保全／完整</td>
+        <td>「蓋失強援，不能獨<b>完</b>。」<br><small>解析：動詞。指失去強大的外援後，無法單獨保全自己的國家。</small></td>
+      </tr>
+      <tr>
+        <td><b>厭</b></td>
+        <td>滿足／饜足</td>
+        <td>「暴秦之欲無<b>厭</b>。」<br><small>解析：通假字，通「饜」。指秦國的貪慾永遠不會滿足。</small></td>
+      </tr>
+      <tr>
+        <td><b>彌</b></td>
+        <td>更加／愈加</td>
+        <td>「奉之<b>彌</b>繁，侵之愈急。」<br><small>解析：副詞，與後句的「愈」相對應，有程度遞進之意。</small></td>
+      </tr>
+      <tr>
+        <td><b>判</b></td>
+        <td>分辨／決定</td>
+        <td>「故不戰而強弱勝負已<b>判</b>矣。」<br><small>解析：動詞。指雙方的強弱勝負已經分得很清楚了。</small></td>
+      </tr>
+      <tr>
+        <td><b>卻</b></td>
+        <td>擊退／使……退卻</td>
+        <td>「後秦擊趙者再，李牧連<b>卻</b>之。」<br><small>解析：動詞的使動用法。意為「使秦軍退卻」，即擊退。</small></td>
+      </tr>
+      <tr>
+        <td><b>洎</b></td>
+        <td>及至／等到</td>
+        <td>「<b>洎</b>牧以讒誅，邯鄲為郡。」<br><small>解析：時間副詞。常用於帶出歷史事件的重要轉折點。</small></td>
+      </tr>
+      <tr>
+        <td><b>劫</b></td>
+        <td>威逼／脅迫</td>
+        <td>「而為秦人積威之所<b>劫</b>。」<br><small>解析：動詞，處於被動句式中。指精神及軍事力量上的強迫威脅。</small></td>
+      </tr>
+      <tr>
+        <td><b>苟</b></td>
+        <td>如果／假使</td>
+        <td>「<b>苟</b>以天下之大，而從六國破亡之故事。」<br><small>解析：連詞，表假設。引出全文借古諷今的終極核心議論。</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、經典語句文法與特殊句式拆解</h2>
+  </div>
+  <p>蘇洵的文筆犀利，常運用文言特殊句式來加強論辯的氣勢。掌握這些句式能讓你在翻譯題中萬無一失：</p>
+
+  <div class="keyword-grid">
+    <div class="kw-box">
+      <div class="kw-word">1. 被動句：「為……之所……」</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「<b>為</b>秦人積威<b>之所</b>劫。」</p>
+        <p><strong>精確語譯：</strong><b>被</b>秦國長久以來積累的威勢<b>所</b>脅迫。</p>
+        <p><strong>滿分技巧：</strong>文言文中「為……所……」是標準的被動結構標誌。翻譯時必須補出「被」字。</p>
+      </div>
+    </div>
+    
+    <div class="kw-box">
+      <div class="kw-word">2. 詞類活用：名詞作動詞</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「以事秦之心，<b>禮</b>天下之奇才。」</p>
+        <p><strong>精確語譯：</strong>用侍奉秦國的心意，來<b>禮待（厚待）</b>天下間的奇才。</p>
+        <p><strong>滿分技巧：</strong>「禮」原為名詞（禮節），此處帶了賓語「天下之奇才」，故活用為動詞，解作「以禮相待」。</p>
+      </div>
+    </div>
+
+    <div class="kw-box">
+      <div class="kw-word">3. 判斷句</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「賂秦而力虧，破滅之道<b>也</b>。」</p>
+        <p><strong>精確語譯：</strong>割地賄賂秦國而使國力虧損，這<b>（就）是</b>導致國家滅亡的原因<b>啊</b>。</p>
+        <p><strong>滿分技巧：</strong>句末的「也」字是判斷句的標誌，語譯時必須補上「是」字以呈現判斷語氣。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、說理框架與論證手法剖析</h2>
+  </div>
+  <p>《六國論》的結構極為嚴謹，被譽為「先破後立」及「借古諷今」的典範。請緊記以下的論證脈絡：</p>
+
+  <div class="flow">
+    <div class="flow-step"><strong>1. 開門見山，先破後立（總論）</strong><br>
+    - <b>破：</b>反駁一般人認為六國滅亡是因為「兵不利，戰不善」。<br>
+    - <b>立：</b>提出中心論點「六國破滅，弊在賂秦」，並確立兩個分論點（賂者力虧、不賂者失強援）。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>2. 正面論證：賂秦而力虧（本論一）</strong><br>
+    論述韓、魏、楚三國割地賂秦，結果不僅令自己國力虧損，更助長了秦國無厭的貪慾（抱薪救火），終致「不戰而強弱勝負已判」。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>3. 反面論證：不賂者以賂者喪（本論二）</strong><br>
+    以齊、燕、趙三國為例，指出他們雖未賂秦，但因賂秦國家覆滅而失去強大外援（不能獨完）。齊國因「與嬴而不助五國」；燕國因「以荊卿為計」；趙國因聽信讒言「殺李牧」，最終皆被秦滅。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>4. 借古諷今，揭示主旨（結論）</strong><br>
+    筆鋒一轉，將六國與北宋作對比。指出北宋擁有「天下之大」，卻對遼、西夏採取輸幣求和的退讓政策。警告當朝統治者切勿重蹈六國「為積威之所劫」的覆轍。</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>滿分寫作手法剖析：論證手法的極致運用</h3>
+    <ul>
+      <li><strong>對比論證（極高頻考點）：</strong><br>
+      「較秦之所得，與戰勝而得者，其實百倍；諸侯之所亡，與戰敗而亡者，其實亦百倍。」<br>
+      作者將秦國「因受賂所得」與「因戰勝所得」對比，以及諸侯「因賂秦所失」與「因戰敗所失」對比。強烈突顯出割地賂秦只會坐大敵人，削弱自己，論證賂秦的嚴重禍害。</li>
+      <li><strong>比喻論證（引用論證）：</strong><br>
+      「古人云：『以地事秦，猶抱薪救火，薪不盡，火不滅。』」<br>
+      以「薪（柴草）」比喻諸侯有限的土地，以「火」比喻秦國無限的貪慾。生動形象地說明以地賂秦不但無法換取長久和平，反而會加劇敵人的侵略野心。</li>
+      <li><strong>設問：</strong><br>
+      「六國互喪，率賂秦耶？」自問自答，引出「不賂者以賂者喪」的分論點，使文章波瀾起伏，引人入勝。</li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、DSE 閱卷陷阱與常犯錯誤對比</h2>
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 潘SIR提醒：</strong>DSE 極常考核《六國論》中「借古諷今」的具體對應關係。很多同學只答「借古諷今」四個字，卻完全沒有點出「北宋」、「遼」、「西夏」等時代背景，導致大量失分！
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 凡人失分答法</div>
+      <p><strong>題目：</strong>作者在文末寫道：「苟以天下之大，而從六國破亡之故事，是又在六國下矣。」這句話有甚麼言外之意？（4分）</p>
+      <p><strong>典型劣答：</strong>這句話的意思是，如果擁有那麼大的天下，卻跟着六國滅亡的舊事去做，就比六國更差了。作者想勸告現在的皇帝不要像六國一樣把土地割給別人，否則就會滅亡。</p>
+      <p><em>關鍵敗因：完全沒有指出「天下之大」具體是指哪個朝代，也沒有指出他們面對的外敵是誰，更沒有點出當時的政策是甚麼。</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>作者在文末寫道：「苟以天下之大，而從六國破亡之故事，是又在六國下矣。」這句話有甚麼言外之意？（4分）</p>
+      <p><strong>星級滿分答法：</strong>作者運用了<b>借古諷今</b>的手法（1分）。「天下之大」實指作者身處的<b>北宋朝廷</b>，當時北宋面對<b>遼國和西夏</b>的軍事威脅，採取了<b>姑息退讓、輸幣求和</b>的外交政策（1分）。作者指出六國國力雖弱，但仍有戰勝秦國的可能；北宋身為一統天下的大國，如果仍像六國般屈辱求和，最終只會重蹈覆轍，連六國也不如（1分）。藉此<b>諷諫北宋統治者應以史為鑑，改變軟弱的對外政策，積極抗敵</b>（1分）。</p>
+      <p><em>摘星要訣：必須精準點出「北宋」、「遼／西夏」、「輸幣求和政策」以及「諷諫」的最終目的。</em></p>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">🔥</div>
+    <h2>五、文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 蘇洵在《六國論》中運用了「先破後立」的手法，試指出作者所「破」的是甚麼論點，然後又「立」了甚麼論點。（4 分）</div>
+    <div class="example-box" style="margin-top:0.5rem;">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>「破」：</strong>作者在文章開首，先反駁（破除了）一般人認為六國滅亡是因為「兵器不鋒利（兵不利）」和「作戰不得法（戰不善）」的錯誤軍事觀點。（2分）</p>
+      <p><strong>「立」：</strong>然後作者確立自己全新的中心論點：六國破滅的根本原因在於割地討好秦國（弊在賂秦）。其中賂秦的國家因割地導致國力虧損而亡；不賂秦的國家則因失去強大外援，最終亦被秦國消滅。（2分）</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 試根據以下《六國論》的引文，回答所附問題。<br>
+    「齊人未嘗賂秦，終繼五國遷滅，何哉？與嬴而不助五國也。五國既喪，齊亦不免矣。」<br>
+    (1) 引文運用了甚麼修辭手法？（1 分）<br>
+    (2) 這種修辭手法如何加強說理效果？試以引文為例，略加說明。（2 分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>(1) 修辭手法：</strong>設問。（1分）</p>
+      <p><strong>(2) 說理效果：</strong>作者先刻意提出疑問：「為甚麼齊國沒有賂秦，最終卻跟着五國滅亡呢？」（1分），然後再自行回答：「是因為齊國親附秦國而不幫助其他五國」。這種自問自答的方式，能引起讀者的注意和思考，從而更深刻地帶出齊國滅亡的真正原因，有力地論證了「不賂者以賂者喪」的分論點，加強了說服力。（1分）</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">3</span> 蘇洵在《六國論》一文中認為六國「有可以不賂而勝之之勢」，當中的「勢」是指甚麼？他提出了甚麼具體的戰略建議？這對北宋朝廷又有何啟示？（6 分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>「勢」與具體戰略：</strong>「勢」是指六國可以不割地求和而戰勝秦國的有利形勢（1分）。作者建議，假如韓、魏、楚三國不割地賂秦求和；齊國不親附秦國；燕國不魯莽派荊軻行刺秦王；趙國不聽信讒言殺害良將李牧（1分）；並且各國將割讓給秦國的土地，用來封賞天下間的謀士，將事奉秦國的苦心，用來禮待天下間的奇才，羅致人才為六國效力（1分），六國同心合力對抗秦國，便絕對有戰勝秦國的機會（1分）。</p>
+      <p><strong>對北宋的啟示：</strong>這其實是作者借古諷今，暗中向北宋朝廷獻策（1分）。他啟示北宋統治者不應再向遼和西夏屈辱求和、繳納歲幣，而應該把這些財富用來招攬天下的人才與謀臣，團結國力，積極備戰，這樣才能有效抵禦外族的侵略，保衞國家（1分）。</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：分析「借古諷今」的手法</span>
+    當題目問及《六國論》的主旨或結尾感慨時，必須套用此公式：<br>
+    <strong>【表面論歷史】</strong>作者表面上分析六國滅亡的原因在於「弊在賂秦」及「不賂者以賂者喪」。<br>
+    <strong>【實際論時政】</strong>實際上是暗喻北宋面對（遼、西夏）的威脅時，採取（輸幣求和／納貢）的退讓政策。<br>
+    <strong>【揭示大道理】</strong>作者藉此<b>諷諫</b>北宋統治者，切勿重蹈六國「為積威之所劫」的覆轍，必須以史為鑑，招攬人才，積極抗敵。
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

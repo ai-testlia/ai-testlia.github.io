@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中六・文憑試十二篇範文深造系列｜韓愈《師說》全方位摘星筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #cccccc;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1c;
+      --color-border-tertiary: rgba(255,255,255,0.2);
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    line-height: 1.8;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 45px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 文言文：霧鼠尾草 */
+  .hero.classical { background: #D5D8C5; color: #1A2015; }
+  .hero.classical .hero-tag {
+    border: 1px solid rgba(26,32,21,0.3);
+    color: rgba(26,32,21,0.65);
+  }
+  .hero.classical p { color: rgba(26,32,21,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; font-family: 'Noto Serif TC', serif; font-size: 1.2rem; }
+  .toc ul { list-style: none; padding-left: 0; margin: 0; }
+  .toc li { margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .toc li::before { content: "•"; color: #6b705c; font-weight: bold; width: 15px; display: inline-block; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .toc a:hover { color: #6b705c; text-decoration: underline; }
+
+  /* 分區標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: 'Noto Serif TC', serif;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .dot.classical { background: #6b705c; }
+
+  /* 關鍵詞/字詞格言 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .kw-box {
+    border-left: 4px solid #6b705c;
+    background: var(--color-background-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .kw-word { font-weight: 700; color: #6b705c; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .kw-def { color: var(--color-text-primary); }
+
+  /* 示例與對比 */
+  .example-box {
+    background: rgba(107, 112, 92, 0.06);
+    border-left: 4px solid #6b705c;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #6b705c;
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; }
+  
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+  .compare-card {
+    padding: 1.4rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .compare-card.bad { background: rgba(211, 47, 47, 0.03); border-color: rgba(211, 47, 47, 0.25); }
+  .compare-card.good { background: rgba(46, 125, 50, 0.03); border-color: rgba(46, 125, 50, 0.25); }
+  .compare-header { font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; }
+  .bad .compare-header { color: #d32f2f; }
+  .good .compare-header { color: #2e7d32; }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.8rem 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .alert::before { margin-right: 0.9rem; font-size: 1.3rem; line-height: 1; }
+  .alert.tip { background: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.25); }
+  .alert.tip::before { content: '💡'; }
+  .alert.warn { background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.25); }
+  .alert.warn::before { content: '⚠️'; }
+  .alert.success { background: rgba(76, 175, 80, 0.08); border: 1px solid rgba(76, 175, 80, 0.25); }
+  .alert.success::before { content: '✅'; }
+
+  /* 公式／框架框 */
+  .formula {
+    background: #232635;
+    color: #f1f5f9;
+    padding: 1.6rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    margin: 1.8rem 0;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula-title { font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem; display: block; }
+
+  /* 流程圖結構 */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-step { background: var(--color-background-secondary); padding: 0.8rem 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .flow-arrow { text-align: center; color: #6b705c; font-weight: bold; font-size: 1.2rem; margin: 0.1rem 0; }
+
+  /* 練習題 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+  .q-num {
+    display: inline-block;
+    background: #6b705c;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .q-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; display: inline-block; }
+  .q-ans {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+  }
+  .ans-tag { font-weight: 700; color: #2e7d32; display: block; margin-bottom: 0.4rem; }
+
+  /* 表格優化 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    background: var(--color-background-primary);
+  }
+  th, td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: rgba(107, 112, 92, 0.12); font-weight: 700; color: var(--color-text-primary); font-family: 'Noto Serif TC', serif; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, table, .compare-grid { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  
+  <div class="hero classical">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>韓愈《師說》<br>DSE文憑試高級深造筆記</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>探索學習路徑</h3>
+    <ul>
+      <li><a href="#sec-1">一、 核心字詞深度義訓（DSE必考語譯點）</a></li>
+      <li><a href="#sec-2">二、 經典語句文法與特殊句式拆解</a></li>
+      <li><a href="#sec-3">三、 論證框架：三組對比的絕妙運用</a></li>
+      <li><a href="#sec-4">四、 DSE 閱卷陷阱與常犯錯誤對比</a></li>
+      <li><a href="#sec-5">五、 文憑試模擬高級試題與星級答案</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-1">
+    <div class="section-icon">📚</div>
+    <h2>一、 核心字詞深度義訓（DSE必考語譯點）</h2>
+  </div>
+  <p>韓愈提倡「古文運動」，其用詞精鍊且具古意。在《師說》中，許多詞彙擁有「古今異義」或「一字多義」，是文憑試卷一的必考重點：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 18%;">核心字詞</th>
+        <th style="width: 25%;">精確文言釋義</th>
+        <th>課文原句語境與深度解析</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>學者</b></td>
+        <td>求學的人</td>
+        <td>「古之<b>學者</b>必有師。」<br><small>解析：古今異義。古義指求學的人；今義指有專門學問的學術專家。</small></td>
+      </tr>
+      <tr>
+        <td><b>師</b> (多義)</td>
+        <td>1. 老師 (名詞)<br>2. 學習 / 效法 (動詞)<br>3. 以...為師 (意動)</td>
+        <td>1. 古之學者必有<b>師</b>。(老師)<br>2. 不恥相<b>師</b>。(學習)<br>3. 吾從而<b>師</b>之。(以他為老師)</td>
+      </tr>
+      <tr>
+        <td><b>受</b></td>
+        <td>傳授、教導</td>
+        <td>「師者，所以傳道、<b>受</b>業、解惑也。」<br><small>解析：通假字，通「授」。指傳授學業。</small></td>
+      </tr>
+      <tr>
+        <td><b>固</b></td>
+        <td>本來</td>
+        <td>「其聞道也，<b>固</b>先乎吾。」<br><small>解析：副詞，意為本來。指他懂得道理本來就比我早。</small></td>
+      </tr>
+      <tr>
+        <td><b>庸</b></td>
+        <td>豈、哪用</td>
+        <td>「夫<b>庸</b>知其年之先後生於吾乎？」<br><small>解析：反問副詞。指哪裏需要知道他的年紀比我大還是小呢！</small></td>
+      </tr>
+      <tr>
+        <td><b>小學</b></td>
+        <td>在小處學習 (指習句讀)</td>
+        <td>「<b>小學</b>而大遺，吾未見其明也。」<br><small>解析：古今異義。古義指學習句讀等基礎功；大遺指遺漏了解惑傳道等大學問。</small></td>
+      </tr>
+      <tr>
+        <td><b>齒</b></td>
+        <td>並列 / 為伍</td>
+        <td>「巫、醫、樂師、百工之人，君子不<b>齒</b>。」<br><small>解析：動詞。「不齒」即不屑與之同列、看不起的意思。</small></td>
+      </tr>
+      <tr>
+        <td><b>嘉</b></td>
+        <td>讚賞、嘉許</td>
+        <td>「余<b>嘉</b>其能行古道，作《師說》以貽之。」<br><small>解析：動詞。指韓愈讚賞李蟠能遵行古人從師學習的正道。</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" id="sec-2">
+    <div class="section-icon">⚖️</div>
+    <h2>二、 經典語句文法與特殊句式拆解</h2>
+  </div>
+  <p>《師說》的句式錯落有致，當中運用了「倒裝句」及「意動用法」，是語譯題的奪分關鍵：</p>
+
+  <div class="keyword-grid">
+    <div class="kw-box">
+      <div class="kw-word">1. 賓語前置（倒裝句 / 錯綜句法）</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「句讀之不知，惑之不解，或師焉，或不焉。」</p>
+        <p><strong>精確語譯：</strong>不懂得句讀，（就）向老師學習；有疑惑不能解決，（卻）不向老師請教。</p>
+        <p><strong>滿分技巧：</strong>這裏不僅是「不知句讀，不解惑」的倒裝，更使用了<b>交錯語序（錯綜）</b>。「句讀之不知」對應下文的「或師焉」；「惑之不解」對應下文的「或不焉」。語譯時必須理清這個交錯對應關係！</p>
+      </div>
+    </div>
+    
+    <div class="kw-box">
+      <div class="kw-word">2. 意動用法（以……為……）</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「於其身也，則<b>恥</b>師焉。」</p>
+        <p><strong>精確語譯：</strong>對於他們自己，卻<b>以</b>向老師學習<b>為恥</b>。</p>
+        <p><strong>滿分技巧：</strong>「恥」字是形容詞的意動用法。必須譯出「認為……是羞恥」或「以……為恥」，不能單譯為「羞恥」。</p>
+      </div>
+    </div>
+
+    <div class="kw-box">
+      <div class="kw-word">3. 被動句</div>
+      <div class="kw-def">
+        <p><strong>原句：</strong>「不拘<b>於</b>時，學於余。」</p>
+        <p><strong>精確語譯：</strong>不<b>被</b>當時（恥於從師）的社會風氣所拘束，向我學習。</p>
+        <p><strong>滿分技巧：</strong>前一個「於」字表被動（被），後一個「於」字引出對象（向）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-3">
+    <div class="section-icon">🧭</div>
+    <h2>三、 論證框架：三組對比的絕妙運用</h2>
+  </div>
+  <p>韓愈為批判中唐時期士大夫「恥學於師」的歪風，在文章中段運用了極其凌厲的<b>對比論證</b>。這三組對比是 DSE 考問結構與論證手法的核心核心：</p>
+
+  <div class="flow">
+    <div class="flow-step"><strong>對比一：縱向歷史對比（聖人 vs 眾人）</strong><br>
+    【古之聖人】才智遠超常人 ➔ 猶且從師而問 ➔ 結果：聖益聖。<br>
+    【今之眾人】才智遠不及聖人 ➔ 卻恥學於師 ➔ 結果：愚益愚。<br>
+    <i>論證效果：指出從師與否，是聖愚分野的關鍵，凸顯今人不願從師的愚昧。</i></div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>對比二：自身行為矛盾對比（教子 vs 自身）</strong><br>
+    【對待兒子】愛其子 ➔ 擇師而教之（學習「句讀」等小學問）。<br>
+    【對待自己】於其身 ➔ 則恥師焉（遺漏「解惑傳道」等大學問）。<br>
+    <i>論證效果：點出士大夫行為的自相矛盾，批評他們「小學而大遺」，分不清輕重主次。</i></div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>對比三：社會階層橫向對比（百工 vs 士大夫）</strong><br>
+    【百工之人】地位較低（巫醫樂師百工） ➔ 不恥相師。<br>
+    【士大夫之族】地位尊貴 ➔ 曰師曰弟子，群聚而笑之（認為位卑則羞，官盛則諛）。<br>
+    <i>論證效果：強烈諷刺士大夫的智慧竟然反而不及被他們看不起的低下階層，徹底擊潰士大夫的虛榮心。</i></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot classical"></span>舉例與引用論證的權威性</h3>
+    <p>除了對比，韓愈亦善用權威來加強說服力：</p>
+    <ul>
+      <li><strong>舉例論證：</strong>舉出孔子曾向郯子、萇弘、老聃等人學習（孔子師郯子）。論證「聖人無常師」及老師不一定比學生賢能的觀點。</li>
+      <li><strong>引用論證：</strong>引用孔子的名言「三人行，則必有我師」。訴諸至聖先師的權威，無可辯駁地證明擇師的原則在於對方是否領會「道」。</li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="sec-4">
+    <div class="section-icon">⚡</div>
+    <h2>四、 DSE 閱卷陷阱與常犯錯誤對比</h2>
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 潘SIR提醒：</strong>很多同學將「童子之師」等同於韓愈提倡的「師」。這是一個嚴重的概念錯誤！韓愈認為「童子之師」只是教「句讀」（斷句），這根本算不上是真正傳授道統的老師。
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">❌ 凡人失分答法</div>
+      <p><strong>題目：</strong>「童子之師」是怎樣的老師？這跟韓愈提出的「師」相同嗎？（4分）</p>
+      <p><strong>典型劣答：</strong>「童子之師」是教小孩子讀書的老師。這跟韓愈提出的老師是相同的，因為韓愈說老師要傳道受業解惑，教小孩子讀書也就是傳授知識，所以兩者一樣。</p>
+      <p><em>關鍵敗因：完全混淆了「句讀之師」與「傳道之師」的本質區別。未能精確指出「小學而大遺」的批判。</em></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">✅ 摘星滿分答法</div>
+      <p><strong>題目：</strong>「童子之師」是怎樣的老師？這跟韓愈提出的「師」相同嗎？（4分）</p>
+      <p><strong>星級滿分答法：</strong>「童子之師」是指只教導兒童讀書、學習文句停頓（句讀）的老師，傳授的只是基礎的文字知識（2分）。這跟韓愈提出的「師」<strong>不相同</strong>。韓愈認為真正的老師職責是「傳道、受業、解惑」（即傳授儒家道統、講授經典學業、解答人生與學術疑難），層次遠高於只教句讀的童子之師（2分）。</p>
+      <p><em>摘星要訣：清晰區分「句讀（小學）」與「傳道解惑（大遺）」，突顯韓愈對理想師道的定義。</em></p>
+    </div>
+  </div>
+
+  <div class="section-header" id="sec-5">
+    <div class="section-icon">🔥</div>
+    <h2>五、 文憑試模擬高級試題與星級答案</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span> 韓愈在《師說》中提出了擇師的唯一標準是甚麼？試摘錄相關原文（1分），並以自己的文句略加說明。（3分）</div>
+    <div class="example-box" style="margin-top:0.5rem;">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p><strong>原文：</strong>無貴無賤，無長無少，道之所存，師之所存也。（1分）</p>
+      <p><strong>說明：</strong>韓愈認為選擇老師的唯一標準，在於對方是否已經領會了「道」（道理 / 儒家道統）（1分）。只要對方掌握了真理與學問，便應該向他學習，根本不需要計較對方的社會地位是高是低（無貴無賤），也不需要理會對方的年紀比自己大還是小（無長無少）（2分）。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span> 韓愈倡導古文運動，主張「不平則鳴」（文章要針對社會不合理現象，有為而發）。你認為《師說》一文能體現這個文學主張嗎？試舉例說明。（6分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p>我認為能夠體現（1分）。「不平則鳴」是指作家應把社會上的不合理現象訴諸筆墨，針對現實時弊作出批判（1分）。</p>
+      <p>《師說》正是針對中唐時期士大夫一族「恥學於師」的不良風氣而發聲。作者在文中直接點出「師道之不傳也久矣」的時弊，並毫不留情地逐一批評士大夫的荒謬行徑（2分）。例如，他批評士大夫會為兒子請教句讀的老師，自己卻恥於向老師求教（自相矛盾）；又諷刺他們以向地位低的人學習感到羞愧，向地位高的人學習就認為是諂媚（虛榮作祟）（2分）。這充分體現了韓愈針對社會不良風氣「不平則鳴」、敢於批判的文學主張。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">3</span> 韓愈在文章末段特別提及寫作本文是為了贈予十七歲的李蟠（「作《師說》以貽之」）。除了嘉許李蟠外，此舉還有甚麼深層用意？（4分）</div>
+    <div class="q-ans">
+      <span class="ans-tag">【星級參考答案】</span>
+      <p>除了嘉許李蟠「好古文」及「能行古道」（樂於從師學習）之外，作者的深層用意在於<strong>樹立榜樣與諷刺時俗</strong>（1分）。</p>
+      <p>當時社會充滿「恥學於師」的歪風，士大夫群聚嘲笑從師之人。韓愈特意讚揚李蟠「不拘於時」（不受不良的世俗風氣拘束，敢於拜韓愈為師），藉此樹立一個正面的楷模（1分），從側面<strong>強烈對比並批判</strong>當時那些盲目隨波逐流、拒絕從師的士大夫（1分）。此舉進一步宣揚了必須恢復「師道」的宏旨，深化了文章的主題（1分）。</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="formula-title">🌟 潘SIR高分答題公式：跨篇章比較（《師說》 vs 《勸學》）</span>
+    DSE 經常要求將韓愈的《師說》與荀子的《勸學》進行比較閱讀：<br>
+    <strong>【相同之處】</strong>兩者皆極力強調<strong>「後天學習的重要性」</strong>，認為學習能使人進步，超越原本的局限。<br>
+    <strong>【相異之處 - 側重點】</strong><br>
+    • <b>《勸學》：</b>側重於學習的<strong>意義、方法與態度</strong>。主張學習是為了「變惡為善」（改變本性），強調要「善假於物」，並須具備「積累、鍥而不捨、用心專一」的態度。<br>
+    • <b>《師說》：</b>側重於學習的<strong>途徑與社會風氣</strong>。集中論述求學必須<strong>「跟從老師」</strong>（解惑傳道），強調「聖人無常師」，並猛烈抨擊當時士大夫「恥於從師」的腐敗風氣。
+  </div>
+
+  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
