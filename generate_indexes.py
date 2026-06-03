@@ -7,7 +7,8 @@ folders = {
         "tag": "學生個人專屬",
         "categories": {
             "閱讀理解特訓": [
-                {"file": "閱讀理解全攻略.html", "title": "閱讀理解全攻略", "desc": "《森林裏的哭聲》篇章剖析"}
+                {"file": "閱讀理解全攻略.html", "title": "閱讀理解全攻略", "desc": "《森林裏的哭聲》篇章剖析"},
+                {"file": "閱讀理解必殺技閱讀六步尋寶法.html", "title": "閱讀理解必殺技", "desc": "閱讀六步尋寶法"}
             ],
             "語文基礎與修辭": [
                 {"file": "s3_rhetoric_fianl.html", "title": "修辭學總複習", "desc": "語文基礎強化"},

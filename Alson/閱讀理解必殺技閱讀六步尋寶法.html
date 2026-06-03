@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潘SIR中文教室｜小三閱讀理解特訓：六步尋寶法</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #f0f0ee;
+    --color-text-secondary: #aaa;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #2c2c2e;
+    --color-border-tertiary: rgba(255,255,255,0.15);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.wrap { max-width: 800px; margin: 0 auto; }
+
+/* Hero 共用結構 */
+.hero {
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: inherit;
+  line-height: 1.4;
+}
+.hero p { font-size: 13px; font-weight: 500; }
+
+/* 閱讀：霧藍灰 */
+.hero.reading { background: #C8D5D8; color: #122025; }
+.hero.reading .hero-tag {
+  border: 1px solid rgba(18,32,37,0.3);
+  color: rgba(18,32,37,0.65);
+}
+.hero.reading p { color: rgba(18,32,37,0.5); }
+
+/* 目錄 */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.toc-title { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 16px; margin-bottom: 1rem; color: var(--color-text-primary); }
+.toc-list { display: grid; gap: 0.6rem; }
+.toc-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-text-primary); }
+.toc-num {
+  width: 24px; height: 24px; background: #C8D5D8; color: #122025;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600; flex-shrink: 0;
+}
+
+/* 章節標題 */
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin: 2.5rem 0 1.2rem;
+}
+.section-icon { font-size: 20px; }
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* 內容區塊 */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem; margin-bottom: 1.2rem;
+}
+.card-text { font-size: 15px; line-height: 2; color: var(--color-text-primary); }
+.card-text p { margin-bottom: 1rem; }
+.card-text p:last-child { margin-bottom: 0; }
+
+.highlight { color: #d9363e; font-weight: 700; }
+.highlight-blue { background: #e6f7ff; padding: 2px 4px; border-radius: 4px; font-weight: 600; color: #0050b3; }
+
+/* 步驟卡片 */
+.step-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.step-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md); padding: 1.2rem;
+  border-left: 5px solid #4a8094;
+  position: relative;
+}
+.step-num {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  font-size: 24px; font-weight: 700; color: rgba(74, 128, 148, 0.2);
+  line-height: 1; font-family: 'Noto Serif TC', serif;
+}
+.step-title { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #122025; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
+.step-desc { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
+
+/* 提示框 */
+.alert {
+  border-radius: var(--border-radius-md); padding: 1rem 1.2rem; margin: 1rem 0;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.alert-icon { font-size: 18px; line-height: 1; margin-top: 2px; }
+.alert-label { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 4px; }
+.alert-text { font-size: 14px; line-height: 1.6; }
+.alert.tip { background: #eaf4ff; border: 1px solid #b6dfff; }
+.alert.tip .alert-label { color: #0056b3; }
+.alert.tip .alert-text { color: #003d82; }
+.alert.warn { background: #fff1f0; border: 1px solid #ffccc7; }
+.alert.warn .alert-label { color: #cf1322; }
+.alert.warn .alert-text { color: #a8071a; }
+.alert.success { background: #f6ffed; border: 1px solid #b7eb8f; }
+.alert.success .alert-label { color: #389e0d; }
+.alert.success .alert-text { color: #237804; }
+
+/* 對比框 */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+.compare-card { border-radius: var(--border-radius-md); padding: 1rem; }
+.compare-card.bad { background: #fff1f0; border: 1px dashed #ffa39e; }
+.compare-card.good { background: #f6ffed; border: 1px dashed #b7eb8f; }
+.compare-label { font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+.compare-card.bad .compare-label { color: #cf1322; }
+.compare-card.good .compare-label { color: #389e0d; }
+
+/* 答題區 */
+.qbox { border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+.qbox:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.q-title { font-weight: 600; font-size: 15px; margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 8px; }
+.q-num { background: #4a8094; color: white; width: 22px; height: 22px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+
+/* 隱藏答案 Details 樣式 */
+details.q-ans {
+  background: #e6f7ff; 
+  padding: 0.8rem; 
+  border-radius: var(--border-radius-md); 
+  margin-top: 0.8rem; 
+  border: 1px solid #91d5ff;
+}
+details.q-ans summary {
+  font-weight: 600;
+  color: #0050b3;
+  cursor: pointer;
+  outline: none;
+}
+details.q-ans summary:hover { text-decoration: underline; }
+.ans-content {
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed #91d5ff;
+}
+.ans-content strong { color: #0050b3; }
+
+/* 公式框 */
+.formula {
+  background: #122025;
+  color: #ffffff;
+  padding: 1.2rem;
+  border-radius: var(--border-radius-md);
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.formula span { color: #fadb14; }
+
+/* 列印／PDF 分頁規則 */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .step-card, .alert, .formula, .keyword-grid { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  details.q-ans { display: none; }
+  .print-btn-container { display: none !important; }
+}
+
+/* 列印與儲存 PDF 專用按鈕樣式 */
+.print-btn-container {
+  margin-top: 2.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.print-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: var(--color-background-primary, #ffffff);
+  border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+  border-radius: var(--border-radius-md, 8px);
+  color: var(--color-text-primary, #1a1a1a);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.print-btn:hover {
+  border-color: #4a8094;
+  color: #4a8094;
+  transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero reading">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>閱讀理解必殺技<br>閱讀六步尋寶法</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 學習目錄</div>
+    <div class="toc-list">
+      <div class="toc-item"><span class="toc-num">1</span> 基礎概念：甚麼是兩種「關鍵詞」？</div>
+      <div class="toc-item"><span class="toc-num">2</span> 必殺技：閱讀理解六步曲</div>
+      <div class="toc-item"><span class="toc-num">3</span> 實戰演練：小猴子摘蘋果</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon">🔑</div>
+    <h2 class="section-title">一、甚麼是兩種「關鍵詞」？</h2>
+  </div>
+  <div class="card card-text">
+    <p>做閱讀理解就像一場「尋寶遊戲」。文章是森林，答案是寶藏。要找到寶藏，我們需要兩件法寶：</p>
+    
+    <div class="compare-grid">
+      <div class="compare-card good">
+        <div class="compare-label">❓ 1. 題目關鍵詞 (尋寶圖)</div>
+        <p>這是<strong>題目中最重要</strong>的字。它告訴你「要找甚麼」。例如：「為甚麼」、「誰」、「不是」。</p>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">📖 2. 文章關鍵詞 (寶藏線索)</div>
+        <p>這是<strong>文章中與題目相同或相似</strong>的字。看到這些字，就代表答案在附近了！例如：「因為」、「但是」。</p>
+      </div>
+    </div>
+    
+    <div class="formula">
+      找到「題目關鍵詞」 + 對應「文章關鍵詞」 = <span>🎯 百發百中！</span>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon">⚔️</div>
+    <h2 class="section-title">二、必殺技：閱讀理解六步曲</h2>
+  </div>
+  <div class="card">
+    <div class="step-grid">
+      
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">👀 第一步：看題目</div>
+        <div class="step-desc">
+          很多同學一拿到試卷就馬上看文章，這是<strong>錯的</strong>！我們先要看看後面的題目問甚麼。帶着任務去讀文章，尋寶才會快！
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">✏️ 第二步：圈題目關鍵詞</div>
+        <div class="step-desc">
+          在題目中圈出重點字：<br>
+          • <strong>疑問詞：</strong>誰、哪裏、甚麼時候、為甚麼<br>
+          • <strong>主角/事物：</strong>小明、蘋果、公園<br>
+          • <strong>陷阱詞：</strong><span class="highlight">不</span>是、<span class="highlight">沒有</span>（看到必須畫星星⭐！）
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">💨 第三步：讀文章 (速讀)</div>
+        <div class="step-desc">
+          帶着剛才圈出的「題目關鍵詞」，快速地把文章讀一次，了解故事大概發生了甚麼事。
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-title">🔎 第四步：圈文章關鍵詞</div>
+        <div class="step-desc">
+          在文章中找到和題目<strong>一樣</strong>的字眼，立刻把它們圈起來！答案通常就藏在這一句的「前面」或「後面」。也要留意信號詞（如：因為、可是、結果）。
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-title">🎯 第五步：答題（回應題目關鍵詞）</div>
+        <div class="step-desc">
+          題目問「為甚麼」，你就要答「因為」；題目問「哪裏」，你就要答一個「地點」。必須精準回應題目的要求。
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <div class="step-title">✍️ 第六步：完整句子作答</div>
+        <div class="step-desc">
+          回答問答題時，絕對不能只寫幾個字！必須抄下題目的<strong>主語（主角）</strong>，組成一句完整的話，最後加上句號。
+        </div>
+        <div class="compare-grid" style="margin-top: 10px;">
+          <div class="compare-card bad" style="padding: 10px;">
+            <div class="compare-label">❌ 錯誤（非完整）</div>
+            因為他跌倒了。
+          </div>
+          <div class="compare-card good" style="padding: 10px;">
+            <div class="compare-label">✅ 正確（完整句子）</div>
+            <strong>小明在哭，</strong>因為他跌倒了。
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon">📝</div>
+    <h2 class="section-title">三、實戰演練：小猴子摘蘋果</h2>
+  </div>
+  
+  <div class="card">
+    <div class="card-text" style="background: #fafafa; padding: 1rem; border-radius: 8px; border: 1px solid #eee;">
+      <strong>【請先用「速讀」閱讀以下短文】</strong><br>
+      　　星期天，森林裏舉行摘蘋果比賽。小猴子皮皮也參加了。<br>
+      　　剛開始，皮皮爬得很快。可是，當他看見樹枝上有一隻美麗的蝴蝶，就忍不住停下來捉蝴蝶。<br>
+      　　結果，小熊笨笨一直專心爬樹，超越了皮皮，贏得了冠軍。皮皮看着笨笨手裏的獎盃，難過地低下了頭。
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>
+        <div class="alert-label">潘SIR小提示</div>
+        <div class="alert-text">請運用剛學過的「六步曲」，先嘗試自己作答，再點擊藍色按鈕核對答案！</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">1</span> 根據文章，皮皮在星期天參加了甚麼比賽？</div>
+      <div style="margin-bottom: 1rem; padding-left: 30px;">
+        ____________________________________________________________________
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案與解題步驟</summary>
+        <div class="ans-content">
+          <strong>✅ 答案：皮皮在星期天參加了摘蘋果比賽。</strong><br>
+          【步驟拆解】<br>
+          1/2. 圈題目關鍵詞：【皮皮】、【星期天】、【甚麼比賽】<br>
+          3/4. 圈文章關鍵詞：第一段「<span class="highlight-blue">星期天</span>，森林裏舉行<span class="highlight-blue">摘蘋果比賽</span>。小猴子<span class="highlight-blue">皮皮</span>也參加了。」<br>
+          5/6. 完整句子作答：把「皮皮」作開頭，清楚寫出他參加了「摘蘋果比賽」。
+        </div>
+      </details>
+    </div>
+
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">2</span> 為什麼皮皮最後<span class="highlight">沒有</span>贏得冠軍？</div>
+      <div style="margin-bottom: 1rem; padding-left: 30px;">
+        ____________________________________________________________________
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案與解題步驟</summary>
+        <div class="ans-content">
+          <strong>✅ 答案：皮皮最後沒有贏得冠軍，因為他停下來捉蝴蝶。</strong><br>
+          【步驟拆解】<br>
+          1/2. 圈題目關鍵詞：【為什麼】（回應要用「因為」）、【沒有贏得冠軍】（陷阱詞⭐沒有）。<br>
+          3/4. 圈文章關鍵詞：文章中哪裏寫了皮皮輸的原因？第二段寫他「看見一隻美麗的蝴蝶，就忍不住<span class="highlight-blue">停下來捉蝴蝶</span>」，結果被小熊超越了。<br>
+          5/6. 完整句子作答：先抄題目「皮皮最後沒有贏得冠軍」，再加上「因為他停下來捉蝴蝶。」
+        </div>
+      </details>
+    </div>
+
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">3</span> 從文章的最後一句可以看出，皮皮的心情是怎樣的？</div>
+      <div style="margin-left: 30px; line-height: 2;">
+        ○ A. 開心<br>
+        ○ B. 難過<br>
+        ○ C. 憤怒
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案與解題步驟</summary>
+        <div class="ans-content">
+          <strong>✅ 答案：B (難過)</strong><br>
+          【步驟拆解】<br>
+          1/2. 圈題目關鍵詞：【最後一句】、【心情怎樣】。<br>
+          3/4. 圈文章關鍵詞：看最後一句「皮皮看着笨笨手裏的獎盃，<span class="highlight-blue">難過</span>地低下了頭。」直接找到情緒詞語「難過」。
+        </div>
+      </details>
+    </div>
+
+  </div>
+
+  <!-- 返回目錄及列印按鈕 -->
+  <div class="print-btn-container">
+    <a href="index.html" class="print-btn">↩️ 返回筆記目錄</a>
+    <button onclick="window.print()" class="print-btn">🖨️ 列印此頁 / 儲存 PDF</button>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
