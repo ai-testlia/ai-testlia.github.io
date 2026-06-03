@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潘SIR中文教室｜小三閱讀理解特訓</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #f0f0ee;
+    --color-text-secondary: #aaa;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #2c2c2e;
+    --color-border-tertiary: rgba(255,255,255,0.15);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.wrap { max-width: 800px; margin: 0 auto; }
+
+/* Hero 共用結構 */
+.hero {
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: inherit;
+  line-height: 1.4;
+}
+.hero p { font-size: 13px; font-weight: 500; }
+
+/* 閱讀：霧藍灰 */
+.hero.reading { background: #C8D5D8; color: #122025; }
+.hero.reading .hero-tag {
+  border: 1px solid rgba(18,32,37,0.3);
+  color: rgba(18,32,37,0.65);
+}
+.hero.reading p { color: rgba(18,32,37,0.5); }
+
+/* 目錄 */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.toc-title { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 16px; margin-bottom: 1rem; }
+.toc-list { display: grid; gap: 0.6rem; }
+.toc-item { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.toc-num {
+  width: 24px; height: 24px; background: #C8D5D8; color: #122025;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600; flex-shrink: 0;
+}
+
+/* 章節標題 */
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin: 2.5rem 0 1.2rem;
+}
+.section-icon { font-size: 20px; }
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* 內容區塊 */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem; margin-bottom: 1.2rem;
+}
+.card-text { font-size: 15px; line-height: 2; color: var(--color-text-primary); }
+.card-text p { margin-bottom: 1rem; text-indent: 2em; }
+.card-text p:last-child { margin-bottom: 0; }
+.highlight { color: #296073; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+
+/* 詞語放大鏡 */
+.keyword-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+.kw-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md); padding: 1rem;
+  border-left: 4px solid #4a8094;
+}
+.kw-word { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #122025; margin-bottom: 0.3rem; }
+.kw-def { font-size: 13.5px; color: var(--color-text-secondary); }
+
+/* 提示框 */
+.alert {
+  border-radius: var(--border-radius-md); padding: 1rem 1.2rem; margin: 1rem 0;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.alert-icon { font-size: 18px; line-height: 1; margin-top: 2px; }
+.alert-label { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 4px; }
+.alert-text { font-size: 14px; line-height: 1.6; }
+.alert.tip { background: #eaf4ff; border: 1px solid #b6dfff; }
+.alert.tip .alert-label { color: #0056b3; }
+.alert.tip .alert-text { color: #003d82; }
+.alert.warn { background: #fff1f0; border: 1px solid #ffccc7; }
+.alert.warn .alert-label { color: #cf1322; }
+.alert.warn .alert-text { color: #a8071a; }
+
+/* 對比框 */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+.compare-card { border-radius: var(--border-radius-md); padding: 1rem; }
+.compare-card.bad { background: #fff1f0; border: 1px dashed #ffa39e; }
+.compare-card.good { background: #f6ffed; border: 1px dashed #b7eb8f; }
+.compare-label { font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+.compare-card.bad .compare-label { color: #cf1322; }
+.compare-card.good .compare-label { color: #389e0d; }
+
+/* 示例框 */
+.example-box {
+  background: var(--color-background-secondary);
+  border-left: 3px solid #4a8094;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 1rem 1.2rem; margin-top: 1rem;
+}
+.example-label { font-size: 12px; font-weight: 600; color: #4a8094; margin-bottom: 4px; }
+.example-text { font-size: 14px; color: var(--color-text-primary); }
+
+/* 答題區 (加入隱藏功能) */
+.qbox { border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+.qbox:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.q-title { font-weight: 600; font-size: 15px; margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 8px; }
+.q-num { background: #4a8094; color: white; width: 22px; height: 22px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+
+/* 隱藏答案 Details 樣式 */
+details.q-ans {
+  background: #e6f7ff; 
+  padding: 0.8rem; 
+  border-radius: var(--border-radius-md); 
+  margin-top: 0.8rem; 
+  border: 1px solid #91d5ff;
+}
+details.q-ans summary {
+  font-weight: 600;
+  color: #0050b3;
+  cursor: pointer;
+  outline: none;
+}
+details.q-ans summary:hover {
+  text-decoration: underline;
+}
+.ans-content {
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed #91d5ff;
+}
+.ans-content strong { color: #0050b3; }
+
+/* 流程箭頭 */
+.flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 0.5rem; }
+.flow-step { background: #e6f4ff; color: #0050b3; font-size: 13px; font-weight: 500; padding: 4px 10px; border-radius: 20px; }
+.flow-arrow { color: var(--color-text-secondary); font-size: 14px; }
+
+/* 列印／PDF 分頁規則 (列印時強制隱藏答案以便當作工作紙) */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula, .keyword-grid { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  details.q-ans { display: none; } /* 列印時隱藏答案區塊 */
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero reading">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>閱讀理解全攻略<br>《森林裏的哭聲》篇章剖析</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 學習目錄</div>
+    <div class="toc-list">
+      <div class="toc-item"><span class="toc-num">1</span> 閱讀篇章共賞：《森林裏的哭聲》</div>
+      <div class="toc-item"><span class="toc-num">2</span> 詞語放大鏡：掌握重點字詞</div>
+      <div class="toc-item"><span class="toc-num">3</span> 答題技巧拆解：填充、選擇與問答</div>
+      <div class="toc-item"><span class="toc-num">4</span> 延伸實戰練習</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon">📖</div>
+    <h2 class="section-title">一、閱讀篇章共賞</h2>
+  </div>
+  <div class="card card-text">
+    <p>清晨，啄木鳥醫生在樹林中飛翔，到處尋找生病的樹木，替他們醫治。當他飛到樹林的一角時，發現<span class="highlight">那裏的樹木數量好像減少了</span>。突然，一陣「嗚嗚」的哭聲從遠處傳過來，他<strong>心急如焚</strong>，像箭一般向着聲音的方向飛去。</p>
+    <p>啄木鳥醫生飛了不久，就看到一棵正在哽咽的小樹，看起來傷心欲絕的樣子。他飛近小樹，問：「小樹，為甚麼哭呢？你覺得不舒服嗎？」小樹哭着對啄木鳥醫生說：「啄木鳥醫生，請你看看四周，就會明白了！」</p>
+    <p>啄木鳥醫生看看四周，馬上<strong>恍然大悟</strong>。小樹說：「本來茂密的樹林，現在變得光禿禿的。我今天一覺醒來，發現很多樹木朋友都被人砍掉了！只因為我還沒有長高，所以沒被砍掉。現在這裏只剩下我一個了，不知我的朋友會被送到哪裏，他們會死掉嗎？」</p>
+    <p>看到此情此景，啄木鳥醫生也不禁難過起來，但他只能<strong>安慰</strong>小樹說：「小樹，別哭，你的朋友也許被拿去做紙張，也許被拿去做家具，也許被拿去做裝飾……」「那麼……那麼我希望人類會善待我的朋友，不會隨便浪費由他們的身體所造成的東西。」小樹垂下頭說着。啄木鳥醫生也說不出甚麼，只能搖頭嘆息。</p>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon">🔎</div>
+    <h2 class="section-title">二、詞語放大鏡</h2>
+  </div>
+  <div class="card">
+    <div class="keyword-grid">
+      <div class="kw-card">
+        <div class="kw-word">心急如焚 (xīn jí rú fén)</div>
+        <div class="kw-def">心裏急得像火燒一樣。形容非常焦急。<br><em>例句：眼看考試快要遲到了，巴士卻還沒來，小明急得心急如焚。</em></div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">恍然大悟 (huǎng rán dà wù)</div>
+        <div class="kw-def">形容一下子完全明白過來。<br><em>例句：聽了老師的詳細講解，我才對這道難題恍然大悟。</em></div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">安慰 (ān wèi)</div>
+        <div class="kw-def">安撫別人的情緒，使人心情舒暢、不難過。<br><em>例句：妹妹跌倒受傷了，媽媽溫柔地安慰她。</em></div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">傷心欲絕 (shāng xīn yù jué)</div>
+        <div class="kw-def">指極度悲哀，萬分傷心的樣子。<br><em>例句：得知心愛的小狗走失了，她哭得傷心欲絕。</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon">💡</div>
+    <h2 class="section-title">三、答題技巧拆解（試卷詳解）</h2>
+  </div>
+  
+  <div class="card">
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">甲</span> 詞語填充：從文中找出適當的詞語填空。</div>
+      <div class="example-box">
+        <div class="example-label">題目 1</div>
+        <div class="example-text">當爸爸收到叔叔發生車禍的消息後，他 ________，立刻趕往醫院。</div>
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案與解析</summary>
+        <div class="ans-content">
+          <strong>✅ 答案：心急如焚</strong><br>
+          【解題秘訣】填充題最重要是找「線索詞」。句子提到「發生車禍」和「立刻趕往醫院」，代表爸爸的心情非常焦急。回到文章第一段，尋找表達「焦急」的四字詞語，就會找到「心急如焚」。
+        </div>
+      </details>
+
+      <div class="example-box">
+        <div class="example-label">題目 2</div>
+        <div class="example-text">我一邊 ________ 正在哭泣的弟弟，一邊向老師解釋弟弟沒有偷走同學的東西。</div>
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案與解析</summary>
+        <div class="ans-content">
+          <strong>✅ 答案：安慰</strong><br>
+          【解題秘訣】線索詞是「正在哭泣的弟弟」。當別人哭泣時，我們會做出甚麼動作？回到文章第四段，啄木鳥醫生對哭泣的小樹說「別哭」，這是一個「安慰」的動作。
+        </div>
+      </details>
+    </div>
+
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">乙</span> 選擇題：跨段落尋找因果關係</div>
+      <div class="example-box">
+        <div class="example-label">題目</div>
+        <div class="example-text">根據第三段，啄木鳥醫生「馬上恍然大悟」，他明白了甚麼？<br>
+        A. 他明白要怎樣為小樹治病。<br>
+        B. 他明白小樹沒有被砍伐的原因。<br>
+        C. 他明白小樹因其他樹被砍伐而難過。<br>
+        D. 他明白森林的樹木數量為什麼減少了。</div>
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案與解析</summary>
+        <div class="ans-content">
+          <strong>✅ 正確答案：D</strong><br>
+          【陷阱拆解】很多同學會錯選 C。雖然小樹的確因為朋友被砍而難過，但啄木鳥的「恍然大悟（突然明白）」是呼應他在<strong>第一段</strong>的疑惑！<br><br>
+          <div class="flow">
+            <div class="flow-step">第一段：發現樹木數量減少了 (產生疑惑)</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">第三段：看看四周，發現樹被砍掉</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">結果：恍然大悟 (解開疑惑：原來樹木減少是因為被砍伐了)</div>
+          </div>
+        </div>
+      </details>
+      <div class="alert warn">
+        <div class="alert-icon">⚠</div>
+        <div>
+          <div class="alert-label">常見錯誤</div>
+          <div class="alert-text">閱讀理解不能只看單一段落。當題目問到角色的「心理變化」（如：明白、驚訝），通常要往前尋找他原本「不知道」或「覺得奇怪」的事情。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">丙</span> 語文基礎：尋找排比句</div>
+      <div class="example-box">
+        <div class="example-label">題目</div>
+        <div class="example-text">請在第四段找出排比句，並在句子下畫線。</div>
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案與解析</summary>
+        <div class="ans-content">
+          <strong>✅ 答案：「你的朋友也許被拿去做紙張，也許被拿去做家具，也許被拿去做裝飾……」</strong><br>
+          【甚麼是排比？】把<strong>三個或以上</strong>結構相同或相似、意思相關的短語或句子排列在一起。這裏連續用了三次「也許被拿去做……」，加強了語氣，展示了樹木被砍伐後的各種可能用途。
+        </div>
+      </details>
+    </div>
+
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">丁</span> 問答題：完整句子作答技巧</div>
+      <div class="example-box">
+        <div class="example-label">題目</div>
+        <div class="example-text">根據最後一段，小樹聽到啄木鳥醫生的話後有甚麼願望？(須以完整句子作答)</div>
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案與解析</summary>
+        <div class="ans-content">
+          <strong>✅ 參考答案：小樹希望人類會善待他的朋友，不會隨便浪費由他們的身體所造成的東西。</strong><br>
+          【作答技巧】回答這類題目，必須要「抄足」題目主語。
+          <div class="compare-grid">
+            <div class="compare-card bad">
+              <div class="compare-label">❌ 錯誤示範（非完整句）</div>
+              希望人類會善待他的朋友，不會隨便浪費。 (欠缺主語，且抄寫不完整)
+            </div>
+            <div class="compare-card good">
+              <div class="compare-label">✅ 正確示範（完整句）</div>
+              <strong>小樹</strong>希望人類會善待他的朋友，不會隨便浪費由他們的身體所造成的東西。 (包含主語「小樹」，並精確抄錄文章重點)
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-icon">📝</div>
+    <h2 class="section-title">四、延伸實戰練習</h2>
+  </div>
+  <div class="card">
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">潘SIR小挑戰</div>
+        <div class="alert-text">請同學再次細讀文章，然後嘗試回答以下潘SIR精心設計的題目，測試自己的理解能力吧！</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">1</span> 啄木鳥醫生每天清晨在樹林裏的原本工作是甚麼？</div>
+      <div style="margin-bottom: 1rem; padding-left: 30px;">
+        ____________________________________________________________________
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案</summary>
+        <div class="ans-content">
+          <strong>✅ 答案：</strong>啄木鳥醫生每天清晨在樹林裏到處尋找生病的樹木，替他們醫治。
+        </div>
+      </details>
+    </div>
+
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">2</span> 承上題，為甚麼小樹沒有被人砍掉？</div>
+      <div style="margin-bottom: 1rem; padding-left: 30px;">
+        ____________________________________________________________________
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案</summary>
+        <div class="ans-content">
+          <strong>✅ 答案：</strong>因為小樹還沒有長高，所以沒有被人砍掉。 (答案見於第三段：「只因為我還沒有長高，所以沒被砍掉。」)
+        </div>
+      </details>
+    </div>
+    
+    <div class="qbox">
+      <div class="q-title"><span class="q-num">3</span> 從文章中可見，這是一篇帶有甚麼教育意義的故事？</div>
+      <div style="margin-left: 30px; line-height: 2;">
+        ○ A. 教導我們要愛護野生動物，不要隨便捕捉。<br>
+        ○ B. 教導我們要學會安慰遇到挫折的朋友。<br>
+        ○ C. 呼籲人類要愛護樹木，珍惜資源，不要隨便浪費。<br>
+        ○ D. 提醒我們在樹林裏迷路時要大聲呼救。
+      </div>
+      <details class="q-ans">
+        <summary>👀 點擊查看答案與解析</summary>
+        <div class="ans-content">
+          <strong>✅ 答案：C</strong><br>
+          【解題】文章透過小樹的哭訴和願望（希望人類不會隨便浪費），帶出了環保和珍惜林木資源的中心思想。
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

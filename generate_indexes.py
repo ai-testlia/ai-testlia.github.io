@@ -6,6 +6,9 @@ folders = {
         "title": "子睿 的學習筆記",
         "tag": "學生個人專屬",
         "categories": {
+            "閱讀理解特訓": [
+                {"file": "閱讀理解全攻略.html", "title": "閱讀理解全攻略", "desc": "《森林裏的哭聲》篇章剖析"}
+            ],
             "語文基礎與修辭": [
                 {"file": "s3_rhetoric_fianl.html", "title": "修辭學總複習", "desc": "語文基礎強化"},
                 {"file": "Zirui_Chinese_Basics_Final.html", "title": "語文基礎 Final 練習", "desc": "綜合語文基礎練習"}
