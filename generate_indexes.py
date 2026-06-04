@@ -95,7 +95,8 @@ folders = {
                 {"file": "成語教學與填充練習（小五）_潘SIR中文教室.html", "title": "成語教學與填充", "desc": "小五程度"}
             ],
             "說話與寫作技巧": [
-                {"file": "四格看圖說故事.html", "title": "四格看圖說故事", "desc": "看圖說話訓練"}
+                {"file": "四格看圖說故事.html", "title": "四格看圖說故事", "desc": "看圖說話訓練"},
+                {"file": "圖片故事寫作七步成文法及全方位實戰_潘SIR中文教室.html", "title": "圖片故事寫作", "desc": "七步成文法及全方位實戰"}
             ]
         }
     },
@@ -413,7 +414,7 @@ for folder_name, data in folders.items():
         dse_banner = """  <div class="nav-grid" style="grid-template-columns: 1fr; margin-bottom: 1.5rem;">
     <a href="../DSE_HTML_Notes/index.html" class="nav-card" style="margin-bottom: 0;">
       <div class="dot">🔥</div>
-      <h3>DSE 12篇範文精讀筆記</h3>
+      <h3>DSE 12篇範文精讀筆記（點擊進入）</h3>
       <p>中六・文憑試十二篇範文深造系列目錄</p>
     </a>
   </div>
