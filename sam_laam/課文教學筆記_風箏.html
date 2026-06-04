@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>課文教學筆記：《風箏》深度分析</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* 柔美植物色系 (Soft Botanical Aesthetics) */
+      --color-text-primary: #4a3b3b;
+      --color-text-secondary: #7a6b6b;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #fbf9f5;
+      --color-border-tertiary: rgba(212, 163, 163, 0.25);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+
+      /* 柔美點綴色 */
+      --color-rose-dust: #d4a3a3;
+      --color-rose-light: #fcf3f3;
+      --color-sage-green: #9fb39b;
+      --color-sage-light: #f2f7f1;
+      --color-warm-gold: #cfae80;
+      --color-warm-light: #fdf9f1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #ede8e0;
+        --color-text-secondary: #b2a7a7;
+        --color-background-primary: #23211f;
+        --color-background-secondary: #1a1917;
+        --color-border-tertiary: rgba(212, 163, 163, 0.15);
+        --color-rose-light: #2d2525;
+        --color-sage-light: #242b22;
+        --color-warm-light: #2d2922;
+      }
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-background-secondary);
+      background-image: radial-gradient(var(--color-rose-light) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      padding: 2.5rem 1rem;
+      line-height: 1.85;
+      font-size: 14.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding-bottom: 4rem;
+    }
+
+    /* ══ 首圖區塊 ══ */
+    .hero {
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 4px 15px rgba(212, 163, 163, 0.1);
+      background: #D5D8C5;
+      color: #1A2015;
+      /* 霧鼠尾草色調 */
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      border: 1px solid rgba(26, 32, 21, 0.3);
+      color: rgba(26, 32, 21, 0.65);
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.7rem;
+      color: inherit;
+    }
+
+    .hero p {
+      font-size: 13px;
+      color: rgba(26, 32, 21, 0.5);
+    }
+
+    /* ══ 目錄 (TOC) ══ */
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 2.5rem;
+      background: var(--color-background-primary);
+      padding: 1.5rem;
+      border-radius: var(--border-radius-lg);
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5rem;
+      border-radius: var(--border-radius-md);
+      transition: all 0.3s ease;
+    }
+
+    .toc-item:hover {
+      background: var(--color-background-secondary);
+      transform: translateX(4px);
+    }
+
+    .toc-num {
+      width: 24px;
+      height: 24px;
+      background: var(--color-sage-green);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .toc-label {
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    /* ══ 章節基礎 ══ */
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px dashed var(--color-rose-dust);
+    }
+
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      background: var(--color-rose-light);
+      color: var(--color-rose-dust);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      letter-spacing: 0.03em;
+    }
+
+    /* ══ 課文原文專區 ══ */
+    .reading-box {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(212, 163, 163, 0.05);
+    }
+
+    .reading-box::before {
+      content: '❝';
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      font-family: 'Georgia', serif;
+      font-size: 50px;
+      color: rgba(212, 163, 163, 0.2);
+    }
+
+    .reading-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      line-height: 2.1;
+      color: var(--color-text-primary);
+      text-align: justify;
+      letter-spacing: 0.05em;
+    }
+
+    .reading-text p {
+      margin-bottom: 1.2rem;
+      text-indent: 2em;
+    }
+
+    .reading-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ══ 內容卡片 ══ */
+    .card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.6rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    }
+
+    .card-title {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-sage {
+      background: var(--color-sage-green);
+    }
+
+    .dot-rose {
+      background: var(--color-rose-dust);
+    }
+
+    .dot-gold {
+      background: var(--color-warm-gold);
+    }
+
+    /* ══ 提示框 (ALERT) ══ */
+    .alert {
+      border-radius: var(--border-radius-md);
+      padding: 1.1rem 1.4rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .alert-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .alert-text {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .alert.tip {
+      background: var(--color-warm-light);
+      border: 0.5px solid rgba(207, 174, 128, 0.3);
+    }
+
+    .alert.tip .alert-label {
+      color: #b08d5b;
+    }
+
+    .alert.warn {
+      background: var(--color-rose-light);
+      border: 0.5px solid rgba(214, 156, 156, 0.3);
+    }
+
+    .alert.warn .alert-label {
+      color: #b57474;
+    }
+
+    .alert.success {
+      background: var(--color-sage-light);
+      border: 0.5px solid rgba(156, 179, 149, 0.3);
+    }
+
+    .alert.success .alert-label {
+      color: #6b8564;
+    }
+
+    /* ══ 關鍵詞網格 (KEYWORD GRID) ══ */
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .keyword-card {
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 1.1rem 1.25rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .keyword-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .kw-word {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--color-rose-dust);
+    }
+
+    .kw-def {
+      font-size: 13.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    /* ══ 表格 (TABLE) ══ */
+    .ht-wrap {
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 0.5px solid var(--color-border-tertiary);
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    }
+
+    .ht {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: var(--color-background-primary);
+    }
+
+    .ht th {
+      background: var(--color-sage-light);
+      color: var(--color-sage-green);
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 13.5px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+
+    .ht td {
+      padding: 12px 15px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      color: var(--color-text-primary);
+      line-height: 1.8;
+      vertical-align: top;
+    }
+
+    .ht tr:last-child td {
+      border-bottom: none;
+    }
+
+    .ht tr:nth-child(even) td {
+      background: var(--color-background-secondary);
+    }
+
+    /* ══ 對比框 (COMPARE GRID) ══ */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 1.5rem 0;
+    }
+
+    .compare-card {
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    }
+
+    .compare-card.bad {
+      background: var(--color-rose-light);
+      border: 0.5px solid rgba(214, 156, 156, 0.3);
+    }
+
+    .compare-card.good {
+      background: var(--color-sage-light);
+      border: 0.5px solid rgba(156, 179, 149, 0.3);
+    }
+
+    .compare-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .compare-card.bad .compare-label {
+      color: #b57474;
+    }
+
+    .compare-card.good .compare-label {
+      color: #6b8564;
+    }
+
+    .compare-text {
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--color-text-primary);
+    }
+
+    /* ══ 練習題專區 (QBOX) ══ */
+    .qbox {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(212, 163, 163, 0.05);
+    }
+
+    .qbox-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-rose-dust);
+      background: var(--color-rose-light);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .qbox-q {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+    }
+
+    /* 隱藏參考答案摺疊器 */
+    details.ans-toggle {
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      margin-top: 1rem;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    details.ans-toggle summary {
+      font-weight: 600;
+      color: var(--color-rose-dust);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      font-size: 13.5px;
+      padding: 0.9rem 1.4rem;
+      outline: none;
+      justify-content: space-between;
+    }
+
+    details.ans-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.ans-toggle summary::after {
+      content: "✨ 點擊解鎖精細解析";
+      font-size: 12px;
+      opacity: 0.8;
+      background: var(--color-background-primary);
+      padding: 2px 8px;
+      border-radius: 10px;
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+
+    details[open].ans-toggle summary::after {
+      content: "收起解析";
+    }
+
+    details.ans-toggle .ans-content {
+      padding: 0 1.4rem 1.4rem;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-primary);
+      border-top: 1px dashed var(--color-border-tertiary);
+      padding-top: 1rem;
+      margin: 0 1.4rem;
+      text-align: justify;
+    }
+
+    /* ══ 列印／PDF 分頁規則 ══ */
+    @media print {
+      @page {
+        margin: 12mm 10mm;
+      }
+
+      body {
+        background: white;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .toc {
+        display: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card,
+      .qbox,
+      .example-box,
+      .alert,
+      .formula,
+      .keyword-card,
+      .compare-card,
+      .ht-wrap,
+      .reading-box {
+        page-break-inside: avoid;
+      }
+
+      .section-header {
+        page-break-before: always;
+        page-break-after: avoid;
+      }
+
+      .section-header:first-of-type {
+        page-break-before: auto;
+      }
+
+      .hero {
+        page-break-after: avoid;
+      }
+
+      .section-divider {
+        page-break-after: avoid;
+      }
+
+      details.ans-toggle {
+        border: 1px solid #000;
+      }
+
+      details.ans-toggle summary::after {
+        content: "【內部參考答案】" !important;
+        border: none;
+        padding: 0;
+      }
+
+      details.ans-toggle .ans-content {
+        display: block !important;
+      }
+    }
+  </style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--color-rose-dust, #d4a3a3);
+      color: var(--color-rose-dust, #d4a3a3);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- HERO 區塊 -->
+    <div class="hero classical">
+      <div class="hero-tag">課文教學筆記</div>
+      <h1>《風箏》深度分析</h1>
+      <p>潘SIR中文教室編撰 ｜ 靈魂深處的懺悔與遺憾</p>
+    </div>
+
+    <!-- 目錄 (TOC) -->
+    <div class="toc">
+      <a href="#section-1" class="toc-item">
+        <div class="toc-num">一</div>
+        <div class="toc-label">課文全文錄入</div>
+      </a>
+      <a href="#section-2" class="toc-item">
+        <div class="toc-num">二</div>
+        <div class="toc-label">段落大意與文章主旨</div>
+      </a>
+      <a href="#section-3" class="toc-item">
+        <div class="toc-label">三</div>
+        <div class="toc-label">寫作手法與修辭技巧</div>
+      </a>
+      <a href="#section-4" class="toc-item">
+        <div class="toc-num">四</div>
+        <div class="toc-label">人物心理深度剖析</div>
+      </a>
+      <a href="#section-5" class="toc-item">
+        <div class="toc-num">五</div>
+        <div class="toc-label">深度思維問答題</div>
+      </a>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-1">
+      <div class="section-header">
+        <div class="section-icon">📜</div>
+        <div class="section-title">一、課文全文錄入</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-rose"></div>《風箏》 魯迅
+        </div>
+        <div class="reading-box">
+          <div class="reading-text">
+            <p>北京的冬季，地上還有積雪，灰黑色的禿樹枝丫叉於晴朗的天空中，而遠處有一二風箏浮動，在我是一種驚異和悲哀。</p>
+            <p>
+              故鄉的風箏時節，是春二月，倘聽到沙沙的風輪聲，仰頭便能看見一個淡墨色的蟹風箏或嫩藍色的蜈蚣風箏。還有寂寞的瓦片風箏，沒有風輪，又放得很低，伶仃地顯出憔悴可憐模樣，但此時地上的楊柳已經發芽，早的山桃也多吐蕾，和孩子們的天上點綴相照應，打成一片春日的溫和。我現在在哪裏呢？四面都還是嚴冬的肅殺，而久經訣別的故鄉的久經逝去的春天卻就在這天空中蕩漾了。
+            </p>
+            <p>
+              但我是向來不愛放風箏的，不但不愛，並且嫌惡他，因為我以為這是沒出息孩子所做的玩藝。和我相反的是我的小兄弟，他那時大概十歲內外罷，多病，瘦得不堪，然而最喜歡風箏，自己買不起，我又不許放，他只得張着小嘴，呆看着空中出神，有時至於小半日。遠處的風箏突然落下來了，他驚呼；兩個瓦片風箏的纏繞解開了，他高興得跳躍。他的這些，在我看來都是笑柄，可鄙的。
+            </p>
+            <p>
+              有一天，我忽然想起，似乎多日不很看見他了，但記得曾見他在後園拾枯竹。我恍然大悟似的，便跑向少有人去的一間堆積雜物的小屋去，推開門，果然就在塵封的什物堆中發見了他。他向着大方凳，坐在小凳上；便很驚惶地站了起來，失了色瑟縮着。大方凳旁靠着一個蝴蝶風箏的竹骨，還沒有糊上紙，凳上是一對做眼睛用的小風輪，正用紅紙條裝飾着，將要完工了。我在破獲秘密的滿足中，有着一種無可把握的悲哀。我即刻伸手折斷了蝴蝶的一枝翅骨，又將風輪擲在地下，踏扁了。論長幼，論力氣，他是都敵不過我的，我當然得到完全的勝利，於是傲然走出，留他絕望地站在小屋裏。後來他怎樣，我不知道，也沒有留心。
+            </p>
+            <p>
+              然而我的懲罰終於輪到了，在我們離別得很久之後，我已經是中年。我不幸偶而看了一本外國的講論兒童的書，纔知道遊戲是兒童最正當的行為，玩具是兒童的天使。於是二十年來毫不憶及的幼小時候對於精神的虐殺的這一幕，忽地在眼前展開，而我的心也彷彿同時變了鉛塊，很重很重地墮下去了。
+            </p>
+            <p>但心又不竟墮下去而至於斷絕，他只是很重很重地墮着，墮着。</p>
+            <p>我也知道補過的方法的：送他風箏，贊成他放，勸他放，我和他一同放。我們嚷着，跑着，笑着。──然而他其時已經和我一樣，早已有了鬍子了。</p>
+            <p>
+              我也知道還有一個補過的方法的：去討他的寬恕，等他說，「我可是毫不怪你呵。」那麼，我的心一定就輕鬆了，這確是一個可行的方法。有一回，我們會面的時候，是臉上都已添刻了許多「生」的辛苦的條紋，而我的心很沉重。我們漸漸及於兒時的舊事來，我便敘述到這一節，自說少年時代的胡塗。「我可是毫不怪你呵。」我想，他要說了，我即刻便受了寬恕，我的心從此也寬鬆了吧。
+            </p>
+            <p>「有過這樣的事麼？」他驚異地笑着說，就像旁聽着別人的故事一樣。他什麼也不記得了。</p>
+            <p>全然忘卻，毫無怨恨，又有什麼寬恕之可言呢？無怨的恕，說謊罷了。</p>
+            <p>我還能希求什麼呢？我的心只得沉重着。</p>
+            <p>現在，故鄉的春天又在這異地的空中了，既給我久經逝去的兒時的回憶，而一併也帶着無可把握的悲哀。我倒不如躲到肅殺的嚴冬中去罷，──但是，四面又明明是嚴冬，正給我非常的寒威和冷氣。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-2">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div class="section-title">二、段落大意與文章主旨</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-sage"></div>全篇脈絡梳理
+        </div>
+        <div class="ht-wrap">
+          <table class="ht">
+            <thead>
+              <tr>
+                <th style="width: 15%;">段落</th>
+                <th style="width: 25%;">表達方式</th>
+                <th style="width: 60%;">內容大意</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>第 1 段</strong></td>
+                <td>寫景 / 抒情</td>
+                <td>記敍作者在冬季看見北京天空中的風箏，產生了驚異和悲哀的感覺。</td>
+              </tr>
+              <tr>
+                <td><strong>第 2 段</strong></td>
+                <td>寫景 / 抒情</td>
+                <td>描寫故鄉春日風箏時節的情景，對比現在身處肅殺的嚴冬，引發對故鄉春天的回憶，帶出下文故事。</td>
+              </tr>
+              <tr>
+                <td><strong>第 3 段</strong></td>
+                <td>記事</td>
+                <td>記述弟弟小時候十分喜歡風箏，而作者卻認為放風箏是沒出息的行為，嚴厲禁止他放風箏的往事。</td>
+              </tr>
+              <tr>
+                <td><strong>第 4 段</strong></td>
+                <td>記事</td>
+                <td>記述弟弟偷偷在雜物房製作風箏被作者發現，作者粗暴地毀壞了弟弟苦心孤詣製作的風箏的經過。</td>
+              </tr>
+              <tr>
+                <td><strong>第 5-6 段</strong></td>
+                <td>記事 / 抒情</td>
+                <td>作者中年時讀書得知遊戲是兒童正當的行為，憶起這件對弟弟造成「精神虐殺」的往事，感到歉疚萬分，受着沉重的痛苦折磨。</td>
+              </tr>
+              <tr>
+                <td><strong>第 7-8 段</strong></td>
+                <td>記事 / 抒情</td>
+                <td>指出作者想出多種補償過錯的方法，並敘述與弟弟談起這件童年憾事，希望得到弟弟的原諒，藉以解除內心的痛苦。</td>
+              </tr>
+              <tr>
+                <td><strong>第 9-11 段</strong></td>
+                <td>記事 / 抒情</td>
+                <td>記敍弟弟完全忘卻了風箏被毀壞一事，毫無怨恨；作者因而無法獲得真正的寬恕，心靈的痛苦與沉重始終無法解除。</td>
+              </tr>
+              <tr>
+                <td><strong>第 12 段</strong></td>
+                <td>寫景 / 抒情</td>
+                <td>記述作者在異地再次想起這一件憾事，感到無可把握的悲哀與徹骨的寒意。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="alert success">
+        <div class="alert-icon">💡</div>
+        <div>
+          <div class="alert-label">核心主旨歸納</div>
+          <div class="alert-text">
+            本文記敍作者年少時因為受傳統思想影響，不懂得遊戲對兒童的意義，粗暴地毀壞了弟弟製作中的風箏，扼殺了他應有的快樂，留下了終身的遺憾。作者藉此<strong>引發對封建傳統思想的反思</strong>，深刻地<strong>批判傳統教育觀念對兒童身心健康發展的窒礙與毒害</strong>，並表達了深切的懺悔與無法自我救贖的痛苦。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-3">
+      <div class="section-header">
+        <div class="section-icon">🌿</div>
+        <div class="section-title">三、寫作手法與修辭技巧</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-rose"></div>1. 首尾呼應與借景抒情
+        </div>
+        <p style="margin-bottom: 1rem; color: var(--color-text-secondary);">文章的首尾在結構與情感上形成了一個完美的閉環：</p>
+        <div class="compare-grid">
+          <div class="compare-card good">
+            <div class="compare-label">❄️ 開頭：製造懸念，定下基調</div>
+            <div class="compare-text">
+              文章開頭描寫北京嚴冬肅殺的天空中出現了風箏。在冬天放風箏並不合時宜，因此引發了作者的「驚異」；而這隻風箏觸動了他深藏心底的內疚回憶，帶來了「悲哀」。這個開頭<strong>具有開啟下文的作用，製造懸念，吸引讀者，同時奠定了全文悲涼的感情基調</strong>。
+            </div>
+          </div>
+          <div class="compare-card bad">
+            <div class="compare-label">🌬️ 結尾：深化悲哀，首尾呼應</div>
+            <div class="compare-text">
+              結尾處，作者的心境因為無法得到真正的寬恕而極度沉重。他寫道：「我倒不如躲到肅殺的嚴冬中去罷，──但是，四面又明明是嚴冬，正給我非常的寒威和冷氣。」這與開頭的北京嚴冬<strong>首尾呼應，結構嚴謹</strong>。這裏的「寒威和冷氣」，既是寫自然界的冷，更是寫<strong>內心無法自我救贖的徹骨冰寒</strong>，使悲哀的情感得到昇華。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-gold"></div>2. 強烈的對比手法
+        </div>
+        <p style="color: var(--color-text-secondary); margin-bottom: 0.8rem;">作者在文中多次運用對比，將人物的性格、當時的情境與內心的變化刻畫得入木三分：</p>
+        <ul style="list-style-type: none; padding: 0;">
+          <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: var(--color-rose-dust);">✦</span>
+            <strong>態度的對比：</strong>作者對風箏的「嫌惡」（認為是沒出息孩子的玩藝）與弟弟對風箏的「極度癡迷」（出神地看、驚呼、跳躍）形成鮮明對比，突顯了作者當年的專制與不近人情。
+          </li>
+          <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: var(--color-rose-dust);">✦</span>
+            <strong>毀壞風箏時的對比：</strong>作者折斷風箏時的「傲然」、「完全的勝利」，對比弟弟被抓破秘密時的「驚惶」、「失了色瑟縮着」以及最後的「絕望」。這種恃強凌弱的對比，更顯出作者後來對「精神虐殺」的痛悔。
+          </li>
+          <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: var(--color-rose-dust);">✦</span>
+            <strong>景物的對比：</strong>故鄉春二月「春日的溫和、楊柳發芽、山桃吐蕾」的生機勃勃，對比北京「灰黑色的禿樹枝丫、嚴冬的肅殺」。以樂景寫哀情，更襯托出現實中作者心情的沉重與悲涼。
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-sage"></div>3. 擬人修辭的妙用
+        </div>
+        <div class="keyword-grid" style="margin-top: 0.5rem;">
+          <div class="keyword-card">
+            <div class="kw-word" style="font-size: 15px;">「寂寞的瓦片風箏...伶仃地顯出憔悴可憐模樣」</div>
+            <div class="kw-def" style="margin-top: 10px;">
+              <strong>修辭：</strong>擬人<br><br>
+              <strong>作用：</strong>作者賦予了風箏人的情感特徵，令文章內容更富有感情色彩，渲染了悲哀的色調。同時，這「伶仃、憔悴可憐」的瓦片風箏，<strong>實際上正是年少時那個瘦弱多病、被剝奪了遊戲權利的「小兄弟」的真實寫照</strong>，達到了物我合一的藝術效果。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-4">
+      <div class="section-header">
+        <div class="section-icon">🎭</div>
+        <div class="section-title">四、人物心理深度剖析</div>
+      </div>
+
+      <div class="ht-wrap">
+        <table class="ht">
+          <thead>
+            <tr>
+              <th style="width: 25%;">人物</th>
+              <th style="width: 25%;">行為特徵</th>
+              <th style="width: 50%;">心理狀態與轉變</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>年少時的作者</strong></td>
+              <td>鄙視風箏，粗暴毀壞弟弟精心製作的蝴蝶風箏，並「傲然走出」。</td>
+              <td>受傳統封建長幼尊卑思想影響，認為遊戲是玩物喪志（沒出息）。破壞風箏時感到「破獲秘密的滿足」與身為長者的「完全勝利」，表現出<strong>無知、專制與蠻橫</strong>。</td>
+            </tr>
+            <tr>
+              <td><strong>年少時的弟弟</strong></td>
+              <td>多病瘦弱，買不起風箏，只能出神地看，最後偷偷躲在小屋製作。</td>
+              <td>對風箏表現出極度的<strong>忘我與投入</strong>。被哥哥發現時感到「驚惶」、「瑟縮」，風箏被毀後陷入深深的「絕望」。</td>
+            </tr>
+            <tr>
+              <td><strong>中年時的作者</strong></td>
+              <td>讀書後醒悟，企圖通過送風箏或討求寬恕來彌補過錯，但以失敗告終。</td>
+              <td>明白了「遊戲是兒童的天使」，意識到自己當年的行為是「精神的虐殺」。心靈彷彿變成鉛塊，沉重無比。充滿了<strong>深切的內疚、懺悔與無法自救的絕望感</strong>。</td>
+            </tr>
+            <tr>
+              <td><strong>中年時的弟弟</strong></td>
+              <td>當哥哥提起舊事請求寬恕時，回答「有過這樣的事麼？」，完全忘記了。</td>
+              <td>當年受到的傷害已經隨着時間徹底被遺忘。這種「全然忘卻，毫無怨恨」，反映了傳統思想對人性的麻木，令作者連道歉的對象都失去了。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-5">
+      <div class="section-header">
+        <div class="section-icon">💭</div>
+        <div class="section-title">五、深度思維問答題</div>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">深度思考題 1</div>
+        <div class="qbox-q">作者在文中痛苦地指出，自己當年折斷弟弟的蝴蝶風箏，是對弟弟進行了一場「精神的虐殺」。試結合文章內容，詳細解釋這句話的深層含義。</div>
+        <details class="ans-toggle">
+          <summary>查看解析</summary>
+          <div class="ans-content">
+            <strong>【解析】</strong><br>
+            「精神的虐殺」是指對兒童天性和心靈的嚴重摧殘。作者中年時偶然讀到外國講論兒童的書，才明白「遊戲是兒童最正當的行為，玩具是兒童的天使」。<br><br>
+            回想當年，瘦弱多病的弟弟極度喜愛風箏，苦心孤詣地在雜物房裡偷偷製作，風箏承載了他所有的快樂和童年夢想。然而，作者當時受傳統「玩物喪志」觀念的蒙蔽，以兄長的權威，無知、蠻橫且無情地摧毀了這隻即將完成的風箏，扼殺了弟弟從遊戲中獲得快樂的權利。<br><br>
+            這不僅僅是損壞了一件玩具，更是剝奪了兒童的天性，給弟弟的心靈留下了絕望的創傷，因此作者沉痛地稱其為「精神的虐殺」。
+          </div>
+        </details>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">深度思考題 2</div>
+        <div class="qbox-q">文章第 1 段寫道：「北京的冬季……遠處有一二風箏浮動，在我是一種驚異和悲哀。」這句話在整篇文章的結構上起着甚麼關鍵作用？它又是如何與文章的結尾產生呼應的？</div>
+        <details class="ans-toggle">
+          <summary>查看解析</summary>
+          <div class="ans-content">
+            <strong>【解析】</strong><br>
+            <strong>（1）結構作用：</strong>這句話起到了「開啟下文、製造懸念」的作用。風箏本應是帶來歡樂的玩具，但作者看到風箏卻感到「驚異和悲哀」，這種反差成功吸引了讀者的好奇心，引發讀者追看背後的原因，同時也為全文奠定了悲涼沉重的感情基調。<br><br>
+            <strong>（2）首尾呼應：</strong>文章結尾再次回到現實，寫道：「四面又明明是嚴冬，正給我非常的寒威和冷氣。」這與開頭的北京嚴冬遙相呼應，使文章結構形成一個嚴密的整體。更深層的是，開頭的「悲哀」是因為回憶起錯事；而結尾的「寒意與悲哀」，是因為發現弟弟已經全然忘卻，自己連請求寬恕的機會都沒有了。首尾的呼應，將這種無法救贖的絕望與悲哀推向了頂峰。
+          </div>
+        </details>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">深度思考題 3</div>
+        <div class="qbox-q">
+          當作者終於鼓起勇氣向弟弟提起往事並希望得到寬恕時，弟弟卻回答：「有過這樣的事麼？」並甚麼也不記得了。為甚麼弟弟的「全然忘卻，毫無怨恨」，反而讓作者覺得「心只得沉重着」，感到更加痛苦和絕望？</div>
+        <details class="ans-toggle">
+          <summary>查看解析</summary>
+          <div class="ans-content">
+            <strong>【解析】</strong><br>
+            這體現了作者極其深刻的懺悔與對傳統封建禮教的批判：<br><br>
+            首先，從<strong>個人心理</strong>而言，作者原本希望通過弟弟說一句「我可是毫不怪你呵」來減輕內心的負罪感。但弟弟的全然忘卻，意味著這筆「心靈的債」永遠無法償還，作者的懺悔失去了對象，「無怨的恕，說謊罷了」，他的靈魂永遠無法得到真正的救贖和解脫，因此心更加沉重。<br><br>
+            其次，從<strong>社會批判</strong>層面來看，弟弟的遺忘，反映了傳統封建倫理（長幼尊卑）對人思想的長期毒害。弟弟在小時候受到長兄的欺壓與剝奪，卻認為這是理所當然的，甚至連被傷害的記憶都沒有留下。這種「被虐殺而不自知」的麻木狀態，令身為覺醒者的魯迅感到更加可悲、可怖與絕望。這是一種更深層次、對民族劣根性的悲哀。
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- 版權聲明頁尾 (嚴格遵守文字與結構，不得更改) -->
+    <footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>

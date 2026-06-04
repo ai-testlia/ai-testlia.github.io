@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>課文教學筆記｜《說「勤」》深度分析</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* 柔美植物色系 (Soft Botanical Aesthetics) */
+      --color-text-primary: #4a3b3b;
+      --color-text-secondary: #7a6b6b;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #fbf9f5;
+      --color-border-tertiary: rgba(212, 163, 163, 0.25);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+
+      /* 柔美點綴色 */
+      --color-rose-dust: #d4a3a3;
+      --color-rose-light: #fcf3f3;
+      --color-sage-green: #9fb39b;
+      --color-sage-light: #f2f7f1;
+      --color-warm-gold: #cfae80;
+      --color-warm-light: #fdf9f1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #ede8e0;
+        --color-text-secondary: #b2a7a7;
+        --color-background-primary: #23211f;
+        --color-background-secondary: #1a1917;
+        --color-border-tertiary: rgba(212, 163, 163, 0.15);
+        --color-rose-light: #2d2525;
+        --color-sage-light: #242b22;
+        --color-warm-light: #2d2922;
+      }
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-background-secondary);
+      background-image: radial-gradient(var(--color-rose-light) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      padding: 2.5rem 1rem;
+      line-height: 1.85;
+      font-size: 14.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding-bottom: 4rem;
+    }
+
+    /* ══ 首圖區塊 ══ */
+    .hero {
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 4px 15px rgba(212, 163, 163, 0.1);
+      background: #fbf9f5;
+      border: 1px solid var(--color-rose-dust);
+    }
+
+    .hero::before {
+      content: '🌿';
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      font-size: 140px;
+      opacity: 0.08;
+      transform: rotate(-20deg);
+    }
+
+    .hero::after {
+      content: '🌸';
+      position: absolute;
+      bottom: -20px;
+      right: -15px;
+      font-size: 120px;
+      opacity: 0.08;
+      transform: rotate(15deg);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      border: 1px solid var(--color-rose-dust);
+      background: var(--color-rose-light);
+      color: #a87272;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2.1rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.7rem;
+      color: var(--color-text-primary);
+    }
+
+    .hero p {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.05em;
+    }
+
+    /* ══ 目錄 (TOC) ══ */
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 3rem;
+      background: var(--color-background-primary);
+      padding: 1.5rem;
+      border-radius: var(--border-radius-lg);
+      border: 0.5px solid var(--color-border-tertiary);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.6rem 0.8rem;
+      border-radius: var(--border-radius-md);
+      transition: all 0.3s ease;
+      background: var(--color-background-secondary);
+    }
+
+    .toc-item:hover {
+      background: var(--color-rose-light);
+      transform: translateX(4px);
+    }
+
+    .toc-num {
+      width: 26px;
+      height: 26px;
+      background: var(--color-rose-dust);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .toc-label {
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    /* ══ 章節基礎 ══ */
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px dashed var(--color-sage-green);
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      background: var(--color-sage-light);
+      color: var(--color-sage-green);
+      box-shadow: 0 2px 8px rgba(159, 179, 155, 0.2);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-sage-green);
+      letter-spacing: 0.05em;
+    }
+
+    /* ══ 課文原文專區 ══ */
+    .reading-box {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-rose-light);
+      border-radius: var(--border-radius-lg);
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(212, 163, 163, 0.05);
+    }
+
+    .reading-box::before {
+      content: '❝';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-family: 'Georgia', serif;
+      font-size: 60px;
+      color: var(--color-rose-light);
+      line-height: 1;
+    }
+
+    .reading-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      line-height: 2.1;
+      color: var(--color-text-primary);
+      text-align: justify;
+      letter-spacing: 0.03em;
+    }
+
+    .reading-text p {
+      margin-bottom: 1.2rem;
+      text-indent: 2em;
+    }
+
+    .reading-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ══ 內容卡片 ══ */
+    .card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-sage {
+      background: var(--color-sage-green);
+    }
+
+    .dot-rose {
+      background: var(--color-rose-dust);
+    }
+
+    .dot-gold {
+      background: var(--color-warm-gold);
+    }
+
+    /* ══ 提示框 (ALERT) ══ */
+    .alert {
+      border-radius: var(--border-radius-md);
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .alert-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .alert-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-primary);
+    }
+
+    .alert.tip {
+      background: var(--color-warm-light);
+      border: 0.5px solid rgba(207, 174, 128, 0.3);
+    }
+
+    .alert.tip .alert-label {
+      color: #b08d5b;
+    }
+
+    .alert.warn {
+      background: var(--color-rose-light);
+      border: 0.5px solid rgba(214, 156, 156, 0.3);
+    }
+
+    .alert.warn .alert-label {
+      color: #b57474;
+    }
+
+    .alert.success {
+      background: var(--color-sage-light);
+      border: 0.5px solid rgba(156, 179, 149, 0.3);
+    }
+
+    .alert.success .alert-label {
+      color: #6b8564;
+    }
+
+    /* ══ 關鍵詞網格 (KEYWORD GRID) ══ */
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin: 1.5rem 0;
+    }
+
+    .keyword-card {
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+      transition: transform 0.3s;
+    }
+
+    .keyword-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(212, 163, 163, 0.1);
+    }
+
+    .kw-word {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--color-sage-green);
+    }
+
+    .kw-def {
+      font-size: 13.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ══ 表格 (TABLE) ══ */
+    .ht-wrap {
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 0.5px solid var(--color-border-tertiary);
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    }
+
+    .ht {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: var(--color-background-primary);
+    }
+
+    .ht th {
+      background: var(--color-rose-light);
+      color: #a87272;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+
+    .ht td {
+      padding: 14px 16px;
+      border-bottom: 0.5px dashed var(--color-border-tertiary);
+      color: var(--color-text-primary);
+      line-height: 1.8;
+      vertical-align: top;
+    }
+
+    .ht tr:last-child td {
+      border-bottom: none;
+    }
+
+    .ht tr:nth-child(even) td {
+      background: var(--color-background-secondary);
+    }
+
+    /* ══ 對比框 (COMPARE GRID) ══ */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 1.5rem 0;
+    }
+
+    .compare-card {
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    }
+
+    .compare-card.bad {
+      background: var(--color-rose-light);
+      border: 0.5px solid rgba(214, 156, 156, 0.3);
+    }
+
+    .compare-card.good {
+      background: var(--color-sage-light);
+      border: 0.5px solid rgba(156, 179, 149, 0.3);
+    }
+
+    .compare-label {
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .compare-card.bad .compare-label {
+      color: #b57474;
+    }
+
+    .compare-card.good .compare-label {
+      color: #6b8564;
+    }
+
+    .compare-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-primary);
+    }
+
+    /* ══ 練習題專區 (QBOX) ══ */
+    .qbox {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(212, 163, 163, 0.08);
+    }
+
+    .qbox-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--color-rose-dust);
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.08em;
+    }
+
+    .qbox-q {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+    }
+
+    /* 隱藏參考答案摺疊器 */
+    details.ans-toggle {
+      background: var(--color-sage-light);
+      border-radius: var(--border-radius-md);
+      margin-top: 1.2rem;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    details.ans-toggle summary {
+      font-weight: 600;
+      color: var(--color-sage-green);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      font-size: 13.5px;
+      padding: 1rem 1.4rem;
+      outline: none;
+      justify-content: space-between;
+    }
+
+    details.ans-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.ans-toggle summary::after {
+      content: "✨ 點擊解鎖詳細解析";
+      font-size: 12px;
+      opacity: 0.9;
+      background: #fff;
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px dashed var(--color-sage-green);
+    }
+
+    details[open].ans-toggle summary::after {
+      content: "收起解析";
+      border: none;
+      background: transparent;
+    }
+
+    details.ans-toggle .ans-content {
+      padding: 0 1.4rem 1.6rem;
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--color-text-primary);
+      border-top: 1px dashed rgba(156, 179, 149, 0.4);
+      padding-top: 1.2rem;
+      margin: 0 1.4rem;
+      text-align: justify;
+    }
+
+    .ans-content strong {
+      color: var(--color-rose-dust);
+    }
+
+    /* ══ 列印／PDF 分頁規則 ══ */
+    @media print {
+      @page {
+        margin: 15mm 12mm;
+      }
+
+      body {
+        background: white;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .toc {
+        display: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card,
+      .qbox,
+      .example-box,
+      .alert,
+      .formula,
+      .keyword-card,
+      .compare-card,
+      .ht-wrap,
+      .reading-box {
+        page-break-inside: avoid;
+      }
+
+      .section-header {
+        page-break-before: always;
+        page-break-after: avoid;
+      }
+
+      .section-header:first-of-type {
+        page-break-before: auto;
+      }
+
+      .hero {
+        page-break-after: avoid;
+        background: #fdf9f1 !important;
+        border: 1px solid #ccc;
+        box-shadow: none;
+      }
+
+      .section-divider {
+        page-break-after: avoid;
+      }
+
+      details.ans-toggle {
+        border: 1px solid #000;
+        background: transparent;
+      }
+
+      details.ans-toggle summary::after {
+        content: "【內部參考答案】" !important;
+        border: none;
+        padding: 0;
+        background: transparent;
+      }
+
+      details.ans-toggle .ans-content {
+        display: block !important;
+        border-top: 1px dashed #ccc;
+      }
+    }
+  </style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--color-rose-dust, #d4a3a3);
+      color: var(--color-rose-dust, #d4a3a3);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- HERO 區塊 -->
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-tag">課文教學筆記</div>
+        <h1>《說「勤」》深度分析</h1>
+        <p>作者：林家箴 ｜ 潘SIR中文教室 精心編撰</p>
+      </div>
+    </div>
+
+    <!-- 目錄 (TOC) -->
+    <div class="toc">
+      <a href="#section-1" class="toc-item">
+        <div class="toc-num">一</div>
+        <div class="toc-label">課文全文錄入</div>
+      </a>
+      <a href="#section-2" class="toc-item">
+        <div class="toc-num">二</div>
+        <div class="toc-label">段落大意與文章脈絡</div>
+      </a>
+      <a href="#section-3" class="toc-item">
+        <div class="toc-num">三</div>
+        <div class="toc-label">議論文三要素核心拆解</div>
+      </a>
+      <a href="#section-4" class="toc-item">
+        <div class="toc-num">四</div>
+        <div class="toc-label">高階論證手法與修辭分析</div>
+      </a>
+      <a href="#section-5" class="toc-item">
+        <div class="toc-num">五</div>
+        <div class="toc-label">深度思維高階問答題</div>
+      </a>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-1">
+      <div class="section-header">
+        <div class="section-icon">📜</div>
+        <div class="section-title">一、課文全文錄入</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-rose"></div>《說「勤」》 林家箴
+        </div>
+        <div class="reading-box">
+          <div class="reading-text">
+            <p>俗話說：「一勤天下無難事。」唐代文學家韓愈說：「業精於勤。」學業的精深造詣來源於勤。</p>
+            <p>勤，就是要珍惜時間，勤於學習，勤於思考，勤於探索，勤於實踐，勤於總結。古今中外凡有建樹者，無不成功於勤。</p>
+            <p>
+              勤出成果。馬克思寫《資本論》，辛勤勞動四十年，閱讀了數量驚人的書籍，其中作過筆記的就有一千五百種以上。司馬遷著《史記》，從二十歲開始周遊，足跡遍及黃河、長江流域，匯集了大量的社會素材和歷史素材，為《史記》的創作奠定了基礎。歌德花了五十八年時間，搜集了大量材料，寫出了對世界文學界和思想界產生很大影響的詩劇《浮士德》。我國當代數學家陳景潤，在攀登數學高峰的道路上，翻閱了國內外的上千本有關資料，通宵達旦地看書學習，演算研究，取得了震驚世界的成就。上海一個女青年堅持自學，十年如一日，終於考上了高能物理研究生。可見，任何成就的取得都是與勤分不開的，古今中外概莫能外。
+            </p>
+            <p>
+              勤出智慧。傳說古希臘有一個叫德摩斯梯尼的演說家，因小時口吃，登台演講時，聲音含混，發音不準，常常被雄辯的對手壓倒。可是他氣不餒，心不灰。為克服這個弱點，戰勝雄辯的對手，便每天口含石子，面對大海朗誦，不管春夏秋冬，堅持五十年如一日，連爬山、跑步也邊走邊做演說。終於成為全希臘一個最有名氣的演說家。宋代學者朱熹講過一個故事：福州有一個叫陳正之的人，反應相當遲鈍，讀書每次只讀五十個字，一篇小文章也要讀一二百遍才能熟記。但他不懶不怠，勤學苦練，別人讀一遍，他就讀三遍四遍，天長日久，知識與日俱增，後來無書不讀，成了博學之士。這扎扎實實的事實，說明了這樣一個道理：頭腦的聰明，主要來自勤奮學習，來自堅持不懈。
+            </p>
+            <p>
+              總之，如果沒有勤奮的學習，任何人也不會變得聰明起來，任何天才也無法成就自己的事業。「天才出於勤奮」，高爾基的這句話，是有道理的。卡萊爾也說過：「天才就是無止境刻苦勤奮的能力。」只要我們勤奮學習，我們就能在學業上不斷取得好成績。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-2">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div class="section-title">二、段落大意與文章脈絡</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-sage"></div>結構段落梳理
+        </div>
+        <div class="ht-wrap">
+          <table class="ht">
+            <thead>
+              <tr>
+                <th style="width: 12%;">段落</th>
+                <th style="width: 25%;">邏輯層次</th>
+                <th style="width: 63%;">內容大意</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>第 1 段</strong></td>
+                <td><strong>引論<br>（提出論點）</strong></td>
+                <td>引用俗話和唐代文學家韓愈的名言（道理論據），開門見山地提出中心論點：<strong>學業的精深造詣來源於勤奮</strong>。</td>
+              </tr>
+              <tr>
+                <td><strong>第 2 段</strong></td>
+                <td><strong>本論：過渡<br>（承上啟下）</strong></td>
+                <td>指出「勤」是美德，清楚闡述「勤」的具體涵義（勤於學習、思考等），並指出古今中外凡有建樹的人無不刻苦勤奮，為下文舉例作鋪墊。</td>
+              </tr>
+              <tr>
+                <td><strong>第 3 段</strong></td>
+                <td><strong>本論：分論點一<br>（勤出成果）</strong></td>
+                <td>以馬克思、司馬遷、歌德、陳景潤及上海女青年等古今中外人物為例（事實論據），證明<strong>「勤出成果」</strong>，肯定任何成就都離不開勤奮。</td>
+              </tr>
+              <tr>
+                <td><strong>第 4 段</strong></td>
+                <td><strong>本論：分論點二<br>（勤出智慧）</strong></td>
+                <td>以古希臘演說家德摩斯梯尼克服口吃，及宋代陳正之克服天資遲鈍的故事為例（事實論據），證明<strong>「勤出智慧」</strong>。</td>
+              </tr>
+              <tr>
+                <td><strong>第 5 段</strong></td>
+                <td><strong>結論<br>（總結全文）</strong></td>
+                <td>指出懶惰者永遠沒有建樹、不會變聰明（反證法），並引用高爾基和卡萊爾的名言（道理論據），再次肯定<strong>為學要有成就，必須勤奮刻苦</strong>，勉勵大家努力學習。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="alert success">
+        <div class="alert-icon">💡</div>
+        <div>
+          <div class="alert-label">潘SIR總結：文章主旨</div>
+          <div class="alert-text">
+            作者引用古人的名言、西方學者的語錄（道理論據），以及古今中外偉人刻苦學習的事例（事實論據），論證<strong>「學業的精深造詣來源於勤奮」</strong>的道理，指出<strong>「勤出成果」</strong>和<strong>「勤出智慧」</strong>，從而勉勵大家要刻苦勤奮，才能在學業上不斷取得好成績。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-3">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div class="section-title">三、議論文三要素核心拆解</div>
+      </div>
+
+      <p style="margin-bottom: 1rem; color: var(--color-text-secondary);">
+        學習議論文，必須精準掌握其三大骨幹：<strong>論點</strong>（作者的主張）、<strong>論據</strong>（支持主張的證據）及<strong>論證</strong>（運用證據證明論點的過程）。</p>
+
+      <div class="keyword-grid">
+        <div class="keyword-card">
+          <div class="kw-word">📌 中心論點</div>
+          <div class="kw-def">
+            <strong>學業的精深造詣來源於勤。</strong><br>
+            <span style="font-size:12px; opacity:0.8;">（文章的核心靈魂，在第一段開宗明義提出，並在末段重申呼應。）</span>
+          </div>
+        </div>
+        <div class="keyword-card">
+          <div class="kw-word">📌 分論點一</div>
+          <div class="kw-def">
+            <strong>勤出成果。</strong><br>
+            <span style="font-size:12px; opacity:0.8;">（任何巨大成就的取得，都是與長年累月的勤奮分不開的。）</span>
+          </div>
+        </div>
+        <div class="keyword-card">
+          <div class="kw-word">📌 分論點二</div>
+          <div class="kw-def">
+            <strong>勤出智慧。</strong><br>
+            <span style="font-size:12px; opacity:0.8;">（即使天資愚鈍或有先天缺陷，也能靠勤奮堅持而變得聰明、成就卓越。）</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 1.5rem;">
+        <div class="card-title">
+          <div class="dot dot-gold"></div>論據分類解析 (證據清單)
+        </div>
+        <div class="ht-wrap">
+          <table class="ht">
+            <thead>
+              <tr>
+                <th style="width: 20%;">論據類型</th>
+                <th style="width: 40%;">文中例子</th>
+                <th style="width: 40%;">證明甚麼？</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="3"><strong>事實論據</strong><br><span
+                    style="font-size:12px; color:var(--color-text-secondary);">(真實的人物故事、歷史事件)</span></td>
+                <td>馬克思寫《資本論》、司馬遷著《史記》、歌德寫《浮士德》、陳景潤鑽研數學等。</td>
+                <td>證明<strong>「勤出成果」</strong>。這證明了「古今中外凡有建樹者，無不成功於勤」。</td>
+              </tr>
+              <tr>
+                <td>古希臘演說家德摩斯梯尼克服口吃的故事。</td>
+                <td>證明<strong>「勤出智慧」</strong>（後天努力可彌補先天生理缺陷）。</td>
+              </tr>
+              <tr>
+                <td>宋代學者陳正之克服天資遲鈍的故事。</td>
+                <td>證明<strong>「勤出智慧」</strong>（後天努力可彌補天資的不足）。</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>道理論據</strong><br><span
+                    style="font-size:12px; color:var(--color-text-secondary);">(俗語、名言、公認真理)</span></td>
+                <td>俗話：「一勤天下無難事」<br>韓愈：「業精於勤」</td>
+                <td>在文章首段提出，作為帶出並支持<strong>中心論點</strong>的權威依據。</td>
+              </tr>
+              <tr>
+                <td>高爾基：「天才出於勤奮」<br>卡萊爾：「天才就是無止境刻苦勤奮的能力」</td>
+                <td>在文章末段提出，總結全文，再次強化<strong>中心論點</strong>。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-4">
+      <div class="section-header">
+        <div class="section-icon">🎭</div>
+        <div class="section-title">四、高階論證手法與修辭分析</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-rose"></div>論證手法大剖析
+        </div>
+        <div class="compare-grid">
+          <div class="compare-card good">
+            <div class="compare-label">📚 舉例論證</div>
+            <div class="compare-text">
+              <strong>運用：</strong>作者在第 3 及第 4 段接連舉出六個具體的事實例子（如馬克思、司馬遷、德摩斯梯尼等）。<br><br>
+              <strong>好處：</strong>例子涵蓋了古今中外、不同領域的傑出人物，範圍極為廣泛。這能讓讀者感到「勤奮帶來成功」是一個放諸四海皆準的客觀事實，大大<strong>增強了文章的說服力與客觀性</strong>，使抽象的道理變得具體真實。
+            </div>
+          </div>
+          <div class="compare-card good">
+            <div class="compare-label">🗣️ 引用論證</div>
+            <div class="compare-text">
+              <strong>運用：</strong>在文章的開頭與結尾，作者引用了韓愈、高爾基、卡萊爾等著名文人及思想家的名言。<br><br>
+              <strong>好處：</strong>引用廣受世人認同的名人語錄和民間俗語作為論據，可以藉助名人的權威，<strong>增加論點的權威性和不可辯駁的力量</strong>，令讀者更容易信服。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert warn">
+        <div class="alert-icon">⚠</div>
+        <div>
+          <div class="alert-label">反證法（從反面推論）</div>
+          <div class="alert-text">
+            在第 5 段開首，作者寫道：「如果沒有勤奮的學習，任何人也不會變得聰明起來，任何天才也無法成就自己的事業。」這種不從正面說，而是從反面假設（如果沒有勤...
+            就沒有天才...）來證明正面論點的手法，稱為<strong>「反證法」</strong>。它能與前文的正面例子形成對比，使論證更全面嚴密。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-sage"></div>修辭技巧：排比的氣勢
+        </div>
+        <p style="margin-bottom: 0.8rem; color: var(--color-text-secondary);">在第 2
+          段中，作者為「勤」下定義時運用了精彩的<strong>排比</strong>修辭：</p>
+        <div
+          style="background: var(--color-rose-light); border: 1px dashed var(--color-rose-dust); padding: 1rem 1.5rem; border-radius: 8px; font-family: 'Noto Serif TC', serif; font-size: 15px; margin-bottom: 1rem; color: var(--color-text-primary);">
+          「勤，就是要珍惜時間，<strong>勤於</strong>學習，<strong>勤於</strong>思考，<strong>勤於</strong>探索，<strong>勤於</strong>實踐，<strong>勤於</strong>總結。」
+        </div>
+        <p style="line-height: 1.8;">
+          <strong>作用分析：</strong>連用五個結構相同、字數相近的「勤於...」短語，構成排比句。這不僅令文章讀起來節奏鮮明、朗朗上口，更在語氣上產生了一氣呵成、步步遞進的強大氣勢，充分且全面地強調了「勤」在學習過程每一個環節中的絕對必要性。
+        </p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-5">
+      <div class="section-header">
+        <div class="section-icon">💭</div>
+        <div class="section-title">五、深度思維高階問答題</div>
+      </div>
+
+      <p style="margin-bottom: 1.5rem; color: var(--color-text-secondary);">
+        女孩們，讀完這篇結構嚴謹的議論文，試試挑戰以下三道深度分析題，檢驗一下自己的思維銳利度吧！</p>
+
+      <div class="qbox">
+        <div class="qbox-label">深度思維題 1</div>
+        <div class="qbox-q">作者在第3段和第4段同樣使用了「舉例論證」，但這兩段的舉例方向和所證明的重點有何不同？作者為何要將它們分開兩個段落來寫？</div>
+        <details class="ans-toggle">
+          <summary></summary>
+          <div class="ans-content">
+            <strong>【詳細解析】</strong><br>
+            雖然兩段都是舉例論證，但側重點截然不同：<br>
+            <ul>
+              <li><strong>第 3
+                  段（勤出成果）：</strong>舉出的馬克思、司馬遷、歌德等，都是已經具備一定才華或基礎的名人。作者用這些例子證明，<strong>即使是本身有天賦的偉大人物，也必須加上長年累月（如四十年、五十八年）的驚人勤奮，才能產出震驚世界的實質「成果」</strong>。這證明了「成功＝天賦＋極度勤奮」。
+              </li>
+              <li><strong>第 4
+                  段（勤出智慧）：</strong>舉出的德摩斯梯尼（口吃）和陳正之（反應遲鈍），他們在起步時都處於<strong>劣勢（天資不足或有生理缺陷）</strong>。作者用這兩個例子證明，<strong>勤奮甚至能改變先天條件的不足，將愚笨化為「智慧」</strong>。這證明了「勤能補拙」。
+              </li>
+            </ul>
+            <strong>分段目的：</strong>作者將兩者分開，是為了讓論證層次更豐滿、更滴水不漏。他不僅證明了「天才需要勤奮」，更進一步證明了「天資差的人更可以靠勤奮成功」。這讓讀者（不論自認天資如何）都無可辯駁地接受「勤奮」的絕對重要性，顯示了極高的邏輯嚴密性。
+          </div>
+        </details>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">深度思維題 2</div>
+        <div class="qbox-q">有人認為《說「勤」》在第3段舉了多達六個例子，顯得過於累贅，只需保留一個最出名的即可。你同意這個說法嗎？試從「議論文的說服力」角度加以評論。</div>
+        <details class="ans-toggle">
+          <summary></summary>
+          <div class="ans-content">
+            <strong>【詳細解析】</strong><br>
+            <strong>不同意。</strong>在議論文中，論據的選擇講求「典型性」與「廣泛性」。作者保留這六個例子絕非累贅，而是經過精心佈局的：<br>
+            <ul>
+              <li><strong>時間上的廣泛性（古今）：</strong>例子包含了古代（司馬遷）、近代（馬克思、歌德）到當代（陳景潤、上海女青年），證明「勤奮致勝」是跨越時代的真理。</li>
+              <li><strong>地域與領域上的廣泛性（中外、文理）：</strong>涵蓋了中國與外國；同時跨越了文學（歌德）、史學（司馬遷）、政治經濟學（馬克思）到純理科的數學和高能物理（陳景潤、女青年）。</li>
+              <li><strong>人物身分的廣泛性：</strong>既有世界級偉人，也有「上海一個女青年」這種普通平民。</li>
+            </ul>
+            <strong>總結：</strong>如果只保留一個例子，讀者可能會認為那只是「特例」。作者透過這組橫跨古今中外、文理各界、偉人與平民的例子，築起了一道牢不可破的證據牆，完美地支撐起段末<strong>「古今中外概莫能外」</strong>的結論，大大增強了文章無可反駁的說服力。
+          </div>
+        </details>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">深度思維題 3</div>
+        <div class="qbox-q">閱讀本文後，結合現代社會的實際情況，你認為除了「勤奮」之外，還有甚麼因素是取得學業或事業「精深造詣」所必不可少的？試舉出一項並簡述你的看法。</div>
+        <details class="ans-toggle">
+          <summary></summary>
+          <div class="ans-content">
+            <strong>【詳細解析】（開放性作答，言之成理即可）</strong><br>
+            雖然作者強調「勤」是成功的關鍵，但在瞬息萬變的現代社會中，單靠盲目的「勤奮」（死讀書、死做題）未必能達到最高成就。我認為除了「勤」之外，<strong>「正確的方法與創新思維（變通）」</strong>同樣必不可少。<br><br>
+            <strong>看法闡述：</strong>現代社會資訊爆炸，如果只是像古代人一樣「讀書百遍」，效率會非常低。我們必須在「勤奮」的基礎上，懂得運用科技工具、掌握高效的學習方法（如時間管理、歸納規律），並具備創新與批判性思考的能力。只有將「勤奮（Hard
+            work）」與「智慧的方法（Smart work）」結合，才能在現代競爭激烈的環境中真正取得精深的造詣。
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- 版權聲明頁尾 -->
+    <footer
+      style="margin-top:2rem; padding:1.5rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>

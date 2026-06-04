@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>課文教學筆記 | 《為學一首示子姪》深度分析</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* 專屬女生柔美色系 (Soft Botanical Aesthetics) */
+  --color-text-primary: #4a3b3b;
+  --color-text-secondary: #7a6b6b;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #fbf9f5;
+  --color-border-tertiary: rgba(212, 163, 163, 0.25);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* 柔美點綴色 */
+  --color-rose-dust: #d4a3a3;
+  --color-rose-light: #fcf3f3;
+  --color-sage-green: #9fb39b;
+  --color-sage-light: #f2f7f1;
+  --color-warm-gold: #cfae80;
+  --color-warm-light: #fdf9f1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #b2a7a7;
+    --color-background-primary: #23211f;
+    --color-background-secondary: #1a1917;
+    --color-border-tertiary: rgba(212, 163, 163, 0.15);
+    --color-rose-light: #2d2525;
+    --color-sage-light: #242b22;
+    --color-warm-light: #2d2922;
+  }
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  background-image: radial-gradient(var(--color-rose-light) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  padding: 2.5rem 1rem;
+  line-height: 1.85;
+  font-size: 14.5px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 840px; margin: 0 auto; padding-bottom: 4rem; }
+
+/* ══ Hero 共用結構與嚴格規則 (文言文：霧鼠尾草色調) ══ */
+.hero {
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 15px rgba(212, 163, 163, 0.1);
+}
+.hero::before {
+  content: '🌿'; position: absolute; top: -15px; left: -15px; font-size: 140px; opacity: 0.05; transform: rotate(-20deg);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: inherit;
+}
+.hero p { font-size: 13px; }
+
+.hero.classical { background: #D5D8C5; color: #1A2015; }
+.hero.classical .hero-tag {
+  border: 1px solid rgba(26,32,21,0.3);
+  color: rgba(26,32,21,0.65);
+}
+.hero.classical p { color: rgba(26,32,21,0.5); }
+
+/* ══ 目錄 (TOC) ══ */
+.toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px; margin-bottom: 2.5rem;
+  background: var(--color-background-primary);
+  padding: 1.5rem; border-radius: var(--border-radius-lg);
+  border: 0.5px solid var(--color-border-tertiary);
+}
+.toc-item {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: inherit;
+  padding: 0.5rem; border-radius: var(--border-radius-md);
+  transition: all 0.3s ease;
+}
+.toc-item:hover { background: var(--color-background-secondary); transform: translateX(4px); }
+.toc-num {
+  width: 24px; height: 24px;
+  background: var(--color-sage-green); color: #fff;
+  border-radius: 50%; font-size: 12px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  font-family: 'Noto Serif TC', serif;
+}
+.toc-label { font-size: 13.5px; font-weight: 500; }
+
+/* ══ 章節基礎 ══ */
+.section { margin-bottom: 3.5rem; }
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.5rem; padding-bottom: 0.8rem;
+  border-bottom: 2px dashed var(--color-rose-dust);
+}
+.section-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0; 
+  background: var(--color-rose-light); color: var(--color-rose-dust);
+}
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 19px; font-weight: 700;
+  color: var(--color-text-primary); letter-spacing: 0.03em;
+}
+
+/* ══ 課文原文專區 ══ */
+.reading-box {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 2.2rem 2.5rem; margin-bottom: 2rem;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(212, 163, 163, 0.05);
+}
+.reading-box::before {
+  content: '❝'; position: absolute; top: 15px; left: 20px;
+  font-family: 'Georgia', serif; font-size: 50px; color: rgba(212, 163, 163, 0.2);
+}
+.reading-text {
+  font-family: 'Noto Serif TC', serif; font-size: 16px; line-height: 2.2;
+  color: var(--color-text-primary); text-align: justify; letter-spacing: 0.05em;
+}
+.reading-text p { margin-bottom: 1.5rem; text-indent: 2em; }
+.reading-text p:last-child { margin-bottom: 0; }
+
+/* ══ 內容卡片 ══ */
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.6rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+}
+.card-title {
+  font-size: 15.5px; font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Noto Serif TC', serif;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot-sage { background: var(--color-sage-green); }
+.dot-rose { background: var(--color-rose-dust); }
+.dot-gold { background: var(--color-warm-gold); }
+
+/* ══ 提示框 (ALERT) ══ */
+.alert {
+  border-radius: var(--border-radius-md);
+  padding: 1.1rem 1.4rem; margin: 1.5rem 0;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.alert-label { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 4px; }
+.alert-text  { font-size: 14px; line-height: 1.8; }
+
+.alert.tip     { background: var(--color-warm-light); border: 0.5px solid rgba(207, 174, 128, 0.3); }
+.alert.tip .alert-label { color: #b08d5b; }
+.alert.warn    { background: var(--color-rose-light); border: 0.5px solid rgba(214, 156, 156, 0.3); }
+.alert.warn .alert-label { color: #b57474; }
+.alert.success { background: var(--color-sage-light); border: 0.5px solid rgba(156, 179, 149, 0.3); }
+.alert.success .alert-label { color: #6b8564; }
+
+/* ══ 關鍵詞網格 (KEYWORD GRID) ══ */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 12px; margin: 1.5rem 0;
+}
+.keyword-card {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1.1rem 1.25rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.keyword-card:hover { transform: translateY(-2px); }
+.kw-word { font-family: 'Noto Serif TC', serif; font-size: 16.5px; font-weight: 700; margin-bottom: 6px; color: var(--color-rose-dust); }
+.kw-def { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.6; }
+
+/* ══ 表格 (TABLE) ══ */
+.ht-wrap { border-radius: var(--border-radius-md); overflow: hidden; border: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
+.ht { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--color-background-primary); }
+.ht th {
+  background: var(--color-sage-light); color: var(--color-sage-green);
+  font-family: 'Noto Serif TC', serif; font-weight: 700;
+  padding: 12px 15px; text-align: left; font-size: 13.5px;
+  border-bottom: 1px solid var(--color-border-tertiary);
+}
+.ht td {
+  padding: 12px 15px; border-bottom: 0.5px solid var(--color-border-tertiary);
+  color: var(--color-text-primary); line-height: 1.8; vertical-align: top;
+}
+.ht tr:last-child td { border-bottom: none; }
+.ht tr:nth-child(even) td { background: var(--color-background-secondary); }
+
+/* ══ 對比框 (COMPARE GRID) ══ */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 1.5rem 0; }
+.compare-card { border-radius: var(--border-radius-md); padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
+.compare-card.bad  { background: var(--color-rose-light); border: 0.5px solid rgba(214, 156, 156, 0.3); }
+.compare-card.good { background: var(--color-sage-light); border: 0.5px solid rgba(156, 179, 149, 0.3); }
+.compare-label { font-size: 13px; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.8rem; font-family: 'Noto Serif TC', serif; }
+.compare-card.bad  .compare-label { color: #b57474; }
+.compare-card.good .compare-label { color: #6b8564; }
+.compare-text { font-size: 13.5px; line-height: 1.8; color: var(--color-text-primary); }
+
+/* ══ 練習題專區 (QBOX) ══ */
+.qbox {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.8rem 2rem; margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(212, 163, 163, 0.05);
+}
+.qbox-label { 
+  font-size: 11px; font-weight: 700; color: var(--color-rose-dust); 
+  background: var(--color-rose-light); display: inline-block; padding: 4px 12px; border-radius: 12px;
+  margin-bottom: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.qbox-q { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; margin-bottom: 1.2rem; line-height: 1.7; color: var(--color-text-primary); }
+
+/* 隱藏參考答案摺疊器 */
+details.ans-toggle {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  margin-top: 1rem; overflow: hidden;
+  transition: all 0.3s;
+}
+details.ans-toggle summary {
+  font-weight: 600; color: var(--color-rose-dust); cursor: pointer; list-style: none;
+  display: flex; align-items: center; font-size: 13.5px; padding: 0.9rem 1.4rem;
+  outline: none; justify-content: space-between;
+}
+details.ans-toggle summary::-webkit-details-marker { display: none; }
+details.ans-toggle summary::after { content: "👁️ 點擊解鎖潘SIR高階解析"; font-size: 12px; opacity: 0.8; background: var(--color-background-primary); padding: 2px 8px; border-radius: 10px; border: 0.5px solid var(--color-border-tertiary); }
+details[open].ans-toggle summary::after { content: "收起解析"; }
+details.ans-toggle .ans-content {
+  padding: 0 1.4rem 1.4rem; font-size: 14px; line-height: 1.8;
+  color: var(--color-text-primary);
+  border-top: 1px dashed var(--color-border-tertiary); padding-top: 1rem; margin: 0 1.4rem;
+  text-align: justify;
+}
+
+/* ══ 列印／PDF 分頁規則 (嚴格遵守) ══ */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula, .keyword-card, .compare-card, .ht-wrap, .reading-box { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+  
+  details.ans-toggle { border: 1px solid #000; }
+  details.ans-toggle summary::after { content: "【內部參考答案】" !important; border: none; padding: 0; }
+  details.ans-toggle .ans-content { display: block !important; }
+}
+</style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--color-rose-dust, #d4a3a3);
+      color: var(--color-rose-dust, #d4a3a3);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero classical">
+  <div class="hero-tag">課文教學筆記</div>
+  <h1>課文教學筆記 | 《為學一首示子姪》深度分析</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc">
+  <a href="#section-1" class="toc-item"><div class="toc-num">一</div><div class="toc-label">課文全文錄入與深度語譯</div></a>
+  <a href="#section-2" class="toc-item"><div class="toc-num">二</div><div class="toc-label">核心字詞與重要文言特殊句式</div></a>
+  <a href="#section-3" class="toc-item"><div class="toc-num">三</div><div class="toc-label">結構段意與核心主旨</div></a>
+  <a href="#section-4" class="toc-item"><div class="toc-num">四</div><div class="toc-label">正反對比與寓言論證之美</div></a>
+  <a href="#section-5" class="toc-item"><div class="toc-num">五</div><div class="toc-label">仿真模擬高階問答題</div></a>
+</div>
+
+<div class="section" id="section-1">
+  <div class="section-header">
+    <div class="section-icon">📜</div>
+    <div class="section-title">一、課文全文錄入與深度語譯</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-rose"></div>文章完整錄入</div>
+    <div class="reading-box">
+      <div class="reading-text">
+        <p>天下事有難易乎？為之，則難者亦易矣；不為，則易者亦難矣。人之為學有難易乎？學之，則難者亦易矣；不學，則易者亦難矣。</p>
+        <p>吾資之昏不逮人也，吾材之庸不逮人也，旦旦而學之，久而不怠焉，迄乎成，而亦不知其昏與庸也。吾資之聰倍人也，吾材之敏倍人也；屏棄而不用，其與昏與庸無以異也。聖人之道，卒於魯也傳之。然則昏庸聰敏之用，豈有常哉？</p>
+        <p>蜀之鄙有二僧：其一貧，其一富。貧者語於富者曰：「吾欲之南海，何如？」富者曰：「子何恃而往？」曰：「吾一瓶一缽足矣。」富者曰：「吾數年來欲買舟而下，猶未能也，子何恃而往？」越明年，貧者自南海還，以告富者，富者有慚色。西蜀之去南海，不知幾千里也，僧之富者不能至，而貧者至之。人之立志，顧不如蜀鄙之僧哉？</p>
+        <p>是故聰與敏，可恃而不可恃也，自恃其聰與敏而不學者，自敗者也。昏與庸，可限而不可限也；不自限其昏與庸而力學不倦者，自力者也。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-sage"></div>全景對照白話文語譯</div>
+    <div class="ht-wrap">
+      <table class="ht">
+        <thead>
+          <tr>
+            <th style="width: 45%;">文言文原句</th>
+            <th style="width: 55%;">精準白話文語譯</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>天下事有難易乎？為之，則難者亦易矣；不為，則易者亦難矣。人之為學有難易乎？學之，則難者亦易矣；不學，則易者亦難矣。</td>
+            <td>天底下的事情有困難和容易的分別嗎？只要去做，那麼困難的事情也變容易了；如果不做，那麼容易的事情也變困難了。人們做學問有困難和容易的分別嗎？只要去學，那麼困難的學問也變容易了；如果不學，那麼容易的學問也變困難了。</td>
+          </tr>
+          <tr>
+            <td>吾資之昏不逮人也，吾材之庸不逮人也，旦旦而學之，久而不怠焉，迄乎成，而亦不知其昏與庸也。</td>
+            <td>我的天資愚鈍比不上別人，我的才能平庸比不上別人，但是如果天天去學習它，長久堅持而不懈怠，直到成功，（別人）也就不覺得我愚鈍和平庸了。</td>
+          </tr>
+          <tr>
+            <td>吾資之聰倍人也，吾材之敏倍人也；屏棄而不用，其與昏與庸無以異也。聖人之道，卒於魯也傳之。然則昏庸聰敏之用，豈有常哉？</td>
+            <td>我的天資聰敏超過別人許多，我的才能敏捷超過別人許多；如果屏棄它而不用，那和愚鈍和平庸的人就沒有甚麼區別了。孔子的學說，最終是由天資魯鈍的曾參继承下來的。既然這樣，那麼愚昧、平庸、聰慧、機敏所起的作用，難道有固定不變的嗎？</td>
+          </tr>
+          <tr>
+            <td>蜀之鄙有二僧：其一貧，其一富。貧者語於富者曰：「吾欲之南海，何如？」富者曰：「子何恃而往？」曰：「吾一瓶一缽足矣。」</td>
+            <td>四川的邊境有兩個和尚：其中一個貧窮，其中一個富有。窮和尚對富和尚說：「我想去南海（普陀山），你覺得怎麼樣？」富和尚說：「你憑藉甚麼去呢？」窮和尚說：「我靠一個水瓶、一個飯缽就足夠了。」</td>
+          </tr>
+          <tr>
+            <td>富者曰：「吾數年來欲買舟而下，猶未能也，子何恃而往？」越明年，貧者自南海還，以告富者，富者有慚色。</td>
+            <td>富和尚說：「我多年以來想要僱船順江而下，尚且未能實現呢，你憑藉甚麼去呢！」到了第二年，窮和尚從南海回來了，把這件事告訴富和尚，富和尚的臉上露出了羞愧的神色。</td>
+          </tr>
+          <tr>
+            <td>西蜀之去南海，不知幾千里也，僧之富者不能至，而貧者至之。人之立志，顧不如蜀鄙之僧哉？</td>
+            <td>四川距離南海，不知道有幾千里路，富和尚不能到達，窮和尚卻到達了。一個人立定志向，難道反而不如四川邊境的那個窮和尚嗎？</td>
+          </tr>
+          <tr>
+            <td>是故聰與敏，可恃而不可恃也，自恃其聰與敏而不學者，自敗者也。昏與庸，可限而不可限也；不自限其昏與庸而力學不倦者，自力者也。</td>
+            <td>因此，聰慧和機敏，是可以依靠而又不可完全依靠的，自己依仗着聰慧和機敏而不肯學習的人，那是自己走向失敗的人。愚鈍和平庸，是可以限制人而又限制不了人的；不受到自身愚鈍平庸的限制而努力學習、永不倦怠的人，那是靠自己努力求上進的人。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="section-2">
+  <div class="section-header">
+    <div class="section-icon">📖</div>
+    <div class="section-title">二、核心字詞與重要文言特殊句式</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-gold"></div>核心字詞精準釋義</div>
+    <div class="keyword-grid">
+      <div class="keyword-card"><div class="kw-word">不逮</div><div class="kw-def">不及、比不上。逮：及、趕上。</div></div>
+      <div class="keyword-card"><div class="kw-word">旦旦</div><div class="kw-def">天天、每日。</div></div>
+      <div class="keyword-card"><div class="kw-word">怠</div><div class="kw-def">懶惰、鬆懈。</div></div>
+      <div class="keyword-card"><div class="kw-word">迄</div><div class="kw-def">直到、到了。</div></div>
+      <div class="keyword-card"><div class="kw-word">屏棄</div><div class="kw-def">拋棄、捨棄。屏：通「摒」。</div></div>
+      <div class="keyword-card"><div class="kw-word">卒</div><div class="kw-def">終於、最終。</div></div>
+      <div class="keyword-card"><div class="kw-word">魯</div><div class="kw-def">遲鈍、愚笨。（文中指曾參）</div></div>
+      <div class="keyword-card"><div class="kw-word">常</div><div class="kw-def">規律、固定不變的常理。</div></div>
+      <div class="keyword-card"><div class="kw-word">鄙</div><div class="kw-def">邊遠地方、邊境。</div></div>
+      <div class="keyword-card"><div class="kw-word">恃</div><div class="kw-def">憑藉、依靠。</div></div>
+      <div class="keyword-card"><div class="kw-word">越明年</div><div class="kw-def">到了第二年。越：及、過。</div></div>
+      <div class="keyword-card"><div class="kw-word">顧</div><div class="kw-def">反而、卻。</div></div>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div>
+      <div class="alert-label">一詞多義陷阱：「之」與「去」</div>
+      <div class="alert-text">
+        <strong>1. 之：</strong><br>
+        - 結構助詞（取消句子獨立性）：「人之為學有難易乎」、「昏庸聰敏之用」<br>
+        - 代詞（它，指學問）：「旦旦而學之」<br>
+        - 動詞（往、去）：「吾欲之南海」<br>
+        <strong>2. 去：</strong><br>
+        - 古義指「距離」：「西蜀之去南海，不知幾千里也」；今義常用作「前往某地」。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-sage"></div>重要文言特殊句式</div>
+    <p style="margin-bottom: 0.5rem;"><strong>（1）設問句（自問自答）</strong></p>
+    <p style="color: var(--color-text-secondary); margin-left: 1.5rem; margin-bottom: 1rem;">
+      例句：「天下事有難易乎？為之，則難者亦易矣；不為，則易者亦難矣。」<br>
+      作用：開篇即用設問，不直接給出結論，而是通過提問啟發讀者思考，隨後自答，加強文章的論辯氣勢。
+    </p>
+    <p style="margin-bottom: 0.5rem;"><strong>（2）賓語前置句（倒裝句）</strong></p>
+    <p style="color: var(--color-text-secondary); margin-left: 1.5rem;">
+      例句：「子何恃而往？」<br>
+      正常語序：子恃何而往？<br>
+      解析：在文言文中，疑問句裡疑問代詞（何）作介詞（恃）的賓語時，賓語通常會前置。這句話的意思是「你憑藉甚麼前往呢？」。
+    </p>
+  </div>
+</div>
+
+<div class="section" id="section-3">
+  <div class="section-header">
+    <div class="section-icon">🗺️</div>
+    <div class="section-title">三、結構段意與核心主旨</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-rose"></div>結構四分法探析</div>
+    <div class="ht-wrap">
+      <table class="ht">
+        <thead>
+          <tr>
+            <th style="width: 20%;">邏輯結構</th>
+            <th style="width: 30%;">核心論證手法</th>
+            <th style="width: 50%;">內容大意與結構作用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>第一部分<br>引論（第1段）</strong></td>
+            <td>設問、排比、對比</td>
+            <td>開門見山提出全文的中心論點：<strong>為學沒有絕對的難易，關鍵在於主觀上是否肯「為（實踐）」和「學」</strong>。</td>
+          </tr>
+          <tr>
+            <td><strong>第二部分<br>本論一（第2段）</strong></td>
+            <td>正反對比、舉例論證</td>
+            <td>分析「聰敏」與「昏庸」的後天轉化。說明昏庸者「力學不倦」可致成功，聰敏者「屏棄不用」必落平庸，並引<strong>曾參傳聖道</strong>為證，說明資質非決定性因素。</td>
+          </tr>
+          <tr>
+            <td><strong>第三部分<br>本論二（第3段）</strong></td>
+            <td>寓言論證、對比論證</td>
+            <td>詳細記述<strong>蜀鄙二僧欲往南海</strong>的故事。通過貧僧憑「一瓶一缽」成功往返，與富僧「數年欲買舟而下」卻未能成行的對比，證明<strong>「人貴立志」及「實踐」的重要性</strong>。</td>
+          </tr>
+          <tr>
+            <td><strong>第四部分<br>結論（第4段）</strong></td>
+            <td>對仗總結、反論推進</td>
+            <td>總結全文。重申聰敏「不可恃」，昏庸「不可限」，勉勵子姪輩切勿自恃天資而懈怠，亦勿自限於愚鈍而放棄，應當自力上進。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert success">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">核心主旨</div>
+      <div class="alert-text">
+        本文是一篇勸學性質的議論文。作者彭端淑通過闡述天下事與為學「難易轉化」的道理，並結合曾參繼承聖學以及蜀鄙二僧前往南海的寓言，深刻論證了<strong>「學業成敗的關鍵不在於天資優劣或客觀條件的好壞，而全在於主觀的立志、刻苦與實踐」</strong>的道理，藉此勉勵子姪輩後天發憤、力學不倦。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="section-4">
+  <div class="section-header">
+    <div class="section-icon">🖋️</div>
+    <div class="section-title">四、正反對比與寓言論證之美</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-sage"></div>1. 正反對比手法（寫作技巧與作用）</div>
+    <p style="margin-bottom: 1rem; color: var(--color-text-secondary);">文章將「對比」貫穿始終，從理論到事實，產生了極強的說服力：</p>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">❌ 反面狀態</div>
+        <div class="compare-text">
+          - <strong>天下事與為學：</strong>不為，則易者亦難矣；不學，則易者亦難矣。<br>
+          - <strong>天資層面：</strong>「聰敏之資」若屏棄而不用，其與昏庸無異（自敗者）。<br>
+          - <strong>蜀鄙二僧：</strong>富僧物質條件優渥，計劃買舟而下，卻「數年未能也」。
+        </div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">✨ 正面狀態</div>
+        <div class="compare-text">
+          - <strong>天下事與為學：</strong>為之，則難者亦易矣；學之，則難者亦易矣。<br>
+          - <strong>天資層面：</strong>「昏庸之材」若旦旦而學、久而不怠，迄乎成亦不知其昏庸（自力者）。<br>
+          - <strong>蜀鄙二僧：</strong>貧僧物質條件匱乏，僅憑「一瓶一缽」，「越明年」成功往返。
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 0.5rem; color: var(--color-text-secondary);">
+      <strong>對比的作用：</strong>將兩種截然不同的態度與結果並列，黑白分明，強烈地突顯出「主觀努力（立志與實踐）」對改變命運、翻轉劣勢的決定性作用，論點不證自明。
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-rose"></div>2. 論證手法深度剖析</div>
+    <ul style="list-style-type: none; padding: 0;">
+      <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+        <span style="position: absolute; left: 0; color: var(--color-rose-dust);">✦</span>
+        <strong>寓言論證（舉例論證）：</strong>作者並非枯燥地講道理，而是生動地敘述了「蜀鄙二僧欲往南海」的寓言故事。故事中「富者不能至，而貧者至之」的驚人結局，將「客觀條件不如主觀立志」的抽象道理，轉化為具體且極具震撼力的事實，給讀者（尤其是子姪輩）留下深刻印象。
+      </li>
+      <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+        <span style="position: absolute; left: 0; color: var(--color-rose-dust);">✦</span>
+        <strong>道理論證：</strong>第1段運用「為之則難者亦易，不為則易者亦難」的辯證哲理，從邏輯推論上確立了為學在於「為」與「學」的普遍真理。
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="section" id="section-5">
+  <div class="section-header">
+    <div class="section-icon">🎯</div>
+    <div class="section-title">五、高階思維探究練習</div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-label">高階思維題 1</div>
+    <div class="qbox-q">課文第三段寫到貧僧從南海回來，將此事告訴富僧後，「富者有慚色」。試結合文章內容，深度剖析富僧內心的「慚色」包含了哪些複雜的心理活動？</div>
+    <details class="ans-toggle">
+      <summary>解鎖潘SIR高階解析</summary>
+      <div class="ans-content">
+        富僧的「慚色（羞愧的神色）」層次非常豐富，主要包含了以下三種心理活動：<br><br>
+        <strong>1. 物質優越與結果落後的巨大反差：</strong>富僧自身的客觀條件（金錢、資源）遠遠勝過貧僧。他曾傲慢地質疑貧僧「子何恃而往」，並自詡自己預備「買舟而下」多年。然而，最終反而是物質匱乏、僅憑「一瓶一缽」的貧僧成功往返，這讓富僧為自己空有優渥條件卻毫無作為感到無地自容。<br><br>
+        <strong>2. 對自身缺乏決心與行動力的羞愧：</strong>富僧意識到，阻礙他前往南海的，從來不是客觀環境不允許，而是自己內心缺乏果斷的志向與實踐的勇氣。他長年停留在「買舟」的周密計劃與等待中，陷入了惰性，其立志與毅力反而遠遠不如邊境的窮和尚。<br><br>
+        <strong>3. 虛榮心受到打擊的尷尬：</strong>昔日他以高高在上的姿態否定貧僧的計劃，如今事實擺在眼前，貧僧的成功無形中戳破了富僧虛張聲勢的優越感，使其在精神層面徹底認輸，因而面露慚色。
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-label">高階思維題 2</div>
+    <div class="qbox-q">彭端淑在文中第二段指出「聖人之道，卒於魯也傳之」，隨後在第三段引入「蜀鄙二僧」的故事。試詳細析述，這兩處論據（一文一史、一實一虛）在文章整體的論證邏輯上，是如何互相配合並逐步深化中心論點的？</div>
+    <details class="ans-toggle">
+      <summary>解鎖潘SIR高階解析</summary>
+      <div class="ans-content">
+        這兩處論據在文章中構成了<strong>「由歷史事實到寓言哲理」</strong>、<strong>「由天資條件到客觀環境」</strong>的雙重互補邏輯，完美深化了中心論點：<br><br>
+        <strong>1. 從「資質」到「環境」的全面論證：</strong><br>
+        第二段引入「曾參傳聖道」的<strong>歷史事實</strong>，聚焦於<strong>「內在資質（天資）」</strong>的討論。曾參雖然在孔門弟子中公認最為魯鈍，但他靠後天的不懈努力，最終承傳了儒家大統。這證明了「內在資質的愚鈍，不能限制後天的為學成就」。<br>
+        第三段引入「蜀鄙二僧」的**寓言故事**，則將論證外延拓展到了<strong>「客觀環境（物質條件）」</strong>。二僧的故事證明，即使面對「西蜀去南海幾千里」的地理阻隔與物質匱乏，只要有堅定的志向，客觀環境的艱苦同樣無法限制成功。兩者結合，完成了從「內在天資」到「外在環境」無懈可擊的全面論證。<br><br>
+        <strong>2. 史實與寓言虛實相生，增強說服力：</strong><br>
+        「曾參傳道」是讀者皆知的歷史定論，屬於<strong>硬論據</strong>，確立了論點的歷史真實性；而「蜀鄙二僧」則是具備故事情節與生動對話的寓言，屬於<strong>軟論據</strong>，極具情趣與畫面感，更容易打動年輕的子姪輩。這種虛實結合、互為表里的論證結構，使「為學全在立志與實踐」的中心論點變得堅不可摧。
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-label">高階思維題 3</div>
+    <div class="qbox-q">【跨文本延伸思考】林家箴在《說「勤」》中指出成功的關鍵在於「勤（成果與智慧皆出於勤）」；而彭端淑在《為學一首示子姪》中則更強調「志（人之立志，顧不如蜀鄙之僧哉）」。試綜合兩篇議論文的觀點，深入評析在求學的漫長道路上，「志（志向）」與「勤（勤奮）」兩者之間存在着怎樣的內在邏輯關係？</div>
+    <details class="ans-toggle">
+      <summary>解鎖潘SIR高階解析</summary>
+      <div class="ans-content">
+        綜合兩文的觀點，「志」與「勤」並非互相排斥，而是相輔相成，存在着<strong>「因果相生、體用結合」</strong>的深層內在邏輯關係：<br><br>
+        <strong>1. 「志」是「勤」的起點與核心動力（志為因，勤為果）：</strong><br>
+        彭端淑所強調的「志」，是一個人內心建立的明確目標與強烈願望。如果沒有「志」，人就會像《為學》中的富僧一樣，空有資源（買舟）卻因缺乏核心驅動力而長年停滯不前。只有先「立志」，才能激發出持久不懈的熱情，進而轉化為林家箴所說的「勤」。例如《說勤》中德摩斯梯尼若不是立志要戰勝雄辯的對手，絕不可能產生「每天口含石子、五十年如一日」的驚人勤奮。因此，「志」是「勤」的源頭活水。<br><br>
+        <strong>2. 「勤」是「志」的具體實踐與落實（志為體，勤為用）：</strong><br>
+        「志」如果沒有「勤」來踐行，就會變成不切實際的空想。彭端淑在《為學》中說「為之，則難者亦易矣」，這個「為」字在為學上的具體表現形式就是「勤」——珍惜時間、勤學苦練。林家箴《說勤》中提到的馬克思、司馬遷等人，正是因為將崇高的志向落實到了極度刻苦的「勤」當中，才最終取得了精深的造詣。沒有「勤」，「志」便流於虚无。<br><br>
+        <strong>總結：</strong><br>
+        在求學路上，<strong>「立志」決定了前進的方向與高度，而「勤奮」則決定了能否抵達終點</strong>。正如《為學》末段所總結：「不自限其昏與庸而力學不倦者，自力者也。」不自限是「志」，力學不倦是「勤」，兩者結合，方能學有所成。
+      </div>
+    </details>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

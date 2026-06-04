@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>課文教學筆記：《愛蓮說》深層賞析</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* 專屬女生柔美色系 (Soft Botanical Aesthetics) */
+      --color-text-primary: #4a3b3b;
+      --color-text-secondary: #7a6b6b;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #fbf9f5;
+      --color-border-tertiary: rgba(212, 163, 163, 0.25);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+
+      /* 柔美點綴色 */
+      --color-rose-dust: #d4a3a3;
+      --color-rose-light: #fcf3f3;
+      --color-sage-green: #9cb395;
+      --color-sage-light: #f2f7f1;
+      --color-warm-gold: #cfae80;
+      --color-warm-light: #fdf9f1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #ede8e0;
+        --color-text-secondary: #b2a7a7;
+        --color-background-primary: #23211f;
+        --color-background-secondary: #1a1917;
+        --color-border-tertiary: rgba(212, 163, 163, 0.15);
+        --color-rose-light: #2d2525;
+        --color-sage-light: #242b22;
+        --color-warm-light: #2d2922;
+      }
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-background-secondary);
+      background-image: radial-gradient(var(--color-rose-light) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      padding: 2.5rem 1rem;
+      line-height: 1.85;
+      font-size: 14.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding-bottom: 4rem;
+    }
+
+    /* ══ Hero 共用結構與嚴格規則 (霧鼠尾草) ══ */
+    .hero {
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 4px 15px rgba(212, 163, 163, 0.1);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.7rem;
+      color: inherit;
+    }
+
+    .hero p {
+      font-size: 13px;
+    }
+
+    .hero.classical {
+      background: #D5D8C5;
+      color: #1A2015;
+    }
+
+    .hero.classical .hero-tag {
+      border: 1px solid rgba(26, 32, 21, 0.3);
+      color: rgba(26, 32, 21, 0.65);
+    }
+
+    .hero.classical p {
+      color: rgba(26, 32, 21, 0.5);
+    }
+
+    /* ══ 目錄 (TOC) ══ */
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 2.5rem;
+      background: var(--color-background-primary);
+      padding: 1.5rem;
+      border-radius: var(--border-radius-lg);
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5rem;
+      border-radius: var(--border-radius-md);
+      transition: all 0.3s ease;
+    }
+
+    .toc-item:hover {
+      background: var(--color-background-secondary);
+      transform: translateX(4px);
+    }
+
+    .toc-num {
+      width: 24px;
+      height: 24px;
+      background: var(--color-sage-green);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .toc-label {
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    /* ══ 章節基礎 ══ */
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px dashed var(--color-rose-dust);
+    }
+
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      background: var(--color-rose-light);
+      color: var(--color-rose-dust);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      letter-spacing: 0.03em;
+    }
+
+    /* ══ 課文原文專區 ══ */
+    .reading-box {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(212, 163, 163, 0.05);
+    }
+
+    .reading-box::before {
+      content: '❝';
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      font-family: 'Georgia', serif;
+      font-size: 50px;
+      color: rgba(212, 163, 163, 0.2);
+    }
+
+    .reading-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16px;
+      line-height: 2.2;
+      color: var(--color-text-primary);
+      text-align: justify;
+      letter-spacing: 0.05em;
+    }
+
+    .reading-text p {
+      margin-bottom: 1.5rem;
+      text-indent: 2em;
+    }
+
+    .reading-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ══ 內容卡片 ══ */
+    .card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.6rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    }
+
+    .card-title {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-sage {
+      background: var(--color-sage-green);
+    }
+
+    .dot-rose {
+      background: var(--color-rose-dust);
+    }
+
+    .dot-gold {
+      background: var(--color-warm-gold);
+    }
+
+    /* ══ 提示框 (ALERT) ══ */
+    .alert {
+      border-radius: var(--border-radius-md);
+      padding: 1.1rem 1.4rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .alert-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .alert-text {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .alert.tip {
+      background: var(--color-warm-light);
+      border: 0.5px solid rgba(207, 174, 128, 0.3);
+    }
+
+    .alert.tip .alert-label {
+      color: #b08d5b;
+    }
+
+    .alert.warn {
+      background: var(--color-rose-light);
+      border: 0.5px solid rgba(214, 156, 156, 0.3);
+    }
+
+    .alert.warn .alert-label {
+      color: #b57474;
+    }
+
+    .alert.success {
+      background: var(--color-sage-light);
+      border: 0.5px solid rgba(156, 179, 149, 0.3);
+    }
+
+    .alert.success .alert-label {
+      color: #6b8564;
+    }
+
+    /* ══ 關鍵詞網格 (KEYWORD GRID) ══ */
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .keyword-card {
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 1.1rem 1.25rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .keyword-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .kw-word {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--color-rose-dust);
+    }
+
+    .kw-def {
+      font-size: 13.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ══ 表格 (TABLE) ══ */
+    .ht-wrap {
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 0.5px solid var(--color-border-tertiary);
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    }
+
+    .ht {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: var(--color-background-primary);
+    }
+
+    .ht th {
+      background: var(--color-sage-light);
+      color: var(--color-sage-green);
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 13.5px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+
+    .ht td {
+      padding: 12px 15px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      color: var(--color-text-primary);
+      line-height: 1.8;
+      vertical-align: top;
+    }
+
+    .ht tr:last-child td {
+      border-bottom: none;
+    }
+
+    .ht tr:nth-child(even) td {
+      background: var(--color-background-secondary);
+    }
+
+    /* ══ 對比框 (COMPARE GRID) ══ */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 1.5rem 0;
+    }
+
+    .compare-card {
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    }
+
+    .compare-card.bad {
+      background: var(--color-rose-light);
+      border: 0.5px solid rgba(214, 156, 156, 0.3);
+    }
+
+    .compare-card.good {
+      background: var(--color-sage-light);
+      border: 0.5px solid rgba(156, 179, 149, 0.3);
+    }
+
+    .compare-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .compare-card.bad .compare-label {
+      color: #b57474;
+    }
+
+    .compare-card.good .compare-label {
+      color: #6b8564;
+    }
+
+    .compare-text {
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--color-text-primary);
+    }
+
+    /* ══ 練習題專區 (QBOX) ══ */
+    .qbox {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(212, 163, 163, 0.05);
+    }
+
+    .qbox-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-rose-dust);
+      background: var(--color-rose-light);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .qbox-q {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+    }
+
+    /* 隱藏參考答案摺疊器 */
+    details.ans-toggle {
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      margin-top: 1rem;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    details.ans-toggle summary {
+      font-weight: 600;
+      color: var(--color-rose-dust);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      font-size: 13.5px;
+      padding: 0.9rem 1.4rem;
+      outline: none;
+      justify-content: space-between;
+    }
+
+    details.ans-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.ans-toggle summary::after {
+      content: "✨ 點擊解鎖精細解析";
+      font-size: 12px;
+      opacity: 0.8;
+      background: var(--color-background-primary);
+      padding: 2px 8px;
+      border-radius: 10px;
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+
+    details[open].ans-toggle summary::after {
+      content: "收起解析";
+    }
+
+    details.ans-toggle .ans-content {
+      padding: 0 1.4rem 1.4rem;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-primary);
+      border-top: 1px dashed var(--color-border-tertiary);
+      padding-top: 1rem;
+      margin: 0 1.4rem;
+      text-align: justify;
+    }
+
+    /* ══ 列印／PDF 分頁規則 (嚴格遵守) ══ */
+    @media print {
+      @page {
+        margin: 12mm 10mm;
+      }
+
+      body {
+        background: white;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .toc {
+        display: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card,
+      .qbox,
+      .example-box,
+      .alert,
+      .formula,
+      .keyword-card,
+      .compare-card,
+      .ht-wrap {
+        page-break-inside: avoid;
+      }
+
+      .section-header {
+        page-break-before: always;
+        page-break-after: avoid;
+      }
+
+      .section-header:first-of-type {
+        page-break-before: auto;
+      }
+
+      .hero {
+        page-break-after: avoid;
+      }
+
+      .section-divider {
+        page-break-after: avoid;
+      }
+
+      details.ans-toggle {
+        border: 1px solid #000;
+      }
+
+      details.ans-toggle summary::after {
+        content: "【內部參考答案】" !important;
+        border: none;
+        padding: 0;
+      }
+
+      details.ans-toggle .ans-content {
+        display: block !important;
+      }
+    }
+  </style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--color-rose-dust, #d4a3a3);
+      color: var(--color-rose-dust, #d4a3a3);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="hero classical">
+      <div class="hero-tag">課文教學筆記</div>
+      <h1>實用文言精讀<br>《愛蓮說》全面解析</h1>
+      <p>潘SIR中文教室編撰</p>
+    </div>
+
+    <div class="toc">
+      <a href="#section-1" class="toc-item">
+        <div class="toc-num">一</div>
+        <div class="toc-label">課文原文與深度語譯</div>
+      </a>
+      <a href="#section-2" class="toc-item">
+        <div class="toc-num">二</div>
+        <div class="toc-label">核心字詞與文言句式</div>
+      </a>
+      <a href="#section-3" class="toc-item">
+        <div class="toc-num">三</div>
+        <div class="toc-label">結構段意與文章主旨</div>
+      </a>
+      <a href="#section-4" class="toc-item">
+        <div class="toc-num">四</div>
+        <div class="toc-label">託物言志與襯托手法</div>
+      </a>
+      <a href="#section-5" class="toc-item">
+        <div class="toc-num">五</div>
+        <div class="toc-label">仿真模擬課堂練習</div>
+      </a>
+    </div>
+
+    <div class="section" id="section-1">
+      <div class="section-header">
+        <div class="section-icon">📜</div>
+        <div class="section-title">一、課文原文與深度語譯</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-rose"></div>文章完整錄入
+        </div>
+        <div class="reading-box">
+          <div class="reading-text">
+            <p>水陸草木之花，可愛者甚蕃。晉陶淵明獨愛菊。自李唐來，世人甚愛牡丹。予獨愛蓮之出淤泥而不染，濯清漣而不妖；中通外直，不蔓不枝；香遠益清，亭亭淨植，可遠觀而不可褻玩焉。</p>
+            <p>予謂︰菊，花之隱逸者也；牡丹，花之富貴者也；蓮，花之君子者也。噫！菊之愛，陶後鮮有聞；蓮之愛，同予者何人？牡丹之愛，宜乎眾矣！</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-sage"></div>全景對照白話文語譯
+        </div>
+        <div class="ht-wrap">
+          <table class="ht">
+            <thead>
+              <tr>
+                <th style="width: 45%;">文言文原句</th>
+                <th style="width: 55%;">精準白話文語譯</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>水陸草木之花，可愛者甚蕃。晉陶淵明獨愛菊。</td>
+                <td>水上和陸地上各種草本和木本的花，值得喜愛的有很多。晉朝的陶淵明唯獨喜愛菊花。</td>
+              </tr>
+              <tr>
+                <td>自李唐來，世人甚愛牡丹。</td>
+                <td>自從唐朝以來，世俗的人們都非常喜愛牡丹。</td>
+              </tr>
+              <tr>
+                <td>予獨愛蓮之出淤泥而不染，濯清漣而不妖；</td>
+                <td>我唯獨喜愛蓮花，因為它從污泥中長出來卻不受到玷污，在清澈的波浪中洗滌過卻不顯得妖冶；</td>
+              </tr>
+              <tr>
+                <td>中通外直，不蔓不枝；</td>
+                <td>它的葉柄中間貫通、外表挺直，不牽藤蔓、不長旁枝；</td>
+              </tr>
+              <tr>
+                <td>香遠益清，亭亭淨植，可遠觀而不可褻玩焉。</td>
+                <td>香氣傳播得愈遠就愈顯得幽清，筆直潔淨地豎立在水裏，只可以從遠處觀賞，卻不能輕慢地玩弄它。</td>
+              </tr>
+              <tr>
+                <td>予謂︰菊，花之隱逸者也；牡丹，花之富貴者也；蓮，花之君子者也。</td>
+                <td>我認為：菊花，是花中的隱士；牡丹，是花中代表富貴的人；蓮花，是花中的君子。</td>
+              </tr>
+              <tr>
+                <td>噫！菊之愛，陶後鮮有聞；</td>
+                <td>唉！喜愛菊花的人，在陶淵明以後就很少聽聞了；</td>
+              </tr>
+              <tr>
+                <td>蓮之愛，同予者何人？牡丹之愛，宜乎眾矣！</td>
+                <td>喜愛蓮花的人，像我一樣的能有誰呢？至於喜愛牡丹的人，當然是人數眾多了！</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-2">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div class="section-title">二、核心字詞與文言句式</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-gold"></div>重點文言實詞精解
+        </div>
+        <div class="keyword-grid">
+          <div class="keyword-card">
+            <div class="kw-word">蕃</div>
+            <div class="kw-def">多、繁多。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">獨</div>
+            <div class="kw-def">唯獨、只是。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">染</div>
+            <div class="kw-def">受玷污。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">濯</div>
+            <div class="kw-def">洗滌、清洗。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">漣</div>
+            <div class="kw-def">水面被風吹起的波紋。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">妖</div>
+            <div class="kw-def">妖媚、妖冶。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">蔓</div>
+            <div class="kw-def">生長藤蔓（動詞用法）。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">枝</div>
+            <div class="kw-def">旁生枝節（動詞用法）。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">植</div>
+            <div class="kw-def">樹立、立。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">褻玩</div>
+            <div class="kw-def">輕慢地玩弄。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">鮮</div>
+            <div class="kw-def">少、罕見。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">宜</div>
+            <div class="kw-def">應當、當然。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-sage"></div>文言特殊句式分析
+        </div>
+        <p style="margin-bottom: 0.5rem;"><strong>（1）判斷句（...者...也）</strong></p>
+        <p style="color: var(--color-text-secondary); margin-left: 1.5rem; margin-bottom: 1rem;">
+          例句：「蓮，花之君子者也。」<br>
+          解析：這是典型的文言判斷句，利用「……者也」結構來肯定「蓮花就是花中的君子」。
+        </p>
+        <p style="margin-bottom: 0.5rem;"><strong>（2）賓語前置（倒裝句）</strong></p>
+        <p style="color: var(--color-text-secondary); margin-left: 1.5rem;">
+          例句：「菊之愛」、「蓮之愛」、「牡丹之愛」<br>
+          解析：正常白話文語序為「愛菊」、「愛蓮」、「愛牡丹」。這裡將賓語（菊、蓮、牡丹）提到動詞前面，中間加上結構助詞「之」作為提賓的標誌，起到<strong>強調賓語</strong>的作用。
+        </p>
+      </div>
+    </div>
+
+    <div class="section" id="section-3">
+      <div class="section-header">
+        <div class="section-icon">🗺️</div>
+        <div class="section-title">三、結構段意與文章主旨</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-rose"></div>結構二分法探析
+        </div>
+        <div class="ht-wrap">
+          <table class="ht">
+            <thead>
+              <tr>
+                <th style="width: 20%;">結構部分</th>
+                <th style="width: 30%;">主要描寫對象 / 手法</th>
+                <th style="width: 50%;">核心大意與作用</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>第一部分<br>（第1段）</strong></td>
+                <td>蓮花的生長環境、外形與氣質。<br><strong>（客觀描寫、託物言志）</strong></td>
+                <td>通過對蓮花「出淤泥而不染」等七大外在特徵的細緻刻畫，含蓄地鋪墊了「君子」應有的內在道德風範，並表達自己對蓮花的獨特喜愛。</td>
+              </tr>
+              <tr>
+                <td><strong>第二部分<br>（第2段）</strong></td>
+                <td>評定三花的象徵身分。<br><strong>（主觀議論、襯托反諷）</strong></td>
+                <td>直接指出菊、牡丹、蓮分別代表「隱逸者」、「富貴者」與「君子」。藉由世人狂熱追求牡丹的俗氣，強烈反襯自己堅守君子之志、不隨波逐流的孤高心志。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="alert success">
+        <div class="alert-icon">💡</div>
+        <div>
+          <div class="alert-label">潘SIR點撥：文章核心主旨</div>
+          <div class="alert-text">
+            本文作者透過對蓮花高潔、端莊、正直等自然特質的歌頌，<strong>以物喻人，託物言志</strong>，表達自己<strong>不慕名利、潔身自好、絕不與黑暗世俗同流合污</strong>的高尚君子情操；同時，藉由感慨隱逸者稀少、做君子者孤獨，深刻地<strong>批判與諷刺了當時社會上趨炎附勢、貪慕富貴的功利風氣</strong>。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-4">
+      <div class="section-header">
+        <div class="section-icon">🖋️</div>
+        <div class="section-title">四、託物言志與襯托手法</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-sage"></div>1. 託物言志：蓮花與君子的完美對應
+        </div>
+        <p style="margin-bottom: 1rem; color: var(--color-text-secondary);">作者高明之處，在於將蓮花的物理特性（物性）巧妙轉化為人格美德（德性）：</p>
+        <div class="ht-wrap">
+          <table class="ht">
+            <thead>
+              <tr>
+                <th style="width: 35%;">蓮花的外在自然特徵</th>
+                <th style="width: 65%;">象徵「君子」的內在精神道德</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>出淤泥而不染</strong></td>
+                <td>象徵君子<strong>身處惡劣或污濁的社會環境中，也能潔身自愛</strong>，不受不良世風同化。</td>
+              </tr>
+              <tr>
+                <td><strong>濯清漣而不妖</strong></td>
+                <td>象徵君子<strong>樸素端莊，不諂媚、不迎合權貴</strong>，不作妖冶炫耀之態。</td>
+              </tr>
+              <tr>
+                <td><strong>中通外直</strong></td>
+                <td>象徵君子<strong>內心通達坦蕩（胸無城府），外表行為正直剛正</strong>。</td>
+              </tr>
+              <tr>
+                <td><strong>不蔓不枝</strong></td>
+                <td>象徵君子<strong>處事作風乾脆純粹，不拉幫結派，不攀附依賴外力</strong>。</td>
+              </tr>
+              <tr>
+                <td><strong>香遠益清</strong></td>
+                <td>象徵君子<strong>美德高尚，名聲傳播得愈遠，就愈顯得清香高雅</strong>，能感化遠方。</td>
+              </tr>
+              <tr>
+                <td><strong>亭亭淨植</strong></td>
+                <td>象徵君子<strong>卓然獨立，意志堅定，具有不隨波逐流的孤高氣節</strong>。</td>
+              </tr>
+              <tr>
+                <td><strong>可遠觀而不可褻玩焉</strong></td>
+                <td>象徵君子<strong>端莊威嚴，高潔端正，令人心生敬重</strong>，絕不容許他人輕慢侮弄。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-rose"></div>2. 襯托手法：菊與牡丹的戰略作用
+        </div>
+        <p style="margin-bottom: 1rem;">作者並非單一寫蓮，而是引入「菊」與「牡丹」進行多層次的襯托，使蓮花的形象更為立體：</p>
+        <div class="compare-grid">
+          <div class="compare-card good">
+            <div class="compare-label">🌼 菊花 —— 正襯（隱逸者）</div>
+            <div class="compare-text">
+              菊花在秋天百花凋零時獨自開放，象徵消極避世、孤芳自賞的隱士。作者以菊花<strong>正襯</strong>蓮花：兩者雖同樣高潔，但菊花選擇逃避現實、遁入山林；而蓮花處於污濁的「淤泥」现实中仍能保持純潔。這烘托出<strong>蓮花（君子）入世而不媚俗、敢於面對現實的品格更為難能可貴</strong>，境界更勝一籌。
+            </div>
+          </div>
+          <div class="compare-card bad">
+            <div class="compare-label">🌺 牡丹 —— 反襯（富貴者）</div>
+            <div class="compare-text">
+              牡丹色彩艷麗，象徵追逐名利、貪慕榮華富貴的世俗之人。作者以世人對牡丹的盲目狂熱狂喜，<strong>反襯</strong>出蓮花的清高冷落。透過這種強烈的對比，深刻地<strong>批判了社會上趨炎附勢、庸俗浮躁的功利價值觀</strong>，凸顯作者獨持操守的清白。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-5">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div class="section-title">五、仿真模擬課堂練習</div>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">問答練習 1</div>
+        <div class="qbox-q">課文第一段中，作者兩次使用了「獨」字（如「晉陶淵明獨愛菊」、「予獨愛蓮」）。試從作者的內心世界與寫作手法兩方面，詳細分析這兩個「獨」字對表達主題有何深層作用？</div>
+        <details class="ans-toggle">
+          <summary>查看解析</summary>
+          <div class="ans-content">
+            這兩個「獨」字在文中具有極強的文學感染力和結構作用：<br>
+            <strong>（1）寫作手法（對比與襯托）：</strong>「獨」字與文中寫世風的「世人甚愛牡丹」以及結尾的「宜乎眾矣」形成鮮明而強烈的對比。它表明愛菊和愛蓮只是少數高潔之士的堅持，藉此拉開自己與流俗的距離，襯托出陶淵明與作者遺世獨立、高潔不群的形象。<br>
+            <strong>（2）內心世界（表明心志與層次）：</strong>前一個「獨」字，表達了作者對陶淵明堅持操守、不為五斗米折腰的崇敬；後一個「獨」字則表明作者的心志——他既不願意像世人一樣趨炎附勢（愛牡丹），同時也不同意陶淵明完全消極避世、隱居山林的作風（愛菊）。作者希望自己像蓮花一樣，即便身處污濁的現實塵世（淤泥），也能積極面對並保持自己高尚純潔的君子人格。
+          </div>
+        </details>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">問答練習 2</div>
+        <div class="qbox-q">
+          有人認為，周敦頤在《愛蓮說》中描寫蓮花「中通外直，不蔓不枝；香遠益清，亭亭淨植」，其實也是對理想人際關係和社交態度的隱喻。試結合這幾句的象徵意義，談談「君子」在現代社會應如何與他人相處。</div>
+        <details class="ans-toggle">
+          <summary>查看解析</summary>
+          <div class="ans-content">
+            這幾句詩意地描繪了君子坦蕩、獨立且具有感染力的社交美德：<br>
+            <strong>（1）胸懷坦蕩，行為正直（中通外直）：</strong>現代人在人際交往中應當像蓮梗一樣，內心通達寬廣、沒有城府與陰謀（中通），外在言行則端正誠實、光明磊落（外直），不用虛偽的面具待人。<br>
+            <strong>（2）獨立自主，不阿諛奉承（不蔓不枝）：</strong>在社交圈或職場中，君子應當保持獨立人格，不拉幫結派，不盲目依附於權貴或有勢力者（不蔓），也不節外生枝、製造不必要的人事糾紛與八卦謠言（不枝）。<br>
+            <strong>（3）修己澤人，良性影響（香遠益清）：</strong>君子不需要刻意迎合或社交逢迎，只需默默修養自己的品德。當你的品格足夠優秀時，美德自然會像蓮花的香氣一樣傳播到遠方（香遠），在日常中潛移默化地為身邊的朋友和社會帶來正面的、清新的良好影響。
+          </div>
+        </details>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">問答練習 3</div>
+        <div class="qbox-q">文章結尾寫道：「噫！菊之愛，陶後鮮有聞；蓮之愛，同予者何人？牡丹之愛，宜乎眾矣！」試從修辭手法、句式語氣，詳細析述這三句話分別表達了作者怎樣複雜深刻的思想感情？</div>
+        <details class="ans-toggle">
+          <summary>查看解析</summary>
+          <div class="ans-content">
+            這三句話在結構上構成了緊湊的<strong>排比句式</strong>，語氣上層層推進，精準地勾勒出作者複雜而沉重的精神情感：<br>
+            <strong>（1）「菊之愛，陶後鮮有聞」——
+              陳述與無奈感慨：</strong>作者透過感歎陶淵明以後很少聽到有人真正喜愛菊花，無奈地指出世間能夠隱逸清高、不與官場同流合污的高尚之士已經鳳毛麟角，流露出對傳統美德消逝的惋惜。<br>
+            <strong>（2）「蓮之愛，同予者何人？」——
+              反問與孤獨高傲：</strong>這裡運用了<strong>反問手法</strong>，加強語氣。意思是「像我一樣愛蓮花、立志做君子的人，世上還能有誰呢？」。這句話充滿了曲高和寡、知音難覓的深沉<strong>孤獨感</strong>，但同時也包含了一種不願與俗人同列的<strong>傲骨與自信</strong>。<br>
+            <strong>（3）「牡丹之愛，宜乎眾矣！」——
+              感歎與辛辣反諷：</strong>這裡使用了感歎句，其中「宜」字（應當、理所當然）具有極強的<strong>反諷意味</strong>。作者表面上說追逐名利榮華的人多是理所當然的，實際上卻是在強烈地<strong>蔑視、諷刺與批判</strong>當時社會上人人都趨炎附勢、利欲熏心、道德淪喪的功利風氣，表達了對現實庸俗的極度鄙視。
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>

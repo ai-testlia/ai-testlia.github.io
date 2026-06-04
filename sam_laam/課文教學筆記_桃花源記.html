@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>課文教學筆記：《桃花源記》全面解析與深層研讀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* 基礎色譜 */
+      --color-text-primary: #1f2d1a;
+      --color-text-secondary: #5a6e54;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #faf9f6;
+      --color-border-tertiary: rgba(90, 110, 84, 0.12);
+
+      /* 品牌與點綴色 (霧鼠尾草/抹茶系) */
+      --color-theme-main: #5a7044;
+      --color-theme-light: #eef2e6;
+      --color-theme-dark: #3c4a2e;
+      --color-accent-amber: #b89b6c;
+      --color-accent-coral: #cd938c;
+
+      /* 功能色 */
+      --color-bg-card: var(--color-background-primary);
+      --color-bg-code: #2c2f29;
+
+      /* 圓角與陰影 */
+      --border-radius-sm: 6px;
+      --border-radius-md: 10px;
+      --border-radius-lg: 16px;
+      --box-shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.03);
+      --box-shadow-hover: 0 10px 25px rgba(90, 110, 84, 0.08);
+      --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #ede8e0;
+        --color-text-secondary: #aebdb0;
+        --color-background-primary: #1e1c19;
+        --color-background-secondary: #161512;
+        --color-border-tertiary: rgba(237, 232, 224, 0.1);
+        --color-theme-light: #2c2f29;
+        --color-bg-card: #25231f;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-background-secondary);
+      padding: 2.5rem 1.25rem;
+      line-height: 1.85;
+      font-size: 14.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding-bottom: 4rem;
+    }
+
+    /* ══ Hero 區塊規則 (潘SIR專用：霧鼠尾草) ══ */
+    .hero {
+      padding: 4rem 2.5rem 3.5rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--box-shadow-subtle);
+      background: #D5D8C5;
+      color: #1A2015;
+      /* 嚴格遵守顏色 */
+    }
+
+    /* 增加裝飾性古典紋理 pseudo-element */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/		svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231A2015' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2v-4h4v-2H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.8;
+      transform: rotate(15deg);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      padding: 0.3rem 1.2rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      border: 1px solid rgba(26, 32, 21, 0.3);
+      /* 規則 */
+      color: rgba(26, 32, 21, 0.65);
+      /* 規則 */
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.8rem;
+      color: inherit;
+      /* 規則實色 */
+      line-height: 1.35;
+    }
+
+    .hero p {
+      font-size: 13.5px;
+      color: rgba(26, 32, 21, 0.5);
+    }
+
+    /* 規則 */
+
+    /* ══ 目錄 (TOC) ══ */
+    .toc {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 3rem;
+      box-shadow: var(--box-shadow-subtle);
+    }
+
+    .toc-item {
+      border-radius: var(--border-radius-sm);
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      background: var(--color-background-secondary);
+      transition: var(--transition-base);
+      border: 0.5px solid transparent;
+    }
+
+    .toc-item:hover {
+      transform: translateY(-3px);
+      background: var(--color-bg-card);
+      box-shadow: var(--box-shadow-hover);
+      border-color: rgba(90, 112, 68, 0.2);
+    }
+
+    .toc-num {
+      width: 28px;
+      height: 28px;
+      background: var(--color-theme-main);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .toc-label {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--color-text-primary);
+    }
+
+    /* ══ SECTION 基礎 ══ */
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--color-theme-light);
+      position: relative;
+    }
+
+    .section-header::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: var(--color-theme-main);
+    }
+
+    .section-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      background: var(--color-theme-light);
+      color: var(--color-theme-main);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--color-text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    /* ══ 卡片 (CARD) ══ */
+    .card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--box-shadow-subtle);
+      transition: var(--transition-base);
+    }
+
+    .card:hover {
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-theme-dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .dot::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      opacity: 0.3;
+    }
+
+    .dot-green {
+      background: var(--color-theme-main);
+      color: var(--color-theme-main);
+    }
+
+    .dot-amber {
+      background: var(--color-accent-amber);
+      color: var(--color-accent-amber);
+    }
+
+    /* ══ 關鍵詞網格 (KEYWORD) ══ */
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .keyword-card {
+      background: var(--color-background-secondary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 1rem 1.25rem;
+      transition: var(--transition-base);
+    }
+
+    .keyword-card:hover {
+      background: var(--color-theme-light);
+      border-color: rgba(90, 112, 68, 0.2);
+    }
+
+    .kw-word {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+      color: var(--color-theme-main);
+      border-bottom: 1.5px solid var(--color-border-tertiary);
+      display: inline-block;
+      pb: 2px;
+    }
+
+    .kw-def {
+      font-size: 13.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ══ 提示框 (ALERT) ══ */
+    .alert {
+      border-radius: var(--border-radius-md);
+      padding: 1.1rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border-left: 4px solid transparent;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .alert-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    .alert-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .alert-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-primary);
+    }
+
+    strong {
+      font-weight: 700;
+      color: var(--color-theme-dark);
+    }
+
+    /* 配色變體 */
+    .alert.tip {
+      background: #fdfaf3;
+      border-color: var(--color-accent-amber);
+      color: #7d6338;
+    }
+
+    .alert.tip .alert-icon,
+    .alert.tip .alert-label {
+      color: var(--color-accent-amber);
+    }
+
+    .alert.warn {
+      background: #fef6f5;
+      border-color: var(--color-accent-coral);
+      color: #8e5852;
+    }
+
+    .alert.warn .alert-icon,
+    .alert.warn .alert-label {
+      color: var(--color-accent-coral);
+    }
+
+    /* ══ 表格 (TABLE) ══ */
+    .ht-wrap {
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--color-border-tertiary);
+      overflow: hidden;
+      margin: 1.5rem 0;
+      box-shadow: var(--box-shadow-subtle);
+    }
+
+    .ht {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: var(--color-bg-card);
+    }
+
+    .ht th {
+      background: var(--color-theme-main);
+      color: #ffffff;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 13.5px;
+      letter-spacing: 0.03em;
+    }
+
+    .ht td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+      color: var(--color-text-primary);
+      line-height: 1.8;
+      vertical-align: top;
+    }
+
+    .ht tr:last-child td {
+      border-bottom: none;
+    }
+
+    .ht tr:nth-child(even) td {
+      background: var(--color-background-secondary);
+    }
+
+    .ht tr:hover td {
+      background: var(--color-theme-light);
+    }
+
+    /* ══ 對比網格 (COMPARE) ══ */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+      margin: 1.5rem 0;
+    }
+
+    .compare-card {
+      border-radius: var(--border-radius-md);
+      padding: 1.25rem 1.6rem;
+      border-top: 3px solid transparent;
+      box-shadow: var(--box-shadow-subtle);
+      background: var(--color-bg-card);
+    }
+
+    .compare-card.bad {
+      border-color: var(--color-accent-coral);
+      background: #fefaf9;
+    }
+
+    .compare-card.good {
+      border-color: var(--color-theme-main);
+      background: #fafdf7;
+    }
+
+    .compare-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .compare-card.bad .compare-label {
+      color: var(--color-accent-coral);
+    }
+
+    .compare-card.good .compare-label {
+      color: var(--color-theme-main);
+    }
+
+    .compare-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-primary);
+    }
+
+    .compare-text ul {
+      margin-left: 1.2rem;
+    }
+
+    /* ══ 練習區塊 (EXERCISE) ══ */
+    .qbox {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 5px 15px rgba(90, 110, 84, 0.04);
+      position: relative;
+    }
+
+    .qbox::before {
+      content: 'Q';
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 60px;
+      font-weight: 900;
+      color: var(--color-theme-light);
+      opacity: 0.6;
+      line-height: 1;
+      z-index: 0;
+    }
+
+    .qbox-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .qbox-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-accent-amber);
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 2px 8px;
+      background: #fdf7e9;
+      border-radius: 4px;
+    }
+
+    .qbox-q {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+      color: var(--color-theme-dark);
+    }
+
+    /* 隱藏答案摺疊器 (精心設計) */
+    details.ans-toggle {
+      background: var(--color-background-secondary);
+      border: 1px solid var(--color-border-tertiary);
+      padding: 0;
+      border-radius: var(--border-radius-md);
+      margin-top: 1.5rem;
+      overflow: hidden;
+      transition: var(--transition-base);
+    }
+
+    details.ans-toggle[open] {
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.03);
+      border-color: rgba(90, 112, 68, 0.2);
+    }
+
+    details.ans-toggle summary {
+      font-weight: 600;
+      color: var(--color-theme-main);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13.5px;
+      padding: 1rem 1.5rem;
+      outline: none;
+      transition: var(--transition-base);
+    }
+
+    details.ans-toggle summary:hover {
+      background: var(--color-theme-light);
+    }
+
+    details.ans-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* 箭頭動畫 */
+    details.ans-toggle summary::after {
+      content: '+';
+      font-size: 18px;
+      font-weight: 400;
+      transition: transform 0.3s ease;
+      color: var(--color-text-secondary);
+    }
+
+    details.ans-toggle[open] summary::after {
+      content: '-';
+      transform: rotate(180deg);
+      color: var(--color-accent-coral);
+    }
+
+    .ans-content {
+      padding: 1.5rem 1.5rem 1.8rem;
+      font-size: 14px;
+      border-top: 1px solid var(--color-border-tertiary);
+      color: var(--color-text-primary);
+      background: var(--color-bg-card);
+    }
+
+    .ans-content strong {
+      color: var(--color-accent-amber);
+    }
+
+    /* ══ PRINT RULES ══ */
+    @media print {
+      @page {
+        margin: 12mm 10mm;
+      }
+
+      body {
+        background: white;
+        padding: 0;
+        color: black;
+        font-size: 12pt;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .toc,
+      .hero::before,
+      details.ans-toggle summary::after {
+        display: none !important;
+      }
+
+      .hero {
+        background: #D5D8C5 !important;
+        color: #1A2015 !important;
+        border: 0.5pt solid #aaa;
+        padding: 2rem;
+        page-break-after: avoid;
+      }
+
+      .hero-tag {
+        border: 1pt solid black !important;
+        color: black !important;
+      }
+
+      .hero h1,
+      .hero p {
+        color: black !important;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card,
+      .qbox,
+      .alert,
+      .compare-card,
+      .keyword-card,
+      .ht-wrap {
+        page-break-inside: avoid;
+        border: 0.5pt solid #ccc;
+      }
+
+      .section-header {
+        page-break-before: always;
+        page-break-after: avoid;
+        border-bottom: 1.5pt solid #3c4a2e;
+      }
+
+      .section-header:first-of-type {
+        page-break-before: auto;
+      }
+
+      details.ans-toggle summary {
+        background: #eee !important;
+        color: black !important;
+        border-bottom: 0.5pt solid #ccc;
+      }
+
+      details.ans-toggle[open] {
+        border: 0.5pt solid #ccc;
+      }
+
+      .ans-content {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--color-rose-dust, #d4a3a3);
+      color: var(--color-rose-dust, #d4a3a3);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="hero classical">
+      <div class="hero-content">
+        <div class="hero-tag">課文教學筆記</div>
+        <h1>《桃花源記》全面解析與深層研讀</h1>
+        <p>潘SIR中文教室編撰</p>
+      </div>
+    </div>
+
+    <div class="toc">
+      <a href="#section-1" class="toc-item">
+        <div class="toc-num">一</div>
+        <div class="toc-label">課文背景與主旨摘要</div>
+      </a>
+      <a href="#section-2" class="toc-item">
+        <div class="toc-num">二</div>
+        <div class="toc-label">核心字詞與古今異義</div>
+      </a>
+      <a href="#section-3" class="toc-item">
+        <div class="toc-num">三</div>
+        <div class="toc-label">段落大意與記敍要素</div>
+      </a>
+      <a href="#section-4" class="toc-item">
+        <div class="toc-num">四</div>
+        <div class="toc-label">高階寫作手法析述</div>
+      </a>
+      <a href="#section-5" class="toc-item">
+        <div class="toc-num">五</div>
+        <div class="toc-label">進階思考與模擬試題</div>
+      </a>
+    </div>
+
+    <div class="section" id="section-1">
+      <div class="section-header">
+        <div class="section-icon">📜</div>
+        <div class="section-title">一、課文背景與主旨摘要</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-green"></div>時代背景與作者理想
+        </div>
+        <p>東晉末年，政治黑暗，戰亂頻仍，人民生活困苦。作者<strong>陶淵明</strong>因不滿官場黑暗，辭官歸隱。他虛構了一個景色優美、沒有剝削與戰亂的世外桃源，寄託了他對太平盛世的嚮往。</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-green"></div>課文主旨
+        </div>
+        <p>本文通過記述漁人發現、訪問桃花源的經過，描繪了一個淳樸安寧、人人安居樂業的理想社會，反映了作者對戰亂現實的厭惡及對美好生活的無限憧憬。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-2">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div class="section-title">二、核心字詞與古今異義</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-green"></div>核心文言實詞/虛詞解譯
+        </div>
+        <div class="keyword-grid">
+          <div class="keyword-card">
+            <div class="kw-word">才</div>
+            <div class="kw-def">剛好、僅僅。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">悉</div>
+            <div class="kw-def">全部、都。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">延</div>
+            <div class="kw-def">邀請。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">緣</div>
+            <div class="kw-def">沿着、順着。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">異</div>
+            <div class="kw-def">感到奇怪（意動）。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">窮</div>
+            <div class="kw-def">走到盡頭。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">要</div>
+            <div class="kw-def">通「邀」，邀請。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">停</div>
+            <div class="kw-def">逗留。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">既</div>
+            <div class="kw-def">已經。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">誌</div>
+            <div class="kw-def">做標記（動詞）。</div>
+          </div>
+          <div class="keyword-card">
+            <div class="kw-word">尋</div>
+            <div class="kw-def">不久。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert warn">
+        <div class="alert-icon">⚠</div>
+        <div class="alert-content">
+          <div class="alert-label">古今異義詞辨析（極易失分）</div>
+          <div class="alert-text">
+            <strong>妻子：</strong>古指妻子和兒女；今指男性的配偶。<br>
+            <strong>交通：</strong>古指交錯相通；今指運輸郵電事業。<br>
+            <strong>絕境：</strong>古指與世隔絕的地方；今指毫無出路的境地。<br>
+            <strong>無論：</strong>古指更不用說；今表示條件關係的連詞。<br>
+            <strong>鮮美：</strong>古指鮮艷美麗；今指食物味道好。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-3">
+      <div class="section-header">
+        <div class="section-icon">🗺️</div>
+        <div class="section-title">三、段落大意與記敍要素</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-green"></div>結構段落大意
+        </div>
+        <ul style="margin-left: 1.5rem;">
+          <li><strong>第1段：</strong>漁人無意中發現大片美麗的桃花林。</li>
+          <li><strong>第2、3段：</strong>漁人進入桃花源，見到安寧、富庶的景象，受到村民熱情款待，並交流外界情況。</li>
+          <li><strong>第4、5段：</strong>漁人離開桃花源，向太守報告，但人們最終再也找不到通往桃花源的路。</li>
+        </ul>
+      </div>
+
+      <div class="ht-wrap">
+        <table class="ht">
+          <thead>
+            <tr>
+              <th style="width:15%">要素</th>
+              <th>具體內容詳解</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>時間</strong></td>
+              <td>晉太元中。</td>
+            </tr>
+            <tr>
+              <td><strong>地點</strong></td>
+              <td>武陵郡、桃花源。</td>
+            </tr>
+            <tr>
+              <td><strong>人物</strong></td>
+              <td>武陵漁人、桃花源中人、武陵太守、南陽劉子驥。</td>
+            </tr>
+            <tr>
+              <td><strong>原因</strong></td>
+              <td>漁人因捕魚而迷路，無意中發現桃花源入口。</td>
+            </tr>
+            <tr>
+              <td><strong>經過</strong></td>
+              <td>漁人進入桃花源，見到理想社會景象，受村民款待，並互相交代情況。</td>
+            </tr>
+            <tr>
+              <td><strong>結果</strong></td>
+              <td>漁人離開後處處誌之並報告，但太守派人與劉子驥尋訪未果，桃花源消失。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-4">
+      <div class="section-header">
+        <div class="section-icon">🖋️</div>
+        <div class="section-title">四、高階寫作手法析述</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-green"></div>1. 修辭手法：借代與互文
+        </div>
+        <ul style="margin-left: 1.5rem;">
+          <li><strong>借代：</strong>「黃髮、垂髫，並怡然自樂。」用頭髮特徵代指老人和小孩，形象生動。</li>
+          <li><strong>互文：</strong>「阡陌交通，雞犬相聞。」阡陌交錯相通，雞犬之聲到處可聞，描繪出和諧、安寧的景象。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-green"></div>2. 省略句式的運用
+        </div>
+        <p>文中常省略主語，使語言簡潔。考試時需注意補出主語以正確理解文意。例如：</p>
+        <ul
+          style="margin-left: 1.5rem; margin-top: 0.5rem; font-family:var(--font-code); background:var(--color-bg-code); color:#d4d4d4; padding:1rem; border-radius:var(--border-radius-sm);">
+          <li>「(漁人)見漁人，乃大驚，問所從來。(漁人)具答之。(村民)便要還家...」</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dot-green"></div>3. 人物性格對比（高階分析）
+        </div>
+        <p>文中巧妙安排了漁人與桃花源中人的性格對比，加強主題：</p>
+        <div class="compare-grid">
+          <div class="compare-card good">
+            <div class="compare-label">✨ 桃花源中人（理想精神）</div>
+            <div class="compare-text">淳樸熱情、誠實無戒心，對突然來的陌生人（漁人）毫無保留地展示其理想社會。臨別請求漁人不要外洩，反映其不願受外界打擾、維持純潔性的心願。</div>
+          </div>
+          <div class="compare-card bad">
+            <div class="compare-label">🌑 武陵漁人（世俗功利）</div>
+            <div class="compare-text">深謀遠慮、自私功利。雖然答應了村民不外洩，但一離開便「處處誌之」，並立刻「詣太守，說如此」，企圖利用桃花源獲得官府賞賜。</div>
+          </div>
+        </div>
+        <div class="alert tip">
+          <div class="alert-icon">💡</div>
+          <div class="alert-content">
+            <div class="alert-label">潘SIR深度導讀</div>
+            <div class="alert-text">這種鮮明的對比，暗示了理想與現實的衝突。淳樸真誠的理想社會（桃花源）是世俗功利之人（漁人）無法再次觸及的。漁人的背信棄義，正是導致桃花源最終「消失」的內在理由。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-5">
+      <div class="section-header">
+        <div class="section-icon">✍️</div>
+        <div class="section-title">五、進階思考與模擬試題</div>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-inner">
+          <div class="qbox-label">模擬試題 1</div>
+          <div class="qbox-q">文中第三段寫桃花源中人聽漁人交代外界情況後，「皆歎惋」。請結合課文內容分析他們「歎惋」的原因。</div>
+
+          <details class="ans-toggle">
+            <summary>顯示參考答案</summary>
+            <div class="ans-content">
+              桃花源中人的祖先在秦代時為逃避戰亂到這裡隱居，與世隔絕，不知道外面的朝代更迭。村民聽了漁人講述秦代以後，經過了漢、魏、晉等朝代的戰亂和百姓所受的苦難，因而感到感歎和惋惜。
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-inner">
+          <div class="qbox-label">模擬試題 2</div>
+          <div class="qbox-q">文章最後一段安排太守與劉子驥皆尋訪未果，並交代「尋病終」，這情節在表達主旨上有何作用？</div>
+
+          <details class="ans-toggle">
+            <summary>顯示參考答案</summary>
+            <div class="ans-content">
+              這情節在表達主旨上有兩重作用：第一，增添神祕色彩。漁人迷失路程、太守與高尚士皆尋訪不到，使桃花源更顯神秘撲朔，加強了其作為理想世界的獨特性；第二，暗示理想世界在現實中難以實現。連太守與劉子驥這樣的代表人物都無法尋到，深刻突出了陶淵明筆下的桃花源本來就是虛構的理想社會，是作者對現實黑暗社會的一種無奈和對理想生活的嚮往，理想世界只存在於幻想之中。
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-inner">
+          <div class="qbox-label">模擬試題 3</div>
+          <div class="qbox-q">作者筆下的桃花源雖然是一個與世隔絕的美好地方，但在其中生活的人卻完全不知道外面世界發生的事。如果讓你選擇，你會選擇活在桃花源這個虛幻的世界，還是活在外面真實的世界？試抒發你的己見。
+          </div>
+
+          <details class="ans-toggle">
+            <summary>顯示參考答案</summary>
+            <div class="ans-content">
+              <strong>【立場一：選擇真實世界】</strong>我會選擇活在外面真實的世界。即使外面的世界有痛苦、戰亂和黑暗，但它是真實的。人應該面對現實，解決問題，而不是逃避到虛幻的淨土中。在真實世界中生存，能讓人經歷更豐富的人生，做出真實的貢獻。<br>
+              <strong>【立場二：選擇桃花源】</strong>我會選擇活在桃花源這個虛幻的世界。文中的桃花源景色優美、安寧、淳樸、熱情，沒有現實世界的剝削和戰亂，人與人之間和諧相處。在現實世界中，人往往要面對無奈和痛苦，活在桃花源雖然是虛幻的，但能享有和平和幸福的生活，未嘗不是一個好的選擇。
+            </div>
+          </details>
+        </div>
+      </div>
+
+    </div>
+
+    <footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-bg-card); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>

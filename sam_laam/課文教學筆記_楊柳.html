@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>課文教學筆記：《楊柳》深層賞析</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* 專屬女生柔美色系 (Soft Botanical Aesthetics) */
+      --color-text-main: #5c4d4d;
+      --color-text-light: #8a7b7b;
+      --color-bg-page: #fdfbf7;
+      --color-bg-card: #ffffff;
+
+      /* 點綴色 (Accents) */
+      --color-rose-dust: #d4a3a3;
+      --color-rose-light: #fcf3f3;
+      --color-sage-green: #9fb39b;
+      --color-sage-light: #f2f7f1;
+      --color-warm-gold: #d1b894;
+      --color-warm-light: #fdf9f1;
+
+      --border-radius-sm: 8px;
+      --border-radius-md: 16px;
+      --border-radius-lg: 24px;
+      --box-shadow-soft: 0 8px 24px rgba(212, 163, 163, 0.12);
+      --box-shadow-hover: 0 12px 32px rgba(159, 179, 155, 0.2);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--color-text-main);
+      background: var(--color-bg-page);
+      background-image: radial-gradient(var(--color-rose-light) 1px, transparent 1px);
+      background-size: 20px 20px;
+      padding: 2.5rem 1.25rem;
+      line-height: 1.85;
+      font-size: 14.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding-bottom: 4rem;
+    }
+
+    /* ══ 浪漫首圖區塊 (Hero) ══ */
+    .hero {
+      padding: 4.5rem 2.5rem 3.5rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--box-shadow-soft);
+      background: linear-gradient(135deg, #ffffff 0%, var(--color-sage-light) 100%);
+      border: 1px solid rgba(159, 179, 155, 0.3);
+    }
+
+    .hero::before {
+      content: '🌿';
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      font-size: 120px;
+      opacity: 0.1;
+      transform: rotate(-15deg);
+    }
+
+    .hero::after {
+      content: '🌸';
+      position: absolute;
+      bottom: -20px;
+      right: -10px;
+      font-size: 100px;
+      opacity: 0.1;
+      transform: rotate(15deg);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 600;
+      background: var(--color-rose-light);
+      color: #a87272;
+      border: 1px dashed var(--color-rose-dust);
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+      color: var(--color-sage-green);
+      line-height: 1.4;
+      text-shadow: 1px 1px 0px #fff;
+    }
+
+    .hero p {
+      font-size: 14px;
+      color: var(--color-text-light);
+      letter-spacing: 0.05em;
+    }
+
+    /* ══ 課文原文專區 (Reading Box) ══ */
+    .reading-box {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-rose-light);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--box-shadow-soft);
+      position: relative;
+    }
+
+    .reading-box::before {
+      content: '❝';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-family: 'Georgia', serif;
+      font-size: 60px;
+      color: var(--color-rose-light);
+    }
+
+    .reading-title {
+      text-align: center;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-rose-dust);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    .reading-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      line-height: 2;
+      color: var(--color-text-main);
+      text-indent: 2em;
+      text-align: justify;
+    }
+
+    .reading-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    /* ══ 內容區塊 (Section & Cards) ══ */
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      background: var(--color-sage-light);
+      color: var(--color-sage-green);
+      border: 2px solid #fff;
+      box-shadow: 0 4px 10px rgba(159, 179, 155, 0.2);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-sage-green);
+      letter-spacing: 0.05em;
+      border-bottom: 2px dashed var(--color-sage-light);
+      padding-bottom: 4px;
+    }
+
+    .card {
+      background: var(--color-bg-card);
+      border-radius: var(--border-radius-md);
+      padding: 1.8rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--box-shadow-soft);
+      border: 1px solid rgba(212, 163, 163, 0.1);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-rose-dust);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title::before {
+      content: '🌸';
+      font-size: 14px;
+    }
+
+    /* ══ 溫馨提示框 (Alerts) ══ */
+    .alert {
+      border-radius: var(--border-radius-md);
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .alert.tip {
+      background: var(--color-warm-light);
+      border: 1px solid rgba(209, 184, 148, 0.3);
+    }
+
+    .alert.tip .alert-label {
+      color: #a68b5e;
+    }
+
+    .alert.note {
+      background: var(--color-rose-light);
+      border: 1px solid rgba(212, 163, 163, 0.3);
+    }
+
+    .alert.note .alert-label {
+      color: #a87272;
+    }
+
+    .alert-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .alert-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .alert-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-main);
+    }
+
+    .alert-text strong {
+      color: var(--color-rose-dust);
+      font-weight: 700;
+    }
+
+    /* ══ 象徵意義對比網格 (Grid) ══ */
+    .symbol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin: 1.5rem 0;
+    }
+
+    .symbol-card {
+      background: var(--color-bg-card);
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid var(--color-sage-light);
+      box-shadow: 0 4px 12px rgba(159, 179, 155, 0.08);
+    }
+
+    .symbol-card .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .symbol-card .name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-sage-green);
+      margin-bottom: 5px;
+    }
+
+    .symbol-card .meaning {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-rose-dust);
+      margin-bottom: 10px;
+      display: inline-block;
+      padding: 2px 10px;
+      background: var(--color-rose-light);
+      border-radius: 12px;
+    }
+
+    .symbol-card .desc {
+      font-size: 13.5px;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    /* ══ 表格 (Table) ══ */
+    .ht-wrap {
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      margin: 1.5rem 0;
+      box-shadow: var(--box-shadow-soft);
+      border: 1px solid var(--color-sage-light);
+    }
+
+    .ht {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    .ht th {
+      background: var(--color-sage-light);
+      color: var(--color-sage-green);
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .ht td {
+      padding: 12px 15px;
+      border-bottom: 1px dashed var(--color-sage-light);
+      color: var(--color-text-main);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .ht tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ══ 練習區與隱藏答案 (Exercises) ══ */
+    .qbox {
+      background: #fff;
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 6px 20px rgba(212, 163, 163, 0.08);
+      border: 1px solid var(--color-rose-light);
+    }
+
+    .qbox-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--color-rose-dust);
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .qbox-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    details.ans-toggle {
+      background: var(--color-sage-light);
+      border-radius: var(--border-radius-md);
+      margin-top: 1rem;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    details.ans-toggle summary {
+      font-weight: 600;
+      color: var(--color-sage-green);
+      cursor: pointer;
+      list-style: none;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      outline: none;
+      font-size: 13.5px;
+    }
+
+    details.ans-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.ans-toggle summary::after {
+      content: '✨ 點擊對答案';
+      font-size: 12px;
+      font-weight: 500;
+      background: #fff;
+      padding: 2px 8px;
+      border-radius: 12px;
+      color: var(--color-sage-green);
+    }
+
+    details.ans-toggle[open] summary::after {
+      content: '收起答案';
+    }
+
+    .ans-content {
+      padding: 0 1.5rem 1.5rem;
+      font-size: 14px;
+      color: var(--color-text-main);
+      border-top: 1px dashed rgba(159, 179, 155, 0.4);
+      padding-top: 1rem;
+      margin: 0 1.5rem;
+    }
+
+    .ans-content strong {
+      color: var(--color-rose-dust);
+    }
+
+    /* ══ Footer ══ */
+    footer {
+      margin-top: 3rem;
+      padding: 2rem;
+      text-align: center;
+      background: #fff;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--box-shadow-soft);
+    }
+
+    footer .logo {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-rose-dust);
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--color-text-light);
+      line-height: 1.8;
+    }
+
+    /* ══ Print Rules ══ */
+    @media print {
+      @page {
+        margin: 15mm;
+      }
+
+      body {
+        background: white;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .hero {
+        background: #fdf9f1 !important;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-after: avoid;
+      }
+
+      .reading-box,
+      .card,
+      .qbox,
+      .alert {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+      }
+
+      details.ans-toggle summary::after {
+        display: none;
+      }
+
+      .ans-content {
+        display: block !important;
+      }
+    }
+  </style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--color-rose-dust, #d4a3a3);
+      color: var(--color-rose-dust, #d4a3a3);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- 🌸 HERO 區塊 -->
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-tag">課文教學筆記</div>
+        <h1>《楊柳》（節錄）深層賞析</h1>
+        <p>作者：豐子愷 ｜ 潘SIR中文教室 精心編撰</p>
+      </div>
+    </div>
+
+    <!-- 📖 課文原文 -->
+    <div class="reading-box">
+      <div class="reading-title">✿ 課文原文 ✿</div>
+      <div class="reading-text">
+        <p>
+          　　假如我現在要讚美一種植物，我仍是要讚美楊柳。但這與前緣無關，只是我這幾天的所感，一時興到，隨便談談，也不會像信仰宗教或崇拜主義地畢生皈依它。為的是昨天天氣佳，埋頭寫作到傍晚，不免走到西湖邊的長椅子裏坐了一會。看見湖岸的楊柳樹上，好像掛着幾萬串嫩綠的珠子，在溫暖的春風中飄來飄去，飄出許多彎度微微的S線來，覺得這一種植物實在美麗可愛，非讚它一下不可。
+        </p>
+        <p>
+          　　聽人說，這種植物是最賤的。剪一根枝條來插在地上，它也會活起來，後來變成一株大楊柳樹。它不需要高貴的肥料或工深的壅培，只要有陽光、泥土和水，便會生活，而且生得非常強健而美麗。牡丹花要吃豬肚腸，葡萄藤要吃肉湯，許多花木要吃豆餅，楊柳樹不要吃人家的東西，因此人們說它是「賤」的。大概「貴」是要吃的意思。愈要吃得多，愈要吃得好，就是愈「貴」。吃得很多很好而沒有用處，只供觀賞的，似乎更貴。例如牡丹比葡萄貴，是為了牡丹吃了豬肚腸只供觀賞而葡萄吃了肉湯有結果的緣故。楊柳不要吃人的東西，且有木材供人用，因此被人看作「賤」的。
+        </p>
+        <p>
+          　　我讚楊柳美麗，但其美與牡丹不同，與別的一切花木都不同。楊柳的主要的美點，是其下垂。花木大都是向上發展的，紅杏能長到「出牆」，古木能長到「參天」。向上原是好的，但我往往看見枝葉花果蒸蒸日上，似乎忘記了下面的根，覺得其樣子可惡；你們是靠他養活的，怎麼只管高踞上面，絕不理睬他呢？你們的生命建設在他上面，怎麼只管貪圖自己的光榮，而絕不回顧處在泥土中的根本呢？花木大都如此。甚至下面的根已經被砍，而上面的花葉還是欣欣向榮，在那裏作最後一刻的威福，真是可惡而又可憐！楊柳沒有這般可惡可憐的樣子：它不是不會向上生長。它長得很快，而且很高；但是愈長得高，愈垂得低。千萬條陌頭細柳，條條不忘記根本，常常俯首顧着下面，時時借了春風之力，向處在泥土中的根本拜舞，或者和它親吻。好像一羣的活潑孩子環繞着他們的慈母而遊戲，但時時依傍到慈母的身旁去，或者撲進慈母的懷裏去，使人看了覺得非常可愛。楊柳樹也有高出牆頭的，但我但不嫌它高，為了它高而能下，為了它高而不忘本。
+        </p>
+      </div>
+    </div>
+
+    <!-- 🌿 SECTION 1: 課文解碼 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2 class="section-title">一、 段落大意與文章主旨</h2>
+      </div>
+
+      <div class="card">
+        <div class="card-title">段落內容梳理</div>
+        <div class="ht-wrap">
+          <table class="ht">
+            <tr>
+              <th style="width: 15%;">段落</th>
+              <th>內容大意</th>
+            </tr>
+            <tr>
+              <td><strong>第 1 段</strong></td>
+              <td>以春日遊湖時，看見<strong>姿態優美</strong>的柳樹，帶出<strong>對楊柳的讚美</strong>。</td>
+            </tr>
+            <tr>
+              <td><strong>第 2 段</strong></td>
+              <td>
+                通過牡丹、葡萄藤這些<strong>需要培育</strong>的植物與<strong>不要吃人的東西</strong>，並<strong>有木材供人用</strong>的楊柳作對比，讚美楊柳樹<strong>「平凡有用」</strong>的本質。
+              </td>
+            </tr>
+            <tr>
+              <td><strong>第 3 段</strong></td>
+              <td>寫楊柳<strong>枝條下垂</strong>的獨特形態，並通過與<strong>只管向上發展</strong>的紅杏、古木作對比，讚美楊柳<strong>「高不忘本」</strong>的美德。
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="alert note">
+        <div class="alert-icon">💡</div>
+        <div>
+          <div class="alert-label">潘SIR點撥：文章主旨</div>
+          <div class="alert-text">
+            本文通過描寫楊柳<strong>高而能下</strong>和<strong>不須培育卻有木材提供</strong>的特質，突出它<strong>「高不忘本」</strong>和<strong>「平凡有用」</strong>的美德，側面說明人也應該具有這兩種高尚的品德。（借物抒情）
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🌿 SECTION 2: 象徵與寫作手法 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">🎭</div>
+        <h2 class="section-title">二、 借物抒情：植物的象徵意義</h2>
+      </div>
+
+      <p style="margin-bottom: 1rem; color: var(--color-text-light);">作者巧妙地運用了多種植物來代表社會上不同類型的人，讓我們一起來解碼它們的深層含義吧！</p>
+
+      <div class="symbol-grid">
+        <div class="symbol-card">
+          <div class="icon">🌿</div>
+          <div class="name">楊柳</div>
+          <div class="meaning">高不忘本的人</div>
+          <div class="desc">代表懂得知恩圖報的人。例如為人子女的，長大後事業有成，也不會忘記父母的養育之恩，時常回饋家庭與社會。</div>
+        </div>
+        <div class="symbol-card">
+          <div class="icon">🌺</div>
+          <div class="name">牡丹</div>
+          <div class="meaning">貪婪無用的人</div>
+          <div class="desc">代表貪婪而沒有實際貢獻的人。他們只會不斷渴求更多（要吃豬肚腸），但沒有作為。例如某些只會浪費家族金錢的富二代。</div>
+        </div>
+        <div class="symbol-card">
+          <div class="icon">🌸</div>
+          <div class="name">紅杏</div>
+          <div class="meaning">忘恩負義的人</div>
+          <div class="desc">代表只顧自己發展，不懂飲水思源的人（只管向上，忘記泥土中的根）。例如在工作上得到前輩幫助而成功，卻不心存感激。</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 2rem;">
+        <div class="card-title">寫作手法分析：「貴」與「賤」的反語藝術</div>
+        <p style="margin-bottom: 1rem; color: var(--color-text-main);">世俗眼光與作者眼光的強烈對比：</p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: var(--color-rose-dust);">✦</span>
+            <strong>為何世人說楊柳「賤」？</strong><br>
+            因為它極易生長（剪枝插地即活），不需要高貴肥料培育；且它「不吃人的東西」卻能提供木材供人使用。
+          </li>
+          <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+            <span style="position: absolute; left: 0; color: var(--color-rose-dust);">✦</span>
+            <strong>世人眼中的「貴」是甚麼？</strong><br>
+            「貴」就是要「吃」。愈要吃得多、吃得好（如牡丹吃豬肚腸），就愈貴。如果吃得很多很好卻<strong>毫無用處，只供觀賞</strong>，那就更貴了。
+          </li>
+        </ul>
+
+        <div class="alert tip" style="margin-top: 1rem;">
+          <div class="alert-icon">✨</div>
+          <div>
+            <div class="alert-label">修辭魔法：反語 (Irony)</div>
+            <div class="alert-text">
+              作者表面上寫楊柳「賤」、牡丹「貴」，實際上是運用了<strong>「反語」</strong>的手法！真實的深層意思是：<strong>讚美楊柳生命力強、平凡有用的美德，並無情地諷刺世人價值觀扭曲，不懂欣賞楊柳的真正美德。</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🌿 SECTION 3: 跨篇章比較 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <h2 class="section-title">三、 跨篇章比較：《愛蓮說》vs《楊柳》</h2>
+      </div>
+
+      <p style="margin-bottom: 1rem; color: var(--color-text-light);">
+        周敦頤的《愛蓮說》與豐子愷的《楊柳》都提到了「牡丹」，但兩位作者筆下牡丹的「貴」有甚麼分別呢？寫作目的又有何不同？</p>
+
+      <div class="ht-wrap">
+        <table class="ht">
+          <tr>
+            <th style="width: 15%;">篇章</th>
+            <th style="width: 35%;">牡丹的「貴」是指甚麼？</th>
+            <th>作者寫牡丹的目的</th>
+          </tr>
+          <tr>
+            <td><strong>《愛蓮說》<br>(周敦頤)</strong></td>
+            <td>牡丹是<strong>富貴</strong>的象徵。</td>
+            <td>藉代表富貴的牡丹與「出淤泥而不染」的蓮花作<strong>對比</strong>，表達自己願像蓮花一樣品格高尚，並慨歎世人大多貪戀富貴。</td>
+          </tr>
+          <tr>
+            <td><strong>《楊柳》<br>(豐子愷)</strong></td>
+            <td>牡丹要澆最好的肥料，以及<strong>只供觀賞，沒有其他用途</strong>。</td>
+            <td>寫牡丹的「貴」和楊柳的「賤」，通過<strong>反語</strong>的修辭手法，讚美楊柳平凡有用，並諷刺人們不懂欣賞楊柳的高尚品格。</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 🌿 SECTION 4: 隨堂測驗 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">✍🏻</div>
+        <h2 class="section-title">四、 溫習測驗區</h2>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">Question 1</div>
+        <div class="qbox-q">根據課文第3段，作者指出花木（如紅杏、古木）的生長形態有何缺點？這與楊柳有甚麼不同？</div>
+        <details class="ans-toggle">
+          <summary>對對答案</summary>
+          <div class="ans-content">
+            作者認為一般的花木只管向上發展（如紅杏出牆、古木參天），只顧貪圖自己的光榮，卻忘記了泥土中養活它們的根部，甚至根被砍了還在上面作威作福，顯得<strong>忘恩負義</strong>。相反，楊柳雖然也長得高，但<strong>「愈長得高，愈垂得低」</strong>，枝條時時向泥土中的根本拜舞親吻，表現出<strong>高不忘本、懂得飲水思源</strong>的感恩品德。
+          </div>
+        </details>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">Question 2</div>
+        <div class="qbox-q">作者在文中提及不同的植物，請判斷以下描述最符合哪一種植物（牡丹 / 葡萄 / 楊柳 / 紅杏）：<br>
+          (A) 須培養而會結果：_______<br>
+          (B) 吃得多但最不實用：_______<br>
+          (C) 長得高而下垂：_______<br>
+          (D) 長得高但忘本：_______</div>
+        <details class="ans-toggle">
+          <summary>對對答案</summary>
+          <div class="ans-content">
+            (A) 葡萄 （吃了肉湯有結果）<br>
+            (B) 牡丹 （吃了豬肚腸只供觀賞）<br>
+            (C) 楊柳 （愈長得高，愈垂得低）<br>
+            (D) 紅杏 / 古木 （只管向上發展，忘記下面的根）
+          </div>
+        </details>
+      </div>
+
+      <div class="qbox">
+        <div class="qbox-label">Question 3</div>
+        <div class="qbox-q">判斷題：作者對葡萄的評價低於牡丹。這句話是正確、錯誤，還是無從判斷？請簡單解釋。</div>
+        <details class="ans-toggle">
+          <summary>對對答案</summary>
+          <div class="ans-content">
+            <strong>錯誤。</strong><br>
+            根據課文第2段，作者認為「吃得很多很好而沒有用處，只供觀賞的，似乎更貴」。牡丹吃了肥料只供觀賞，而葡萄吃了肥料至少還有結果（有實用價值），因此在作者眼中，世俗眼光裡最「貴」（其實是最不實用）的是牡丹。作者推崇實用與平凡，因此對葡萄的評價其實<strong>高於</strong>毫無用處的牡丹。
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- 🌸 FOOTER -->
+    <footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>
