@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中文能力強化練習：學校生活與社交｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0f0ee;
+      --color-text-secondary: #aaa;
+      --color-background-primary: #1c1c1e;
+      --color-background-secondary: #2c2c2e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 閱讀：霧藍灰 */
+  .hero.reading { background: #C8D5D8; color: #122025; }
+  .hero.reading .hero-tag {
+    border: 1px solid rgba(18,32,37,0.3);
+    color: rgba(18,32,37,0.65);
+  }
+  .hero.reading p { color: rgba(18,32,37,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .toc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+  .toc-item {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 14px; color: var(--color-text-primary);
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+    text-decoration: none;
+  }
+  .toc-item:last-child { border-bottom: none; }
+  .toc-num {
+    width: 22px; height: 22px;
+    background: #122025; color: #fff;
+    border-radius: 50%; font-size: 11px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-weight: 700;
+  }
+
+  /* 區塊標題 */
+  .section-header {
+    display: flex; align-items: center; gap: 0.8rem;
+    margin: 2.5rem 0 1.2rem;
+  }
+  .section-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+    background: #e6f0f2;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* 詞彙表格 (新加入) */
+  .vocab-section-title {
+    background: #fdfbf7;
+    padding: 12px 18px;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #2c525e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .vocab-table th {
+    background: #122025; color: #fff;
+    padding: 10px 15px; text-align: left;
+    font-weight: 600; font-size: 13.5px;
+    letter-spacing: 0.5px;
+  }
+  .vocab-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border-tertiary);
+    vertical-align: top;
+    line-height: 1.75;
+    color: var(--color-text-primary);
+  }
+  .vocab-table tr:last-child td { border-bottom: none; }
+  .vocab-table tr:nth-child(even) td { background: var(--color-background-secondary); }
+  .v-word {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px; font-weight: 700;
+    color: #2c525e;
+    white-space: nowrap;
+  }
+  .v-eg { font-size: 13px; color: var(--color-text-secondary); margin-top: 5px; }
+  .v-eg span { color: #2c525e; font-weight: 700; }
+
+  /* 關鍵詞網格 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .kw-word {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 0.6rem;
+    text-align: center;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #2c525e;
+  }
+
+  /* 題目列表 */
+  .q-list { counter-reset: q-counter; }
+  .q-item {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+  }
+  .q-item::before {
+    counter-increment: q-counter;
+    content: counter(q-counter);
+    width: 24px; height: 24px;
+    background: #e6f0f2; color: #122025;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .q-content { flex: 1; }
+  .blank {
+    display: inline-block;
+    border-bottom: 1.5px solid #2c525e;
+    width: 80px;
+    margin: 0 4px;
+    vertical-align: bottom;
+  }
+  .hint {
+    font-size: 12.5px;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+    display: block;
+  }
+  
+  /* 填寫線 */
+  .write-line {
+    border-bottom: 1px dashed var(--color-border-tertiary);
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  /* 隱藏答案切換器 (Details/Summary) */
+  .ans-toggle {
+    margin-top: 8px;
+  }
+  .ans-toggle summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    color: #2c525e;
+    background: #e6f0f2;
+    padding: 5px 12px;
+    border-radius: 20px;
+    list-style: none; /* 隱藏預設三角形 */
+    user-select: none;
+    transition: all 0.2s ease;
+    outline: none;
+  }
+  .ans-toggle summary::-webkit-details-marker {
+    display: none;
+  }
+  .ans-toggle summary::before {
+    content: '👁️';
+    font-size: 12px;
+  }
+  .ans-toggle[open] summary {
+    background: #2c525e;
+    color: #ffffff;
+    margin-bottom: 6px;
+  }
+  .ans-toggle summary:hover {
+    filter: brightness(0.95);
+  }
+  .ans-text {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #27ae60;
+    background: #eafaf2;
+    border-left: 3px solid #27ae60;
+    padding: 8px 14px;
+    border-radius: 0 4px 4px 0;
+    display: inline-block;
+    width: 100%;
+    margin-top: 2px;
+  }
+
+  /* 提示框 / 比較框 */
+  .alert {
+    display: flex; gap: 0.9rem; align-items: flex-start;
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.2rem; margin: 1.2rem 0;
+    font-size: 13.5px;
+  }
+  .alert.tip    { background: #eaf4ff; border-left: 4px solid #3a90e0; }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-label { font-weight: 700; font-size: 13px; margin-bottom: 3px; }
+  .alert-text  { color: var(--color-text-secondary); line-height: 1.7; }
+
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1rem 0; }
+  .compare-card { border-radius: var(--border-radius-md); padding: 0.8rem 1rem; font-size: 13.5px;}
+  .compare-card.bad { background: #fff0f0; border: 1px solid #ffcccc; }
+  .compare-card.good { background: #eafaf2; border: 1px solid #bcead1; }
+  .compare-label { font-size: 12px; font-weight: 700; margin-bottom: 0.5rem; }
+  .compare-card.bad .compare-label { color: #c0392b; }
+  .compare-card.good .compare-label { color: #27ae60; }
+
+  /* 閱讀文章 */
+  .passage-box {
+    background: var(--color-background-secondary);
+    border-left: 4px solid #2c525e;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    margin-bottom: 1.5rem;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  /* 響應式 */
+  @media (max-width: 600px) {
+    .keyword-grid { grid-template-columns: repeat(3, 1fr); }
+    .compare-grid { grid-template-columns: 1fr; }
+    .vocab-table th, .vocab-table td { padding: 10px; }
+  }
+
+  /* 列印優化 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; font-size: 12pt;}
+    .wrap { max-width: 100%; padding: 0; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .q-item, .compare-grid, .alert, .passage-box, .vocab-table tr { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .write-line { border-bottom: 1px solid #ccc; }
+    /* 列印時強制顯示答案文本，隱藏按鈕 */
+    .ans-toggle summary { display: none; }
+    .ans-text { 
+      display: block; 
+      border-left: 2px solid #555; 
+      color: #333; 
+      background: none; 
+      padding-left: 8px; 
+      margin-top: 4px;
+    }
+  }
+</style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--theme-primary, #6b705c);
+      color: var(--theme-primary, #6b705c);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero reading">
+    <div class="hero-tag">閱讀及寫作教學筆記</div>
+    <h1>中文能力強化練習<br>主題：學校生活與社交</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 目錄</div>
+    <a href="#vocab" class="toc-item"><span class="toc-num">一</span>本課詞語及成語詳解（重點溫習）</a>
+    <a href="#part2" class="toc-item"><span class="toc-num">二</span>供詞填充（核心詞彙運用）</a>
+    <a href="#part3" class="toc-item"><span class="toc-num">三</span>不供詞填充（成語及四字詞）</a>
+    <a href="#part4" class="toc-item"><span class="toc-num">四</span>改寫句子（消滅英式中文邏輯）</a>
+    <a href="#part5" class="toc-item"><span class="toc-num">五</span>重組句子（建立書面語感）</a>
+    <a href="#part6" class="toc-item"><span class="toc-num">六</span>段落理解（生活化閱讀）</a>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">潘SIR的話</div>
+      <div class="alert-text">這份練習專為習慣英語思考的同學而設。我們在開始練習前，先溫習一下日常校園和社交中最常用到的詞彙和成語。做練習時，試著把腦海中的「英文翻譯」關掉，用語感去感受句子的連貫性！（完成題目後可點擊「觀看答案」按鈕核對）</div>
+    </div>
+  </div>
+
+  <div class="section-header" id="vocab">
+    <div class="section-icon">📖</div>
+    <h2>一、本課詞語及成語詳解</h2>
+  </div>
+  <div class="card" style="padding:0; overflow:hidden;">
+    
+    <div class="vocab-section-title">📌 核心詞彙（供詞填充用語）</div>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th style="width: 18%">詞語</th>
+          <th style="width: 32%">釋義</th>
+          <th style="width: 50%">生活化例句</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="v-word">踴躍</div></td>
+          <td>形容情緒熱烈，積極參與。（Eager / Enthusiastic）</td>
+          <td><div class="v-eg">老師一宣佈舉辦電競比賽，同學們就<span>踴躍</span>報名參加。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">融洽</div></td>
+          <td>形容彼此感情很好，沒有矛盾。（Harmonious）</td>
+          <td><div class="v-eg">我們組員之間的關係十分<span>融洽</span>，從來不會因為分工而吵架。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">尷尬</div></td>
+          <td>處境困難，令人感到難為情或不知所措。（Awkward）</td>
+          <td><div class="v-eg">我在走廊不小心叫錯了別班同學的名字，當時真的非常<span>尷尬</span>。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">默契</div></td>
+          <td>雙方不需要語言表達就能明白對方的心意。（Chemistry）</td>
+          <td><div class="v-eg">他們兩個在籃球場上充滿<span>默契</span>，一個眼神就知道對方要傳球。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">籌備</div></td>
+          <td>為進行某件事而事先做好準備和計劃。（Prepare / Plan）</td>
+          <td><div class="v-eg">學生會正在努力<span>籌備</span>下星期的才藝表演，希望活動能順利進行。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">委屈</div></td>
+          <td>受到不公平的對待而心裏感到難過。（Feel wronged）</td>
+          <td><div class="v-eg">明明不是我打破花盆，卻被老師責備，讓我感到很<span>委屈</span>。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">爭執</div></td>
+          <td>各執己見，互相辯論不肯讓步。（Dispute / Argue）</td>
+          <td><div class="v-eg">我們為了決定專題研習的題目而發生了<span>爭執</span>，最後要請老師幫忙調解。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">敷衍</div></td>
+          <td>做事不認真，只求表面應付過去。（Perfunctory）</td>
+          <td><div class="v-eg">朋友認真向你請教問題時，你不應該隨便找個藉口<span>敷衍</span>他。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">鼓勵</div></td>
+          <td>激發並勉勵別人，使其增強信心。（Encourage）</td>
+          <td><div class="v-eg">在我測驗不及格感到失落時，好朋友不斷<span>鼓勵</span>我，讓我重新振作。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">體諒</div></td>
+          <td>設身處地為別人着想，並給予同情和理解。（Show understanding）</td>
+          <td><div class="v-eg">同學最近因為生病而缺交功課，我們應該多加<span>體諒</span>並主動借筆記給他。</div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="vocab-section-title" style="border-top: 1px solid var(--color-border-tertiary);">📌 四字成語（不供詞填充用語）</div>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th style="width: 18%">成語</th>
+          <th style="width: 32%">釋義</th>
+          <th style="width: 50%">生活化例句</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="v-word">刮目相看</div></td>
+          <td>指別人已有進步，不能再用老眼光去看他。</td>
+          <td><div class="v-eg">平時數學成績一般的明仔，這次竟然拿了滿分，真讓人對他<span>刮目相看</span>。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">竊竊私語</div></td>
+          <td>背地裏小聲地說話。</td>
+          <td><div class="v-eg">早會時，校長在台上講話，台下的同學卻在<span>竊竊私語</span>，這樣十分不尊重。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">孤立無援</div></td>
+          <td>形容單獨行事，得不到外力援助。</td>
+          <td><div class="v-eg">剛轉學到新學校時，我誰也不認識，偶爾會有一種<span>孤立無援</span>的感覺。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">莫名其妙</div></td>
+          <td>指事情很奇怪，使人不明白其中的道理。</td>
+          <td><div class="v-eg">他今天一言不發就退出了我們的WhatsApp群組，真是令人<span>莫名其妙</span>。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">幸災樂禍</div></td>
+          <td>指別人遭遇災禍，自己卻感到高興。</td>
+          <td><div class="v-eg">看到對手在比賽中失誤跌倒，我們不應該<span>幸災樂禍</span>，反而應該展現體育精神。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">志同道合</div></td>
+          <td>志向相同，思想一致。</td>
+          <td><div class="v-eg">參加動漫學會讓我認識了一班<span>志同道合</span>的好朋友，我們經常一起討論新番。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">侃侃而談</div></td>
+          <td>理直氣壯、從容不迫地說話。</td>
+          <td><div class="v-eg">雖然是第一次上台演講，但他毫不緊張，面對全校同學依然能<span>侃侃而談</span>。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">面紅耳赤</div></td>
+          <td>形容因急躁、害羞或發怒而臉紅的樣子。</td>
+          <td><div class="v-eg">為了哪個男團的舞步最齊整，她們兩個爭論得<span>面紅耳赤</span>。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">悶悶不樂</div></td>
+          <td>形容心情煩悶，不快樂。</td>
+          <td><div class="v-eg">因為不小心弄壞了朋友借給他的Switch遊戲機，他整天都<span>悶悶不樂</span>。</div></td>
+        </tr>
+        <tr>
+          <td><div class="v-word">恍然大悟</div></td>
+          <td>形容忽然明白過來。</td>
+          <td><div class="v-eg">聽了老師用打機來比喻這個數學概念後，我才<span>恍然大悟</span>，原來這麼簡單！</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-header" id="part2">
+    <div class="section-icon">📝</div>
+    <h2>二、供詞填充</h2>
+  </div>
+  <div class="card">
+    <p style="margin-bottom: 1rem; color: var(--color-text-secondary); font-size: 13.5px;">請從以下方格中選擇最合適的詞語，填在句子的橫線上。（每個詞語只可使用一次）</p>
+    <div class="keyword-grid">
+      <div class="kw-word">踴躍</div>
+      <div class="kw-word">融洽</div>
+      <div class="kw-word">尷尬</div>
+      <div class="kw-word">默契</div>
+      <div class="kw-word">籌備</div>
+      <div class="kw-word">委屈</div>
+      <div class="kw-word">爭執</div>
+      <div class="kw-word">敷衍</div>
+      <div class="kw-word">鼓勵</div>
+      <div class="kw-word">體諒</div>
+    </div>
+    
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-content">
+          新學期開始，同學們都<span class="blank"></span>報名參加各種課外活動。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">踴躍</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          雖然我們才剛認識不久，但相處得十分<span class="blank"></span>，就像老朋友一樣。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">融洽</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          昨天在飯堂不小心把湯灑在學長身上，當時的氣氛真讓人感到<span class="blank"></span>。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">尷尬</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          經過多次排練，我們話劇學會的成員之間已經建立起很好的<span class="blank"></span>。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">默契</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          學生會正在積極<span class="blank"></span>下個月舉辦的聖誕聯歡會。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">籌備</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          明明是同桌同學做錯了事，老師卻責備我，讓我感到十分<span class="blank"></span>。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">委屈</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          我們在小組討論時發生了激烈的<span class="blank"></span>，誰也不肯讓步。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">爭執</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          朋友向你傾訴心事時，你應該認真聆聽，而不是<span class="blank"></span>了事。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">敷衍</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          在我遇到挫折想放棄的時候，好朋友一直<span class="blank"></span>我堅持下去。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">鼓勵</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          每個人的學習進度不同，我們應該互相<span class="blank"></span>，多幫助有需要的同學。
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">體諒</div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="part3">
+    <div class="section-icon">🧠</div>
+    <h2>三、不供詞填充（成語及四字詞）</h2>
+  </div>
+  <div class="card">
+    <p style="margin-bottom: 1rem; color: var(--color-text-secondary); font-size: 13.5px;">請根據句意及括號內的提示，填上合適的四字成語。</p>
+    
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-content">
+          看到平時不愛說話的明仔在演講比賽中表現出色，大家都對他<span class="blank"></span>。<br><span class="hint">（提示：指別人已有進步，不能再用老眼光去看他。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">刮目相看</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          上課時，後排的幾個同學一直在<span class="blank"></span>，結果被老師點名批評。<br><span class="hint">（提示：背地裡小聲地說話。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">竊竊私語</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          當我在外地交流迷路時，那種<span class="blank"></span>的感覺真的讓人很害怕。<br><span class="hint">（提示：形容單獨行事，得不到外力援助。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">孤立無援</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          他今天一回到課室就對著我發脾氣，真是令人<span class="blank"></span>。<br><span class="hint">（提示：指事情很奇怪，使人不明白。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">莫名其妙</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          看到對手在接力賽中跌倒，我們不應該<span class="blank"></span>，反而應該上前關心。<br><span class="hint">（提示：指別人遭遇災禍，自己卻感到高興。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">幸災樂禍</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          參加攝影學會讓我認識了一班<span class="blank"></span>的好朋友，我們經常一起外出拍照。<br><span class="hint">（提示：志向相同，思想一致。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">志同道合</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          面對台下幾百個觀眾，他依然能<span class="blank"></span>，分享自己的校園生活。<br><span class="hint">（提示：理直氣壯、從容不迫地說話。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">侃侃而談</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          為了誰該負責打掃課室的問題，他們兩個爭論得<span class="blank"></span>。<br><span class="hint">（提示：形容因急躁、害羞或發怒而臉紅的樣子。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">面紅耳赤</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          測驗成績不理想，小華整天<span class="blank"></span>，連最喜歡的籃球也不打。<br><span class="hint">（提示：形容心情煩悶，不快樂。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">悶悶不樂</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          聽了老師的詳細解釋，我才<span class="blank"></span>，原來這道數學題是這樣解的。<br><span class="hint">（提示：形容忽然明白過來。）</span>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">恍然大悟</div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="part4">
+    <div class="section-icon">🔄</div>
+    <h2>四、改寫句子（消滅英式中文邏輯）</h2>
+  </div>
+  <div class="card">
+    <p style="margin-bottom: 0.5rem; color: var(--color-text-secondary); font-size: 13.5px;">以下句子帶有明顯的口語或「直譯英語」的痕跡。請將它們改寫為自然、流暢的中文書面語。</p>
+    
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">❌ 英式中文 / 口語入文</div>
+        <div>這件事讓我變得很生氣。<br><i>(This makes me very angry.)</i></div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">✅ 自然書面語</div>
+        <div>這件事令我十分氣憤。</div>
+      </div>
+    </div>
+
+    <div class="q-list" style="margin-top: 1.5rem;">
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>我寫這封信是為了告訴你我不可以去你的party。<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">我寫這封信，是想告訴你我無法出席你的派對。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>明天的比賽我們會play our best，贏那個獎杯回來。<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">明天的比賽我們會全力以赴，把獎盃贏回來。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>我不覺得這是一個好主意，因為會用很多時間。<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">我認為這不是個好主意，因為十分耗時（/因為太浪費時間了）。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>他是一個很nice的人，總是help別人。<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">他為人友善，總是樂於助人。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>我的好朋友昨天沒有來學校，所以他miss了很重要的notes。<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">我的好朋友昨天缺席，因而錯過了十分重要的筆記。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>你可以給予我一些advice關於怎樣溫習嗎？<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">你可以給我一些關於溫習的建議嗎？</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>我很sorry昨天忘了帶書給你。<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">昨天忘了把書帶來給你，我感到十分抱歉。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>那個老師講的話很make sense，大家都同意。<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">老師的話言之有理，大家都十分贊同。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>我們需要有一個meeting去傾這個project。<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">我們需要開會討論這個專題研習。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          <strong>原句：</strong>我有很多功課要做，所以我感到很大壓力。<br>
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">功課繁重令我感到壓力很大（/我因為功課繁重而感到壓力大）。</div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="part5">
+    <div class="section-icon">🧩</div>
+    <h2>五、重組句子（建立書面語感）</h2>
+  </div>
+  <div class="card">
+    <p style="margin-bottom: 1rem; color: var(--color-text-secondary); font-size: 13.5px;">請將以下散落的詞組，重新組合成語意通順、邏輯嚴謹的書面語句子，並加上適當的標點符號。</p>
+    
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-content">
+          (1) 在操場上 / (2) 揮灑汗水 / (3) 籃球校隊的 / (4) 隊員們 / (5) 正在
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">籃球校隊的隊員們正在操場上揮灑汗水。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          (1) 溝通和包容 / (2) 才能 / (3) 建立 / (4) 互相的 / (5) 長久的友誼
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">互相的溝通和包容才能建立長久的友誼。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          (1) 令人 / (2) 校園生活 / (3) 豐富多彩的 / (4) 回味無窮 / (5) 總是
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">豐富多彩的校園生活總是令人回味無窮。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          (1) 舉辦了 / (2) 學校 / (3) 為了減輕 / (4) 壓力 / (5) 同學們的 / (6) 一連串的活動
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">為了減輕同學們的壓力，學校舉辦了一連串的活動。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          (1) 積極參與 / (2) 不但能 / (3) 課外活動 / (4) 擴闊社交圈子 / (5) 還能 / (6) 培養領導才能
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">積極參與課外活動不但能擴闊社交圈子，還能培養領導才能。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          (1) 因為 / (2) 產生了 / (3) 我們 / (4) 一些小誤會 / (5) 缺乏溝通 / (6) 而
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">我們因為缺乏溝通而產生了一些小誤會。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          (1) 主動 / (2) 當別人 / (3) 伸出援手 / (4) 我們應該 / (5) 遇到困難時
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">當別人遇到困難時，我們應該主動伸出援手。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          (1) 充滿了 / (2) 歡聲笑語 / (3) 整個 / (4) 課室裡 / (5) 同學們的
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">整個課室裡充滿了同學們的歡聲笑語。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          (1) 面對 / (2) 保持 / (3) 同儕間的 / (4) 競爭 / (5) 我們應該 / (6) 良好的心態
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">面對同儕間的競爭，我們應該保持良好的心態。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          (1) 是 / (2) 學習生涯中 / (3) 同學們 / (4) 老師的 / (5) 鼓勵 / (6) 最大的動力
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">老師的鼓勵是同學們學習生涯中最大的動力。</div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="part6">
+    <div class="section-icon">📖</div>
+    <h2>六、段落理解（生活化閱讀）</h2>
+  </div>
+  
+  <div class="card">
+    <div class="passage-box">
+      <strong>【短文一】</strong><br>
+      上週五的班際籃球決賽，至今仍讓我記憶猶新。我們班面對實力強勁的對手，一開始便處於劣勢，比分大幅落後。中場休息時，大家垂頭喪氣，氣氛十分凝重。這時，隊長阿明站了出來，他沒有責備任何人，反而拍拍大家的肩膀，鼓勵我們：「比賽還沒結束，只要我們發揮平日排練的默契，一定能追回來！」這番話彷彿為大家注入了強心針。下半場，我們改變策略，加強防守，並透過精準的傳球創造得分機會。雖然最終我們還是以兩分之差落敗，但全班同學都為我們在場上展現的拼搏精神而歡呼。這次比賽讓我明白，輸贏固然重要，但團隊合作和永不言敗的精神才是最珍貴的收穫。
+    </div>
+    
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-content">
+          比賽一開始，作者的班級處於什麼狀況？
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">處於劣勢，比分大幅落後。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          中場休息時，面對低落的士氣，隊長阿明做了什麼？
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">他沒有責備任何人，反而鼓勵大家只要發揮平日默契，一定能追回來。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          下半場，作者的隊伍主要作出了哪些戰術改變？（寫出兩點）
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">改變策略加強防守；透過精準的傳球創造得分機會。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          這場籃球比賽最終的結果是什麼？
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">最終以兩分之差落敗。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          作者認為從這次比賽中學到最珍貴的東西是什麼？
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">團隊合作和永不言敗的精神。</div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="passage-box">
+      <strong>【短文二】</strong><br>
+      新學期，我們班來了一位轉校生——傑克。他剛從英國回流香港，由於中文不太流利，總是獨自坐在角落，顯得格格不入。有一次小組專題研習，老師特意將傑克安排在我的組別。起初，討論過程十分吃力，他常常因為找不到合適的中文詞彙而急得面紅耳赤。為了幫助他，我們提議中英夾雜地交流，並慢慢教他一些常用的中文句式。漸漸地，傑克變得開朗起來，更在匯報時主動承擔了部分中文演講。看著他在台上自信的笑容，我深刻體會到，只要多一份體諒與耐心，語言絕不會成為建立友誼的障礙。
+    </div>
+    
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-content">
+          傑克剛來到班上時，為什麼會顯得「格格不入」？
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">因為他剛從英國回流，中文不太流利。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          在小組專題研習時，老師作出了什麼特意的安排？
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">老師特意將傑克安排在作者的小組內。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          起初討論時，傑克為什麼會急得「面紅耳赤」？
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">因為他找不到合適的中文詞彙來表達自己。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          作者和組員用了什麼具體的方法來幫助傑克融入？
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">提議中英夾雜地交流，並慢慢教他一些常用的中文句式。</div></details>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-content">
+          從傑克的轉變中，作者體會到了什麼與人相處的道理？
+          <div class="write-line"></div>
+          <details class="ans-toggle"><summary>觀看答案</summary><div class="ans-text">只要多一份體諒與耐心，語言絕不會成為建立友誼的障礙。</div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 返回目錄及列印按鈕 -->
+    <div class="print-btn-container">
+      <a href="index.html" class="print-btn">↩️ 返回筆記目錄</a>
+      <button onclick="window.print()" class="print-btn">🖨️ 列印此頁 / 儲存 PDF</button>
+    </div>
+    <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // 確保在列印時，所有的隱藏答案都會被強制展開，避免印出空白
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('.ans-toggle').forEach(details => {
+      details.setAttribute('open', 'true');
+    });
+  });
+</script>
+</body>
+</html>
