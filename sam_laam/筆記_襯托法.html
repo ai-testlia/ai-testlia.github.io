@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>修辭專題：襯托法深度解析（正襯與反襯）｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --hero-bg: #0e2244; /* 深藍 - 閱讀類 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #f0f0f0;
+    --color-text-secondary: #aaa;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #2c2c2e;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  padding: 2rem 1rem;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.wrap { max-width: 820px; margin: 0 auto; }
+
+/* HERO */
+.hero {
+  background: var(--hero-bg);
+  color: #fff;
+  border-radius: var(--border-radius-lg);
+  padding: 3rem 2.5rem 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+.hero p { opacity: 0.8; font-size: 14px; }
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.toc-title { font-weight: 700; margin-bottom: 1rem; color: var(--color-text-secondary); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+.toc ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.toc a { color: var(--color-text-primary); text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.toc a:hover { color: #3a86ff; }
+.toc-num { width: 22px; height: 22px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #555; }
+
+/* SECTION BLOCK */
+.section-block { margin-bottom: 3rem; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+.section-icon { font-size: 24px; }
+.section-header h2 { font-family: 'Noto Serif TC', serif; font-size: 1.6rem; border-bottom: 2px solid var(--color-border-tertiary); flex-grow: 1; padding-bottom: 5px; }
+
+/* CARD */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.subsection-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Serif TC', serif;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot.blue { background: #3a86ff; }
+.dot.red { background: #ff4d4d; }
+.dot.green { background: #2ecc71; }
+
+/* COMPONENTS */
+.example-box {
+  background: #f0f7ff;
+  border-left: 4px solid #3a86ff;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+.example-label { font-size: 11px; font-weight: 700; color: var(--color-text-secondary); margin-bottom: 4px; text-transform: uppercase; }
+.example-text { font-family: 'Noto Serif TC', serif; font-size: 15px; color: var(--color-text-primary); }
+
+.alert { display: flex; gap: 12px; padding: 1rem; border-radius: var(--border-radius-md); margin: 1rem 0; }
+.alert.tip { background: #eef2ff; border: 1px solid #c7d2fe; }
+.alert.warn { background: #fff1f2; border: 1px solid #fecdd3; }
+.alert-icon { font-size: 18px; }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 1rem 0; }
+.compare-card { padding: 1rem; border-radius: var(--border-radius-md); font-size: 13.5px; }
+.compare-card.primary { background: #f0f7ff; border: 1px solid #3a86ff; color: #1e3a8a; }
+.compare-card.secondary { background: #fdf2f2; border: 1px solid #ef4444; color: #7f1d1d; }
+
+.formula { background: #1a1a1a; color: #eee; padding: 1.2rem; border-radius: var(--border-radius-md); margin: 1.5rem 0; }
+.formula b { color: #3a86ff; }
+
+@media print {
+  body { background: white; padding: 0; }
+  .section-block { page-break-before: always; break-before: page; }
+  .hero { page-break-before: avoid; break-before: avoid; }
+  .toc { page-break-after: always; break-after: page; }
+  .example-box, .compare-grid, .alert, .formula { page-break-inside: avoid; break-inside: avoid; }
+}
+</style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--color-rose-dust, #d4a3a3);
+      color: var(--color-rose-dust, #d4a3a3);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>修辭專題：襯托法深度解析</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 目錄</div>
+    <ul>
+      <li><a href="#concept"><span class="toc-num">1</span> 襯托法的定義</a></li>
+      <li><a href="#types"><span class="toc-num">2</span> 正襯與反襯的意思</a></li>
+      <li><a href="#diff"><span class="toc-num">3</span> 襯托 vs 對比：具體分別</a></li>
+      <li><a href="#exam"><span class="toc-num">4</span> 考試答題框架</a></li>
+      <li><a href="#practice"><span class="toc-num">5</span> 課堂實戰練習</a></li>
+    </ul>
+  </div>
+
+  <div id="concept" class="section-block">
+    <div class="section-header">
+      <span class="section-icon">🔍</span>
+      <h2>一、襯托法是什麼？</h2>
+    </div>
+    <div class="card">
+      <p><b>襯托法</b>是一種「綠葉襯紅花」的修辭手法。它的核心在於運用<b>次要事物</b>來突出<b>主要對象</b>，使主要對象的形象更鮮明、情感更強烈。</p>
+      
+      <div class="formula">
+        <b>襯托公式：</b><br>
+        次要事物（綠葉）+ 主要對象（紅花）= <b>主要對象特徵被放大</b>
+      </div>
+
+      <div class="alert tip">
+        <div class="alert-icon">💡</div>
+        <div class="alert-content">
+          <b>潘SIR提醒：</b>在閱讀理解中，如果作者花很多篇幅描寫「旁邊的人」或「周圍的環境」，其目的往往是為了襯托「主角」的某種特質。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="section2" class="section-block">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <h2>二、正襯與反襯的意思及分別</h2>
+    </div>
+    
+    <div class="card">
+      <div class="subsection-title"><div class="dot blue"></div>1. 正襯 (Positive Foil)</div>
+      <p>利用與主要事物<b>性質相同或相似</b>的次要事物，從正面來陪襯。</p>
+      <div class="example-box">
+        <div class="example-label">具體例子</div>
+        <div class="example-text">
+          <b>情境：</b>描寫一位英勇的將軍。<br>
+          <b>手法：</b>先寫士兵們個個高大威猛、訓練有素，以此<b>正襯</b>出將軍更是神采奕奕、氣宇不凡。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><div class="dot red"></div>2. 反襯 (Negative Foil)</div>
+      <p>利用與主要事物<b>性質相反</b>的次要事物，從反面來襯托主要事物。</p>
+      <div class="example-box" style="border-left-color: #ef4444; background: #fff5f5;">
+        <div class="example-label">具體例子</div>
+        <div class="example-text">
+          <b>情境：</b>描寫森林的幽靜。<br>
+          <b>手法：</b>「蟬噪林逾靜，鳥鳴山更幽。」利用蟬鳴聲、鳥叫聲這類「動」，來<b>反襯</b>森林整體的「靜」。
+        </div>
+      </div>
+      <div class="alert tip">
+        <div class="alert-icon">📌</div>
+        <div class="alert-content">
+          這就是所謂的<b>「以樂寫哀」</b>或<b>「以動襯靜」</b>。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="diff" class="section-block">
+    <div class="section-header">
+      <span class="section-icon">🔄</span>
+      <h2>三、襯托 vs 對比：具體分別</h2>
+    </div>
+    <div class="card">
+      <p>這是小六學生最容易混淆的考點。雖然兩者都涉及兩個事物，但重心完全不同：</p>
+      
+      <div class="compare-grid">
+        <div class="compare-card primary">
+          <b>襯托 (Foiling)</b><br>
+          ● <b>重心：</b>只有一個（主要事物）。<br>
+          ● <b>地位：</b>次要事物是為了服務主要事物。<br>
+          ● <b>例子：</b>用普通LED屏的平庸，來<b>襯托</b>霓虹燈的人間溫度。
+        </div>
+        <div class="compare-card secondary" style="background:#f0fff4; border-color:#22c55e; color:#166534;">
+          <b>對比 (Contrast)</b><br>
+          ● <b>重心：</b>有兩個（兩者並重）。<br>
+          ● <b>地位：</b>兩者地位平等，為了突出差異。<br>
+          ● <b>例子：</b>LED是數碼邏輯，而霓虹是類比情懷。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="exam" class="section-block">
+    <div class="section-header">
+      <span class="section-icon">📝</span>
+      <h2>四、考試答題框架</h2>
+    </div>
+    <div class="card">
+      <p>當題目問到：「作者寫 B 事物對描寫 A 事物有什麼作用？」時，請使用以下公式：</p>
+      <div class="formula">
+        <b>答題模版：</b><br>
+        作者運用了<b>襯托法</b>，利用 B 事物的（特徵）來<b>（正襯/反襯）</b>出 A 事物的（特徵），從而突出（主題/作者的情感）。
+      </div>
+    </div>
+  </div>
+
+  <div id="practice" class="section-block">
+    <div class="section-header">
+      <span class="section-icon">✍️</span>
+      <h2>五、課堂實戰練習</h2>
+    </div>
+    <div class="card">
+      <p><b>1. 判斷題：指出下列句子運用了「正襯」還是「反襯」。</b></p>
+      <ol style="margin-left: 20px;">
+        <li>在繁華吵鬧的彌敦道上，這間窄小的手工工作坊顯得格外冷清。( ________ )</li>
+        <li>滿山的楓葉紅得像火，把山頂上那座亭子點綴得更有朝氣。( ________ )</li>
+        <li>當最後一盞手工霓虹熄滅，黑夜顯得更加深不見底。( ________ )</li>
+      </ol>
+      
+      <p style="margin-top: 1.5rem;"><b>2. 簡答題：</b></p>
+      <p>在《歲月的流光》一文中，作者描述現代 LED 屏幕「規格統一、效率極高、環保卻平庸」。這對描寫霓虹招牌有什麼<b>襯托</b>作用？</p>
+      <p>答：____________________________________________________________________</p>
+    </div>
+
+    <div class="alert success" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+      <div class="alert-icon">✅</div>
+      <div class="alert-content">
+        <b>【參考答案】</b><br>
+        1. (1) 反襯 (2) 正襯 (3) 反襯<br>
+        2. 作者利用 LED 屏幕的「平庸」和「規格統一」，<b>反襯</b>出霓虹招牌具有「溫暖的顫動」和燃燒出來的人間煙火感，從而突出舊建築物及文化的獨特性與韻味。
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

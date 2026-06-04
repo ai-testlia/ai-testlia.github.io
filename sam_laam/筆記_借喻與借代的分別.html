@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>修辭手法：借喻與借代的分別｜潘SIR中文教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0, 0, 0, 0.1);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --hero-bg: #1a0a2e;
+      /* 寫作教學深紫色 */
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #f0f0ee;
+        --color-text-secondary: #aaa;
+        --color-background-primary: #1c1c1e;
+        --color-background-secondary: #2c2c2e;
+        --color-border-tertiary: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--hero-bg);
+      color: #fff;
+      border-radius: var(--border-radius-lg);
+      padding: 3rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .toc-title {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .toc ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: var(--color-text-primary);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-num {
+      background: #4a336e;
+      color: #fff;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    /* SECTION */
+    .section-block {
+      margin-bottom: 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      background: #f0ebff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .section-header h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.4rem;
+      color: var(--color-text-primary);
+    }
+
+    /* CARD & DOTS */
+    .card {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .dot-title {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      font-size: 15px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .dot.purple {
+      background: #7c4dff;
+    }
+
+    .dot.teal {
+      background: #00bfa5;
+    }
+
+    .dot.coral {
+      background: #ff5252;
+    }
+
+    /* BOXES */
+    .example-box {
+      background: #f8f6ff;
+      border-left: 4px solid #7c4dff;
+      padding: 1rem 1.2rem;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      margin: 1rem 0;
+    }
+
+    .example-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #4a336e;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .example-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14.5px;
+    }
+
+    .example-box.teal {
+      background: #e0f2f1;
+      border-left-color: #00897b;
+    }
+
+    .example-box.teal .example-label {
+      color: #00695c;
+    }
+
+    .example-box.coral {
+      background: #fff5f5;
+      border-left-color: #ff5252;
+    }
+
+    .example-box.coral .example-label {
+      color: #c62828;
+    }
+
+    .alert {
+      display: flex;
+      gap: 12px;
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      margin: 1rem 0;
+      font-size: 13.5px;
+    }
+
+    .alert.tip {
+      background: #e3f2fd;
+      border: 1px solid #90caf9;
+    }
+
+    .alert.warn {
+      background: #fff3e0;
+      border: 1px solid #ffcc80;
+    }
+
+    .alert.success {
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+    }
+
+    /* COMPARE GRID */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .compare-card {
+      padding: 1rem;
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--color-border-tertiary);
+    }
+
+    .compare-card.bad {
+      background: #fff5f5;
+      border-color: #ffcdd2;
+    }
+
+    .compare-card.good {
+      background: #f1f8e9;
+      border-color: #c5e1a5;
+    }
+
+    .compare-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .bad .compare-tag {
+      background: #ef5350;
+      color: #fff;
+    }
+
+    .good .compare-tag {
+      background: #7cb342;
+      color: #fff;
+    }
+
+    /* FORMULA */
+    .formula {
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: var(--border-radius-md);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .formula-title {
+      color: #ffd740;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .formula-content {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    /* PRINT RULES */
+    @media print {
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .example-box,
+      .compare-grid,
+      .alert,
+      .formula,
+      .keyword-grid {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .section-header,
+      h2,
+      h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding: 1.2rem 1.5rem;
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+    }
+  </style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--color-rose-dust, #d4a3a3);
+      color: var(--color-rose-dust, #d4a3a3);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="hero-tag">寫作教學筆記</div>
+      <h1>修辭手法：借喻與借代的分別</h1>
+      <p>潘SIR中文教室編撰</p>
+    </div>
+
+    <div class="toc">
+      <div class="toc-title">📋 章節目錄</div>
+      <ul>
+        <li><a href="#s1"><span class="toc-num">1</span> 借喻：本體消失的相似性</a></li>
+        <li><a href="#s2"><span class="toc-num">2</span> 借代：特徵取代的相關性</a></li>
+        <li><a href="#s3"><span class="toc-num">3</span> 終極分辨：三個關鍵測試</a></li>
+        <li><a href="#s4"><span class="toc-num">4</span> 易混淆考點與陷阱</a></li>
+        <li><a href="#s5"><span class="toc-num">5</span> 課堂實戰練習及答案</a></li>
+      </ul>
+    </div>
+
+    <div class="section-block" id="s1">
+      <div class="section-header">
+        <div class="section-icon">🎨</div>
+        <h2>一、借喻：本體消失的相似性</h2>
+      </div>
+      <div class="card">
+        <p><strong>借喻</strong>是比喻的高級形態。它直接把「本體」和「比喻詞」全部省去，只保留「喻體」。讀者必須通過兩者之間的<strong>相似性</strong>來聯想本體。</p>
+        <div class="example-box">
+          <span class="example-label">示例演示</span>
+          <div class="example-text">
+            他那張<strong>噴火的嘴</strong>，把全班同學都罵得低下了頭。
+          </div>
+        </div>
+        <p>💡 <strong>分析：</strong>本體是「憤怒的斥責」，喻體是「噴火」。兩者相似之處在於「猛烈、讓人難受」。</p>
+
+        <div class="formula">
+          <span class="formula-title">比喻三級跳：</span>
+          <div class="formula-content">
+            明喻（像） → 暗喻（是） → 借喻（直接用喻體）
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="s2">
+      <div class="section-header">
+        <div class="section-icon">🎭</div>
+        <h2>二、借代：特徵取代的相關性</h2>
+      </div>
+      <div class="card">
+        <p>
+          <strong>借代</strong>不強調「像不像」，而是強調「<strong>有沒有關係</strong>」。它借用事物的特徵、部分或相關的人事物來代替該事物。兩者之間沒有相似性，只有<strong>相關性</strong>。
+        </p>
+        <div class="example-box teal">
+          <span class="example-label">示例演示</span>
+          <div class="example-text">
+            那邊那個<strong>眼鏡</strong>正在專心地看書。
+          </div>
+        </div>
+        <p>💡 <strong>分析：</strong>「眼鏡」是特徵，用來代替「戴眼鏡的人（本體）」。人並不「像」眼鏡，但人「帶著」眼鏡。</p>
+
+        <div class="alert success">
+          <strong>常見借代類別：</strong>
+          <ul>
+            <li><strong>特徵代本體：</strong>如「白領」代指文員。</li>
+            <li><strong>部分代整體：</strong>如「帆」代指船。</li>
+            <li><strong>地名代事物：</strong>如「華爾街」代指美國金融界。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="s3">
+      <div class="section-header">
+        <div class="section-icon">⚖️</div>
+        <h2>三、終極分辨：三個關鍵測試</h2>
+      </div>
+      <div class="card">
+        <div class="dot-title">
+          <div class="dot purple"></div>測試一：還原法（最有效）
+        </div>
+        <p>嘗試在兩者之間加上「像」或「是」。</p>
+        <div class="compare-grid">
+          <div class="compare-card good">
+            <div class="compare-tag">借喻測試</div>
+            <strong>成功：</strong>「這是一棵搖錢樹」→「他<strong>像</strong>搖錢樹」。邏輯通順。
+          </div>
+          <div class="compare-card bad">
+            <div class="compare-tag">借代測試</div>
+            <strong>失敗：</strong>「他是個白領」→「他<strong>像</strong>白領」。邏輯不通（人不像衣服）。
+          </div>
+        </div>
+
+        <div class="dot-title">
+          <div class="dot teal"></div>測試二：相似 vs 相關
+        </div>
+        <p>問自己：喻體和本體外貌/性質像嗎？</p>
+        <ul>
+          <li><strong>像：</strong>就是借喻。如：把「壞人」比作「毒蛇」。</li>
+          <li><strong>有關：</strong>就是借代。如：用「白褂」代「醫生」。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="s4">
+      <div class="section-header">
+        <div class="section-icon">⚠️</div>
+        <h2>四、易混淆考點與陷阱</h2>
+      </div>
+      <div class="card">
+        <div class="alert warn">
+          <strong>陷阱提醒：</strong>有些詞語看起來很像，但修辭完全不同！
+        </div>
+
+        <div class="example-box coral">
+          <span class="example-label">深度對比：白衣天使 vs 白大褂</span>
+          <div class="example-text">
+            1. <strong>白衣天使</strong>正在為病人換藥。（借喻：護士純潔善良，<strong>像</strong>天使）<br>
+            2. 一群<strong>白大褂</strong>走進了手術室。（借代：醫生穿著白大褂，是<strong>職業特徵</strong>）
+          </div>
+        </div>
+
+        <p>💡 <strong>考試答題要點：</strong><br>
+          在回答「借代」的作用時，要寫「突出特徵，生動形象」；<br>
+          在回答「借喻」的作用時，要寫「把抽象事物具體化，使語言富於感染力」。</p>
+      </div>
+    </div>
+
+    <div class="section-block" id="s5">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <h2>五、課堂實戰練習</h2>
+      </div>
+      <div class="card">
+        <p><strong>請判斷下列句子運用了「借喻」還是「借代」：</strong></p>
+        <br>
+        <ol style="padding-left: 1.5rem;">
+          <li>那一堆「紈褲」只顧著吃喝玩樂，完全不理會別人的感受。 _________</li>
+          <li>老師走進課室，那幾隻「小麻雀」立刻安靜了下來。 _________</li>
+          <li>遠處的海面上，有一片「白帆」正緩緩向岸邊駛來。 _________</li>
+          <li>看著這群「明日棟樑」在操場上奔跑，老校長欣慰地笑了。 _________</li>
+          <li>警官對嫌犯說：「如果你敢動一根毫毛，我就對你不客氣！」 _________</li>
+        </ol>
+
+        <details style="margin-top: 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: #7c4dff;">點擊查看參考答案</summary>
+          <div class="alert tip" style="margin-top: 10px;">
+            <ol>
+              <li><strong>借代</strong>（紈褲是絲織品，借指富家子弟穿的華麗衣服，相關性）</li>
+              <li><strong>借喻</strong>（學生吵鬧<strong>像</strong>麻雀，相似性）</li>
+              <li><strong>借代</strong>（帆是船的一部分，部分代整體）</li>
+              <li><strong>借喻</strong>（兒童有美好未來<strong>像</strong>棟樑，相似性）</li>
+              <li><strong>借代</strong>（毫毛代指身體的極小部分，相關性）</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>

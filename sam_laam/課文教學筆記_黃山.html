@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>課文教學筆記 | 《黃山》深度分析</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* 專屬女生柔美色系 (Soft Botanical Aesthetics) */
+  --color-text-primary: #4a3b3b;
+  --color-text-secondary: #7a6b6b;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #fbf9f5;
+  --color-border-tertiary: rgba(212, 163, 163, 0.25);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* 柔美點綴色 */
+  --color-rose-dust: #d4a3a3;
+  --color-rose-light: #fcf3f3;
+  --color-sage-green: #9fb39b;
+  --color-sage-light: #f2f7f1;
+  --color-warm-gold: #cfae80;
+  --color-warm-light: #fdf9f1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #b2a7a7;
+    --color-background-primary: #23211f;
+    --color-background-secondary: #1a1917;
+    --color-border-tertiary: rgba(212, 163, 163, 0.15);
+    --color-rose-light: #2d2525;
+    --color-sage-light: #242b22;
+    --color-warm-light: #2d2922;
+  }
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  background-image: radial-gradient(var(--color-sage-light) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  padding: 2.5rem 1rem;
+  line-height: 1.85;
+  font-size: 14.5px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 840px; margin: 0 auto; padding-bottom: 4rem; }
+
+/* ══ Hero 共用結構與嚴格規則 (霧綠色調) ══ */
+.hero {
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 20px rgba(159, 179, 155, 0.15);
+  background: var(--color-sage-light);
+  border: 1px solid var(--color-sage-green);
+}
+.hero::before {
+  content: '🌿'; position: absolute; top: -15px; left: -15px; font-size: 140px; opacity: 0.08; transform: rotate(-20deg);
+}
+.hero::after {
+  content: '☁️'; position: absolute; bottom: -20px; right: -15px; font-size: 120px; opacity: 0.15; transform: rotate(15deg);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 1.2rem;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 600;
+  border: 1px dashed var(--color-sage-green);
+  background: #ffffff;
+  color: var(--color-sage-green);
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: #3b4a38;
+}
+.hero p { font-size: 13.5px; color: #5c6b59; letter-spacing: 0.05em; }
+
+/* ══ 目錄 (TOC) ══ */
+.toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px; margin-bottom: 3rem;
+  background: var(--color-background-primary);
+  padding: 1.5rem; border-radius: var(--border-radius-lg);
+  border: 0.5px solid var(--color-border-tertiary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+.toc-item {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: inherit;
+  padding: 0.6rem 0.8rem; border-radius: var(--border-radius-md);
+  transition: all 0.3s ease;
+  background: var(--color-background-secondary);
+}
+.toc-item:hover { background: var(--color-sage-light); transform: translateX(4px); }
+.toc-num {
+  width: 26px; height: 26px;
+  background: var(--color-sage-green); color: #fff;
+  border-radius: 50%; font-size: 12px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  font-family: 'Noto Serif TC', serif;
+}
+.toc-label { font-size: 13.5px; font-weight: 500; }
+
+/* ══ 章節基礎 ══ */
+.section { margin-bottom: 3.5rem; }
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.5rem; padding-bottom: 0.8rem;
+  border-bottom: 2px dashed var(--color-sage-green);
+}
+.section-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0; 
+  background: var(--color-sage-light); color: var(--color-sage-green);
+  box-shadow: 0 2px 8px rgba(159, 179, 155, 0.2);
+}
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--color-sage-green); letter-spacing: 0.05em;
+}
+
+/* ══ 內容卡片 ══ */
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.8rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.015);
+}
+.card-title {
+  font-size: 16px; font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Noto Serif TC', serif;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.dot-sage { background: var(--color-sage-green); }
+.dot-rose { background: var(--color-rose-dust); }
+.dot-gold { background: var(--color-warm-gold); }
+
+/* ══ 提示框 (ALERT) ══ */
+.alert {
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.alert-label { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 6px; }
+.alert-text  { font-size: 14px; line-height: 1.8; color: var(--color-text-primary); }
+
+.alert.tip     { background: var(--color-warm-light); border: 0.5px solid rgba(207, 174, 128, 0.3); }
+.alert.tip .alert-label { color: #b08d5b; }
+.alert.warn    { background: var(--color-rose-light); border: 0.5px solid rgba(214, 156, 156, 0.3); }
+.alert.warn .alert-label { color: #b57474; }
+.alert.success { background: var(--color-sage-light); border: 0.5px solid rgba(156, 179, 149, 0.3); }
+.alert.success .alert-label { color: #6b8564; }
+
+/* ══ 關鍵詞網格 (KEYWORD GRID) ══ */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 15px; margin: 1.5rem 0;
+}
+.keyword-card {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  transition: transform 0.3s;
+}
+.keyword-card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(212, 163, 163, 0.1); }
+.kw-word { font-family: 'Noto Serif TC', serif; font-size: 16.5px; font-weight: 700; margin-bottom: 8px; color: var(--color-sage-green); border-bottom: 1px dashed var(--color-sage-light); padding-bottom: 4px; display: inline-block;}
+.kw-def { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.7; }
+
+/* ══ 表格 (TABLE) ══ */
+.ht-wrap { border-radius: var(--border-radius-md); overflow: hidden; border: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
+.ht { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--color-background-primary); }
+.ht th {
+  background: var(--color-sage-light); color: var(--color-sage-green);
+  font-family: 'Noto Serif TC', serif; font-weight: 700;
+  padding: 14px 16px; text-align: left; font-size: 14px;
+  border-bottom: 1px solid var(--color-border-tertiary);
+}
+.ht td {
+  padding: 14px 16px; border-bottom: 0.5px dashed var(--color-border-tertiary);
+  color: var(--color-text-primary); line-height: 1.8; vertical-align: top;
+}
+.ht tr:last-child td { border-bottom: none; }
+.ht tr:nth-child(even) td { background: var(--color-background-secondary); }
+
+/* ══ 對比框 (COMPARE GRID) ══ */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 1.5rem 0; }
+.compare-card { border-radius: var(--border-radius-md); padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
+.compare-card.bad  { background: var(--color-rose-light); border: 0.5px solid rgba(214, 156, 156, 0.3); }
+.compare-card.good { background: var(--color-sage-light); border: 0.5px solid rgba(156, 179, 149, 0.3); }
+.compare-label { font-size: 13.5px; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.8rem; font-family: 'Noto Serif TC', serif; }
+.compare-card.bad  .compare-label { color: #b57474; }
+.compare-card.good .compare-label { color: #6b8564; }
+.compare-text { font-size: 14px; line-height: 1.8; color: var(--color-text-primary); }
+
+/* ══ 練習題專區 (QBOX) ══ */
+.qbox {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem; margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(159, 179, 155, 0.08);
+}
+.qbox-label { 
+  font-size: 12px; font-weight: 700; color: #fff; 
+  background: var(--color-sage-green); display: inline-block; padding: 4px 14px; border-radius: 20px;
+  margin-bottom: 1rem; letter-spacing: 0.08em;
+}
+.qbox-q { font-family: 'Noto Serif TC', serif; font-size: 15.5px; font-weight: 700; margin-bottom: 1.2rem; line-height: 1.7; color: var(--color-text-primary); }
+
+/* 隱藏參考答案摺疊器 */
+details.ans-toggle {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  margin-top: 1.2rem; overflow: hidden;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+details.ans-toggle[open] { border: 1px solid var(--color-border-tertiary); background: #fff; }
+details.ans-toggle summary {
+  font-weight: 600; color: var(--color-sage-green); cursor: pointer; list-style: none;
+  display: flex; align-items: center; font-size: 13.5px; padding: 1rem 1.4rem;
+  outline: none; justify-content: space-between;
+}
+details.ans-toggle summary:hover { background: var(--color-sage-light); }
+details.ans-toggle summary::-webkit-details-marker { display: none; }
+details.ans-toggle summary::after { content: "✨ 點擊解鎖高階解析"; font-size: 12px; opacity: 0.9; background: #fff; padding: 4px 10px; border-radius: 12px; border: 1px dashed var(--color-sage-green); }
+details[open].ans-toggle summary::after { content: "收起解析"; border: none; background: transparent; }
+details.ans-toggle .ans-content {
+  padding: 0 1.4rem 1.6rem; font-size: 14px; line-height: 1.85;
+  color: var(--color-text-primary);
+  border-top: 1px dashed rgba(156, 179, 149, 0.4); padding-top: 1.2rem; margin: 0 1.4rem;
+  text-align: justify;
+}
+
+/* ══ 列印／PDF 分頁規則 ══ */
+@media print {
+  @page { margin: 15mm 12mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula, .keyword-card, .compare-card, .ht-wrap { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; background: #fdf9f1 !important; border: 1px solid #ccc; box-shadow: none; }
+  .section-divider { page-break-after: avoid; }
+  
+  details.ans-toggle { border: 1px solid #000; background: transparent; }
+  details.ans-toggle summary::after { content: "【內部參考答案】" !important; border: none; padding: 0; background: transparent; }
+  details.ans-toggle .ans-content { display: block !important; border-top: 1px dashed #ccc; }
+}
+</style>
+
+  <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--color-rose-dust, #d4a3a3);
+      color: var(--color-rose-dust, #d4a3a3);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, footer, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">課文教學筆記</div>
+    <h1>課文教學筆記 | 《黃山》深度分析</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#section-1" class="toc-item"><div class="toc-num">一</div><div class="toc-label">文章結構與脈絡梳理</div></a>
+  <a href="#section-2" class="toc-item"><div class="toc-num">二</div><div class="toc-label">「四絕」奇景內容深度剖析</div></a>
+  <a href="#section-3" class="toc-item"><div class="toc-num">三</div><div class="toc-label">說明方法與寫作技巧</div></a>
+  <a href="#section-4" class="toc-item"><div class="toc-num">四</div><div class="toc-label">高階思維探究練習</div></a>
+</div>
+
+<div class="section" id="section-1">
+  <div class="section-header">
+    <div class="section-icon">🗺️</div>
+    <div class="section-title">一、文章結構與脈絡梳理</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-sage"></div>「總—分」結構佈局</div>
+    <p style="margin-bottom: 1rem; color: var(--color-text-secondary);">作者言洪在介紹黃山時，採用了條理分明的<strong>「總分」說明層次</strong>，讓讀者能從宏觀到微觀，逐步領略黃山之美：</p>
+    
+    <div class="ht-wrap">
+      <table class="ht">
+        <thead>
+          <tr>
+            <th style="width: 15%;">結構</th>
+            <th style="width: 15%;">段落</th>
+            <th style="width: 70%;">內容大意重點</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2" style="font-weight: 700; color: var(--color-sage-green);">總寫<br><span style="font-size: 12px; font-weight: normal; color: var(--color-text-secondary);">(宏觀介紹)</span></td>
+            <td><strong>第 1 段</strong></td>
+            <td>介紹黃山的<strong>地理環境</strong>（安徽省南部，面積154平方公里），並總述其號稱「四絕」的奇特景色。</td>
+          </tr>
+          <tr>
+            <td><strong>第 2 段</strong></td>
+            <td>補充說明<strong>黃山名稱的演變</strong>（原名黟山，唐明皇改名黃山）以及其濃厚的<strong>宗教色彩</strong>（三天子都）。</td>
+          </tr>
+          <tr>
+            <td rowspan="4" style="font-weight: 700; color: var(--color-rose-dust);">分寫<br><span style="font-size: 12px; font-weight: normal; color: var(--color-text-secondary);">(逐一詳述)</span></td>
+            <td><strong>第 3 段</strong></td>
+            <td>詳細介紹四絕之一：<strong>奇松</strong>（植物垂直分佈、扎根岩石、千姿百態）。</td>
+          </tr>
+          <tr>
+            <td><strong>第 4 段</strong></td>
+            <td>詳細介紹四絕之二：<strong>怪石</strong>（比比皆是、似飛禽猛獸、如生動情節）。</td>
+          </tr>
+          <tr>
+            <td><strong>第 5 段</strong></td>
+            <td>詳細介紹四絕之三：<strong>雲海</strong>（五大雲海區、變幻莫測、增添神祕感）。</td>
+          </tr>
+          <tr>
+            <td><strong>第 6 段</strong></td>
+            <td>詳細介紹四絕之四：<strong>溫泉</strong>（朱砂泉、長年42度恆溫、永不乾涸）。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert success">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">潘SIR總結：文章主旨</div>
+      <div class="alert-text">
+        本文藉着清晰的條理介紹了黃山聞名天下的「四絕」：奇松、怪石、雲海和溫泉，全方位展現了黃山引人入勝、奇麗壯美的自然風貌，表達了作者對祖國壯麗山河的讚美之情。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="section-2">
+  <div class="section-header">
+    <div class="section-icon">🏔️</div>
+    <div class="section-title">二、「四絕」奇景內容深度剖析</div>
+  </div>
+  
+  <p style="margin-bottom: 1.5rem; color: var(--color-text-secondary);">作者對黃山「四絕」的描繪各具側重點，以下為你拆解每一「絕」的獨特之處與形成條件：</p>
+
+  <div class="keyword-grid">
+    <div class="keyword-card">
+      <div class="kw-word">🌲 奇松（頑強與多變）</div>
+      <div class="kw-def">
+        <strong>特點：</strong>具有明顯的垂直分佈（高處多為黃山松）；生命力極強，根部深扎於堅硬的岩石縫隙中；造型千姿百態。<br><br>
+        <strong>成因：</strong>黃山山勢險峻高聳，岩石堅硬，松樹為了生存，必須將根系深深扎入石縫中吸取養分，造就了其奇特的生長姿態。
+      </div>
+    </div>
+    
+    <div class="keyword-card">
+      <div class="kw-word">🗿 怪石（神似與融合）</div>
+      <div class="kw-def">
+        <strong>特點：</strong>比比皆是，且「石似山峯，峯如石筍」，石與峯難以分辨。形狀極具趣味，有的像飛禽猛獸，有的甚至能表達出一個神話情節。<br><br>
+        <strong>名石舉例：</strong>猴子觀海、夢筆生花、五老上天都、仙人下棋。
+      </div>
+    </div>
+
+    <div class="keyword-card">
+      <div class="kw-word">☁️ 雲海（奇幻與神祕）</div>
+      <div class="kw-def">
+        <strong>特點：</strong>擁有五大雲海區（玉屏樓、清涼台、排雲亭、白鵝嶺、平天矼）。雲海變幻莫測，時而如汪洋，時而如輕紗，為黃山增添了極大的神祕感。<br><br>
+        <strong>成因：</strong>黃山氣候濕潤，雨量充沛，加上山谷地形交錯，容易積聚水氣形成雲霧。
+      </div>
+    </div>
+
+    <div class="keyword-card">
+      <div class="kw-word">♨️ 溫泉（恆定與療癒）</div>
+      <div class="kw-def">
+        <strong>特點：</strong>以「朱砂泉」最為著名。水溫長年保持在攝氏42度左右，且泉水長流不息，無論旱澇皆不乾涸，具有極高的療養價值。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="section-3">
+  <div class="section-header">
+    <div class="section-icon">🖋️</div>
+    <div class="section-title">三、說明方法與寫作技巧</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot dot-rose"></div>核心說明方法剖析</div>
+    <div class="compare-grid">
+      <div class="compare-card good">
+        <div class="compare-label">🔢 數字說明 (列數據)</div>
+        <div class="compare-text">
+          <strong>運用例子：</strong><br>
+          - 景區面積「154平方公里」<br>
+          - 海拔「八、九百米」<br>
+          - 溫泉水溫「42度」<br><br>
+          <strong>寫作效果：</strong><br>
+          以客觀、精確的數據來介紹黃山的地理特徵與環境條件，能夠讓讀者對黃山建立具體、科學的認知，大大<strong>增強了文章的客觀性與說服力</strong>。
+        </div>
+      </div>
+      <div class="compare-card good" style="background: var(--color-warm-light); border-color: rgba(207, 174, 128, 0.3);">
+        <div class="compare-label" style="color: #b08d5b;">📚 舉例說明</div>
+        <div class="compare-text">
+          <strong>運用例子：</strong><br>
+          在說明怪石時，作者列舉了「五老上天都」、「猴子觀海」、「仙人下棋」等具體名稱。<br><br>
+          <strong>寫作效果：</strong><br>
+          透過舉出這些為人熟知且別具特色的奇峯怪石，能幫助讀者具體聯想山峯的獨特形態，將「造型多樣」這個抽象的特點<strong>具體化、形象化</strong>，增加閱讀的趣味。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">✨</div>
+    <div>
+      <div class="alert-label">寫作技巧：生動描寫與命名的藝術</div>
+      <div class="alert-text">
+        本文雖然是一篇說明文，但作者並沒有採用枯燥如百科全書般的筆觸。在介紹「怪石」時，作者提及石頭被賦予了生動的情節（如：夢筆生花）。這種將自然死物賦予生命與故事的寫法，不僅令黃山顯得靈動瑰麗，更體現了中國傳統文學中<strong>「情景交融、天人合一」</strong>的審美情趣。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="section-4">
+  <div class="section-header">
+    <div class="section-icon">💭</div>
+    <div class="section-title">四、高階思維探究練習</div>
+  </div>
+  
+  <p style="margin-bottom: 1.5rem; color: var(--color-text-secondary);">學習說明文不僅要懂得找出特點，更要學會分析作者的編排心思。試挑戰以下三道高階問答題：</p>
+
+  <div class="qbox">
+    <div class="qbox-label">深度思維題 1：結構佈局的戰略</div>
+    <div class="qbox-q">作者在全文採用了「總—分」的結構來介紹黃山。試評價這種結構安排對於一篇遊記式說明文有何實際好處？</div>
+    <details class="ans-toggle">
+      <summary></summary>
+      <div class="ans-content">
+        <strong>【潘SIR高階解析】</strong><br>
+        採用「總分」結構對於遊記式說明文有極大的引導與組織作用：<br>
+        1. <strong>宏觀到微觀的認知建立：</strong> 文章開首的「總寫」先為讀者勾勒出黃山的整體輪廓（地理位置）與精華所在（四絕），讓讀者在腦海中先建立一個清晰的「大圖畫」（Big Picture）。<br>
+        2. <strong>條理分明，避免散漫：</strong> 黃山景物繁多，若隨意描寫容易顯得雜亂無章。接下來的「分寫」嚴格按照「松、石、雲、泉」的分類逐一深入，使文章結構嚴密，條理清晰，讀者閱讀時亦能按圖索驥，不會迷失在繁多的景物描寫中。<br>
+        3. <strong>重點突出：</strong> 總分結構能有效突顯文章的核心主題（四絕），確保每一段都緊扣中心，增強了文章的聚焦力。
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-label">深度思維題 2：說明方法的比較</div>
+    <div class="qbox-q">文中在介紹溫泉時使用了「42度」等客觀數字，而在介紹怪石時則使用了「猴子觀海」等生動例子。如果作者將介紹溫泉的數字全部刪去，改為純粹使用優美的形容詞（如「溫暖如春」、「熱氣騰騰」）來描寫，你認為這對文章的說明效果會有何影響？</div>
+    <details class="ans-toggle">
+      <summary></summary>
+      <div class="ans-content">
+        <strong>【潘SIR高階解析】</strong><br>
+        如果刪去數字改用純形容詞，將會大大削弱文章的<strong>說明效果與客觀性</strong>：<br>
+        1. <strong>失去科學的準確性：</strong> 「溫暖如春」或「熱氣騰騰」是非常主觀的感受，每個人對「溫暖」的定義不同。但「42度」是一個客觀、科學的絕對標準，能讓讀者準確無誤地掌握泉水的真實物理狀態。<br>
+        2. <strong>削弱說服力：</strong> 作為一篇說明文，其首要任務是傳遞知識與資訊。數字是最具說服力的證據。沒有了數字支撐，文章會變得像是一篇純抒情的散文，雖然優美，但缺乏了說明文應有的嚴謹與權威性，讀者對溫泉獨特性的印象也會大打折扣。
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-label">深度思維題 3：文化與審美的延伸</div>
+    <div class="qbox-q">【跨學科研探】文中提到黃山的怪石被賦予了如「夢筆生花」、「仙人下棋」等極具情節性的名稱。其實自然界的石頭本身並無意義，為何中國的文人墨客特別喜歡為自然景觀賦予這種帶有人文色彩的名字？這反映了怎樣的傳統審美觀？</div>
+    <details class="ans-toggle">
+      <summary></summary>
+      <div class="ans-content">
+        <strong>【潘SIR高階解析】</strong><br>
+        這種為自然景觀賦予人文色彩名稱的做法，深刻反映了中國傳統文化中獨特的審美觀：<br>
+        1. <strong>天人合一的思想：</strong> 中國傳統哲學認為人與自然是和諧共生的整體。文人墨客不滿足於純客觀地觀察冷冰冰的石頭，他們喜歡將人的情感、神話傳說與歷史故事投射到自然景物之上，使自然界沾染上人的靈性（即「萬物皆有靈」）。<br>
+        2. <strong>情景交融的美學追求：</strong> 像「夢筆生花」不僅描述了石頭像筆、上面有松樹的形狀，更寄託了文人對才華橫溢、文思泉湧的美好祝願。這種命名方式將「景（客觀物象）」與「情/意（主觀願望）」完美交融，大大提升了景觀的文化底蘊與藝術欣賞價值。<br>
+        3. <strong>激發想像力：</strong> 這種帶有情節的命名，能引導遊客在觀賞時發揮想像，從而在腦海中補完一個完整的故事，使靜態的風景變成了動態的文化體驗。
+      </div>
+    </details>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
