@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看圖寫作：七步成文法｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   CSS Variables & Base Setup (Soft Botanical Aesthetics)
+   ========================================================================== */
+:root {
+  --color-text-primary: #5c4d4d;
+  --color-text-secondary: #8a7b7b;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #fdfbf7;
+  --color-border-tertiary: rgba(212, 163, 163, 0.2);
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  
+  /* Theme Colors for Accents (Softened) */
+  --theme-red: #d4a3a3;        /* Dusty Rose */
+  --theme-red-light: #fcf3f3;
+  --theme-gold: #d1b894;       /* Warm Gold */
+  --theme-gold-light: #fdf9f1;
+  --theme-teal: #9fb39b;       /* Sage Green */
+  --theme-teal-light: #f2f7f1;
+  --theme-blue: #a3c2d4;       /* Soft Blue */
+  --theme-blue-light: #f3f7fa;
+  --theme-purple: #c2bbd4;     /* Soft Lavender */
+  --theme-purple-light: #f6f5fa;
+  
+  --box-shadow-soft: 0 8px 24px rgba(212, 163, 163, 0.12);
+  --box-shadow-hover: 0 12px 32px rgba(159, 179, 155, 0.2);
+  --transition: all 0.3s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  background-image: radial-gradient(var(--theme-red-light) 1px, transparent 1px);
+  background-size: 20px 20px;
+  line-height: 1.85;
+  padding: 2.5rem 1.25rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 820px; margin: 0 auto; padding-bottom: 4rem; }
+
+/* ==========================================================================
+   Hero Section (Soft Botanical Gradient)
+   ========================================================================== */
+.hero {
+  padding: 4.5rem 2.5rem 3.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-radius: var(--border-radius-lg);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-soft);
+  border: 1px solid rgba(159, 179, 155, 0.3);
+}
+.hero.writing {
+  background: linear-gradient(135deg, #ffffff 0%, var(--theme-teal-light) 100%);
+}
+.hero.writing h1 {
+  color: var(--theme-teal);
+  text-shadow: 1px 1px 0px #fff;
+}
+.hero.writing p {
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+.hero::before {
+  content: '🌿';
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-size: 120px;
+  opacity: 0.08;
+  transform: rotate(-15deg);
+}
+.hero::after {
+  content: '🌸';
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  font-size: 100px;
+  opacity: 0.08;
+  transform: rotate(15deg);
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+  background: var(--theme-red-light);
+  color: #a87272;
+  border: 1px dashed var(--theme-red);
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   TOC (Table of Contents)
+   ========================================================================== */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid rgba(212, 163, 163, 0.15);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--box-shadow-soft);
+}
+.toc-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--theme-red);
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+.toc-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px;
+  background: var(--theme-red-light);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.toc-item:hover {
+  background: var(--theme-teal-light);
+  color: var(--theme-teal);
+  transform: translateY(-1px);
+}
+.toc-num {
+  width: 24px; height: 24px;
+  background: var(--theme-red); color: #fff;
+  border-radius: 50%; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Section Headers & Containers
+   ========================================================================== */
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin: 3.5rem 0 1.5rem;
+}
+.section-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 10px rgba(159, 179, 155, 0.2);
+}
+.section-icon.red { background: var(--theme-red-light); color: var(--theme-red); }
+.section-icon.teal { background: var(--theme-teal-light); color: var(--theme-teal); }
+.section-icon.blue { background: var(--theme-blue-light); color: var(--theme-blue); }
+.section-icon.gold { background: var(--theme-gold-light); color: var(--theme-gold); }
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--theme-teal);
+  border-bottom: 2px dashed var(--theme-teal-light);
+  padding-bottom: 4px;
+  flex-grow: 1;
+}
+
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid rgba(212, 163, 163, 0.1);
+  border-radius: var(--border-radius-md);
+  padding: 1.8rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--box-shadow-soft);
+  transition: var(--transition);
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* ==========================================================================
+   Teaching Components (Flow, Example, Alert, Compare)
+   ========================================================================== */
+.flow {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  margin: 1.2rem 0;
+}
+.flow-step {
+  background: var(--theme-red); color: white;
+  font-size: 14px; font-weight: 600;
+  padding: 8px 16px; border-radius: 20px;
+  border: 1px dashed var(--theme-red-light);
+  box-shadow: 0 4px 10px rgba(212, 163, 163, 0.2);
+}
+.flow-arrow { font-size: 18px; color: var(--color-text-secondary); }
+
+.example-box {
+  background: var(--theme-blue-light);
+  border-left: 4px solid var(--theme-blue);
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 1rem 1.2rem; margin: 1rem 0;
+  border-top: 1px solid rgba(163, 194, 212, 0.2);
+  border-right: 1px solid rgba(163, 194, 212, 0.2);
+  border-bottom: 1px solid rgba(163, 194, 212, 0.2);
+}
+.example-label {
+  font-size: 12px; font-weight: 700; color: #6a8c9e;
+  margin-bottom: 0.5rem; letter-spacing: 0.05em;
+}
+.example-text { font-size: 14.5px; color: var(--color-text-primary); }
+
+.alert {
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.alert-icon { font-size: 20px; flex-shrink: 0; }
+.alert-label { font-size: 13px; font-weight: 700; margin-bottom: 4px; letter-spacing: 0.1em; }
+.alert-text { font-size: 14px; line-height: 1.8; color: var(--color-text-primary); }
+
+.alert.tip {
+  background: var(--theme-gold-light);
+  border: 1px solid rgba(209, 184, 148, 0.3);
+}
+.alert.tip .alert-label { color: #a68b5e; }
+
+.alert.warn {
+  background: var(--theme-red-light);
+  border: 1px solid rgba(212, 163, 163, 0.3);
+}
+.alert.warn .alert-label { color: #a87272; }
+
+.compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.5rem 0;
+}
+.compare-card {
+  padding: 1.5rem; border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-tertiary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+.compare-card.bad {
+  background: var(--theme-red-light);
+  border-color: rgba(212, 163, 163, 0.3);
+}
+.compare-card.good {
+  background: var(--theme-teal-light);
+  border-color: rgba(159, 179, 155, 0.3);
+}
+.compare-title { font-size: 13.5px; font-weight: 700; margin-bottom: 0.5rem; }
+.compare-card.bad .compare-title { color: #a87272; }
+.compare-card.good .compare-title { color: #728c6e; }
+
+/* ==========================================================================
+   Tables & Keywords
+   ========================================================================== */
+.ht-wrap {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  margin: 1.5rem 0;
+  box-shadow: var(--box-shadow-soft);
+  border: 1px solid var(--theme-teal-light);
+}
+.ht {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 14px;
+}
+.ht th {
+  background: var(--theme-teal-light);
+  color: var(--theme-teal);
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  padding: 12px 15px;
+  text-align: left;
+}
+.ht td {
+  padding: 12px 15px;
+  border-bottom: 1px dashed var(--theme-teal-light);
+  color: var(--color-text-primary);
+  vertical-align: top;
+  line-height: 1.85;
+}
+.ht tr:last-child td {
+  border-bottom: none;
+}
+
+.keyword-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px;
+  margin: 1.5rem 0;
+}
+.kw-card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--theme-teal-light);
+  border-radius: var(--border-radius-md);
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(159, 179, 155, 0.08);
+  transition: var(--transition);
+}
+.kw-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
+}
+.kw-word {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--theme-teal);
+  margin-bottom: 6px;
+  display: inline-block;
+  padding: 2px 10px;
+  background: var(--theme-teal-light);
+  border-radius: 12px;
+}
+.kw-def { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+
+/* ==========================================================================
+   Responsive Timeline Stepper with Glassmorphic Tooltips
+   ========================================================================== */
+.stepper-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 2.2rem 0 1.8rem;
+}
+.stepper-container::before {
+  content: '';
+  position: absolute;
+  top: 20px; /* Middle of 40px badge */
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: var(--theme-red-light);
+  z-index: 1;
+}
+.stepper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.stepper-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-background-primary);
+  border: 2px solid var(--theme-red);
+  color: var(--theme-red);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 4px 10px rgba(212, 163, 163, 0.15);
+  transition: var(--transition);
+}
+.stepper-item:hover .stepper-badge {
+  border-color: var(--theme-teal);
+  color: var(--theme-teal);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(159, 179, 155, 0.3);
+}
+.stepper-label {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.stepper-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* Highlight the last step */
+.stepper-item.highlight .stepper-badge {
+  border-style: dashed;
+  border-color: var(--theme-teal);
+  color: var(--theme-teal);
+  background: var(--theme-teal-light);
+}
+
+/* Tooltip Styling */
+.step-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 290px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 163, 163, 0.3);
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem;
+  box-shadow: 0 10px 30px rgba(212, 163, 163, 0.15);
+  z-index: 100;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.step-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.88) transparent;
+}
+.stepper-item:hover .step-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.tooltip-section {
+  margin-bottom: 0.8rem;
+}
+.tooltip-section:last-child {
+  margin-bottom: 0;
+}
+.tooltip-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--theme-red);
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+.tooltip-text {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+.tooltip-text strong {
+  color: var(--theme-red);
+}
+
+/* Responsive Stepper styles for mobile */
+@media (max-width: 767px) {
+  .stepper-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 15px;
+  }
+  .stepper-container::before {
+    top: 20px;
+    bottom: 20px;
+    left: 35px; /* padding-left (15px) + badge radius (20px) = 35px */
+    width: 2px;
+    height: auto;
+    right: auto;
+  }
+  .stepper-item {
+    flex-direction: column; /* Allow tooltips to sit vertically below text */
+    align-items: flex-start;
+    text-align: left;
+    flex: none;
+    width: 100%;
+    position: relative;
+  }
+  .stepper-content-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .stepper-badge {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .stepper-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Make Tooltips static inline cards on mobile */
+  .step-tooltip {
+    position: static;
+    transform: none !important;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 55px; /* Alignment with text */
+    box-sizing: border-box;
+    max-width: calc(100% - 55px);
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    box-shadow: none;
+    transition: all 0.3s ease;
+  }
+  .step-tooltip::before {
+    display: none;
+  }
+  .stepper-item:hover .step-tooltip {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    padding: 1rem;
+    border: 1px dashed rgba(212, 163, 163, 0.4);
+    background: var(--theme-red-light);
+  }
+  .stepper-item.highlight:hover .step-tooltip {
+    border-color: rgba(159, 179, 155, 0.4);
+    background: var(--theme-teal-light);
+  }
+}
+
+
+/* Writing Tips Tooltip Styling (Consistent with Chapter 1 Step Tooltip style) */
+.tips-trigger {
+  position: relative;
+  cursor: help;
+  color: var(--theme-red);
+  border-bottom: 1.5px dashed var(--theme-red);
+  padding-bottom: 1px;
+  display: inline-block;
+  transition: var(--transition);
+}
+.tips-trigger:hover {
+  color: var(--theme-teal);
+  border-bottom-color: var(--theme-teal);
+}
+.tips-trigger strong {
+  color: inherit;
+}
+.framework-tooltip {
+  position: absolute;
+  bottom: 125%;
+  left: 0;
+  width: 290px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 163, 163, 0.3);
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem;
+  box-shadow: 0 10px 30px rgba(212, 163, 163, 0.15);
+  z-index: 110;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(10px);
+  pointer-events: none;
+  text-align: left;
+  line-height: 1.6;
+}
+.framework-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.88) transparent transparent transparent;
+}
+.tips-trigger:hover .framework-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.framework-tooltip-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--theme-red);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px dashed var(--theme-red-light);
+  padding-bottom: 4px;
+}
+.framework-tooltip-item {
+  display: flex;
+  align-items: center;
+  font-size: 12.5px;
+  color: var(--color-text-primary);
+  margin-bottom: 0.4rem;
+}
+.framework-tooltip-item:last-child {
+  margin-bottom: 0;
+}
+.framework-tooltip-item em {
+  font-style: normal;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  background: var(--theme-red-light);
+  color: var(--theme-red);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.framework-tooltip-item small {
+  color: var(--color-text-secondary);
+  margin-left: 4px;
+}
+
+@media (max-width: 767px) {
+  .framework-tooltip {
+    position: static;
+    transform: none !important;
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    max-width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    box-shadow: none;
+    transition: all 0.3s ease;
+  }
+  .framework-tooltip::before {
+    display: none;
+  }
+  .tips-trigger:hover .framework-tooltip {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    padding: 1rem;
+    border: 1px dashed rgba(212, 163, 163, 0.4);
+    background: var(--theme-red-light);
+  }
+}
+
+
+/* Print Button Styles (Consistent with index page and other notes) */
+.print-btn-container {
+  margin-top: 2.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.print-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: var(--color-background-primary, #ffffff);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md, 16px);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Noto Sans TC', sans-serif;
+  box-shadow: 0 4px 12px rgba(212, 163, 163, 0.05);
+}
+.print-btn:hover {
+  border-color: var(--theme-red);
+  color: var(--theme-red);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 163, 163, 0.15);
+}
+@media print {
+  .print-btn-container {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Exercise Forms
+   ========================================================================== */
+.exercise-box {
+  background: var(--color-background-primary);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 6px 20px rgba(212, 163, 163, 0.08);
+  border: 1px solid var(--theme-red-light);
+}
+.ex-image-placeholder {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1.5rem; text-align: center;
+  margin-bottom: 1.2rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+.ex-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--theme-red);
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  border-bottom: 2px dashed var(--theme-red-light);
+  padding-bottom: 4px;
+}
+.ex-form-row {
+  display: flex; margin-bottom: 12px; align-items: baseline;
+}
+.ex-form-num {
+  width: 24px; height: 24px; background: var(--theme-red-light); border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; margin-right: 12px; flex-shrink: 0; color: var(--theme-red);
+}
+.ex-form-label {
+  font-size: 14px; font-weight: 600; width: 140px; flex-shrink: 0; color: var(--color-text-primary);
+}
+.ex-form-line {
+  flex-grow: 1; border-bottom: 1px dashed var(--theme-red);
+}
+
+.ex-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-tertiary);
+  display: block;
+  margin: 0 auto 1.2rem;
+  box-shadow: 0 4px 16px rgba(212, 163, 163, 0.1);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  margin-top: 3.5rem;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background: var(--color-background-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-soft);
+  border: 1px solid rgba(212, 163, 163, 0.15);
+}
+footer .logo {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--theme-red);
+  margin-bottom: 10px;
+}
+footer p {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.9;
+}
+
+/* ==========================================================================
+   Print Rules
+   ========================================================================== */
+@media print {
+  @page { margin: 15mm 10mm; }
+  body { background: white; color: black; background-image: none; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .example-box, .alert, .compare-card, .exercise-box { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  
+  /* Simplify colors for printing */
+  .hero.writing { background: transparent !important; color: black !important; border: 2px solid black; }
+  .hero.writing p, .hero.writing .hero-tag { color: black !important; border-color: black; }
+  .ht th { background: #eee; color: black; border: 1px solid #ccc; }
+  .ht td { border: 1px solid #ccc; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero writing">
+  <div class="hero-tag">寫作教學筆記</div>
+  <h1>圖片故事寫作<br>七步成文法及全方位實戰</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc" id="toc">
+  <div class="toc-title">📋 目錄</div>
+  <div class="toc-grid">
+    <a href="#ch1" class="toc-item"><div class="toc-num">1</div>看圖寫作「七步曲」拆解</a>
+    <a href="#ch2" class="toc-item"><div class="toc-num">2</div>滿分範例分析（打翻飯盒篇）</a>
+    <a href="#ch3" class="toc-item"><div class="toc-num">3</div>好詞好句百寶箱</a>
+    <a href="#ch4" class="toc-item"><div class="toc-num">4</div>全方位情境寫作任務（共17題）</a>
+  </div>
+</div>
+
+<div class="section-header" id="ch1">
+  <div class="section-icon red">📝</div>
+  <h2 class="section-title">第一章：看圖寫作「七步曲」拆解</h2>
+</div>
+
+<div class="card">
+  <p>很多同學看見圖畫時，雖然腦海裡有很多想法，但下筆時卻容易寫得雜亂無章，或者像「流水帳」一樣沉悶。要寫出一篇結構完整、內容豐富的故事，我們必須掌握<strong>「七步成文法」</strong>。只要按照這七個步驟構思，就能輕鬆寫出好文章！</p>
+  
+  <div class="stepper-container">
+    <div class="stepper-item">
+      <div class="stepper-content-row">
+        <div class="stepper-badge">1</div>
+        <div class="stepper-content">
+          <div class="stepper-label">步驟一</div>
+          <div class="stepper-name">中心句</div>
+        </div>
+      </div>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-content-row">
+        <div class="stepper-badge">2</div>
+        <div class="stepper-content">
+          <div class="stepper-label">步驟二</div>
+          <div class="stepper-name">環境描寫</div>
+        </div>
+      </div>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-content-row">
+        <div class="stepper-badge">3</div>
+        <div class="stepper-content">
+          <div class="stepper-label">步驟三</div>
+          <div class="stepper-name">突發問題</div>
+        </div>
+      </div>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-content-row">
+        <div class="stepper-badge">4</div>
+        <div class="stepper-content">
+          <div class="stepper-label">步驟四</div>
+          <div class="stepper-name">人物對話</div>
+        </div>
+      </div>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-content-row">
+        <div class="stepper-badge">5</div>
+        <div class="stepper-content">
+          <div class="stepper-label">步驟五</div>
+          <div class="stepper-name">解決方法</div>
+        </div>
+      </div>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-content-row">
+        <div class="stepper-badge">6</div>
+        <div class="stepper-content">
+          <div class="stepper-label">步驟六</div>
+          <div class="stepper-name">感受道理</div>
+        </div>
+      </div>
+    </div>
+    <div class="stepper-item highlight">
+      <div class="stepper-content-row">
+        <div class="stepper-badge">7</div>
+        <div class="stepper-content">
+          <div class="stepper-label">加分項</div>
+          <div class="stepper-name">象聲詞</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3 style="margin-bottom: 1rem; color: var(--theme-red); font-family: 'Noto Serif TC', serif;">🌟 步驟詳解與示範</h3>
+  
+  <div class="ht-wrap"><table class="ht">
+    <tr>
+      <th style="width: 20%;">步驟</th>
+      <th style="width: 35%;">寫作技巧及重點</th>
+      <th style="width: 45%;">應用示例（以「操場跌倒」為例）</th>
+    </tr>
+    <tr>
+      <td><strong>1. 中心句<br>(時+人+地+事)</strong></td>
+      <td>文章開首，清晰交代故事背景。公式：<strong>何時 + 何人 + 何地 + 何事</strong>。</td>
+      <td><strong>星期一的小息</strong>（時），<strong>同學們</strong>（人）在<strong>操場上</strong>（地）<strong>自由活動</strong>（事）。</td>
+    </tr>
+    <tr>
+      <td><strong>2. 人物/地方描述</strong></td>
+      <td>仔細觀察圖片背景。運用<strong>「有……有……還有……」</strong>的句式，生動描繪畫面細節，增加真實感。</td>
+      <td>操場上十分熱鬧，<strong>有的</strong>同學在跳繩，<strong>有的</strong>在追逐，<strong>還有</strong>同學在吃小食。</td>
+    </tr>
+    <tr>
+      <td><strong>3. 發生問題</strong></td>
+      <td>故事的轉折點！主角遭遇了什麼意外？多用轉折詞如<strong>「突然」、「忽然」、「想不到」</strong>帶起緊張氣氛。</td>
+      <td><strong>突然</strong>，正在奔跑的明仔不小心踩到了一灘水，整個人向前摔倒在地上。</td>
+    </tr>
+    <tr>
+      <td><strong>4. 人物對話</strong></td>
+      <td>加入旁人或主角的對話。運用<strong>「看見」、「連忙問」、「哭著說」</strong>等詞語，讓人物活起來。</td>
+      <td>值日生小華<strong>看見</strong>了，連忙跑過去<strong>關心地問</strong>：「你受傷了嗎？」明仔<strong>痛得哭著答</strong>：「我的膝蓋流血了！」</td>
+    </tr>
+    <tr>
+      <td><strong>5. 解決方法</strong></td>
+      <td>問題發生後，大家如何應對？可用<strong>「建議」、「決定」、「連忙」</strong>來展現解決過程。</td>
+      <td>小華<strong>建議</strong>明仔先不要亂動，並<strong>連忙</strong>扶他到醫療室找校工包紮傷口。</td>
+    </tr>
+    <tr>
+      <td><strong>6. 教訓/感受/道理</strong></td>
+      <td>文章的結尾昇華。主角學到了什麼？心情如何？可用<strong>「學到」、「明白到」、「感到」</strong>。</td>
+      <td>明仔<strong>感到</strong>很後悔，他<strong>明白到</strong>在雨後的操場奔跑是很危險的，<strong>學到了</strong>以後要注意安全。</td>
+    </tr>
+    <tr>
+      <td><strong>7. 象聲詞</strong></td>
+      <td>這是加分項技巧！在適當的位置加入聲音的描寫，令讀者如臨其境。</td>
+      <td>（加在步驟3）突然，<strong>「砰」的一聲巨響</strong>，明仔摔倒在地。<br>（加在步驟4）明仔痛得<strong>「哇哇」大哭</strong>。</td>
+    </tr>
+  </table></div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div>
+      <div class="alert-label">常見錯誤提醒</div>
+      <div class="alert-text">
+        同學常犯的毛病是<strong>「只敘事，無對話」</strong>或<strong>「結尾無感受」</strong>。一篇優秀的圖片故事，必須有人物的互動交流（對話），以及事後反思（道理），這樣文章才會有血有肉。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-header" id="ch2">
+  <div class="section-icon teal">🔍</div>
+  <h2 class="section-title">第二章：滿分範例分析（課室打翻飯盒篇）</h2>
+</div>
+
+<div class="card">
+  <img class="ex-image" src="images/example.jpg" alt="課室打翻飯盒">
+  
+  <p>我們來看看如何將剛才學到的「七步曲」應用到這幅圖片中，寫成一篇條理分明的故事大綱：</p>
+
+  <div class="compare-grid" style="grid-template-columns: 1fr;">
+    <div class="compare-card good">
+      <div class="compare-title">✅ 七步曲構思示範</div>
+      <ul style="list-style-type: none; padding-left: 0; font-size: 14px; line-height: 2;">
+        <li><strong>1. 中心句：</strong> 12點半，吃飯的鐘聲響起了，同學們都在課室內吃午膳。</li>
+        <li><strong>2. 環境描寫：</strong> <strong>有</strong>三位同學在吃不健康的食物，<strong>有</strong>同學一邊吃一邊說話，吃得污糟邋遢，但是<strong>也</strong>有同學吃得又整潔又津津有味。</li>
+        <li><strong>3. 發生問題：</strong> <strong>突然</strong>，陳大文的手被隔離位（旁邊）的同學不小心碰到，將飯盒打翻在地上。</li>
+        <li><strong>4. 象聲詞（融入句中）：</strong> 聽見<strong>「哎呀！」</strong>一聲，又聽到<strong>「叮噹，叮噹」</strong>的鐘聲。</li>
+        <li><strong>5. 人物對話：</strong> 這個時候，剛好老師走進課室，<strong>看見</strong>地下的飯盒就<strong>問</strong>：「誰的飯盒？」陳大文就指著旁邊的同學<strong>答</strong>：「他碰到我的手，我就不小心跌了飯盒。」</li>
+        <li><strong>6. 解決方法：</strong> 老師就<strong>建議</strong>陳大文到飯商處解釋事情原因，再取一個飯盒。</li>
+        <li><strong>7. 感受/道理：</strong> 陳大文<strong>學到</strong>下次吃飯的時候要小心，不要再打翻飯盒；旁邊的同學也<strong>感到</strong>抱歉。</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">寫作技巧：豐富畫面感</div>
+      <div class="alert-text">留意範例中的「環境描寫」，作者不僅寫出了「有人在吃飯」，更仔細觀察到「吃不健康食物」、「一邊吃一邊說話」、「吃得污糟邋遢」。觀察入微，分數自然高！</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-header" id="ch3">
+  <div class="section-icon blue">🎒</div>
+  <h2 class="section-title">第三章：好詞好句百寶箱</h2>
+</div>
+
+<div class="card">
+  <p style="margin-bottom: 1rem;">要文章寫得生動，豐富的詞彙必不可少。寫作時，不妨從以下「百寶箱」中挑選合適的詞語替換簡單的字詞。</p>
+  
+  <h4 style="margin: 1rem 0 0.5rem; color: var(--theme-blue);">🔊 象聲詞（讓聲音活起來）</h4>
+  <div class="keyword-grid">
+    <div class="kw-card"><div class="kw-word">砰 / 嘭</div><div class="kw-def">重物落地或撞擊的聲音</div></div>
+    <div class="kw-card"><div class="kw-word">哎呀</div><div class="kw-def">表示受傷、驚訝或痛苦的呼叫</div></div>
+    <div class="kw-card"><div class="kw-word">嘩啦啦</div><div class="kw-def">傾盆大雨或水流的聲音</div></div>
+    <div class="kw-card"><div class="kw-word">叮噹</div><div class="kw-def">學校鐘聲或金屬碰撞聲</div></div>
+    <div class="kw-card"><div class="kw-word">嗡嗡</div><div class="kw-def">蜜蜂或昆蟲飛舞的聲音</div></div>
+    <div class="kw-card"><div class="kw-word">汪汪</div><div class="kw-def">小狗吠叫的聲音</div></div>
+  </div>
+
+  <h4 style="margin: 1.5rem 0 0.5rem; color: var(--theme-blue);">😲 描寫人物神態與情緒</h4>
+  <div class="keyword-grid">
+    <div class="kw-card"><div class="kw-word">目瞪口呆</div><div class="kw-def">形容嚇得發呆，不知所措</div></div>
+    <div class="kw-card"><div class="kw-word">驚慌失措</div><div class="kw-def">遇到突發情況，嚇得慌了手腳</div></div>
+    <div class="kw-card"><div class="kw-word">嚎啕大哭</div><div class="kw-def">大聲哭泣，十分傷心</div></div>
+    <div class="kw-card"><div class="kw-word">狼吞虎嚥</div><div class="kw-def">形容吃東西又猛又急</div></div>
+    <div class="kw-card"><div class="kw-word">滿面通紅</div><div class="kw-def">形容因慚愧、生氣或焦急而臉紅</div></div>
+    <div class="kw-card"><div class="kw-word">愁眉苦臉</div><div class="kw-def">形容憂愁苦惱的樣子</div></div>
+  </div>
+
+  <h4 style="margin: 1.5rem 0 0.5rem; color: var(--theme-blue);">🔄 推動情節的連接詞</h4>
+  <div class="keyword-grid">
+    <div class="kw-card"><div class="kw-word">突然 / 忽然</div><div class="kw-def">帶出意想不到的意外發生</div></div>
+    <div class="kw-card"><div class="kw-word">幸好</div><div class="kw-def">帶出問題得到解決，化險為夷</div></div>
+    <div class="kw-card"><div class="kw-word">於是 / 連忙</div><div class="kw-def">帶出人物的反應和即時行動</div></div>
+    <div class="kw-card"><div class="kw-word">經過這次教訓</div><div class="kw-def">文章結尾，帶出反思與道理</div></div>
+  </div>
+</div>
+
+<div class="section-header" id="ch4">
+  <div class="section-icon gold">🎯</div>
+  <h2 class="section-title">第四章：全方位情境寫作任務（共17題）</h2>
+</div>
+
+<div class="card">
+  <p>這部分為大家準備了 17 個常見的看圖寫作情境。請同學根據圖片描述的提示，運用「七步成文法」在筆記簿上寫下你的故事大綱，然後擴寫成一篇完整的故事。</p>
+  
+  <div class="alert tip">
+    <div class="alert-icon">📝</div>
+    <div>
+      <div class="alert-label">通用七步答題框架（請運用此框架完成以下任務）</div>
+      <div class="alert-text">
+        1) 中心句 (時+人+地+事)：____________________<br>
+        2) 描述 (有...有...有...)：____________________<br>
+        3) 突發問題 (突然/忽然...)：____________________<br>
+        4) 象聲詞：____________________<br>
+        5) 人物對話 (見到/問/答)：____________________<br>
+        6) 解決方法 (建議/決定)：____________________<br>
+        7) 教訓/道理/感受：____________________
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 style="margin: 2rem 0 1rem; color: var(--color-text-primary); border-left: 4px solid var(--theme-teal); padding-left: 10px;">🏠 家居與社區生活篇</h3>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 1：深夜噪音擾民</div>
+  <img class="ex-image" src="images/task1.png" alt="任務 1">
+  <p><strong>寫作提示：</strong>注意時空對比，運用「震耳欲聾」形容聲音，帶出顧及別人的道理。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 2：天雨路滑生意外</div>
+  <img class="ex-image" src="images/task2.jpg" alt="任務 2">
+  <p><strong>寫作提示：</strong>象聲詞可選「嘩啦嘩啦」（雨聲）、「哎呀」（跌倒聲）。道理可寫「欲速則不達」或注意安全。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 3：商場募捐學助人</div>
+  <img class="ex-image" src="images/task3.jpg" alt="任務 3">
+  <p><strong>寫作提示：</strong>這題著重內心掙扎。可描寫男孩「惻隱之心」，最終決定放棄買零食，幫助更有需要的人。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 4：高空擲物大危機</div>
+  <img class="ex-image" src="images/task4.jpg" alt="任務 4">
+  <p><strong>寫作提示：</strong>運用「千鈞一髮」形容危急，教訓是高空擲物嚴重危害生命，缺乏公德心。</p>
+</div>
+
+<h3 style="margin: 2rem 0 1rem; color: var(--color-text-primary); border-left: 4px solid var(--theme-blue); padding-left: 10px;">🏫 校園生活與學習篇</h3>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 5：運動會跌倒現真情</div>
+  <img class="ex-image" src="images/task5.jpg" alt="任務 5">
+  <p><strong>寫作提示：</strong>除了描寫跌倒的痛楚，可加入同學展現「體育精神」，上前扶起他的情節。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 6：操場撞倒惹哭訴</div>
+  <img class="ex-image" src="images/task6.jpg" alt="任務 6">
+  <p><strong>寫作提示：</strong>對話是關鍵！老師會如何調停？男生要誠心道歉，女孩選擇原諒。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 7：追巴士遺失錢包</div>
+  <img class="ex-image" src="images/task7.jpg" alt="任務 7">
+  <p><strong>寫作提示：</strong>這題考驗主角的品格。學生應發揮「路不拾遺」的精神，大聲呼喚失主或交給附近的警察。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 8：校園流浪狗驚魂</div>
+  <img class="ex-image" src="images/task8.jpg" alt="任務 8">
+  <p><strong>寫作提示：</strong>象聲詞「汪汪」，描寫同學「驚惶失措」的神態，解決方法可能是保安叔叔幫忙捉住小狗。</p>
+</div>
+
+<h3 style="margin: 2rem 0 1rem; color: var(--color-text-primary); border-left: 4px solid var(--theme-gold); padding-left: 10px;">🌳 公共空間與戶外活動篇</h3>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 9：公園誤捅馬蜂窩</div>
+  <img class="ex-image" src="images/task9.jpg" alt="任務 9">
+  <p><strong>寫作提示：</strong>象聲詞「嗡嗡嗡」。道理：不可貪玩破壞自然，要注意四周環境安全。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 10：樓梯打球生意外</div>
+  <img class="ex-image" src="images/task10.png" alt="任務 10">
+  <p><strong>寫作提示：</strong>教訓：不應在狹窄或不適合的地方進行球類活動，以免傷及無辜，危害公眾安全。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 11：超市防盜警報誤鳴</div>
+  <img class="ex-image" src="images/task11.png" alt="任務 11">
+  <p><strong>寫作提示：</strong>問題解決：保安搜查後發現是誤會（如書包有磁鐵或商品未消磁）。感受：雖然委屈，但明白要冷靜配合調查。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 12：突發地震避難</div>
+  <img class="ex-image" src="images/task12.png" alt="任務 12">
+  <p><strong>寫作提示：</strong>描寫危急存亡之際，發揮守望相助的精神，遵守逃生指引。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 13：商店門外單車相撞</div>
+  <img class="ex-image" src="images/task13.jpg" alt="任務 13">
+  <p><strong>寫作提示：</strong>可以加上「吱——」的煞車聲。途人伸出援手，體現社區互助的溫暖。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 14：超市購物車撞跌貨品</div>
+  <img class="ex-image" src="images/task14.jpg" alt="任務 14">
+  <p><strong>寫作提示：</strong>象聲詞「哐啷」（玻璃碎裂聲）。道理：公眾場所不可亂跑亂撞，必須為自己的行為負責（如賠償損失）。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 15：歷奇訓練挑戰自我</div>
+  <img class="ex-image" src="images/task15.png" alt="任務 15">
+  <p><strong>寫作提示：</strong>這是一篇以「正向心態」為主的文章。問題可以是「中途想放棄」，解決方法是「同學鼓勵」，感受是「克服恐懼的喜悅」。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 16：主題公園中暑</div>
+  <img class="ex-image" src="images/task16.jpg" alt="任務 16">
+  <p><strong>寫作提示：</strong>描寫天氣炎熱「大汗淋漓」。道理：戶外活動必須時刻補充水分，量力而為。</p>
+</div>
+
+<div class="exercise-box">
+  <div class="ex-title">任務 17：郊野公園野猴搶食</div>
+  <img class="ex-image" src="images/task17.jpg" alt="任務 17">
+  <p><strong>寫作提示：</strong>教訓：必須遵守郊野公園的規則，不應餵飼野生動物，以免引起動物襲擊，保護生態也保護自己。</p>
+</div>
+
+<!-- 返回目錄及列印按鈕 -->
+<div class="print-btn-container">
+  <a href="index.html" class="print-btn">↩️ 返回筆記目錄</a>
+  <button onclick="window.print()" class="print-btn">🖨️ 列印此頁 / 儲存 PDF</button>
+</div>
+
+<footer>
+  <div class="logo">©2026 潘SIR中文教室</div>
+  <p>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </p>
+</footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tableRows = document.querySelectorAll('.ht-wrap table.ht tr');
+  const stepperItems = document.querySelectorAll('.stepper-item');
+  
+  stepperItems.forEach((item, index) => {
+    // The table header is index 0, so row index is index + 1
+    const row = tableRows[index + 1];
+    if (!row) return;
+    const cells = row.querySelectorAll('td');
+    if (cells.length < 3) return;
+    
+    // Extract contents (column 2 is Skills, column 3 is Examples)
+    const skillContent = cells[1].innerHTML;
+    const exampleContent = cells[2].innerHTML;
+    
+    // Create tooltip element
+    const tooltip = document.createElement('div');
+    tooltip.className = 'step-tooltip';
+    
+    tooltip.innerHTML = `
+      <div class="tooltip-section">
+        <span class="tooltip-title">💡 寫作技巧及重點</span>
+        <p class="tooltip-text">${skillContent}</p>
+      </div>
+      <div class="tooltip-section">
+        <span class="tooltip-title">✏️ 應用示例</span>
+        <p class="tooltip-text">${exampleContent}</p>
+      </div>
+    `;
+    
+    item.appendChild(tooltip);
+  });
+  
+  // Wrap "寫作提示：" in a hover trigger span
+  const exerciseParagraphs = document.querySelectorAll('.exercise-box p');
+  exerciseParagraphs.forEach(p => {
+    const html = p.innerHTML;
+    if (html.includes('<strong>寫作提示：</strong>')) {
+      const triggerHtml = `<span class="tips-trigger"><strong>寫作提示：</strong><span class="framework-tooltip">
+        <span class="framework-tooltip-title">📋 通用七步寫作框架</span>
+        <span class="framework-tooltip-item"><em>1</em> 中心句 <small>(時+人+地+事)</small></span>
+        <span class="framework-tooltip-item"><em>2</em> 環境描寫 <small>(有...有...有...)</small></span>
+        <span class="framework-tooltip-item"><em>3</em> 突發問題 <small>(突然/忽然...)</small></span>
+        <span class="framework-tooltip-item"><em>4</em> 象聲詞 <small>(模擬聲音)</small></span>
+        <span class="framework-tooltip-item"><em>5</em> 人物對話 <small>(見到/問/答)</small></span>
+        <span class="framework-tooltip-item"><em>6</em> 解決方法 <small>(建議/決定)</small></span>
+        <span class="framework-tooltip-item"><em>7</em> 感受與道理</span>
+      </span></span>`;
+      p.innerHTML = html.replace('<strong>寫作提示：</strong>', triggerHtml);
+    }
+  });
+});
+</script>
+
+</body>
+</html>
