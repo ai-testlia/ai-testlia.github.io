@@ -6,98 +6,120 @@
 <title>Himson 的學習筆記｜學習筆記目錄</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --color-text-primary: #1a1a1a;
-    --color-text-secondary: #444444;
-    --color-background-primary: #ffffff;
-    --color-background-secondary: #f6f6f4;
-    --color-border-tertiary: rgba(0,0,0,0.15);
-    --border-radius-md: 8px;
-    --border-radius-lg: 12px;
+    --color-bg-main: #f8f6f2; /* 品牌輕透米白 */
+    --color-bg-card: #ffffff;
+    --color-text-primary: #2e2d2e; /* 深炭灰 */
+    --color-text-secondary: #5a5a5a;
+    --color-accent-teal: #0097b2; /* 品牌亮青 */
+    --color-accent-teal-hover: #007a91;
+    --color-brand-green: #004754; /* 品牌主色：深青色 */
+    --color-brand-gold: #c3bf75; /* 品牌副色：金色 */
+    --color-border: rgba(0, 71, 84, 0.1);
+    --shadow-sm: 0 2px 6px rgba(0, 71, 84, 0.03);
+    --shadow-md: 0 4px 15px rgba(0, 71, 84, 0.04);
+    --shadow-lg: 0 10px 24px rgba(0, 71, 84, 0.06);
+    --border-radius: 12px;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --color-text-primary: #f5f5f5;
-      --color-text-secondary: #cccccc;
-      --color-background-primary: #121212;
-      --color-background-secondary: #1e1e1c;
-      --color-border-tertiary: rgba(255,255,255,0.2);
+      --color-bg-main: #001f25; /* 極深青色 */
+      --color-bg-card: #002c34; /* 深青色卡片 */
+      --color-text-primary: #f8f6f2;
+      --color-text-secondary: #a3b8cc;
+      --color-border: rgba(195, 191, 117, 0.2);
     }
   }
 
   body {
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    background-color: var(--color-bg-main);
     color: var(--color-text-primary);
-    background: var(--color-background-secondary);
-    line-height: 1.8;
-    font-size: 14px;
     margin: 0;
     padding: 20px;
+    line-height: 1.6;
   }
 
   .wrap {
     max-width: 850px;
     margin: 0 auto;
-    background: var(--color-background-primary);
+    background: var(--color-bg-card);
     padding: 45px;
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
   }
 
   .hero {
-    padding: 3rem 2rem 2.5rem;
+    background: linear-gradient(135deg, var(--color-brand-green), #001f25);
+    color: #f8f6f2;
+    padding: 3.5rem 2rem 3rem;
     text-align: center;
-    margin-bottom: 2rem;
+    border-bottom: 4px solid var(--color-brand-gold);
     position: relative;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius);
     overflow: hidden;
-    border-radius: var(--border-radius-lg);
+    margin-bottom: 2rem;
   }
+
   .hero-tag {
     display: inline-block;
     font-size: 11px;
-    letter-spacing: 0.12em;
-    padding: 0.25rem 0.9rem;
-    border-radius: 20px;
+    letter-spacing: 0.15em;
+    background: rgba(195, 191, 117, 0.15);
+    color: var(--color-brand-gold);
+    border: 1px solid rgba(195, 191, 117, 0.35);
+    padding: 0.3rem 1.2rem;
+    border-radius: 30px;
     margin-bottom: 1rem;
-    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
   }
+
   .hero h1 {
     font-family: 'Noto Serif TC', serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
+    margin: 0 0 0.6rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.7rem;
-    color: inherit;
+    letter-spacing: 1px;
     line-height: 1.4;
   }
-  .hero p { font-size: 13px; margin: 0; }
 
-  .hero.classical { background: #D5D8C5; color: #1A2015; }
-  .hero.classical .hero-tag {
-    border: 1px solid rgba(26,32,21,0.3);
-    color: rgba(26,32,21,0.65);
+  .hero p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    max-width: 700px;
+    margin: 0 auto;
   }
-  .hero.classical p { color: rgba(26,32,21,0.5); }
 
   .section-header {
     display: flex;
     align-items: center;
     margin: 3.5rem 0 1.5rem;
     padding-bottom: 0.6rem;
-    border-bottom: 2px solid var(--color-border-tertiary);
+    border-bottom: 2px solid var(--color-border);
   }
+
   .section-icon {
     font-size: 1.6rem;
     margin-right: 0.8rem;
   }
+
   .section-header h2 {
     font-family: 'Noto Serif TC', serif;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin: 0;
-    color: var(--color-text-primary);
+    color: var(--color-brand-green);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .section-header h2 {
+      color: var(--color-brand-gold);
+    }
   }
 
   .nav-grid {
@@ -114,9 +136,9 @@
   }
 
   .nav-card {
-    background: var(--color-background-secondary);
-    border: 1px solid var(--color-border-tertiary);
-    border-radius: var(--border-radius-md);
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
     padding: 1.8rem;
     text-decoration: none;
     color: var(--color-text-primary);
@@ -125,33 +147,41 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border-left: 4px solid var(--color-brand-gold);
   }
 
   .nav-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    border-color: #6b705c;
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-brand-gold);
   }
 
   .nav-card h3 {
     margin: 0 0 0.5rem 0;
     font-family: 'Noto Serif TC', serif;
     font-size: 1.2rem;
-    color: var(--color-text-primary);
+    color: var(--color-brand-green);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .nav-card h3 {
+      color: var(--color-text-primary);
+    }
   }
 
   .nav-card .dot {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #6b705c;
-    color: white;
+    background: var(--color-brand-green);
+    color: var(--color-brand-gold);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     margin-bottom: 1rem;
     font-size: 14px;
+    border: 1px solid var(--color-brand-gold);
   }
 
   .nav-card p {
@@ -165,7 +195,7 @@
 
 <div class="wrap">
   
-  <div class="hero classical">
+  <div class="hero">
     <div class="hero-tag">學生個人專屬</div>
     <h1>Himson 的學習筆記</h1>
     <p>潘SIR中文教室編撰</p>
@@ -235,10 +265,10 @@
   </div>
 
 
-  <footer style="margin-top:3rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
-    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
-      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
-      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  <footer style="margin-top:4rem; padding:3rem 2rem; background:var(--color-brand-green); border-top:2.5px solid var(--color-brand-gold); border-radius:var(--border-radius); text-align:center; color:#f8f6f2;">
+    <div style="font-size:12px; line-height:1.9;">
+      <span style="font-weight:600; color:var(--color-brand-gold); font-size:13px;">©2026 潘SIR中文教室</span><br>
+      <span style="opacity:0.8;">版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。</span>
     </div>
   </footer>
 
