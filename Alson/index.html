@@ -480,7 +480,7 @@ body {
 /* ==========================================================================
    Details summary (RPG Secret Box style)
    ========================================================================== */
-details.q-ans, .answer-area {
+details.q-ans, details.ex-ans-area, .answer-area {
   background: var(--theme-yellow-light);
   padding: 1rem;
   border-radius: var(--border-radius-md);
@@ -489,7 +489,7 @@ details.q-ans, .answer-area {
   box-shadow: 3px 3px 0px var(--color-border-tertiary);
   transition: var(--transition);
 }
-details.q-ans summary {
+details.q-ans summary, details.ex-ans-area summary.ans-title {
   font-weight: 800;
   color: var(--color-text-primary);
   cursor: pointer;
@@ -499,7 +499,7 @@ details.q-ans summary {
   align-items: center;
   gap: 6px;
 }
-details.q-ans summary:hover {
+details.q-ans summary:hover, details.ex-ans-area summary.ans-title:hover {
   color: var(--theme-orange);
 }
 .ans-line {
@@ -529,7 +529,7 @@ details.q-ans summary:hover {
   transform: translate(-1px, -1px);
   box-shadow: 4px 4px 0px var(--color-border-tertiary);
 }
-.ans-content {
+.ans-content, .ans-item {
   display: none;
   margin-top: 1rem;
   padding: 1rem;
@@ -541,7 +541,7 @@ details.q-ans summary:hover {
   font-weight: 600;
   box-shadow: 3px 3px 0px var(--color-border-tertiary);
 }
-details.q-ans .ans-content {
+details.q-ans .ans-content, details.ex-ans-area .ans-item {
   display: block;
   border-top: 2px dashed var(--color-border-tertiary);
   background: transparent;
@@ -550,7 +550,7 @@ details.q-ans .ans-content {
   padding: 1rem 0 0 0;
   border-radius: 0;
 }
-.ans-content strong, .answer-label {
+.ans-content strong, .ans-item strong, .answer-label {
   color: var(--theme-orange);
   font-weight: 800;
 }
