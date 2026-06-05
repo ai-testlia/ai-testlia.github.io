@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -561,8 +591,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 蘇洵在《六國論》中運用了「先破後立」的手法，試指出作者所「破」的是甚麼論點，然後又「立」了甚麼論點。（4 分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p><strong>「破」：</strong>作者在文章開首，先反駁（破除了）一般人認為六國滅亡是因為「兵器不鋒利（兵不利）」和「作戰不得法（戰不善）」的錯誤軍事觀點。（2分）</p>
       <p><strong>「立」：</strong>然後作者確立自己全新的中心論點：六國破滅的根本原因在於割地討好秦國（弊在賂秦）。其中賂秦的國家因割地導致國力虧損而亡；不賂秦的國家則因失去強大外援，最終亦被秦國消滅。（2分）</p>
     </div>
@@ -573,8 +603,8 @@
     「齊人未嘗賂秦，終繼五國遷滅，何哉？與嬴而不助五國也。五國既喪，齊亦不免矣。」<br>
     (1) 引文運用了甚麼修辭手法？（1 分）<br>
     (2) 這種修辭手法如何加強說理效果？試以引文為例，略加說明。（2 分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><strong>(1) 修辭手法：</strong>設問。（1分）</p>
       <p><strong>(2) 說理效果：</strong>作者先刻意提出疑問：「為甚麼齊國沒有賂秦，最終卻跟着五國滅亡呢？」（1分），然後再自行回答：「是因為齊國親附秦國而不幫助其他五國」。這種自問自答的方式，能引起讀者的注意和思考，從而更深刻地帶出齊國滅亡的真正原因，有力地論證了「不賂者以賂者喪」的分論點，加強了說服力。（1分）</p>
     </div>
@@ -582,8 +612,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">3</span> 蘇洵在《六國論》一文中認為六國「有可以不賂而勝之之勢」，當中的「勢」是指甚麼？他提出了甚麼具體的戰略建議？這對北宋朝廷又有何啟示？（6 分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><strong>「勢」與具體戰略：</strong>「勢」是指六國可以不割地求和而戰勝秦國的有利形勢（1分）。作者建議，假如韓、魏、楚三國不割地賂秦求和；齊國不親附秦國；燕國不魯莽派荊軻行刺秦王；趙國不聽信讒言殺害良將李牧（1分）；並且各國將割讓給秦國的土地，用來封賞天下間的謀士，將事奉秦國的苦心，用來禮待天下間的奇才，羅致人才為六國效力（1分），六國同心合力對抗秦國，便絕對有戰勝秦國的機會（1分）。</p>
       <p><strong>對北宋的啟示：</strong>這其實是作者借古諷今，暗中向北宋朝廷獻策（1分）。他啟示北宋統治者不應再向遼和西夏屈辱求和、繳納歲幣，而應該把這些財富用來招攬天下的人才與謀臣，團結國力，積極備戰，這樣才能有效抵禦外族的侵略，保衞國家（1分）。</p>
     </div>
@@ -613,5 +643,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

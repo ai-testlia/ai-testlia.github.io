@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -539,8 +569,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 在王維《山居秋暝》中，「竹喧歸浣女，蓮動下漁舟」兩句在句式上有甚麼特點？（2分）這安排對表達詩境有何作用？（2分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p><strong>句式特點：</strong>這兩句運用了<b>倒裝句</b>（1分）。原本應為「浣女歸而竹喧，漁舟下而蓮動」，詩人將動詞「歸」和「下」前置（1分）。</p>
       <p><strong>作用：</strong>這種倒裝句法突出了「歸」和「下」的動作，令原本寧靜的山林平添了一份生機與動感（1分）。同時，這種「未見其人，先聞其聲/先見其動」的描寫順序，更符合真實的感知過程，把山村傍晚村民勤勞樸實的生活寫得生動傳神（1分）。</p>
     </div>
@@ -548,8 +578,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">2</span> 杜甫在《登樓》一詩中，如何通過對歷史人物的懷想來抒發個人情懷？試以「可憐後主還祠廟，日暮聊為《梁甫吟》」兩句加以分析說明。（6分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p>杜甫運用了<b>借古諷今</b>及<b>自比</b>的手法來抒發情懷。（1分）</p>
       <p>首先，他提到「可憐後主還祠廟」，是以三國時蜀漢後主劉禪寵信宦官而招致亡國的歷史（1分），暗諷當時唐代宗同樣寵信宦官，導致朝政敗壞、外族入侵的時弊，抒發了他憂國憂民的沉痛心情。（2分）</p>
       <p>其次，他寫「日暮聊為《梁甫吟》」，《梁甫吟》是諸葛亮隱居時常吟誦的詩歌。杜甫以此自比諸葛亮（1分），慨歎自己雖然擁有如諸葛亮般濟世報國的才華和志向，卻未能如他一樣遇到明君賞識，抒發了自己懷才不遇、報國無門的無奈與抑鬱。（2分）</p>
@@ -580,5 +610,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

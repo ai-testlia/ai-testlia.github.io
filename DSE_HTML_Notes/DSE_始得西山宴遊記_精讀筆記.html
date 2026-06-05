@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -520,8 +550,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 柳宗元在文章開首寫道：「以為凡是州之山水有異態者，皆我有也，而未始知西山之怪特。」這兩句在文章結構上起着甚麼作用？試加以說明。（4分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p>這兩句在結構上起着<b>承上啟下（或製造懸念／襯托）</b>的作用（1分）。</p>
       <p>「以為凡是州之山水有異態者，皆我有也」承接上文，總結了作者發現西山前遊覽永州群山的經驗，以為已盡覽奇景（1分）。而「而未始知西山之怪特」一句則語氣一轉，指出原來自己還未發現奇異獨特的西山，從而<b>引出下文作者發現西山的經過</b>，以及具體描寫西山的「怪特」之處（2分）。</p>
     </div>
@@ -529,8 +559,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">2</span> 試根據《始得西山宴遊記》的內容，說明作者在遊覽西山後，達到了一種怎樣的思想境界？他為甚麼會有這種轉變？（5分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><b>思想境界：</b>作者在西山之巔，達到了一種<b>「心凝形釋，與萬化冥合」</b>（道家天人合一）的思想境界（1分）。他的心神安定，形體的拘束感消失了，感覺自己完全與大自然融為一體，忘卻了世俗的榮辱與個人的得失（1分）。</p>
       <p><b>轉變原因：</b>因為作者登上西山後，看見「尺寸千里」、「外與天際」的壯闊奇景，感受到宇宙的浩瀚無垠（1分）；相較之下，世俗的權力鬥爭、個人被貶的挫折與恐懼（恆惴慄）變得微不足道（1分）。西山那種「特立不羣」的氣象，也引起了作者人格上的共鳴，使他的精神得到徹底的解脫與昇華（1分）。</p>
     </div>
@@ -561,5 +591,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

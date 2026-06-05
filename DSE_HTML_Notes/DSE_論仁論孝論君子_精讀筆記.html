@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -526,8 +556,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 根據〈論仁〉，孔子說：「克己復禮為仁」，試說明「克己」與「復禮」的意思，並指出孔子教導顏淵實踐「仁」的四個具體條目。（5分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p>「克己」是指克制自己的私慾（1分）；「復禮」是指使自己的言語行為都合乎禮節規範（1分）。</p>
       <p>孔子教導顏淵實踐「仁」的四個具體條目是：不合乎禮節的事就<b>不看</b>、<b>不聽</b>、<b>不說</b>、<b>不做</b>（即「非禮勿視，非禮勿聽，非禮勿言，非禮勿動」）（答齊四項得3分）。</p>
     </div>
@@ -535,8 +565,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">2</span> 試根據〈論孝〉中「事父母幾諫」一則，指出當父母有過失時，子女應採取甚麼態度？如果父母不接納勸告，子女又應怎樣做？（4分）這反映了儒家孝道的甚麼特點？（2分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><b>態度與做法：</b>當父母有過失時，子女應採取<b>委婉溫和（幾諫）</b>的態度來勸告他們（1分）。如果父母不願接納勸告，子女仍然要<b>保持恭敬（敬不違）</b>（1分），不冒犯他們，並繼續辛勞地侍奉他們而<b>不生怨恨（勞而不怨）</b>（2分）。</p>
       <p><b>孝道特點：</b>這反映了儒家認為「孝」並非盲目順從，父母有錯亦須勸諫（1分）；但同時強調「敬」，在勸諫過程中絕不能違背對長輩的禮節與尊重（1分）。</p>
     </div>
@@ -547,8 +577,8 @@
     甲：「君子坦蕩蕩，小人長戚戚。」<br>
     乙：「君子求諸己，小人求諸人。」
     </div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><b>引文甲：</b>對比了君子與小人的<b>心境 / 情緒</b>（1分）。君子心胸廣闊平靜，而小人則經常憂愁煩惱（1分）。</p>
       <p><b>引文乙：</b>對比了君子與小人的<b>處事態度 / 責任感</b>（1分）。君子遇到問題時會自我反省，要求自己；小人則會推卸責任，苛求別人（1分）。</p>
       <p><b>說理效果：</b>通過將君子的正面特質與小人的反面特質並列對比（1分），能鮮明地突顯出君子理想的人格典範，使讀者知所效法，大大增強了文章的說服力與感染力（1分）。</p>
@@ -579,5 +609,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

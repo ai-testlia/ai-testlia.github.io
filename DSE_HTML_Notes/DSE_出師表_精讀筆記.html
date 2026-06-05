@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -455,7 +485,11 @@
   </div>
 
   <div class="alert tip">
-    <strong>💡 考試技巧：</strong>若題目問及這三項建議的關係，緊記<strong>「親賢遠佞」是核心</strong>。只有親近賢臣，才能做到「廣開言路」（聽得進雅言）和「賞罰分明」（不偏私小人）。
+    <strong>💡 考試技巧：</strong>若題目問及這三項建議的關係，緊記<strong>「親賢遠佞」是根本核心</strong>，三者互為因果、環環相扣：
+    <ul>
+      <li><strong>「親賢遠佞」是其餘兩項的前提與保證：</strong>只有親近賢臣，才能廣納忠言，做到「廣開言路」（聽得進雅言）；只有疏遠小人，才能秉公執法，做到「賞罰分明」（不偏私小人）。</li>
+      <li><strong>「廣開言路」與「賞罰分明」是「親賢遠佞」的具體手段與體現：</strong>透過「廣開言路」集思廣益，君主才能識別賢愚；透過「賞罰分明」公正執法，君主才能獎掖忠良、摒退奸邪，從而達到親賢遠佞的結果。</li>
+    </ul>
   </div>
 
   <div class="section-header" id="sec-3">
@@ -512,8 +546,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 諸葛亮在《出師表》中提及了兩次「感激」，這兩次「感激」的原因分別是甚麼？（4分）這反映了諸葛亮怎樣的人物形象？（2分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p><strong>第一次感激：</strong>因為先帝劉備不嫌棄他出身低微，放下帝王之尊，三次親自到草廬拜訪，並虛心向他請教國家大事，他為報答這份<strong>知遇之恩</strong>而感激，從而答應為先帝效命奔走。（2分）</p>
       <p><strong>第二次感激：</strong>在文章末段，諸葛亮勸勉後主應自行謀劃，廣納雅言，並深切追念先帝的遺詔。若後主能做到這些治國要求，成為明君，諸葛亮便覺得是對他最大的回報，因而感到<strong>受恩感激</strong>。（2分）</p>
       <p><strong>人物形象：</strong>這兩次感激反映了諸葛亮知恩圖報、忠貞愛國。他對先帝忠心不二，將這份忠誠延續至後主身上，鞠躬盡瘁，死而後已。（2分）</p>
@@ -525,8 +559,8 @@
     甲：「庶竭駑鈍，攘除姦凶。」<br>
     乙：「後值傾覆，受任於敗軍之際。」
     </div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><strong>修辭手法：</strong>借喻。（1分）</p>
       <p><strong>效果說明：</strong>引文甲以「駑」（劣馬）和「鈍」（不鋒利的刀）來比喻自己平庸的才能，這是諸葛亮的自謙之詞，旨在表明自己會傾盡微薄的才力復興漢室，顯出其懇切誠智（1.5分）；引文乙以「傾覆」（車船翻倒）來比喻國家戰敗、政權面臨危亡的惡劣局勢，生動形象地突顯了當年臨危受命的艱難，從而襯托出自己與蜀漢共患難的忠心（1.5分）。</p>
     </div>
@@ -556,5 +590,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

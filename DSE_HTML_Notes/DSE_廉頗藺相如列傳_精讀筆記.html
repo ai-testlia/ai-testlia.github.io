@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -546,8 +576,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 藺相如面對門客的批評和請辭時，用甚麼情況來比喻自己跟廉頗的衝突？（1分）這比喻有何作用？試略加說明。（3分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p><strong>比喻情況：</strong>兩虎相鬥（今兩虎共鬥，其勢不俱生）。（1分）</p>
       <p><strong>作用說明：</strong>藺相如運用了<b>借喻</b>的手法（1分）。他將自己與廉將軍比喻為兩隻猛虎，指出如果將相不和，互相爭鬥，必定會有一方受傷甚至死亡（1分）。秦國之所以不敢攻打趙國，全因有他們兩人一文一武坐鎮。若二人相鬥，只會削弱趙國的實力，讓秦國有機可乘。相如藉此比喻向門客解釋，自己對廉頗處處退讓，絕非出於怯懦，而是<b>「先國家之急而後私讎」</b>，為了顧全大局。（1分）</p>
     </div>
@@ -555,8 +585,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">2</span> 司馬遷在文章開首，特意交代了廉頗和藺相如二人懸殊的出身地位。作者這樣寫有何作用？（4分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p>首先，作者交代廉頗是戰功彪炳、身分尊貴的「趙之良將」，而藺相如只是地位卑微的「宦者令繆賢之舍人」，這種強烈的<b>地位對比</b>，突顯了藺相如起點之低（1分）。其次，這為後文的衝突<b>埋下伏筆</b>（1分）。正因為相如出身低微，後來卻憑「口舌為勞」位居廉頗之上，才引發了廉頗的不滿與嫉妒，從而合理地推動了「負荊請罪」這一情節的發展（1分）。最後，這也襯托出藺相如不靠背景，全憑非凡的智勇而拜為上卿的卓越才能（1分）。</p>
     </div>
   </div>
@@ -585,5 +615,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

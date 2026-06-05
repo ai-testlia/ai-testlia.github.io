@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -532,8 +562,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 試根據李清照《聲聲慢‧秋情》一詞，回答以下問題。詞中「雁過也，正傷心，卻是舊時相識」一句，為何「雁過」會惹起作者的「傷心」？試加以說明。（4分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【官方標準答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p>第一，作者昔日與丈夫趙明誠曾有過「雁字回時，月滿西樓」的傳書期盼，如今丈夫已逝，再見秋雁，已無人可以傳遞書信，不禁觸景傷情，悲痛不已（2分）。</p>
       <p>第二，秋雁是由北方南飛，而作者亦是因避戰亂而從北方故鄉逃難到南方（南渡）。「舊時相識」的北雁勾起了她強烈的故國之思與身世飄零的淪落之感，故感傷心（2分）。</p>
     </div>
@@ -541,8 +571,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">2</span> 蘇軾在《念奴嬌‧赤壁懷古》中，對周瑜的形象刻畫入微。試指出作者從哪三個方面（手法）描寫周瑜，並說明其用意。（6分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【官方標準答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><b>1. 側面烘托：</b>「小喬初嫁了」，以美人（小喬）下嫁英雄（周瑜），襯托出周瑜當時年輕得意、意氣風發的形象（2分）。</p>
       <p><b>2. 肖像描寫：</b>「羽扇綸巾」，描寫周瑜手執羽扇、頭戴青絲頭巾，展現其從容不迫、儒雅倜儻的儒將風度（2分）。</p>
       <p><b>3. 行動描寫：</b>「談笑間、檣櫓灰飛煙滅」，描寫周瑜在談笑自若間便將曹操的龐大水軍燒毀，突出其卓越的軍事才華與指揮若定的魄力（2分）。<br>
@@ -552,8 +582,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">3</span> 辛棄疾在《青玉案‧元夕》上片描寫了元宵節的哪些盛況？這些描寫對表達詞的主旨有何作用？（4分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【官方標準答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><b>盛況描寫：</b>作者從多感官描寫元宵盛況。視覺上寫滿城花燈如千樹花開，煙火如雨；聽覺上寫鳳簫聲動，遊人笑語盈盈；嗅覺上寫寶馬雕車與仕女經過時留下的暗香（2分）。</p>
       <p><b>寫作作用：</b>作者極力渲染元宵佳節繁華熱鬧的景象，以及世俗仕女爭相遊賞的歡樂，是為了運用<b>反襯手法</b>（1分）。以群俗的喧鬧，強烈反襯出下片「那人」獨處燈火闌珊處的冷清與不慕繁華，從而凸顯作者不願同流合污、孤高傲世的高尚情操（1分）。</p>
     </div>
@@ -575,5 +605,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

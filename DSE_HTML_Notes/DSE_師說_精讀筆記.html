@@ -286,6 +286,36 @@
     .hero { page-break-after: avoid; }
     .section-divider { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -544,8 +574,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 韓愈在《師說》中提出了擇師的唯一標準是甚麼？試摘錄相關原文（1分），並以自己的文句略加說明。（3分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p><strong>原文：</strong>無貴無賤，無長無少，道之所存，師之所存也。（1分）</p>
       <p><strong>說明：</strong>韓愈認為選擇老師的唯一標準，在於對方是否已經領會了「道」（道理 / 儒家道統）（1分）。只要對方掌握了真理與學問，便應該向他學習，根本不需要計較對方的社會地位是高是低（無貴無賤），也不需要理會對方的年紀比自己大還是小（無長無少）（2分）。</p>
     </div>
@@ -553,8 +583,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">2</span> 韓愈倡導古文運動，主張「不平則鳴」（文章要針對社會不合理現象，有為而發）。你認為《師說》一文能體現這個文學主張嗎？試舉例說明。（6分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p>我認為能夠體現（1分）。「不平則鳴」是指作家應把社會上的不合理現象訴諸筆墨，針對現實時弊作出批判（1分）。</p>
       <p>《師說》正是針對中唐時期士大夫一族「恥學於師」的不良風氣而發聲。作者在文中直接點出「師道之不傳也久矣」的時弊，並毫不留情地逐一批評士大夫的荒謬行徑（2分）。例如，他批評士大夫會為兒子請教句讀的老師，自己卻恥於向老師求教（自相矛盾）；又諷刺他們以向地位低的人學習感到羞愧，向地位高的人學習就認為是諂媚（虛榮作祟）（2分）。這充分體現了韓愈針對社會不良風氣「不平則鳴」、敢於批判的文學主張。</p>
     </div>
@@ -562,8 +592,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">3</span> 韓愈在文章末段特別提及寫作本文是為了贈予十七歲的李蟠（「作《師說》以貽之」）。除了嘉許李蟠外，此舉還有甚麼深層用意？（4分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p>除了嘉許李蟠「好古文」及「能行古道」（樂於從師學習）之外，作者的深層用意在於<strong>樹立榜樣與諷刺時俗</strong>（1分）。</p>
       <p>當時社會充滿「恥學於師」的歪風，士大夫群聚嘲笑從師之人。韓愈特意讚揚李蟠「不拘於時」（不受不良的世俗風氣拘束，敢於拜韓愈為師），藉此樹立一個正面的楷模（1分），從側面<strong>強烈對比並批判</strong>當時那些盲目隨波逐流、拒絕從師的士大夫（1分）。此舉進一步宣揚了必須恢復「師道」的宏旨，深化了文章的主題（1分）。</p>
     </div>
@@ -594,5 +624,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

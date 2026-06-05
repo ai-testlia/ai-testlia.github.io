@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -526,8 +556,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 莊子在文中講述了「不龜手之藥」的故事，這故事如何反駁惠子「大瓠無用」的說法？試結合文章內容加以說明。（5分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p>莊子運用了<b>寓言說理</b>（1分）。故事中，宋人擁有「不龜手之藥」，卻世世代代只用來漂洗絲絮，所得微薄；而客人買了藥方，卻用來幫助吳國打水戰，大敗越國，最終獲得封地（1分）。莊子指出，藥方是一樣的，但因為<b>「所用之異」</b>（運用方法不同），結果有着天壤之別（1分）。</p>
       <p>莊子藉此故事反駁惠子。惠子擁有五石大的葫蘆，卻只想到用來盛水或做水瓢，因為不合用便將其砸碎，這正如同宋人般眼光狹隘，<b>「拙於用大」</b>（1分）。莊子認為，如果惠子能像那位客人般懂得變通，把大葫蘆當作腰舟浮游於江湖之上，便能發揮它真正的「大用」。這說明了事物並非無用，而是惠子受世俗標準局限，未能物盡其用（1分）。</p>
     </div>
@@ -535,8 +565,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">2</span> 在大樗之辯中，莊子以「狸狌」與「斄牛」作對比，旨要說明甚麼深層道理？（4分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p>莊子運用了<b>對比及比喻論證</b>（1分）。他指出狸狌（野貓）身手敏捷，能捕捉老鼠，在世俗眼中是非常<b>「有用」</b>的，但卻因此四處跳躍，最終死於獵人的陷阱網羅之中（有用致禍）（1分）。相反，斄牛身軀巨大如雲，完全不會捉老鼠，在世俗眼中是<b>「無用」</b>的，但正因其無用，才不會招致殺身之禍，得以保全性命（無用保身）（1分）。</p>
       <p>莊子藉此對比，說明<b>世俗所追求的「有用」往往會為自己帶來災禍與束縛</b>；相反，被人摒棄的「無用」卻能讓人遠離禍患，保全天年。從而論證大樗樹雖然看似「大而無用」，實則擁有能全身保真、供人逍遙的「大用」（1分）。</p>
     </div>
@@ -544,8 +574,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">3</span> 惠子批評莊子的言論「大而無用，眾所同去也」。試分析惠子作出這項批評的根本原因，並指出莊子的人生觀與他有何本質上的差異。（4分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><b>惠子的根本原因：</b>惠子代表了世俗人的觀點，他有着<b>「蓬之心」</b>（思想狹隘閉塞）（1分）。他衡量事物價值的標準完全建基於<b>「實用主義」與「功利主義」</b>，只着眼於事物能否帶來實際利益（如盛水、做傢具）。因為莊子的言論（或大樗樹）不能滿足這些世俗的功利標準，所以他便斷言其為「大而無用」並加以唾棄（1分）。</p>
       <p><b>人生觀的差異：</b>惠子一生被功名利祿與實用標準所困綁，無法獲得心靈自由；而莊子則追求<b>超越世俗功利、順應自然本性</b>（1分）。莊子主張放下對「有用」的執着，體會「無用之用」，以達到精神上無拘無束、絕對自由的<b>「逍遙」境界</b>（1分）。</p>
     </div>
@@ -567,5 +597,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

@@ -200,6 +200,15 @@ h1, h2, h3, h4, .serif {
 .dot.gold { background: var(--color-classic-gold); }
 .dot.blue { background: var(--color-turkish-blue); }
 
+/* 著重號小圓點 - 土耳其藍 */
+.dot-char {
+  text-emphasis: filled circle var(--color-turkish-blue);
+  -webkit-text-emphasis: filled circle var(--color-turkish-blue);
+  text-emphasis-position: under;
+  -webkit-text-emphasis-position: under;
+}
+
+
 /* 示例框 */
 .example-box {
   border-left: 4px solid var(--color-classic-gold);

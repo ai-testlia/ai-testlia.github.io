@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -546,16 +576,16 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 在《勸學》（節錄）中，荀子說「木受繩則直，金就礪則利，君子博學而日參省乎己，則知明而行無過矣。」他運用這個比喻來說明甚麼道理？（4分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p>荀子以木材用墨線量過就能取直，刀劍用磨刀石磨過就會變得鋒利作為比喻（1分），論證人如果能夠像木受繩、金就礪一樣，經歷後天的學習與改造（1分），廣泛地學習並且每天多次反省自己（1分），就能夠智慧明達，行為不再有過失，從而提升自己的品德和能力，成為一個君子（1分）。</p>
     </div>
   </div>
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">2</span> 試根據《勸學》（節錄）的內容，指出「君子」與常人在天賦資質上有何異同，並說明君子能超越常人的原因。（4分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><strong>異同：</strong>荀子認為「君子生非異也」，即君子與常人在先天的本性與天賦資質上是完全一樣的，並無分別（2分）。</p>
       <p><strong>超越的原因：</strong>君子之所以能成為君子，超越常人，是因為他們「善假於物也」（1分）。即君子善於借助外在的事物和後天的學習來彌補自身的不足，透過不斷積累和自我反省，最終提升了自己的道德修養與智慧（1分）。</p>
     </div>
@@ -585,5 +615,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>

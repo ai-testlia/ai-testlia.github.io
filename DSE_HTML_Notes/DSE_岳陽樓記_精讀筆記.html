@@ -285,6 +285,36 @@
     .section-header:first-of-type { page-break-before: auto; }
     .hero { page-break-after: avoid; }
   }
+
+  /* 答案顯示與隱藏 */
+  .ans-box {
+    display: none;
+  }
+  .reveal-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    background-color: #007A87; /* Turkish blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .reveal-btn:hover {
+    background-color: #005a63;
+  }
+  @media print {
+    .reveal-btn {
+      display: none !important;
+    }
+    .ans-box {
+      display: block !important;
+    }
+  }
 </style>
 
     <!-- 列印與儲存 PDF 專用樣式 -->
@@ -542,16 +572,16 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">1</span> 范仲淹在《岳陽樓記》首段提及滕子京「政通人和，百廢具興」後才重修岳陽樓，這與文章的主旨有何關連？試加以說明。（4分）</div>
-    <div class="example-box" style="margin-top:0.5rem;">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="example-box ans-box" style="margin-top:0.5rem;"><span class="ans-tag">【星級參考答案】</span>
       <p>首段指出滕子京雖遭貶謫（謫守巴陵郡），但他並沒有因個人際遇的挫折而氣餒，反而積極施政，在短短一年間便令當地「政通人和，百廢具興」（1分）。這暗示滕子京把百姓的福祉放在個人榮辱之上，行有餘力才去重修供人遊覽的岳陽樓（1分）。這正好與文章末段提出的<b>「古仁人之心」</b>（不以己悲，居廟堂之高則憂其民，處江湖之遠則憂其君）互相呼應（1分）。作者以此暗中讚許滕子京的政績，並勉勵他繼續保持這種高尚的政治抱負（1分）。</p>
     </div>
   </div>
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">2</span> 試根據《岳陽樓記》一文，說明「遷客騷人」和「古仁人」在面對外在環境轉變時的反應有何不同，並指出作者藉此表達甚麼人生態度。（6分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><b>不同反應：</b>「遷客騷人」的心情會受外在環境及個人際遇所左右，他們在天氣惡劣時會「感極而悲」（憂讒畏譏），在天氣晴朗時則會「其喜洋洋」（寵辱皆忘），表現出<b>隨物悲喜</b>的狹隘胸襟（2分）。相反，「古仁人」的修養極高，他們<b>「不以物喜，不以己悲」</b>，心情絕不會因為客觀環境的好壞或自身遭遇的順逆而改變（2分）。</p>
       <p><b>人生態度：</b>作者藉此反襯古仁人的崇高境界，表達了自己<b>「先天下之憂而憂，後天下之樂而樂」</b>的偉大政治抱負（1分），展現了把國家和人民的利益置於個人利益之上，積極入世、無私奉獻的人生態度（1分）。</p>
     </div>
@@ -559,8 +589,8 @@
 
   <div class="qbox">
     <div class="q-title"><span class="q-num">3</span> 范仲淹在文末以「微斯人，吾誰與歸？」作結。這句話有何深刻的用意？試從個人情感及對友人的態度兩方面加以分析。（4分）</div>
-    <div class="q-ans">
-      <span class="ans-tag">【星級參考答案】</span>
+    <button class="reveal-btn" onclick="toggleAns(this)">顯示答案</button>
+<div class="q-ans ans-box"><span class="ans-tag">【星級參考答案】</span>
       <p><b>個人情感：</b>「微斯人，吾誰與歸」意指如果沒有古仁人這種人，我還能跟誰同道呢？這抒發了作者在現實中難以尋覓到具備古仁人胸襟的同道中人，流露出一種<b>曲高和寡的孤獨感與慨歎</b>（1分）；同時亦堅定了自己將以古仁人為榜樣，矢志不渝地實踐政治理想的決心（1分）。</p>
       <p><b>對友人的態度：</b>作者寫這篇文章是應滕子京之請。他以此語作結，暗含對同樣被貶的滕子京的<b>勉勵與箴規之意</b>（1分）。希望滕子京能擺脫被貶的愁緒，與自己一起看齊「古仁人」，不以物喜，不以己悲，繼續為國為民效力（1分）。</p>
     </div>
@@ -590,5 +620,17 @@
 
 </div>
 
+<script>
+  function toggleAns(btn) {
+    var ans = btn.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+      btn.textContent = "顯示答案";
+    } else {
+      ans.style.display = "block";
+      btn.textContent = "隱藏答案";
+    }
+  }
+</script>
 </body>
 </html>
