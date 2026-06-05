@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高中文言文教學庫 | 潘SIR中文教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="s6_style.css">
+  <style>
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    @media (max-width: 600px) {
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .unit-card {
+      background: var(--color-background-primary);
+      border: 1.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+      border-top: 5px solid var(--color-classic-gold);
+    }
+
+    .unit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-turkish-blue);
+    }
+
+    .unit-card-header {
+      background-color: var(--color-background-secondary);
+      padding: 20px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+
+    .unit-card-header h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: var(--color-turkish-blue);
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .unit-card-body {
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .unit-card-body p {
+      font-size: 13.5px;
+      color: var(--color-text-secondary);
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .links-list li a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 15px;
+      background-color: var(--color-background-secondary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      text-decoration: none;
+      color: var(--color-text-primary);
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+
+    .links-list li a:hover {
+      border-color: var(--color-classic-gold);
+      background-color: var(--color-turkish-blue-light);
+      color: var(--color-turkish-blue);
+    }
+
+    .links-list li a span.arrow {
+      transition: transform 0.2s;
+    }
+
+    .links-list li a:hover span.arrow {
+      transform: translateX(4px);
+    }
+
+    .links-list li a span.badge {
+      font-size: 11px;
+      background-color: var(--color-classic-gold-light);
+      color: #8c6a21;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: bold;
+      border: 0.5px solid var(--color-border-gold);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-tag">DSE 必修系列</div>
+      <h1>高中中國語文科<br>文言文教學庫</h1>
+      <p>潘SIR中文教室編撰 ｜ 全方位文言閱讀指導、語法拆解、字詞字典與 200+ 互動模擬考題總門戶</p>
+    </div>
+
+    <p style="font-size: 14.5px; line-height: 1.8; text-align: center; max-width: 700px; margin: 0 auto 30px;">
+      本筆記專門為高中同學溫習 DSE 文言閱讀而設，旨在鞏固文言文文法與常用字詞。請點選下方卡片進入各單元學習：
+    </p>
+
+    <div class="portal-grid">
+
+      <!-- 第一單元 -->
+      <div class="unit-card">
+        <div class="unit-card-header">
+          <h2>📜 第一單元：文言知識與語法篇</h2>
+        </div>
+        <div class="unit-card-body">
+          <p>涵蓋四大文言句式、一詞多義、通假字、古今詞義與詞類活用，打通文言文語法根基。</p>
+          <ul class="links-list">
+            <li>
+              <a href="1_1_special_sentences.html">
+                <span>第一部分：文言特殊句式</span>
+                <span class="arrow">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="1_2_grammar_exercises.html">
+                <span>第二部分：基礎與字詞積累</span>
+                <span class="arrow">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="1_3_particles_and_pronouns.html">
+                <span>第三部分：虛詞與代詞基礎</span>
+                <span class="arrow">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="1_4_parts_of_speech.html">
+                <span>第四部分：詞類活用與句式</span>
+                <span class="arrow">➔</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 第二單元 -->
+      <div class="unit-card">
+        <div class="unit-card-header">
+          <h2>📖 第二單元：篇章閱讀理解篇</h2>
+        </div>
+        <div class="unit-card-body">
+          <p>包含經典文言篇章精讀、段落大意、詳細詞彙注釋，以及課後閱讀理解模擬題目。</p>
+          <ul class="links-list">
+            <li>
+              <a href="2_1_reading_texts.html">
+                <span>第一部分：經典課文精讀</span>
+                <span class="arrow">➔</span>
+              </a>
+            </li>
+            <li>
+              <a href="2_2_reading_exercises.html">
+                <span>第二部分：篇章閱讀理解練習</span>
+                <span class="arrow">➔</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 第三單元 -->
+      <div class="unit-card">
+        <div class="unit-card-header">
+          <h2>🔍 第三單元：文言字詞彙字典</h2>
+        </div>
+        <div class="unit-card-body">
+          <p>收錄高中必考通假字對照表與常見誤譯詞彙字典，具備實時搜尋過濾功能，方便隨查隨記。</p>
+          <ul class="links-list">
+            <li>
+              <a href="3_vocabulary_dictionary.html">
+                <span>互動搜尋：字詞與通假字典</span>
+                <span class="badge">APP</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 第四單元 -->
+      <div class="unit-card">
+        <div class="unit-card-header">
+          <h2>🔥 第四單元：模擬選擇題練習庫</h2>
+        </div>
+        <div class="unit-card-body">
+          <p>包含 200+ 道針對 DSE 十二篇範文的字詞釋義選擇題，提供「隨機挑戰」與「分篇特訓」雙模式，即時詳解。</p>
+          <ul class="links-list">
+            <li>
+              <a href="4_interactive_quiz.html">
+                <span>互動答題：十二篇範文模擬選擇題</span>
+                <span class="badge">APP</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="note-footer">
+      <div class="copyright">
+        <strong>© 2026 潘SIR中文教室</strong><br>
+        版權所有，未經允許嚴禁以任何形式複製、轉載或商業使用。
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>

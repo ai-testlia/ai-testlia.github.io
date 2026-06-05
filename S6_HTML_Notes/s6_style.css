@@ -1,0 +1,516 @@
+/* 🎓 S6文言文筆記專屬樣式表 - 土耳其藍 & 古典金配色 */
+
+:root {
+  /* 視覺配色系統 */
+  --color-turkish-blue: #007A87;         /* 土耳其藍主色 (深藍綠色) */
+  --color-turkish-blue-hover: #005F6A;   /* 土耳其藍懸停色 */
+  --color-turkish-blue-light: rgba(0, 122, 135, 0.08); /* 土耳其藍淡背景 */
+  --color-classic-gold: #C5A059;         /* 古典金主色 (金色) */
+  --color-classic-gold-light: rgba(197, 160, 89, 0.15); /* 古典金淡背景 */
+  --color-border-gold: rgba(197, 160, 89, 0.35);       /* 古典金邊框 */
+  
+  /* 文字與背景系統 (內文必須為黑色/深炭灰以保證易讀性) */
+  --color-text-primary: #111111;         /* 內文文字：黑色 */
+  --color-text-secondary: #444444;       /* 次要文字：深灰色 */
+  --color-text-white: #ffffff;           /* 白色文字 */
+  --color-background-primary: #ffffff;   /* 主背景：白色 */
+  --color-background-secondary: #f6f8f9; /* 次要背景：極淡灰藍色 */
+  --color-border-tertiary: rgba(0, 122, 135, 0.12); /* 一般邊框 */
+  
+  /* 圓角與陰影 */
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --shadow-sm: 0 2px 8px rgba(0, 122, 135, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 122, 135, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 122, 135, 0.1);
+}
+
+/* 🌙 深色模式適應 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #f0f3f5;       /* 深色模式文字：淺灰色 */
+    --color-text-secondary: #b0bec5;     /* 深色模式次要文字：藍灰色 */
+    --color-background-primary: #12181a; /* 深色模式主背景：極深藍綠色 */
+    --color-background-secondary: #1a2225; /* 深色模式次要背景 */
+    --color-border-tertiary: rgba(255, 255, 255, 0.1);
+    --color-turkish-blue-light: rgba(0, 122, 135, 0.15);
+    --color-classic-gold-light: rgba(197, 160, 89, 0.08);
+  }
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+  background-color: var(--color-background-secondary);
+  margin: 0;
+  padding: 20px;
+}
+
+h1, h2, h3, h4, .serif {
+  font-family: 'Noto Serif TC', serif;
+}
+
+/* 核心容器 */
+.wrap {
+  max-width: 850px;
+  margin: 0 auto;
+  background: var(--color-background-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Hero 橫幅區塊 (土耳其藍漸變與金邊) */
+.hero {
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  background: linear-gradient(135deg, var(--color-turkish-blue), #004d55);
+  color: var(--color-text-white);
+  border-bottom: 4px solid var(--color-classic-gold);
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+  border: 1px solid var(--color-classic-gold);
+  color: var(--color-classic-gold);
+  background: rgba(197, 160, 89, 0.1);
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  line-height: 1.4;
+  color: var(--color-text-white);
+}
+
+.hero p {
+  font-size: 13.5px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 目錄 (TOC) */
+.toc {
+  background: var(--color-background-secondary);
+  padding: 22px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--color-border-tertiary);
+  border-left: 4px solid var(--color-classic-gold);
+}
+
+.toc h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  color: var(--color-turkish-blue);
+  border-bottom: 1.5px solid var(--color-border-tertiary);
+  padding-bottom: 8px;
+}
+
+.toc table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.toc th, .toc td {
+  padding: 10px;
+  border-bottom: 1px solid var(--color-border-tertiary);
+}
+
+.toc th {
+  font-family: 'Noto Serif TC', serif;
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.toc a {
+  color: var(--color-turkish-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.toc a:hover {
+  color: var(--color-turkish-blue-hover);
+  text-decoration: underline;
+}
+
+/* 章節標題 */
+.section-header {
+  display: flex;
+  align-items: center;
+  margin: 3.5rem 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--color-border-gold);
+  font-size: 1.5rem;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  color: var(--color-turkish-blue);
+}
+
+.section-header .icon {
+  margin-right: 12px;
+  font-size: 1.3em;
+}
+
+/* 內容卡片 */
+.card {
+  background: var(--color-background-secondary);
+  padding: 20px 25px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border-tertiary);
+  border-left: 4px solid var(--color-turkish-blue);
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  font-family: 'Noto Serif TC', serif;
+  color: var(--color-turkish-blue);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+}
+.dot.gold { background: var(--color-classic-gold); }
+.dot.blue { background: var(--color-turkish-blue); }
+
+/* 示例框 */
+.example-box {
+  border-left: 4px solid var(--color-classic-gold);
+  background: var(--color-classic-gold-light);
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.example-box.teal {
+  border-left-color: var(--color-turkish-blue);
+  background: var(--color-turkish-blue-light);
+}
+
+.example-label {
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  color: var(--color-turkish-blue);
+  letter-spacing: 0.05em;
+}
+
+/* 提示框 */
+.alert {
+  padding: 18px;
+  border-radius: var(--border-radius-md);
+  margin: 20px 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.alert-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+.alert.tip {
+  background: var(--color-classic-gold-light);
+  border: 1px solid var(--color-border-gold);
+}
+
+.alert.tip .alert-title {
+  color: #8c6a21;
+}
+
+.alert.warn {
+  background: rgba(214, 48, 49, 0.06);
+  border: 1px solid rgba(214, 48, 49, 0.2);
+}
+
+.alert.warn .alert-title {
+  color: #c0392b;
+}
+
+/* 對比框 */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+  .compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.compare-card {
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-tertiary);
+}
+
+.compare-card.bad {
+  background: rgba(214, 48, 49, 0.02);
+  border-color: rgba(214, 48, 49, 0.15);
+}
+
+.compare-card.good {
+  background: rgba(46, 204, 113, 0.02);
+  border-color: rgba(46, 204, 113, 0.15);
+}
+
+.compare-header {
+  font-weight: bold;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+}
+
+.bad .compare-header { color: #d63031; }
+.good .compare-header { color: #2ecc71; }
+
+/* 核心公式 / 重點框 */
+.formula {
+  background: #112224;
+  color: #eceff1;
+  padding: 22px;
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  margin: 25px 0;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  border: 1.5px solid var(--color-classic-gold);
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+}
+
+.formula-title {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--color-classic-gold);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* 表格設計 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.8rem 0;
+  background: var(--color-background-primary);
+}
+
+th, td {
+  border: 1px solid var(--color-border-tertiary);
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--color-turkish-blue-light);
+  color: var(--color-turkish-blue);
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+}
+
+tr:nth-child(even) td {
+  background-color: var(--color-background-secondary);
+}
+
+/* 練習區塊 */
+.qbox {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  padding: 22px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.qbox:hover {
+  border-color: var(--color-classic-gold);
+}
+
+.q-num {
+  font-weight: bold;
+  color: var(--color-turkish-blue);
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+/* 答案展示區 */
+.ans-box {
+  margin-top: 15px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--color-classic-gold);
+  background: var(--color-classic-gold-light);
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  display: none;
+}
+
+.ans-label {
+  font-weight: bold;
+  color: #b86200;
+  font-size: 0.95em;
+  margin-bottom: 5px;
+}
+
+/* 滑鼠懸停自動顯現（可用於互動練習） */
+.qbox.hover-reveal:hover .ans-box {
+  display: block;
+}
+
+/* 按鈕觸發答案顯現 */
+.reveal-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  background-color: var(--color-turkish-blue);
+  color: var(--color-text-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.reveal-btn:hover {
+  background-color: var(--color-turkish-blue-hover);
+}
+
+/* 返回目錄與功能列按鈕 */
+.print-btn-container {
+  margin-top: 3rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.print-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: var(--color-background-primary);
+  border: 1.5px solid var(--color-classic-gold);
+  border-radius: var(--border-radius-md);
+  color: var(--color-turkish-blue);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.print-btn:hover {
+  background-color: var(--color-classic-gold);
+  color: var(--color-text-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* 頁尾 */
+footer.note-footer {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--color-background-secondary);
+  border-top: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+}
+
+footer.note-footer .copyright {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* 🖨️ 列印與儲存 PDF 專用樣式 */
+@media print {
+  @page {
+    margin: 12mm 10mm;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+  }
+  .wrap {
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .toc, .print-btn-container, .reveal-btn {
+    display: none !important;
+  }
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+  .card, .qbox, .example-box, .alert, .formula, .compare-card, table {
+    page-break-inside: avoid;
+  }
+  .section-header {
+    page-break-before: always;
+    page-break-after: avoid;
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+  }
+  .section-header:first-of-type {
+    page-break-before: auto;
+  }
+  .hero {
+    page-break-after: avoid;
+    background: none !important;
+    color: black !important;
+    border: 2px solid #000000 !important;
+    padding: 1.5rem !important;
+  }
+  .hero h1 {
+    color: black !important;
+  }
+  .hero p {
+    color: #555555 !important;
+  }
+  .hero-tag {
+    border: 1px solid #000000 !important;
+    color: black !important;
+    background: none !important;
+  }
+  .ans-box {
+    display: block !important; /* 列印時直接印出答案 */
+    background: #f9f9f9 !important;
+    border: 1px solid #ddd !important;
+  }
+}

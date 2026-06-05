@@ -1,0 +1,4071 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高中 文言字詞與通假字彙字典 | 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="s6_style.css">
+<style>
+  .search-box {
+    margin: 20px 0 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .search-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 16px;
+    border: 2px solid var(--color-border-gold);
+    border-radius: var(--border-radius-md);
+    font-size: 15px;
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-input:focus {
+    border-color: var(--color-turkish-blue);
+  }
+  .filter-btn {
+    padding: 10px 20px;
+    border: 1px solid var(--color-border-tertiary);
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .filter-btn.active {
+    background-color: var(--color-turkish-blue);
+    color: var(--color-text-white);
+    border-color: var(--color-turkish-blue);
+  }
+  .vocab-table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+  }
+  .vocab-table th, .vocab-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-tertiary);
+  }
+  .vocab-table th {
+    background-color: var(--color-turkish-blue-light);
+    color: var(--color-turkish-blue);
+    font-weight: 700;
+    font-family: 'Noto Serif TC', serif;
+  }
+  .vocab-table tr:hover td {
+    background-color: var(--color-turkish-blue-light);
+  }
+  .badge-type {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .badge-type.tongjia {
+    background-color: var(--color-classic-gold-light);
+    color: #8c6a21;
+    border: 1px solid var(--color-border-gold);
+  }
+  .badge-type.correct {
+    background-color: var(--color-turkish-blue-light);
+    color: var(--color-turkish-blue);
+    border: 1px solid rgba(0, 122, 135, 0.2);
+  }
+  .pos-tag {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    background-color: var(--color-background-secondary);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .vocab-count {
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: var(--color-text-secondary);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-tag">高中・中國語文科</div>
+    <h1>高中 文言字詞與通假字彙字典</h1>
+    <p>收錄高中必考通假字與常見翻譯字詞糾正對照表，支援即時搜尋與分類過濾，幫助同學快速複習文言字義。</p>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" class="search-input" placeholder="搜尋漢字、意思、詞性或例句關鍵字...">
+    <button class="filter-btn active" onclick="filterType('all', this)">全部</button>
+    <button class="filter-btn" onclick="filterType('通假字', this)">通假字</button>
+    <button class="filter-btn" onclick="filterType('字詞糾正', this)">常見字詞糾正</button>
+  </div>
+  
+  <div class="vocab-count" id="vocabCount">正在加載字詞條目...</div>
+
+  <div class="vocab-table-container">
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th width="12%">漢字</th>
+          <th width="15%">類型</th>
+          <th width="12%">詞性</th>
+          <th width="33%">釋義與說明</th>
+          <th width="28%">課文語境例句/譯文</th>
+        </tr>
+      </thead>
+      <tbody id="vocabBody">
+        <!-- Rendered by JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="print-btn-container">
+    <a href="index.html" class="print-btn">↩️ 返回筆記總目錄</a>
+    <button onclick="window.print()" class="print-btn">🖨️ 列印本頁 / 儲存 PDF</button>
+  </div>
+
+  <footer class="note-footer">
+    <div class="copyright">
+      <strong>© 2026 潘SIR中文教室</strong><br>
+      版權所有，未經允許嚴禁以任何形式複製、轉載或商業使用。
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Embedded Vocab Data to bypass file:// CORS block
+  const vocabData = [
+  {
+    "word": "奄",
+    "type": "通假字",
+    "original_definition": "同「晻」 ；日無光。",
+    "part_of_speech": "形容詞",
+    "example": "奄奄黃昏後，寂寂人定初。"
+  },
+  {
+    "word": "厭",
+    "type": "通假字",
+    "original_definition": "通「履」 ；滿足。",
+    "part_of_speech": "形容詞",
+    "example": "暴秦之欲無厭。"
+  },
+  {
+    "word": "厭",
+    "type": "通假字",
+    "original_definition": "通「饜」 ；滿足。",
+    "part_of_speech": "形容詞",
+    "example": "奉之者有限，而求之者無厭， "
+  },
+  {
+    "word": "燕",
+    "type": "通假字",
+    "original_definition": "通「宴」 ；安逸，安閒。",
+    "part_of_speech": "形容詞",
+    "example": "燕坐於華堂之上。"
+  },
+  {
+    "word": "燕",
+    "type": "通假字",
+    "original_definition": "通「宴」 ；飲宴。",
+    "part_of_speech": "名次",
+    "example": "集賓友酣燕。"
+  },
+  {
+    "word": "燕",
+    "type": "通假字",
+    "original_definition": "通「宴」 ；玩樂。",
+    "part_of_speech": "",
+    "example": "桓公每游燕，輒命袁、伏。"
+  },
+  {
+    "word": "陽",
+    "type": "通假字",
+    "original_definition": "同「佯」 ；假裝，表面。",
+    "part_of_speech": "",
+    "example": "皆陽應曰：‘諾，」 。"
+  },
+  {
+    "word": "邀",
+    "type": "通假字",
+    "original_definition": "同「要」要挾。",
+    "part_of_speech": "動詞",
+    "example": "陵壓百姓而邀其上者， "
+  },
+  {
+    "word": "要",
+    "type": "通假字",
+    "original_definition": "同「邀」 ；約。",
+    "part_of_speech": "動詞",
+    "example": "雖與府吏要，渠會永無緣。"
+  },
+  {
+    "word": "要",
+    "type": "通假字",
+    "original_definition": "同「邀」；邀請。",
+    "part_of_speech": "動詞",
+    "example": "便要還家，設酒殺雞作食。"
+  },
+  {
+    "word": "要",
+    "type": "通假字",
+    "original_definition": "同「邀」 ；攔住。",
+    "part_of_speech": "動詞",
+    "example": "鳩宗族僮奴百許人，欲要篡以歸。"
+  },
+  {
+    "word": "要",
+    "type": "通假字",
+    "original_definition": "同「邀」 ；邀請。",
+    "part_of_speech": "動詞",
+    "example": "張良出，要項伯。"
+  },
+  {
+    "word": "耶",
+    "type": "通假字",
+    "original_definition": "通‘爺」 ；父親。",
+    "part_of_speech": "名詞",
+    "example": "耶娘妻子走相送，塵埃不見咸陽橋。"
+  },
+  {
+    "word": "夷",
+    "type": "通假字",
+    "original_definition": "通「怡；平和，和悅。",
+    "part_of_speech": "形容詞",
+    "example": "與之論辯，言和而色夷。"
+  },
+  {
+    "word": "已",
+    "type": "通假字",
+    "original_definition": "同「以」 ；同「以」",
+    "part_of_speech": "",
+    "example": "從此已去，勿復如是!"
+  },
+  {
+    "word": "已",
+    "type": "通假字",
+    "original_definition": "同「矣」 ；了。",
+    "part_of_speech": "語氣助詞",
+    "example": "夫神農以前，吾不知已。"
+  },
+  {
+    "word": "以",
+    "type": "通假字",
+    "original_definition": "通「已」 ；太甚。",
+    "part_of_speech": "副詞",
+    "example": "而吾子又欲使吾為越之雪，不以病乎?"
+  },
+  {
+    "word": "以",
+    "type": "通假字",
+    "original_definition": "同「已」 ；止。",
+    "part_of_speech": "動詞",
+    "example": "無以，則王乎?"
+  },
+  {
+    "word": "佚",
+    "type": "通假字",
+    "original_definition": "同「逸」 ；安逸，安閒。",
+    "part_of_speech": "形容詞",
+    "example": "而人民日以安於佚樂;"
+  },
+  {
+    "word": "益",
+    "type": "通假字",
+    "original_definition": "同「溢」 ；漲水。",
+    "part_of_speech": "動詞",
+    "example": "澭水暴益。"
+  },
+  {
+    "word": "逸",
+    "type": "通假字",
+    "original_definition": "通「佚」 ；散佚。",
+    "part_of_speech": "動詞",
+    "example": "左忠毅公逸事。"
+  },
+  {
+    "word": "翼",
+    "type": "通假字",
+    "original_definition": "通「翌」 ；明(天)。",
+    "part_of_speech": "名詞",
+    "example": "翼日進宰。"
+  },
+  {
+    "word": "陰",
+    "type": "通假字",
+    "original_definition": "通「萌」 ，樹蔭。",
+    "part_of_speech": "名詞",
+    "example": "綠楊陰里白沙堤。"
+  },
+  {
+    "word": "陰",
+    "type": "通假字",
+    "original_definition": "通「蔭」 ，樹蔭，",
+    "part_of_speech": "名詞",
+    "example": "也傍桑陰學種瓜。"
+  },
+  {
+    "word": "陰",
+    "type": "通假字",
+    "original_definition": "通「蔭」 ；綠蔭。",
+    "part_of_speech": "名詞",
+    "example": "佳木秀而繁陰。"
+  },
+  {
+    "word": "有",
+    "type": "通假字",
+    "original_definition": "同「又」 ；更。",
+    "part_of_speech": "副詞",
+    "example": "殆有甚焉。"
+  },
+  {
+    "word": "有",
+    "type": "通假字",
+    "original_definition": "同「又」 ；用於整數與零數之間。",
+    "part_of_speech": "副詞",
+    "example": "其為時止十有一月耳。"
+  },
+  {
+    "word": "有",
+    "type": "通假字",
+    "original_definition": "同「又」 ；再。",
+    "part_of_speech": "副詞",
+    "example": "雖有槁暴，不復挺者，輮使之然也。"
+  },
+  {
+    "word": "與",
+    "type": "通假字",
+    "original_definition": "同「歟」 ；嗎。",
+    "part_of_speech": "語氣助詞",
+    "example": "可得聞與?"
+  },
+  {
+    "word": "與",
+    "type": "通假字",
+    "original_definition": "同「歟」 ；呢。",
+    "part_of_speech": "疑問語氣詞",
+    "example": "是誰之過與?"
+  },
+  {
+    "word": "豫",
+    "type": "通假字",
+    "original_definition": "通「預」 ；預先，事先。",
+    "part_of_speech": "副詞",
+    "example": "豫備走舸，繫於船尾。"
+  },
+  {
+    "word": "員",
+    "type": "通假字",
+    "original_definition": "通「圓」 ；圓形。",
+    "part_of_speech": "名詞",
+    "example": "以精銅鑄成，員經八尺。"
+  },
+  {
+    "word": "原",
+    "type": "通假字",
+    "original_definition": "同「源」源泉。",
+    "part_of_speech": "名詞",
+    "example": "此四者，民所衣食之原也。"
+  },
+  {
+    "word": "圓",
+    "type": "通假字",
+    "original_definition": "同「圓」 ；圓形。",
+    "part_of_speech": "名詞",
+    "example": "多平方，少圓。"
+  },
+  {
+    "word": "芸",
+    "type": "通假字",
+    "original_definition": "同「耘」;鋤草。",
+    "part_of_speech": "動詞",
+    "example": "植其杖而芸。"
+  },
+  {
+    "word": "暫",
+    "type": "通假字",
+    "original_definition": "通「漸」 ，欺詐。",
+    "part_of_speech": "動詞",
+    "example": "武夫力而拘諸原，婦人暫而免諸國。"
+  },
+  {
+    "word": "蚤",
+    "type": "通假字",
+    "original_definition": "通「早」 ；在先，還沒到時候。",
+    "part_of_speech": "形容",
+    "example": "使遂蚤得處囊中。"
+  },
+  {
+    "word": "責",
+    "type": "通假字",
+    "original_definition": "同「債」 ；欠別人的錢財。",
+    "part_of_speech": "名詞",
+    "example": "先生不羞，乃有意欲為收責於薛乎?"
+  },
+  {
+    "word": "曾",
+    "type": "通假字",
+    "original_definition": "同「增」 ；增加。",
+    "part_of_speech": "動詞",
+    "example": "曾益其所不能。"
+  },
+  {
+    "word": "旃",
+    "type": "通假字",
+    "original_definition": "同「氈」 ；毛織的氈毯。",
+    "part_of_speech": "名詞",
+    "example": "與旃毛並咽之。"
+  },
+  {
+    "word": "霑",
+    "type": "通假字",
+    "original_definition": "同「沾」 ；浸濕，浸潤。",
+    "part_of_speech": "動詞",
+    "example": "因泣下霑衿，與武決去。"
+  },
+  {
+    "word": "振",
+    "type": "通假字",
+    "original_definition": "通「震」 ；震動。",
+    "part_of_speech": "動詞",
+    "example": "雖董之以嚴刑，振之以威怒， "
+  },
+  {
+    "word": "振",
+    "type": "通假字",
+    "original_definition": "通「震」 ，驚恐或情緒過分激動。",
+    "part_of_speech": "形容詞",
+    "example": "燕王誠振怖大王之威， "
+  },
+  {
+    "word": "振",
+    "type": "通假字",
+    "original_definition": "同「賑」 ；救濟。",
+    "part_of_speech": "動詞",
+    "example": "大命將泛，其之振救。"
+  },
+  {
+    "word": "徵",
+    "type": "通假字",
+    "original_definition": "同「徴」 ；證據。",
+    "part_of_speech": "名詞",
+    "example": "京師學者咸怪其無徵。"
+  },
+  {
+    "word": "支",
+    "type": "通假字",
+    "original_definition": "通「肢」 ；肢體。",
+    "part_of_speech": "名詞",
+    "example": "四支猶溫，一目未瞑， "
+  },
+  {
+    "word": "枝",
+    "type": "通假字",
+    "original_definition": "同「肢」 ；肢體。",
+    "part_of_speech": "名詞",
+    "example": "為長者折枝， "
+  },
+  {
+    "word": "知",
+    "type": "通假字",
+    "original_definition": "通「智」 ；聰明，智慧。",
+    "part_of_speech": "形容詞",
+    "example": "以大知而察及邇言。"
+  },
+  {
+    "word": "知",
+    "type": "通假字",
+    "original_definition": "通「智」 ；智慧。",
+    "part_of_speech": "名詞",
+    "example": "則知明而行無過矣。"
+  },
+  {
+    "word": "祗",
+    "type": "通假字",
+    "original_definition": "同「只」 ；只是。",
+    "part_of_speech": "副詞",
+    "example": "祗辱於奴隸人之手。"
+  },
+  {
+    "word": "直",
+    "type": "通假字",
+    "original_definition": "通「值」 ；價錢，代價。",
+    "part_of_speech": "名詞",
+    "example": "系向牛頭充炭直。"
+  },
+  {
+    "word": "直",
+    "type": "通假字",
+    "original_definition": "通「值」 ；價錢。",
+    "part_of_speech": "名詞",
+    "example": "昂其直，居為奇貨。"
+  },
+  {
+    "word": "直",
+    "type": "通假字",
+    "original_definition": "通「值」 ；價值，引申為公正的待遇。",
+    "part_of_speech": "",
+    "example": "樂國樂國，愛得我直。"
+  },
+  {
+    "word": "直",
+    "type": "通假字",
+    "original_definition": "通「值」 ；值得。",
+    "part_of_speech": "動詞",
+    "example": "史進道：「直什麼？」"
+  },
+  {
+    "word": "直",
+    "type": "通假字",
+    "original_definition": "通「值」 ；價值，",
+    "part_of_speech": "動詞",
+    "example": "玉盤珍羞直萬錢。"
+  },
+  {
+    "word": "指",
+    "type": "通假字",
+    "original_definition": "同「旨」 ；旨趣。",
+    "part_of_speech": "名詞",
+    "example": "其稱文小而其指極大， 。"
+  },
+  {
+    "word": "質",
+    "type": "通假字",
+    "original_definition": "通「贄」 ；見面禮。",
+    "part_of_speech": "名詞",
+    "example": "乃令張儀佯去秦，厚幣委質事楚， "
+  },
+  {
+    "word": "質",
+    "type": "通假字",
+    "original_definition": "同「鑕」 ，刑具，殺人時作墊用的砧板。",
+    "part_of_speech": "名詞",
+    "example": "君不如肉袒伏斧質請罪。"
+  },
+  {
+    "word": "陼",
+    "type": "通假字",
+    "original_definition": "同「渚」 ；水中間的小塊陸地。",
+    "part_of_speech": "",
+    "example": "朝發枉陼兮，夕辰陽。"
+  },
+  {
+    "word": "屬",
+    "type": "通假字",
+    "original_definition": "同「囑」 ；囑託、托付。",
+    "part_of_speech": "動詞",
+    "example": "屬予作文以記之。"
+  },
+  {
+    "word": "住",
+    "type": "通假字",
+    "original_definition": "通「駐」 ；動詞",
+    "part_of_speech": "動詞",
+    "example": "備用肅計，進住鄂縣之樊口。"
+  },
+  {
+    "word": "著",
+    "type": "通假字",
+    "original_definition": "同「著」 ，穿。",
+    "part_of_speech": "動詞",
+    "example": "著我舊時裳。"
+  },
+  {
+    "word": "轉",
+    "type": "通假字",
+    "original_definition": "通「囀」 ；鳥宛轉地叫。",
+    "part_of_speech": "動詞",
+    "example": "蟬則千轉不窮。"
+  },
+  {
+    "word": "椎",
+    "type": "通假字",
+    "original_definition": "通「錘」 ；兵器。例句中前一個「椎」為名詞，後一個活用為狀語。",
+    "part_of_speech": "",
+    "example": "朱亥袖四十斤鐵椎 椎殺晉鄙。"
+  },
+  {
+    "word": "濯",
+    "type": "通假字",
+    "original_definition": "通「濁」骯髒，水不清。",
+    "part_of_speech": "形容詞",
+    "example": "自疏濯淖污泥之中。"
+  },
+  {
+    "word": "茲",
+    "type": "通假字",
+    "original_definition": "通「滋」副詞。茲，更加。",
+    "part_of_speech": "副詞",
+    "example": "賦斂茲重。"
+  },
+  {
+    "word": "咨",
+    "type": "通假字",
+    "original_definition": "同「諮」 ；詢問。",
+    "part_of_speech": "動詞",
+    "example": "事無大小，悉以咨之。"
+  },
+  {
+    "word": "卒",
+    "type": "通假字",
+    "original_definition": "通「猝」 ，倉猝。",
+    "part_of_speech": "形容詞",
+    "example": "五萬兵難卒合。"
+  },
+  {
+    "word": "尊",
+    "type": "通假字",
+    "original_definition": "通「樽」古代盛酒的器具。",
+    "part_of_speech": "名詞",
+    "example": "人生如夢，一尊還酹江月。"
+  },
+  {
+    "word": "坐",
+    "type": "通假字",
+    "original_definition": "同「座」 ；座位。",
+    "part_of_speech": "名詞",
+    "example": "直上載公於上坐， "
+  },
+  {
+    "word": "按",
+    "type": "字詞糾正",
+    "original_definition": "誤：按照。正：追究、追查。",
+    "part_of_speech": "",
+    "example": "譯文：徐有功特意為謀反的人開脫，論罪應當處死，請追查他。"
+  },
+  {
+    "word": "報",
+    "type": "字詞糾正",
+    "original_definition": "誤：報告。正：回復、批復。",
+    "part_of_speech": "",
+    "example": "譯文：府省為百姓上奏，皇上下詔同意了這件事。"
+  },
+  {
+    "word": "壁",
+    "type": "字詞糾正",
+    "original_definition": "誤：城牆。正：營壘。",
+    "part_of_speech": "",
+    "example": "譯文：（楚軍）大敗李信的軍隊，攻下兩座營壘，殺死七名都尉。"
+  },
+  {
+    "word": "病",
+    "type": "字詞糾正",
+    "original_definition": "誤：生病。正：擔心，憂慮。",
+    "part_of_speech": "",
+    "example": "譯文：堯的百姓擔心水患，因而在水的上面築巢，這是避免災害的巢。"
+  },
+  {
+    "word": "次",
+    "type": "字詞糾正",
+    "original_definition": "誤：依次。正：臨時駐紮。",
+    "part_of_speech": "",
+    "example": "譯文：諸侯的軍隊前進，臨時駐紮在陘地。"
+  },
+  {
+    "word": "卒",
+    "type": "字詞糾正",
+    "original_definition": "誤：完畢。正：通「猝」，突然。",
+    "part_of_speech": "",
+    "example": "譯文：天下真正有大勇的人，災難突然降臨也不會驚恐。"
+  },
+  {
+    "word": "趣",
+    "type": "字詞糾正",
+    "original_definition": "誤：高興。正：急忙。",
+    "part_of_speech": "",
+    "example": "譯文：楚王急忙接見（尊盧沙），（尊盧沙）沒有到，（楚王派）使者多次前去（邀請）。"
+  },
+  {
+    "word": "存",
+    "type": "字詞糾正",
+    "original_definition": "誤：安置。正：問候。",
+    "part_of_speech": "",
+    "example": "譯文：問候那些老朋友，邀請和酬謝賓客。"
+  },
+  {
+    "word": "貸",
+    "type": "字詞糾正",
+    "original_definition": "誤：借給。正：寬恕。",
+    "part_of_speech": "",
+    "example": "譯文：如果再不贍養母親，我就不寬恕你了。"
+  },
+  {
+    "word": "逮",
+    "type": "字詞糾正",
+    "original_definition": "誤：捉拿。正：趕得上。",
+    "part_of_speech": "",
+    "example": "譯文：楚莊王謀劃事情很得當，群臣中沒有人趕得上他。"
+  },
+  {
+    "word": "登",
+    "type": "字詞糾正",
+    "original_definition": "誤：上去。正：當即。",
+    "part_of_speech": "",
+    "example": "譯文：陛下（如果）當即殺掉他，（就）不是我的職權管得了的。"
+  },
+  {
+    "word": "典",
+    "type": "字詞糾正",
+    "original_definition": "誤：典籍。正：主持。",
+    "part_of_speech": "",
+    "example": "譯文：賈黃中先後兩次主持貢部，多次選拔出身寒微而又才能傑出的人。"
+  },
+  {
+    "word": "多",
+    "type": "字詞糾正",
+    "original_definition": "誤：許多。正：稱贊。",
+    "part_of_speech": "",
+    "example": "譯文：諸公都稱贊他的品行，接連幾次徵召他，他都沒有答應。"
+  },
+  {
+    "word": "奪",
+    "type": "字詞糾正",
+    "original_definition": "誤：奪取。正：強行改變。",
+    "part_of_speech": "",
+    "example": "譯文：太祖瞭解他的志向，答應了他而沒有勉強。"
+  },
+  {
+    "word": "阿",
+    "type": "字詞糾正",
+    "original_definition": "誤：阿附。正：偏袒。",
+    "part_of_speech": "",
+    "example": "譯文：偏袒有罪之人，廢棄國法，是不能容許的。"
+  },
+  {
+    "word": "伐",
+    "type": "字詞糾正",
+    "original_definition": "誤：討伐。正：自誇。",
+    "part_of_speech": "",
+    "example": "譯文：宋弁生性喜好自誇，稱許自己出身高貴。"
+  },
+  {
+    "word": "干",
+    "type": "字詞糾正",
+    "original_definition": "誤：干涉。正：衝撞、冒犯。",
+    "part_of_speech": "",
+    "example": "譯文：我們所做的太無理，冒犯了賢良。"
+  },
+  {
+    "word": "更",
+    "type": "字詞糾正",
+    "original_definition": "誤：改換。正：經過。",
+    "part_of_speech": "",
+    "example": "譯文：（漢朝）於是想派使者去聯絡月氏，通往月氏的道路必定經過匈奴統治區。"
+  },
+  {
+    "word": "購",
+    "type": "字詞糾正",
+    "original_definition": "誤：購買。正：懸賞徵求。",
+    "part_of_speech": "",
+    "example": "譯文：公孫瓚聽說這件事後非常憤怒，懸賞捉拿田疇，最後將他捕獲。"
+  },
+  {
+    "word": "規",
+    "type": "字詞糾正",
+    "original_definition": "誤：規勸。正：計劃。",
+    "part_of_speech": "",
+    "example": "譯文：齊將馬仙琕將各座營寨相連逐步向前推進，計劃解除城池的包圍。"
+  },
+  {
+    "word": "憾",
+    "type": "字詞糾正",
+    "original_definition": "誤：遺憾。正：怨恨。",
+    "part_of_speech": "",
+    "example": "譯文：我們的國君在上能寬大化民，不用刑法；我們的人民在下生活富裕，沒有怨恨。"
+  },
+  {
+    "word": "恨",
+    "type": "字詞糾正",
+    "original_definition": "誤：怨恨。正：遺憾。",
+    "part_of_speech": "",
+    "example": "譯文：不離去，項羽必定會殺掉範增，只是遺憾他沒有及早離開罷了。"
+  },
+  {
+    "word": "儉",
+    "type": "字詞糾正",
+    "original_definition": "誤：節省。正：收成不好。",
+    "part_of_speech": "",
+    "example": "譯文：（吳遵路）曾經預先在吳地買米，用來預防收成不好。"
+  },
+  {
+    "word": "簡",
+    "type": "字詞糾正",
+    "original_definition": "誤：簡略。正：選拔。",
+    "part_of_speech": "",
+    "example": "譯文：應該選拔聰明穎悟的年輕人，派他們去從師學習。"
+  },
+  {
+    "word": "禁",
+    "type": "字詞糾正",
+    "original_definition": "誤：禁止。正：禁令。",
+    "part_of_speech": "",
+    "example": "譯文：（王景）於是在石碑上刻下誡命，使百姓知曉一般的禁令。"
+  },
+  {
+    "word": "捐",
+    "type": "字詞糾正",
+    "original_definition": "誤：捐助。正：裁撤。",
+    "part_of_speech": "",
+    "example": "譯文：（吳起）申明法度，慎重發佈命令，裁撤冗余官員，廢除疏遠王族的爵祿。"
+  },
+  {
+    "word": "刊",
+    "type": "字詞糾正",
+    "original_definition": "誤：刊登。正：刪除。",
+    "part_of_speech": "",
+    "example": "譯文：（朱並）於是上書控告張儉和同郡二十四人結為朋黨，（朝廷）於是下發刪除告發人姓名的捕人文書，搜捕張儉等人。"
+  },
+  {
+    "word": "課",
+    "type": "字詞糾正",
+    "original_definition": "誤：講課。正：督促。",
+    "part_of_speech": "",
+    "example": "譯文：當時雖然年事已高，但閒暇的時候還督促孩子們學習。"
+  },
+  {
+    "word": "釐",
+    "type": "字詞糾正",
+    "original_definition": "誤：逐步。正：訂正。",
+    "part_of_speech": "",
+    "example": "譯文：皇上命令朝臣訂正舊的法令，作為一朝通用的典章制度。"
+  },
+  {
+    "word": "離",
+    "type": "字詞糾正",
+    "original_definition": "誤：離開。正：通「罹」，遭受。",
+    "part_of_speech": "",
+    "example": "譯文：但是百姓遭受了秦國的殘暴統治後，（曹參）給了他們休養生息的機會，無為而治。"
+  },
+  {
+    "word": "掠",
+    "type": "字詞糾正",
+    "original_definition": "誤：掠奪。正：拷打。",
+    "part_of_speech": "",
+    "example": "譯文：那個州民經受不住嚴刑拷打，被迫認了罪。"
+  },
+  {
+    "word": "逆",
+    "type": "字詞糾正",
+    "original_definition": "誤：違背。正：迎著。",
+    "part_of_speech": "",
+    "example": "譯文：還未等慰問，便迎上去說：「你國中有位顏子，你知道嗎？」"
+  },
+  {
+    "word": "罷",
+    "type": "字詞糾正",
+    "original_definition": "誤：停止。正：通「疲」，疲乏。",
+    "part_of_speech": "",
+    "example": "譯文：漢軍到幾千裡外去爭奪利益，就會人馬疲乏，敵人就會憑借全面的優勢對付我們的弱點。"
+  },
+  {
+    "word": "期",
+    "type": "字詞糾正",
+    "original_definition": "誤：期限。正：約定。",
+    "part_of_speech": "",
+    "example": "譯文：我剛才已經跟賊人約定好了，根據道義不能欺騙他們。"
+  },
+  {
+    "word": "寢",
+    "type": "字詞糾正",
+    "original_definition": "誤：睡覺。正：擱置。",
+    "part_of_speech": "",
+    "example": "譯文：已經退水的田地還不能耕種，上奏擱置先前的奏議。"
+  },
+  {
+    "word": "窮",
+    "type": "字詞糾正",
+    "original_definition": "誤：貧窮。正：困厄艱難。",
+    "part_of_speech": "",
+    "example": "譯文：因為我當時處境艱難，只有貞甫相信我。"
+  },
+  {
+    "word": "權",
+    "type": "字詞糾正",
+    "original_definition": "誤：權利。正：臨時代理官職。",
+    "part_of_speech": "",
+    "example": "譯文：（天會）十年，（胡礪）考中進士第一名，被授官右拾遺，代理翰林修撰。"
+  },
+  {
+    "word": "然",
+    "type": "字詞糾正",
+    "original_definition": "誤：這樣。正：認為……對。",
+    "part_of_speech": "",
+    "example": "譯文：議事的人都認為竇固的奏疏是對的。"
+  },
+  {
+    "word": "讓",
+    "type": "字詞糾正",
+    "original_definition": "誤：謙讓。正：責備。",
+    "part_of_speech": "",
+    "example": "譯文：到上朝的時候，惠帝責備曹參說：「你為什麼要懲治曹窋？先前可是我讓他去勸你的。」"
+  },
+  {
+    "word": "速",
+    "type": "字詞糾正",
+    "original_definition": "誤：迅速。正：招致。",
+    "part_of_speech": "",
+    "example": "譯文：（子常）對這些都不去救濟，卻聚斂不已，他招致百姓怨恨的事情太多了。"
+  },
+  {
+    "word": "惋",
+    "type": "字詞糾正",
+    "original_definition": "誤：可惜。正：悔恨。",
+    "part_of_speech": "",
+    "example": "譯文：受到張儀的欺騙，大王一定會悔恨的。"
+  },
+  {
+    "word": "望",
+    "type": "字詞糾正",
+    "original_definition": "誤：期望。正：埋怨。",
+    "part_of_speech": "",
+    "example": "譯文：絳侯埋怨袁盎說：「我與你兄長交好，如今你卻在朝廷上毀謗我！」"
+  },
+  {
+    "word": "危",
+    "type": "字詞糾正",
+    "original_definition": "誤：危險。正：端正。",
+    "part_of_speech": "",
+    "example": "譯文：大家都隨便地坐在地上，只有茅容端正地坐著，非常恭謹。"
+  },
+  {
+    "word": "誣",
+    "type": "字詞糾正",
+    "original_definition": "誤：陷害。正：欺騙。",
+    "part_of_speech": "",
+    "example": "譯文：從沒有看見他把喜怒哀樂掛在臉上，才知道古人是不欺騙（我們）的。"
+  },
+  {
+    "word": "遺",
+    "type": "字詞糾正",
+    "original_definition": "誤：遺留。正：贈送。",
+    "part_of_speech": "",
+    "example": "譯文：如果我真能到那裡，返回漢朝後，漢王贈送給大王的財物，會多得無法說盡。"
+  },
+  {
+    "word": "物",
+    "type": "字詞糾正",
+    "original_definition": "誤：事物。正：別人。",
+    "part_of_speech": "",
+    "example": "譯文：（劉基）生性剛烈，疾惡如仇，與別人多不合。"
+  },
+  {
+    "word": "息",
+    "type": "字詞糾正",
+    "original_definition": "誤：繁盛。正：繁殖。",
+    "part_of_speech": "",
+    "example": "譯文：因此百姓能夠安心地居住下來並從事他們的工作，住戶和人口得以繁殖增長。"
+  },
+  {
+    "word": "銜",
+    "type": "字詞糾正",
+    "original_definition": "誤：接受。正：懷恨。",
+    "part_of_speech": "",
+    "example": "譯文：柳彧靠著審判桌坐著，讓楊素站在廳堂上，審問楊素的犯罪事實。楊素從此便懷恨柳彧。"
+  },
+  {
+    "word": "鮮",
+    "type": "字詞糾正",
+    "original_definition": "誤：新鮮。正：少，節儉。",
+    "part_of_speech": "",
+    "example": "譯文：季文子輔佐魯國，妾不穿絲綢衣服。因節儉而犯錯的人少啊。"
+  },
+  {
+    "word": "信",
+    "type": "字詞糾正",
+    "original_definition": "誤：書信。正：信使。",
+    "part_of_speech": "",
+    "example": "譯文：王家子弟都很好，但是聽到信使到來，都顯得拘謹。"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "誤：巡行。正：擔任。",
+    "part_of_speech": "",
+    "example": "譯文：乾寧三年，充任武寧軍留後，擔任潁州刺史。"
+  },
+  {
+    "word": "形",
+    "type": "字詞糾正",
+    "original_definition": "誤：形勢。正：表現。",
+    "part_of_speech": "",
+    "example": "譯文：也不表現在言語上，真有做高官的氣量。"
+  },
+  {
+    "word": "省",
+    "type": "字詞糾正",
+    "original_definition": "誤：察看。正：探視、問候。",
+    "part_of_speech": "",
+    "example": "譯文：桓階患病，曹丕親自前往問候。"
+  },
+  {
+    "word": "雅",
+    "type": "字詞糾正",
+    "original_definition": "誤：儒雅。正：平素、向來。",
+    "part_of_speech": "",
+    "example": "譯文：文長既然向來不與時風調和。"
+  },
+  {
+    "word": "厭",
+    "type": "字詞糾正",
+    "original_definition": "誤：厭惡。正：滿足。",
+    "part_of_speech": "",
+    "example": "譯文：秦孝公與他交談，不知不覺地將雙腿移到席前。兩人長談幾天還不滿足。"
+  },
+  {
+    "word": "游",
+    "type": "字詞糾正",
+    "original_definition": "誤：遊覽。正：交往。",
+    "part_of_speech": "",
+    "example": "譯文：田叔為人苛刻廉潔，並以此自得，喜歡和德高望重的人交往。"
+  },
+  {
+    "word": "尤",
+    "type": "字詞糾正",
+    "original_definition": "誤：尤其。正：指責。",
+    "part_of_speech": "",
+    "example": "譯文：看的人見到情況是這樣，就來指責那個地方，那也太不通曉事理了。"
+  },
+  {
+    "word": "虞",
+    "type": "字詞糾正",
+    "original_definition": "誤：欺騙。正：災禍、憂患。",
+    "part_of_speech": "",
+    "example": "譯文：國家沒有憂患，利益延及後世。"
+  },
+  {
+    "word": "遇",
+    "type": "字詞糾正",
+    "original_definition": "誤：遇到。正：對待。",
+    "part_of_speech": "",
+    "example": "譯文：陽城性情謙虛敬肅簡約樸素，待人無論年長年幼，都一樣。"
+  },
+  {
+    "word": "與",
+    "type": "字詞糾正",
+    "original_definition": "誤：給予。正：結交。",
+    "part_of_speech": "",
+    "example": "譯文：輪扁，是造車輪的人啊，可是讀書人結交他。"
+  },
+  {
+    "word": "閱",
+    "type": "字詞糾正",
+    "original_definition": "誤：察看。正：經歷。",
+    "part_of_speech": "",
+    "example": "譯文：當初皇帝下令百姓開墾荒地，經歷三年才收稅。"
+  },
+  {
+    "word": "贊",
+    "type": "字詞糾正",
+    "original_definition": "誤：贊美。正：輔佐。",
+    "part_of_speech": "",
+    "example": "譯文：公琰志向忠誠高尚，應當是能與我一起輔佐君王成就帝業的人。"
+  },
+  {
+    "word": "則",
+    "type": "字詞糾正",
+    "original_definition": "誤：准則。正：效法。",
+    "part_of_speech": "",
+    "example": "譯文：我效法上天做事，有什麼不可以！"
+  },
+  {
+    "word": "賊",
+    "type": "字詞糾正",
+    "original_definition": "誤：盜竊。正：毀害。",
+    "part_of_speech": "",
+    "example": "譯文：你既然不種田，竟然還毀害別人的稻穀！"
+  },
+  {
+    "word": "知",
+    "type": "字詞糾正",
+    "original_definition": "誤：瞭解。正：主持。",
+    "part_of_speech": "",
+    "example": "譯文：高祖起兵將入洛陽，把崔暹留下來輔佐高琛主持後方的政務。"
+  },
+  {
+    "word": "治",
+    "type": "字詞糾正",
+    "original_definition": "誤：整治。正：太平。",
+    "part_of_speech": "",
+    "example": "譯文：每次讀書讀到有關國家太平、混亂、成功、失敗的經驗教訓。"
+  },
+  {
+    "word": "字",
+    "type": "字詞糾正",
+    "original_definition": "誤：文字。正：養育。",
+    "part_of_speech": "",
+    "example": "譯文：催租不騷擾，這是催租中的撫卹（愛護養育）。"
+  },
+  {
+    "word": "辭",
+    "type": "字詞糾正",
+    "original_definition": "告別,離開",
+    "part_of_speech": "",
+    "example": "辭樓下殿,輦來於秦 (杜牧《阿房宮賦》)"
+  },
+  {
+    "word": "辭",
+    "type": "字詞糾正",
+    "original_definition": "推辭",
+    "part_of_speech": "",
+    "example": "臣死且不避,卮酒安足辭(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "辭",
+    "type": "字詞糾正",
+    "original_definition": "告別,辭別",
+    "part_of_speech": "",
+    "example": "今者出,未辭也,為之奈何 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "辭",
+    "type": "字詞糾正",
+    "original_definition": "古代的一種文體",
+    "part_of_speech": "",
+    "example": "《歸去來兮辭並序》(陶淵明)"
+  },
+  {
+    "word": "從",
+    "type": "字詞糾正",
+    "original_definition": "跟隨,跟從",
+    "part_of_speech": "",
+    "example": "張良是時從沛公(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "從",
+    "type": "字詞糾正",
+    "original_definition": "依順,聽從",
+    "part_of_speech": "",
+    "example": "吾已失恩義,會不相從許 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "從",
+    "type": "字詞糾正",
+    "original_definition": "參加",
+    "part_of_speech": "",
+    "example": "弟走從軍阿姨死 (白居易《琵琶行並序》)"
+  },
+  {
+    "word": "從",
+    "type": "通假字",
+    "original_definition": "讀zònɡ,同「縱」,合縱",
+    "part_of_speech": "",
+    "example": "於是從散約敗,爭割地而賂秦 (賈誼《過秦論》)"
+  },
+  {
+    "word": "從",
+    "type": "字詞糾正",
+    "original_definition": "靠著,挨著",
+    "part_of_speech": "",
+    "example": "樊噲從良坐(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "從",
+    "type": "字詞糾正",
+    "original_definition": "自,由",
+    "part_of_speech": "介詞",
+    "example": "從酈山下,道芷陽間行 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "殆",
+    "type": "字詞糾正",
+    "original_definition": "疑惑",
+    "part_of_speech": "",
+    "example": "思而不學則殆(《<論語>十二章》)"
+  },
+  {
+    "word": "殆",
+    "type": "字詞糾正",
+    "original_definition": "近於,幾乎",
+    "part_of_speech": "",
+    "example": "且燕趙處秦革滅殆盡之際 (蘇洵《六國論》)"
+  },
+  {
+    "word": "殆",
+    "type": "字詞糾正",
+    "original_definition": "恐怕,可能",
+    "part_of_speech": "",
+    "example": "殆有甚焉(《齊桓晉文之事》)"
+  },
+  {
+    "word": "當",
+    "type": "字詞糾正",
+    "original_definition": "對著,面對",
+    "part_of_speech": "",
+    "example": "木蘭當戶織(《木蘭詩》)"
+  },
+  {
+    "word": "當",
+    "type": "字詞糾正",
+    "original_definition": "擔當,擔任",
+    "part_of_speech": "",
+    "example": "猥以微賤,當侍東宮 (李密《陳情表》)"
+  },
+  {
+    "word": "當",
+    "type": "字詞糾正",
+    "original_definition": "假使,如果",
+    "part_of_speech": "",
+    "example": "當與秦相較,或未易量 (蘇洵《六國論》)"
+  },
+  {
+    "word": "當",
+    "type": "字詞糾正",
+    "original_definition": "對等,比得上",
+    "part_of_speech": "",
+    "example": "料大王士卒足以當項王乎 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "當",
+    "type": "字詞糾正",
+    "original_definition": "遮擋,遮蔽",
+    "part_of_speech": "",
+    "example": "垣牆周庭,以當南日 (歸有光《項脊軒志》)"
+  },
+  {
+    "word": "當",
+    "type": "字詞糾正",
+    "original_definition": "佔據,把守",
+    "part_of_speech": "",
+    "example": "一夫當關,萬夫莫開 (李白《蜀道難》)"
+  },
+  {
+    "word": "當",
+    "type": "字詞糾正",
+    "original_definition": "值,在,正在",
+    "part_of_speech": "",
+    "example": "當是時也,商君佐之 (賈誼《過秦論》)"
+  },
+  {
+    "word": "當",
+    "type": "字詞糾正",
+    "original_definition": "將",
+    "part_of_speech": "",
+    "example": "不久當還歸,誓天不相負 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "當",
+    "type": "字詞糾正",
+    "original_definition": "掌握,主持",
+    "part_of_speech": "",
+    "example": "人君當神器之重,居域中之大 (魏徵《諫太宗十思疏》)"
+  },
+  {
+    "word": "道",
+    "type": "字詞糾正",
+    "original_definition": "道路",
+    "part_of_speech": "",
+    "example": "道皆砌石為磴,其級七千有餘 (姚鼐《登泰山記》)"
+  },
+  {
+    "word": "道",
+    "type": "字詞糾正",
+    "original_definition": "正確的方法",
+    "part_of_speech": "",
+    "example": "策之不以其道(韓愈《馬說》)"
+  },
+  {
+    "word": "道",
+    "type": "字詞糾正",
+    "original_definition": "道義",
+    "part_of_speech": "",
+    "example": "伐無道,誅暴秦 (司馬遷《陳涉世家》)"
+  },
+  {
+    "word": "道",
+    "type": "字詞糾正",
+    "original_definition": "道理,規律",
+    "part_of_speech": "",
+    "example": "師者,所以傳道受業解惑也 (韓愈《師說》)"
+  },
+  {
+    "word": "道",
+    "type": "字詞糾正",
+    "original_definition": "取道",
+    "part_of_speech": "",
+    "example": "從酈山下,道芷陽間行 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "道",
+    "type": "字詞糾正",
+    "original_definition": "說,講",
+    "part_of_speech": "",
+    "example": "仲尼之徒無道桓文之事者 (《齊桓晉文之事》)"
+  },
+  {
+    "word": "道",
+    "type": "字詞糾正",
+    "original_definition": "風尚",
+    "part_of_speech": "",
+    "example": "師道之不復,可知矣(韓愈《師說》)"
+  },
+  {
+    "word": "道",
+    "type": "字詞糾正",
+    "original_definition": "主張,學說",
+    "part_of_speech": "",
+    "example": "於是廢先王之道,焚百家之言 (賈誼《過秦論》)"
+  },
+  {
+    "word": "得",
+    "type": "字詞糾正",
+    "original_definition": "取得,獲得",
+    "part_of_speech": "",
+    "example": "小則獲邑,大則得城 (蘇洵《六國論》)"
+  },
+  {
+    "word": "得",
+    "type": "字詞糾正",
+    "original_definition": "獲得",
+    "part_of_speech": "",
+    "example": "積善成德,而神明自得,聖心備焉 (《勸學》)"
+  },
+  {
+    "word": "得",
+    "type": "通假字",
+    "original_definition": "同「德」,感恩,感激",
+    "part_of_speech": "",
+    "example": "所識窮乏者得我與 (《魚我所欲也》)"
+  },
+  {
+    "word": "得",
+    "type": "字詞糾正",
+    "original_definition": "能夠,可以",
+    "part_of_speech": "",
+    "example": "軒凡四遭火,得不焚 (歸有光《項脊軒志》)"
+  },
+  {
+    "word": "得",
+    "type": "字詞糾正",
+    "original_definition": "適宜、得當",
+    "part_of_speech": "",
+    "example": "此言得之(蘇洵《六國論》)"
+  },
+  {
+    "word": "得",
+    "type": "字詞糾正",
+    "original_definition": "應該",
+    "part_of_speech": "",
+    "example": "吾得兄事之(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "度",
+    "type": "通假字",
+    "original_definition": "同「渡」,渡過,越過",
+    "part_of_speech": "",
+    "example": "一夜飛度鏡湖月 (李白《夢遊天姥吟留別》)"
+  },
+  {
+    "word": "度",
+    "type": "字詞糾正",
+    "original_definition": "制度,法度",
+    "part_of_speech": "",
+    "example": "議法度而修之於朝廷 (王安石《答司馬諫議書》)"
+  },
+  {
+    "word": "度",
+    "type": "字詞糾正",
+    "original_definition": "度過",
+    "part_of_speech": "",
+    "example": "秋月春風等閒度(白居易《琵琶行並序》)"
+  },
+  {
+    "word": "度",
+    "type": "字詞糾正",
+    "original_definition": "推測,估計",
+    "part_of_speech": "",
+    "example": "度我至軍中,公乃入 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "度",
+    "type": "字詞糾正",
+    "original_definition": "計劃",
+    "part_of_speech": "",
+    "example": "盤庚不為怨者故改其度(王安石《答司馬諫議書》)"
+  },
+  {
+    "word": "度",
+    "type": "字詞糾正",
+    "original_definition": "衡量",
+    "part_of_speech": "",
+    "example": "試使山東之國與陳涉度長絜大 (賈誼《過秦論》)"
+  },
+  {
+    "word": "非",
+    "type": "字詞糾正",
+    "original_definition": "不,沒有",
+    "part_of_speech": "",
+    "example": "登高而招,臂非加長也(《勸學》)"
+  },
+  {
+    "word": "非",
+    "type": "字詞糾正",
+    "original_definition": "不是",
+    "part_of_speech": "",
+    "example": "人非生而知之者,孰能無惑 (韓愈《師說》)"
+  },
+  {
+    "word": "非",
+    "type": "字詞糾正",
+    "original_definition": "不對的,錯誤的",
+    "part_of_speech": "",
+    "example": "覺今是而昨非(陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "非",
+    "type": "字詞糾正",
+    "original_definition": "責難,認為不對",
+    "part_of_speech": "",
+    "example": "舉世非之而不加沮(《逍遙游》)"
+  },
+  {
+    "word": "復",
+    "type": "字詞糾正",
+    "original_definition": "恢復",
+    "part_of_speech": "",
+    "example": "師道之不復,可知矣(韓愈《師說》)"
+  },
+  {
+    "word": "復",
+    "type": "字詞糾正",
+    "original_definition": "雙層",
+    "part_of_speech": "",
+    "example": "復道行空,不霽何虹 (杜牧《阿房宮賦》)"
+  },
+  {
+    "word": "復",
+    "type": "字詞糾正",
+    "original_definition": "重復,重疊",
+    "part_of_speech": "",
+    "example": "山重水復疑無路 (陸游《游山西村》)"
+  },
+  {
+    "word": "復",
+    "type": "字詞糾正",
+    "original_definition": "又,再",
+    "part_of_speech": "",
+    "example": "勿復重紛紜(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "復",
+    "type": "字詞糾正",
+    "original_definition": "答復",
+    "part_of_speech": "",
+    "example": "阿母為汝求,便復在旦夕 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "復",
+    "type": "字詞糾正",
+    "original_definition": "繼續",
+    "part_of_speech": "",
+    "example": "復前行,欲窮其林 (陶淵明《桃花源記》)"
+  },
+  {
+    "word": "負",
+    "type": "字詞糾正",
+    "original_definition": "背東西,以背載物",
+    "part_of_speech": "",
+    "example": "頒白者不負戴於道路矣 (《寡人之於國也》)"
+  },
+  {
+    "word": "負",
+    "type": "字詞糾正",
+    "original_definition": "對不起,辜負",
+    "part_of_speech": "",
+    "example": "見犯乃死,重負國(班固《蘇武傳》)"
+  },
+  {
+    "word": "負",
+    "type": "字詞糾正",
+    "original_definition": "違背,背棄",
+    "part_of_speech": "",
+    "example": "律前負漢歸匈奴(班固《蘇武傳》)"
+  },
+  {
+    "word": "負",
+    "type": "字詞糾正",
+    "original_definition": "失敗",
+    "part_of_speech": "",
+    "example": "則勝負之數,存亡之理 (蘇洵《六國論》)"
+  },
+  {
+    "word": "蓋",
+    "type": "字詞糾正",
+    "original_definition": "遮蓋,掩蓋,覆蓋",
+    "part_of_speech": "",
+    "example": "枝枝相覆蓋,葉葉相交通 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "蓋",
+    "type": "通假字",
+    "original_definition": "同「盍」,何,怎樣",
+    "part_of_speech": "",
+    "example": "技蓋至此乎(《庖丁解牛》)"
+  },
+  {
+    "word": "蓋",
+    "type": "字詞糾正",
+    "original_definition": "古稱「傘」",
+    "part_of_speech": "",
+    "example": "今已亭亭如蓋矣 (歸有光《項脊軒志》)"
+  },
+  {
+    "word": "蓋",
+    "type": "字詞糾正",
+    "original_definition": "大概,一般",
+    "part_of_speech": "副詞",
+    "example": "能克終者蓋寡 (魏徵《諫太宗十思疏》)"
+  },
+  {
+    "word": "故",
+    "type": "字詞糾正",
+    "original_definition": "死亡",
+    "part_of_speech": "",
+    "example": "前以降及物故(班固《蘇武傳》)"
+  },
+  {
+    "word": "故",
+    "type": "字詞糾正",
+    "original_definition": "舊,與「新」相對",
+    "part_of_speech": "",
+    "example": "溫故而知新(《<論語>十二章》)"
+  },
+  {
+    "word": "故",
+    "type": "字詞糾正",
+    "original_definition": "衰老",
+    "part_of_speech": "",
+    "example": "暮去朝來顏色故(白居易《琵琶行 並序》)"
+  },
+  {
+    "word": "故",
+    "type": "字詞糾正",
+    "original_definition": "交情",
+    "part_of_speech": "",
+    "example": "君安與項伯有故(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "故",
+    "type": "字詞糾正",
+    "original_definition": "原因,緣故",
+    "part_of_speech": "",
+    "example": "是而不見可悔故也 (王安石《答司馬諫議書》)"
+  },
+  {
+    "word": "故",
+    "type": "字詞糾正",
+    "original_definition": "故意,特意",
+    "part_of_speech": "",
+    "example": "故遣將守關者(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "故",
+    "type": "字詞糾正",
+    "original_definition": "過去,從前",
+    "part_of_speech": "",
+    "example": "軒東故嘗為廚(歸有光《項脊軒志》)"
+  },
+  {
+    "word": "故",
+    "type": "字詞糾正",
+    "original_definition": "仍舊,仍然",
+    "part_of_speech": "",
+    "example": "三日斷五匹,大人故嫌遲 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "故",
+    "type": "字詞糾正",
+    "original_definition": "所以",
+    "part_of_speech": "",
+    "example": "故不積跬步,無以至千里(《勸學》)"
+  },
+  {
+    "word": "固",
+    "type": "字詞糾正",
+    "original_definition": "鞏固,安定",
+    "part_of_speech": "",
+    "example": "固國不以山溪之險(《孟子》)"
+  },
+  {
+    "word": "固",
+    "type": "字詞糾正",
+    "original_definition": "險要的地勢",
+    "part_of_speech": "",
+    "example": "秦孝公據崤函之固(賈誼《過秦論》)"
+  },
+  {
+    "word": "固",
+    "type": "字詞糾正",
+    "original_definition": "堅持、一定",
+    "part_of_speech": "",
+    "example": "少年固強之(蒲松齡《促織》)"
+  },
+  {
+    "word": "固",
+    "type": "字詞糾正",
+    "original_definition": "頑固,固執",
+    "part_of_speech": "",
+    "example": "獨夫之心,日益驕固(杜牧《阿房宮賦》)"
+  },
+  {
+    "word": "固",
+    "type": "字詞糾正",
+    "original_definition": "本來,確實",
+    "part_of_speech": "",
+    "example": "生乎吾前,其聞道也固先乎吾 (韓愈《師說》)"
+  },
+  {
+    "word": "顧",
+    "type": "字詞糾正",
+    "original_definition": "照看",
+    "part_of_speech": "",
+    "example": "勿動勿慮,去不復顧(柳宗元《種樹郭橐駝傳》)"
+  },
+  {
+    "word": "顧",
+    "type": "字詞糾正",
+    "original_definition": "回顧",
+    "part_of_speech": "",
+    "example": "瞻顧遺跡,如在昨日 (歸有光《項脊軒志》)"
+  },
+  {
+    "word": "顧",
+    "type": "字詞糾正",
+    "original_definition": "拜訪",
+    "part_of_speech": "",
+    "example": "三顧臣於草廬之中 (諸葛亮《出師表》)"
+  },
+  {
+    "word": "顧",
+    "type": "字詞糾正",
+    "original_definition": "顧惜,顧念",
+    "part_of_speech": "",
+    "example": "雖放流,眷顧楚國 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "顧",
+    "type": "字詞糾正",
+    "original_definition": "考慮",
+    "part_of_speech": "",
+    "example": "大行不顧細謹(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "歸",
+    "type": "字詞糾正",
+    "original_definition": "女子出嫁",
+    "part_of_speech": "",
+    "example": "後五年,吾妻來歸(歸有光《項脊軒志》)"
+  },
+  {
+    "word": "歸",
+    "type": "字詞糾正",
+    "original_definition": "返回,回來",
+    "part_of_speech": "",
+    "example": "歸去來兮,田園將蕪胡不歸 (陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "歸",
+    "type": "字詞糾正",
+    "original_definition": "送還",
+    "part_of_speech": "",
+    "example": "盡歸漢使路充國等 (班固《蘇武傳》)"
+  },
+  {
+    "word": "歸",
+    "type": "字詞糾正",
+    "original_definition": "歸附,歸向",
+    "part_of_speech": "",
+    "example": "江表英豪咸歸附之 (司馬光《赤壁之戰》)"
+  },
+  {
+    "word": "國",
+    "type": "字詞糾正",
+    "original_definition": "國家",
+    "part_of_speech": "",
+    "example": "憂勞可以興國,逸豫可以亡身 (歐陽修《五代史伶官傳序》)"
+  },
+  {
+    "word": "國",
+    "type": "字詞糾正",
+    "original_definition": "國都",
+    "part_of_speech": "",
+    "example": "去國懷鄉(範仲淹《岳陽樓記》)"
+  },
+  {
+    "word": "國",
+    "type": "字詞糾正",
+    "original_definition": "國事",
+    "part_of_speech": "",
+    "example": "等死,死國可乎 (司馬遷《陳涉世家》)"
+  },
+  {
+    "word": "過",
+    "type": "字詞糾正",
+    "original_definition": "經過,通過",
+    "part_of_speech": "",
+    "example": "雷霆乍驚,宮車過也 (杜牧《阿房宮賦》)"
+  },
+  {
+    "word": "過",
+    "type": "字詞糾正",
+    "original_definition": "超過",
+    "part_of_speech": "",
+    "example": "從此道至吾軍,不過二十里耳 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "過",
+    "type": "字詞糾正",
+    "original_definition": "時間過去",
+    "part_of_speech": "",
+    "example": "日過午已昏(歸有光《項脊軒志》)"
+  },
+  {
+    "word": "過",
+    "type": "字詞糾正",
+    "original_definition": "錯誤,過失",
+    "part_of_speech": "",
+    "example": "則知明而行無過矣(《勸學》)"
+  },
+  {
+    "word": "過",
+    "type": "字詞糾正",
+    "original_definition": "責備",
+    "part_of_speech": "",
+    "example": "聞大王有意督過之 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "過",
+    "type": "字詞糾正",
+    "original_definition": "探望",
+    "part_of_speech": "",
+    "example": "一日,大母過余曰 (歸有光《項脊軒志》)"
+  },
+  {
+    "word": "過",
+    "type": "字詞糾正",
+    "original_definition": "過分,過於",
+    "part_of_speech": "",
+    "example": "至微至陋,過蒙拔擢 (李密《陳情表》)"
+  },
+  {
+    "word": "何",
+    "type": "字詞糾正",
+    "original_definition": "哪裡",
+    "part_of_speech": "",
+    "example": "(劉)豫州今欲何至 (司馬光《赤壁之戰》)"
+  },
+  {
+    "word": "何",
+    "type": "字詞糾正",
+    "original_definition": "什麼",
+    "part_of_speech": "",
+    "example": "吾與並肩攜手,低低切切,何事不語 (林覺民《與妻書》)"
+  },
+  {
+    "word": "何",
+    "type": "字詞糾正",
+    "original_definition": "多麼",
+    "part_of_speech": "",
+    "example": "泣下沾襟,何其衰也 (歐陽修《五代史伶官傳序》)"
+  },
+  {
+    "word": "何",
+    "type": "字詞糾正",
+    "original_definition": "為什麼",
+    "part_of_speech": "",
+    "example": "何不殺張儀(司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "恨",
+    "type": "字詞糾正",
+    "original_definition": "遺憾,後悔",
+    "part_of_speech": "",
+    "example": "恨晨光之熹微 (陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "恨",
+    "type": "字詞糾正",
+    "original_definition": "抱恨",
+    "part_of_speech": "",
+    "example": "生人作死別,恨恨那可論 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "胡",
+    "type": "字詞糾正",
+    "original_definition": "什麼,怎麼",
+    "part_of_speech": "",
+    "example": "胡為乎遑遑欲何之 (陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "胡",
+    "type": "字詞糾正",
+    "original_definition": "我國古代西北部少數民族的統稱",
+    "part_of_speech": "",
+    "example": "胡人不敢南下而牧馬 (賈誼《過秦論》)"
+  },
+  {
+    "word": "患",
+    "type": "字詞糾正",
+    "original_definition": "憂慮,擔心",
+    "part_of_speech": "",
+    "example": "諸侯之所大患(蘇洵《六國論》)"
+  },
+  {
+    "word": "患",
+    "type": "字詞糾正",
+    "original_definition": "禍患",
+    "part_of_speech": "",
+    "example": "夫禍患常積於忽微 (歐陽修《五代史伶官傳序》)"
+  },
+  {
+    "word": "患",
+    "type": "字詞糾正",
+    "original_definition": "忌諱,顧忌",
+    "part_of_speech": "",
+    "example": "此數者用兵之患也 (司馬光《赤壁之戰》)"
+  },
+  {
+    "word": "或",
+    "type": "字詞糾正",
+    "original_definition": "有的",
+    "part_of_speech": "",
+    "example": "或師焉,或不焉(韓愈《師說》)"
+  },
+  {
+    "word": "或",
+    "type": "字詞糾正",
+    "original_definition": "或許",
+    "part_of_speech": "",
+    "example": "當與秦相較,或未易量 (蘇洵《六國論》)"
+  },
+  {
+    "word": "或",
+    "type": "字詞糾正",
+    "original_definition": "倘若",
+    "part_of_speech": "",
+    "example": "所守或匪親,化為狼與豺 (李白《蜀道難》)"
+  },
+  {
+    "word": "或",
+    "type": "字詞糾正",
+    "original_definition": "有時",
+    "part_of_speech": "",
+    "example": "或命巾車,或棹孤舟 (陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "疾",
+    "type": "字詞糾正",
+    "original_definition": "疾病",
+    "part_of_speech": "",
+    "example": "臣少多疾病(李密《陳情表》)"
+  },
+  {
+    "word": "疾",
+    "type": "字詞糾正",
+    "original_definition": "痛心",
+    "part_of_speech": "",
+    "example": "屈平疾王聽之不聰也 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "疾",
+    "type": "字詞糾正",
+    "original_definition": "強,這裡指聲音宏大",
+    "part_of_speech": "",
+    "example": "順風而呼,聲非加疾也,而聞者彰 (《勸學》)"
+  },
+  {
+    "word": "疾",
+    "type": "字詞糾正",
+    "original_definition": "厭惡",
+    "part_of_speech": "",
+    "example": "君子疾夫捨曰欲之而必為之辭 (《季氏將伐顓臾》)"
+  },
+  {
+    "word": "及",
+    "type": "字詞糾正",
+    "original_definition": "到",
+    "part_of_speech": "",
+    "example": "微夫人之力不及此 (《燭之武退秦師》)"
+  },
+  {
+    "word": "及",
+    "type": "字詞糾正",
+    "original_definition": "等到",
+    "part_of_speech": "",
+    "example": "及其所之既倦 (王羲之《蘭亭集序》)"
+  },
+  {
+    "word": "及",
+    "type": "字詞糾正",
+    "original_definition": "比得上",
+    "part_of_speech": "",
+    "example": "其賢不及孔子(韓愈《師說》)"
+  },
+  {
+    "word": "及",
+    "type": "字詞糾正",
+    "original_definition": "和",
+    "part_of_speech": "連詞",
+    "example": "前以降及物故(班固《蘇武傳》)"
+  },
+  {
+    "word": "即",
+    "type": "字詞糾正",
+    "original_definition": "立即,馬上",
+    "part_of_speech": "",
+    "example": "項伯即入見沛公 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "即",
+    "type": "字詞糾正",
+    "original_definition": "當",
+    "part_of_speech": "",
+    "example": "項王即日因留沛公與飲 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "即",
+    "type": "字詞糾正",
+    "original_definition": "登上",
+    "part_of_speech": "",
+    "example": "昭帝即位,數年,匈奴與漢和親 (班固《蘇武傳》)"
+  },
+  {
+    "word": "即",
+    "type": "字詞糾正",
+    "original_definition": "走近,靠近",
+    "part_of_speech": "",
+    "example": "匪來貿絲,來即我謀(《氓》)"
+  },
+  {
+    "word": "既",
+    "type": "字詞糾正",
+    "original_definition": "過了",
+    "part_of_speech": "",
+    "example": "壬戌之秋,七月既望 (蘇軾《赤壁賦》)"
+  },
+  {
+    "word": "既",
+    "type": "字詞糾正",
+    "original_definition": "已經",
+    "part_of_speech": "",
+    "example": "不知東方之既白(蘇軾《赤壁賦》)"
+  },
+  {
+    "word": "既",
+    "type": "字詞糾正",
+    "original_definition": "不久,一會兒",
+    "part_of_speech": "",
+    "example": "既而得其屍於井(蒲松齡《促織》)"
+  },
+  {
+    "word": "既",
+    "type": "字詞糾正",
+    "original_definition": "既然",
+    "part_of_speech": "",
+    "example": "既來之,則安之(《季氏將伐顓臾》)"
+  },
+  {
+    "word": "假",
+    "type": "字詞糾正",
+    "original_definition": "假期",
+    "part_of_speech": "",
+    "example": "府吏聞此變,因求假暫歸 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "假",
+    "type": "字詞糾正",
+    "original_definition": "憑借,借助",
+    "part_of_speech": "",
+    "example": "君子生非異也,善假於物也 (《勸學》)"
+  },
+  {
+    "word": "假",
+    "type": "字詞糾正",
+    "original_definition": "假設,假使",
+    "part_of_speech": "",
+    "example": "假令僕伏法受誅 (司馬遷《報任安書》)"
+  },
+  {
+    "word": "假",
+    "type": "字詞糾正",
+    "original_definition": "假的,假裝",
+    "part_of_speech": "",
+    "example": "乃悟前狼假寐,蓋以誘敵 (蒲松齡《狼》)"
+  },
+  {
+    "word": "假",
+    "type": "字詞糾正",
+    "original_definition": "臨時委任",
+    "part_of_speech": "",
+    "example": "武與副中郎將張勝及假吏常惠等 (班固《蘇武傳》)"
+  },
+  {
+    "word": "間",
+    "type": "字詞糾正",
+    "original_definition": "指處於一定的空間或時間里",
+    "part_of_speech": "",
+    "example": "徘徊於鬥牛之間(蘇軾《赤壁賦》)"
+  },
+  {
+    "word": "間",
+    "type": "字詞糾正",
+    "original_definition": "離間",
+    "part_of_speech": "",
+    "example": "讒人間之,可謂窮矣 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "間",
+    "type": "字詞糾正",
+    "original_definition": "參與",
+    "part_of_speech": "",
+    "example": "肉食者謀之,又何間焉 (《曹劌論戰》)"
+  },
+  {
+    "word": "間",
+    "type": "字詞糾正",
+    "original_definition": "間或,斷斷續續地",
+    "part_of_speech": "",
+    "example": "數月之後,時時而間進 (《鄒忌諷齊王納諫》)"
+  },
+  {
+    "word": "間",
+    "type": "字詞糾正",
+    "original_definition": "從小路",
+    "part_of_speech": "",
+    "example": "從酈山下,道芷陽間行 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "間",
+    "type": "字詞糾正",
+    "original_definition": "隔離",
+    "part_of_speech": "",
+    "example": "遂與外人間隔 (陶淵明《桃花源記》)"
+  },
+  {
+    "word": "間",
+    "type": "字詞糾正",
+    "original_definition": "間隙,縫隙",
+    "part_of_speech": "",
+    "example": "彼節者有間,而刀刃者無厚 (《庖丁解牛》)"
+  },
+  {
+    "word": "見",
+    "type": "字詞糾正",
+    "original_definition": "看見",
+    "part_of_speech": "",
+    "example": "始臣之解牛之時,所見無非牛者 (《庖丁解牛》)"
+  },
+  {
+    "word": "見",
+    "type": "字詞糾正",
+    "original_definition": "拜見,會見",
+    "part_of_speech": "",
+    "example": "項伯即入見沛公(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "見",
+    "type": "字詞糾正",
+    "original_definition": "用在動詞前面,表示對自己怎麼樣",
+    "part_of_speech": "",
+    "example": "君既若見錄(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "見",
+    "type": "字詞糾正",
+    "original_definition": "表示被動,相當於「被」",
+    "part_of_speech": "",
+    "example": "信而見疑,忠而被謗 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "見",
+    "type": "通假字",
+    "original_definition": "同「現」,表現",
+    "part_of_speech": "",
+    "example": "治亂之條貫,靡不畢見(司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "見",
+    "type": "字詞糾正",
+    "original_definition": "見面",
+    "part_of_speech": "",
+    "example": "移船相近邀相見(白居易《琵琶行 並序》)"
+  },
+  {
+    "word": "見",
+    "type": "字詞糾正",
+    "original_definition": "知道",
+    "part_of_speech": "",
+    "example": "卒以此見懷王之終不悟也 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "解",
+    "type": "字詞糾正",
+    "original_definition": "解剖",
+    "part_of_speech": "",
+    "example": "庖丁為文惠君解牛(《庖丁解牛》)"
+  },
+  {
+    "word": "解",
+    "type": "字詞糾正",
+    "original_definition": "解釋,解答",
+    "part_of_speech": "",
+    "example": "師者,所以傳道受業解惑也 (韓愈《師說》)"
+  },
+  {
+    "word": "解",
+    "type": "字詞糾正",
+    "original_definition": "理解,懂得",
+    "part_of_speech": "",
+    "example": "其為惑也,終不解矣(韓愈《師說》)"
+  },
+  {
+    "word": "就",
+    "type": "字詞糾正",
+    "original_definition": "接近,靠近",
+    "part_of_speech": "",
+    "example": "金就礪則利(《勸學》)"
+  },
+  {
+    "word": "就",
+    "type": "字詞糾正",
+    "original_definition": "赴任",
+    "part_of_speech": "",
+    "example": "臣具以表聞,辭不就職 (李密《陳情表》)"
+  },
+  {
+    "word": "就",
+    "type": "字詞糾正",
+    "original_definition": "成就",
+    "part_of_speech": "",
+    "example": "河海不擇細流,故能就其深 (李斯《諫逐客書》 )"
+  },
+  {
+    "word": "就",
+    "type": "字詞糾正",
+    "original_definition": "走向",
+    "part_of_speech": "",
+    "example": "若無罪而就死地 (《齊桓晉文之事》)"
+  },
+  {
+    "word": "舉",
+    "type": "字詞糾正",
+    "original_definition": "攻取,佔領",
+    "part_of_speech": "",
+    "example": "戍卒叫,函谷舉(杜牧《阿房宮賦》)"
+  },
+  {
+    "word": "舉",
+    "type": "字詞糾正",
+    "original_definition": "舉出,提出",
+    "part_of_speech": "",
+    "example": "舉類邇而見義遠 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "舉",
+    "type": "字詞糾正",
+    "original_definition": "發動,舉行",
+    "part_of_speech": "",
+    "example": "今亡亦死,舉大計亦死 (司馬遷《陳涉世家》)"
+  },
+  {
+    "word": "舉",
+    "type": "字詞糾正",
+    "original_definition": "盡",
+    "part_of_speech": "",
+    "example": "殺人如不能舉(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "舉",
+    "type": "字詞糾正",
+    "original_definition": "行為,行動",
+    "part_of_speech": "",
+    "example": "此婦無禮節,舉動自專由 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "舉",
+    "type": "字詞糾正",
+    "original_definition": "成功",
+    "part_of_speech": "",
+    "example": "莫令事不舉(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "舉",
+    "type": "字詞糾正",
+    "original_definition": "舉動,抬動",
+    "part_of_speech": "",
+    "example": "範增數目項王,舉所佩玉玦以示之者三 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "舉",
+    "type": "字詞糾正",
+    "original_definition": "全",
+    "part_of_speech": "",
+    "example": "大喜,籠歸,舉家慶賀 (蒲松齡《促織》)"
+  },
+  {
+    "word": "絕",
+    "type": "字詞糾正",
+    "original_definition": "隔絕的",
+    "part_of_speech": "",
+    "example": "率妻子邑人來此絕境 (陶淵明《桃花源記》)"
+  },
+  {
+    "word": "絕",
+    "type": "字詞糾正",
+    "original_definition": "斷絕",
+    "part_of_speech": "",
+    "example": "楚誠能絕齊(司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "絕",
+    "type": "字詞糾正",
+    "original_definition": "直上穿過",
+    "part_of_speech": "",
+    "example": "絕雲氣,負青天,然後圖南 (《逍遙游》)"
+  },
+  {
+    "word": "絕",
+    "type": "字詞糾正",
+    "original_definition": "橫渡",
+    "part_of_speech": "",
+    "example": "非能水也,而絕江河(《勸學》)"
+  },
+  {
+    "word": "絕",
+    "type": "字詞糾正",
+    "original_definition": "停止",
+    "part_of_speech": "",
+    "example": "冰泉冷澀弦凝絕(白居易《琵琶行 並序》)"
+  },
+  {
+    "word": "堪",
+    "type": "字詞糾正",
+    "original_definition": "經得起,忍受",
+    "part_of_speech": "",
+    "example": "妾不堪驅使(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "堪",
+    "type": "字詞糾正",
+    "original_definition": "能夠,可以",
+    "part_of_speech": "",
+    "example": "出師一表真名世,千載誰堪伯仲間 (陸游《書憤》)"
+  },
+  {
+    "word": "堪",
+    "type": "字詞糾正",
+    "original_definition": "勝任",
+    "part_of_speech": "",
+    "example": "不堪吏人婦,豈合令郎君 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "克",
+    "type": "字詞糾正",
+    "original_definition": "能夠",
+    "part_of_speech": "",
+    "example": "能克終者蓋寡 (魏徵《諫太宗十思疏》)"
+  },
+  {
+    "word": "克",
+    "type": "字詞糾正",
+    "original_definition": "戰勝",
+    "part_of_speech": "",
+    "example": "既克,公問其故(《曹劌論戰》)"
+  },
+  {
+    "word": "克",
+    "type": "字詞糾正",
+    "original_definition": "克制,約束",
+    "part_of_speech": "",
+    "example": "克己復禮為仁(《<論語>十二章》)"
+  },
+  {
+    "word": "類",
+    "type": "字詞糾正",
+    "original_definition": "事例",
+    "part_of_speech": "",
+    "example": "舉類邇而見義遠 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "類",
+    "type": "字詞糾正",
+    "original_definition": "類推",
+    "part_of_speech": "",
+    "example": "則明通而類(《荀子·不苟》)"
+  },
+  {
+    "word": "類",
+    "type": "字詞糾正",
+    "original_definition": "像,類似",
+    "part_of_speech": "",
+    "example": "何竟日默默在此,大類女郎也 (歸有光《項脊軒志》)"
+  },
+  {
+    "word": "類",
+    "type": "字詞糾正",
+    "original_definition": "種類,類別",
+    "part_of_speech": "",
+    "example": "俯察品類之盛 (王羲之《蘭亭集序》)"
+  },
+  {
+    "word": "憐",
+    "type": "字詞糾正",
+    "original_definition": "可愛",
+    "part_of_speech": "",
+    "example": "自名秦羅敷,可憐體無比 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "憐",
+    "type": "字詞糾正",
+    "original_definition": "同情,憐憫",
+    "part_of_speech": "",
+    "example": "若甚憐焉,而卒以禍 (柳宗元《種樹郭橐駝傳》)"
+  },
+  {
+    "word": "彌",
+    "type": "字詞糾正",
+    "original_definition": "滿,遍",
+    "part_of_speech": "",
+    "example": "擁眾數萬,馬畜彌山(班固《蘇武傳》)"
+  },
+  {
+    "word": "彌",
+    "type": "字詞糾正",
+    "original_definition": "越,更加",
+    "part_of_speech": "",
+    "example": "奉之彌繁,侵之愈急(蘇洵《六國論》)"
+  },
+  {
+    "word": "莫",
+    "type": "字詞糾正",
+    "original_definition": "沒有什麼...能...",
+    "part_of_speech": "",
+    "example": "保民而王,莫之能御也 (《齊桓晉文之事》)"
+  },
+  {
+    "word": "莫",
+    "type": "字詞糾正",
+    "original_definition": "不,不能",
+    "part_of_speech": "副詞",
+    "example": "莫令事不舉 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "莫",
+    "type": "字詞糾正",
+    "original_definition": "沒有",
+    "part_of_speech": "副詞",
+    "example": "而卒莫消長也(蘇軾《赤壁賦》)"
+  },
+  {
+    "word": "莫",
+    "type": "通假字",
+    "original_definition": "同「暮」,晚",
+    "part_of_speech": "形容詞",
+    "example": "莫春者,春服既成 (《子路、曾皙、冉有、公西華侍坐》)"
+  },
+  {
+    "word": "明",
+    "type": "字詞糾正",
+    "original_definition": "明亮,光明",
+    "part_of_speech": "形容詞",
+    "example": "三五之夜,明月半牆 (歸有光《項脊軒志》)"
+  },
+  {
+    "word": "明",
+    "type": "字詞糾正",
+    "original_definition": "賢明,明智",
+    "part_of_speech": "形容詞",
+    "example": "吾未見其明也(韓愈《師說》)"
+  },
+  {
+    "word": "明",
+    "type": "字詞糾正",
+    "original_definition": "照明,闡明",
+    "part_of_speech": "動詞",
+    "example": "明道德之廣崇,治亂之條貫 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "明",
+    "type": "字詞糾正",
+    "original_definition": "今之次,第二",
+    "part_of_speech": "名詞",
+    "example": "今日割五城,明日割十城 (蘇洵《六國論》)"
+  },
+  {
+    "word": "明",
+    "type": "字詞糾正",
+    "original_definition": "視力",
+    "part_of_speech": "名詞",
+    "example": "明足以察秋毫之末 (《齊桓晉文之事》)"
+  },
+  {
+    "word": "內",
+    "type": "字詞糾正",
+    "original_definition": "裡面,跟「外」相對",
+    "part_of_speech": "名詞",
+    "example": "內外多置小門牆 (歸有光《項脊軒志》)"
+  },
+  {
+    "word": "內",
+    "type": "字詞糾正",
+    "original_definition": "內部,指國家內部、朝廷內部",
+    "part_of_speech": "名詞",
+    "example": "故內惑於鄭袖,外欺於張儀 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "內",
+    "type": "通假字",
+    "original_definition": "同「納」,接納",
+    "part_of_speech": "動詞",
+    "example": "距關,毋內諸侯(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "內",
+    "type": "字詞糾正",
+    "original_definition": "內心,心裡",
+    "part_of_speech": "名詞",
+    "example": "見不賢而內自省也 (《<論語>十二章》)"
+  },
+  {
+    "word": "期",
+    "type": "字詞糾正",
+    "original_definition": "日期,期限",
+    "part_of_speech": "名詞",
+    "example": "備極護愛,留待限期(蒲松齡《促織》)"
+  },
+  {
+    "word": "期",
+    "type": "字詞糾正",
+    "original_definition": "及,至",
+    "part_of_speech": "動詞",
+    "example": "況修短隨化,終期於盡 (王羲之《蘭亭集序》)"
+  },
+  {
+    "word": "期",
+    "type": "字詞糾正",
+    "original_definition": "一週年",
+    "part_of_speech": "名詞",
+    "example": "期年之後,雖欲言,無可進者 (《鄒忌諷齊王納諫》)"
+  },
+  {
+    "word": "期",
+    "type": "字詞糾正",
+    "original_definition": "穿一年孝服的親族",
+    "part_of_speech": "名詞",
+    "example": "外無期功強近之親 (李密《陳情表》)"
+  },
+  {
+    "word": "期",
+    "type": "字詞糾正",
+    "original_definition": "期求",
+    "part_of_speech": "動詞",
+    "example": "富貴非吾願,帝鄉不可期(陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "奇",
+    "type": "字詞糾正",
+    "original_definition": "奇特的,罕見的,不平常的",
+    "part_of_speech": "形容詞",
+    "example": "以事秦之心禮天下之奇才 (蘇洵《六國論》)"
+  },
+  {
+    "word": "奇",
+    "type": "字詞糾正",
+    "original_definition": "以……為奇,驚異",
+    "part_of_speech": "動詞",
+    "example": "每聞琴瑟之聲,則應節而舞。益奇之 (蒲松齡《促織》)"
+  },
+  {
+    "word": "奇",
+    "type": "字詞糾正",
+    "original_definition": "適宜,適合",
+    "part_of_speech": "形容詞",
+    "example": "今日違情義,恐此事非奇(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "奇",
+    "type": "字詞糾正",
+    "original_definition": "零數,余數",
+    "part_of_speech": "名詞",
+    "example": "舟首尾長約八分有奇(魏學洢《核舟記》)"
+  },
+  {
+    "word": "遷",
+    "type": "字詞糾正",
+    "original_definition": "放逐",
+    "part_of_speech": "動詞",
+    "example": "頃襄王怒而遷之(司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "遷",
+    "type": "字詞糾正",
+    "original_definition": "改變",
+    "part_of_speech": "動詞",
+    "example": "齊人未嘗賂秦,終繼五國遷滅,何哉 (蘇洵《六國論》)"
+  },
+  {
+    "word": "遷",
+    "type": "字詞糾正",
+    "original_definition": "晉升或調動官職",
+    "part_of_speech": "動詞",
+    "example": "賀卿得高遷(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "請",
+    "type": "字詞糾正",
+    "original_definition": "請求",
+    "part_of_speech": "動詞",
+    "example": "王請度之(《齊桓晉文之事》)"
+  },
+  {
+    "word": "請",
+    "type": "字詞糾正",
+    "original_definition": "請人允許自己做某事",
+    "part_of_speech": "動詞",
+    "example": "子犯請擊之(《燭之武退秦師》)"
+  },
+  {
+    "word": "請",
+    "type": "字詞糾正",
+    "original_definition": "請教,請示",
+    "part_of_speech": "動詞",
+    "example": "俯身傾耳以請(宋濂《送東陽馬生序》)"
+  },
+  {
+    "word": "窮",
+    "type": "字詞糾正",
+    "original_definition": "困窘,處境困難",
+    "part_of_speech": "形容詞",
+    "example": "人窮則反本(司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "窮",
+    "type": "字詞糾正",
+    "original_definition": "不得志,不顯貴,與「達」相對",
+    "part_of_speech": "形容詞",
+    "example": "窮則獨善其身,達則兼善天下 (《孟子》)"
+  },
+  {
+    "word": "窮",
+    "type": "字詞糾正",
+    "original_definition": "窮盡",
+    "part_of_speech": "動詞",
+    "example": "羨長江之無窮(蘇軾《赤壁賦》)"
+  },
+  {
+    "word": "去",
+    "type": "字詞糾正",
+    "original_definition": "離開",
+    "part_of_speech": "動詞",
+    "example": "欲呼張良與俱去(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "去",
+    "type": "字詞糾正",
+    "original_definition": "過去的",
+    "part_of_speech": "形容詞",
+    "example": "我從去年辭帝京 (白居易《琵琶行 並序》)"
+  },
+  {
+    "word": "去",
+    "type": "字詞糾正",
+    "original_definition": "距,距離",
+    "part_of_speech": "動詞",
+    "example": "沛公軍在霸上,相去四十里 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "去",
+    "type": "字詞糾正",
+    "original_definition": "表示動作的趨勢",
+    "part_of_speech": "助詞",
+    "example": "風流總被,雨打風吹去(辛棄疾《永遇樂·京口北固亭懷古》)"
+  },
+  {
+    "word": "去",
+    "type": "字詞糾正",
+    "original_definition": "前往",
+    "part_of_speech": "動詞",
+    "example": "汝可去應之(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "去",
+    "type": "字詞糾正",
+    "original_definition": "除去,去掉",
+    "part_of_speech": "動詞",
+    "example": "見惡,如農夫之務去草焉(《左傳》)"
+  },
+  {
+    "word": "勸",
+    "type": "字詞糾正",
+    "original_definition": "勉",
+    "part_of_speech": "動詞",
+    "example": "且舉世譽之而不加勸(《逍遙游》)"
+  },
+  {
+    "word": "勸",
+    "type": "字詞糾正",
+    "original_definition": "勸說",
+    "part_of_speech": "動詞",
+    "example": "懷王稚子子蘭勸王行 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "卻",
+    "type": "字詞糾正",
+    "original_definition": "使……退,擊退",
+    "part_of_speech": "動詞",
+    "example": "後秦擊趙者再,李牧連卻之 (蘇洵《六國論》)"
+  },
+  {
+    "word": "卻",
+    "type": "字詞糾正",
+    "original_definition": "還,再",
+    "part_of_speech": "副詞",
+    "example": "何當共剪西窗燭,卻話巴山夜雨時 (李商隱《夜雨寄北》)"
+  },
+  {
+    "word": "卻",
+    "type": "字詞糾正",
+    "original_definition": "拒絕,推辭",
+    "part_of_speech": "動詞",
+    "example": "向使四君卻客而不內 (李斯《諫逐客書》)"
+  },
+  {
+    "word": "卻",
+    "type": "字詞糾正",
+    "original_definition": "退下",
+    "part_of_speech": "動詞",
+    "example": "卻與小姑別(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "如",
+    "type": "字詞糾正",
+    "original_definition": "像,如同",
+    "part_of_speech": "動詞",
+    "example": "舉以予人,如棄草芥 (蘇洵《六國論》)"
+  },
+  {
+    "word": "如",
+    "type": "字詞糾正",
+    "original_definition": "及,比得上",
+    "part_of_speech": "動詞",
+    "example": "弟子不必不如師(韓愈《師說》)"
+  },
+  {
+    "word": "如",
+    "type": "字詞糾正",
+    "original_definition": "到……去,往",
+    "part_of_speech": "動詞",
+    "example": "縱一葦之所如(蘇軾《赤壁賦》)"
+  },
+  {
+    "word": "如",
+    "type": "字詞糾正",
+    "original_definition": "遵從,依照",
+    "part_of_speech": "動詞",
+    "example": "不如言,刑從之 (司馬遷《史記·夏本紀》)"
+  },
+  {
+    "word": "如",
+    "type": "字詞糾正",
+    "original_definition": "連詞,假如,如果",
+    "part_of_speech": "連詞",
+    "example": "王如知此,則無望民之多於鄰國也 (《寡人之於國也》)"
+  },
+  {
+    "word": "如",
+    "type": "字詞糾正",
+    "original_definition": "連詞,或者",
+    "part_of_speech": "連詞",
+    "example": "宗廟之事,如會同,端章甫,願為小相焉 (《子路、曾皙、冉有、公西華侍坐》)"
+  },
+  {
+    "word": "若",
+    "type": "字詞糾正",
+    "original_definition": "如,似,像",
+    "part_of_speech": "動詞",
+    "example": "視之,形若土狗(蒲松齡《促織》)"
+  },
+  {
+    "word": "若",
+    "type": "字詞糾正",
+    "original_definition": "第二人稱代詞,你,也表示複數,你們",
+    "part_of_speech": "代詞",
+    "example": "久不見若影,何竟日默默在此 (歸有光《項脊軒志》)"
+  },
+  {
+    "word": "若",
+    "type": "字詞糾正",
+    "original_definition": "及,比得上",
+    "part_of_speech": "動詞",
+    "example": "故不我若也 (柳宗元《種樹郭橐駝傳》)"
+  },
+  {
+    "word": "若",
+    "type": "字詞糾正",
+    "original_definition": "相當於「然」,用在形容詞和副詞之後,表狀態",
+    "part_of_speech": "助詞",
+    "example": "桑之未落,其葉沃若(《氓》)"
+  },
+  {
+    "word": "善",
+    "type": "字詞糾正",
+    "original_definition": "善於,擅長",
+    "part_of_speech": "動詞",
+    "example": "輕捷善鬥,今始蘇耳 (蒲松齡《促織》)"
+  },
+  {
+    "word": "善",
+    "type": "字詞糾正",
+    "original_definition": "這裡指揩拭",
+    "part_of_speech": "動詞",
+    "example": "善刀而藏之(《庖丁解牛》)"
+  },
+  {
+    "word": "善",
+    "type": "字詞糾正",
+    "original_definition": "友善,交好",
+    "part_of_speech": "動詞",
+    "example": "素善留侯張良(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "善",
+    "type": "字詞糾正",
+    "original_definition": "好的(行為、人、事)",
+    "part_of_speech": "名詞",
+    "example": "積善成德(《勸學》)"
+  },
+  {
+    "word": "善",
+    "type": "字詞糾正",
+    "original_definition": "好好地,友善地",
+    "part_of_speech": "副詞",
+    "example": "不如因善遇之(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "善",
+    "type": "字詞糾正",
+    "original_definition": "喜歡,羨慕",
+    "part_of_speech": "動詞",
+    "example": "善萬物之得時 (陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "善",
+    "type": "字詞糾正",
+    "original_definition": "有才能",
+    "part_of_speech": "形容詞",
+    "example": "奢不能難,然不謂善(《趙括救母》)"
+  },
+  {
+    "word": "少",
+    "type": "字詞糾正",
+    "original_definition": "削減,減少",
+    "part_of_speech": "動詞",
+    "example": "鄰國之民不加少(《寡人之於國也》)"
+  },
+  {
+    "word": "少",
+    "type": "字詞糾正",
+    "original_definition": "不足,缺少",
+    "part_of_speech": "動詞",
+    "example": "山多石,少土(姚鼐《登泰山記》)"
+  },
+  {
+    "word": "少",
+    "type": "字詞糾正",
+    "original_definition": "年少",
+    "part_of_speech": "形容詞",
+    "example": "是故無貴無賤,無長無少(韓愈《師說》)"
+  },
+  {
+    "word": "少",
+    "type": "字詞糾正",
+    "original_definition": "不多時,一會兒",
+    "part_of_speech": "副詞",
+    "example": "少焉,月出於東山之上 (蘇軾《赤壁賦》)"
+  },
+  {
+    "word": "涉",
+    "type": "字詞糾正",
+    "original_definition": "到,渡過",
+    "part_of_speech": "動詞",
+    "example": "送子涉淇,至於頓丘(《氓》)"
+  },
+  {
+    "word": "涉",
+    "type": "字詞糾正",
+    "original_definition": "經過,經歷",
+    "part_of_speech": "動詞",
+    "example": "涉旬月,迫季冬 (司馬遷《報任安書》)"
+  },
+  {
+    "word": "涉",
+    "type": "字詞糾正",
+    "original_definition": "遊玩、遊覽",
+    "part_of_speech": "動詞",
+    "example": "園日涉以成趣 (陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "勝",
+    "type": "字詞糾正",
+    "original_definition": "禁得起",
+    "part_of_speech": "動詞",
+    "example": "沛公不勝杯杓,不能辭 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "勝",
+    "type": "字詞糾正",
+    "original_definition": "盡,完全",
+    "part_of_speech": "副詞",
+    "example": "刑人如恐不勝(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "勝",
+    "type": "字詞糾正",
+    "original_definition": "戰勝,取勝",
+    "part_of_speech": "動詞",
+    "example": "而猶有可以不賂而勝之之勢 (蘇洵《六國論》)"
+  },
+  {
+    "word": "勝",
+    "type": "字詞糾正",
+    "original_definition": "美",
+    "part_of_speech": "形容詞",
+    "example": "舊時欄楯,亦遂增勝(歸有光《項脊軒志》)"
+  },
+  {
+    "word": "勝",
+    "type": "字詞糾正",
+    "original_definition": "盛大的",
+    "part_of_speech": "形容詞",
+    "example": "童子何知,躬逢勝餞 (王勃《滕王閣序》)"
+  },
+  {
+    "word": "識",
+    "type": "字詞糾正",
+    "original_definition": "認識",
+    "part_of_speech": "動詞",
+    "example": "多識於鳥獸草木之名 (《<論語>十二章》)"
+  },
+  {
+    "word": "識",
+    "type": "字詞糾正",
+    "original_definition": "記住",
+    "part_of_speech": "動詞",
+    "example": "默而識之,學而不厭(《論語》)"
+  },
+  {
+    "word": "識",
+    "type": "字詞糾正",
+    "original_definition": "知道",
+    "part_of_speech": "動詞",
+    "example": "汝識之乎(蘇軾《石鍾山記》)"
+  },
+  {
+    "word": "使",
+    "type": "字詞糾正",
+    "original_definition": "命令,派遣",
+    "part_of_speech": "動詞",
+    "example": "若使燭之武見秦君 (《燭之武退秦師》)"
+  },
+  {
+    "word": "使",
+    "type": "字詞糾正",
+    "original_definition": "讓,致使",
+    "part_of_speech": "動詞",
+    "example": "輮使之然也(《勸學》)"
+  },
+  {
+    "word": "使",
+    "type": "字詞糾正",
+    "original_definition": "驅使,使用",
+    "part_of_speech": "動詞",
+    "example": "不堪母驅使(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "使",
+    "type": "字詞糾正",
+    "original_definition": "假使",
+    "part_of_speech": "連詞",
+    "example": "向使三國各愛其地 (蘇洵《六國論》)"
+  },
+  {
+    "word": "是",
+    "type": "字詞糾正",
+    "original_definition": "正確",
+    "part_of_speech": "形容詞",
+    "example": "覺今是而昨非 (陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "是",
+    "type": "字詞糾正",
+    "original_definition": "這樣,這",
+    "part_of_speech": "代詞",
+    "example": "是又在六國下矣(蘇洵《六國論》)"
+  },
+  {
+    "word": "是",
+    "type": "字詞糾正",
+    "original_definition": "表示肯定判斷",
+    "part_of_speech": "動詞",
+    "example": "汝是大家子,仕宦於台閣 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "適",
+    "type": "字詞糾正",
+    "original_definition": "出嫁",
+    "part_of_speech": "動詞",
+    "example": "貧賤有此女,始適還家門 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "適",
+    "type": "字詞糾正",
+    "original_definition": "順從、依照",
+    "part_of_speech": "動詞",
+    "example": "處分適兄意(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "適",
+    "type": "字詞糾正",
+    "original_definition": "剛才",
+    "part_of_speech": "副詞",
+    "example": "適得府君書(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "適",
+    "type": "字詞糾正",
+    "original_definition": "適應",
+    "part_of_speech": "動詞",
+    "example": "少無適俗韻 (陶淵明《歸園田居(其一)》)"
+  },
+  {
+    "word": "適",
+    "type": "字詞糾正",
+    "original_definition": "到……去",
+    "part_of_speech": "動詞",
+    "example": "余自齊安舟行適臨汝 (蘇軾《石鍾山記》)"
+  },
+  {
+    "word": "適",
+    "type": "字詞糾正",
+    "original_definition": "恰巧,正好",
+    "part_of_speech": "副詞",
+    "example": "適會魏公子無忌奪晉鄙軍以救趙擊秦 (《戰國策》)"
+  },
+  {
+    "word": "書",
+    "type": "字詞糾正",
+    "original_definition": "信",
+    "part_of_speech": "名詞",
+    "example": "吾今以此書與汝永別矣 (林覺民《與妻書》)"
+  },
+  {
+    "word": "書",
+    "type": "字詞糾正",
+    "original_definition": "書籍",
+    "part_of_speech": "名詞",
+    "example": "樂琴書以消憂 (陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "書",
+    "type": "字詞糾正",
+    "original_definition": "寫字",
+    "part_of_speech": "動詞",
+    "example": "或憑幾學書(歸有光《項脊軒志》)"
+  },
+  {
+    "word": "孰",
+    "type": "字詞糾正",
+    "original_definition": "誰,哪一個",
+    "part_of_speech": "代詞",
+    "example": "人非生而知之者,孰能無惑 (韓愈《師說》)"
+  },
+  {
+    "word": "屬",
+    "type": "字詞糾正",
+    "original_definition": "撰寫",
+    "part_of_speech": "動詞",
+    "example": "屈平屬草稿未定 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "屬",
+    "type": "通假字",
+    "original_definition": "同「囑」,囑託",
+    "part_of_speech": "動詞",
+    "example": "屬予作文以記之 (範仲淹《岳陽樓記》)"
+  },
+  {
+    "word": "屬",
+    "type": "字詞糾正",
+    "original_definition": "類、輩",
+    "part_of_speech": "名詞",
+    "example": "若屬皆且為所虜 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "屬",
+    "type": "字詞糾正",
+    "original_definition": "隸屬,歸屬,附屬",
+    "part_of_speech": "動詞",
+    "example": "名屬教坊第一部 (白居易《琵琶行 並序》)"
+  },
+  {
+    "word": "屬",
+    "type": "字詞糾正",
+    "original_definition": "接連",
+    "part_of_speech": "動詞",
+    "example": "然亡國破家相隨屬(司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "屬",
+    "type": "字詞糾正",
+    "original_definition": "部屬,親屬",
+    "part_of_speech": "名詞",
+    "example": "本無謀,又非親屬(班固《蘇武傳》)"
+  },
+  {
+    "word": "數",
+    "type": "字詞糾正",
+    "original_definition": "幾",
+    "part_of_speech": "數詞",
+    "example": "稍見雲中白若樗蒱數十立者 (姚鼐《登泰山記》)"
+  },
+  {
+    "word": "數",
+    "type": "字詞糾正",
+    "original_definition": "天數、命運",
+    "part_of_speech": "名詞",
+    "example": "勝負之數,存亡之理 (蘇洵《六國論》)"
+  },
+  {
+    "word": "數",
+    "type": "字詞糾正",
+    "original_definition": "屢次,多次",
+    "part_of_speech": "副詞",
+    "example": "范增數目項王(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "數",
+    "type": "字詞糾正",
+    "original_definition": "計算",
+    "part_of_speech": "動詞",
+    "example": "不可數計(林覺民《與妻書》)"
+  },
+  {
+    "word": "率",
+    "type": "字詞糾正",
+    "original_definition": "帶領,率領",
+    "part_of_speech": "動詞",
+    "example": "率疲弊之卒,將數百之眾 (賈誼《過秦論》)"
+  },
+  {
+    "word": "率",
+    "type": "字詞糾正",
+    "original_definition": "全都,一概",
+    "part_of_speech": "副詞",
+    "example": "六國互喪,率賂秦耶 (蘇洵《六國論》)"
+  },
+  {
+    "word": "說",
+    "type": "通假字",
+    "original_definition": "同「悅」,高興",
+    "part_of_speech": "形容詞",
+    "example": "秦伯說,與鄭人盟 (《燭之武退秦師》)"
+  },
+  {
+    "word": "說",
+    "type": "字詞糾正",
+    "original_definition": "勸說",
+    "part_of_speech": "動詞",
+    "example": "范增說項羽曰(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "私",
+    "type": "字詞糾正",
+    "original_definition": "個人的,自己的,與「公」相對",
+    "part_of_speech": "形容詞",
+    "example": "欲苟順私情(李密《陳情表》)"
+  },
+  {
+    "word": "私",
+    "type": "字詞糾正",
+    "original_definition": "偏愛",
+    "part_of_speech": "動詞",
+    "example": "吾妻之美我者,私我也 (《鄒忌諷齊王納諫》)"
+  },
+  {
+    "word": "私",
+    "type": "字詞糾正",
+    "original_definition": "私下,私密",
+    "part_of_speech": "副詞",
+    "example": "項伯乃夜馳之沛公軍,私見張良 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "素",
+    "type": "字詞糾正",
+    "original_definition": "白色的絹",
+    "part_of_speech": "名詞",
+    "example": "十三能織素,十四學裁衣 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "素",
+    "type": "字詞糾正",
+    "original_definition": "一向,平素",
+    "part_of_speech": "副詞",
+    "example": "素善留侯張良(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "素",
+    "type": "字詞糾正",
+    "original_definition": "質樸,樸素",
+    "part_of_speech": "形容詞",
+    "example": "送夕陽,迎素月 (王禹偁《黃岡竹樓記》)"
+  },
+  {
+    "word": "湯",
+    "type": "字詞糾正",
+    "original_definition": "熱水,開水",
+    "part_of_speech": "名詞",
+    "example": "雖蒙斧鉞湯鑊(班固《蘇武傳》)"
+  },
+  {
+    "word": "湯",
+    "type": "通假字",
+    "original_definition": "同「燙」,用熱水焐",
+    "part_of_speech": "動詞",
+    "example": "疾在腠理,湯熨之所及也 (《扁鵲見蔡桓公》)"
+  },
+  {
+    "word": "湯",
+    "type": "字詞糾正",
+    "original_definition": "中藥湯劑",
+    "part_of_speech": "名詞",
+    "example": "臣侍湯藥,未曾廢離 (李密《陳情表》)"
+  },
+  {
+    "word": "湯",
+    "type": "字詞糾正",
+    "original_definition": "水流盛大的樣子",
+    "part_of_speech": "形容詞",
+    "example": "淇水湯湯,漸車帷裳(《氓》)"
+  },
+  {
+    "word": "涕",
+    "type": "字詞糾正",
+    "original_definition": "哭泣",
+    "part_of_speech": "動詞",
+    "example": "兒涕而出(蒲松齡《促織》)"
+  },
+  {
+    "word": "涕",
+    "type": "字詞糾正",
+    "original_definition": "眼淚",
+    "part_of_speech": "名詞",
+    "example": "觀屈原所自沈淵,未嘗不垂涕(司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "徒",
+    "type": "字詞糾正",
+    "original_definition": "同伙,一類的人",
+    "part_of_speech": "名詞",
+    "example": "郯子之徒,其賢不及孔子 (韓愈《師說》)"
+  },
+  {
+    "word": "徒",
+    "type": "字詞糾正",
+    "original_definition": "徒然,白白地",
+    "part_of_speech": "副詞",
+    "example": "妾不堪驅使,徒留無所施 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "徒",
+    "type": "字詞糾正",
+    "original_definition": "只,僅僅",
+    "part_of_speech": "副詞",
+    "example": "非徒無益,而又害之(《孟子》)"
+  },
+  {
+    "word": "徒",
+    "type": "字詞糾正",
+    "original_definition": "刑徒此處指被徵發的人",
+    "part_of_speech": "名詞",
+    "example": "而遷徙之徒也(賈誼《過秦論》)"
+  },
+  {
+    "word": "亡",
+    "type": "字詞糾正",
+    "original_definition": "消逝",
+    "part_of_speech": "動詞",
+    "example": "寧溘死以流亡兮 (屈原《離騷(節選)》)"
+  },
+  {
+    "word": "亡",
+    "type": "字詞糾正",
+    "original_definition": "丟失",
+    "part_of_speech": "動詞",
+    "example": "諸侯之所亡(蘇洵《六國論》)"
+  },
+  {
+    "word": "亡",
+    "type": "字詞糾正",
+    "original_definition": "死亡",
+    "part_of_speech": "動詞",
+    "example": "凶年免於死亡(《齊桓晉文之事》)"
+  },
+  {
+    "word": "亡",
+    "type": "字詞糾正",
+    "original_definition": "滅亡",
+    "part_of_speech": "動詞",
+    "example": "然鄭亡,子亦有不利焉 (《燭之武退秦師》)"
+  },
+  {
+    "word": "亡",
+    "type": "通假字",
+    "original_definition": "同「無」,沒有",
+    "part_of_speech": "動詞",
+    "example": "且陛下春秋高,法令亡常 (班固《蘇武傳》)"
+  },
+  {
+    "word": "亡",
+    "type": "通假字",
+    "original_definition": "通「無」,無可奈何",
+    "part_of_speech": "",
+    "example": "亡可奈何"
+  },
+  {
+    "word": "王",
+    "type": "字詞糾正",
+    "original_definition": "一國的君主",
+    "part_of_speech": "名詞",
+    "example": "王欲行之,則盍反其本矣 (《齊桓晉文之事》)"
+  },
+  {
+    "word": "王",
+    "type": "字詞糾正",
+    "original_definition": "稱王",
+    "part_of_speech": "動詞",
+    "example": "沛公欲王關中(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "望",
+    "type": "字詞糾正",
+    "original_definition": "遠看,觀察",
+    "part_of_speech": "動詞",
+    "example": "吾嘗跂而望矣(《勸學》)"
+  },
+  {
+    "word": "望",
+    "type": "字詞糾正",
+    "original_definition": "盼望",
+    "part_of_speech": "動詞",
+    "example": "日夜望將軍至,豈敢反乎 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "望",
+    "type": "字詞糾正",
+    "original_definition": "農歷的每月十五日",
+    "part_of_speech": "名詞",
+    "example": "七月既望(蘇軾《赤壁賦》)"
+  },
+  {
+    "word": "望",
+    "type": "字詞糾正",
+    "original_definition": "觀察",
+    "part_of_speech": "動詞",
+    "example": "吾令人望其氣(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "望",
+    "type": "字詞糾正",
+    "original_definition": "名望,聲望",
+    "part_of_speech": "名詞",
+    "example": "都督閻公之雅望(王勃《滕王閣序》)"
+  },
+  {
+    "word": "望",
+    "type": "字詞糾正",
+    "original_definition": "埋怨,怨恨",
+    "part_of_speech": "動詞",
+    "example": "若望僕不相師 (司馬遷《報任安書》)"
+  },
+  {
+    "word": "惡",
+    "type": "字詞糾正",
+    "original_definition": "厭惡",
+    "part_of_speech": "動詞",
+    "example": "非惡其聲而然也 (《人皆有不忍人之心》)"
+  },
+  {
+    "word": "惡",
+    "type": "字詞糾正",
+    "original_definition": "貌醜",
+    "part_of_speech": "形容詞",
+    "example": "狀貌甚惡(司馬遷《史記》)"
+  },
+  {
+    "word": "惡",
+    "type": "字詞糾正",
+    "original_definition": "罪惡",
+    "part_of_speech": "名詞",
+    "example": "則思正身以黜惡(魏徵《諫太宗十思疏》)"
+  },
+  {
+    "word": "惡",
+    "type": "字詞糾正",
+    "original_definition": "疑問代詞,怎麼、哪裡",
+    "part_of_speech": "代詞",
+    "example": "以小易大,彼惡知之 (《齊桓晉文之事》)"
+  },
+  {
+    "word": "微",
+    "type": "字詞糾正",
+    "original_definition": "含蓄隱晦",
+    "part_of_speech": "形容詞",
+    "example": "其文約,其辭微,其志潔,其行廉 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "微",
+    "type": "字詞糾正",
+    "original_definition": "稍微,略微",
+    "part_of_speech": "副詞",
+    "example": "微風鼓浪,水石相搏 (蘇軾《石鍾山記》)"
+  },
+  {
+    "word": "微",
+    "type": "字詞糾正",
+    "original_definition": "沒有",
+    "part_of_speech": "動詞",
+    "example": "微夫人之力不及此 (《燭之武退秦師》)"
+  },
+  {
+    "word": "微",
+    "type": "字詞糾正",
+    "original_definition": "一寸的百萬分之一",
+    "part_of_speech": "名詞",
+    "example": "夫禍患常積於忽微(歐陽修《五代史伶官傳序》)"
+  },
+  {
+    "word": "微",
+    "type": "字詞糾正",
+    "original_definition": "地位卑微",
+    "part_of_speech": "形容詞",
+    "example": "猥以微賤(李密《陳情表》)"
+  },
+  {
+    "word": "悉",
+    "type": "字詞糾正",
+    "original_definition": "都,全",
+    "part_of_speech": "副詞",
+    "example": "懷王乃悉發國中兵 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "悉",
+    "type": "字詞糾正",
+    "original_definition": "詳盡地表達",
+    "part_of_speech": "動詞",
+    "example": "書不能悉意,故略陳固陋 (司馬遷《報任安書》)"
+  },
+  {
+    "word": "相",
+    "type": "字詞糾正",
+    "original_definition": "容貌,相貌",
+    "part_of_speech": "名詞",
+    "example": "兒已薄祿相(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "相",
+    "type": "字詞糾正",
+    "original_definition": "宰相,丞相",
+    "part_of_speech": "名詞",
+    "example": "使子嬰為相,珍寶盡有之 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "相",
+    "type": "字詞糾正",
+    "original_definition": "互相",
+    "part_of_speech": "副詞",
+    "example": "形影相弔(李密《陳情表》)"
+  },
+  {
+    "word": "相",
+    "type": "字詞糾正",
+    "original_definition": "表示動作偏指一方",
+    "part_of_speech": "副詞",
+    "example": "及時相遣歸(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "相",
+    "type": "字詞糾正",
+    "original_definition": "觀察",
+    "part_of_speech": "動詞",
+    "example": "悔相道之不察兮 (屈原《離騷(節選)》)"
+  },
+  {
+    "word": "謝",
+    "type": "字詞糾正",
+    "original_definition": "道歉,認錯",
+    "part_of_speech": "動詞",
+    "example": "旦日不可不蚤自來謝項王 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "謝",
+    "type": "字詞糾正",
+    "original_definition": "辭別",
+    "part_of_speech": "動詞",
+    "example": "往昔初陽歲,謝家來貴門 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "謝",
+    "type": "字詞糾正",
+    "original_definition": "感謝",
+    "part_of_speech": "動詞",
+    "example": "噲拜謝,起,立而飲之 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "謝",
+    "type": "字詞糾正",
+    "original_definition": "告訴,告知",
+    "part_of_speech": "動詞",
+    "example": "多謝後世人,戒之慎勿忘 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "謝",
+    "type": "字詞糾正",
+    "original_definition": "推辭,謝絕",
+    "part_of_speech": "動詞",
+    "example": "阿母謝媒人(《孔雀東南飛並序》)"
+  },
+  {
+    "word": "信",
+    "type": "字詞糾正",
+    "original_definition": "使者,指媒人",
+    "part_of_speech": "名詞",
+    "example": "自可斷來信,徐徐更謂之 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "信",
+    "type": "字詞糾正",
+    "original_definition": "信用",
+    "part_of_speech": "名詞",
+    "example": "信義安所見乎(班固《蘇武傳》)"
+  },
+  {
+    "word": "信",
+    "type": "字詞糾正",
+    "original_definition": "信物,憑證",
+    "part_of_speech": "名詞",
+    "example": "今行而無信,則秦未可親也 (《荊軻刺秦王》)"
+  },
+  {
+    "word": "信",
+    "type": "字詞糾正",
+    "original_definition": "相信",
+    "part_of_speech": "動詞",
+    "example": "楚懷王貪而信張儀 (司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "信",
+    "type": "字詞糾正",
+    "original_definition": "確實,實在,果真",
+    "part_of_speech": "副詞",
+    "example": "足以極視聽之娛,信可樂也 (王羲之《蘭亭集序》)"
+  },
+  {
+    "word": "信",
+    "type": "字詞糾正",
+    "original_definition": "隨意,任憑",
+    "part_of_speech": "動詞",
+    "example": "低眉信手續續彈 (白居易《琵琶行 並序》)"
+  },
+  {
+    "word": "興",
+    "type": "字詞糾正",
+    "original_definition": "起",
+    "part_of_speech": "動詞",
+    "example": "積土成山,風雨興焉(《勸學》)"
+  },
+  {
+    "word": "興",
+    "type": "字詞糾正",
+    "original_definition": "起,起床",
+    "part_of_speech": "動詞",
+    "example": "夙興夜寐,靡有朝矣(《氓》)"
+  },
+  {
+    "word": "興",
+    "type": "字詞糾正",
+    "original_definition": "發生、引起",
+    "part_of_speech": "動詞",
+    "example": "猶不能不以之興懷 (王羲之《蘭亭集序》)"
+  },
+  {
+    "word": "興",
+    "type": "字詞糾正",
+    "original_definition": "興起",
+    "part_of_speech": "動詞",
+    "example": "清風徐來,水波不興(蘇軾《赤壁賦》)"
+  },
+  {
+    "word": "興",
+    "type": "字詞糾正",
+    "original_definition": "興辦,舉辦",
+    "part_of_speech": "動詞",
+    "example": "政通人和,百廢具興(範仲淹《岳陽樓記》)"
+  },
+  {
+    "word": "興",
+    "type": "字詞糾正",
+    "original_definition": "興趣,興致",
+    "part_of_speech": "名詞",
+    "example": "遙襟甫暢,逸興遄飛 (王勃《滕王閣序》)"
+  },
+  {
+    "word": "興",
+    "type": "字詞糾正",
+    "original_definition": "發動",
+    "part_of_speech": "動詞",
+    "example": "抑王興甲兵,危士臣 (《齊桓晉文之事》)"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "行走",
+    "part_of_speech": "動詞",
+    "example": "三人行,則必有我師(韓愈《師說》)"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "行為,作為",
+    "part_of_speech": "名詞",
+    "example": "大行不顧細謹(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "品行",
+    "part_of_speech": "名詞",
+    "example": "則知明而行無過矣(《勸學》)"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "輩分",
+    "part_of_speech": "名詞",
+    "example": "漢天子我丈人行也 (班固《蘇武傳》)"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "去,前往",
+    "part_of_speech": "動詞",
+    "example": "懷王欲行(司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "經歷",
+    "part_of_speech": "動詞",
+    "example": "行年四歲,舅奪母志 (李密《陳情表》)"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "遵行,推行",
+    "part_of_speech": "動詞",
+    "example": "余嘉其能行古道(韓愈《師說》)"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "將要",
+    "part_of_speech": "副詞",
+    "example": "感吾生之行休 (陶淵明《歸去來兮辭並序》)"
+  },
+  {
+    "word": "行",
+    "type": "字詞糾正",
+    "original_definition": "古代軍制單位,又指作戰隊伍的行列",
+    "part_of_speech": "名詞",
+    "example": "躡足行伍之間(賈誼《過秦論》)"
+  },
+  {
+    "word": "幸",
+    "type": "字詞糾正",
+    "original_definition": "希望",
+    "part_of_speech": "副詞",
+    "example": "幸可廣問訊,不得便相許 (《孔雀東南飛並序》)"
+  },
+  {
+    "word": "幸",
+    "type": "字詞糾正",
+    "original_definition": "幸虧,幸而",
+    "part_of_speech": "副詞",
+    "example": "今事有急,故幸來告良 (司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "幸",
+    "type": "字詞糾正",
+    "original_definition": "指君主寵愛女子",
+    "part_of_speech": "動詞",
+    "example": "今入關,財物無所取,婦女無所幸(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "幸",
+    "type": "字詞糾正",
+    "original_definition": "皇帝到某處",
+    "part_of_speech": "動詞",
+    "example": "縵立遠視,而望幸焉 (杜牧《阿房宮賦》)"
+  },
+  {
+    "word": "修",
+    "type": "字詞糾正",
+    "original_definition": "修建,修造",
+    "part_of_speech": "動詞",
+    "example": "余稍為修葺(歸有光《項脊軒志》)"
+  },
+  {
+    "word": "修",
+    "type": "字詞糾正",
+    "original_definition": "長,高",
+    "part_of_speech": "形容詞",
+    "example": "此地有崇山峻嶺,茂林修竹 (王羲之《蘭亭集序》)"
+  },
+  {
+    "word": "修",
+    "type": "字詞糾正",
+    "original_definition": "做,從事",
+    "part_of_speech": "動詞",
+    "example": "修禊事也(王羲之《蘭亭集序》)"
+  },
+  {
+    "word": "修",
+    "type": "字詞糾正",
+    "original_definition": "施行",
+    "part_of_speech": "動詞",
+    "example": "則修文德以來之 (《季氏將伐顓臾》)"
+  },
+  {
+    "word": "修",
+    "type": "字詞糾正",
+    "original_definition": "善,美好",
+    "part_of_speech": "形容詞",
+    "example": "又重之以修能 (屈原《離騷(節選)》)"
+  },
+  {
+    "word": "要",
+    "type": "通假字",
+    "original_definition": "同「邀」,邀請",
+    "part_of_speech": "動詞",
+    "example": "張良出,要項伯(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "知",
+    "type": "通假字",
+    "original_definition": "同「智」,見識",
+    "part_of_speech": "名詞",
+    "example": "則知明而行無過矣(《勸學》)"
+  },
+  {
+    "word": "質",
+    "type": "通假字",
+    "original_definition": "同「贄」,見面禮",
+    "part_of_speech": "名詞",
+    "example": "厚幣委質事楚(司馬遷《屈原列傳》)"
+  },
+  {
+    "word": "坐",
+    "type": "通假字",
+    "original_definition": "同「座」,座位",
+    "part_of_speech": "名詞",
+    "example": "因擊沛公於坐(司馬遷《鴻門宴》)"
+  },
+  {
+    "word": "可",
+    "type": "字詞糾正",
+    "original_definition": "誤：可以。正：大約。",
+    "part_of_speech": "副詞",
+    "example": "潭中魚可百許頭，皆若空遊無所依"
+  },
+  {
+    "word": "扶",
+    "type": "字詞糾正",
+    "original_definition": "誤：攙扶。正：沿、順著。",
+    "part_of_speech": "介詞",
+    "example": "得其船，便扶向路，處處志之"
+  },
+  {
+    "word": "見",
+    "type": "通假字",
+    "original_definition": "同「現」",
+    "part_of_speech": "動詞",
+    "example": "舊時茅店社林邊，路轉溪頭忽見"
+  },
+  {
+    "word": "固",
+    "type": "字詞糾正",
+    "original_definition": "誤：頑固、固執。正：本來。",
+    "part_of_speech": "副詞",
+    "example": "今夫不受之天，固眾人，又不受之人"
+  },
+  {
+    "word": "或",
+    "type": "字詞糾正",
+    "original_definition": "誤：或許。正：有的人。",
+    "part_of_speech": "代詞",
+    "example": "或以為死或以為亡"
+  },
+  {
+    "word": "守",
+    "type": "字詞糾正",
+    "original_definition": "誤：防守、看護、監視。正：出任太守。",
+    "part_of_speech": "動詞",
+    "example": "滕子京謫守巴陵郡"
+  },
+  {
+    "word": "越",
+    "type": "字詞糾正",
+    "original_definition": "誤：超過、度過、相差。正：到。",
+    "part_of_speech": "動詞",
+    "example": "越明年，政通人和，百廢具興"
+  },
+  {
+    "word": "制",
+    "type": "字詞糾正",
+    "original_definition": "誤：制度、制服、製作。正：規模。",
+    "part_of_speech": "名詞",
+    "example": "乃重修岳陽樓，增其舊制"
+  },
+  {
+    "word": "勝",
+    "type": "字詞糾正",
+    "original_definition": "誤：勝利、能承受、超過。正：美好。",
+    "part_of_speech": "形容詞",
+    "example": "予觀夫巴陵勝狀，在洞庭一湖"
+  },
+  {
+    "word": "觀",
+    "type": "字詞糾正",
+    "original_definition": "誤：遊覽、看法、建築。正：景觀。",
+    "part_of_speech": "名詞",
+    "example": "此則岳陽樓之大觀也"
+  },
+  {
+    "word": "騷人",
+    "type": "字詞糾正",
+    "original_definition": "誤：騷擾別人、憂愁的人、腥臭的人。正：詩人。",
+    "part_of_speech": "名詞",
+    "example": "遷客騷人，多會於此"
+  },
+  {
+    "word": "排",
+    "type": "字詞糾正",
+    "original_definition": "誤：分開、推開、疏通。正：衝向。",
+    "part_of_speech": "動詞",
+    "example": "陰風怒號，濁浪排空"
+  },
+  {
+    "word": "景",
+    "type": "字詞糾正",
+    "original_definition": "誤：景物、光明、大。正：日光。",
+    "part_of_speech": "名詞",
+    "example": "至若春和景明，波瀾不驚"
+  },
+  {
+    "word": "驚",
+    "type": "字詞糾正",
+    "original_definition": "誤：驚慌、令人恐懼、紛亂的樣子。正：起、動。",
+    "part_of_speech": "動詞",
+    "example": "至若春和景明，波瀾不驚"
+  },
+  {
+    "word": "一",
+    "type": "字詞糾正",
+    "original_definition": "誤：一旦、偶然。正：全部、滿。",
+    "part_of_speech": "副詞",
+    "example": "而或長煙一空，皓月千里"
+  },
+  {
+    "word": "答",
+    "type": "字詞糾正",
+    "original_definition": "誤：回答、答案、答謝。正：唱和。",
+    "part_of_speech": "動詞",
+    "example": "漁歌互答，此樂何極"
+  },
+  {
+    "word": "極",
+    "type": "字詞糾正",
+    "original_definition": "誤：極點、到達、邊際。正：窮盡。",
+    "part_of_speech": "動詞",
+    "example": "漁歌互答，此樂何極"
+  },
+  {
+    "word": "臨",
+    "type": "字詞糾正",
+    "original_definition": "誤：來臨、靠近。正：面對、迎著。",
+    "part_of_speech": "動詞",
+    "example": "寵辱皆忘，把酒臨風"
+  },
+  {
+    "word": "嘗",
+    "type": "字詞糾正",
+    "original_definition": "誤：嘗試、經歷、試探。正：曾經。",
+    "part_of_speech": "副詞",
+    "example": "予嘗求古仁人之心"
+  },
+  {
+    "word": "微",
+    "type": "字詞糾正",
+    "original_definition": "誤：細小、隱匿。正：沒有、如果不是。",
+    "part_of_speech": "動詞",
+    "example": "微斯人，吾誰與歸"
+  },
+  {
+    "word": "處",
+    "type": "字詞糾正",
+    "original_definition": "正：居於。",
+    "part_of_speech": "動詞",
+    "example": "不仁者，不可以久處約，不可以長處樂"
+  },
+  {
+    "word": "知",
+    "type": "字詞糾正",
+    "original_definition": "正：聰明。",
+    "part_of_speech": "形容詞",
+    "example": "仁者安仁，知者利仁"
+  },
+  {
+    "word": "欲",
+    "type": "字詞糾正",
+    "original_definition": "正：嚮往。",
+    "part_of_speech": "動詞",
+    "example": "富與貴，是人之所欲也"
+  },
+  {
+    "word": "處",
+    "type": "字詞糾正",
+    "original_definition": "正：接受。",
+    "part_of_speech": "動詞",
+    "example": "不以其道得之，不處也"
+  },
+  {
+    "word": "惡",
+    "type": "字詞糾正",
+    "original_definition": "正：厭惡。",
+    "part_of_speech": "動詞",
+    "example": "貧與賤，是人之所惡也"
+  },
+  {
+    "word": "終食",
+    "type": "字詞糾正",
+    "original_definition": "正：一頓飯的時間。",
+    "part_of_speech": "名詞",
+    "example": "君子無終食之間違仁"
+  },
+  {
+    "word": "造次",
+    "type": "字詞糾正",
+    "original_definition": "正：倉卒。",
+    "part_of_speech": "副詞",
+    "example": "造次必於是，顛沛必於是"
+  },
+  {
+    "word": "復",
+    "type": "字詞糾正",
+    "original_definition": "正：返回。",
+    "part_of_speech": "動詞",
+    "example": "克己復禮為仁"
+  },
+  {
+    "word": "歸",
+    "type": "字詞糾正",
+    "original_definition": "正：稱許。",
+    "part_of_speech": "動詞",
+    "example": "一日克己復禮，天下歸仁焉"
+  },
+  {
+    "word": "由",
+    "type": "字詞糾正",
+    "original_definition": "正：靠。",
+    "part_of_speech": "介詞",
+    "example": "為仁由己，而由人乎哉"
+  },
+  {
+    "word": "目",
+    "type": "字詞糾正",
+    "original_definition": "正：綱領。",
+    "part_of_speech": "名詞",
+    "example": "請問其目"
+  },
+  {
+    "word": "御",
+    "type": "字詞糾正",
+    "original_definition": "正：駕車。",
+    "part_of_speech": "動詞",
+    "example": "樊遲御"
+  },
+  {
+    "word": "養",
+    "type": "字詞糾正",
+    "original_definition": "正：飼養。",
+    "part_of_speech": "動詞",
+    "example": "至於犬馬，皆能有養"
+  },
+  {
+    "word": "幾",
+    "type": "字詞糾正",
+    "original_definition": "正：輕微。",
+    "part_of_speech": "副詞",
+    "example": "事父母幾諫，見志不從，又敬不違，勞而不怨"
+  },
+  {
+    "word": "志",
+    "type": "字詞糾正",
+    "original_definition": "正：心意。",
+    "part_of_speech": "名詞",
+    "example": "事父母幾諫，見志不從，又敬不違，勞而不怨"
+  },
+  {
+    "word": "勞",
+    "type": "字詞糾正",
+    "original_definition": "正：憂愁。",
+    "part_of_speech": "動詞",
+    "example": "見志不從，又敬不違，勞而不怨"
+  },
+  {
+    "word": "重",
+    "type": "字詞糾正",
+    "original_definition": "正：莊重。",
+    "part_of_speech": "形容詞",
+    "example": "君子不重則不威，學則不固"
+  },
+  {
+    "word": "固",
+    "type": "字詞糾正",
+    "original_definition": "正：牢固。",
+    "part_of_speech": "形容詞",
+    "example": "君子不重則不威，學則不固"
+  },
+  {
+    "word": "主",
+    "type": "字詞糾正",
+    "original_definition": "正：注重。",
+    "part_of_speech": "動詞",
+    "example": "主忠信"
+  },
+  {
+    "word": "長",
+    "type": "字詞糾正",
+    "original_definition": "正：經常。",
+    "part_of_speech": "副詞",
+    "example": "君子坦蕩蕩，小人長戚戚"
+  },
+  {
+    "word": "疚",
+    "type": "字詞糾正",
+    "original_definition": "正：痛苦。",
+    "part_of_speech": "動詞",
+    "example": "內省不疚，夫何憂何懼"
+  },
+  {
+    "word": "過",
+    "type": "字詞糾正",
+    "original_definition": "正：超過。",
+    "part_of_speech": "動詞",
+    "example": "君子恥其言而過其行"
+  },
+  {
+    "word": "質",
+    "type": "字詞糾正",
+    "original_definition": "正：本質。",
+    "part_of_speech": "名詞",
+    "example": "君子義以為質"
+  },
+  {
+    "word": "孫",
+    "type": "通假字",
+    "original_definition": "同「遜」，謙遜。",
+    "part_of_speech": "形容詞",
+    "example": "禮以行之，孫以出之，信以成之"
+  }
+];
+  
+  let currentFilter = 'all';
+  
+  function renderTable(data) {
+    const tbody = document.getElementById('vocabBody');
+    const countDiv = document.getElementById('vocabCount');
+    tbody.innerHTML = '';
+    
+    if (data.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 30px; color: var(--color-text-secondary);">沒有找到相符的字詞條目。</td></tr>';
+      countDiv.textContent = '共找到 0 個條目';
+      return;
+    }
+    
+    data.forEach(item => {
+      const tr = document.createElement('tr');
+      
+      const badgeClass = item.type === '通假字' ? 'badge-type tongjia' : 'badge-type correct';
+      const posHtml = item.part_of_speech ? `<span class="pos-tag">${item.part_of_speech}</span>` : '';
+      
+      tr.innerHTML = `
+        <td style="font-weight: bold; font-size: 16px; font-family: 'Noto Serif TC', serif; color: var(--color-text-primary);">${item.word}</td>
+        <td><span class="${badgeClass}">${item.type}</span></td>
+        <td>${posHtml}</td>
+        <td style="font-size: 13.5px; color: var(--color-text-primary);">${item.original_definition}</td>
+        <td style="font-size: 13px; font-style: italic; color: var(--color-text-secondary);">${item.example}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+    
+    countDiv.textContent = `共找到 ${data.length} 個條目`;
+  }
+  
+  function filterAndSearch() {
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    
+    const filtered = vocabData.filter(item => {
+      const matchesType = currentFilter === 'all' || item.type === currentFilter;
+      const matchesQuery = !query || 
+                           item.word.toLowerCase().includes(query) || 
+                           item.original_definition.toLowerCase().includes(query) || 
+                           item.part_of_speech.toLowerCase().includes(query) || 
+                           item.example.toLowerCase().includes(query);
+      return matchesType && matchesQuery;
+    });
+    
+    renderTable(filtered);
+  }
+  
+  function filterType(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = type;
+    filterAndSearch();
+  }
+  
+  document.getElementById('searchInput').addEventListener('input', filterAndSearch);
+  
+  // Initial Render
+  window.onload = () => {
+    renderTable(vocabData);
+  };
+</script>
+</body>
+</html>

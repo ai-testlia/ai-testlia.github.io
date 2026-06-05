@@ -1,0 +1,6724 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高中 十二篇範文模擬選擇題練習庫 | 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="s6_style.css">
+<style>
+  .quiz-container {
+    margin-top: 25px;
+  }
+  .setup-screen, .quiz-screen, .result-screen {
+    display: block;
+  }
+  .setup-screen.hidden, .quiz-screen.hidden, .result-screen.hidden {
+    display: none !important;
+  }
+  .mode-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 25px 0;
+  }
+  @media (max-width: 600px) {
+    .mode-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .mode-card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    border-top: 4px solid var(--color-classic-gold);
+  }
+  .mode-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-turkish-blue);
+    box-shadow: var(--shadow-md);
+  }
+  .mode-card h3 {
+    margin-top: 0;
+    color: var(--color-turkish-blue);
+    font-size: 1.25rem;
+  }
+  .text-select-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 5px;
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+  }
+  .text-btn {
+    padding: 10px;
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 6px;
+    font-size: 13.5px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .text-btn:hover, .text-btn.active {
+    background-color: var(--color-turkish-blue-light);
+    border-color: var(--color-turkish-blue);
+    color: var(--color-turkish-blue);
+  }
+  .option-card {
+    background: var(--color-background-secondary);
+    border: 1.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.2s;
+    font-size: 14.5px;
+    color: var(--color-text-primary);
+  }
+  .option-card:hover {
+    border-color: var(--color-classic-gold);
+    background-color: var(--color-classic-gold-light);
+  }
+  .option-card.correct {
+    background-color: rgba(46, 204, 113, 0.1) !important;
+    border-color: #2ecc71 !important;
+    color: #27ae60 !important;
+    font-weight: bold;
+  }
+  .option-card.wrong {
+    background-color: rgba(231, 76, 60, 0.1) !important;
+    border-color: #e74c3c !important;
+    color: #c0392b !important;
+  }
+  .option-label {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--color-turkish-blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .option-card.correct .option-label {
+    background-color: #2ecc71 !important;
+  }
+  .option-card.wrong .option-label {
+    background-color: #e74c3c !important;
+  }
+  .progress-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .progress-bar-bg {
+    flex: 1;
+    height: 8px;
+    background-color: var(--color-background-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background-color: var(--color-turkish-blue);
+    width: 0%;
+    transition: width 0.3s;
+  }
+  .quiz-info {
+    font-size: 13.5px;
+    color: var(--color-text-secondary);
+  }
+  .action-btn {
+    padding: 12px 24px;
+    background-color: var(--color-turkish-blue);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14.5px;
+    transition: background-color 0.2s;
+  }
+  .action-btn:hover {
+    background-color: var(--color-turkish-blue-hover);
+  }
+  .action-btn:disabled {
+    background-color: var(--color-text-secondary);
+    cursor: not-allowed;
+  }
+  .result-score {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--color-turkish-blue);
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Noto Serif TC', serif;
+  }
+  .score-desc {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: var(--color-text-primary);
+  }
+  .wrong-review-list {
+    margin-top: 25px;
+    border-top: 2.5px solid var(--color-border-gold);
+    padding-top: 20px;
+  }
+  .wrong-item {
+    border: 1px solid rgba(214, 48, 49, 0.2);
+    background: rgba(214, 48, 49, 0.01);
+    border-radius: var(--border-radius-md);
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+  .wrong-q {
+    font-weight: bold;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+  }
+  .wrong-ans {
+    font-size: 13px;
+    color: #27ae60;
+    margin-bottom: 5px;
+  }
+  .wrong-exp {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    border-top: 1px dashed var(--color-border-tertiary);
+    padding-top: 5px;
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-tag">高中・中國語文科</div>
+    <h1>十二篇範文模擬選擇題練習庫</h1>
+    <p>收錄高中 DSE 十二篇範文核心字詞釋義選擇題，支援「分篇精修」與「隨機挑戰」雙模式，即時詳解，強化字義記憶。</p>
+  </div>
+
+  <div class="quiz-container">
+    
+    <!-- 1. 設定畫面 -->
+    <div id="setupScreen" class="setup-screen">
+      <h2 class="serif" style="color: var(--color-turkish-blue); margin-bottom: 15px;">選擇練習模式</h2>
+      <div class="mode-grid">
+        <div class="mode-card" onclick="selectMode('random')">
+          <h3>🎲 隨機挑戰</h3>
+          <p style="font-size: 13px; color: var(--color-text-secondary);">從全部題庫中隨機抽取 20 題，進行綜合能力測試。</p>
+        </div>
+        <div class="mode-card" onclick="selectMode('text')">
+          <h3>📚 分篇精修</h3>
+          <p style="font-size: 13px; color: var(--color-text-secondary);">選擇特定的經典範文，針對該篇章字詞進行專項特訓。</p>
+        </div>
+      </div>
+      
+      <div id="textSelectSection" style="display: none; margin-top: 20px;">
+        <h3 class="serif" style="color: var(--color-turkish-blue); font-size: 1.1rem;">請點選範文篇章：</h3>
+        <div class="text-select-grid" id="textSelectGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 30px;">
+        <button id="startBtn" class="action-btn" disabled onclick="startQuiz()">開始作答</button>
+      </div>
+    </div>
+    
+    <!-- 2. 作答畫面 -->
+    <div id="quizScreen" class="quiz-screen hidden">
+      <div class="progress-container">
+        <span class="quiz-info" id="questionNum">第 1 / 10 題</span>
+        <div class="progress-bar-bg">
+          <div id="progressBarFill" class="progress-bar-fill"></div>
+        </div>
+        <span class="quiz-info" id="quizTimer">範文：--</span>
+      </div>
+      
+      <div class="qbox" style="background: none; border-color: var(--color-border-gold); padding: 25px;">
+        <div class="q-title" id="questionText" style="font-size: 1.2rem; font-weight: bold; line-height: 1.6; margin-bottom: 20px; color: var(--color-text-primary);">載入中...</div>
+        <div id="optionsContainer">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+      
+      <div id="explanationContainer" class="example-box" style="display: none; margin-top: 15px;">
+        <div class="example-label">💡 考點詳解與翻譯</div>
+        <p id="explanationText" style="margin: 0; font-size: 13.5px; color: var(--color-text-primary);"></p>
+      </div>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
+        <button class="filter-btn" onclick="exitQuiz()">放棄作答</button>
+        <button id="nextBtn" class="action-btn" disabled onclick="nextQuestion()">下一題</button>
+      </div>
+    </div>
+    
+    <!-- 3. 結果結算畫面 -->
+    <div id="resultScreen" class="result-screen hidden">
+      <h2 class="serif" style="color: var(--color-turkish-blue); text-align: center; margin-bottom: 10px;">練習完成！</h2>
+      <div class="result-score" id="resultScore">0 / 0</div>
+      <div class="score-desc" id="scoreDesc">做得不錯！繼續加油。</div>
+      
+      <div style="text-align: center; margin-bottom: 30px; display: flex; gap: 15px; justify-content: center;">
+        <button class="action-btn" onclick="resetQuiz()">再做一次</button>
+        <button class="filter-btn" onclick="resetQuiz()">返回主選單</button>
+      </div>
+      
+      <div id="wrongReviewSection" class="wrong-review-list hidden">
+        <h3 class="serif" style="color: #c0392b; font-size: 1.2rem; margin-bottom: 15px;">❌ 錯題回顧與解析</h3>
+        <div id="wrongItemsContainer">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="print-btn-container" style="border-top: 1px dashed var(--color-border-tertiary); padding-top: 20px;">
+    <a href="index.html" class="print-btn">↩️ 返回筆記總目錄</a>
+    <button onclick="window.print()" class="print-btn">🖨️ 列印此頁</button>
+  </div>
+
+  <footer class="note-footer">
+    <div class="copyright">
+      <strong>© 2026 潘SIR中文教室</strong><br>
+      版權所有，未經允許嚴禁以任何形式複製、轉載或商業使用。
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Embedded Quiz Data to bypass file:// CORS block
+  const questionsData = [
+  {
+    "id": "50",
+    "text_source": "論語",
+    "question": "「君子求諸己，小人求諸人」一句中的「求」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "探求"
+      },
+      {
+        "label": "B",
+        "text": "委託"
+      },
+      {
+        "label": "C",
+        "text": "要求"
+      },
+      {
+        "label": "D",
+        "text": "需求"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「求」在此句中意為要求、責求。「君子求諸己」指君子嚴格要求自己，「小人求諸人」指小人則推卸責任，要求別人。因此選「要求」。"
+  },
+  {
+    "id": "51",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「二者不可得兼」一句中的「兼」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "全部"
+      },
+      {
+        "label": "B",
+        "text": "同時"
+      },
+      {
+        "label": "C",
+        "text": "重複"
+      },
+      {
+        "label": "D",
+        "text": "加倍"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「兼」在此句中意為同時得到、同時擁有。整句翻譯為「這兩樣東西不可以同時得到」。"
+  },
+  {
+    "id": "52",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「舍魚而取熊掌者也」一句中的「舍」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "施捨"
+      },
+      {
+        "label": "B",
+        "text": "保留"
+      },
+      {
+        "label": "C",
+        "text": "捨棄"
+      },
+      {
+        "label": "D",
+        "text": "離開"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「舍」在此句中意為捨棄、放棄。整句翻譯為「捨棄魚而選取熊掌的人啊」。"
+  },
+  {
+    "id": "53",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「所惡有甚於死者，故患有所不辟也」一句中的「患」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "疾病"
+      },
+      {
+        "label": "B",
+        "text": "憂慮"
+      },
+      {
+        "label": "C",
+        "text": "弊病"
+      },
+      {
+        "label": "D",
+        "text": "禍患"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「患」在此句中意為禍患、災禍。整句翻譯為「有比死亡更厭惡的事情，所以有些禍患是不會躲避的」。"
+  },
+  {
+    "id": "54",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「所惡有甚於死者，故患有所不辟也」一句中的「辟」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "治理"
+      },
+      {
+        "label": "B",
+        "text": "驅除"
+      },
+      {
+        "label": "C",
+        "text": "躲避"
+      },
+      {
+        "label": "D",
+        "text": "乖僻"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「辟」在此句中是「避」的通假字，意為躲避、避開。整句翻譯為「有比死亡更厭惡的事情，所以有些禍患是不會躲避的」。"
+  },
+  {
+    "id": "55",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「如使人之所欲莫甚於生，則凡可以辟患者，何不為也」一句中的「甚」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "超過"
+      },
+      {
+        "label": "B",
+        "text": "非常"
+      },
+      {
+        "label": "C",
+        "text": "過分"
+      },
+      {
+        "label": "D",
+        "text": "甚麼"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「甚」在此句中意為超過。整句翻譯為「如果人們所喜愛的沒有比生命更甚的，那麼凡是可以躲避禍患的，為何不去做呢？」"
+  },
+  {
+    "id": "56",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「使人之所惡莫甚於死者，則凡可以辟患者，何不為也」一句中的「使」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "使用"
+      },
+      {
+        "label": "B",
+        "text": "如果"
+      },
+      {
+        "label": "C",
+        "text": "派遣"
+      },
+      {
+        "label": "D",
+        "text": "讓"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「使」在此句中意為假設、如果。整句翻譯為「如果人們所厭惡的沒有比死亡更甚的，那麼凡是可以躲避禍患的，為何不去做呢？」"
+  },
+  {
+    "id": "57",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「使人之所惡莫甚於死者，則凡可以辟患者，何不為也」一句中的「為」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "向"
+      },
+      {
+        "label": "B",
+        "text": "行為"
+      },
+      {
+        "label": "C",
+        "text": "幫助"
+      },
+      {
+        "label": "D",
+        "text": "做"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「為」在此句中意為做、實行。整句翻譯為「凡是可以躲避禍患的，為何不去做呢？」"
+  },
+  {
+    "id": "58",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「非獨賢者有是心也」一句中的「心」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "心臟"
+      },
+      {
+        "label": "B",
+        "text": "中心"
+      },
+      {
+        "label": "C",
+        "text": "本性"
+      },
+      {
+        "label": "D",
+        "text": "思想"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「心」在此句中意為本性、良知，指人固有的是非之心。整句翻譯為「不僅賢能的人有這種本性」。"
+  },
+  {
+    "id": "59",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「一簞食，一豆羹」一句中的「簞」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "桌子"
+      },
+      {
+        "label": "B",
+        "text": "竹筐"
+      },
+      {
+        "label": "C",
+        "text": "瓦碗"
+      },
+      {
+        "label": "D",
+        "text": "粗糙"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「簞」在此句中意為盛飯用的竹製圓形器皿，即竹筐。整句翻譯為「一竹筐的飯，一豆碗的羹」。"
+  },
+  {
+    "id": "60",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「一簞食，一豆羹」一句中的「食」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "食物"
+      },
+      {
+        "label": "B",
+        "text": "糧食"
+      },
+      {
+        "label": "C",
+        "text": "進食"
+      },
+      {
+        "label": "D",
+        "text": "俸祿"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「食」在此句中作名詞，意為食物、飯食。整句翻譯為「一竹筐的飯，一豆碗的羹」。"
+  },
+  {
+    "id": "61",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「嘑爾而與之，行道之人弗受」一句中「嘑爾」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "將氣體排出體外"
+      },
+      {
+        "label": "B",
+        "text": "沒禮貌的樣子"
+      },
+      {
+        "label": "C",
+        "text": "大聲地呼喝着"
+      },
+      {
+        "label": "D",
+        "text": "叫人來"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「嘑爾」在此句中是形容詞，指大聲呼喝的樣子，帶有輕蔑之意。整句翻譯為「大聲呼喝地給他，路過的人也不會接受」。"
+  },
+  {
+    "id": "62",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「嘑爾而與之，行道之人弗受」一句中的「與」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "獎賞"
+      },
+      {
+        "label": "B",
+        "text": "償還"
+      },
+      {
+        "label": "C",
+        "text": "給予"
+      },
+      {
+        "label": "D",
+        "text": "幫助"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「與」在此句中意為給予、施予。整句翻譯為「大聲呼喝地給他，路過的人也不會接受」。"
+  },
+  {
+    "id": "63",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「蹴爾而與之，乞人不屑也」一句中的「蹴」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "踐踏"
+      },
+      {
+        "label": "B",
+        "text": "踢腳"
+      },
+      {
+        "label": "C",
+        "text": "驚悚"
+      },
+      {
+        "label": "D",
+        "text": "蹲坐"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「蹴」在此句中意為用腳踢、踐踏，形容輕蔑無禮的動作。整句翻譯為「用腳踢着給他，乞丐也不屑於接受」。"
+  },
+  {
+    "id": "64",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「萬鍾則不辯禮義而受之」一句中「萬鍾」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "一萬個樂鐘"
+      },
+      {
+        "label": "B",
+        "text": "優厚的俸祿"
+      },
+      {
+        "label": "C",
+        "text": "眾多的器皿"
+      },
+      {
+        "label": "D",
+        "text": "不同的器皿"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「萬鍾」在此句中借指優厚的俸祿，因為「鍾」是古代的量器，用來衡量穀物，萬鍾即數量極多的穀物。整句翻譯為「萬鍾的俸祿，則不辨別是否合乎禮義就接受它」。"
+  },
+  {
+    "id": "65",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「萬鍾則不辯禮義而受之」一句中的「辯」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "治理"
+      },
+      {
+        "label": "B",
+        "text": "爭辯"
+      },
+      {
+        "label": "C",
+        "text": "糾正"
+      },
+      {
+        "label": "D",
+        "text": "辨別"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「辯」在此句中意為辨別、分辨。整句翻譯為「萬鍾的俸祿，則不辨別是否合乎禮義就接受它」。"
+  },
+  {
+    "id": "66",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「萬鍾於我何加焉？」一句中的「加」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "褒獎"
+      },
+      {
+        "label": "B",
+        "text": "增益"
+      },
+      {
+        "label": "C",
+        "text": "加添"
+      },
+      {
+        "label": "D",
+        "text": "更加"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「加」在此句中意為增加、益處。整句翻譯為「萬鍾俸祿對我有什麼增益呢？」。"
+  },
+  {
+    "id": "67",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「為宮室之美、妻妾之奉、所識窮乏者得我與？」一句中「宮室」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "居室"
+      },
+      {
+        "label": "B",
+        "text": "宮殿"
+      },
+      {
+        "label": "C",
+        "text": "家人"
+      },
+      {
+        "label": "D",
+        "text": "妻子"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「宮室」在此句中指宏偉華麗的房屋，即宮殿。整句翻譯為「為了宮殿的華美、妻妾的侍奉、所認識的貧困者感激我嗎？」"
+  },
+  {
+    "id": "68",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「為宮室之美、妻妾之奉、所識窮乏者得我與？」一句中的「奉」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "捧着"
+      },
+      {
+        "label": "B",
+        "text": "推崇"
+      },
+      {
+        "label": "C",
+        "text": "侍奉"
+      },
+      {
+        "label": "D",
+        "text": "供養"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「奉」在此句中意為侍奉、服侍。整句翻譯為「為了宮殿的華美、妻妾的侍奉、所認識的貧困者感激我嗎？」"
+  },
+  {
+    "id": "69",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「為宮室之美、妻妾之奉、所識窮乏者得我與？」一句中的「得」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "感激"
+      },
+      {
+        "label": "B",
+        "text": "獲取"
+      },
+      {
+        "label": "C",
+        "text": "契合"
+      },
+      {
+        "label": "D",
+        "text": "滿足"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「得」在此句中意為得到別人的好處而對其感激。整句翻譯為「為了宮殿的華美、妻妾的侍奉、所認識的貧困者感激我嗎？」"
+  },
+  {
+    "id": "70",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「鄉為身死而不受，今為宮室之美為之」一句中的「鄉」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "故鄉"
+      },
+      {
+        "label": "B",
+        "text": "地方"
+      },
+      {
+        "label": "C",
+        "text": "嚮往"
+      },
+      {
+        "label": "D",
+        "text": "昔日"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「鄉」在此句中是「向」的通假字，意為從前、昔日。整句翻譯為「從前為了身體的緣故，即使餓死也不接受，現在卻為了宮殿的華美而接受它」。"
+  },
+  {
+    "id": "71",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「鄉為身死而不受，今為所識窮乏者得我而為之」一句中的「受」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "接受"
+      },
+      {
+        "label": "B",
+        "text": "授與"
+      },
+      {
+        "label": "C",
+        "text": "忍受"
+      },
+      {
+        "label": "D",
+        "text": "容納"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「受」在此句中意為接受。整句翻譯為「從前為了身體的緣故，即使餓死也不接受，現在卻為了自己所認識的貧困者感激自己而接受它」。"
+  },
+  {
+    "id": "72",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「鄉為身死而不受，今為所識窮乏者得我而為之」一句中的「為」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "擔任"
+      },
+      {
+        "label": "B",
+        "text": "變成"
+      },
+      {
+        "label": "C",
+        "text": "接受"
+      },
+      {
+        "label": "D",
+        "text": "建立"
+      }
+    ],
+    "answer": "C",
+    "explanation": "句中第二個「為」字，即「而為之」的「為」，意指做這件事，也就是接受萬鍾俸祿。選項中「接受」最為貼切。整句翻譯為「從前為了身體的緣故，即使餓死也不接受，現在卻為了自己所認識的貧困者感激自己而接受它」。"
+  },
+  {
+    "id": "73",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「是亦不可以已乎？」一句中的「已」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "後來"
+      },
+      {
+        "label": "B",
+        "text": "過來"
+      },
+      {
+        "label": "C",
+        "text": "太過"
+      },
+      {
+        "label": "D",
+        "text": "停止"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「已」在此句中意為停止。整句翻譯為「這不也可以停止這種行為嗎？」。"
+  },
+  {
+    "id": "74",
+    "text_source": "孟子．魚我所欲也",
+    "question": "「此之謂失其本心」一句中的「失」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "違背"
+      },
+      {
+        "label": "B",
+        "text": "喪失"
+      },
+      {
+        "label": "C",
+        "text": "錯誤"
+      },
+      {
+        "label": "D",
+        "text": "改變"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「失」在此句中意為喪失、失去。整句翻譯為「這就叫做喪失了人的本性」。"
+  },
+  {
+    "id": "75",
+    "text_source": "蘇洵《六國論》",
+    "question": "「六國破滅，非兵不利，戰不善」一句中的「兵」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "兵器"
+      },
+      {
+        "label": "B",
+        "text": "戰士"
+      },
+      {
+        "label": "C",
+        "text": "軍隊"
+      },
+      {
+        "label": "D",
+        "text": "軍事"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「兵」在此句中意為兵器，引申為武力。整句翻譯為「六國破滅，並不是因為兵器不鋒利，戰鬥不善於」。"
+  },
+  {
+    "id": "76",
+    "text_source": "蘇洵《六國論》",
+    "question": "「弊在賂秦」一句中的「弊」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "罪行"
+      },
+      {
+        "label": "B",
+        "text": "害處"
+      },
+      {
+        "label": "C",
+        "text": "弊病"
+      },
+      {
+        "label": "D",
+        "text": "敗壞"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「弊」在此句中意為弊病、禍害。整句翻譯為「弊病在於賄賂秦國」。"
+  },
+  {
+    "id": "77",
+    "text_source": "蘇洵《六國論》",
+    "question": "「賂秦而力虧，破滅之道也」一句中的「道」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "道路"
+      },
+      {
+        "label": "B",
+        "text": "道理"
+      },
+      {
+        "label": "C",
+        "text": "方法"
+      },
+      {
+        "label": "D",
+        "text": "技巧"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「道」在此句中意為道理、原因。整句翻譯為「賄賂秦國而國力虧損，這是滅亡的道理」。"
+  },
+  {
+    "id": "78",
+    "text_source": "蘇洵《六國論》",
+    "question": "「六國互喪，率賂秦耶」一句中的「喪」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "失去"
+      },
+      {
+        "label": "B",
+        "text": "死亡"
+      },
+      {
+        "label": "C",
+        "text": "消耗"
+      },
+      {
+        "label": "D",
+        "text": "滅亡"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「喪」在此句中意為滅亡。整句翻譯為「六國相繼滅亡，大都是因為賄賂秦國吧？」。"
+  },
+  {
+    "id": "79",
+    "text_source": "蘇洵《六國論》",
+    "question": "「六國互喪，率賂秦耶」一句中的「率」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "大概"
+      },
+      {
+        "label": "B",
+        "text": "將帥"
+      },
+      {
+        "label": "C",
+        "text": "全部"
+      },
+      {
+        "label": "D",
+        "text": "坦白"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「率」在此句中意為全部、大都。整句翻譯為「六國相繼滅亡，大都是因為賄賂秦國吧？」。"
+  },
+  {
+    "id": "80",
+    "text_source": "蘇洵《六國論》",
+    "question": "「蓋失強援，不能獨完」一句中的「完」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "保全"
+      },
+      {
+        "label": "B",
+        "text": "完善"
+      },
+      {
+        "label": "C",
+        "text": "完結"
+      },
+      {
+        "label": "D",
+        "text": "整理"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「完」在此句中意為保全、完整。整句翻譯為「因為失去了強大的援手，不能單獨保全自己」。"
+  },
+  {
+    "id": "81",
+    "text_source": "蘇洵《六國論》",
+    "question": "「較秦之所得，與戰勝而得者，其實百倍」一句中的「實」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "財物"
+      },
+      {
+        "label": "B",
+        "text": "實際情況"
+      },
+      {
+        "label": "C",
+        "text": "堅實"
+      },
+      {
+        "label": "D",
+        "text": "確實"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「實」在此句中用作副詞，意為確實、實在。整句翻譯為「比較秦國賄賂所得，與戰勝而得到的，確實相差百倍」。"
+  },
+  {
+    "id": "82",
+    "text_source": "蘇洵《六國論》",
+    "question": "「諸侯之所亡，與戰敗而亡者，其實亦百倍」一句中的「亡」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "逃亡"
+      },
+      {
+        "label": "B",
+        "text": "沒有"
+      },
+      {
+        "label": "C",
+        "text": "滅亡"
+      },
+      {
+        "label": "D",
+        "text": "喪失"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「亡」在此句中意為喪失、失去。整句翻譯為「諸侯們因賄賂秦國而喪失的土地，與戰敗而喪失的，確實也相差百倍」。"
+  },
+  {
+    "id": "83",
+    "text_source": "蘇洵《六國論》",
+    "question": "「則秦之所大欲，諸侯之所大患」一句中的「欲」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "需要"
+      },
+      {
+        "label": "B",
+        "text": "期望"
+      },
+      {
+        "label": "C",
+        "text": "慾望"
+      },
+      {
+        "label": "D",
+        "text": "愛好"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「欲」在此句中作名詞，意為慾望、貪念。整句翻譯為「那麼秦國最大的慾望，就是諸侯們最大的禍患」。"
+  },
+  {
+    "id": "84",
+    "text_source": "蘇洵《六國論》",
+    "question": "「思厥先祖父，暴霜露，斬荊棘」一句中的「暴」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "猛烈"
+      },
+      {
+        "label": "B",
+        "text": "暴露"
+      },
+      {
+        "label": "C",
+        "text": "抵抗"
+      },
+      {
+        "label": "D",
+        "text": "突然"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「暴」在此句中意為暴露、遭受。整句翻譯為「想到他們的祖輩，冒着霜露，砍伐荊棘」。"
+  },
+  {
+    "id": "85",
+    "text_source": "蘇洵《六國論》",
+    "question": "「子孫視之不甚惜，舉以予人」一句中的「舉」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "雙手捧着"
+      },
+      {
+        "label": "B",
+        "text": "提出"
+      },
+      {
+        "label": "C",
+        "text": "推選"
+      },
+      {
+        "label": "D",
+        "text": "攻克"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「舉」在此句中意為拿、捧着。此處指輕易地拿出。整句翻譯為「子孫看待這些土地不怎麼珍惜，輕易地拿出來給別人」。"
+  },
+  {
+    "id": "86",
+    "text_source": "蘇洵《六國論》",
+    "question": "「起視四境，而秦兵又至矣」一句中的「境」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "處所"
+      },
+      {
+        "label": "B",
+        "text": "邊境"
+      },
+      {
+        "label": "C",
+        "text": "環境"
+      },
+      {
+        "label": "D",
+        "text": "境況"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「境」在此句中意為邊境、疆界。整句翻譯為「起身看四周的邊境，而秦國的軍隊又打過來了」。"
+  },
+  {
+    "id": "87",
+    "text_source": "蘇洵《六國論》",
+    "question": "「然則諸侯之地有限，暴秦之欲無厭」一句中的「暴」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "急躁的"
+      },
+      {
+        "label": "B",
+        "text": "強暴的"
+      },
+      {
+        "label": "C",
+        "text": "厲害的"
+      },
+      {
+        "label": "D",
+        "text": "傲慢的"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「暴」在此句中意為強暴的、殘暴的。整句翻譯為「然而諸侯的土地有限，強暴秦國的慾望沒有滿足的時候」。"
+  },
+  {
+    "id": "88",
+    "text_source": "蘇洵《六國論》",
+    "question": "「奉之彌繁，侵之愈急」一句中的「彌」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "充滿"
+      },
+      {
+        "label": "B",
+        "text": "長久"
+      },
+      {
+        "label": "C",
+        "text": "遍佈"
+      },
+      {
+        "label": "D",
+        "text": "更加"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「彌」在此句中意為更加、越發。整句翻譯為「侍奉得越是頻繁，秦國侵略得越是急迫」。"
+  },
+  {
+    "id": "89",
+    "text_source": "蘇洵《六國論》",
+    "question": "「故不戰而強弱勝負已判矣」一句中的「判」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "判決"
+      },
+      {
+        "label": "B",
+        "text": "分辨"
+      },
+      {
+        "label": "C",
+        "text": "一分為二"
+      },
+      {
+        "label": "D",
+        "text": "明顯"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「判」在此句中意為分明、顯著。整句翻譯為「所以不用交戰，強弱勝負的結局已經很明顯了」。"
+  },
+  {
+    "id": "90",
+    "text_source": "蘇洵《六國論》",
+    "question": "「至於顛覆，理固宜然」一句中的「固」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "鞏固"
+      },
+      {
+        "label": "B",
+        "text": "堅定"
+      },
+      {
+        "label": "C",
+        "text": "本來"
+      },
+      {
+        "label": "D",
+        "text": "當然"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「固」在此句中意為本來、原來。整句翻譯為「至於滅亡，道理上本來就是如此」。"
+  },
+  {
+    "id": "91",
+    "text_source": "蘇洵《六國論》",
+    "question": "「以地事秦，猶抱薪救火」一句中的「事」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "侍奉"
+      },
+      {
+        "label": "B",
+        "text": "任用"
+      },
+      {
+        "label": "C",
+        "text": "從事"
+      },
+      {
+        "label": "D",
+        "text": "治理"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「事」在此句中意為侍奉、服事。整句翻譯為「用土地侍奉秦國，就像抱着柴草去救火一樣」。"
+  },
+  {
+    "id": "92",
+    "text_source": "蘇洵《六國論》",
+    "question": "「五國既喪，齊亦不免矣」一句中的「免」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "避開"
+      },
+      {
+        "label": "B",
+        "text": "脫去"
+      },
+      {
+        "label": "C",
+        "text": "倖免"
+      },
+      {
+        "label": "D",
+        "text": "罷黜"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「免」在此句中意為倖免、避免。整句翻譯為「五國既然滅亡了，齊國也未能倖免」。"
+  },
+  {
+    "id": "93",
+    "text_source": "蘇洵《六國論》",
+    "question": "「至丹以荊卿為計，始速禍焉」一句中的「速」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "邀請"
+      },
+      {
+        "label": "B",
+        "text": "速度"
+      },
+      {
+        "label": "C",
+        "text": "迅速"
+      },
+      {
+        "label": "D",
+        "text": "招致"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「速」在此句中意為招致、引來。整句翻譯為「到了燕太子丹把刺客荊軻的刺殺行動作為計策，才開始招來禍患」。"
+  },
+  {
+    "id": "94",
+    "text_source": "蘇洵《六國論》",
+    "question": "「後秦擊趙者再，李牧連卻之」一句中的「卻」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "擊退"
+      },
+      {
+        "label": "B",
+        "text": "推辭"
+      },
+      {
+        "label": "C",
+        "text": "停止"
+      },
+      {
+        "label": "D",
+        "text": "後退"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「卻」在此句中意為擊退。整句翻譯為「後來秦國兩次攻打趙國，李牧連續擊退了秦軍」。"
+  },
+  {
+    "id": "95",
+    "text_source": "蘇洵《六國論》",
+    "question": "「則勝負之數，存亡之理，當與秦相較，或未易量」一句中的「理」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "治理"
+      },
+      {
+        "label": "B",
+        "text": "區分"
+      },
+      {
+        "label": "C",
+        "text": "因數"
+      },
+      {
+        "label": "D",
+        "text": "法理"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「理」在此句中意為事理、道理、法則。整句翻譯為「那麼勝敗的定數，存亡的道理，如果與秦國比較，或許還不容易衡量」。"
+  },
+  {
+    "id": "96",
+    "text_source": "蘇洵《六國論》",
+    "question": "「以事秦之心，禮天下之奇才」一句中的「禮」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "禮遇"
+      },
+      {
+        "label": "B",
+        "text": "禮貌"
+      },
+      {
+        "label": "C",
+        "text": "法度"
+      },
+      {
+        "label": "D",
+        "text": "祭神"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「禮」在此句中作動詞，意為以禮相待、禮遇。整句翻譯為「如果用侍奉秦國的心，去禮遇天下的奇才」。"
+  },
+  {
+    "id": "97",
+    "text_source": "蘇洵《六國論》",
+    "question": "「日削月割，以趨於亡」一句中的「趨」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "趨勢"
+      },
+      {
+        "label": "B",
+        "text": "跑"
+      },
+      {
+        "label": "C",
+        "text": "催促"
+      },
+      {
+        "label": "D",
+        "text": "走向"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「趨」在此句中意為走向、趨向。整句翻譯為「每天被侵蝕、每月被割讓，以致走向滅亡」。"
+  },
+  {
+    "id": "98",
+    "text_source": "蘇洵《六國論》",
+    "question": "「為國者無使為積威之所劫哉」一句中的「劫」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "搶奪"
+      },
+      {
+        "label": "B",
+        "text": "劫難"
+      },
+      {
+        "label": "C",
+        "text": "脅迫"
+      },
+      {
+        "label": "D",
+        "text": "破壞"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「劫」在此句中意為劫持、脅迫。整句翻譯為「治理國家的人不要被累積的威勢所脅迫啊」。"
+  },
+  {
+    "id": "99",
+    "text_source": "蘇洵《六國論》",
+    "question": "「其勢弱於秦，而猶有可以不賂而勝之之勢」一句中的「勢」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "氣勢"
+      },
+      {
+        "label": "B",
+        "text": "形勢"
+      },
+      {
+        "label": "C",
+        "text": "力量"
+      },
+      {
+        "label": "D",
+        "text": "權勢"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「勢」在此句中意為形勢、態勢。整句翻譯為「雖然他們的形勢比秦國弱，但仍然有不賄賂就能戰勝秦國的機會」。"
+  },
+  {
+    "id": "100",
+    "text_source": "韓愈《師說》",
+    "question": "「古之學者必有師」一句中的「師」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "老師"
+      },
+      {
+        "label": "B",
+        "text": "首領"
+      },
+      {
+        "label": "C",
+        "text": "軍隊"
+      },
+      {
+        "label": "D",
+        "text": "學習"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「師」在此句中意為老師，傳授知識、解答疑惑的人。整句翻譯為「古代求學的人必定有老師」。"
+  },
+  {
+    "id": "101",
+    "text_source": "韓愈《師說》",
+    "question": "「師者，所以傳道、受業、解惑也」一句中的「傳」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "留傳"
+      },
+      {
+        "label": "B",
+        "text": "著作"
+      },
+      {
+        "label": "C",
+        "text": "教授"
+      },
+      {
+        "label": "D",
+        "text": "傳導"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「傳」在此句中意為教授、傳授。整句翻譯為「老師，是傳授道理、講授學業、解答疑惑的人」。"
+  },
+  {
+    "id": "102",
+    "text_source": "韓愈《師說》",
+    "question": "「惑而不從師，其為惑也終不解矣」一句中的「惑」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "迷戀"
+      },
+      {
+        "label": "B",
+        "text": "疑惑"
+      },
+      {
+        "label": "C",
+        "text": "煩惱"
+      },
+      {
+        "label": "D",
+        "text": "欺騙"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「惑」在此句中作名詞，意為疑惑、困惑。整句翻譯為「有疑惑而不跟隨老師學習，那麼他的疑惑終究不能解除」。"
+  },
+  {
+    "id": "103",
+    "text_source": "韓愈《師說》",
+    "question": "「生乎吾前，其聞道也，固先乎吾」一句中的「固」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "本來"
+      },
+      {
+        "label": "B",
+        "text": "堅定"
+      },
+      {
+        "label": "C",
+        "text": "安定"
+      },
+      {
+        "label": "D",
+        "text": "姑且"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「固」在此句中意為本來、原本。整句翻譯為「出生在我前面的人，他們懂得的道理，本來就比我早」。"
+  },
+  {
+    "id": "104",
+    "text_source": "韓愈《師說》",
+    "question": "「今之眾人，其下聖人也亦遠矣，而恥學於師」一句中的「下」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "下面"
+      },
+      {
+        "label": "B",
+        "text": "下拜"
+      },
+      {
+        "label": "C",
+        "text": "不及"
+      },
+      {
+        "label": "D",
+        "text": "攻下"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「下」在此句中作動詞，意為不如、不及。整句翻譯為「現在的眾人，他們不如聖人也差得很遠了，卻以向老師學習為恥」。"
+  },
+  {
+    "id": "105",
+    "text_source": "韓愈《師說》",
+    "question": "「是故聖益聖，愚益愚」一句中的「聖」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "聖人"
+      },
+      {
+        "label": "B",
+        "text": "智慧"
+      },
+      {
+        "label": "C",
+        "text": "帝王"
+      },
+      {
+        "label": "D",
+        "text": "通達事理"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「聖」在此句中是形容詞作名詞，指通達事理的狀態或人。此處更強調其特質。整句翻譯為「因此通達事理的人更加通達，愚昧的人更加愚昧」。"
+  },
+  {
+    "id": "106",
+    "text_source": "韓愈《師說》",
+    "question": "「是故聖益聖，愚益愚」一句中的「愚」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "愚昧的人"
+      },
+      {
+        "label": "B",
+        "text": "愚昧"
+      },
+      {
+        "label": "C",
+        "text": "欺騙"
+      },
+      {
+        "label": "D",
+        "text": "戇直"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「愚」在此句中是形容詞作名詞，指愚昧的人。整句翻譯為「因此通達事理的人更加通達，愚昧的人更加愚昧」。"
+  },
+  {
+    "id": "107",
+    "text_source": "韓愈《師說》",
+    "question": "「愛其子，擇師而教之；於其身也則恥師焉」一句中的「恥」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "廉恥"
+      },
+      {
+        "label": "B",
+        "text": "侮辱"
+      },
+      {
+        "label": "C",
+        "text": "內疚"
+      },
+      {
+        "label": "D",
+        "text": "恥辱"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「恥」在此句中作動詞，意為感到羞恥、以...為恥。選項中「廉恥」最能表達這種情感。整句翻譯為「疼愛自己的兒子，選擇老師來教導他；但在自己身上，卻以有老師為羞恥」。"
+  },
+  {
+    "id": "108",
+    "text_source": "韓愈《師說》",
+    "question": "「於其身也則恥師焉，惑矣」一句中的「惑」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "煩惱"
+      },
+      {
+        "label": "B",
+        "text": "難題"
+      },
+      {
+        "label": "C",
+        "text": "糊塗"
+      },
+      {
+        "label": "D",
+        "text": "蠱惑"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「惑」在此句中意為糊塗、不明事理。整句翻譯為「但在自己身上，卻以有老師為羞恥，真是糊塗啊」。"
+  },
+  {
+    "id": "109",
+    "text_source": "韓愈《師說》",
+    "question": "「彼童子之師，授之書而習其句讀者」一句中的「書」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "文字"
+      },
+      {
+        "label": "B",
+        "text": "書信"
+      },
+      {
+        "label": "C",
+        "text": "書寫"
+      },
+      {
+        "label": "D",
+        "text": "經書"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「書」在此句中特指經書、古籍。整句翻譯為「那些教導孩童的老師，是教他們經書，學習斷句的」。"
+  },
+  {
+    "id": "110",
+    "text_source": "韓愈《師說》",
+    "question": "「彼與彼年相若也，道相似也」一句中的「道」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "道路"
+      },
+      {
+        "label": "B",
+        "text": "道德學問"
+      },
+      {
+        "label": "C",
+        "text": "引導"
+      },
+      {
+        "label": "D",
+        "text": "技術"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「道」在此句中意為道德、學問、真理。整句翻譯為「那些人與那些教童子學斷句的老師，年齡相近，道德學問也差不多」。"
+  },
+  {
+    "id": "111",
+    "text_source": "韓愈《師說》",
+    "question": "「位卑則足羞，官盛則近諛」一句中的「卑」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "低下"
+      },
+      {
+        "label": "B",
+        "text": "品格低劣"
+      },
+      {
+        "label": "C",
+        "text": "衰微"
+      },
+      {
+        "label": "D",
+        "text": "輕視"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「卑」在此句中意為地位低下。整句翻譯為「（認為老師）地位低下就會感到足夠羞恥，官職顯赫就會近於諂媚」。"
+  },
+  {
+    "id": "112",
+    "text_source": "韓愈《師說》",
+    "question": "「位卑則足羞，官盛則近諛」一句中的「近」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "淺近"
+      },
+      {
+        "label": "B",
+        "text": "相似"
+      },
+      {
+        "label": "C",
+        "text": "合乎"
+      },
+      {
+        "label": "D",
+        "text": "近乎"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「近」在此句中意為近乎、接近於。整句翻譯為「官職顯赫就會近乎諂媚」。"
+  },
+  {
+    "id": "113",
+    "text_source": "韓愈《師說》",
+    "question": "「師道之不復，可知矣」一句中的「復」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "重複"
+      },
+      {
+        "label": "B",
+        "text": "報復"
+      },
+      {
+        "label": "C",
+        "text": "恢復"
+      },
+      {
+        "label": "D",
+        "text": "回報"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「復」在此句中意為恢復。整句翻譯為「師道不能恢復，由此可知了」。"
+  },
+  {
+    "id": "114",
+    "text_source": "師說",
+    "question": "「巫、醫、樂師、百工之人，君子不齒」一句中的「齒」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "牙齒"
+      },
+      {
+        "label": "B",
+        "text": "同列"
+      },
+      {
+        "label": "C",
+        "text": "年齡"
+      },
+      {
+        "label": "D",
+        "text": "提起"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「齒」在此句中意為「與…同列、與…並列」，君子不屑於與巫醫、樂師、百工之人同列。整句翻譯為：「巫醫、樂師、各種工匠，君子是不屑與他們為伍的。」"
+  },
+  {
+    "id": "115",
+    "text_source": "師說",
+    "question": "「今其智乃反不能及，其可怪也歟」一句中的「反」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "反而"
+      },
+      {
+        "label": "B",
+        "text": "顛倒"
+      },
+      {
+        "label": "C",
+        "text": "返回"
+      },
+      {
+        "label": "D",
+        "text": "背叛"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「反」在此句中意為「反而」。整句翻譯為：「現在他們的智慧反而不能達到，這真是令人奇怪啊！」"
+  },
+  {
+    "id": "116",
+    "text_source": "師說",
+    "question": "「聖人無常師」一句中的「常」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "固定不變的"
+      },
+      {
+        "label": "B",
+        "text": "普通的"
+      },
+      {
+        "label": "C",
+        "text": "時常"
+      },
+      {
+        "label": "D",
+        "text": "倫常"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「常」在此句中意為「固定不變的」。整句翻譯為：「聖人沒有固定不變的老師。」"
+  },
+  {
+    "id": "117",
+    "text_source": "師說",
+    "question": "「郯子之徒，其賢不及孔子」一句中的「賢」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "進貢"
+      },
+      {
+        "label": "B",
+        "text": "賢能"
+      },
+      {
+        "label": "C",
+        "text": "勝過"
+      },
+      {
+        "label": "D",
+        "text": "善良"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「賢」在此句中意為「賢能、才能」。整句翻譯為：「郯子等人，他們的才能不如孔子。」"
+  },
+  {
+    "id": "118",
+    "text_source": "師說",
+    "question": "「聞道有先後，術業有專攻，如是而已」一句中的「聞」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "聽見"
+      },
+      {
+        "label": "B",
+        "text": "領會"
+      },
+      {
+        "label": "C",
+        "text": "傳揚"
+      },
+      {
+        "label": "D",
+        "text": "消息"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「聞」在此句中意為「領會、懂得」。整句翻譯為：「領會道理有先有後，學術技藝各有專長，就是這樣罷了。」"
+  },
+  {
+    "id": "119",
+    "text_source": "師說",
+    "question": "「李氏子蟠，年十七，好古文」一句中的「好」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "喜歡"
+      },
+      {
+        "label": "B",
+        "text": "優點"
+      },
+      {
+        "label": "C",
+        "text": "合宜"
+      },
+      {
+        "label": "D",
+        "text": "讚許"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「好」在此句中意為「喜歡」。整句翻譯為：「李家的孩子李蟠，十七歲，喜歡古文。」"
+  },
+  {
+    "id": "120",
+    "text_source": "師說",
+    "question": "「六藝經傳，皆通習之」一句中的「習」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "時常"
+      },
+      {
+        "label": "B",
+        "text": "習慣"
+      },
+      {
+        "label": "C",
+        "text": "學習"
+      },
+      {
+        "label": "D",
+        "text": "染習"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「習」在此句中意為「學習」。整句翻譯為：「六藝經傳，都能通曉學習。」"
+  },
+  {
+    "id": "121",
+    "text_source": "師說",
+    "question": "「余嘉其能行古道，作《師說》以貽之」一句中的「嘉」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "吉慶"
+      },
+      {
+        "label": "B",
+        "text": "美好"
+      },
+      {
+        "label": "C",
+        "text": "喜歡"
+      },
+      {
+        "label": "D",
+        "text": "讚許"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「嘉」在此句中意為「讚許、稱讚」。整句翻譯為：「我讚許他能遵行古人從師問學的傳統，所以寫了《師說》來贈送他。」"
+  },
+  {
+    "id": "122",
+    "text_source": "師說",
+    "question": "「余嘉其能行古道，作《師說》以貽之」一句中的「貽」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "害羞"
+      },
+      {
+        "label": "B",
+        "text": "笑話"
+      },
+      {
+        "label": "C",
+        "text": "遺留"
+      },
+      {
+        "label": "D",
+        "text": "贈送"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「貽」在此句中意為「贈送」。整句翻譯為：「我讚許他能遵行古人從師問學的傳統，所以寫了《師說》來贈送他。」"
+  },
+  {
+    "id": "123",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「趙將，伐齊，大破之」一句中的「破」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "打敗"
+      },
+      {
+        "label": "B",
+        "text": "毀滅"
+      },
+      {
+        "label": "C",
+        "text": "破除"
+      },
+      {
+        "label": "D",
+        "text": "突破"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「破」在此句中意為「打敗、擊敗」。整句翻譯為：「趙國將領，攻伐齊國，大敗齊軍。」"
+  },
+  {
+    "id": "124",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「取陽晉，拜為上卿，以勇氣聞於諸侯」一句中的「拜」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "再見"
+      },
+      {
+        "label": "B",
+        "text": "拜訪"
+      },
+      {
+        "label": "C",
+        "text": "授予官職"
+      },
+      {
+        "label": "D",
+        "text": "祝賀"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「拜」在此句中意為「授予官職」。整句翻譯為：「攻取了陽晉，被授予上卿的職位，因其勇氣而聞名於諸侯。」"
+  },
+  {
+    "id": "125",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「秦昭王聞之，使人遺趙王書」一句中的「遺」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "送給"
+      },
+      {
+        "label": "B",
+        "text": "拋棄"
+      },
+      {
+        "label": "C",
+        "text": "忘記"
+      },
+      {
+        "label": "D",
+        "text": "遺留"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「遺」在此句中意為「送給」。整句翻譯為：「秦昭王聽說此事後，派人送書信給趙王。」"
+  },
+  {
+    "id": "126",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「願以十五城請易璧」一句中的「易」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "容易"
+      },
+      {
+        "label": "B",
+        "text": "交換"
+      },
+      {
+        "label": "C",
+        "text": "平和"
+      },
+      {
+        "label": "D",
+        "text": "蔓延"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「易」在此句中意為「交換」。整句翻譯為：「願意用十五座城池來請求交換和氏璧。」"
+  },
+  {
+    "id": "127",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「趙王與大將軍廉頗諸大臣謀」一句中的「謀」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "主意"
+      },
+      {
+        "label": "B",
+        "text": "圖謀"
+      },
+      {
+        "label": "C",
+        "text": "策略"
+      },
+      {
+        "label": "D",
+        "text": "商議"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「謀」在此句中作動詞，意為「商議、謀劃」。整句翻譯為：「趙王與大將軍廉頗及各位大臣商議此事。」"
+  },
+  {
+    "id": "128",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「欲予秦，秦城恐不可得」一句中的「予」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "我"
+      },
+      {
+        "label": "B",
+        "text": "送給"
+      },
+      {
+        "label": "C",
+        "text": "讚許"
+      },
+      {
+        "label": "D",
+        "text": "售賣"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「予」在此句中意為「送給」。整句翻譯為：「如果想把璧玉送給秦國，秦國的城池恐怕不能得到。」"
+  },
+  {
+    "id": "129",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「秦城恐不可得，徒見欺」一句中的「見」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "看法"
+      },
+      {
+        "label": "B",
+        "text": "遇見"
+      },
+      {
+        "label": "C",
+        "text": "被"
+      },
+      {
+        "label": "D",
+        "text": "發現"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「見」在此句中作助詞，表示被動，意為「被」。整句翻譯為：「秦國的城池恐怕不能得到，只不過是白白被欺騙罷了。」"
+  },
+  {
+    "id": "130",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「欲勿予，即患秦兵之來」一句中的「患」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "憂患"
+      },
+      {
+        "label": "B",
+        "text": "生病"
+      },
+      {
+        "label": "C",
+        "text": "禍害"
+      },
+      {
+        "label": "D",
+        "text": "擔心"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「患」在此句中作動詞，意為「擔心、憂慮」。整句翻譯為：「如果不想把璧玉給秦國，又擔心秦國的軍隊會攻過來。」"
+  },
+  {
+    "id": "131",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「計未定，求人可使報秦者，未得」一句中的「計」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "計算"
+      },
+      {
+        "label": "B",
+        "text": "生計"
+      },
+      {
+        "label": "C",
+        "text": "計策"
+      },
+      {
+        "label": "D",
+        "text": "考核"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「計」在此句中意為「計策、對策」。整句翻譯為：「計策還沒有定下來，尋求能出使秦國回報的人，卻沒有找到。」"
+  },
+  {
+    "id": "132",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「臣舍人藺相如可使」一句中的「使」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "使用"
+      },
+      {
+        "label": "B",
+        "text": "出使"
+      },
+      {
+        "label": "C",
+        "text": "聽從"
+      },
+      {
+        "label": "D",
+        "text": "派遣"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「使」在此句中作動詞，意為「派遣」。整句翻譯為：「我的家臣藺相如可以被派遣。」"
+  },
+  {
+    "id": "133",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「臣嘗有罪，竊計欲亡走燕」一句中的「計」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "算賬"
+      },
+      {
+        "label": "B",
+        "text": "計算"
+      },
+      {
+        "label": "C",
+        "text": "計策"
+      },
+      {
+        "label": "D",
+        "text": "打算"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「計」在此句中作動詞，意為「打算、謀劃」。整句翻譯為：「我曾經有罪，私下打算逃跑到燕國去。」"
+  },
+  {
+    "id": "134",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「臣舍人相如止臣」一句中的「止」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "勸阻"
+      },
+      {
+        "label": "B",
+        "text": "停止"
+      },
+      {
+        "label": "C",
+        "text": "留住"
+      },
+      {
+        "label": "D",
+        "text": "僅"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「止」在此句中意為「勸阻、阻止」。整句翻譯為：「我的家臣藺相如勸阻我。」"
+  },
+  {
+    "id": "135",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「君不如肉袒伏斧質請罪，則幸得脫矣」一句中的「脫」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "脫離"
+      },
+      {
+        "label": "B",
+        "text": "除掉"
+      },
+      {
+        "label": "C",
+        "text": "赦免"
+      },
+      {
+        "label": "D",
+        "text": "逃走"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「脫」在此句中意為「赦免、免除罪責」。整句翻譯為：「你不如赤身露出肩膀，伏在斧鉞上請罪，那麼幸運的話就能夠得到赦免。」"
+  },
+  {
+    "id": "136",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「均之二策，寧許以負秦曲」一句中的「負」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "倚仗"
+      },
+      {
+        "label": "B",
+        "text": "承擔"
+      },
+      {
+        "label": "C",
+        "text": "享有"
+      },
+      {
+        "label": "D",
+        "text": "拖欠"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「負」在此句中意為「承擔、擔負」。整句翻譯為：「權衡這兩種計策，寧可答應下來讓秦國承擔理虧的責任。」"
+  },
+  {
+    "id": "137",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「相如曰：『王必無人，臣願奉璧往使。』」一句中的「必」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "果真"
+      },
+      {
+        "label": "B",
+        "text": "保證"
+      },
+      {
+        "label": "C",
+        "text": "必須"
+      },
+      {
+        "label": "D",
+        "text": "肯定"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「必」在此句中作連詞，意為「如果真地」。整句翻譯為：「藺相如說：『大王如果真的沒有可以派遣的人，我願意捧著璧玉前往出使。』」"
+  },
+  {
+    "id": "138",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「秦王坐章台見相如，相如奉璧奏秦王」一句中的「奏」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "演奏"
+      },
+      {
+        "label": "B",
+        "text": "取得"
+      },
+      {
+        "label": "C",
+        "text": "進獻"
+      },
+      {
+        "label": "D",
+        "text": "走進"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「奏」在此句中意為「進獻、呈上」。整句翻譯為：「秦王坐在章台上接見藺相如，藺相如捧著璧玉進獻給秦王。」"
+  },
+  {
+    "id": "139",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「秦貪，負其彊，以空言求璧」一句中的「負」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "享有"
+      },
+      {
+        "label": "B",
+        "text": "憑藉"
+      },
+      {
+        "label": "C",
+        "text": "辜負"
+      },
+      {
+        "label": "D",
+        "text": "承擔"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「負」在此句中意為「憑藉、依仗」。整句翻譯為：「秦國貪婪，憑藉它的強大，用空話來求取璧玉。」"
+  },
+  {
+    "id": "140",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「嚴大國之威以修敬也」一句中的「嚴」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "嚴密"
+      },
+      {
+        "label": "B",
+        "text": "厲害"
+      },
+      {
+        "label": "C",
+        "text": "尊重"
+      },
+      {
+        "label": "D",
+        "text": "整飭"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「嚴」在此句中作動詞，意為「尊重、敬畏」。整句翻譯為：「我們敬重貴大國的威望，所以修飾禮節以示敬意。」"
+  },
+  {
+    "id": "141",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「秦王恐其破璧，乃辭謝固請，召有司案圖」一句中的「案」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "考查"
+      },
+      {
+        "label": "B",
+        "text": "案卷"
+      },
+      {
+        "label": "C",
+        "text": "案件"
+      },
+      {
+        "label": "D",
+        "text": "憑依"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「案」在此句中意為「查看、考查」。整句翻譯為：「秦王害怕他毀壞璧玉，於是推辭道歉並堅決邀請，召來有關官員查看地圖。」"
+  },
+  {
+    "id": "142",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「相如度秦王特以詐詳為予趙城，實不可得」一句中的「度」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "量度"
+      },
+      {
+        "label": "B",
+        "text": "計較"
+      },
+      {
+        "label": "C",
+        "text": "打算"
+      },
+      {
+        "label": "D",
+        "text": "估計"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「度」在此句中意為「估計、忖度」。整句翻譯為：「藺相如估計秦王不過是假裝用詐術給趙國城池，實際上是不可能得到的。」"
+  },
+  {
+    "id": "143",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「相如度秦王特以詐詳為予趙城，實不可得」一句中的「詳」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "詳細"
+      },
+      {
+        "label": "B",
+        "text": "假裝"
+      },
+      {
+        "label": "C",
+        "text": "說明"
+      },
+      {
+        "label": "D",
+        "text": "審慎"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「詳」在此句中意為「假裝」。整句翻譯為：「藺相如估計秦王不過是假裝用詐術給趙國城池，實際上是不可能得到的。」"
+  },
+  {
+    "id": "144",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「三十日不還，則請立太子為王，以絕秦望」一句中的「立」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "站立"
+      },
+      {
+        "label": "B",
+        "text": "立刻"
+      },
+      {
+        "label": "C",
+        "text": "冊立"
+      },
+      {
+        "label": "D",
+        "text": "存在"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「立」在此句中意為「冊立、擁立」。整句翻譯為：「如果三十天還不歸還，就請求冊立太子為王，以斷絕秦國的希望。」"
+  },
+  {
+    "id": "145",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「寡人竊聞趙王好音，請奏瑟」一句中的「竊」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "相近"
+      },
+      {
+        "label": "B",
+        "text": "抄襲"
+      },
+      {
+        "label": "C",
+        "text": "私下"
+      },
+      {
+        "label": "D",
+        "text": "危害"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「竊」在此句中作謙詞，意為「私下、私自」。整句翻譯為：「我私下聽說趙王喜歡音樂，請讓我彈瑟。」"
+  },
+  {
+    "id": "146",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「左右欲刃相如，相如張目叱之，左右皆靡」一句中的「靡」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "倒退"
+      },
+      {
+        "label": "B",
+        "text": "順服"
+      },
+      {
+        "label": "C",
+        "text": "衰弱"
+      },
+      {
+        "label": "D",
+        "text": "分散"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「靡」在此句中意為「屈服、順從」。整句翻譯為：「秦王左右的人想要用刀殺藺相如，藺相如瞪大眼睛喝斥他們，左右的人都屈服了。」"
+  },
+  {
+    "id": "147",
+    "text_source": "司馬遷《史記‧廉頗藺相如列傳》",
+    "question": "「且庸人尚羞之，況於將相乎」一句中的「羞」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "怕"
+      },
+      {
+        "label": "B",
+        "text": "害羞"
+      },
+      {
+        "label": "C",
+        "text": "不願"
+      },
+      {
+        "label": "D",
+        "text": "羞恥"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「羞」在此句中意為「感到羞恥」。整句翻譯為：「況且普通人尚且為此感到羞恥，何況是將相呢？」"
+  },
+  {
+    "id": "148",
+    "text_source": "王維《山居秋暝》",
+    "question": "「空山新雨後」一句中的「空」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "空虛"
+      },
+      {
+        "label": "B",
+        "text": "不切實際的"
+      },
+      {
+        "label": "C",
+        "text": "天空"
+      },
+      {
+        "label": "D",
+        "text": "廣闊的"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「空」在此句中意為「空曠、廣闊」。整句翻譯為：「空寂的山林在新雨過後。」"
+  },
+  {
+    "id": "149",
+    "text_source": "王維《山居秋暝》",
+    "question": "「天氣晚來秋」一句中的「晚」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "晚上"
+      },
+      {
+        "label": "B",
+        "text": "黃昏"
+      },
+      {
+        "label": "C",
+        "text": "後來"
+      },
+      {
+        "label": "D",
+        "text": "晚年"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「晚」在此句中意為「黃昏、傍晚」。整句翻譯為：「傍晚時分已是深秋。」"
+  },
+  {
+    "id": "150",
+    "text_source": "王維《山居秋暝》",
+    "question": "「明月松間照」一句中的「照」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "照耀"
+      },
+      {
+        "label": "B",
+        "text": "水中之影"
+      },
+      {
+        "label": "C",
+        "text": "察看"
+      },
+      {
+        "label": "D",
+        "text": "照料"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「照」在此句中意為「照耀、照射」。整句翻譯為：「皎潔的明月在松林間照耀。」"
+  },
+  {
+    "id": "151",
+    "text_source": "王維《山居秋暝》",
+    "question": "「清泉石上流」一句中的「清」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "清除"
+      },
+      {
+        "label": "B",
+        "text": "清澈"
+      },
+      {
+        "label": "C",
+        "text": "清靜"
+      },
+      {
+        "label": "D",
+        "text": "清廉"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「清」在此句中意為「清澈」。整句翻譯為：「清澈的泉水在石頭上流淌。」"
+  },
+  {
+    "id": "152",
+    "text_source": "王維《山居秋暝》",
+    "question": "「竹喧歸浣女」一句中的「歸」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "出嫁"
+      },
+      {
+        "label": "B",
+        "text": "歸還"
+      },
+      {
+        "label": "C",
+        "text": "依從"
+      },
+      {
+        "label": "D",
+        "text": "歸來"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「歸」在此句中意為「歸來、回來」。整句翻譯為：「竹林深處傳來喧鬧聲，原來是洗衣的女子們歸來。」"
+  },
+  {
+    "id": "153",
+    "text_source": "王維《山居秋暝》",
+    "question": "「蓮動下漁舟」一句中的「下」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "下面"
+      },
+      {
+        "label": "B",
+        "text": "順流下行"
+      },
+      {
+        "label": "C",
+        "text": "攻下"
+      },
+      {
+        "label": "D",
+        "text": "離開"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「下」在此句中意為「順流下行」。整句翻譯為：「蓮葉搖動，漁舟順流而下。」"
+  },
+  {
+    "id": "154",
+    "text_source": "王維《山居秋暝》",
+    "question": "「隨意春芳歇」一句中的「芳」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "花卉"
+      },
+      {
+        "label": "B",
+        "text": "青春年華"
+      },
+      {
+        "label": "C",
+        "text": "美好的名聲"
+      },
+      {
+        "label": "D",
+        "text": "賢德人才"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「芳」在此句中意為「花卉、芬芳的花草」。整句翻譯為：「任由春天的花草凋謝。」"
+  },
+  {
+    "id": "155",
+    "text_source": "王維《山居秋暝》",
+    "question": "「隨意春芳歇」一句中的「歇」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "竭盡"
+      },
+      {
+        "label": "B",
+        "text": "休息"
+      },
+      {
+        "label": "C",
+        "text": "凋謝"
+      },
+      {
+        "label": "D",
+        "text": "散發"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「歇」在此句中意為「凋謝、衰落」。整句翻譯為：「任由春天的花草凋謝。」"
+  },
+  {
+    "id": "156",
+    "text_source": "王維《山居秋暝》",
+    "question": "「王孫自可留」一句中的「自」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "自己"
+      },
+      {
+        "label": "B",
+        "text": "開始"
+      },
+      {
+        "label": "C",
+        "text": "假如"
+      },
+      {
+        "label": "D",
+        "text": "仍然"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「自」在此句中意為「自然而然地、當然地」。整句翻譯為：「（如果樂於此地，）隱居的王孫自然可以留下來。」"
+  },
+  {
+    "id": "157",
+    "text_source": "李白《月下獨酌》",
+    "question": "「花間一壺酒，獨酌無相親」一句中的「獨」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "偏偏"
+      },
+      {
+        "label": "B",
+        "text": "獨自"
+      },
+      {
+        "label": "C",
+        "text": "獨特"
+      },
+      {
+        "label": "D",
+        "text": "難道"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「獨」在此句中意為「獨自、單獨」。整句翻譯為：「花叢中擺著一壺酒，獨自飲酒沒有親友作伴。」"
+  },
+  {
+    "id": "158",
+    "text_source": "李白《月下獨酌》",
+    "question": "「舉杯邀明月，對影成三人」一句中的「舉」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "往上托起"
+      },
+      {
+        "label": "B",
+        "text": "興起"
+      },
+      {
+        "label": "C",
+        "text": "選拔"
+      },
+      {
+        "label": "D",
+        "text": "揭發"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「舉」在此句中意為「往上托起、拿起」。整句翻譯為：「舉起酒杯邀請明月，對著自己的影子成了三個人。」"
+  },
+  {
+    "id": "159",
+    "text_source": "李白《月下獨酌》",
+    "question": "「月既不解飲」一句中的「解」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "消解"
+      },
+      {
+        "label": "B",
+        "text": "解釋"
+      },
+      {
+        "label": "C",
+        "text": "懂得"
+      },
+      {
+        "label": "D",
+        "text": "解開"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「解」在此句中意為「懂得、理解」。整句翻譯為：「月亮既然不懂得飲酒。」"
+  },
+  {
+    "id": "160",
+    "text_source": "李白《月下獨酌》",
+    "question": "「影徒隨我身」一句中的「徒」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "步行"
+      },
+      {
+        "label": "B",
+        "text": "同類"
+      },
+      {
+        "label": "C",
+        "text": "白白地"
+      },
+      {
+        "label": "D",
+        "text": "只"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「徒」在此句中意為「只、只是」。整句翻譯為：「影子只是跟隨在我身旁。」"
+  },
+  {
+    "id": "161",
+    "text_source": "李白《月下獨酌》",
+    "question": "「暫伴月將影」一句中的「將」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "順從"
+      },
+      {
+        "label": "B",
+        "text": "與"
+      },
+      {
+        "label": "C",
+        "text": "將要"
+      },
+      {
+        "label": "D",
+        "text": "應該"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「將」在此句中作連詞，意為「與、和」。整句翻譯為：「姑且與月亮和影子作伴。」"
+  },
+  {
+    "id": "162",
+    "text_source": "李白《月下獨酌》",
+    "question": "「暫伴月將影」一句中的「暫」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "忽然"
+      },
+      {
+        "label": "B",
+        "text": "暫時"
+      },
+      {
+        "label": "C",
+        "text": "剛剛"
+      },
+      {
+        "label": "D",
+        "text": "姑且"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「暫」在此句中意為「暫時」。整句翻譯為：「姑且與月亮和影子暫時作伴。」"
+  },
+  {
+    "id": "163",
+    "text_source": "李白《月下獨酌》",
+    "question": "「永結無情遊」一句中「無情」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "不實"
+      },
+      {
+        "label": "B",
+        "text": "沒有感情"
+      },
+      {
+        "label": "C",
+        "text": "不留情面"
+      },
+      {
+        "label": "D",
+        "text": "忘情"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「無情」在此句中意為「忘情於世、不為世俗情感所羈絆」，指擺脫塵世情感，與自然為伴。整句翻譯為：「永遠結成不為世俗所羈絆的友誼。」"
+  },
+  {
+    "id": "164",
+    "text_source": "李白《月下獨酌》",
+    "question": "「相期邈雲漢」一句中的「期」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "預期"
+      },
+      {
+        "label": "B",
+        "text": "期望"
+      },
+      {
+        "label": "C",
+        "text": "約定"
+      },
+      {
+        "label": "D",
+        "text": "期限"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「期」在此句中意為「約定、相約」。整句翻譯為：「相約在遙遠的銀河相見。」"
+  },
+  {
+    "id": "165",
+    "text_source": "李白《月下獨酌》",
+    "question": "「相期邈雲漢」一句中的「邈」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "遙遠"
+      },
+      {
+        "label": "B",
+        "text": "渺茫"
+      },
+      {
+        "label": "C",
+        "text": "輕視"
+      },
+      {
+        "label": "D",
+        "text": "描繪"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「邈」在此句中意為「遙遠」。整句翻譯為：「相約在遙遠的銀河相見。」"
+  },
+  {
+    "id": "166",
+    "text_source": "杜甫《登樓》",
+    "question": "「花近高樓傷客心」一句中的「傷」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "創傷"
+      },
+      {
+        "label": "B",
+        "text": "損害"
+      },
+      {
+        "label": "C",
+        "text": "傷心"
+      },
+      {
+        "label": "D",
+        "text": "妨礙"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「傷」在此句中意為「使人傷心」。整句翻譯為：「花朵盛開在高樓近旁，卻讓遊子的心感到傷悲。」"
+  },
+  {
+    "id": "167",
+    "text_source": "杜甫《登樓》",
+    "question": "「萬方多難此登臨」一句中的「難」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "困難"
+      },
+      {
+        "label": "B",
+        "text": "災難"
+      },
+      {
+        "label": "C",
+        "text": "責難"
+      },
+      {
+        "label": "D",
+        "text": "畏懼"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「難」在此句中意為「災難、禍患」。整句翻譯為：「四海八方多災多難，我在這裡登臨遠眺。」"
+  },
+  {
+    "id": "168",
+    "text_source": "杜甫《登樓》",
+    "question": "「玉壘浮雲變古今」一句中的「變」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "變化"
+      },
+      {
+        "label": "B",
+        "text": "移動"
+      },
+      {
+        "label": "C",
+        "text": "災禍"
+      },
+      {
+        "label": "D",
+        "text": "奇異"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「變」在此句中意為「變化、變遷」。整句翻譯為：「玉壘山上的浮雲變幻莫測，如同古往今來的世事變遷。」"
+  },
+  {
+    "id": "169",
+    "text_source": "杜甫《登樓》",
+    "question": "「北極朝廷終不改」一句中的「改」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "糾正"
+      },
+      {
+        "label": "B",
+        "text": "變更"
+      },
+      {
+        "label": "C",
+        "text": "重新"
+      },
+      {
+        "label": "D",
+        "text": "修改"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「改」在此句中意為「變更、改變」。整句翻譯為：「北極星般的朝廷（指唐朝中央政權）最終沒有改變。」"
+  },
+  {
+    "id": "170",
+    "text_source": "杜甫《登樓》",
+    "question": "「可憐後主還祠廟」一句中的「還」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "返回"
+      },
+      {
+        "label": "B",
+        "text": "交還"
+      },
+      {
+        "label": "C",
+        "text": "還有"
+      },
+      {
+        "label": "D",
+        "text": "回報"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「還」在此句中意為「還有、仍然」。整句翻譯為：「可憐蜀漢後主劉禪仍然有祠廟供奉。」"
+  },
+  {
+    "id": "171",
+    "text_source": "杜甫《登樓》",
+    "question": "「可憐後主還祠廟」一句中「可憐」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "值得憐憫"
+      },
+      {
+        "label": "B",
+        "text": "令人詫異"
+      },
+      {
+        "label": "C",
+        "text": "可惜"
+      },
+      {
+        "label": "D",
+        "text": "可悲"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「可憐」在此句中意為「可惜、令人惋惜」。整句翻譯為：「可惜那蜀漢後主劉禪仍然有祠廟供奉。」"
+  },
+  {
+    "id": "172",
+    "text_source": "杜甫《登樓》",
+    "question": "「日暮聊為《梁甫吟》」一句中的「聊」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "依憑"
+      },
+      {
+        "label": "B",
+        "text": "姑且"
+      },
+      {
+        "label": "C",
+        "text": "慰藉"
+      },
+      {
+        "label": "D",
+        "text": "閒談"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「聊」在此句中意為「姑且、暫且」。整句翻譯為：「日落黃昏時，姑且吟誦《梁甫吟》來抒發胸懷。」"
+  },
+  {
+    "id": "173",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「先帝創業未半，而中道崩殂」一句中的「崩」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "倒塌"
+      },
+      {
+        "label": "B",
+        "text": "分裂"
+      },
+      {
+        "label": "C",
+        "text": "敗壞"
+      },
+      {
+        "label": "D",
+        "text": "去世"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「崩」在此句中特指帝王的去世。整句翻譯為：「先帝開創帝業還沒有完成一半，卻在中途駕崩去世。」"
+  },
+  {
+    "id": "174",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「今天下三分，益州疲弊」一句中的「弊」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "物力困乏"
+      },
+      {
+        "label": "B",
+        "text": "敗壞"
+      },
+      {
+        "label": "C",
+        "text": "停止"
+      },
+      {
+        "label": "D",
+        "text": "弊病"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「弊」在此句中意為「困乏、物力衰竭」。整句翻譯為：「現在天下分為三國，益州（蜀漢根據地）物力困乏疲憊。」"
+  },
+  {
+    "id": "175",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「此誠危急存亡之秋也」一句中的「秋」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "秋天"
+      },
+      {
+        "label": "B",
+        "text": "衰老"
+      },
+      {
+        "label": "C",
+        "text": "關鍵性的時刻"
+      },
+      {
+        "label": "D",
+        "text": "年份"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「秋」在此句中引申為「時機、時刻」，特指關鍵的時刻。整句翻譯為：「這實在是危急存亡的關鍵時刻啊！」"
+  },
+  {
+    "id": "176",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「蓋追先帝之殊遇」一句中的「追」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "追念"
+      },
+      {
+        "label": "B",
+        "text": "追求"
+      },
+      {
+        "label": "C",
+        "text": "補救"
+      },
+      {
+        "label": "D",
+        "text": "追究"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「追」在此句中意為「追念、回憶」。整句翻譯為：「大概是追念先帝對我的特殊禮遇。」"
+  },
+  {
+    "id": "177",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「欲報之於陛下也」一句中的「報」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "報復"
+      },
+      {
+        "label": "B",
+        "text": "報答"
+      },
+      {
+        "label": "C",
+        "text": "報告"
+      },
+      {
+        "label": "D",
+        "text": "判罪"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「報」在此句中意為「報答、回報」。整句翻譯為：「想要報答給陛下啊。」"
+  },
+  {
+    "id": "178",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「誠宜開張聖聽」一句中的「宜」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "大概"
+      },
+      {
+        "label": "B",
+        "text": "適宜"
+      },
+      {
+        "label": "C",
+        "text": "事宜"
+      },
+      {
+        "label": "D",
+        "text": "應該"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「宜」在此句中意為「應該、適宜」。整句翻譯為：「實在應該廣泛聽取意見。」"
+  },
+  {
+    "id": "179",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「誠宜開張聖聽，以光先帝遺德」一句中的「光」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "光輝"
+      },
+      {
+        "label": "B",
+        "text": "發揚光大"
+      },
+      {
+        "label": "C",
+        "text": "時光"
+      },
+      {
+        "label": "D",
+        "text": "景色"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「光」在此句中作動詞，意為「發揚光大」。整句翻譯為：「實在應該廣泛聽取意見，以發揚光大先帝遺留的德政。」"
+  },
+  {
+    "id": "180",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「不宜妄自菲薄，引喻失義」一句中的「妄」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "荒誕"
+      },
+      {
+        "label": "B",
+        "text": "平庸"
+      },
+      {
+        "label": "C",
+        "text": "不法"
+      },
+      {
+        "label": "D",
+        "text": "胡亂"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「妄」在此句中意為「胡亂、隨意」。整句翻譯為：「不應該隨意地看輕自己，說出不合義理的話。」"
+  },
+  {
+    "id": "181",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「以塞忠諫之路也」一句中的「塞」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "邊塞"
+      },
+      {
+        "label": "B",
+        "text": "掩蔽"
+      },
+      {
+        "label": "C",
+        "text": "堵塞"
+      },
+      {
+        "label": "D",
+        "text": "彌補"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「塞」在此句中意為「堵塞、阻塞」。整句翻譯為：「以堵塞忠臣進諫的道路。」"
+  },
+  {
+    "id": "182",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「若有作姦、犯科，及為忠善者，宜付有司」一句中的「姦」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "奸詐"
+      },
+      {
+        "label": "B",
+        "text": "損害"
+      },
+      {
+        "label": "C",
+        "text": "混雜"
+      },
+      {
+        "label": "D",
+        "text": "淫亂"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「姦」在此句中意為「奸詐、邪惡」。整句翻譯為：「如果有做奸邪之事、觸犯法令，以及忠誠善良的人，都應該交給主管部門處理。」"
+  },
+  {
+    "id": "183",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「此皆良實，志慮忠純」一句中的「實」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "踏實"
+      },
+      {
+        "label": "B",
+        "text": "實在"
+      },
+      {
+        "label": "C",
+        "text": "實際"
+      },
+      {
+        "label": "D",
+        "text": "實行"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「實」在此句中意為「誠實、忠厚踏實」。與「良」字結合，表示品德良好、作風踏實。整句翻譯為：「這些都是品德良好、忠厚踏實、思想純潔的人。」"
+  },
+  {
+    "id": "184",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「是以先帝簡拔以遺陛下」一句中的「簡」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "竹簡"
+      },
+      {
+        "label": "B",
+        "text": "簡單"
+      },
+      {
+        "label": "C",
+        "text": "簡陋"
+      },
+      {
+        "label": "D",
+        "text": "揀選"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「簡」在此句中意為「揀選、選拔」。句譯：因此先帝選拔了他們來輔佐陛下。"
+  },
+  {
+    "id": "185",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「是以先帝簡拔以遺陛下」一句中的「遺」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "饋贈"
+      },
+      {
+        "label": "B",
+        "text": "送行"
+      },
+      {
+        "label": "C",
+        "text": "遺漏"
+      },
+      {
+        "label": "D",
+        "text": "留給"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「遺」在此句中意為「留給、交付」。句譯：因此先帝選拔了他們來輔佐陛下（留給陛下）。"
+  },
+  {
+    "id": "186",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「必能裨補闕漏，有所廣益」一句中的「裨」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "增添"
+      },
+      {
+        "label": "B",
+        "text": "彌補"
+      },
+      {
+        "label": "C",
+        "text": "輔助"
+      },
+      {
+        "label": "D",
+        "text": "附屬"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「裨」在此句中意為「彌補、補益」。句譯：一定能夠彌補缺點和疏漏，有所增益。"
+  },
+  {
+    "id": "187",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「試用於昔日，先帝稱之曰『能』」一句中的「稱」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "稱量"
+      },
+      {
+        "label": "B",
+        "text": "稱呼"
+      },
+      {
+        "label": "C",
+        "text": "稱讚"
+      },
+      {
+        "label": "D",
+        "text": "著稱"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「稱」在此句中意為「稱讚」。句譯：以前試用他們的時候，先帝稱讚他們說『能幹』。"
+  },
+  {
+    "id": "188",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「親小人，遠賢臣，此後漢所以傾頹也」一句中的「頹」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "衰敗"
+      },
+      {
+        "label": "B",
+        "text": "下墜"
+      },
+      {
+        "label": "C",
+        "text": "恭順"
+      },
+      {
+        "label": "D",
+        "text": "紛亂"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「頹」在此句中意為「衰敗、傾倒」。句譯：親近小人，疏遠賢臣，這就是後漢衰敗傾倒的原因。"
+  },
+  {
+    "id": "189",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「願陛下親之信之，則漢室之隆，可計日而待也」一句中的「隆」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "強大"
+      },
+      {
+        "label": "B",
+        "text": "尊崇"
+      },
+      {
+        "label": "C",
+        "text": "復興"
+      },
+      {
+        "label": "D",
+        "text": "成長"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「隆」在此句中意為「興盛、復興」。句譯：願陛下親近、信任他們，那麼漢朝的復興就可以指日可待了。"
+  },
+  {
+    "id": "190",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「苟全性命於亂世，不求聞達於諸侯」一句中的「全」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "保全"
+      },
+      {
+        "label": "B",
+        "text": "完整"
+      },
+      {
+        "label": "C",
+        "text": "痊癒"
+      },
+      {
+        "label": "D",
+        "text": "安全"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「全」在此句中意為「保全、保住」。句譯：只求在亂世中保全性命，不奢求在諸侯間顯達。"
+  },
+  {
+    "id": "191",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「猥自枉屈，三顧臣於草廬之中」一句中的「顧」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "照顧"
+      },
+      {
+        "label": "B",
+        "text": "顧念"
+      },
+      {
+        "label": "C",
+        "text": "看望"
+      },
+      {
+        "label": "D",
+        "text": "回首"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「顧」在此句中意為「看望、拜訪」。句譯：他屈尊降貴，三次到草廬中來看望我。"
+  },
+  {
+    "id": "192",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「由是感激，遂許先帝以驅馳」一句中的「許」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "或許"
+      },
+      {
+        "label": "B",
+        "text": "期許"
+      },
+      {
+        "label": "C",
+        "text": "讚許"
+      },
+      {
+        "label": "D",
+        "text": "答應"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「許」在此句中意為「答應、應允」。句譯：因此我十分感激，就答應為先帝奔走效勞。"
+  },
+  {
+    "id": "193",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「受命以來，夙夜憂歎」一句中的「命」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "命運"
+      },
+      {
+        "label": "B",
+        "text": "遺命"
+      },
+      {
+        "label": "C",
+        "text": "差使"
+      },
+      {
+        "label": "D",
+        "text": "生命"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「命」在此句中意為「遺命、任務」。這裡特指先帝劉備臨終前的託付。句譯：自從接受先帝臨終的重任以來，我早晚憂慮嘆息。"
+  },
+  {
+    "id": "194",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「當獎率三軍，北定中原」一句中的「率」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "勉勵"
+      },
+      {
+        "label": "B",
+        "text": "率領"
+      },
+      {
+        "label": "C",
+        "text": "首先"
+      },
+      {
+        "label": "D",
+        "text": "輕率"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「率」在此句中意為「率領」。句譯：應當獎勵、率領全軍將士，向北方平定中原。"
+  },
+  {
+    "id": "195",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「進盡忠言，則攸之、禕、允之任也」一句中的「任」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "責任"
+      },
+      {
+        "label": "B",
+        "text": "任用"
+      },
+      {
+        "label": "C",
+        "text": "信任"
+      },
+      {
+        "label": "D",
+        "text": "聽憑"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「任」在此句中意為「責任」。句譯：進獻忠言，就是郭攸之、費禕、董允的責任。"
+  },
+  {
+    "id": "196",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「若無興德之言，則責攸之、禕、允等之慢」一句中的「興」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "興致"
+      },
+      {
+        "label": "B",
+        "text": "興辦"
+      },
+      {
+        "label": "C",
+        "text": "流行"
+      },
+      {
+        "label": "D",
+        "text": "發揚"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「興」在此句中意為「發揚、振興」。句譯：如果沒有發揚聖德的言論，就應該責怪郭攸之、費禕、董允等人的懈怠。"
+  },
+  {
+    "id": "197",
+    "text_source": "諸葛亮《出師表》",
+    "question": "「臨表涕零，不知所言」一句中的「臨」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "降臨"
+      },
+      {
+        "label": "B",
+        "text": "監管"
+      },
+      {
+        "label": "C",
+        "text": "面對"
+      },
+      {
+        "label": "D",
+        "text": "接近"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「臨」在此句中意為「面對」。句譯：面對奏表，涕淚直流，不知道自己說了些什麼。"
+  },
+  {
+    "id": "198",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「魏王貽我大瓠之種，我樹之成而實五石」一句中的「種」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "栽種"
+      },
+      {
+        "label": "B",
+        "text": "種子"
+      },
+      {
+        "label": "C",
+        "text": "種類"
+      },
+      {
+        "label": "D",
+        "text": "腫脹"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「種」在此句中意為「種子」。句譯：魏王送給我大葫蘆的種子，我種植它，後來長成了，結出的葫蘆能容納五石。"
+  },
+  {
+    "id": "199",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「魏王貽我大瓠之種，我樹之成而實五石」一句中的「實」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "果實"
+      },
+      {
+        "label": "B",
+        "text": "堅實"
+      },
+      {
+        "label": "C",
+        "text": "實在"
+      },
+      {
+        "label": "D",
+        "text": "事實"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「實」在此句中作動詞，意為「結果實」。在此處語意引申為「結出的果實」。句譯：魏王送給我大葫蘆的種子，我種植它，後來長成了，結出的葫蘆能容納五石。"
+  },
+  {
+    "id": "200",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「以盛水漿，其堅不能自舉也」一句中的「堅」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "堅持"
+      },
+      {
+        "label": "B",
+        "text": "剛強"
+      },
+      {
+        "label": "C",
+        "text": "堅決"
+      },
+      {
+        "label": "D",
+        "text": "硬度"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「堅」在此句中意為「堅固、結實」。句譯：用它來盛水漿，因為不夠堅固，（容量太大，自身）無法舉起來。"
+  },
+  {
+    "id": "201",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「吾為其無用而掊之」一句中的「掊」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "擊破"
+      },
+      {
+        "label": "B",
+        "text": "放倒"
+      },
+      {
+        "label": "C",
+        "text": "用手扒土"
+      },
+      {
+        "label": "D",
+        "text": "以手捧物"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「掊」在此句中意為「擊破、砸碎」。句譯：我因為它沒有用處而把它砸碎了。"
+  },
+  {
+    "id": "202",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「宋人有善為不龜手之藥者，世世以洴澼絖為事」一句中的「善」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "美好"
+      },
+      {
+        "label": "B",
+        "text": "優點"
+      },
+      {
+        "label": "C",
+        "text": "擅長"
+      },
+      {
+        "label": "D",
+        "text": "讚美"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「善」在此句中意為「擅長」。句譯：宋國有一個擅長製作不讓手凍裂的藥方的人，他們世世代代都以漂洗絲絮為生。"
+  },
+  {
+    "id": "203",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「宋人有善為不龜手之藥者，世世以洴澼絖為事」一句中的「事」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "事情"
+      },
+      {
+        "label": "B",
+        "text": "事故"
+      },
+      {
+        "label": "C",
+        "text": "事業"
+      },
+      {
+        "label": "D",
+        "text": "侍奉"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「事」在此句中意為「事業、職業」。句譯：宋國有一個擅長製作不讓手凍裂的藥方的人，他們世世代代都以漂洗絲絮為業。"
+  },
+  {
+    "id": "204",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「聚族而謀」一句中的「族」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "品類"
+      },
+      {
+        "label": "B",
+        "text": "全家族"
+      },
+      {
+        "label": "C",
+        "text": "聚結"
+      },
+      {
+        "label": "D",
+        "text": "種族"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「族」在此句中意為「宗族、家族」。句譯：他們聚集全家族的人商議。"
+  },
+  {
+    "id": "205",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「今一朝而鬻技百金，請與之」一句中的「鬻」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "購買"
+      },
+      {
+        "label": "B",
+        "text": "賣出"
+      },
+      {
+        "label": "C",
+        "text": "賣弄"
+      },
+      {
+        "label": "D",
+        "text": "養育"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「鬻」在此句中意為「賣出、出售」。句譯：現在一旦用這藥方賣得百金，請把它買來。"
+  },
+  {
+    "id": "206",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「客得之，以說吳王」一句中的「說」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "游說"
+      },
+      {
+        "label": "B",
+        "text": "解說"
+      },
+      {
+        "label": "C",
+        "text": "告訴"
+      },
+      {
+        "label": "D",
+        "text": "取悅"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「說」在此句中讀作「shuì」，意為「游說、勸說」。句譯：那位客人得到藥方，就憑此去游說吳王。"
+  },
+  {
+    "id": "207",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「吳王使之將，冬與越人水戰」一句中的「使」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "致使"
+      },
+      {
+        "label": "B",
+        "text": "出使"
+      },
+      {
+        "label": "C",
+        "text": "運用"
+      },
+      {
+        "label": "D",
+        "text": "派遣"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「使」在此句中意為「派遣、命令」。句譯：吳王派他做了將軍，冬天和越國人打水仗。"
+  },
+  {
+    "id": "208",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「大敗越人，裂地而封之」一句中的「裂」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "割出"
+      },
+      {
+        "label": "B",
+        "text": "破碎"
+      },
+      {
+        "label": "C",
+        "text": "撕破"
+      },
+      {
+        "label": "D",
+        "text": "殘餘"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「裂」在此句中意為「割出、分割」。句譯：吳軍大敗越國人，吳王就割裂土地封賞了那位客人。"
+  },
+  {
+    "id": "209",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「能不龜手一也」一句中的「一」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "統一"
+      },
+      {
+        "label": "B",
+        "text": "一樣"
+      },
+      {
+        "label": "C",
+        "text": "全部"
+      },
+      {
+        "label": "D",
+        "text": "一部分"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「一」在此句中意為「一樣、相同」。句譯：不讓手凍裂的藥方是同一個。"
+  },
+  {
+    "id": "210",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「或以封，或不免於洴澼絖」一句中的「封」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "封賞"
+      },
+      {
+        "label": "B",
+        "text": "土地"
+      },
+      {
+        "label": "C",
+        "text": "封閉"
+      },
+      {
+        "label": "D",
+        "text": "埋葬"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「封」在此句中意為「封賞土地、受封」。句譯：有的人因此獲得封地，有的人卻免不了繼續漂洗絲絮。"
+  },
+  {
+    "id": "211",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「何不慮以為大樽而浮乎江湖，而憂其瓠落無所容」一句中的「慮」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "憂慮"
+      },
+      {
+        "label": "B",
+        "text": "思考"
+      },
+      {
+        "label": "C",
+        "text": "結綴"
+      },
+      {
+        "label": "D",
+        "text": "謀畫"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「慮」在此句中意為「思考、考慮」。句譯：你為什麼不考慮把它做成大腰舟而浮遊於江湖之上，卻擔憂它因太大而無處可容納呢？"
+  },
+  {
+    "id": "212",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「何不慮以為大樽而浮乎江湖，而憂其瓠落無所容」一句中，「瓠落」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "太大"
+      },
+      {
+        "label": "B",
+        "text": "沉重"
+      },
+      {
+        "label": "C",
+        "text": "潦倒"
+      },
+      {
+        "label": "D",
+        "text": "豁達"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「瓠落」在此句中意為「（因太大而）無法安放」。句譯：你為什麼不考慮把它做成大腰舟而浮遊於江湖之上，卻擔憂它因太大而無處可容納呢？"
+  },
+  {
+    "id": "213",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「其大本擁腫而不中繩墨」一句中的「本」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "根本"
+      },
+      {
+        "label": "B",
+        "text": "樹根"
+      },
+      {
+        "label": "C",
+        "text": "樹幹"
+      },
+      {
+        "label": "D",
+        "text": "起始"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「本」在此句中意為「樹幹」。句譯：它粗大的樹幹腫瘤般地隆起，不合乎繩墨的標準。"
+  },
+  {
+    "id": "214",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「其小枝卷曲而不中規矩」一句中的「中」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "到達"
+      },
+      {
+        "label": "B",
+        "text": "遭受"
+      },
+      {
+        "label": "C",
+        "text": "射中"
+      },
+      {
+        "label": "D",
+        "text": "符合"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「中」在此句中意為「符合、合乎」。句譯：它的小樹枝彎曲盤繞，不合乎圓規和角尺的標準。"
+  },
+  {
+    "id": "215",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「立之塗，匠者不顧」一句中的「塗」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "粉飾"
+      },
+      {
+        "label": "B",
+        "text": "路邊"
+      },
+      {
+        "label": "C",
+        "text": "泥"
+      },
+      {
+        "label": "D",
+        "text": "染污"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「塗」在此句中意為「道路、路邊」。句譯：把這種樹立在路邊，木匠連看都不看一眼。"
+  },
+  {
+    "id": "216",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「立之塗，匠者不顧」一句中的「顧」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "訪問"
+      },
+      {
+        "label": "B",
+        "text": "關心"
+      },
+      {
+        "label": "C",
+        "text": "回頭看"
+      },
+      {
+        "label": "D",
+        "text": "返回"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「顧」在此句中意為「回頭看、注意」。句譯：把這種樹立在路邊，木匠連看都不看一眼。"
+  },
+  {
+    "id": "217",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「卑身而伏，以候敖者」一句中的「卑」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "卑微"
+      },
+      {
+        "label": "B",
+        "text": "縮下"
+      },
+      {
+        "label": "C",
+        "text": "輕視"
+      },
+      {
+        "label": "D",
+        "text": "謙恭"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「卑」在此句中意為「彎下、放低」。句譯：牠低下身體伏著，以等待那些（出來遊玩）的東西。"
+  },
+  {
+    "id": "218",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「卑身而伏，以候敖者」一句中的「敖」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "煎熬"
+      },
+      {
+        "label": "B",
+        "text": "傲慢"
+      },
+      {
+        "label": "C",
+        "text": "戲弄"
+      },
+      {
+        "label": "D",
+        "text": "擄掠"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「敖」在此句中意為「遊玩、漫遊」。這裡指漫遊的小動物。選項中「戲弄」有「玩耍」之意，較為接近。句譯：牠低下身體伏著，以等待那些（出來遊玩）的東西。"
+  },
+  {
+    "id": "219",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「東西跳梁，不辟高下」一句中的「梁」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "跳躍"
+      },
+      {
+        "label": "B",
+        "text": "橋梁"
+      },
+      {
+        "label": "C",
+        "text": "房樑"
+      },
+      {
+        "label": "D",
+        "text": "擄掠"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「梁」在此句中意為「跳躍、騰躍」。句譯：牠東奔西跳，沒有高低之分（什麼地方都去）。"
+  },
+  {
+    "id": "220",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「中於機辟，死於罔罟」一句中的「辟」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "躲避"
+      },
+      {
+        "label": "B",
+        "text": "刑法"
+      },
+      {
+        "label": "C",
+        "text": "陷阱"
+      },
+      {
+        "label": "D",
+        "text": "打開"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「辟」在此句中通「罝」，意為「捕獸器械、陷阱」。句譯：卻中到捕獸的機關陷阱，死在捕鳥的網中。"
+  },
+  {
+    "id": "221",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「中於機辟，死於罔罟」一句中的「罔」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "捕捉"
+      },
+      {
+        "label": "B",
+        "text": "迷惑"
+      },
+      {
+        "label": "C",
+        "text": "編結"
+      },
+      {
+        "label": "D",
+        "text": "獵網"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「罔」在此句中意為「網子、獵網」。句譯：卻中到捕獸的機關陷阱，死在捕鳥的網中。"
+  },
+  {
+    "id": "222",
+    "text_source": "《莊子‧逍遙遊》（節錄）",
+    "question": "「何不樹之於無何有之鄉，廣莫之野」一句中的「莫」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "傍晚"
+      },
+      {
+        "label": "B",
+        "text": "廣大"
+      },
+      {
+        "label": "C",
+        "text": "沒有"
+      },
+      {
+        "label": "D",
+        "text": "不能"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「莫」在此句中意為「廣大、空曠」。句譯：你為什麼不把它種在虛無的境地，廣闊無邊的曠野上呢？"
+  },
+  {
+    "id": "223",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「自余為僇人，居是州，恆惴慄」一句中的「僇」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "合力"
+      },
+      {
+        "label": "B",
+        "text": "殺戮"
+      },
+      {
+        "label": "C",
+        "text": "刑辱"
+      },
+      {
+        "label": "D",
+        "text": "侮辱"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「僇」在此句中意為「被貶謫、受刑辱」。句譯：自從我成為被貶謫的人，居住在這個州，經常感到憂懼不安。"
+  },
+  {
+    "id": "224",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「自余為僇人，居是州，恆惴慄」一句中的「恆」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "以前"
+      },
+      {
+        "label": "B",
+        "text": "經常"
+      },
+      {
+        "label": "C",
+        "text": "平常"
+      },
+      {
+        "label": "D",
+        "text": "永遠"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「恆」在此句中意為「經常、常常」。句譯：自從我成為被貶謫的人，居住在這個州，經常感到憂懼不安。"
+  },
+  {
+    "id": "225",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「日與其徒上高山，入深林，窮迴溪」一句中的「窮」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "窮盡"
+      },
+      {
+        "label": "B",
+        "text": "貧窮"
+      },
+      {
+        "label": "C",
+        "text": "終極"
+      },
+      {
+        "label": "D",
+        "text": "查究"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「窮」在此句中意為「走到盡頭、窮盡」。句譯：每天和他的門徒們登上高山，進入深林，走到曲折溪流的盡頭。"
+  },
+  {
+    "id": "226",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「日與其徒上高山，入深林，窮迴溪」一句中的「迴」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "循環"
+      },
+      {
+        "label": "B",
+        "text": "旋轉"
+      },
+      {
+        "label": "C",
+        "text": "圍繞"
+      },
+      {
+        "label": "D",
+        "text": "曲折"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「迴」在此句中意為「曲折、彎曲」。句譯：每天和他的門徒們登上高山，進入深林，走到曲折溪流的盡頭。"
+  },
+  {
+    "id": "227",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「到則披草而坐，傾壺而醉」一句中的「傾」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "傾斜"
+      },
+      {
+        "label": "B",
+        "text": "壓倒"
+      },
+      {
+        "label": "C",
+        "text": "盡"
+      },
+      {
+        "label": "D",
+        "text": "瀉下"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「傾」在此句中意為「倒空、盡」。句譯：到了就撥開草地坐下，倒空酒壺喝醉。"
+  },
+  {
+    "id": "228",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「意有所極，夢亦同趣」一句中的「意」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "志向"
+      },
+      {
+        "label": "B",
+        "text": "意料"
+      },
+      {
+        "label": "C",
+        "text": "情趣"
+      },
+      {
+        "label": "D",
+        "text": "心意"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「意」在此句中意為「心意、思緒」。句譯：心意思緒有所窮盡時，夢境也到達相同的地方。"
+  },
+  {
+    "id": "229",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「意有所極，夢亦同趣」一句中的「極」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "非常"
+      },
+      {
+        "label": "B",
+        "text": "到達"
+      },
+      {
+        "label": "C",
+        "text": "終極"
+      },
+      {
+        "label": "D",
+        "text": "頂點"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「極」在此句中意為「達到盡頭、窮盡」。句譯：心意思緒有所窮盡時，夢境也到達相同的地方。"
+  },
+  {
+    "id": "230",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「意有所極，夢亦同趣」一句中的「趣」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "意思"
+      },
+      {
+        "label": "B",
+        "text": "疾行"
+      },
+      {
+        "label": "C",
+        "text": "往"
+      },
+      {
+        "label": "D",
+        "text": "趣味"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「趣」在此句中意為「前往、趨向」。句譯：心意思緒有所窮盡時，夢境也前往相同的地方。"
+  },
+  {
+    "id": "231",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「覺而起，起而歸」一句中的「歸」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "歸還"
+      },
+      {
+        "label": "B",
+        "text": "歸附"
+      },
+      {
+        "label": "C",
+        "text": "餽贈"
+      },
+      {
+        "label": "D",
+        "text": "回去"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「歸」在此句中意為「回去、返回」。句譯：醒來就起身，起身就回家。"
+  },
+  {
+    "id": "232",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「而未始知西山之怪特」一句中的「始」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "曾"
+      },
+      {
+        "label": "B",
+        "text": "開始"
+      },
+      {
+        "label": "C",
+        "text": "最初"
+      },
+      {
+        "label": "D",
+        "text": "才"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「始」在此句中意為「曾經、從來」。句譯：卻從來不曾知道西山奇異特出的地方。"
+  },
+  {
+    "id": "233",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「因坐法華西亭，望西山，始指異之」一句中的「始」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "開始"
+      },
+      {
+        "label": "B",
+        "text": "才"
+      },
+      {
+        "label": "C",
+        "text": "最初"
+      },
+      {
+        "label": "D",
+        "text": "曾"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「始」在此句中意為「才、這才」。句譯：於是坐在法華寺西亭，眺望西山，這才指著它稱奇。"
+  },
+  {
+    "id": "234",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「因坐法華西亭，望西山，始指異之」一句中的「異」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "區別"
+      },
+      {
+        "label": "B",
+        "text": "稱奇"
+      },
+      {
+        "label": "C",
+        "text": "不相同"
+      },
+      {
+        "label": "D",
+        "text": "不平常"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「異」在此句中作動詞，意為「認為…奇特、稱奇」。句譯：於是坐在法華寺西亭，眺望西山，這才指著它稱奇。"
+  },
+  {
+    "id": "235",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「遂命僕人，過湘江，緣染溪，斫榛莽，焚茅茷」一句中的「過」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "渡過"
+      },
+      {
+        "label": "B",
+        "text": "超過"
+      },
+      {
+        "label": "C",
+        "text": "經過"
+      },
+      {
+        "label": "D",
+        "text": "探訪"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「過」在此句中意為「渡過、橫渡」。句譯：於是命令僕人，渡過湘江，沿著染溪，砍伐叢生的草木，燒盡茂盛的茅草。"
+  },
+  {
+    "id": "236",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「遂命僕人，過湘江，緣染溪，斫榛莽，焚茅茷」一句中的「莽」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "荒草"
+      },
+      {
+        "label": "B",
+        "text": "茅塞"
+      },
+      {
+        "label": "C",
+        "text": "茅屋"
+      },
+      {
+        "label": "D",
+        "text": "茂盛"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「莽」在此句中意為「叢生的雜草」。句譯：於是命令僕人，渡過湘江，沿著染溪，砍伐叢生的草木，燒盡茂盛的茅草。"
+  },
+  {
+    "id": "237",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「窮山之高而止」一句中的「止」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "居住"
+      },
+      {
+        "label": "B",
+        "text": "停下"
+      },
+      {
+        "label": "C",
+        "text": "到達"
+      },
+      {
+        "label": "D",
+        "text": "盡頭"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「止」在此句中意為「停止、歇息」。句譯：一直走到山頂才停下來。"
+  },
+  {
+    "id": "238",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「攀援而登，箕踞而遨」一句中的「遨」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "嬉戲"
+      },
+      {
+        "label": "B",
+        "text": "飛翔"
+      },
+      {
+        "label": "C",
+        "text": "隨意遠望"
+      },
+      {
+        "label": "D",
+        "text": "遊歷"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「遨」在此句中意為「遙望、遠眺」。句譯：攀援著登上山頂，伸開兩腿箕踞而坐，隨意遠望。"
+  },
+  {
+    "id": "239",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「則凡數州之土壤，皆在衽席之下」一句中的「席」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "筵席"
+      },
+      {
+        "label": "B",
+        "text": "卧蓆"
+      },
+      {
+        "label": "C",
+        "text": "職位"
+      },
+      {
+        "label": "D",
+        "text": "座位"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「席」在此句中意為「坐臥用的墊子、座位」。句譯：那麼好幾個州的土地，都像是攤開在我的坐席下面一樣。"
+  },
+  {
+    "id": "240",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「其高下之勢，岈然洼然」一句中的「洼」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "深池"
+      },
+      {
+        "label": "B",
+        "text": "深厚"
+      },
+      {
+        "label": "C",
+        "text": "水坑"
+      },
+      {
+        "label": "D",
+        "text": "低陷"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「洼」在此句中意為「低陷、凹下」。句譯：那些高低起伏的地勢，高的地方隆起，低的地方凹下。"
+  },
+  {
+    "id": "241",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「攢蹙累積，莫得遯隱」一句中的「累」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "連續"
+      },
+      {
+        "label": "B",
+        "text": "堆疊"
+      },
+      {
+        "label": "C",
+        "text": "牽連"
+      },
+      {
+        "label": "D",
+        "text": "勞累"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「累」在此句中意為「堆積、堆疊」。句譯：密密麻麻地聚集堆疊在一起，沒有什麼可以隱藏起來。"
+  },
+  {
+    "id": "242",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「攢蹙累積，莫得遯隱」一句中的「遯」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "逃"
+      },
+      {
+        "label": "B",
+        "text": "遷移"
+      },
+      {
+        "label": "C",
+        "text": "放縱"
+      },
+      {
+        "label": "D",
+        "text": "失去"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「遯」在此句中意為「隱匿、躲藏」。句譯：密密麻麻地聚集堆疊在一起，沒有什麼可以隱藏起來。"
+  },
+  {
+    "id": "243",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「縈青繚白，外與天際」一句中的「縈」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "盤旋"
+      },
+      {
+        "label": "B",
+        "text": "纏繞"
+      },
+      {
+        "label": "C",
+        "text": "牽掛"
+      },
+      {
+        "label": "D",
+        "text": "彎曲"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「縈」在此句中意為「纏繞、環繞」。句譯：青色的山峰繚繞著白色的水波，外面與天際相接。"
+  },
+  {
+    "id": "244",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「然後知是山之特立，不與培塿為類」一句中的「類」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "一類"
+      },
+      {
+        "label": "B",
+        "text": "相似"
+      },
+      {
+        "label": "C",
+        "text": "榜樣"
+      },
+      {
+        "label": "D",
+        "text": "事理"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「類」在此句中意為「同類、種類」。句譯：這才明白這座山獨特卓立，不與那些小土堆為同類。"
+  },
+  {
+    "id": "245",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「悠悠乎與顥氣俱，而莫得其涯」一句中的「俱」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "同"
+      },
+      {
+        "label": "B",
+        "text": "全部"
+      },
+      {
+        "label": "C",
+        "text": "具備"
+      },
+      {
+        "label": "D",
+        "text": "用具"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「俱」在此句中意為「一起、同」。句譯：悠然地與天地間浩然之氣合為一體，而不知道它的邊際。"
+  },
+  {
+    "id": "246",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「頹然就醉，不知日之入」一句中的「頹然」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "崩塌"
+      },
+      {
+        "label": "B",
+        "text": "醉倒"
+      },
+      {
+        "label": "C",
+        "text": "衰老的樣子"
+      },
+      {
+        "label": "D",
+        "text": "糊塗無知的樣子"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「頹然」在此句中意為「身體鬆軟無力、醉倒的樣子」。句譯：身體鬆軟無力地醉倒了，不知道太陽的下山。"
+  },
+  {
+    "id": "247",
+    "text_source": "柳宗元《始得西山宴遊記》",
+    "question": "「心凝形釋，與萬化冥合」一句中的「釋」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "解開"
+      },
+      {
+        "label": "B",
+        "text": "解釋"
+      },
+      {
+        "label": "C",
+        "text": "放棄"
+      },
+      {
+        "label": "D",
+        "text": "消散"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「釋」在此句中意為「消散、解脫」。句譯：心神凝聚，形體消散，與天地萬物暗中融合為一體。"
+  },
+  {
+    "id": "248",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「大江東去，浪淘盡、千古風流人物」一句中的「去」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "拋棄"
+      },
+      {
+        "label": "B",
+        "text": "除掉"
+      },
+      {
+        "label": "C",
+        "text": "流去"
+      },
+      {
+        "label": "D",
+        "text": "距離"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「去」在此句中意為「流去」，指大江向東奔流。整句語譯：「長江滾滾向東流去，千古以來的英雄人物都在浪濤中被沖刷殆盡。」"
+  },
+  {
+    "id": "249",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「大江東去，浪淘盡、千古風流人物」一句中的「淘」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "洗淨"
+      },
+      {
+        "label": "B",
+        "text": "疏浚"
+      },
+      {
+        "label": "C",
+        "text": "淘氣"
+      },
+      {
+        "label": "D",
+        "text": "大水奔流"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「淘」在此句中意為「沖刷、洗淨」，指江水將歷史人物沖刷而盡。整句語譯：「長江滾滾向東流去，千古以來的英雄人物都在浪濤中被沖刷殆盡。」"
+  },
+  {
+    "id": "250",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「大江東去，浪淘盡、千古風流人物」一句中的「風流」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "流傳"
+      },
+      {
+        "label": "B",
+        "text": "風度"
+      },
+      {
+        "label": "C",
+        "text": "輕浮"
+      },
+      {
+        "label": "D",
+        "text": "傑出"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「風流人物」在此指「傑出、才華橫溢的英雄人物」。整句語譯：「長江滾滾向東流去，千古以來的傑出英雄人物都在浪濤中被沖刷殆盡。」"
+  },
+  {
+    "id": "251",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「故壘西邊，人道是、三國周郎赤壁」一句中的「故」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "原來"
+      },
+      {
+        "label": "B",
+        "text": "古時"
+      },
+      {
+        "label": "C",
+        "text": "原故"
+      },
+      {
+        "label": "D",
+        "text": "故意"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「故」在此指「舊有的、原來的」。指過去留下的營壘。整句語譯：「舊時營壘的西邊，人們都說那是三國時周瑜大都督的赤壁。」"
+  },
+  {
+    "id": "252",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「故壘西邊，人道是、三國周郎赤壁」一句中的「壘」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "堆砌"
+      },
+      {
+        "label": "B",
+        "text": "土堆"
+      },
+      {
+        "label": "C",
+        "text": "重疊"
+      },
+      {
+        "label": "D",
+        "text": "營壘"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「壘」在此指「營壘、堡壘」，即古代的軍事防禦建築。整句語譯：「舊時營壘的西邊，人們都說那是三國時周瑜大都督的赤壁。」"
+  },
+  {
+    "id": "253",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「亂石穿空，驚濤拍岸，捲起千堆雪」一句中的「穿」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "孔洞"
+      },
+      {
+        "label": "B",
+        "text": "高插"
+      },
+      {
+        "label": "C",
+        "text": "穿戴"
+      },
+      {
+        "label": "D",
+        "text": "開鑿"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「穿」在此句中意為「高插、突出」，形容亂石高聳入雲。整句語譯：「陡峭的岩石高高地插入天空，洶湧的波濤拍擊著兩岸，捲起萬丈波瀾如同千堆白雪。」"
+  },
+  {
+    "id": "254",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「江山如畫，一時多少豪傑」一句中的「時」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "時辰"
+      },
+      {
+        "label": "B",
+        "text": "季節"
+      },
+      {
+        "label": "C",
+        "text": "時代"
+      },
+      {
+        "label": "D",
+        "text": "按時"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「時」在此句中意為「那個時代」，指三國時期。整句語譯：「山河壯麗如同圖畫，一時之間有多少英雄豪傑啊！」"
+  },
+  {
+    "id": "255",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「遙想公瑾當年，小喬初嫁了」一句中的「當年」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "壯年"
+      },
+      {
+        "label": "B",
+        "text": "往年"
+      },
+      {
+        "label": "C",
+        "text": "那一年"
+      },
+      {
+        "label": "D",
+        "text": "同一年"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「當年」在此指「往年、過去的歲月」。整句語譯：「遙想那周瑜在壯年時期，小喬剛剛嫁給他。」"
+  },
+  {
+    "id": "256",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「故國神遊，多情應笑我，早生華髮」一句中的「故國」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "祖國"
+      },
+      {
+        "label": "B",
+        "text": "前朝"
+      },
+      {
+        "label": "C",
+        "text": "故鄉"
+      },
+      {
+        "label": "D",
+        "text": "古城"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「故國」在此指「故鄉、家鄉」。蘇軾被貶黃州，故稱黃州為故國。整句語譯：「我神遊到故鄉，多愁善感應該會笑我，這麼早就生出了白髮。」"
+  },
+  {
+    "id": "257",
+    "text_source": "蘇軾《念奴嬌‧赤壁懷古》",
+    "question": "「多情應笑我，早生華髮」一句中的「華」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "花朵"
+      },
+      {
+        "label": "B",
+        "text": "華麗"
+      },
+      {
+        "label": "C",
+        "text": "精華"
+      },
+      {
+        "label": "D",
+        "text": "花白"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「華」在此指「花白、白髮」，「華髮」即白髮。整句語譯：「多愁善感應該會笑我，這麼早就生出了白髮。」"
+  },
+  {
+    "id": "258",
+    "text_source": "李清照《聲聲慢‧秋情》",
+    "question": "「乍煖還寒時候，最難將息」一句中的「乍」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "短暫"
+      },
+      {
+        "label": "B",
+        "text": "突然"
+      },
+      {
+        "label": "C",
+        "text": "剛剛"
+      },
+      {
+        "label": "D",
+        "text": "只"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「乍」在此句中意為「剛剛、才」。形容天氣剛變暖又變冷。整句語譯：「這種時而暖和時而寒冷的時候，最難將養休息了。」"
+  },
+  {
+    "id": "259",
+    "text_source": "李清照《聲聲慢‧秋情》",
+    "question": "「乍煖還寒時候，最難將息」一句中的「將息」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "保重"
+      },
+      {
+        "label": "B",
+        "text": "氣息"
+      },
+      {
+        "label": "C",
+        "text": "休養"
+      },
+      {
+        "label": "D",
+        "text": "利息"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「將息」在此句中意為「休養、調養」。整句語譯：「這種時而暖和時而寒冷的時候，最難將養休息了。」"
+  },
+  {
+    "id": "260",
+    "text_source": "李清照《聲聲慢‧秋情》",
+    "question": "「三杯兩盞淡酒，怎敵他晚來風急」一句中的「敵」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "抵擋"
+      },
+      {
+        "label": "B",
+        "text": "對等"
+      },
+      {
+        "label": "C",
+        "text": "仇敵"
+      },
+      {
+        "label": "D",
+        "text": "敵對的"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「敵」在此句中意為「抵擋、禁得住」。整句語譯：「幾杯清淡的酒，怎能抵擋得住傍晚時分那急驟的寒風？」"
+  },
+  {
+    "id": "261",
+    "text_source": "李清照《聲聲慢‧秋情》",
+    "question": "「雁過也，正傷心，卻是舊時相識」一句中的「過」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "拜訪"
+      },
+      {
+        "label": "B",
+        "text": "犯錯"
+      },
+      {
+        "label": "C",
+        "text": "飛過"
+      },
+      {
+        "label": "D",
+        "text": "過身"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「過」在此句中意為「飛過、經過」。指大雁從頭頂飛過。整句語譯：「大雁飛過，正令人傷心，卻還是過去相識的舊友。」"
+  },
+  {
+    "id": "262",
+    "text_source": "李清照《聲聲慢‧秋情》",
+    "question": "「滿地黃花堆積，憔悴損，如今有誰堪摘」一句中的「損」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "極"
+      },
+      {
+        "label": "B",
+        "text": "謙抑"
+      },
+      {
+        "label": "C",
+        "text": "減少"
+      },
+      {
+        "label": "D",
+        "text": "損害"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「損」在此句中意為「極、甚」，作副詞，表示程度深。此為古語用法，「憔悴損」即「憔悴極了」。整句語譯：「滿地黃花堆積，憔悴極了，如今還有誰能忍心去採摘呢？」"
+  },
+  {
+    "id": "263",
+    "text_source": "李清照《聲聲慢‧秋情》",
+    "question": "「梧桐更兼細雨，到黃昏、點點滴滴」一句中的「兼」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "竭盡"
+      },
+      {
+        "label": "B",
+        "text": "兩倍"
+      },
+      {
+        "label": "C",
+        "text": "兼併"
+      },
+      {
+        "label": "D",
+        "text": "加上"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「兼」在此句中意為「加上、同時」。指梧桐樹上又下著細雨。整句語譯：「梧桐樹上又加上細雨，一直到黃昏時分，點點滴滴下個不停。」"
+  },
+  {
+    "id": "264",
+    "text_source": "李清照《聲聲慢‧秋情》",
+    "question": "「這次第，怎一箇愁字了得」一句中的「了得」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "領悟"
+      },
+      {
+        "label": "B",
+        "text": "概括得了"
+      },
+      {
+        "label": "C",
+        "text": "本領高強"
+      },
+      {
+        "label": "D",
+        "text": "辦理妥當"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「了得」在此句中意為「概括得了、了結得了」。反問語氣，表示愁緒難以言盡。整句語譯：「這種情景、這番滋味，一個『愁』字怎能概括得了？」"
+  },
+  {
+    "id": "265",
+    "text_source": "辛棄疾《青玉案‧元夕》",
+    "question": "「東風夜放花千樹，更吹落、星如雨」一句中的「放」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "放縱"
+      },
+      {
+        "label": "B",
+        "text": "吹綻"
+      },
+      {
+        "label": "C",
+        "text": "放逐"
+      },
+      {
+        "label": "D",
+        "text": "放下"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「放」在此句中意為「吹綻」，形容春風使花朵綻放。也指「施放」，與煙花相關。在元宵詩詞中，更偏向燈火與煙花。若指花，則是讓花綻放。綜合語境，是渲染元宵節燈火璀璨之景，故理解為「施放」或「綻放」。這裡選更符合花燈意象的「吹綻」。整句語譯：「東風在夜晚吹開了千樹繁花般的燈火，更吹落了如雨點般的火星。」"
+  },
+  {
+    "id": "266",
+    "text_source": "辛棄疾《青玉案‧元夕》",
+    "question": "「寶馬雕車香滿路」一句中的「雕」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "雕刻"
+      },
+      {
+        "label": "B",
+        "text": "鏤刻精美"
+      },
+      {
+        "label": "C",
+        "text": "道路"
+      },
+      {
+        "label": "D",
+        "text": "浮誇"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「雕」在此句中意為「雕飾精美、鏤刻華麗」。形容車馬裝飾考究。整句語譯：「華美的車馬，精美的雕車，一路飄散著香氣。」"
+  },
+  {
+    "id": "267",
+    "text_source": "辛棄疾《青玉案‧元夕》",
+    "question": "「鳳簫聲動，玉壺光轉」一句中的「轉」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "流轉"
+      },
+      {
+        "label": "B",
+        "text": "遷徙"
+      },
+      {
+        "label": "C",
+        "text": "轉達"
+      },
+      {
+        "label": "D",
+        "text": "婉轉"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「轉」在此句中意為「流轉、轉動」。形容光影隨時間變化。整句語譯：「鳳簫的樂聲響起，玉壺的光影流轉。」"
+  },
+  {
+    "id": "268",
+    "text_source": "辛棄疾《青玉案‧元夕》",
+    "question": "「笑語盈盈暗香去」一句中的「去」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "除去"
+      },
+      {
+        "label": "B",
+        "text": "失去"
+      },
+      {
+        "label": "C",
+        "text": "經過"
+      },
+      {
+        "label": "D",
+        "text": "距離"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「去」在此句中意為「經過、離去」。指女子走過，暗香隨之飄散。整句語譯：「她們笑語盈盈地走過，暗香也隨之飄散。」"
+  },
+  {
+    "id": "269",
+    "text_source": "辛棄疾《青玉案‧元夕》",
+    "question": "「眾裏尋他千百度」一句中的「眾」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "眾多"
+      },
+      {
+        "label": "B",
+        "text": "增多"
+      },
+      {
+        "label": "C",
+        "text": "普遍"
+      },
+      {
+        "label": "D",
+        "text": "人羣"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「眾」在此句中意為「人羣、眾人」。指在熙攘的人羣中尋找。整句語譯：「我在人羣裡尋找了她千百次。」"
+  },
+  {
+    "id": "270",
+    "text_source": "辛棄疾《青玉案‧元夕》",
+    "question": "「眾裏尋他千百度」一句中的「度」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "次"
+      },
+      {
+        "label": "B",
+        "text": "器量"
+      },
+      {
+        "label": "C",
+        "text": "量度"
+      },
+      {
+        "label": "D",
+        "text": "渡過"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「度」在此句中意為「次、回」。表示數量。整句語譯：「我在人羣裡尋找了她千百次。」"
+  },
+  {
+    "id": "271",
+    "text_source": "辛棄疾《青玉案‧元夕》",
+    "question": "「驀然迴首，那人卻在、燈火闌珊處」一句中的「首」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "起初"
+      },
+      {
+        "label": "B",
+        "text": "頭"
+      },
+      {
+        "label": "C",
+        "text": "首領"
+      },
+      {
+        "label": "D",
+        "text": "要領"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「首」在此句中意為「頭」，動詞「迴首」即「回頭」。整句語譯：「我突然回頭一看，那人卻在燈火稀疏的地方。」"
+  },
+  {
+    "id": "272",
+    "text_source": "辛棄疾《青玉案‧元夕》",
+    "question": "「驀然迴首，那人卻在、燈火闌珊處」一句中的「闌珊」一詞是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "衰減"
+      },
+      {
+        "label": "B",
+        "text": "將盡"
+      },
+      {
+        "label": "C",
+        "text": "稀疏"
+      },
+      {
+        "label": "D",
+        "text": "凌亂"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「闌珊」在此句中意為「稀疏、零落」。形容燈火暗淡、稀少。整句語譯：「我突然回頭一看，那人卻在燈火稀疏的地方。」"
+  },
+  {
+    "id": "273",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「青，取之於藍，而青於藍」一句中的「取」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "捕取"
+      },
+      {
+        "label": "B",
+        "text": "提取"
+      },
+      {
+        "label": "C",
+        "text": "拿到手"
+      },
+      {
+        "label": "D",
+        "text": "娶"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「取」在此句中意為「提取、採取」。指青色從藍草中提取出來。整句語譯：「青色染料是從藍草中提取出來的，但卻比藍草的顏色更深。」"
+  },
+  {
+    "id": "274",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「木直中繩，輮以為輪」一句中的「中」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "一半"
+      },
+      {
+        "label": "B",
+        "text": "中間"
+      },
+      {
+        "label": "C",
+        "text": "符合"
+      },
+      {
+        "label": "D",
+        "text": "命中"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「中」在此句中意為「符合、合乎」。指木材筆直，合乎繩墨的標準。整句語譯：「木材筆直，合乎繩墨的標準，經過火烤彎曲便可製成車輪。」"
+  },
+  {
+    "id": "275",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「木直中繩，輮以為輪」一句中的「為」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "做"
+      },
+      {
+        "label": "B",
+        "text": "成為"
+      },
+      {
+        "label": "C",
+        "text": "認為"
+      },
+      {
+        "label": "D",
+        "text": "被"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「為」在此句中意為「成為、製成」。指將木材彎曲製成車輪。整句語譯：「木材筆直，合乎繩墨的標準，經過火烤彎曲便可製成車輪。」"
+  },
+  {
+    "id": "276",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「輮以為輪，其曲中規」一句中的「曲」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "彎度"
+      },
+      {
+        "label": "B",
+        "text": "局部"
+      },
+      {
+        "label": "C",
+        "text": "偏僻地方"
+      },
+      {
+        "label": "D",
+        "text": "過錯"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「曲」在此句中意為「彎度」，指製成的車輪的彎度。整句語譯：「彎曲它製成車輪，它的彎度合乎圓規。」"
+  },
+  {
+    "id": "277",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「雖有槁暴、不復挺者」一句中的「槁」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "枯草"
+      },
+      {
+        "label": "B",
+        "text": "枯乾"
+      },
+      {
+        "label": "C",
+        "text": "犒勞"
+      },
+      {
+        "label": "D",
+        "text": "敲打"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「槁」在此句中意為「枯乾」。指木材枯乾。整句語譯：「即使它枯乾了、曬乾了，也不會再挺直了。」"
+  },
+  {
+    "id": "278",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「雖有槁暴、不復挺者」一句中的「挺」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "動搖"
+      },
+      {
+        "label": "B",
+        "text": "生長"
+      },
+      {
+        "label": "C",
+        "text": "拔出"
+      },
+      {
+        "label": "D",
+        "text": "挺直"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「挺」在此句中意為「挺直、伸直」。指被彎曲的木材不能再挺直。整句語譯：「即使它枯乾了、曬乾了，也不會再挺直了。」"
+  },
+  {
+    "id": "279",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「故木受繩則直，金就礪則利」一句中的「受」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "得到"
+      },
+      {
+        "label": "B",
+        "text": "接受"
+      },
+      {
+        "label": "C",
+        "text": "經受"
+      },
+      {
+        "label": "D",
+        "text": "適合"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「受」在此句中意為「經受、受到」。指木材受到繩墨的校正。整句語譯：「所以木材經過繩墨校正就會變直，金屬在磨刀石上磨礪就會鋒利。」"
+  },
+  {
+    "id": "280",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「故木受繩則直，金就礪則利」一句中的「利」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "鋒利"
+      },
+      {
+        "label": "B",
+        "text": "迅猛"
+      },
+      {
+        "label": "C",
+        "text": "便利"
+      },
+      {
+        "label": "D",
+        "text": "謀利"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「利」在此句中意為「鋒利、銳利」。指金屬磨礪後變得鋒利。整句語譯：「所以木材經過繩墨校正就會變直，金屬在磨刀石上磨礪就會鋒利。」"
+  },
+  {
+    "id": "281",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「君子博學而日參省乎己」一句中的「省」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "記得"
+      },
+      {
+        "label": "B",
+        "text": "精簡"
+      },
+      {
+        "label": "C",
+        "text": "了解"
+      },
+      {
+        "label": "D",
+        "text": "反省"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「省」在此句中意為「反省、審察」。指君子每天反省自己。整句語譯：「君子廣泛學習並且每天多次反省自己，那麼他的智慧就會明達，行為就不會有過錯了。」"
+  },
+  {
+    "id": "282",
+    "text_source": "《荀子‧勸學》（第1 段）",
+    "question": "「君子博學而日參省乎己，則知明而行無過矣」一句中的「明」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "光明"
+      },
+      {
+        "label": "B",
+        "text": "顯明"
+      },
+      {
+        "label": "C",
+        "text": "聰明"
+      },
+      {
+        "label": "D",
+        "text": "明白"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「明」在此句中意為「明白、明達」。形容智慧清晰。整句語譯：「君子廣泛學習並且每天多次反省自己，那麼他的智慧就會明達，行為就不會有過錯了。」"
+  },
+  {
+    "id": "283",
+    "text_source": "《荀子‧勸學》（第2 段）",
+    "question": "「吾嘗跂而望矣，不如登高之博見也」一句中的「跂」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "踮起腳跟"
+      },
+      {
+        "label": "B",
+        "text": "分岔"
+      },
+      {
+        "label": "C",
+        "text": "慢慢地走"
+      },
+      {
+        "label": "D",
+        "text": "爬行"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「跂」在此句中意為「踮起腳跟」。指踮起腳尖遠望。整句語譯：「我曾經踮起腳跟遠望，不如登上高處看得廣闊。」"
+  },
+  {
+    "id": "284",
+    "text_source": "《荀子‧勸學》（第2 段）",
+    "question": "「登高而招，臂非加長也」一句中的「招」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "招搖"
+      },
+      {
+        "label": "B",
+        "text": "尋求"
+      },
+      {
+        "label": "C",
+        "text": "招手"
+      },
+      {
+        "label": "D",
+        "text": "招供"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「招」在此句中意為「招手」。指在高處向人招手。整句語譯：「登上高處招手，手臂並沒有加長。」"
+  },
+  {
+    "id": "285",
+    "text_source": "《荀子‧勸學》（第2 段）",
+    "question": "「順風而呼，聲非加疾也」一句中的「呼」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "呼吸"
+      },
+      {
+        "label": "B",
+        "text": "稱讚"
+      },
+      {
+        "label": "C",
+        "text": "呼喚"
+      },
+      {
+        "label": "D",
+        "text": "呼喊"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「呼」在此句中意為「呼喊」。指順風呼喊。整句語譯：「順著風呼喊，聲音並沒有加大。」"
+  },
+  {
+    "id": "286",
+    "text_source": "《荀子‧勸學》（第2 段）",
+    "question": "「順風而呼，聲非加疾也」一句中的「疾」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "大"
+      },
+      {
+        "label": "B",
+        "text": "奮力"
+      },
+      {
+        "label": "C",
+        "text": "損害"
+      },
+      {
+        "label": "D",
+        "text": "急速"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「疾」在此句中意為「急速、洪亮」，這裡指聲音傳播速度快或響亮。在「聲非加疾也」中，是指聲音傳播的響度或速度並未增加。這裡取「急速」。整句語譯：「順著風呼喊，聲音並沒有加大（傳播更快）。」"
+  },
+  {
+    "id": "287",
+    "text_source": "《荀子‧勸學》（第2 段）",
+    "question": "「假輿馬者，非利足也」一句中的「足」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "腳"
+      },
+      {
+        "label": "B",
+        "text": "足夠"
+      },
+      {
+        "label": "C",
+        "text": "行走"
+      },
+      {
+        "label": "D",
+        "text": "值得"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「足」在此句中意為「行走、腳力」。指腳步快速。整句語譯：「藉助車馬的人，並不是他的腳力快。」"
+  },
+  {
+    "id": "288",
+    "text_source": "《荀子‧勸學》（第2 段）",
+    "question": "「非利足也，而致千里」一句中的「致」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "給予"
+      },
+      {
+        "label": "B",
+        "text": "傳達"
+      },
+      {
+        "label": "C",
+        "text": "達到"
+      },
+      {
+        "label": "D",
+        "text": "招致"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「致」在此句中意為「達到」。指達到千里之外。整句語譯：「（藉助車馬的人），卻能到達千里之外。」"
+  },
+  {
+    "id": "289",
+    "text_source": "《荀子‧勸學》（第2 段）",
+    "question": "「非能水也，而絕江河」一句中的「絕」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "經過"
+      },
+      {
+        "label": "B",
+        "text": "斷絕"
+      },
+      {
+        "label": "C",
+        "text": "不再延續"
+      },
+      {
+        "label": "D",
+        "text": "橫渡"
+      }
+    ],
+    "answer": "D",
+    "explanation": "「絕」在此句中意為「橫渡、渡過」。指渡過江河。整句語譯：「（藉助船隻的人），並不是他擅長游泳，卻能橫渡江河。」"
+  },
+  {
+    "id": "290",
+    "text_source": "《荀子‧勸學》（第2 段）",
+    "question": "「君子生非異也，善假於物也」一句中的「假」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "借助"
+      },
+      {
+        "label": "B",
+        "text": "假冒"
+      },
+      {
+        "label": "C",
+        "text": "寬容"
+      },
+      {
+        "label": "D",
+        "text": "租賃"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「假」在此句中意為「借助、利用」。指君子善於利用外物。整句語譯：「君子的資質本來與別人沒有什麼不同，只不過是善於借助外物罷了。」"
+  },
+  {
+    "id": "291",
+    "text_source": "《荀子‧勸學》（第3 段）",
+    "question": "「積土成山，風雨興焉」一句中的「成」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "成為"
+      },
+      {
+        "label": "B",
+        "text": "固定"
+      },
+      {
+        "label": "C",
+        "text": "完成"
+      },
+      {
+        "label": "D",
+        "text": "和解"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「成」在此句中意為「形成、成為」。指積累的泥土形成了山。整句語譯：「堆積泥土成為高山，風雨就會從這裡興起。」"
+  },
+  {
+    "id": "292",
+    "text_source": "《荀子‧勸學》（第3 段）",
+    "question": "「積水成淵，蛟龍生焉」一句中的「生」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "發生"
+      },
+      {
+        "label": "B",
+        "text": "活着"
+      },
+      {
+        "label": "C",
+        "text": "生長"
+      },
+      {
+        "label": "D",
+        "text": "本性"
+      }
+    ],
+    "answer": "C",
+    "explanation": "「生」在此句中意為「產生、生長」。指蛟龍在深淵中產生。整句語譯：「匯聚積水成為深淵，蛟龍就會在其中生長。」"
+  },
+  {
+    "id": "293",
+    "text_source": "《荀子‧勸學》（第3 段）",
+    "question": "「而神明自得，聖心備焉」一句中的「得」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "駕馭"
+      },
+      {
+        "label": "B",
+        "text": "獲得"
+      },
+      {
+        "label": "C",
+        "text": "契合"
+      },
+      {
+        "label": "D",
+        "text": "滿足"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「得」在此句中意為「獲得」。指獲得神明通達的心智。整句語譯：「就能心智開明，聖人的智慧也就具備了。」"
+  },
+  {
+    "id": "294",
+    "text_source": "《荀子‧勸學》（第3 段）",
+    "question": "「駑馬十駕，功在不舍」一句中的「舍」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "離開"
+      },
+      {
+        "label": "B",
+        "text": "放棄"
+      },
+      {
+        "label": "C",
+        "text": "保留"
+      },
+      {
+        "label": "D",
+        "text": "施予"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「舍」在此句中意為「放棄、停止」。指不放棄才能成功。整句語譯：「劣馬跑十天，它的成功就在於不放棄。」"
+  },
+  {
+    "id": "295",
+    "text_source": "《荀子‧勸學》（第3 段）",
+    "question": "「鍥而舍之，朽木不折」一句中的「朽」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "腐爛"
+      },
+      {
+        "label": "B",
+        "text": "衰老"
+      },
+      {
+        "label": "C",
+        "text": "臭"
+      },
+      {
+        "label": "D",
+        "text": "消散"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「朽」在此句中意為「腐爛、腐朽」。指腐爛的木頭。整句語譯：「如果半途而廢，即使是腐爛的木頭也折不斷。」"
+  },
+  {
+    "id": "296",
+    "text_source": "《荀子‧勸學》（第3 段）",
+    "question": "「鍥而舍之，朽木不折」一句中的「折」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "折斷"
+      },
+      {
+        "label": "B",
+        "text": "彎曲"
+      },
+      {
+        "label": "C",
+        "text": "虧損"
+      },
+      {
+        "label": "D",
+        "text": "死亡"
+      }
+    ],
+    "answer": "A",
+    "explanation": "「折」在此句中意為「折斷、折斷」。指折斷木頭。整句語譯：「如果半途而廢，即使是腐爛的木頭也折不斷。」"
+  },
+  {
+    "id": "297",
+    "text_source": "《荀子‧勸學》（第3 段）",
+    "question": "「非蛇蟺之穴無可寄託者，用心躁也」一句中的「躁」字是甚麼意思？",
+    "options": [
+      {
+        "label": "A",
+        "text": "急速"
+      },
+      {
+        "label": "B",
+        "text": "浮躁"
+      },
+      {
+        "label": "C",
+        "text": "擾動"
+      },
+      {
+        "label": "D",
+        "text": "狡猾"
+      }
+    ],
+    "answer": "B",
+    "explanation": "「躁」在此句中意為「浮躁、急躁」。形容心思不專一。整句語譯：「不是沒有可以寄託身體的蛇鱔洞穴，而是它用心浮躁的緣故。」"
+  }
+];
+  
+  let quizMode = null; // 'random' or 'text'
+  let selectedText = null;
+  let currentQuestions = [];
+  let currentQuestionIndex = 0;
+  let score = 0;
+  let wrongAnswers = [];
+  let hasAnswered = false;
+  
+  // Initialize Text Selection Grid
+  function initTextGrid() {
+    const grid = document.getElementById('textSelectGrid');
+    grid.innerHTML = '';
+    
+    // Group questions by text_source
+    const textCounts = {};
+    questionsData.forEach(q => {
+      textCounts[q.text_source] = (textCounts[q.text_source] || 0) + 1;
+    });
+    
+    Object.keys(textCounts).forEach(textName => {
+      const btn = document.createElement('div');
+      btn.className = 'text-btn';
+      btn.innerHTML = `${textName} <span style="font-size: 11px; opacity:0.7;">(${textCounts[textName]}題)</span>`;
+      btn.onclick = () => selectText(textName, btn);
+      grid.appendChild(btn);
+    });
+  }
+  
+  function selectMode(mode) {
+    quizMode = mode;
+    document.querySelectorAll('.mode-card').forEach(c => c.style.borderColor = 'var(--color-border-tertiary)');
+    
+    const randomCard = document.querySelectorAll('.mode-card')[0];
+    const textCard = document.querySelectorAll('.mode-card')[1];
+    
+    if (mode === 'random') {
+      randomCard.style.borderColor = 'var(--color-turkish-blue)';
+      document.getElementById('textSelectSection').style.display = 'none';
+      selectedText = null;
+      document.getElementById('startBtn').disabled = false;
+    } else {
+      textCard.style.borderColor = 'var(--color-turkish-blue)';
+      document.getElementById('textSelectSection').style.display = 'block';
+      initTextGrid();
+      document.getElementById('startBtn').disabled = true; // Wait for text selection
+    }
+  }
+  
+  function selectText(textName, btn) {
+    document.querySelectorAll('.text-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedText = textName;
+    document.getElementById('startBtn').disabled = false;
+  }
+  
+  function startQuiz() {
+    document.getElementById('setupScreen').classList.add('hidden');
+    document.getElementById('quizScreen').classList.remove('hidden');
+    document.getElementById('resultScreen').classList.add('hidden');
+    
+    // Filter questions based on mode
+    if (quizMode === 'random') {
+      // Shuffle and pick 20
+      currentQuestions = [...questionsData].sort(() => 0.5 - Math.random()).slice(0, 20);
+    } else {
+      // Pick all questions for the selected text
+      currentQuestions = questionsData.filter(q => q.text_source === selectedText);
+    }
+    
+    currentQuestionIndex = 0;
+    score = 0;
+    wrongAnswers = [];
+    showQuestion();
+  }
+  
+  function showQuestion() {
+    hasAnswered = false;
+    document.getElementById('nextBtn').disabled = true;
+    document.getElementById('explanationContainer').style.display = 'none';
+    
+    const question = currentQuestions[currentQuestionIndex];
+    
+    // Update progress
+    document.getElementById('questionNum').textContent = `第 ${currentQuestionIndex + 1} / ${currentQuestions.length} 題`;
+    document.getElementById('progressBarFill').style.width = `${((currentQuestionIndex) / currentQuestions.length) * 100}%`;
+    document.getElementById('quizTimer').textContent = `範文：${question.text_source}`;
+    
+    document.getElementById('questionText').textContent = `${question.id}. ${question.question}`;
+    
+    const optionsContainer = document.getElementById('optionsContainer');
+    optionsContainer.innerHTML = '';
+    
+    question.options.forEach(opt => {
+      const card = document.createElement('div');
+      card.className = 'option-card';
+      card.innerHTML = `
+        <span class="option-label">${opt.label}</span>
+        <span>${opt.text}</span>
+      `;
+      card.onclick = () => checkAnswer(opt.label, card);
+      optionsContainer.appendChild(card);
+    });
+  }
+  
+  function checkAnswer(selectedLabel, cardElement) {
+    if (hasAnswered) return;
+    hasAnswered = true;
+    
+    const question = currentQuestions[currentQuestionIndex];
+    const correctLabel = question.answer;
+    
+    const options = document.querySelectorAll('.option-card');
+    
+    if (selectedLabel === correctLabel) {
+      cardElement.classList.add('correct');
+      score++;
+    } else {
+      cardElement.classList.add('wrong');
+      // Highlight the correct answer
+      options.forEach(card => {
+        if (card.querySelector('.option-label').textContent === correctLabel) {
+          card.classList.add('correct');
+        }
+      });
+      wrongAnswers.push({
+        question: question,
+        selected: selectedLabel
+      });
+    }
+    
+    // Show explanation
+    document.getElementById('explanationText').textContent = question.explanation;
+    document.getElementById('explanationContainer').style.display = 'block';
+    
+    document.getElementById('nextBtn').disabled = false;
+  }
+  
+  function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < currentQuestions.length) {
+      showQuestion();
+    } else {
+      showResults();
+    }
+  }
+  
+  function showResults() {
+    document.getElementById('quizScreen').classList.add('hidden');
+    document.getElementById('resultScreen').classList.remove('hidden');
+    
+    document.getElementById('resultScore').textContent = `${score} / ${currentQuestions.length}`;
+    
+    const percent = (score / currentQuestions.length) * 100;
+    let desc = '';
+    if (percent === 100) desc = '🌟 太棒了！全部答對，文言字詞能力非常卓越！';
+    else if (percent >= 80) desc = '✨ 非常優秀！對大部分範文字詞掌握得很踏實！';
+    else if (percent >= 60) desc = '👍 合格了！基本字義理解正確，仍有進步空間。';
+    else desc = '📖 需要再加把勁！建議多複習前三單元的虛詞、實詞與通假字字典。';
+    
+    document.getElementById('scoreDesc').textContent = desc;
+    
+    // Render wrong answers review
+    const reviewSection = document.getElementById('wrongReviewSection');
+    const container = document.getElementById('wrongItemsContainer');
+    container.innerHTML = '';
+    
+    if (wrongAnswers.length > 0) {
+      reviewSection.classList.remove('hidden');
+      wrongAnswers.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'wrong-item';
+        div.innerHTML = `
+          <div class="wrong-q">[${item.question.text_source}] ${item.question.id}. ${item.question.question}</div>
+          <div class="wrong-ans">❌ 你的答案: ${item.selected} | ✅ 正確答案: ${item.question.answer}</div>
+          <div class="wrong-exp"><strong>解析:</strong> ${item.question.explanation}</div>
+        `;
+        container.appendChild(div);
+      });
+    } else {
+      reviewSection.classList.add('hidden');
+    }
+  }
+  
+  function exitQuiz() {
+    if (confirm('確定要放棄作答並返回選單嗎？')) {
+      resetQuiz();
+    }
+  }
+  
+  function resetQuiz() {
+    document.getElementById('setupScreen').classList.remove('hidden');
+    document.getElementById('quizScreen').classList.add('hidden');
+    document.getElementById('resultScreen').classList.add('hidden');
+    quizMode = null;
+    selectedText = null;
+    document.getElementById('startBtn').disabled = true;
+    
+    // Clear mode borders
+    document.querySelectorAll('.mode-card').forEach(c => c.style.borderColor = 'var(--color-border-tertiary)');
+    document.getElementById('textSelectSection').style.display = 'none';
+  }
+  
+  window.onload = () => {
+    resetQuiz();
+  };
+</script>
+</body>
+</html>
