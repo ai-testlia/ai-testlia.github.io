@@ -441,11 +441,16 @@ for folder_name, data in folders.items():
         content_html += '  </div>\n'
 
     if folder_name != "DSE_HTML_Notes" and has_dse:
-        dse_banner = """  <div class="nav-grid" style="grid-template-columns: 1fr; margin-bottom: 1.5rem;">
+        dse_banner = """  <div class="nav-grid" style="margin-bottom: 1.5rem;">
     <a href="../DSE_HTML_Notes/index.html" class="nav-card" style="margin-bottom: 0;">
       <div class="dot">🔥</div>
-      <h3>DSE 12篇範文精讀筆記（點擊進入）</h3>
-      <p>中六・文憑試十二篇範文深造系列目錄</p>
+      <h3>DSE 12篇範文精讀筆記</h3>
+      <p>文憑試十二篇範文深造系列目錄（按此進入）</p>
+    </a>
+    <a href="../S6_HTML_Notes/index.html" class="nav-card" style="margin-bottom: 0;">
+      <div class="dot">🧭</div>
+      <h3>文言文教學庫</h3>
+      <p>文言文基礎與模擬練習（按此進入）</p>
     </a>
   </div>
 """
