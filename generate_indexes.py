@@ -25,7 +25,7 @@ folders = {
         "categories": {
             "閱讀與範文": [
                 {"file": "DSE 中文閱讀卷高分作戰藍圖.html", "title": "中文閱讀卷高分作戰藍圖", "desc": "DSE 閱讀策略"},
-                {"file": "《逍遙遊》DSE應試極致筆記_潘SIR中文教室.html", "title": "《逍遙遊》應試極致筆記", "desc": "DSE 範文深造"},
+                {"file": "《逍遙遊》DSE應試極致筆記_潘SIR中文教室.html", "title": "《逍遙遊》應試極致筆記", "desc": "DSE 範文精讀"},
                 {"file": "中六閱讀：〈廢墟與記憶的辯證〉分析.html", "title": "〈廢墟與記憶的辯證〉分析", "desc": "DSE 課外閱讀"}
             ],
             "寫作進階技巧": [
@@ -169,7 +169,7 @@ folders = {
         }
     },
     "DSE_HTML_Notes": {
-        "title": "文憑試十二篇範文深造系列",
+        "title": "文憑試十二篇範文精讀系列",
         "tag": "文言教學筆記目錄",
         "categories": {
             "十二篇範文精讀": [
@@ -445,7 +445,7 @@ for folder_name, data in folders.items():
     <a href="../DSE_HTML_Notes/index.html" class="nav-card" style="margin-bottom: 0;">
       <div class="dot">🔥</div>
       <h3>DSE 12篇範文精讀筆記</h3>
-      <p>文憑試十二篇範文深造系列目錄（按此進入）</p>
+      <p>文憑試十二篇範文精讀系列目錄（按此進入）</p>
     </a>
     <a href="../S6_HTML_Notes/index.html" class="nav-card" style="margin-bottom: 0;">
       <div class="dot">🧭</div>
