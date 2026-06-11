@@ -63,6 +63,7 @@ folders = {
             ],
             "語文與寫作強化": [
                 {"file": "中文能力強化練習_學校生活與社交.html", "title": "中文能力強化——學校生活與社交", "desc": "學校生活與社交"},
+                {"file": "中文能力強化練習_日常生活.html", "title": "中文能力強化——日常生活", "desc": "日常生活"},
                 {"file": "中文能力強化練習_深_生活與校園篇.html", "title": "語文能力強化——生活與校園篇（深進）", "desc": "生活與校園寫作（深進）"}
             ],
             "語文適應與翻譯": [
@@ -186,6 +187,20 @@ folders = {
                 {"file": "DSE_逍遙遊_精讀筆記.html", "title": "《逍遙遊》", "desc": "莊子"},
                 {"file": "DSE_魚我所欲也_精讀筆記.html", "title": "《魚我所欲也》", "desc": "孟子"}
             ]
+        }
+    },
+    "ka_hin": {
+        "title": "嘉軒 的學習筆記",
+        "tag": "學生個人專屬",
+        "categories": {
+            "學習筆記": []
+        }
+    },
+    "chan_mei_mei": {
+        "title": "柏晴 的學習筆記",
+        "tag": "學生個人專屬",
+        "categories": {
+            "學習筆記": []
         }
     }
 }
@@ -392,6 +407,147 @@ html_template = """<!DOCTYPE html>
     <h1>{title}</h1>
     <p>潘SIR中文教室編撰</p>
   </div>
+
+  <!-- 學術成長曲線區塊 (僅在有成績數據時顯示) -->
+  <div id="chartSection" style="display: none; margin-bottom: 2.5rem; padding: 25px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--border-radius); box-shadow: var(--shadow-sm); border-left: 4px solid var(--color-brand-gold);">
+    <div style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 700; color: var(--color-brand-green); margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+      📈 個人學術成長曲線
+    </div>
+    <div style="position: relative; height: 260px; width: 100%;">
+      <canvas id="growthChart"></canvas>
+    </div>
+    
+    <!-- 成績明細表格 -->
+    <div style="margin-top: 25px; overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-border); color: var(--color-text-secondary); font-weight: 600;">
+            <th style="padding: 10px 5px;">測驗日期</th>
+            <th style="padding: 10px 5px;">測驗名稱</th>
+            <th style="padding: 10px 5px; text-align: right;">得分 / 總分</th>
+            <th style="padding: 10px 5px; text-align: right;">答對率</th>
+            <th style="padding: 10px 5px; text-align: left; padding-left: 20px;">評語 / 備註</th>
+          </tr>
+        </thead>
+        <tbody id="gradesTableBody">
+          <!-- JS 動態插入 -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 引入 Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- 引入學生專屬成績數據檔 -->
+  <script src="data_grades.js" onerror="console.log('未偵測到學生成績數據')"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {{
+      // 檢查是否有學生成績數據
+      if (typeof studentGrades !== 'undefined' && Array.isArray(studentGrades) && studentGrades.length > 0) {{
+        document.getElementById("chartSection").style.display = "block";
+        
+        // 1. 填充成績表格
+        const tbody = document.getElementById("gradesTableBody");
+        tbody.innerHTML = "";
+        
+        const dates = [];
+        const percentages = [];
+        
+        studentGrades.forEach(g => {{
+          const pct = Math.round((g.score / g.max_score) * 100);
+          dates.push(g.date);
+          percentages.push(pct);
+          
+          const tr = document.createElement("tr");
+          tr.style.borderBottom = "1px solid var(--color-border)";
+          tr.style.color = "var(--color-text-primary)";
+          tr.innerHTML = `
+            <td style="padding: 12px 5px;">${{g.date}}</td>
+            <td style="padding: 12px 5px; font-weight: 500; font-family: 'Noto Serif TC', serif;">${{g.test_name}}</td>
+            <td style="padding: 12px 5px; text-align: right;">${{g.score}} / ${{g.max_score}}</td>
+            <td style="padding: 12px 5px; text-align: right; font-weight: bold; color: ${{pct >= 60 ? 'var(--color-brand-green)' : '#be3e54'}}">${{pct}}%</td>
+            <td style="padding: 12px 5px; padding-left: 20px; color: var(--color-text-secondary); font-size: 12.5px;">${{g.remarks || ''}}</td>
+          `;
+          tbody.appendChild(tr);
+        }});
+        
+        // 2. 渲染 Chart.js 折線圖
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        
+        // 檢測是否為深色模式
+        const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const gridColor = isDark ? 'rgba(248, 246, 242, 0.1)' : 'rgba(0, 122, 135, 0.1)';
+        const textColor = isDark ? '#f8f6f2' : '#2e2d2e';
+        const brandGold = '#C5A059';
+        const brandGreen = '#007A87';
+        
+        new Chart(ctx, {{
+          type: 'line',
+          data: {{
+            labels: dates,
+            datasets: [{{
+              label: '答對率 (%)',
+              data: percentages,
+              borderColor: brandGold,
+              backgroundColor: isDark ? 'rgba(197, 160, 89, 0.15)' : 'rgba(197, 160, 89, 0.08)',
+              borderWidth: 3,
+              pointBackgroundColor: brandGreen,
+              pointBorderColor: brandGold,
+              pointRadius: 6,
+              pointHoverRadius: 8,
+              fill: true,
+              tension: 0.3
+            }}]
+          }},
+          options: {{
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {{
+              legend: {{
+                display: false
+              }},
+              tooltip: {{
+                callbacks: {{
+                  label: function(context) {{
+                    const idx = context.dataIndex;
+                    const g = studentGrades[idx];
+                    return ` ${{g.test_name}}: ${{g.score}}/${{g.max_score}} (${{context.raw}}%)`;
+                  }}
+                }}
+              }}
+            }},
+            scales: {{
+              x: {{
+                grid: {{
+                  color: gridColor
+                }},
+                ticks: {{
+                  color: textColor,
+                  font: {{
+                    family: 'Inter'
+                  }}
+                }}
+              }},
+              y: {{
+                min: 0,
+                max: 100,
+                grid: {{
+                  color: gridColor
+                }},
+                ticks: {{
+                  color: textColor,
+                  callback: function(value) {{
+                    return value + "%";
+                  }}
+                }}
+              }}
+            }}
+          }}
+        }});
+      }}
+    }});
+  </script>
 
 {content}
 
