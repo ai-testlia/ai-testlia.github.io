@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寫作教學筆記：車票與陪伴｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --color-border-primary: rgba(0,0,0,0.3);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #9a9488;
+    --color-background-primary: #1e1c19;
+    --color-background-secondary: #27251f;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+    --color-border-primary: rgba(255,255,255,0.3);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  padding: 2rem 1rem;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.wrap { max-width: 800px; margin: 0 auto; padding-bottom: 3rem; }
+
+/* Hero 共用結構 */
+.hero {
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: inherit;
+  line-height: 1.4;
+}
+.hero p { font-size: 13px; font-weight: 500; }
+
+/* 寫作：霧玫瑰 */
+.hero.writing { background: #E8D5C8; color: #2E1A12; }
+.hero.writing .hero-tag {
+  border: 1px solid rgba(46,26,18,0.3);
+  color: rgba(46,26,18,0.65);
+}
+.hero.writing p { color: rgba(46,26,18,0.5); }
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem; margin-bottom: 2rem;
+  display: grid; gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.toc-title { grid-column: 1 / -1; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 15px; margin-bottom: 0.5rem; }
+.toc-item { display: flex; align-items: center; gap: 8px; font-size: 13.5px; }
+.toc-num {
+  width: 20px; height: 20px; background: #2E1A12; color: #E8D5C8;
+  border-radius: 50%; font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.toc a { color: var(--color-text-primary); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+/* SECTION */
+.section { margin-bottom: 2.5rem; }
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  margin: 2rem 0 1.2rem; padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--color-border-tertiary);
+}
+.section-icon { font-size: 20px; }
+.section-title {
+  font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* CARD / SUBSECTION */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem 1.5rem; margin-bottom: 1rem;
+}
+.card-title {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 600; font-size: 15px; margin-bottom: 0.8rem;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot.rose { background: #C68B75; }
+.dot.teal { background: #5C8D89; }
+.dot.gold { background: #D4A373; }
+
+.card p, .card li { font-size: 14px; margin-bottom: 0.5rem; }
+.card ul, .card ol { padding-left: 1.5rem; margin-bottom: 0.5rem; }
+
+/* KEYWORD GRID */
+.keyword-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px; margin-bottom: 1rem;
+}
+.kw-card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md); padding: 1rem;
+}
+.kw-word { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #9A5A43; margin-bottom: 0.4rem; }
+.kw-def { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.7; }
+
+/* FLOW */
+.flow { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin: 1rem 0; }
+.flow-step {
+  background: #F4E8E1; color: #5A3523; font-size: 13px; font-weight: 600;
+  padding: 8px 16px; border-radius: 20px; white-space: nowrap;
+}
+.flow-arrow { font-size: 14px; color: var(--color-text-secondary); }
+
+/* ALERTS */
+.alert {
+  border-radius: var(--border-radius-md); padding: 1rem 1.2rem;
+  margin-bottom: 1rem; display: flex; gap: 10px; align-items: flex-start;
+}
+.alert-icon { font-size: 18px; flex-shrink: 0; }
+.alert-label { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 4px; }
+.alert-text { font-size: 14px; line-height: 1.7; }
+
+.alert.tip { background: #EAF3DE; border: 1px solid #97C459; }
+.alert.tip .alert-label { color: #3B6D11; }
+.alert.warn { background: #FCEBEB; border: 1px solid #F09595; }
+.alert.warn .alert-label { color: #A32D2D; }
+
+/* EXAMPLES */
+.example-box {
+  background: var(--color-background-secondary);
+  border-left: 4px solid #C68B75;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 1rem 1.2rem; margin: 0.8rem 0;
+}
+.example-box.pink { border-left-color: #D47A83; background: #FDF3F4; }
+.example-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #A85A63; margin-bottom: 0.4rem; }
+.example-text { font-family: 'Noto Serif TC', serif; font-size: 14px; line-height: 1.85; color: var(--color-text-primary); }
+
+/* COMPARE GRID */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1rem 0; }
+.compare-card { border-radius: var(--border-radius-md); padding: 1.2rem; }
+.compare-card.bad { background: #FCEBEB; border: 1px solid #F09595; }
+.compare-card.good { background: #EAF3DE; border: 1px solid #97C459; }
+.compare-label { font-size: 12px; font-weight: 700; margin-bottom: 0.5rem; }
+.compare-card.bad .compare-label { color: #A32D2D; }
+.compare-card.good .compare-label { color: #3B6D11; }
+
+/* EXAM BOX (PRACTICE) */
+.qbox {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1.2rem 1.5rem; margin-bottom: 1rem;
+}
+.qbox-num { display: inline-block; background: #2E1A12; color: #E8D5C8; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-right: 8px; margin-bottom: 8px; }
+.qbox-q { font-weight: 600; font-size: 14.5px; margin-bottom: 0.8rem; }
+.qbox-ans { background: var(--color-background-secondary); padding: 1rem; border-radius: var(--border-radius-md); font-size: 13.5px; margin-top: 1rem; border-left: 3px solid #5C8D89; }
+.qbox-ans strong { color: #2A5A56; }
+
+/* PRINT RULES */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula, .compare-grid, .keyword-grid { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero writing">
+  <div class="hero-tag">寫作教學筆記</div>
+  <h1>DSE 寫作教學：車票與陪伴</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc">
+  <div class="toc-title">📋 目錄</div>
+  <div class="toc-item"><div class="toc-num">1</div><a href="#sec-1">題目分析</a></div>
+  <div class="toc-item"><div class="toc-num">2</div><a href="#sec-2">寫作構思指引</a></div>
+  <div class="toc-item"><div class="toc-num">3</div><a href="#sec-3">詳細寫作步驟</a></div>
+  <div class="toc-item"><div class="toc-num">4</div><a href="#sec-4">寫作技巧講解</a></div>
+  <div class="toc-item"><div class="toc-num">5</div><a href="#sec-5">詞語與表達提升</a></div>
+  <div class="toc-item"><div class="toc-num">6</div><a href="#sec-6">常見錯誤與改進建議</a></div>
+  <div class="toc-item"><div class="toc-num">7</div><a href="#sec-7">範文大綱</a></div>
+  <div class="toc-item"><div class="toc-num">8</div><a href="#sec-8">課堂練習</a></div>
+</div>
+
+<div class="card" style="background: #FDF9F6; border-color: #E8D5C8; text-align: center;">
+  <strong>題目要求：</strong><br>
+  「看著這張褪色的舊車票，我才明白甚麼是真正的陪伴。」<br>試以這段文字為文章的開首或結尾，寫作一篇文章。
+</div>
+
+<div class="section" id="sec-1">
+  <div class="section-header">
+    <div class="section-icon">🔍</div>
+    <div class="section-title">一、題目分析</div>
+  </div>
+  
+  <div class="keyword-grid">
+    <div class="kw-card">
+      <div class="kw-word">褪色、舊</div>
+      <div class="kw-def">代表時間的流逝，這是一篇「回憶類」文章。這張車票是一件「信物」，觸發了你的回憶。</div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">車票</div>
+      <div class="kw-def">代表一段「旅程」。這不是單純的在家陪伴，而是在某段路途上（如上學、回鄉、看病）發生的故事。</div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">才明白</div>
+      <div class="kw-def">這三個字是文章的<strong>靈魂</strong>！代表主角的心態有「轉折」（以前不明白/誤解/忽略，現在終於懂了）。</div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">真正的陪伴</div>
+      <div class="kw-def">點明文章主題。通常不是轟轟烈烈的，而是默默無聞、風雨不改、甚至犧牲自我的守候。</div>
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">寫作重點與核心</div>
+      <div class="alert-text">這篇文章的核心在於「感恩」、「愧疚」與「醒悟」。寫作重點在於<strong>「借物抒情」</strong>，透過車票回憶過去，藉由具體的乘車事件，帶出人物之間深厚的情感連結。</div>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-label">常見離題與薄弱情況</div>
+      <div class="alert-text">
+        <ul>
+          <li><strong>離題：</strong>通篇寫「車票」的歷史或交通工具的演變，忽略了「陪伴」這個核心；或者寫了陪伴，但跟「車票」毫無關係（例如寫在家溫習）。</li>
+          <li><strong>薄弱：</strong>沒有寫出「才明白」的轉折感。從頭到尾都知道對方對自己很好，缺乏情感上的昇華與反思。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="sec-2">
+  <div class="section-header">
+    <div class="section-icon">💡</div>
+    <div class="section-title">二、寫作構思指引</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot rose"></div>建議可選題材（貼近生活）</div>
+    <ul>
+      <li><strong>親情（最易拿高分）：</strong>小時候爺爺/婆婆每天牽著我的手，搭輕鐵/巴士上學。當時我覺得理所當然，甚至嫌他們走得慢。長大後找到舊車票，才明白那段每天的短暫車程，是他們對我最深沉的愛。</li>
+      <li><strong>友情：</strong>中學時期，面對低潮（如比賽落敗/成績退步），好朋友每天特意繞路陪我搭同一班港鐵回家，在車上默默聽我傾訴。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot rose"></div>鋪排情感轉折（情節發展建議）</div>
+    <div class="flow">
+      <div class="flow-step">起因（現在尋找舊物）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">經過（鋪排過往的忽略與理所當然）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">高潮（特寫某次特別的乘車經歷）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">結局（醒悟真正的陪伴）</div>
+    </div>
+    <p style="margin-top: 1rem; color: var(--color-text-secondary); font-size: 13.5px;">* 情感脈絡：不解 / 忽略 ➡️ 經歷特定事件 ➡️ 沉澱 ➡️ 醒悟 / 感恩</p>
+  </div>
+</div>
+
+<div class="section" id="sec-3">
+  <div class="section-header">
+    <div class="section-icon">📝</div>
+    <div class="section-title">三、詳細寫作步驟</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot teal"></div>1. 開頭：營造氛圍（建議將題目設為「結尾」）</div>
+    <p>技巧：以尋找舊物或打掃房間作為切入點，運用視覺和觸覺描寫，帶出車票的歷史感。</p>
+    <div class="example-box pink">
+      <div class="example-label">📝 示例示範</div>
+      <div class="example-text">窗外秋雨綿綿，我正在整理堆積如山的舊書桌。在一本泛黃的童話書頁間，一張硬卡紙悄然滑落。我彎腰拾起，那是一張早已停用的輕鐵單程車票，上面的字跡已被歲月撫平。指尖摩挲著粗糙的邊緣，塵封的記憶如潮水般湧上心頭。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot teal"></div>2. 中段：回憶與細節刻畫</div>
+    <ul>
+      <li><strong>事件描寫：</strong>清楚交代乘車的背景。</li>
+      <li><strong>細節描寫（重點）：</strong>不要只寫「他陪我搭車」，要寫出動作與環境。</li>
+      <li><strong>心理刻畫：</strong>寫出自己當時的無知與現在的懊悔。</li>
+    </ul>
+    <div class="example-box pink">
+      <div class="example-label">📝 示例示範</div>
+      <div class="example-text">記憶中，那條通往小學的輕鐵路線總是擁擠不堪。爺爺總是用他那雙佈滿老繭的大手，在人潮中為我築起一道安全的屏障。有一次，我抱怨每天搭車很無聊，甚至甩開他的手。他沒有生氣，只是默默從口袋裡掏出這張車票，笑著對我說：「等存夠了一百張，爺爺就帶你去遊樂園。」當時的我，只盯著車票上的數字，卻沒有留意到他額角滑落的汗水，和他那微微佝僂的背影。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot teal"></div>3. 結尾：昇華與點題</div>
+    <p>技巧：將思緒拉回現在，總結「真正的陪伴」的定義，並以題目原句作結，餘音繞樑。</p>
+    <div class="example-box pink">
+      <div class="example-label">📝 示例示範</div>
+      <div class="example-text">如今，爺爺的步伐已經無法再陪伴我走過擁擠的月台。原來，最深沉的愛，往往藏在那些最不起眼的日常中，不求回報，只求你安穩。看著這張褪色的舊車票，我才明白甚麼是真正的陪伴。</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="sec-4">
+  <div class="section-header">
+    <div class="section-icon">🛠️</div>
+    <div class="section-title">四、寫作技巧講解</div>
+  </div>
+  <div class="card">
+    <ul>
+      <li><strong>「以小見大」：</strong>車票很小，但它承載的情感很大。不要花大量篇幅寫買票的過程，而是要把重點放在車廂內、月台上人物的一個微小動作（如：為我擋風、把唯一的外套披在我身上）。</li>
+      <li><strong>避免流水帳：</strong>不要寫「星期一搭車怎樣、星期二搭車又怎樣」。請使用「點面結合」：先概括「每天他都陪我搭車」，然後放大其中一天發生的特別事件（例如某個雨天），進行深刻描寫。</li>
+      <li><strong>環境烘托：</strong>利用天氣和環境來襯托人物的情感。例如車廂外的狂風驟雨，對比車廂內爺爺為我帶來的溫暖寧靜。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section" id="sec-5">
+  <div class="section-header">
+    <div class="section-icon">📚</div>
+    <div class="section-title">五、詞語與表達提升</div>
+  </div>
+  
+  <div class="keyword-grid">
+    <div class="kw-card">
+      <div class="kw-word">摩挲 (mó suō)</div>
+      <div class="kw-def">用手輕輕按著並一下一下地撫摸。<br><em>例：我輕輕摩挲著這張泛黃的車票，彷彿觸碰到了舊日的時光。</em></div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">歲月斑駁</div>
+      <div class="kw-def">形容時間流逝留下的痕跡。<br><em>例：車票上的字跡已經歲月斑駁，但那份記憶卻依然清晰。</em></div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">風雨不改</div>
+      <div class="kw-def">比喻態度堅決，不受外界環境影響。<br><em>例：那三年裡，婆婆風雨不改地在車站等我放學。</em></div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">潤物無聲</div>
+      <div class="kw-def">本指春雨默默滋潤萬物，常喻指默默無聞的教誨或關愛。</div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-label">✨ 佳句仿寫示範</div>
+    <div class="example-text">
+      <strong>平庸寫法：</strong> 他對我很好，每天都陪我搭車。<br>
+      <strong>升級寫法：</strong> 那段搖搖晃晃的車程，因為有他在身旁，成了我童年最安穩的避風港。
+    </div>
+  </div>
+</div>
+
+<div class="section" id="sec-6">
+  <div class="section-header">
+    <div class="section-icon">⚠️</div>
+    <div class="section-title">六、常見錯誤與改進建議</div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-label">❌ 學生常犯錯誤（修改前）</div>
+      <p>「爺爺每天陪我搭車，我覺得他很偉大，我很感動。」<br><span style="font-size:12px; color:var(--color-text-secondary);">（缺點：只有形容詞，沒有畫面，情感空洞）</span></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-label">✅ 寫作導師建議（修改後）</div>
+      <p>「搖晃的車廂中，爺爺總是用瘦弱的身軀為我擋住推擠的人潮。看著他額上的汗珠，我的心不禁揪緊了。」<br><span style="font-size:12px; color:var(--color-text-secondary);">（優點：加入動作與心理描寫，以小見大）</span></p>
+    </div>
+
+    <div class="compare-card bad">
+      <div class="compare-label">❌ 學生常犯錯誤（修改前）</div>
+      <p>「我以後會好好珍惜爺爺。」<br><span style="font-size:12px; color:var(--color-text-secondary);">（缺點：忘記點題，沒有扣連「車票」與「陪伴」）</span></p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-label">✅ 寫作導師建議（修改後）</div>
+      <p>「這張車票，就是他愛我的證據。他用漫長的時光，向我詮釋了陪伴的真諦。」<br><span style="font-size:12px; color:var(--color-text-secondary);">（優點：緊扣線索，昇華主題）</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="sec-7">
+  <div class="section-header">
+    <div class="section-icon">📋</div>
+    <div class="section-title">七、範文大綱（供寫作練習參考）</div>
+  </div>
+  <div class="card">
+    <ol style="line-height: 2;">
+      <li><strong>第一段：觸景生情（現在）</strong><br>打掃房間 / 整理舊物發現一張舊車票，描述其外觀，思緒回到昔日的車站。</li>
+      <li><strong>第二段：交代背景（過去）</strong><br>交代當年是誰陪自己搭車，為了甚麼目的。寫出自己當時年幼無知，覺得理所當然甚至嫌棄。</li>
+      <li><strong>第三段：特寫事件（高潮）</strong><br>描寫某次深刻的乘車經歷（如在車上睡著，醒來發現對方為讓我靠著肩膀而忍受僵硬）。細緻描寫對方的外貌與保護姿態。</li>
+      <li><strong>第四段：情感轉折與反思（現在）</strong><br>回到現實，對比今昔。表達懊悔與感恩，明白陪伴是需要用心血澆灌的。</li>
+      <li><strong>第五段：點題結尾</strong><br>總結「真正的陪伴」的意義（無聲的守候），並以題目金句精準點題收尾。</li>
+    </ol>
+  </div>
+</div>
+
+<div class="section" id="sec-8">
+  <div class="section-header">
+    <div class="section-icon">✏️</div>
+    <div class="section-title">八、課堂練習</div>
+  </div>
+
+  <div class="qbox">
+    <span class="qbox-num">題目一</span>
+    <div class="qbox-q">【情節辨析】以下哪一個情節設計，最能深刻表現出「真正的陪伴」的主題？請說明原因。</div>
+    <ul style="font-size: 14px; margin-bottom: 10px; padding-left: 20px;">
+      <li>A. 爺爺每天花很多錢買豪華的士車票讓我舒舒服服地上學。</li>
+      <li>B. 下著滂沱大雨，巴士車廂漏水，婆婆默默把自己唯一的外套披在我身上，自己卻冷得發抖。</li>
+      <li>C. 朋友在車站陪我等車，我們一直打手機遊戲，直到車來了才道別。</li>
+    </ul>
+    <div class="qbox-ans">
+      <strong>參考答案：</strong><br>
+      選項 B 最能表現主題。因為「真正的陪伴」通常體現在微小而無私的犧牲中（如淋雨受寒也以你為先）。選項 A 流於物質，選項 C 只是普通的消遣，缺乏深刻的情感轉折與厚度。
+    </div>
+  </div>
+
+  <div class="qbox">
+    <span class="qbox-num">題目二</span>
+    <div class="qbox-q">【詞語運用】請將適當的詞語填入橫線中：（摩挲 / 歲月斑駁 / 潤物無聲 / 風雨不改）</div>
+    <p style="font-size: 14px; line-height: 2;">那幾年，父親總是 (1)______________ 地騎著單車送我到火車站。如今，看著照片中他 (2)______________ 的面容，我 (3)______________ 著車票的邊角，才終於讀懂了他那份 (4)______________ 的父愛。</p>
+    <div class="qbox-ans">
+      <strong>參考答案：</strong><br>
+      (1) 風雨不改<br>(2) 歲月斑駁<br>(3) 摩挲<br>(4) 潤物無聲
+    </div>
+  </div>
+
+  <div class="qbox">
+    <span class="qbox-num">題目三</span>
+    <div class="qbox-q">【過渡技巧】在文章中，主角由「過去的回憶」回到「現在的現實」需要過渡句。試運用「車票」這個線索，寫出一個能連接「過去」與「現在反思」的過渡段落（約40-60字）。</div>
+    <div class="qbox-ans">
+      <strong>參考答案：</strong><br>
+      「車站的廣播聲彷彿還在耳邊迴盪，但回過神來，眼前只有這張泛黃的車票靜靜躺在掌心。時光荏苒，昔日為我遮風擋雨的背影已然老去，只留下這份沉甸甸的愛。」
+    </div>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
