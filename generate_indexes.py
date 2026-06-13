@@ -565,17 +565,41 @@ html_template = """<!DOCTYPE html>
 
 icons = ["📚", "🧭", "🔥", "⚡", "⚖️"]
 
+SKIP_FILES = {"index.html", "data_grades.js"}
+
+def clean_title(filename):
+    name = filename.replace(".html", "")
+    for suffix in ["_潘SIR中文教室", "（潘SIR中文教室）"]:
+        name = name.replace(suffix, "")
+    return name.strip()
+
 for folder_name, data in folders.items():
     content_html = ""
     has_dse = False
     if folder_name == "zeng_han":
         has_dse = True
+
+    # Collect all files already listed in categories
+    listed_files = set()
     for category, items in data["categories"].items():
         if "DSE" in category:
             has_dse = True
         for item in items:
+            listed_files.add(item["file"])
             if "DSE" in item.get("file", "") or "DSE" in item.get("title", "") or "DSE" in item.get("desc", ""):
                 has_dse = True
+
+    # Auto-scan for unlisted .html files in the folder
+    folder_path = os.path.join(base_dir, folder_name)
+    if os.path.isdir(folder_path):
+        scanned = [
+            f for f in os.listdir(folder_path)
+            if f.endswith(".html") and f not in SKIP_FILES and f not in listed_files
+        ]
+        if scanned:
+            data["categories"]["學習筆記"] = [
+                {"file": f, "title": clean_title(f), "desc": "學習筆記"} for f in sorted(scanned)
+            ]
 
     icon_idx = 0
     for category, items in data["categories"].items():
