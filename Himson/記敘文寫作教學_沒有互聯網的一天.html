@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寫作教學筆記：沒有互聯網的一天｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 基礎重置與變數 */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ede8e0;
+    --color-text-secondary: #9a9488;
+    --color-background-primary: #1e1c19;
+    --color-background-secondary: #27251f;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+  }
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  padding: 2rem 1rem;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.wrap { max-width: 800px; margin: 0 auto; padding-bottom: 3rem; }
+
+/* Hero 共用結構 */
+.hero {
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: inherit;
+  line-height: 1.4;
+}
+.hero p { font-size: 13px; font-weight: 500; }
+
+/* 寫作：霧玫瑰 */
+.hero.writing { background: #E8D5C8; color: #2E1A12; }
+.hero.writing .hero-tag {
+  border: 1px solid rgba(46,26,18,0.3);
+  color: rgba(46,26,18,0.65);
+}
+.hero.writing p { color: rgba(46,26,18,0.5); }
+
+/* 目錄 TOC */
+.toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px; margin-bottom: 2rem;
+}
+.toc-item {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.8rem 1rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.toc-num {
+  width: 24px; height: 24px;
+  background: #2E1A12; color: #E8D5C8;
+  border-radius: 50%; font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.toc-label { font-size: 13px; font-weight: 500; color: var(--color-text-primary); line-height: 1.3; }
+
+/* 分區標題 Section Header */
+.section { margin-bottom: 3rem; }
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.5rem; padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--color-border-tertiary);
+}
+.section-icon {
+  width: 36px; height: 36px; border-radius: var(--border-radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+  background: rgba(232, 213, 200, 0.4);
+}
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--color-text-primary);
+}
+.section-num { font-size: 12px; font-weight: 700; color: #2E1A12; opacity: 0.4; margin-left: auto; letter-spacing: 0.05em; }
+
+/* 內容區塊 Subsection & Card */
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+}
+.card-title {
+  font-size: 15px; font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.8rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot.rose { background: #A86A58; }
+.dot.teal { background: #1D9E75; }
+.dot.blue { background: #378ADD; }
+.dot.amber { background: #D9822B; }
+
+.card p, .card li { font-size: 14px; color: var(--color-text-primary); line-height: 1.8; margin-bottom: 0.5rem; }
+.card ul, .card ol { padding-left: 1.5rem; margin-bottom: 0.5rem; }
+
+/* 提示框 Alert */
+.alert {
+  border-radius: var(--border-radius-md);
+  padding: 1rem 1.2rem; margin: 1rem 0;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+.alert-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 4px; }
+.alert-text  { font-size: 13.5px; line-height: 1.7; color: var(--color-text-primary); }
+
+.alert.tip     { background: #E6F1FB; border: 1px solid #93C4F5; }
+.alert.tip .alert-label { color: #1a5faa; }
+
+.alert.warn    { background: #FCEBEB; border: 1px solid #F09595; }
+.alert.warn .alert-label { color: #A32D2D; }
+
+.alert.success { background: #EAF3DE; border: 1px solid #97C459; }
+.alert.success .alert-label { color: #3B6D11; }
+
+.alert.amber   { background: #FAF0DA; border: 1px solid #E5B84A; }
+.alert.amber .alert-label { color: #7a5a05; }
+
+/* 示例框 Example Box */
+.example-box {
+  background: var(--color-background-secondary);
+  border-left: 4px solid #A86A58;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 1rem 1.2rem; margin: 1rem 0;
+}
+.example-box.teal { border-left-color: #1D9E75; }
+.example-box.blue { border-left-color: #378ADD; }
+
+.example-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.5rem;
+  color: #A86A58;
+}
+.example-box.teal .example-label { color: #0F6E56; }
+.example-box.blue .example-label { color: #1a5faa; }
+
+.example-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px; color: var(--color-text-primary); line-height: 1.85;
+}
+
+/* 對比框 Compare Grid */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1rem 0; }
+.compare-card { border-radius: var(--border-radius-md); padding: 1rem; border: 1px solid var(--color-border-tertiary); }
+.compare-card.bad  { background: #FCEBEB; border-color: #F09595; }
+.compare-card.good { background: #EAF3DE; border-color: #97C459; }
+.compare-label { font-size: 12px; font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
+.compare-card.bad  .compare-label { color: #A32D2D; }
+.compare-card.good .compare-label { color: #3B6D11; }
+.compare-text { font-size: 13.5px; line-height: 1.7; color: var(--color-text-primary); }
+
+/* 流程 Flow */
+.flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 1rem 0; }
+.flow-step {
+  background: #E8D5C8; color: #2E1A12;
+  font-size: 13px; font-weight: 600;
+  padding: 8px 16px; border-radius: 20px; white-space: nowrap;
+}
+.flow-arrow { font-size: 16px; color: var(--color-text-secondary); }
+
+/* 關鍵詞 Keyword Grid */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px; margin: 1rem 0;
+}
+.keyword-card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 1rem;
+}
+.kw-word { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #A86A58; margin-bottom: 0.4rem; }
+.kw-def { font-size: 13px; color: var(--color-text-primary); line-height: 1.6; }
+
+/* 練習題 Exam Box */
+.exam-box {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem; margin-bottom: 1.2rem;
+}
+.exam-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px dashed var(--color-border-tertiary);
+}
+.exam-num { font-size: 14px; font-weight: 700; color: #A86A58; }
+.exam-badge { font-size: 11px; background: #f0f0f0; padding: 2px 8px; border-radius: 12px; font-weight: 600; color: #555; }
+.exam-q { font-size: 14.5px; font-weight: 600; line-height: 1.7; margin-bottom: 1rem; color: var(--color-text-primary); }
+.exam-options { margin-bottom: 1rem; list-style: none; padding: 0; }
+.exam-options li { margin-bottom: 0.5rem; font-size: 14px; padding-left: 1.5rem; position: relative; }
+.exam-options li::before { content: '○'; position: absolute; left: 0; top: 0; color: #999; }
+.exam-ans {
+  background: #EAF3DE; border-left: 4px solid #97C459;
+  padding: 1rem; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  font-size: 13.5px; line-height: 1.6;
+}
+.ans-label { font-weight: 700; color: #3B6D11; margin-bottom: 0.4rem; display: block; font-size: 12px; }
+
+/* 列印 / PDF 規則 */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; font-size: 12pt; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .example-box, .alert, .compare-grid, .keyword-card, .exam-box { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; border: 1px solid #ccc; background: transparent !important; color: black !important; }
+  .hero-tag { border-color: #000 !important; color: #000 !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero writing">
+  <div class="hero-tag">寫作教學筆記</div>
+  <h1>記敘文寫作教學<br>《沒有互聯網的一天》</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc">
+  <div class="toc-item"><div class="toc-num">一</div><div class="toc-label">題目分析與立意</div></div>
+  <div class="toc-item"><div class="toc-num">二</div><div class="toc-label">寫作構思指引</div></div>
+  <div class="toc-item"><div class="toc-num">三</div><div class="toc-label">詳細寫作步驟與示例</div></div>
+  <div class="toc-item"><div class="toc-num">四</div><div class="toc-label">詞語運用與對比提升</div></div>
+  <div class="toc-item"><div class="toc-num">五</div><div class="toc-label">實戰演練</div></div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">🔍</div>
+    <div class="section-title">一、題目分析與立意</div>
+    <div class="section-num">PART 01</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot rose"></div>1. 拆解題目關鍵詞</div>
+    <ul>
+      <li><strong>「沒有」：</strong>代表一種「失去」或「剝奪」的狀態。這通常會引發負面的情緒（如焦慮、無聊、煩躁），這正是文章開篇的情感基調。</li>
+      <li><strong>「互聯網」：</strong>涵蓋了手機遊戲、YouTube影片、社交媒體、甚至做功課找資料的工具。它是現代人依賴科技的象徵。</li>
+      <li><strong>「一天」：</strong>限制了時間跨度。文章必須呈現出從早到晚（或一段連續時間內）的完整經歷，並展現心理變化的過程。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot rose"></div>2. 情感核心與寫作重點</div>
+    <p>這條題目的核心在於<strong>「對比」</strong>與<strong>「反思」</strong>。寫作重點是由「失去網絡的焦躁」轉化為「發現現實生活樂趣的驚喜」。你要讓讀者看到，互聯網雖然方便，但現實中的人情味和簡單的快樂同樣珍貴。</p>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div>
+      <div class="alert-label">常見離題與薄弱問題</div>
+      <div class="alert-text">
+        <strong>1. 變成了「停電的一天」：</strong>過度描寫沒有冷氣、沒有燈有多辛苦，忘記了核心是「沒有互聯網（資訊與娛樂）」。<br>
+        <strong>2. 流水帳：</strong>把一天切成很多碎塊（例如：早上發呆、中午睡覺、下午看書、晚上吃飯），毫無重點。<br>
+        <strong>3. 反思太過說教：</strong>結尾像喊口號般說「我們不應沉迷上網」，缺乏自身真實的體會。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">💡</div>
+    <div class="section-title">二、寫作構思指引</div>
+    <div class="section-num">PART 02</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot teal"></div>1. 建議可選題材（貼近生活）</div>
+    <p>寫作時應選擇一個具體的實體活動作為轉折的契機：</p>
+    <ul>
+      <li><strong>方向 A（家庭互動）：</strong>家裡路由器壞了，被迫放下平板電腦，偶然發現爸爸封塵的棋盤，父子展開了一場久違的對弈。</li>
+      <li><strong>方向 B（親近自然）：</strong>跟隨家人到偏遠的郊野公園露營，完全接收不到信號。從一開始的抱怨，到後來被滿天星斗和螢火蟲深深吸引。</li>
+      <li><strong>方向 C（自我沉澱）：</strong>自己決心挑戰「無網一日」，原本以為會無聊透頂，卻因此靜下心來讀完了一本一直想看的小說，甚至幫媽媽做了一頓飯。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot teal"></div>2. 情感轉折鋪排</div>
+    <p>一篇優秀的記敘文，人物的情感必須有起伏。請參考以下的情感變化流程：</p>
+    <div class="flow">
+      <div class="flow-step">焦躁不安<br><span style="font-size:11px; font-weight:400;">(斷網初期)</span></div><div class="flow-arrow">→</div>
+      <div class="flow-step">百無聊賴<br><span style="font-size:11px; font-weight:400;">(接受現實)</span></div><div class="flow-arrow">→</div>
+      <div class="flow-step">轉移視線<br><span style="font-size:11px; font-weight:400;">(接觸實體事物)</span></div><div class="flow-arrow">→</div>
+      <div class="flow-step" style="background:#1D9E75; color:white;">投入驚喜<br><span style="font-size:11px; font-weight:400;">(發現現實樂趣)</span></div><div class="flow-arrow">→</div>
+      <div class="flow-step" style="background:#1D9E75; color:white;">豁然開朗<br><span style="font-size:11px; font-weight:400;">(反思感悟)</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">✍️</div>
+    <div class="section-title">三、詳細寫作步驟與示例</div>
+    <div class="section-num">PART 03</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot blue"></div>1. 開頭（起）</div>
+    <p><strong>技巧：</strong>建議用情境描寫或聲音開頭，直接把讀者帶入「斷網」的那一刻，製造懸念或衝突感。</p>
+    <div class="example-box blue">
+      <div class="example-label">段落示例</div>
+      <div class="example-text">
+        「哎呀！怎麼又斷線了？我的遊戲才打到一半啊！」我用力地點擊著平板電腦的螢幕，看著那一直在轉圈的緩衝符號，心裡急得像熱鍋上的螞蟻。原來，屋苑的網絡光纖故障了，這意味著我將要度過「沒有互聯網的一天」。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot blue"></div>2. 中段（承與轉）</div>
+    <p><strong>技巧：</strong>不要寫太多件事，集中詳寫一至兩件斷網後做的「有意義的事」。運用內心獨白，寫出沒有手機時的不習慣；並加入動作與環境描寫來烘托心情。</p>
+    <div class="example-box blue">
+      <div class="example-label">段落示例</div>
+      <div class="example-text">
+        整個上午，我都無精打采地癱在沙發上，總覺得雙手空空的。看著窗外灰濛濛的天空，時間彷彿停滯了。為了打發時間，我隨手從書架上抽出一本《城南舊事》。起初，我只是漫不經心地翻閱著，但漸漸地，我被書中生動的文字深深吸引了。沒有了社交媒體的通知聲打擾，我彷彿穿越到了老北京的胡同裡……
+      </div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">詳略得當</div>
+        <div class="alert-text">
+          <strong>略寫：</strong>斷網初期的無聊發呆（一段帶過）。<br>
+          <strong>詳寫：</strong>與爸爸下棋 / 與媽媽做蛋糕的過程，對話、動作、笑容要詳細描寫（佔兩至三段）。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot blue"></div>3. 結尾（合）</div>
+    <p><strong>技巧：</strong>網絡恢復正常，但你不要急著去上網，而是要有一個停頓和反思，做到昇華主題。「以小見大」，帶出網絡取代不了親情陪伴或真實體驗的道理。</p>
+    <div class="example-box blue">
+      <div class="example-label">段落示例</div>
+      <div class="example-text">
+        到了傍晚，路由器上的綠燈終於再次亮起。神奇的是，我並沒有像想像中那樣立刻撲向平板電腦。這次「斷網小插曲」讓我明白，互聯網雖然把世界縮小了，卻也悄悄拉遠了我們與現實生活的距離。偶爾拔掉網線，我們才能真正「連線」身邊美好的事物。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📚</div>
+    <div class="section-title">四、詞語運用與對比提升</div>
+    <div class="section-num">PART 04</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot amber"></div>1. 關鍵成語運用</div>
+    <div class="keyword-grid">
+      <div class="keyword-card">
+        <div class="kw-word">百無聊賴</div>
+        <div class="kw-def">形容非常無聊，沒有事情可做。<br><em>例：網絡中斷的頭一個小時，我百無聊賴地在客廳裡轉來轉去。</em></div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">坐立不安</div>
+        <div class="kw-def">形容焦急、煩躁。<br><em>例：看著一直無法連線的標誌，我急得坐立不安。</em></div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">全神貫注</div>
+        <div class="kw-def">把全部精力集中在一點上。<br><em>例：沒有了網絡的干擾，我竟然能全神貫注地拼完這幅一千塊的拼圖。</em></div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">豁然開朗</div>
+        <div class="kw-def">形容心境由狹窄閉塞變得開闊明朗。<br><em>例：聽了爸爸的話，我心中的煩悶頓時豁然開朗。</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot amber"></div>2. 句子升華對比（常見錯誤 vs 具體生動）</div>
+    
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">❌ 情感空洞（流於表面）</div>
+        <div class="compare-text">我不能上網，覺得很悶，不知道可以做甚麼。失去網絡的我，彷彿與世界失聯了。</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">✅ 細節豐富（動作反映心理）</div>
+        <div class="compare-text">我無奈地把手機丟到一旁，看著時鐘的秒針「滴答滴答」地走，時間彷彿過得特別慢。</div>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">❌ 流水帳式敘事</div>
+        <div class="compare-text">下午我和媽媽去公園散步，我們談了很久，我很開心。</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">✅ 具體生動（加入互動與感悟）</div>
+        <div class="compare-text">下午，媽媽牽著我的手到樓下的公園散步。我們沒有了手機信息的打擾，在微風中聊起了她小時候的趣事。看著媽媽眼角漾起的笑意，我才發現，原來現實中的對話比冷冰冰的文字溫暖得多。</div>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">❌ 結尾說教味太重</div>
+        <div class="compare-text">總而言之，我們不應該沉迷上網，要多關心家人。</div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">✅ 以小見大（自然昇華）</div>
+        <div class="compare-text">網絡雖然便利，但它不能替代真實的擁抱和笑聲。或許，我們都應該學會偶爾按下「離線鍵」，用心去感受真實生活的溫度。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot amber"></div>3. 精選佳句示例（供仿寫）</div>
+    <div class="example-box">
+      <div class="example-label">對比句</div>
+      <div class="example-text">「以前，我的眼睛總是盯著那五寸的發光屏幕；今天，我終於抬起頭，看見了窗外那片廣闊的藍天。」</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">比喻句</div>
+      <div class="example-text">「互聯網就像一張無形的巨網，把我們緊緊網在虛擬世界裡；沒有網絡的這一天，我彷彿破繭而出的蝴蝶，重新呼吸到新鮮的空氣。」</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📝</div>
+    <div class="section-title">五、實戰演練</div>
+    <div class="section-num">PART 05</div>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-header">
+      <div class="exam-num">題目一</div>
+      <div class="exam-badge">選擇題</div>
+    </div>
+    <div class="exam-q">關於《沒有互聯網的一天》的選材，下列哪一項<strong>最容易</strong>導致偏題或離題？</div>
+    <ul class="exam-options">
+      <li>A. 描寫斷網後與家人下棋的時光，體會親情。</li>
+      <li>B. 描寫因為停電導致沒有冷氣、滿頭大汗的辛苦。</li>
+      <li>C. 描寫斷網後靜下心閱讀一本小說的體會。</li>
+      <li>D. 描寫去深山露營無法上網，從而用心欣賞自然風景。</li>
+    </ul>
+    <div class="exam-ans">
+      <span class="ans-label">🔑 參考答案：B</span>
+      題目核心是失去「互聯網（資訊與娛樂）」，過度描寫沒有冷氣的生理辛苦，會偏離主題中關於科技依賴與現實反思的立意。
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-header">
+      <div class="exam-num">題目二</div>
+      <div class="exam-badge">短答題（改寫技巧）</div>
+    </div>
+    <div class="exam-q">試運用「動作反映心理」的技巧，擴寫並潤飾以下這句平鋪直敘的句子：（3分）<br><span style="color:#555; font-weight:normal;">「網絡突然斷了，我很生氣也很焦慮。」</span></div>
+    <div class="exam-ans">
+      <span class="ans-label">🔑 參考答案：</span>
+      我眉頭緊皺，用力地拍了一下滑鼠，隨即在房間裡來回踱步，每隔十秒鐘就盯著路由器上那盞閃爍的紅燈，急得像熱鍋上的螞蟻。
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-header">
+      <div class="exam-num">題目三</div>
+      <div class="exam-badge">大綱設計題</div>
+    </div>
+    <div class="exam-q">試為本文設計一個「轉折點」（從焦慮轉為享受現實），簡述發生的「具體事件」及你的「心理變化」。（4分）</div>
+    <div class="exam-ans">
+      <span class="ans-label">🔑 參考答案示例：</span>
+      <strong>具體事件：</strong>百無聊賴之際，看見媽媽在廚房忙碌，於是主動走過去幫忙搓麵粉、做蛋糕。<br>
+      <strong>心理變化：</strong>原本心裡一直牽掛著未完成的手機遊戲，但在搓揉麵糰和聞到烘焙香氣的過程中，逐漸感受到久違的平靜與專注。我聽著媽媽的指導，發現與家人共度的時光，遠比虛擬遊戲更有溫度。
+    </div>
+  </div>
+
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
