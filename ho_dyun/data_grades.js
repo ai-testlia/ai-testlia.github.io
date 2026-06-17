@@ -20,5 +20,12 @@ const studentGrades = [
     "score": 79.7,
     "max_score": 100.0,
     "remarks": "結構清晰，但細節描寫可以更加豐富，多加運用所學修辭。"
+  },
+  {
+    "date": "2026-06-18",
+    "test_name": "P.4 Final Examination 中文閱讀卷",
+    "score": 93.0,
+    "max_score": 100.0,
+    "remarks": "非常大的進步"
   }
 ];

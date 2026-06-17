@@ -1,11 +1,11 @@
 // Automatically generated grades data
 const studentGrades = [
   {
-    "date": "2026-03-05",
-    "test_name": "修辭手法與成語綜合測驗",
-    "score": 63.1,
+    "date": "2026-03-01",
+    "test_name": "測試修改",
+    "score": 90.0,
     "max_score": 100.0,
-    "remarks": "結構清晰，但細節描寫可以更加豐富，多加運用所學修辭。"
+    "remarks": "編輯測試"
   },
   {
     "date": "2026-03-27",

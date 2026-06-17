@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "nature-writing": {
+      "source": "yuan1z0825/nature-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nature-writing/SKILL.md",
+      "computedHash": "6c84aba7bc797388d3f289ea67ba55c4ae71273ad82b67a3d8bca580d2cec6d4"
+    }
+  }
+}
