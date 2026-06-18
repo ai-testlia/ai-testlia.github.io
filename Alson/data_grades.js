@@ -1,13 +1,6 @@
 // Automatically generated grades data
 const studentGrades = [
   {
-    "date": "2026-03-01",
-    "test_name": "測試修改",
-    "score": 90.0,
-    "max_score": 100.0,
-    "remarks": "編輯測試"
-  },
-  {
     "date": "2026-03-27",
     "test_name": "抒情文結構寫作特訓",
     "score": 72.3,
@@ -27,5 +20,12 @@ const studentGrades = [
     "score": 43.7,
     "max_score": 50.0,
     "remarks": "字詞理解準確，唯部分句式翻譯不夠通順，繼續加油！"
+  },
+  {
+    "date": "2026-06-01",
+    "test_name": "Test",
+    "score": 80.0,
+    "max_score": 100.0,
+    "remarks": ""
   }
 ];
