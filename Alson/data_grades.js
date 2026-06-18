@@ -1,6 +1,20 @@
 // Automatically generated grades data
 const studentGrades = [
   {
+    "date": "2026-01-01",
+    "test_name": "LockTest1",
+    "score": 70.0,
+    "max_score": 100.0,
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-02",
+    "test_name": "LockTest2",
+    "score": 75.0,
+    "max_score": 100.0,
+    "remarks": ""
+  },
+  {
     "date": "2026-03-27",
     "test_name": "抒情文結構寫作特訓",
     "score": 72.3,
