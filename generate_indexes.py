@@ -1,6 +1,8 @@
 import os
+from datetime import datetime
 
 base_dir = r"C:\Users\balpo\HappyBin\ai-testlia.github.io"
+data_version = datetime.now().strftime('%Y%m%d%H%M%S')
 folders = {
     "Alson": {
         "title": "子睿 的學習筆記",
@@ -451,9 +453,9 @@ html_template = """<!DOCTYPE html>
   <!-- 引入 Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- 引入學生專屬成績數據檔 -->
-  <script src="data_grades.js" onerror="console.log('未偵測到學生成績數據')"></script>
+  <script src="data_grades.js?v={data_version}" onerror="console.log('未偵測到學生成績數據')"></script>
   <!-- 引入學生備忘數據檔 -->
-  <script src="data_memo.js" onerror="console.log('未偵測到備忘數據')"></script>
+  <script src="data_memo.js?v={data_version}" onerror="console.log('未偵測到備忘數據')"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {{
@@ -669,7 +671,7 @@ for folder_name, data in folders.items():
 """
         content_html = dse_banner + content_html
     
-    final_html = html_template.format(title=data["title"], tag=data["tag"], content=content_html)
+    final_html = html_template.format(title=data["title"], tag=data["tag"], content=content_html, data_version=data_version)
     
     out_path = os.path.join(base_dir, folder_name, "index.html")
     with open(out_path, "w", encoding="utf-8") as f:
