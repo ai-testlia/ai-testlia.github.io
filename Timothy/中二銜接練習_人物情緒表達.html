@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>語文基礎筆記：情緒表達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --color-ans-bg: #f0f7f0;
+    --color-ans-text: #2e7d32;
+    --color-ans-border: #4caf50;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  
+  @media prefers-color-scheme: dark {
+    :root {
+      --color-text-primary: #f0f0f0;
+      --color-text-secondary: #aaaaaa;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-ans-bg: #1a2e1a;
+      --color-ans-text: #81c784;
+      --color-ans-border: #66bb6a;
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    padding: 2rem 1rem;
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { 
+    font-size: 13px; 
+    margin: 0;
+  }
+
+  /* 寫作：霧玫瑰 (這裏借用作語基，因主題相近) */
+  .hero.writing { background: #E8D5C8; color: #2E1A12; }
+  .hero.writing .hero-tag {
+    border: 1px solid rgba(46,26,18,0.3);
+    color: rgba(46,26,18,0.65);
+  }
+  .hero.writing p { color: rgba(46,26,18,0.5); }
+
+  /* 組件樣式 */
+  .section-header {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-border-tertiary);
+    padding-bottom: 0.5rem;
+    margin: 2.5rem 0 1.5rem 0;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    background: var(--color-background-secondary);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+  }
+
+  .kw-word {
+    background: var(--color-background-primary);
+    padding: 0.5rem;
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .qbox {
+    margin-bottom: 1.8rem;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+  }
+
+  .q-num {
+    font-weight: 700;
+    margin-right: 0.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .blank {
+    display: inline-block;
+    border-bottom: 1px solid var(--color-text-primary);
+    width: 80px;
+    margin: 0 5px;
+  }
+  
+  .blank-long {
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+    height: 25px;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-left: 0.5rem;
+  }
+
+  .reading-text {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #b3a398;
+    line-height: 2;
+    text-indent: 0;
+  }
+
+  /* 互動答案區域樣式 */
+  .toggle-ans-btn {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    color: var(--color-text-secondary);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 1.5rem;
+    display: block;
+    transition: all 0.2s;
+    text-indent: 0;
+  }
+
+  .toggle-ans-btn:hover {
+    background: var(--color-border-tertiary);
+    color: var(--color-text-primary);
+  }
+
+  .inline-answer {
+    display: none;
+    margin-top: 8px;
+    margin-left: 1.5rem;
+    padding: 8px 12px;
+    background: var(--color-ans-bg);
+    border-left: 3px solid var(--color-ans-border);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--color-ans-text);
+    text-indent: 0;
+  }
+
+  .inline-answer.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* PRINT BUTTONS */
+  .print-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+  }
+  .print-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #004754 !important;
+    background: #FFD700 !important;
+    border: none !important;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .print-btn:hover {
+    background: #e6c200 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, .keyword-grid, .reading-text { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+    
+    /* 確保列印時顏色正確 */
+    .hero.writing { 
+      background-color: #E8D5C8 !important; 
+      color: #2E1A12 !important; 
+      -webkit-print-color-adjust: exact; 
+      print-color-adjust: exact; 
+    }
+    .keyword-grid {
+      background-color: #f5f5f3 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* 列印時強制顯示答案，隱藏按鈕 */
+    .print-btn, .print-btn-container { display: none !important; }
+    .toggle-ans-btn { display: none !important; }
+    .inline-answer { 
+      display: block !important; 
+      background: transparent !important;
+      border: 1px solid #ccc !important;
+      border-left: 3px solid #666 !important;
+      color: #000 !important;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="wrap" style="position:relative;">
+  <div class="hero writing">
+    <div class="hero-tag">語文基礎強化筆記</div>
+    <h1>中二銜接練習：人物情緒表達<br>（校園與生活篇）</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <p>💡 <b>學習目標：</b>本練習專為協助同學跳脫「英式中文」思維而設。透過豐富的校園與生活情境，幫助同學掌握精準的情緒詞彙及成語，提升日常寫作的自然流暢度。</p>
+
+  <div class="section-header">
+    <span>一、供詞填充</span>
+  </div>
+  <div class="card">
+    <p>請從下表中選出最適合的詞語填在橫線上（每個詞語只可使用一次）。</p>
+    <div class="keyword-grid">
+      <div class="kw-word">忐忑不安</div>
+      <div class="kw-word">欣喜若狂</div>
+      <div class="kw-word">愁眉苦臉</div>
+      <div class="kw-word">勃然大怒</div>
+      <div class="kw-word">垂頭喪氣</div>
+      <div class="kw-word">驚惶失措</div>
+      <div class="kw-word">悶悶不樂</div>
+      <div class="kw-word">喜出望外</div>
+      <div class="kw-word">心急如焚</div>
+      <div class="kw-word">啼笑皆非</div>
+    </div>
+
+    <div class="qbox">
+      <span class="q-num">1.</span>知道明天要派發期終考試的成績表，我整晚都感到<span class="blank"></span>，在床上翻來覆去，無法入睡。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：忐忑不安</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>當發現自己辛苦儲錢買的遊戲機被弟弟弄壞了，哥哥頓時<span class="blank"></span>，大聲責罵他。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：勃然大怒</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>聽到媽媽答應暑假帶我們全家去日本旅行，妹妹高興得<span class="blank"></span>，在客廳裡跳來跳去。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：欣喜若狂</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>測驗不及格的明華<span class="blank"></span>地走回座位，把頭埋在雙臂間，一句話也不說。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：垂頭喪氣</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>在商場裏走失了的小男孩<span class="blank"></span>地四處張望，找不到媽媽的他忍不住大哭起來。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：驚惶失措</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>因為跟最好的朋友吵架了，家明這幾天都<span class="blank"></span>，連平時最愛的籃球也提不起勁打。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：悶悶不樂</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>原本以為今年生日沒有禮物，沒想到爸爸偷偷買了我最想要的球鞋，真讓我感到<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：喜出望外</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>看着年幼的妹妹把積木當成食物塞進玩具熊的嘴裏，媽媽真是感到<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：啼笑皆非</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>班長不小心遺失了全班同學的秋季旅行通告，嚇得<span class="blank"></span>，急得像熱鍋上的螞蟻。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：心急如焚</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>為什麼你今天一整天都<span class="blank"></span>的？是不是在學校遇到了什麼煩心事？
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：愁眉苦臉</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>二、不供詞填充</span>
+  </div>
+  <div class="card">
+    <p>請根據句子意思及括號內的提示，填寫最合適的情緒詞語（須為兩個字的詞語）。</p>
+    <div class="qbox">
+      <span class="q-num">1.</span>經過三個月的刻苦訓練，校隊終於奪得校際籃球比賽的冠軍，大家在頒獎台上流下了<span class="blank"></span>的眼淚。<span class="hint">[提示：因高興或受到刺激而感情強烈]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：激動</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>我不小心把同學借給我的精美筆記本弄不見了，現在心裏感到非常<span class="blank"></span>，不知如何向他交代。<span class="hint">[提示：做錯事後感到後悔及自責]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：懊悔</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>明明是同桌同學說話，但老師卻誤會是我，並當眾責備我。我感到十分<span class="blank"></span>，眼淚一直在眼眶裡打轉。<span class="hint">[提示：受到不公平對待而心裏難受]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：委屈</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>每次做專題研習遇到困難，他總是先<span class="blank"></span>組員沒有盡力，而不是自己想辦法解決問題。<span class="hint">[提示：心中不滿而責怪別人]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：抱怨</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>看到好朋友結交了新同伴而忽略自己，他的心裏不禁產生了一絲<span class="blank"></span>。<span class="hint">[提示：因別人比自己好或搶走關注而心生怨恨]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：嫉妒</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>晚上自己一個人在客廳看完了那套恐怖電影後，我對黑暗產生了莫名的<span class="blank"></span>，連去洗手間也要開燈。<span class="hint">[提示：感到害怕、驚恐]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：恐懼</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>考試終於完結了，我們全班同學都熱切地<span class="blank"></span>着下星期的畢業旅行。<span class="hint">[提示：充滿期待地盼望]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：期盼</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>剛轉學到這裏，我還沒有交到新朋友，每次小息一個人在操場漫步，總覺得有點<span class="blank"></span>。<span class="hint">[提示：單身無靠，感到寂寞]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：孤單</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>平時數學成績普通的他，這次竟然考了全班第一，大家都對這個突如其來的進步感到很<span class="blank"></span>。<span class="hint">[提示：覺得奇怪、驚奇]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：詫異</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>弟弟一直在旁邊大吵大鬧，不斷打斷我溫習英文，讓我感到十分<span class="blank"></span>。<span class="hint">[提示：因為被打擾而嫌煩、討厭]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：厭煩</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>三、改寫句子</span>
+  </div>
+  <div class="card">
+    <p>以下句子的語氣過於口語化，或受了「英式中文（English translated logic）」的影響。請以意思不變為原則，把它們改寫成流暢自然的<b>標準書面語</b>。</p>
+    
+    <div class="qbox">
+      <span class="q-num">1.</span>我很嬲，因為他 break 了我的 promise。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我很生氣，因為他對我食言了。（或：他沒有遵守諾言，讓我感到十分生氣。）</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>我感到好 down，因為我不 pass 個 test。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：測驗不及格，讓我感到十分沮喪。（或：因為測驗不及格，我感到很失落。）</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>我很驚當我看見那隻流浪狗。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：看見那隻流浪狗時，我感到很害怕。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>這是一件讓我變得很傷心的一件事。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：這件事讓我感到十分傷心。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>我有很多 stresses 在我的學習上。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：在學習上，我承受了很大的壓力。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>我很 happy 去看電影和我的朋友一起。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：能和朋友一起看電影，我感到很高興。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>老師大聲話我，我覺得好冇面。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：被老師大聲責罵，我感到十分羞愧。（或：感到十分難堪）</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>我真的很不明白 why 你要這樣對我，我覺得好心痛。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我實在不明白你為何要這樣對待我，這讓我感到很心痛。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>我 feel 到好 boring 當我聽這個 talk。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：聽這個講座時，我感到十分沉悶。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>我的媽媽非常之 proud of 我。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我的媽媽為我感到十分自豪。</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>四、重組句子</span>
+  </div>
+  <div class="card">
+    <p>請將下列散落的詞組重新組合成邏輯嚴謹、文句通順的書面語句子（需加上適當的標點符號）。</p>
+    
+    <div class="qbox">
+      <span class="q-num">1.</span>感到 / 十分 / 的 / 他 / 為 / 粗心大意 / 懊惱 / 自己
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他為自己的粗心大意感到十分懊惱。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>滿懷 / 步出 / 考試 / 信心 / 地 / 禮堂 / 同學們
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：同學們滿懷信心地步出考試禮堂。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>弟弟 / 讓 / 感到 / 做法 / 莫名其妙 / 的 / 我
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：弟弟的做法讓我感到莫名其妙。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>嚇得 / 面色 / 突然 / 蒼白 / 傳來的 / 巨響 / 妹妹
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：突然傳來的巨響嚇得妹妹面色蒼白。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>終於 / 鬆了一口氣 / 尋回 / 遺失的 / 手機 / 哥哥 / 後
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：哥哥尋回遺失的手機後，終於鬆了一口氣。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>氣得 / 滿面 / 通紅 / 他的 / 謊言 / 媽媽 / 說
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他說的謊言氣得媽媽滿面通紅。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>因為 / 感到 / 班長 / 老師的 / 十分 / 稱讚 / 鼓舞 / 受到
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：班長因為受到老師的稱讚而感到十分鼓舞。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>忍不住 / 委屈的 / 起來 / 淚水 / 小女孩 / 流下 / 痛哭
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：小女孩忍不住流下委屈的淚水，痛哭起來。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>焦急 / 徘徊 / 爸爸 / 地 / 訓導處外 / 在
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：爸爸在訓導處外焦急地徘徊。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>總是 / 樂觀的 / 感染 / 笑容 / 身邊的 / 能 / 朋友 / 她
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：她樂觀的笑容總是能感染身邊的朋友。</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>五、段落理解</span>
+  </div>
+  <div class="card">
+    <p>閱讀以下兩段短文，並回答問題。</p>
+
+    <b>【文章一】</b>
+    <div class="reading-text">
+      今天是派發默書成績的日子。我握着那張只有四十分的測驗紙，心跳得極快，雙手微微發抖。回想起昨晚，我為了解鎖電子遊戲的新關卡而沒有溫習，現在只有滿滿的懊悔。放學後，我拖着沉重的步伐走回家，腦海中不斷浮現媽媽生氣的面容。當我膽怯地把測驗紙遞給媽媽時，她竟然沒有破口大罵，只是嘆了一口氣，眼神裏充滿了失望。那一刻，我感到無比羞愧，暗暗下定決心下次一定要努力。
+    </div>
+    <div class="qbox">
+      <span class="q-num">1.</span>派發成績時，「我」的身體出現了甚麼反映緊張情緒的生理反應？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他的心跳得極快，雙手微微發抖。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>文中哪個詞語準確地概括了「我」對昨晚貪玩行為的感受？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：懊悔。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>為甚麼「我」放學時會「拖着沉重的步伐」？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：因為他的成績不理想，心裡害怕面對媽媽的責備，心情十分沉重。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>媽媽看到成績後，她的情緒是怎樣的？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：媽媽感到十分失望。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>看到媽媽的反應後，作者最後的情緒出現了甚麼轉變？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他感到無比羞愧，並下定決心下次要努力溫習。</div>
+    </div>
+
+    <br>
+    <b>【文章二】</b>
+    <div class="reading-text">
+      小明和小強是形影不離的好朋友。星期五的小息，小強不小心把墨水倒在小明新買的筆袋上。小明頓時火冒三丈，大聲責怪小強。小強感到十分委屈，連忙道歉，但小明氣得轉身就走。整個週末，小明都覺得心裏悶悶的，他看着那個筆袋，其實只是一小塊污漬。他開始後悔自己當時太衝動，明白到友情比一個筆袋珍貴得多。星期一早上，小明主動向小強說對不起，兩人相視而笑，冰釋前嫌。
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>小明新買的筆袋被弄髒後，他第一時間有甚麼情緒反應？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他頓時火冒三丈（非常生氣）。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>試寫出文中表示小強被責罵後難受心情的詞語。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：委屈。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>週末時，小明的心情是怎樣的？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他覺得心裏悶悶的，並且為自己的衝動感到後悔。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>讓小明心情從「生氣」轉變為「後悔」的原因是什麼？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：因為他明白到友情比一個筆袋珍貴得多。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>故事結局中，「兩人相視而笑」代表他們的情緒變得怎樣？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：代表他們釋懷了（不再生氣），和好如初，心情回復開心。</div>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+  <!-- PRINT PANEL -->
+  <div class="print-btn-container">
+    <a href="index.html" class="print-btn" style="background: #e2e8f0 !important; color: #475569 !important; box-shadow: none;">返回首頁</a>
+    <button class="print-btn" onclick="window.print()">🖨️ 列印此頁 / 儲存 PDF</button>
+  </div>
+</div>
+
+<script>
+  function toggleAnswer(btn) {
+    const ansDiv = btn.nextElementSibling;
+    if (ansDiv.classList.contains('show')) {
+      ansDiv.classList.remove('show');
+      btn.innerHTML = '👀 顯示答案';
+    } else {
+      ansDiv.classList.add('show');
+      btn.innerHTML = '🙈 隱藏答案';
+    }
+  }
+</script>
+
+</body>
+</html>
