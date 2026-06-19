@@ -1,7 +1,8 @@
 import os
+import sys
 from datetime import datetime
 
-base_dir = r"C:\Users\balpo\HappyBin\ai-testlia.github.io"
+base_dir = sys.argv[1] if len(sys.argv) > 1 else r"C:\Users\balpo\HappyBin\ai-testlia.github.io"
 data_version = datetime.now().strftime('%Y%m%d%H%M%S')
 folders = {
     "Alson": {
@@ -638,6 +639,8 @@ for folder_name, data in folders.items():
 
     icon_idx = 0
     for category, items in data["categories"].items():
+        if not items:
+            continue
         icon = icons[icon_idx % len(icons)]
         icon_idx += 1
         content_html += f'''  <div class="section-header">
