@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>課室裏的空座位 — 重新評分報告</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0,0,0,0.1);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --hero-bg: #E8D5C8;
+      --hero-text: #2E1A12;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--hero-bg);
+      color: var(--hero-text);
+      border-radius: var(--border-radius-lg);
+      padding: 2.8rem 2rem 2.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(46,26,18,0.3);
+      color: rgba(46,26,18,0.65);
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--hero-text);
+      line-height: 1.4;
+      margin-bottom: 0.6rem;
+    }
+    .hero p { font-size: 13px; color: rgba(46,26,18,0.5); }
+
+    /* ── SCORE HERO ── */
+    .score-hero {
+      background: #fff;
+      border-radius: var(--border-radius-lg);
+      border: 1.5px solid #e8c4cc;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .score-circle {
+      width: 118px; height: 118px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fce4ec 60%, #f8bbd0);
+      border: 3px solid #e91e63;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .score-circle .score-num {
+      font-family: "Noto Serif TC", serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c2185b;
+      line-height: 1;
+    }
+    .score-circle .score-denom { font-size: 11px; color: #ad1457; margin-top: 3px; }
+    .score-info h2 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.2rem;
+      color: #2E1A12;
+      margin-bottom: 0.4rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      background: #c2185b;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 3px 14px;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+    }
+    .score-info p { font-size: 13px; color: var(--color-text-secondary); }
+
+    /* ── REVISED BADGE ── */
+    .revised-notice {
+      background: #fff8e1;
+      border: 1px solid #f59e0b;
+      border-radius: var(--border-radius-md);
+      padding: 0.8rem 1.2rem;
+      font-size: 13px;
+      color: #7c5c00;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--color-background-primary);
+      border-radius: var(--border-radius-lg);
+      border: 0.5px solid var(--color-border-tertiary);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.7rem;
+      text-transform: uppercase;
+    }
+    .toc-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; }
+    .toc-list li a { font-size: 13px; color: #8B5E3C; text-decoration: none; }
+    .toc-list li a:hover { color: #c2185b; }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex; align-items: center; gap: 0.8rem;
+      margin: 2.2rem 0 1.1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid rgba(46,26,18,0.12);
+    }
+    .section-icon { font-size: 1.3rem; }
+    .section-header h2 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.1rem; font-weight: 700; color: #2E1A12;
+    }
+    .section-num {
+      margin-left: auto; font-size: 11px; font-weight: 700;
+      color: rgba(46,26,18,0.3); letter-spacing: 0.05em;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--color-background-primary);
+      border-radius: var(--border-radius-lg);
+      border: 0.5px solid var(--color-border-tertiary);
+      padding: 1.3rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-weight: 700; font-size: 14px;
+      margin-bottom: 0.6rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .dot-pink   { background: #e91e63; }
+    .dot-blue   { background: #1976d2; }
+    .dot-teal   { background: #00897b; }
+    .dot-amber  { background: #f59e0b; }
+    .dot-red    { background: #e53935; }
+    .dot-green  { background: #43a047; }
+    .dot-purple { background: #7b1fa2; }
+
+    /* ── SCORE GRID ── */
+    .score-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .score-card {
+      background: var(--color-background-primary);
+      border-radius: var(--border-radius-lg);
+      border: 0.5px solid var(--color-border-tertiary);
+      padding: 1.1rem 1.3rem;
+    }
+    .score-card .sc-label { font-size: 12px; font-weight: 700; color: var(--color-text-secondary); margin-bottom: 2px; }
+    .score-card .sc-pct   { font-size: 11px; color: #bbb; margin-bottom: 6px; }
+    .score-card .sc-marks {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.4rem; font-weight: 700; margin-bottom: 6px;
+    }
+    .score-card .sc-comment { font-size: 13px; color: var(--color-text-primary); line-height: 1.75; }
+    .score-card.good  { border-left: 3px solid #43a047; }
+    .score-card.good  .sc-marks { color: #2e7d32; }
+    .score-card.ok    { border-left: 3px solid #1976d2; }
+    .score-card.ok    .sc-marks { color: #1565c0; }
+    .score-card.weak  { border-left: 3px solid #f59e0b; }
+    .score-card.weak  .sc-marks { color: #e65100; }
+    .score-card.poor  { border-left: 3px solid #e53935; }
+    .score-card.poor  .sc-marks { color: #b71c1c; }
+
+    /* ── SCORE TOTAL ── */
+    .score-total-bar {
+      background: #2E1A12;
+      color: #fff;
+      border-radius: var(--border-radius-lg);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .score-total-bar .stb-label { font-size: 13px; opacity: 0.75; }
+    .score-total-bar .stb-score {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.5rem; font-weight: 700;
+    }
+
+    /* ── ERROR TABLE ── */
+    .error-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin-bottom: 1rem;
+      background: var(--color-background-primary);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+    }
+    .error-table th {
+      background: #f5ede9;
+      color: #2E1A12;
+      font-weight: 700;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 2px solid #e8c4bb;
+      font-size: 13px;
+    }
+    .error-table td {
+      padding: 12px 14px;
+      border-bottom: 0.5px solid rgba(0,0,0,0.07);
+      vertical-align: top;
+      line-height: 1.75;
+    }
+    .error-table tr:last-child td { border-bottom: none; }
+    .error-table tr:hover td { background: #fdf6f4; }
+
+    .error-tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      padding: 2px 8px; border-radius: 10px;
+      white-space: nowrap; margin-bottom: 2px;
+    }
+    .tag-typo   { background: #fce4ec; color: #c2185b; }
+    .tag-miss   { background: #fff3e0; color: #e65100; }
+    .tag-extra  { background: #f3e5f5; color: #7b1fa2; }
+    .tag-struct { background: #e3f2fd; color: #1565c0; }
+    .tag-match  { background: #fbe9e7; color: #bf360c; }
+    .tag-logic  { background: #e8f5e9; color: #1b5e20; }
+    .tag-form   { background: #f5f5f5; color: #424242; }
+
+    .original   { color: #c62828; }
+    .correction { color: #2e7d32; font-weight: 700; }
+    .del        { text-decoration: line-through; color: #e53935; }
+
+    /* ── ALERTS ── */
+    .alert {
+      display: flex; gap: 1rem;
+      border-radius: var(--border-radius-md);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+    .alert.tip     { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .alert.warn    { background: #ffebee; border-left: 4px solid #e53935; }
+    .alert.success { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .alert.amber   { background: #fff8e1; border-left: 4px solid #f59e0b; }
+    .alert-icon  { font-size: 1.2rem; margin-top: 2px; flex-shrink: 0; }
+    .alert-label { font-weight: 700; font-size: 13px; margin-bottom: 3px; }
+    .alert-text  { font-size: 13.5px; line-height: 1.75; }
+
+    /* ── COMPARE GRID ── */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .compare-card {
+      border-radius: var(--border-radius-md);
+      padding: 1rem 1.2rem;
+      font-size: 13.5px;
+      line-height: 1.8;
+    }
+    .compare-card.bad  { background: #ffebee; border-left: 3px solid #e53935; }
+    .compare-card.good { background: #e8f5e9; border-left: 3px solid #43a047; }
+    .compare-card .compare-label {
+      font-size: 11px; font-weight: 700;
+      margin-bottom: 6px; opacity: 0.7;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .compare-card.bad  .compare-label { color: #b71c1c; }
+    .compare-card.good .compare-label { color: #1b5e20; }
+
+    /* ── COMMENT BOX ── */
+    .comment-box {
+      background: #f9f4f2;
+      border-radius: var(--border-radius-lg);
+      border: 0.5px solid #e8c4bb;
+      padding: 1.5rem 1.8rem;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .comment-box p + p { margin-top: 0.9rem; }
+    .comment-box strong { color: #8B3A1A; }
+
+    /* ── ORIGINAL TEXT BOX ── */
+    .orig-text {
+      background: #fffdf5;
+      border: 1px solid #e8d5a0;
+      border-radius: var(--border-radius-lg);
+      padding: 1.3rem 1.6rem;
+      font-size: 14px;
+      line-height: 2.1;
+      margin-bottom: 1rem;
+      font-family: "Noto Serif TC", serif;
+    }
+    .orig-text .err-mark {
+      background: #fce4ec;
+      color: #c2185b;
+      border-bottom: 2px solid #e91e63;
+      padding: 0 1px;
+      border-radius: 2px;
+    }
+    .orig-text .err-note {
+      font-size: 11px;
+      color: #c2185b;
+      vertical-align: super;
+      font-family: "Noto Sans TC", sans-serif;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 2rem; padding: 1.2rem 1.5rem;
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      @page { margin: 12mm 10mm; }
+      body { background: white; }
+      .wrap { max-width: 100%; padding: 0; }
+      .toc { display: none; }
+      a { color: inherit; text-decoration: none; }
+      .card, .score-card, .alert, .comment-box, .compare-card { page-break-inside: avoid; }
+      .error-table tr { page-break-inside: avoid; }
+      .section-header { page-break-before: always; page-break-after: avoid; }
+      .section-header:first-of-type { page-break-before: auto; }
+      .hero { page-break-after: avoid; }
+    }
+
+    @media (max-width: 620px) {
+      .score-grid, .compare-grid { grid-template-columns: 1fr; }
+      .score-hero { flex-direction: column; text-align: center; }
+      .error-table { font-size: 12px; }
+      .error-table th, .error-table td { padding: 8px 10px; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #e8e0d8;
+        --color-text-secondary: #aaa;
+        --color-background-primary: #1e1a18;
+        --color-background-secondary: #161210;
+        --color-border-tertiary: rgba(255,255,255,0.08);
+      }
+      .hero { background: #3a2318; color: #f0e0d0; }
+      .score-hero { background: #1e1a18; }
+      .error-table th { background: #2a1e18; color: #f0e0d0; }
+      .error-table tr:hover td { background: #231a16; }
+      .comment-box { background: #1e1a18; }
+      .orig-text { background: #1e1c10; border-color: #5a4a20; }
+      .score-total-bar { background: #3a2318; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">寫作評分報告（修訂版）</div>
+    <h1>《課室裏的空座位》</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <!-- REVISED NOTICE -->
+  <div class="revised-notice">
+    ⚠️ 此報告為修訂版本，已根據原稿逐字核對，更正前版報告的引用錯誤及漏報錯誤，評分亦已重新計算。
+  </div>
+
+  <!-- SCORE HERO -->
+  <div class="score-hero">
+    <div class="score-circle">
+      <div class="score-num">55</div>
+      <div class="score-denom">/ 100</div>
+    </div>
+    <div class="score-info">
+      <p style="font-size:12px;color:#aaa;margin-bottom:4px;">小學六年級　呈分試標準　寫作評分</p>
+      <div class="grade-badge">等級：D+</div>
+      <h2>選材有意，惟內容空洞、情感流於表面，語文錯誤嚴重</h2>
+      <p>文章立意方向可取，結構尚算完整；然而人物描寫薄弱、傷感缺乏鋪墊、立意未能昇華，加上 11 項語文錯誤，按呈分試標準整體評分偏低。</p>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">📋 報告目錄</div>
+    <ul class="toc-list">
+      <li><a href="#sec1">📊 評分細項與得分</a></li>
+      <li><a href="#sec2">📄 原文標注（錯誤位置）</a></li>
+      <li><a href="#sec3">🔍 逐項錯誤分析</a></li>
+      <li><a href="#sec4">💡 導師總結評語</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 1: 評分細項 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header" id="sec1">
+    <span class="section-icon">📊</span>
+    <h2>評分細項與得分</h2>
+    <span class="section-num">SECTION 01</span>
+  </div>
+
+  <div class="score-grid">
+    <div class="score-card poor">
+      <div class="sc-label">內容</div>
+      <div class="sc-pct">佔總分 30%　→　滿分 30 分</div>
+      <div class="sc-marks">13 / 30</div>
+      <div class="sc-comment">選材方向可取，「藍色原子筆」一個細節有可觀之處。然而三項根本性問題令內容分大幅下滑：<br><br>（一）<strong>人物描寫薄弱：</strong>全文對小明的介紹僅得「準時又活潑」一句，讀者完全不了解他是一個怎樣的人，兩人之間亦無任何共同回憶或深厚情誼的具體呈現，令「最好朋友」之說缺乏說服力。<br><br>（二）<strong>情感流於表面：</strong>面對摯友移民，作者的「傷心」只以「大腦一片空白，淚水忍不住流下來」一筆帶過，屬典型「以敘代感」——只告訴讀者自己傷心，卻未有透過細節、感官或心理獨白讓讀者感受到那份重量。<br><br>（三）<strong>立意未能昇華：</strong>文章始終停留於事件敘述的層面，對友誼、離別或珍惜的個人反思完全付之闕如，結尾「小明一定會留在我心中」流於口號，未能帶給讀者任何思考或觸動。</div>
+    </div>
+    <div class="score-card ok">
+      <div class="sc-label">結構</div>
+      <div class="sc-pct">佔總分 25%　→　滿分 25 分</div>
+      <div class="sc-marks">18 / 25</div>
+      <div class="sc-comment">文章採用倒敘手法，由現在的空座位帶出過去的回憶，首尾呼應，結構清晰。過渡語句（「事情是這樣的……」）運用自然。唯結尾句式重複（連用兩個「雖然……但……」），略為削弱收結效果。</div>
+    </div>
+    <div class="score-card weak">
+      <div class="sc-label">文句與表達</div>
+      <div class="sc-pct">佔總分 25%　→　滿分 25 分</div>
+      <div class="sc-marks">14 / 25</div>
+      <div class="sc-comment">部分句子表達生動（如「大腦一片空白，淚水忍不住流下來」），但整體句式變化不足，且出現助詞累贅（多餘的「的」字）及搭配不當（「照入」應為「照在」）等問題，影響文句流暢度。</div>
+    </div>
+    <div class="score-card poor">
+      <div class="sc-label">字詞、標點與書寫</div>
+      <div class="sc-pct">佔總分 20%　→　滿分 20 分</div>
+      <div class="sc-marks">10 / 20</div>
+      <div class="sc-comment"><strong>表現最為薄弱。</strong>全文共有 6 處漏字、2 處錯別字、1 處助詞累贅、1 處人物名稱前後不一致及 1 處書寫不規範。錯誤數量多，且分佈於全文各段，反映交卷前欠缺仔細覆核的習慣。</div>
+    </div>
+  </div>
+
+  <div class="score-total-bar">
+    <span class="stb-label">📝 重新計算總分（呈分試嚴格標準）</span>
+    <span class="stb-score">55 / 100　等級：D+</span>
+  </div>
+
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div>
+      <div class="alert-label">關於評分調整</div>
+      <div class="alert-text">前版報告評為 68 分（C+），本次修訂後調低至 55 分（D+）。調整原因如下：（一）內容分由 20 分大幅調低至 13 分，因人物描寫薄弱、情感流於表面、立意完全缺乏昇華，三項問題同時存在；（二）前版漏報「回億」錯別字及「一心／小明」人物不一致問題；（三）按呈分試標準，字詞書寫 11 項錯誤的扣分幅度應更大。結構評分維持，文句與表達略作調整。</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 2: 原文標注 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header" id="sec2">
+    <span class="section-icon">📄</span>
+    <h2>原文標注（錯誤位置）</h2>
+    <span class="section-num">SECTION 02</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-red"></span>紅色標注為錯誤位置，上標數字對應下方逐項分析</div>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin-top:4px;">以下為原文全文，依據原稿逐字核對後整理。</p>
+  </div>
+
+  <div class="orig-text">
+    <p>　　清晨，溫暖的陽光穿過課室的窗，<span class="err-mark">照入<span class="err-note">①</span></span>第一排那張桌上。那是一張空桌位，桌上面沒有堆得高高的課本，也沒有漂亮的文具袋。椅子整齊地靠在桌子下面，冷冷清清的。看着這張桌子，我心<span class="err-mark">（裏）<span class="err-note">②</span></span>湧起了不習慣的感覺，因為那是我最好的朋友——小明的座位。</p>
+    <br>
+    <p>　　在我的<span class="err-mark">回億<span class="err-note">③</span></span>中，小明是一個非常準時又活潑的男孩，也是坐我旁邊的同學。看着這張空桌，我不禁想<span class="err-mark">（起）<span class="err-note">④</span></span>上星期五發生的事。事情是這樣的……</p>
+    <br>
+    <p>　　那天，我出門太匆忙，我竟然忘記帶筆袋。到了上課要聽寫的時候，我急得滿頭大汗，在書包裏翻來翻<span class="err-mark">（去）<span class="err-note">⑤</span></span>，整個人慌張得快要哭出來。這時候，坐在身旁的小明轉過頭來，拍了拍我的肩膀。他微微一笑，從自己的筆袋裏拿出一支原子<span class="err-mark">（筆）<span class="err-note">⑥</span></span>和一塊橡皮擦，輕輕地放到我的桌上，對我說：「別慌，拿去用吧！」那時候，我看着他和善的笑容，心裏感受到無比的溫暖。那一整天，那支藍色的原子筆握在手裏，感覺特別輕巧。然而我沒想到的是，這支筆竟成了他留給我的最後一件禮物。</p>
+    <br>
+    <p>　　到了放學鐘聲響起，小明沒有像往常一樣催促我快點收拾，而是安<span class="err-mark">靜<span class="err-note">⑦</span></span>地坐在座位上，眼眶微紅<span class="err-mark">土<span class="err-note">⑧</span></span>地遞給我一張精緻的明信片。他低着頭，用帶着一絲<span class="err-mark">的<span class="err-note">⑨</span></span>哽咽的聲音告訴我，這天是他在這間學校的最後一天，因為他要跟隨父母移民到外國去了。當時的我大腦一片空白，淚水忍不住流下來。</p>
+    <br>
+    <p>　　此時，班主任走進課室，宣布了<span class="err-mark">一心<span class="err-note">⑩</span></span>已經離校的消息。看着那張空座位，我的心像是破了一個洞。沒有了小明的課室，彷彿失去了往日的色彩，連陽光似乎都少了一絲溫度。放學後，我獨自收拾好書包，再次回頭望向那張空座位。<span class="err-mark">雖然它現在冷冷清清，但我明白，雖然時空將我們隔開，但<span class="err-note">⑪</span></span>小明一定會留在我心中，一定不會被我忘記。</p>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">原文標注說明</div>
+      <div class="alert-text">括號（　）內為漏寫的字；紅底為錯誤字詞；上標數字①至⑪對應下方逐項錯誤分析表。「潑」字書寫問題（部首與本體分離）屬書寫規範問題，已在評分中扣分，但原文中難以用文字標注。</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 3: 逐項錯誤分析 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header" id="sec3">
+    <span class="section-icon">🔍</span>
+    <h2>逐項錯誤分析</h2>
+    <span class="section-num">SECTION 03</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-red"></span>共發現 11 項語文問題</div>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin-top:4px;">按嚴重程度排列：邏輯錯誤 ＞ 錯別字 ＞ 漏字 ＞ 句式問題 ＞ 書寫規範</p>
+  </div>
+
+  <table class="error-table">
+    <tr>
+      <th style="width:5%">編號</th>
+      <th style="width:22%">原文引用</th>
+      <th style="width:16%">錯誤類型</th>
+      <th style="width:57%">詳細分析及修改建議</th>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">①</td>
+      <td><span class="original">「照入第一排那張桌上」</span></td>
+      <td><span class="error-tag tag-match">搭配不當</span></td>
+      <td>「照入」與「桌上」搭配不當。「照入」有進入之意，但陽光只是「照在」桌面上，並非進入桌子。應改為：「照<span class="correction">在</span>第一排那張桌子上」。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">②</td>
+      <td><span class="original">「我心湧起了不習慣的感覺」</span></td>
+      <td><span class="error-tag tag-miss">漏字</span></td>
+      <td>「我心」後漏寫「裏」字，語義不完整。「心裏湧起」方為正確搭配。應改為：「我心<span class="correction">裏</span>湧起了不習慣的感覺」。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">③</td>
+      <td><span class="original">「在我的回億中」</span></td>
+      <td><span class="error-tag tag-typo">錯別字</span></td>
+      <td>「億」（數字，hundred million）與「憶」（記憶）字形相近，屬同音錯別字。「回憶」為固定詞語，應寫「憶」。應改為：「在我的回<span class="correction">憶</span>中」。此錯誤為前版報告之漏報。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">④</td>
+      <td><span class="original">「我不禁想上星期五發生的事」</span></td>
+      <td><span class="error-tag tag-miss">漏字</span></td>
+      <td>「想」後漏寫「起」字。「想起」為固定動詞詞組，表示「回憶起」之意，缺少「起」字則句意不完整。應改為：「我不禁想<span class="correction">起</span>上星期五發生的事」。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">⑤</td>
+      <td><span class="original">「在書包裏翻來翻」</span></td>
+      <td><span class="error-tag tag-miss">漏字</span></td>
+      <td>「翻來翻去」為固定成語式短語，「去」字不可省略，否則句子懸空，未有交代動作的來回方向。應改為：「在書包裏翻來翻<span class="correction">去</span>」。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">⑥</td>
+      <td><span class="original">「拿出一支原子和一塊橡皮擦」</span></td>
+      <td><span class="error-tag tag-miss">漏字</span></td>
+      <td>「原子」後漏寫「筆」字，「原子筆」為完整詞語，不可拆分。此錯誤令句子意思模糊，讀者無法得知所指為何物。應改為：「拿出一支原子<span class="correction">筆</span>和一塊橡皮擦」。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">⑦</td>
+      <td><span class="original">「而是安靜地坐在座位上」</span></td>
+      <td><span class="error-tag tag-form">書寫規範</span></td>
+      <td>原稿中「潑」字（於「活潑」一詞）三點水偏旁與右邊本體分離過大，書寫不規範，視覺上幾乎成為兩個獨立字形。「安靜」一詞本身無誤，但「潑」字書寫問題已在字詞書寫評分中扣分。建議練習「潑」字偏旁與本體的連貫書寫。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">⑧</td>
+      <td><span class="original">「眼眶微紅土地遞給我」</span></td>
+      <td><span class="error-tag tag-typo">錯別字</span></td>
+      <td>「土」應為「地」。「眼眶微紅地」中的「地」為助詞，修飾後面的動詞「遞」。「土」與「地」字形相近，屬書寫混淆錯誤。應改為：「眼眶微紅<span class="correction">地</span>遞給我」。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">⑨</td>
+      <td><span class="original">「用帶着一絲的哽咽的聲音」</span></td>
+      <td><span class="error-tag tag-extra">助詞累贅</span></td>
+      <td>「一絲」後的「的」字多餘。正確結構應為：「帶着一絲哽咽的聲音」——「一絲」修飾「哽咽」，「哽咽的」再修飾「聲音」，中間不需要再加「的」。應改為：「用帶着一絲哽咽的聲音」。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">⑩</td>
+      <td><span class="original">「宣布了一心已經離校的消息」</span></td>
+      <td><span class="error-tag tag-logic">人物不一致</span></td>
+      <td>全文主角好友一直稱為「小明」，但此處突然出現「一心」，屬<strong>人物名稱前後不一致</strong>的嚴重邏輯錯誤。這並非漏字，而是學生可能在寫作過程中混淆了人物姓名。此類錯誤在呈分試中會被嚴格扣分，因為它反映行文欠缺統一性。應將「一心」統一改為「小明」。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;font-weight:700;color:#c2185b;">⑪</td>
+      <td><span class="original">「雖然它現在冷冷清清，但我明白，雖然時空將我們隔開，但……」</span></td>
+      <td><span class="error-tag tag-struct">句式重複</span></td>
+      <td>在同一句子內連續使用兩個「雖然……但……」，句式重複累贅，且邏輯關係混亂——第二個「雖然」表達的是假設讓步關係，應改用「即使」。應改為：「它現在雖然冷冷清清，但我明白，<span class="correction">即使</span>時空將我們隔開，小明<span class="correction">依然</span>會留在我心中，一定不會被我忘記。」</td>
+    </tr>
+  </table>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-label">最嚴重的兩項錯誤</div>
+      <div class="alert-text">在所有錯誤中，<strong>「一心」與「小明」人物名稱前後不一致（⑩）</strong>及<strong>「回億」錯別字（③）</strong>屬最嚴重，前者影響文章邏輯完整性，後者為常用詞語的基礎字詞錯誤，均會在呈分試中被嚴格扣分。</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 4: 導師總結 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header" id="sec4">
+    <span class="section-icon">💡</span>
+    <h2>導師總結評語</h2>
+    <span class="section-num">SECTION 04</span>
+  </div>
+
+  <div class="comment-box">
+    <p><strong>【亮點】你有一個很好的細節——</strong><br>
+    全篇文章最令老師眼前一亮的，是「那支藍色的原子筆握在手裏，感覺特別輕巧」這一句。你懂得用一件具體的物件去承載感情，這是很多同學做不到的事。一支筆，代表了一份友情，代表了一個人對你的關心——這個構思是真正有心思的。請你記住這種寫法，因為它是你今次文章最珍貴的地方。</p>
+
+    <p><strong>【第一個問題】讀者根本不認識小明——</strong><br>
+    你說小明是你「最好的朋友」，但全文對小明的描寫只有一句：「非常準時又活潑的男孩」。請你想一想：如果我是讀者，我怎樣透過這一句話感受到你們的深厚友情？「準時」和「活潑」是很多人都有的特質，它們完全無法告訴我小明這個人有甚麼獨特之處，也無法讓我明白你為甚麼那麼不捨得他離開。<br><br>
+    一篇好的文章，應該讓讀者覺得「我也認識這個人」。你可以寫：他有甚麼只有你才知道的習慣？你們之間有沒有一件只屬於你們兩個人的趣事？他曾經在甚麼時候令你覺得「有這個朋友真好」？只要有一兩個這樣的細節，小明這個人物就會立刻活起來，讀者對他的離開才會感到真正的惋惜。</p>
+
+    <p><strong>【第二個問題】你的傷心，讀者感受不到——</strong><br>
+    當小明告訴你他要移民，你只寫了「大腦一片空白，淚水忍不住流下來」。這兩句話本身沒有問題，但它們只是在「告訴」讀者你很傷心，而不是讓讀者「感受到」你的傷心。這是寫作上一個很重要的分別。<br><br>
+    你可以想一想：聽到這個消息的那一刻，你的身體有甚麼反應？是喉嚨突然哽住？還是手裏那支原子筆突然變得很沉重？你有沒有想說些甚麼，卻一句話也說不出口？你有沒有很想假裝沒事，但眼淚偏偏不聽話？這些細膩的描寫，才能真正打動讀者的心。「淚水流下來」人人都會寫，但只有你才能寫出那一刻屬於你自己的感受。</p>
+
+    <p><strong>【第三個問題】文章的結尾停在了「事件」，而不是「感悟」——</strong><br>
+    你的結尾是「小明一定會留在我心中，一定不會被我忘記」。這兩句話的問題，是任何人在任何離別故事的結尾都可以寫，它沒有任何屬於你自己的思考。一篇高分的文章，結尾應該讓讀者讀完之後有所觸動，甚至有所思考。<br><br>
+    你可以問問自己：經歷了小明的離開，你對「友情」這件事有沒有新的體會？是不是有些東西，要等到失去了才懂得珍惜？那支原子筆，往後每當你拿起它的時候，你會想到甚麼？如果你把這些感悟寫進結尾，文章的立意就會從「記錄一件事」提升到「表達一種對生命的體會」，這才是真正令人難忘的文章。</p>
+
+    <p><strong>【語文問題】粗心是今次最可惜的地方——</strong><br>
+    全文共有 11 項語文錯誤，當中大部分並非你不懂，而是寫得太快、沒有覆核。「回憶」寫成「回億」、「翻來翻去」漏寫「去」字、全文稱「小明」但末段突然出現「一心」——這些錯誤只要完成後朗讀一次，全部都可以自己找出來。<strong>下次交卷前，請用手指逐字點讀，特別留意人名有否前後統一、動詞後有否漏字、同音字有否寫錯。</strong></p>
+  </div>
+
+  <div class="alert success" style="margin-top:1rem;">
+    <div class="alert-icon">✅</div>
+    <div>
+      <div class="alert-label">下次寫作的三個目標</div>
+      <div class="alert-text">
+        <strong>① 寫活人物：</strong>用一兩個只屬於他的具體細節或共同回憶，讓讀者「認識」你文章裏的人物。<br>
+        <strong>② 呈現感情：</strong>不要只說「我很傷心」，要透過身體反應、細節描寫或心理獨白，讓讀者自己感受到。<br>
+        <strong>③ 昇華立意：</strong>結尾要有屬於你自己的感悟或反思，令讀者讀完後有所思考，而不只是知道發生了甚麼事。
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
