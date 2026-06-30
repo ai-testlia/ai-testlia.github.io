@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>初中進階抒情文：情感的深度刻劃與意象經營｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f4f6f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --hero-bg: #0a1f0f;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #ede8e0;
+      --color-text-secondary: #9a9488;
+      --color-background-primary: #1c1c1a;
+      --color-background-secondary: #252523;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+  /* HERO */
+  .hero {
+    background: var(--hero-bg);
+    color: #fff;
+    border-radius: var(--border-radius-lg);
+    padding: 3.5rem 2.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+  }
+  .hero p { font-size: 15px; opacity: 0.8; letter-spacing: 1px; }
+
+  /* TOC */
+  .toc {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem 2rem;
+    margin-bottom: 3rem;
+  }
+  .toc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text-secondary);
+  }
+  .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .toc-item a { text-decoration: none; color: var(--color-text-primary); font-size: 14px; display: flex; align-items: center; gap: 10px; }
+  .toc-num { background: #2e7d32; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+
+  /* SECTIONS */
+  .section-block { margin-bottom: 4rem; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.8rem; border-bottom: 1.5px solid var(--color-border-tertiary); padding-bottom: 0.8rem; }
+  .section-icon { font-size: 24px; }
+  .section-header h2 { font-family: 'Noto Serif TC', serif; font-size: 1.7rem; color: var(--color-text-primary); }
+
+  /* CONTENT CARDS */
+  .card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 2rem; margin-bottom: 1.5rem; }
+  .subsection-title { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; margin-bottom: 1.2rem; font-family: 'Noto Serif TC', serif; color: #2e7d32; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.green { background: #2e7d32; }
+  .dot.amber { background: #ff8f00; }
+
+  /* BOXES */
+  .example-box { background: #fdfdfa; border-left: 5px solid #2e7d32; padding: 1.5rem; margin: 1.5rem 0; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+  .example-label { display: block; font-size: 11px; font-weight: 700; color: #2e7d32; margin-bottom: 0.8rem; letter-spacing: 1px; }
+  .example-text { font-family: 'Noto Serif TC', serif; font-size: 15.5px; line-height: 1.9; color: #2c3e50; }
+
+  .alert { padding: 1.2rem; border-radius: var(--border-radius-md); margin: 1.5rem 0; display: flex; gap: 15px; }
+  .alert.tip { background: #e8f5e9; border: 1px solid #c8e6c9; }
+  .alert.warn { background: #fff3e0; border: 1px solid #ffe0b2; }
+  .alert-icon { font-size: 20px; margin-top: 2px; }
+  .alert-content b { display: block; margin-bottom: 4px; color: #1a1a1a; }
+
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+  .compare-card { padding: 1.5rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); }
+  .compare-card.bad { background: #fff8f8; border-color: #ffdada; }
+  .compare-card.good { background: #f8fff9; border-color: #d1ffd7; }
+  .compare-tag { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; display: inline-block; }
+  .bad .compare-tag { background: #ffebeb; color: #d32f2f; }
+  .good .compare-tag { background: #e6ffed; color: #2e7d32; }
+
+  .formula { background: #1c1c1c; color: #f5f5f5; padding: 2rem; border-radius: var(--border-radius-md); font-family: 'Noto Serif TC', serif; margin: 2.5rem 0; line-height: 2.2; text-align: center; font-size: 18px; border: 1px solid #444; }
+
+  /* PRINT RULES */
+  @media print {
+    .section-block { page-break-before: always; break-before: page; }
+    .hero { page-break-before: avoid; break-before: avoid; }
+    .toc { page-break-after: always; break-after: page; }
+    .example-box, .compare-grid, .alert, .formula, .card { page-break-inside: avoid; break-inside: avoid; }
+    .section-header, h2, h3 { page-break-after: avoid; break-after: avoid; }
+  }
+
+  footer { margin-top: 4rem; padding: 1.5rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); text-align: center; }
+</style>
+
+    <!-- 列印與儲存 PDF 專用樣式 -->
+  <style>
+    .print-btn-container {
+      margin-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .print-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--color-background-primary, #ffffff);
+      border: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.15));
+      border-radius: var(--border-radius-md, 8px);
+      color: var(--color-text-primary, #1a1a1a);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .print-btn:hover {
+      border-color: var(--theme-primary, #6b705c);
+      color: var(--theme-primary, #6b705c);
+      transform: translateY(-2px);
+    }
+    @media print {
+      .print-btn-container, .btn-ans, .btn-ans + .ans-line {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+      .wrap {
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .ans-content {
+        display: block !important;
+        background: #f9f9f9 !important;
+        border: 1px solid #eee !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+      }
+      footer {
+        background: transparent !important;
+        border: none !important;
+        color: #555 !important;
+        margin-top: 2rem !important;
+        padding: 1rem 0 0 0 !important;
+        border-top: 0.5px solid #ddd !important;
+        border-radius: 0 !important;
+        display: block !important;
+      }
+      footer * {
+        color: #555 !important;
+      }
+      .section-block {
+        page-break-before: always;
+        break-before: page;
+      }
+      .hero {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      .toc {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-tag">文言/白話寫作教學筆記</div>
+    <h1>抒情文進階：從「觸景生情」到「意象重構」</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📋 學習核心</div>
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#s1"><span class="toc-num">1</span> 情感的類別：直接與間接抒情</a></li>
+      <li class="toc-item"><a href="#s2"><span class="toc-num">2</span> 借景抒情的深度：移情作用的運用</a></li>
+      <li class="toc-item"><a href="#s3"><span class="toc-num">3</span> 借物抒情：賦予物件「人文溫度」</a></li>
+      <li class="toc-item"><a href="#s4"><span class="toc-num">4</span> 意象經營：如何建立深刻的隱喻</a></li>
+      <li class="toc-item"><a href="#s5"><span class="toc-num">5</span> 考場實戰：從失分對比看高標要求</a></li>
+      <li class="toc-item"><a href="#s6"><span class="toc-num">6</span> 綜合練習題</a></li>
+    </ul>
+  </div>
+
+  <div class="section-block" id="s1">
+    <div class="section-header">
+      <div class="section-icon">❤️</div>
+      <h2>一、情感的類別：直接與間接抒情</h2>
+    </div>
+    <div class="card">
+      <div class="subsection-title"><div class="dot green"></div> 情感表達的「厚度」</div>
+      <p>初中寫作中最常見的失誤是**「情感空洞」**。很多同學在文章結尾大喊「我真感動」或「我很難過」，這叫**直接抒情**。雖然直接，但缺乏藝術張力。真正的進階寫作追求的是**間接抒情**，讓情感「藏」在文字背後。</p>
+      
+      <div class="example-box">
+        <span class="example-label">理論架構</span>
+        <div class="example-text">
+          直接抒情：直白表達，適合情感極度強烈的爆發點。<br>
+          間接抒情：透過描寫、敘事來「暈染」情感。包含借景、借物、借事抒情。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="s2">
+    <div class="section-header">
+      <div class="section-icon">🌿</div>
+      <h2>二、借景抒情的深度：移情作用的運用</h2>
+    </div>
+    <div class="card">
+      <div class="subsection-title"><div class="dot green"></div> 移情作用（Empathy in Writing）</div>
+      <p>景物本身是客觀的，但作家的內心是主觀的。當你把內心的憂愁投射在雨水上時，雨水便不再是氣象現象，而是「洗滌憂傷的眼淚」或「生生撕裂黑暗的利刃」。</p>
+
+      <div class="formula">
+        $$ 內心境遇 + 客觀景物特徵 = 抒情意象 $$
+      </div>
+
+      <div class="alert tip">
+        <div class="alert-icon">💡</div>
+        <div class="alert-content">
+          <b>潘SIR提點：</b>不要只寫「天氣好」或「天氣差」。要觀察景物的「脈搏」。例如，不是寫「陽光強」，而是寫「那種光亮得讓人無法直視，我卻在那光輝中感到一陣莫名的寒意」。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="s3">
+    <div class="section-header">
+      <div class="section-icon">🏮</div>
+      <h2>三、借物抒情：賦予物件「人文溫度」</h2>
+    </div>
+    <div class="card">
+      <div class="subsection-title"><div class="dot green"></div> 類比情懷 vs. 數碼邏輯</div>
+      <p>在抒情文中，物件往往承載著特定的價值觀或時代記憶。例如，傳統霓虹燈代表的是「燃燒出來的人間」和匠人的專注；而現代 LED 代表的是「計算出來的商業」。</p>
+      
+      <div class="example-box">
+        <span class="example-label">深度範文片段分析</span>
+        <div class="example-text">
+          「每一根霓虹燈管的彎曲，都是在與火、與時間博弈。你得在火爐上不斷翻轉玻璃管……你必須用呼吸去感受玻璃的脈搏。」<br><br>
+          <b>分析：</b>這裡透過描寫「物件的製作過程」，將人的生命投入與物件結合，這種物件便具備了「獨特性」和「靈魂」。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="s4">
+    <div class="section-header">
+      <div class="section-icon">🕯️</div>
+      <h2>四、意象經營：如何建立深刻的隱喻</h2>
+    </div>
+    <div class="card">
+      <p>好的意象能產生「不言而喻」的效果。當你要抒發對舊時代的懷念時，不需要寫「我懷念過去」，只需要寫物件的消逝與留下的「寒意」。</p>
+      
+      <div class="alert warn">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-content">
+          <b>常見陷阱：</b>意象與情感脫節。例如：想表達親情，卻用「冰冷的鋼鐵」來象徵，若無特殊的文學轉折，會讓讀者感到困惑。意象應與情感具備「本質的共通性」。
+        </div>
+      </div>
+
+      <div class="subsection-title"><div class="dot amber"></div> 進階技巧：對比與反襯</div>
+      <p>運用「新」與「舊」的對比來強化情感。例如：整潔現代的街道 vs. 逐漸消亡的個性。</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="s5">
+    <div class="section-header">
+      <div class="section-icon">🚫</div>
+      <h2>五、考場實戰：從失分對比看高標要求</h2>
+    </div>
+    <div class="card">
+      <div class="compare-grid">
+        <div class="compare-card bad">
+          <span class="compare-tag">失分陷阱（平鋪直敘）</span>
+          <p>看著路邊的老招牌被拆掉，我感到很難過，因為這是香港的特色，以後就看不到了，真可惜。</p>
+          <small>❌ 點評：語言直白、缺乏畫面感、情感流於口號化。</small>
+        </div>
+        <div class="compare-card good">
+          <span class="compare-tag">高標要求（意象重構）</span>
+          <p>那巨大的招牌緩緩被吊臂降下，原本鮮豔的硃砂紅瞬間變成了灰濛濛的玻璃碎渣。我看著原本流轉在管內的氣體回歸大氣，彷彿一個時代的靈魂，正在整潔而平庸的秩序中悄悄消亡。</p>
+          <small>✅ 點評：運用視覺轉化（硃砂紅變灰渣）展現消逝感，具備深刻反思。</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block" id="s6">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <h2>六、綜合練習題</h2>
+    </div>
+    <div class="card">
+      <div class="subsection-title"><div class="dot green"></div> 練習一：感官與意象轉化</div>
+      <p>請將以下簡單句轉化為一段具備「間接抒情」深度的文字（約 100 字）：<br><b>「外祖父退休後，看著那雙粗糙的手，他很感慨。」</b></p>
+      
+      <div class="alert tip">
+        <div class="alert-icon">📌</div>
+        <div class="alert-content">
+          <b>作答建議：</b>可運用「成語」增加文采。例如描寫手部的<b>含辛茹苦</b>或過去<b>披荊斬棘</b>的歲月痕跡。
+        </div>
+      </div>
+
+      <div class="subsection-title"><div class="dot green"></div> 練習二：分析意象</div>
+      <p>閱讀以下片段，試分析作者如何運用「光影」來抒發情感：<br>「那種光芒在霧氣中會散開，像是在空氣中滴入了水彩……織就出一場不真實的繁華幻夢。」</p>
+      
+      <div class="example-box">
+        <span class="example-label">參考答案綱要</span>
+        <div class="example-text">
+          1. 運用比喻（水彩）將光影具象化，描寫其柔和、暈染的特質。<br>
+          2. 透過景物描寫營造「幻夢」感，反襯現實中這類事物的消失（這場夢正在醒來）。<br>
+          3. 表現作者對舊事物那種帶有溫度的情感懷念。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- 返回目錄連結 -->
+  <!-- 返回目錄及列印按鈕 -->
+    <div class="print-btn-container">
+      <a href="index.html" class="print-btn">↩️ 返回筆記目錄</a>
+      <button onclick="window.print()" class="print-btn">🖨️ 列印此頁 / 儲存 PDF</button>
+    </div>
+<footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026  潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
