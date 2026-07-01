@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中文能力強化練習：第一階段（外出用餐及社交篇）- 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    
+    --color-brand-blue: #2a4d69;
+    --color-brand-teal: #4b86b4;
+    --color-brand-light: #adcbe3;
+    --color-brand-pale: #e7eff6;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #ede8e0;
+      --color-text-secondary: #9a9488;
+      --color-background-primary: #1c1c1e;
+      --color-background-secondary: #121214;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-brand-pale: #2c2c2e;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    background-color: var(--color-background-secondary);
+    padding: 2rem 1rem;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    padding: 2.5rem;
+    overflow: hidden;
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+  }
+  .hero p { font-size: 13px; }
+
+  /* 閱讀：霧藍灰 */
+  .hero.reading { background: #C8D5D8; color: #122025; }
+  .hero.reading .hero-tag {
+    border: 1px solid rgba(18,32,37,0.3);
+    color: rgba(18,32,37,0.65);
+  }
+  .hero.reading p { color: rgba(18,32,37,0.5); }
+
+  /* 目錄 TOC */
+  .toc {
+    background-color: var(--color-background-secondary);
+    padding: 1.2rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border-left: 4px solid var(--color-brand-teal);
+  }
+  .toc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+  }
+  .toc ul { list-style: none; padding-left: 0; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a {
+    color: var(--color-brand-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .toc a:hover { color: var(--color-brand-teal); text-decoration: underline; }
+
+  /* 章節標題 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1.5px solid var(--color-border-tertiary);
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+  .section-icon {
+    font-size: 1.5rem;
+  }
+
+  /* 內容卡片 */
+  .card {
+    background-color: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 0.5px solid var(--color-border-tertiary);
+  }
+  .dot-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot.blue { background-color: #4b86b4; }
+  .dot.orange { background-color: #e67e22; }
+  .dot.green { background-color: #2ecc71; }
+  .dot.pink { background-color: #e91e63; }
+
+  /* 關鍵詞網格 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .keyword-card {
+    background-color: var(--color-background-primary);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .kw-word {
+    font-weight: 700;
+    color: var(--color-brand-blue);
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+    border-bottom: 2px solid var(--color-brand-pale);
+    display: inline-block;
+  }
+  .kw-def {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+
+  /* 對比框 */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  @media (max-width: 600px) {
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+  .compare-card {
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    position: relative;
+  }
+  .compare-card.bad {
+    background-color: #fff5f5;
+    border-left: 4px solid #e74c3c;
+    color: #c0392b;
+  }
+  .compare-card.good {
+    background-color: #f6ffed;
+    border-left: 4px solid #52c41a;
+    color: #27ae60;
+  }
+  .compare-card .label {
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    display: block;
+    opacity: 0.8;
+  }
+  @media (prefers-color-scheme: dark) {
+    .compare-card.bad { background-color: #2a1a1a; color: #ff8888; }
+    .compare-card.good { background-color: #1a2a1a; color: #88ff88; }
+  }
+
+  /* 提示框 */
+  .alert {
+    padding: 1rem 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+  }
+  .alert.tip { background-color: #eaf2f8; border-left: 4px solid #2980b9; }
+  .alert.warn { background-color: #fef9e7; border-left: 4px solid #f1c40f; }
+  .alert .alert-icon { font-size: 1.2rem; line-height: 1; }
+  .alert-content strong { color: var(--color-text-primary); }
+  @media (prefers-color-scheme: dark) {
+    .alert.tip { background-color: #1a2530; }
+    .alert.warn { background-color: #2a251a; }
+  }
+
+  /* 流程箭頭 */
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    background: var(--color-brand-pale);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+  }
+  .flow-step {
+    background: var(--color-background-primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .flow-arrow { color: var(--color-brand-teal); font-weight: 700; }
+
+  /* 公式框 */
+  .formula {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.05rem;
+    text-align: center;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  /* 練習題排版 */
+  .qbox {
+    margin-bottom: 2.5rem;
+    background-color: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+  }
+  .qbox-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-brand-blue);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-brand-teal);
+    padding-bottom: 0.3rem;
+  }
+  .word-bank {
+    background-color: var(--color-brand-pale);
+    border: 1px dashed var(--color-brand-teal);
+    padding: 0.8rem;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+  .q-item {
+    margin-bottom: 1.2rem;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+  }
+  .blank {
+    display: inline-block;
+    width: 110px;
+    border-bottom: 1px solid var(--color-text-primary);
+    text-align: center;
+    margin: 0 4px;
+  }
+  .passage-box {
+    background-color: var(--color-background-secondary);
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.2rem;
+    border-left: 3px solid var(--color-text-secondary);
+  }
+  .passage-box strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-brand-blue);
+  }
+
+  /* 折疊答案區專用樣式 */
+  details.ans-details {
+    margin-top: 1.5rem;
+    border-top: 1px dashed var(--color-border-tertiary);
+    padding-top: 1rem;
+  }
+  details.ans-details summary {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background-color: var(--color-brand-teal);
+    color: white;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    list-style: none;
+    outline: none;
+    transition: background-color 0.2s;
+  }
+  details.ans-details summary::-webkit-details-marker {
+    display: none;
+  }
+  details.ans-details summary:hover {
+    background-color: var(--color-brand-blue);
+  }
+  details.ans-details[open] summary {
+    background-color: var(--color-text-secondary);
+  }
+  .ans-content {
+    margin-top: 1rem;
+    padding: 1.2rem;
+    background-color: var(--color-brand-pale);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--color-brand-teal);
+  }
+  .ans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.8rem;
+  }
+  .ans-card {
+    background: var(--color-background-primary);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    border: 0.5px solid var(--color-border-tertiary);
+  }
+  .ans-card .q-num {
+    font-weight: 700;
+    color: var(--color-brand-teal);
+    margin-right: 0.5rem;
+  }
+  .ans-list {
+    padding-left: 1.2rem;
+    font-size: 13.5px;
+  }
+  .ans-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* 每題獨立答案切換 */
+  .q-item {
+    margin-bottom: 0.6rem;
+  }
+  details.ans-inline {
+    margin: 0 0 1rem 0;
+  }
+  details.ans-inline summary {
+    display: inline-block;
+    padding: 0.25rem 0.9rem;
+    background-color: var(--color-brand-teal);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    list-style: none;
+    outline: none;
+    transition: background-color 0.2s;
+  }
+  details.ans-inline summary::-webkit-details-marker {
+    display: none;
+  }
+  details.ans-inline summary:hover {
+    background-color: var(--color-brand-blue);
+  }
+  details.ans-inline[open] summary {
+    background-color: var(--color-text-secondary);
+  }
+  .ans-inline-content {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1rem;
+    background-color: var(--color-brand-pale);
+    border-radius: var(--border-radius-md);
+    border-left: 3px solid var(--color-brand-teal);
+    font-size: 13.5px;
+  }
+  .ans-inline-content strong {
+    color: var(--color-brand-blue);
+  }
+
+  /* 列印／PDF 分頁規則 */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; color: #000; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; background: white; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, .compare-card, details.ans-details, details.ans-inline { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+    
+    /* 列印時強制展開答案並隱藏按鈕 */
+    details.ans-details, details.ans-inline { display: block !important; }
+    details.ans-details summary, details.ans-inline summary { display: none !important; }
+    .ans-content, .ans-inline-content { display: block !important; background: none; border-left: 2px solid #000; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Hero 區塊 -->
+  <div class="hero reading">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>中文能力強化練習<br>第一階段（外出用餐及社交篇）</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <!-- 目錄 -->
+  <div class="toc">
+    <div class="toc-title">📋 筆記目錄</div>
+    <ul>
+      <li><a href="#section1">一、核心知識講解：供詞填充範疇</a></li>
+      <li><a href="#section2">二、核心知識講解：不供詞填充（高階成語及熟語）</a></li>
+      <li><a href="#section3">三、常見語病析述：口語與西化句式對比</a></li>
+      <li><a href="#section4">四、實戰答題技巧與答題框架</a></li>
+      <li><a href="#section5">五、語文能力強化演練（附即時互動答案區）</a></li>
+    </ul>
+  </div>
+
+  <!-- 一、核心知識講解：供詞填充 -->
+  <div id="section1" class="section-header">
+    <div class="section-icon">💡</div>
+    <h2>一、核心知識講解：供詞填充範疇</h2>
+  </div>
+  
+  <div class="card">
+    <div class="dot-title"><span class="dot blue"></span> 實用社交語彙辨析</div>
+    <p>日常社交與用餐時，精準的遣詞造句能體現一個人的學養。以下為初階至中階不可不知的書面語表達：</p>
+    
+    <div class="keyword-grid">
+      <div class="keyword-card">
+        <div class="kw-word">預訂</div>
+        <div class="kw-def">事先訂定。例如預訂座位，注意「訂」常指契約或約定，勿寫成「定」。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">推薦</div>
+        <div class="kw-def">向人介紹好的人或事物。如：經店員推薦，我們點了招牌菜。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">顧及</div>
+        <div class="kw-def">照顧到、考慮到。群體活動時必須顧及他人喜好與需求。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">氛圍</div>
+        <div class="kw-def">周圍的氣氛和情調。形容餐廳環境時，比單純用「環境」更具文學美。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">AA制</div>
+        <div class="kw-def">各人平均分擔所需費用的付款模式。書面語中亦常寫作「平均分擔費用」。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">婉拒</div>
+        <div class="kw-def">委婉地拒絕。在社交場合中，是既堅定又禮貌的表現。</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 二、核心知識講解：不供詞填充 -->
+  <div id="section2" class="section-header">
+    <div class="section-icon">📚</div>
+    <h2>二、核心知識講解：不供詞填充（高階成語及熟語）</h2>
+  </div>
+
+  <div class="card">
+    <div class="dot-title"><span class="dot pink"></span> 成語及精選熟語深究</div>
+    <p>在不供詞填充題型中，往往考查學生對高級成語的累積。以下針對本次練習中出現的高階詞彙進行解學：</p>
+    
+    <div class="keyword-grid">
+      <div class="keyword-card">
+        <div class="kw-word">大排長龍</div>
+        <div class="kw-def">形容人或車輛排起很長的隊伍，極言其受歡迎或擁擠的程度。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">五花八門</div>
+        <div class="kw-def">比喻花樣繁多，變化多端。在菜單或商品種類極多時最為適用。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">面面俱到</div>
+        <div class="kw-def">各方面都照顧得很周到。注意「俱」是全、皆的意思，勿寫成「具」。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">物美價廉</div>
+        <div class="kw-def">物品品質優良，而價格便宜。是形容街坊小店或高性價比餐廳的絕佳詞彙。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">充耳不聞</div>
+        <div class="kw-def">塞住耳朵不聽。形容故意不聽別人的勸告或意見，含貶義。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">人情世故</div>
+        <div class="kw-def">為人處世的道理、人際交往的禮節與規矩。是社交篇章的核心。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">狼吞虎嚥</div>
+        <div class="kw-def">形容吃東西又急又猛。在社交場合應盡量避免這種不禮貌的食相。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">樂而忘返</div>
+        <div class="kw-def">快樂得忘記了回去。常形容派對、旅遊或聚會中歡愉的狀態。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">回味無窮</div>
+        <div class="kw-def">吃過之後，美好的滋味留存很久。也比喻事後體會，越想越有意思。</div>
+      </div>
+      <div class="keyword-card">
+        <div class="kw-word">暴殄天物</div>
+        <div class="kw-def">原指殘害天生萬物，後多比喻任意糟蹋東西，不知珍惜。常用於譴責浪費食物的行為。</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 三、常見語病析述 -->
+  <div id="section3" class="section-header">
+    <div class="section-icon">⚠️</div>
+    <h2>三、常見語病析述：口語與西化句式對比</h2>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">🕵️‍♂️</div>
+    <div class="alert-content">
+      <strong>潘SIR提醒：雙重語病陷阱</strong><br>
+      香港學生在處理社交、生活化主題時，極易將生活口語直接搬上考卷。同時，受到日常接觸的英語影響，常常不自覺寫出「修飾語後置」的歐化句子。
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <span class="label">❌ 口語化寫法（廣東話邏輯）</span>
+      嘩，個Menu咁多嘢揀，我都唔知食咩好。
+    </div>
+    <div class="compare-card good">
+      <span class="label">██ 書面語規範</span>
+      菜單上有很多選擇，讓我不知道該點什麼菜。
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <span class="label">❌ 英式西化句式（修飾語後置）</span>
+      我們可以分開這個賬單嗎？我只想付我吃的部分。
+    </div>
+    <div class="compare-card good">
+      <span class="label">██ 中文語序規範</span>
+      我們可以分開結賬嗎？我只想支付我吃的部分。
+    </div>
+  </div>
+
+
+  <!-- 四、實戰答題技巧 -->
+  <div id="section4" class="section-header">
+    <div class="section-icon">🎯</div>
+    <h2>四、實戰答題技巧與答題框架</h2>
+  </div>
+
+  <div class="card">
+    <div class="dot-title"><span class="dot green"></span> 重組句子三部曲</div>
+    <p>重組句子是考查語法邏輯的經典題型，同學可遵循以下步驟解題：</p>
+    <div class="flow">
+      <div class="flow-step">1. 尋找核心主謂賓</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">2. 抓出關聯詞搭配（如：雖然...卻...）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">3. 依中文習慣調整時間或介詞短語位置</div>
+    </div>
+  </div>
+
+  <div class="formula">
+    💡 中文句子骨架：【時間/原因/條件】+【主語】+【地方】+【副詞修飾】+【動詞 + 賓語】
+  </div>
+
+
+  <!-- 五、語文能力強化演練 -->
+  <div id="section5" class="section-header">
+    <div class="section-icon">📝</div>
+    <h2>五、語文能力強化演練</h2>
+  </div>
+
+  <!-- 一、 供詞填充 -->
+  <div class="qbox">
+    <div class="qbox-title">一、 供詞填充（每題 1 分，共 10 分）</div>
+    <p style="margin-bottom: 0.8rem;">請從下表中選擇最合適的詞彙，填在橫線上。</p>
+    <div class="word-bank">
+      預訂 ｜ 推薦 ｜ 顧及 ｜ 挑剔 ｜ 氛圍 ｜ 評價 ｜ AA制 ｜ 隨和 ｜ 結賬 ｜ 婉拒
+    </div>
+    <div class="q-item">1. 這間日本餐廳非常受歡迎，如果不提前 <span class="blank"></span>，根本沒有座位。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>預訂</div>
+    </details>
+    <div class="q-item">2. 我對吃的要求不高，性格比較 <span class="blank"></span>，吃什麼都可以。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>隨和</div>
+    </details>
+    <div class="q-item">3. 侍應生向我們 <span class="blank"></span> 了幾道餐廳的招牌菜，聽起來很吸引。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>推薦</div>
+    </details>
+    <div class="q-item">4. 點菜時，我們應該 <span class="blank"></span> 其他人的口味，不要只顧自己想吃的東西。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>顧及</div>
+    </details>
+    <div class="q-item">5. 這間咖啡店的 <span class="blank"></span> 很好，安靜又舒適，很適合和朋友聊天。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>氛圍</div>
+    </details>
+    <div class="q-item">6. 吃完飯後，我們通常會各自付自己的那份錢，也就是俗稱的 <span class="blank"></span>。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>AA制</div>
+    </details>
+    <div class="q-item">7. 由於晚上還有測驗，面對同學看電影的邀請，我只好無奈地 <span class="blank"></span>。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>婉拒</div>
+    </details>
+    <div class="q-item">8. 結賬前，我習慣先看看網上的食評，了解一下其他人對這間餐廳的 <span class="blank"></span>。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>評價</div>
+    </details>
+    <div class="q-item">9. 他對食物非常 <span class="blank"></span>，太鹹、太淡、太辣都不吃，很難服侍。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>挑剔</div>
+    </details>
+    <div class="q-item">10. 吃飽後，爸爸叫侍應生過來 <span class="blank"></span>，準備離開餐廳。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>結賬</div>
+    </details>
+  </div>
+
+  <!-- 二、 不供詞填充 -->
+  <div class="qbox">
+    <div class="qbox-title">二、 不供詞填充（每題 1 分，共 10 分）</div>
+    <p style="margin-bottom: 0.8rem;">請根據句意及括號內的提示，填上合適的四字成語或詞語。</p>
+    <div class="q-item">1. 這間新開的珍珠奶茶店天天都 <span class="blank"></span>（意指：形容人很多，排隊排得很長），想喝一杯也不容易。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>大排長龍</div>
+    </details>
+    <div class="q-item">2. 菜單上的菜式 <span class="blank"></span>（意指：形容種類非常多，色彩繁雜），讓我們不知道該點什麼好。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>五花八門</div>
+    </details>
+    <div class="q-item">3. 既然大家口味不同，不如去吃自助餐，這樣就能 <span class="blank"></span>（意指：照顧到每一方，周到沒有遺漏）了。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>面面俱到</div>
+    </details>
+    <div class="q-item">4. 這間餐廳的龍蝦非常新鮮，而且價錢不貴，真是 <span class="blank"></span>（意指：形容物品品質好，價格便宜）。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>物美價廉</div>
+    </details>
+    <div class="q-item">5. 服務員的態度非常惡劣，面對客人的投訴竟然 <span class="blank"></span>（意指：形容完全不聽別人的說話或勸告）。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>充耳不聞</div>
+    </details>
+    <div class="q-item">6. 我們去別人家作客時，應該帶點小禮物，這是 <span class="blank"></span>（意指：人與人之間應該有的禮貌和規矩）。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>人情世故</div>
+    </details>
+    <div class="q-item">7. 他吃東西總是 <span class="blank"></span>（意指：形容吃東西非常快，沒有細細品嚐），結果常常胃痛。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>狼吞虎嚥</div>
+    </details>
+    <div class="q-item">8. 同學們在生日派對上玩得 <span class="blank"></span>（意指：非常高興，忘記了回家），連時間都忘了。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>樂而忘返</div>
+    </details>
+    <div class="q-item">9. 這間街坊小店雖然裝修簡陋，但食物的味道卻令人 <span class="blank"></span>（意指：吃過之後還想再吃，形容食物非常美味）。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>回味無窮</div>
+    </details>
+    <div class="q-item">10. 點菜時，不要點太多，以免造成 <span class="blank"></span>（意指：浪費食物，沒有好好珍惜），吃剩很多。</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>答案：</strong>浪費食物 / 暴殄天物</div>
+    </details>
+  </div>
+
+  <!-- 三、 改寫句子 -->
+  <div class="qbox">
+    <div class="qbox-title">三、 改寫句子（每題 2 分，共 20 分）</div>
+    <p style="margin-bottom: 0.8rem;">請將下列口語化或「英式邏輯」的句子，改寫為自然、流暢的生活化書面語。</p>
+    <div class="q-item">1. （口語）呢間餐廳啲嘢食好正，你一定要試吓。<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>這間餐廳的食物非常美味，你一定要嘗試一下。</div>
+    </details>
+    <div class="q-item">2. （英式）我是不能去吃晚餐和你一起，因為我有很多家課。<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>我今晚不能和你一起吃晚餐，因為我有很多功課要完成。</div>
+    </details>
+    <div class="q-item">3. （口語）嘩，個Menu咁多嘢揀，我都唔知食咩好。<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>菜單上有很多選擇，讓我不知道該點什麼菜。</div>
+    </details>
+    <div class="q-item">4. （英式）我們可以分開這個賬單嗎？我只想付我吃的部分。<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>我們可以分開結賬嗎？我只想支付我吃的部分。</div>
+    </details>
+    <div class="q-item">5. （口語）個Waitress態度好差，我下次唔會再來。<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>那位女服務員的態度很差，我下次不會再光顧這間餐廳。</div>
+    </details>
+    <div class="q-item">6. （英式）這杯飲品是太甜為了我，我可以換過另一杯嗎？<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>這杯飲品對我來說太甜了，可以幫我換另一杯嗎？</div>
+    </details>
+    <div class="q-item">7. （口語）食完飯不如去行街啦，當做運動消化下。<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>吃完飯後不如去逛街吧，當作散步消化一下。</div>
+    </details>
+    <div class="q-item">8. （英式）我是非常抱歉我遲到了，塞車很嚴重。<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>路上塞車很嚴重，對於遲到我感到非常抱歉。</div>
+    </details>
+    <div class="q-item">9. （口語）呢間餐廳出菜好慢，我哋等到肚都扁埋。<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>這間餐廳上菜速度很慢，我們餓得肚子都扁了。</div>
+    </details>
+    <div class="q-item">10. （英式）你想去哪一間餐廳？我是開放的對任何選擇。<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>你想去哪一間餐廳？任何選擇我都可以接受。</div>
+    </details>
+  </div>
+
+  <!-- 四、 重組句子 -->
+  <div class="qbox">
+    <div class="qbox-title">四、 重組句子（每題 2 分，共 20 分）</div>
+    <p style="margin-bottom: 0.8rem;">請將下列詞組組成通順、邏輯嚴謹的書面語句子。</p>
+    <div class="q-item">1. 應該 / 用餐時 / 我們 / 保持 / 安靜 / 打擾 / 以免 / 其他客人<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>用餐時我們應該保持安靜，以免打擾其他客人。</div>
+    </details>
+    <div class="q-item">2. 與其 / 爭論 / 去哪裡 / 不如 / 投票 / 決定 / 餐廳 / 吃飯<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>與其爭論去哪裡吃飯，不如投票決定餐廳。</div>
+    </details>
+    <div class="q-item">3. 為了 / 慶祝 / 生日 / 朋友的 / 預訂了 / 他 / 一間 / 餐廳 / 高級<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>為了慶祝朋友的生日，他預訂了一間高級餐廳。</div>
+    </details>
+    <div class="q-item">4. 只有 / 互相尊重 / 友誼 / 才能 / 保持 / 長久 / 朋友之間<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>只有互相尊重，朋友之間的友誼才能保持長久。</div>
+    </details>
+    <div class="q-item">5. 雖然 / 昂貴 / 價格 / 這間 / 餐廳的 / 食物 / 卻 / 令人回味無窮<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>雖然這間餐廳的價格昂貴，食物卻令人回味無窮。</div>
+    </details>
+    <div class="q-item">6. 服務員 / 總是 / 面帶 / 微笑 / 客人 / 迎接 / 每位<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>服務員總是面帶微笑迎接每位客人。</div>
+    </details>
+    <div class="q-item">7. 既然 / 說好了 / 請客 / 結賬時 / 就不要 / 爭著 / 付錢 / 他<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>既然他說好了請客，結賬時就不要爭著付錢。</div>
+    </details>
+    <div class="q-item">8. 由於 / 忘記 / 訂位 / 週末 / 他們 / 只能 / 門外 / 排隊 / 在<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>由於週末忘記訂位，他們只能在門外排隊。</div>
+    </details>
+    <div class="q-item">9. 選擇 / 健康的 / 食物 / 對 / 身體 / 有 / 很大 / 益處<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>選擇健康的食物對身體有很大益處。</div>
+    </details>
+    <div class="q-item">10. 無論 / 吃什麼 / 最重要的是 / 大家 / 開心 / 聚在一起<br>✍️ __________________________________________________________________</div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>無論吃什麼，最重要的是大家開心地聚在一起。</div>
+    </details>
+  </div>
+
+  <!-- 五、 段落理解 -->
+  <div class="qbox">
+    <div class="qbox-title">五、 段落理解（每題 2 分，共 20 分）</div>
+    
+    <div class="passage-box">
+      <strong>【段落一】</strong>
+      「和朋友外出用餐，點菜是一門學問。我們不應只顧自己的喜好，而要顧及同桌朋友的口味。如果有人對某些食物敏感，或者有特別的飲食習慣，我們應該盡量體諒和配合。遇到意見不合時，大家可以隨和一點，或者選擇食物種類較多元化的餐廳，務求做到面面俱到。畢竟，聚餐的重點是享受彼此陪伴的氛圍，而不是為了吃什麼而爭吵。」
+    </div>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      1. 作者認為點菜時不應該怎樣做？<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>不應只顧自己的喜好。</div>
+    </details>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      2. 如果同桌朋友有食物敏感，我們應該抱持什麼態度？<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>應該盡量體諒和配合。</div>
+    </details>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      3. 文中建議遇到意見不合時可以怎樣解決？（提出其中一個方法）<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>大家可以隨和一點 / 選擇食物種類較多元化的餐廳。</div>
+    </details>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      4. 「面面俱到」在文中是指什麼？<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>照顧到同桌每位朋友的口味和需要（意近即可）。</div>
+    </details>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      5. 根據段落，朋友聚餐的真正重點是什麼？<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>享受彼此陪伴的氛圍。</div>
+    </details>
+
+    <div class="passage-box">
+      <strong>【段落二】</strong>
+      「結賬時的態度，往往能反映一個人的社交修養。在香港，和朋友吃飯通常會選擇AA制，即是平均分擔費用。這樣不僅公平，也能避免造成某一方的經濟壓力。如果有人主動提出請客，我們在接受的同時，也應該表達真誠的感謝，並在下次聚會時找機會回請，這才是基本的人情世故。切忌在結賬時表現得斤斤計較，或者故意忽略自己應付的份額，以免傷了大家的和氣。」
+    </div>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      6. 在香港和朋友吃飯，通常會採用哪種付款方式？<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>AA制（平均分擔費用）。</div>
+    </details>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      7. 實行「AA制」有什麼好處？（列出兩項）<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>公平、避免造成某一方的經濟壓力。</div>
+    </details>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      8. 如果朋友主動請客，我們除了感謝之外，還應該怎樣做？<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>應該在下次聚會時找機會回請。</div>
+    </details>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      9. 「人情世故」在文中是指什麼？<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>待人處事應有的禮貌和規矩（意近即可）。</div>
+    </details>
+    <div class="q-item" style="text-indent:0; padding-left:0;">
+      10. 為什麼結賬時不應斤斤計較？<br>✍️ __________________________________________________________________
+    </div>
+    <details class="ans-inline">
+      <summary>👁️ 觀看答案</summary>
+      <div class="ans-inline-content"><strong>參考答案：</strong>以免傷了大家的和氣。</div>
+    </details>
+  </div>
+
+  <!-- 版權聲明 -->
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
