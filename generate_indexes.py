@@ -608,6 +608,42 @@ icons = ["📚", "🧭", "🔥", "⚡", "⚖️"]
 
 SKIP_FILES = {"index.html", "data_grades.js", "data_memo.js"}
 
+# Auto-register any student folder that isn't hardcoded above. This prevents
+# students added via tutor_erp from being silently skipped (they'd otherwise
+# get data_grades.js/data_memo.js written but no index.html at all).
+db_path = os.path.join(os.path.dirname(base_dir), "tutor_erp", "classroom.db")
+
+
+def _lookup_display_name(folder_name):
+    try:
+        import sqlite3
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute("SELECT display_name FROM students WHERE name = ?", (folder_name,))
+        row = cur.fetchone()
+        conn.close()
+        return row[0] if row else None
+    except Exception:
+        return None
+
+
+for entry in sorted(os.listdir(base_dir)):
+    entry_path = os.path.join(base_dir, entry)
+    if entry in folders or not os.path.isdir(entry_path):
+        continue
+    has_data_files = any(
+        os.path.exists(os.path.join(entry_path, f)) for f in ("data_grades.js", "data_memo.js")
+    )
+    if not has_data_files:
+        continue
+    display_name = _lookup_display_name(entry) or entry
+    folders[entry] = {
+        "title": f"{display_name} 的學習筆記",
+        "tag": "學生個人專屬",
+        "categories": {"學習筆記": []}
+    }
+    print(f"Auto-registered new student folder: {entry}")
+
 def clean_title(filename):
     name = filename.replace(".html", "")
     for suffix in ["_潘SIR中文教室", "（潘SIR中文教室）"]:
