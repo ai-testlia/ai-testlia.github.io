@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ╔═ ZONE B ═╗ 改這裡的標題 -->
+  <title>初中中國語文能力評估．心流筆記｜潘SIR中文教室</title>
+  <!-- ╚══════════╝ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+
+    /* ╔══════════════════════════════════════════════════════╗
+       ║  ZONE A：品牌配色  ← 只需改這個區塊的數值             ║
+       ╚══════════════════════════════════════════════════════╝ */
+    :root {
+      --color-text-primary:        #2e2d2e;
+      --color-text-secondary:      #5a5a5a;
+      --color-text-muted:          #8c8c8c;
+      --color-background-primary:  #ffffff;
+      --color-background-secondary:#f8f6f2;
+      --color-border-tertiary:     rgba(0, 122, 135, 0.15);
+      --border-radius-md:          10px;
+      --border-radius-lg:          16px;
+
+      --color-brand-green:   #007A87;   /* 主色 */
+      --color-brand-gold:    #C5A059;   /* 副色 */
+      --color-accent-teal:   #0097b2;
+      --color-accent-teal-hover: #007a91;
+
+      --theme-primary:       var(--color-brand-green);
+      --theme-accent:        var(--color-brand-gold);
+      --theme-accent-light:  rgba(0, 151, 178, 0.04);
+      --theme-success:       #2e7d32;
+      --theme-success-light: #e8f5e9;
+      --theme-error:         #c62828;
+      --theme-error-light:   #fff5f5;
+      --theme-shadow:        0 4px 6px -1px rgba(0,122,135,0.03), 0 2px 4px -1px rgba(0,122,135,0.02);
+      --theme-shadow-lg:     0 10px 25px -5px rgba(0,122,135,0.06), 0 8px 10px -6px rgba(0,122,135,0.04);
+    }
+    /* ZONE A Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary:        #f8f6f2;
+        --color-text-secondary:      #a3b8cc;
+        --color-text-muted:          #778899;
+        --color-background-primary:  #12181a;
+        --color-background-secondary:#1a2225;
+        --color-border-tertiary:     rgba(197, 160, 89, 0.2);
+        --theme-accent-light:        rgba(197, 160, 89, 0.08);
+        --theme-success-light:       #12251a;
+        --theme-error-light:         #3d1515;
+      }
+    }
+    /* ══════════════════════════════════════════════════════
+       FRAMEWORK：以下所有 CSS 不需要動
+       ══════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans TC', sans-serif;
+      background-color: var(--color-background-secondary);
+      background-image: radial-gradient(at 0% 0%, rgba(0,151,178,0.02) 0px, transparent 40%),
+                        radial-gradient(at 100% 0%, rgba(197,160,89,0.02) 0px, transparent 40%);
+      color: var(--color-text-primary);
+      font-size: 15px;
+      line-height: 1.8;
+      padding: 1.5rem;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .wrap { max-width: 800px; margin: 0 auto; padding-bottom: 5rem; }
+
+    /* --- HERO --- */
+    .hero {
+      background: linear-gradient(135deg, var(--color-brand-green), #004d55);
+      border-bottom: 4px solid var(--color-brand-gold);
+      color: #f8f6f2;
+      border-radius: var(--border-radius-lg);
+      padding: 3.5rem 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--theme-shadow-lg);
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(197,160,89,0.15);
+      color: var(--color-brand-gold);
+      border: 1px solid rgba(197,160,89,0.35);
+      padding: 4px 16px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+    .hero h1 { font-family: 'Noto Serif TC', serif; font-size: 2.4rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.3; color: #f8f6f2; }
+    .hero p { color: rgba(248,246,242,0.8); font-size: 14px; letter-spacing: 1px; }
+
+    /* --- TAB NAVIGATION --- */
+    .tab-navigation-container {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(248,246,242,0.85);
+      backdrop-filter: blur(12px);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--color-border-tertiary);
+      margin-bottom: 2rem;
+      margin-left: -1.5rem; margin-right: -1.5rem;
+      padding-left: 1.5rem; padding-right: 1.5rem;
+    }
+    .tab-navigation { display: flex; gap: 10px; overflow-x: auto; white-space: nowrap; padding-bottom: 6px; scrollbar-width: none; }
+    .tab-navigation::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      color: var(--color-text-secondary);
+      padding: 10px 20px; border-radius: 30px;
+      font-size: 14px; font-weight: 500; cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 2px 4px rgba(0,122,135,0.01);
+    }
+    .tab-btn:hover { border-color: var(--color-accent-teal); color: var(--color-accent-teal); background: var(--theme-accent-light); }
+    .tab-btn.active { background: linear-gradient(135deg, var(--color-brand-green) 0%, var(--color-accent-teal) 100%); color: #fff; border-color: transparent; box-shadow: 0 4px 12px rgba(0,122,135,0.25); }
+    .tab-btn.locked { opacity: 0.45; cursor: not-allowed; }
+    .tab-btn.locked:hover { border-color: var(--color-border-tertiary); color: var(--color-text-secondary); background: var(--color-background-primary); }
+    .progress-bar-container-global { height: 3px; width: 100%; background: rgba(0,122,135,0.08); border-radius: 2px; overflow: hidden; margin-top: 6px; }
+    .progress-bar-fill-global { height: 100%; background: linear-gradient(90deg, var(--color-brand-green), var(--color-brand-gold)); width: 0%; transition: width 0.4s ease; }
+
+    /* --- TAB CONTENT --- */
+    .tab-content { display: none; padding: 0 0.5rem; }
+    .tab-content.active { display: block; }
+
+    /* --- GRAPHIC CARD --- */
+    .graphic-card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-bottom: 2rem; text-align: center; box-shadow: var(--theme-shadow); transition: transform 0.3s ease; }
+    .graphic-card:hover { transform: translateY(-2px); }
+    .graphic-card img { max-width: 100%; height: auto; border-radius: var(--border-radius-md); box-shadow: 0 4px 20px rgba(0,122,135,0.06); cursor: zoom-in; }
+
+    /* --- CARD --- */
+    .card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 2.2rem; margin-bottom: 2rem; box-shadow: var(--theme-shadow); }
+    .subsection-title { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; margin-bottom: 1.2rem; font-family: 'Noto Serif TC', serif; color: var(--theme-primary); }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot.purple { background: var(--theme-primary); }
+    .dot.accent  { background: var(--theme-accent); }
+    .dot.teal    { background: var(--color-accent-teal); }
+
+    /* --- EXAMPLE BOX --- */
+    .example-box { background: var(--theme-accent-light); border-left: 5px solid var(--theme-primary); padding: 1.2rem 1.5rem; border-radius: 4px var(--border-radius-md) var(--border-radius-md) 4px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(0,122,135,0.02); }
+    .example-box.teal   { background: #eaf3de; border-left-color: #2e7d32; }
+    .example-box.coral  { background: var(--theme-error-light); border-left-color: var(--theme-error); }
+    .example-box.gold   { background: rgba(197,160,89,0.07); border-left-color: var(--color-brand-gold); }
+    .example-label { font-size: 11px; font-weight: 700; color: var(--theme-primary); text-transform: uppercase; margin-bottom: 6px; display: block; letter-spacing: 1px; }
+    .example-box.teal .example-label  { color: #2e7d32; }
+    .example-box.coral .example-label { color: #c62828; }
+    .example-text { font-size: 15px; line-height: 1.7; color: var(--color-text-primary); }
+    .example-note { font-size: 13px; color: var(--color-text-secondary); margin-top: 8px; font-style: italic; }
+
+    /* --- KEYWORD GRID --- */
+    .keyword-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
+    .kw-card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-top: 4px solid var(--theme-primary); border-radius: var(--border-radius-md); padding: 1.2rem; box-shadow: var(--theme-shadow); transition: all 0.2s ease; }
+    .kw-card:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,122,135,0.05); }
+    .kw-word { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 16px; color: var(--theme-primary); margin-bottom: 6px; }
+    .kw-def  { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.6; }
+
+    /* --- COMPARE GRID --- */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.5rem 0; }
+    .compare-card { border-radius: var(--border-radius-md); padding: 1.4rem; border: 1px solid transparent; box-shadow: var(--theme-shadow); }
+    .compare-card.bad  { background: var(--theme-error-light);   border-color: #fecdd3; }
+    .compare-card.good { background: var(--theme-success-light); border-color: #c5e1a5; }
+    .compare-label { font-size: 11px; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase; }
+    .compare-card.bad  .compare-label { color: var(--theme-error); }
+    .compare-card.good .compare-label { color: var(--theme-success); }
+    .compare-text { font-size: 14.5px; line-height: 1.7; }
+
+    /* --- FLOW STEPS --- */
+    .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 1.5rem 0; }
+    .flow-step { background: var(--theme-accent-light); border: 1px solid var(--color-border-tertiary); color: var(--theme-primary); padding: 8px 16px; border-radius: 30px; font-size: 14px; font-weight: 600; box-shadow: var(--theme-shadow); }
+    .flow-arrow { color: var(--theme-accent); font-weight: 700; font-size: 16px; }
+
+    /* --- FORMULA BOX --- */
+    .formula { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #f8fafc; border-radius: var(--border-radius-lg); padding: 1.8rem; margin: 1.5rem 0; font-family: 'Noto Serif TC', serif; box-shadow: 0 10px 20px rgba(15,23,42,0.15); border-left: 6px solid var(--color-brand-gold); }
+    .formula-title { font-family: 'Inter','Noto Sans TC',sans-serif; font-size: 11px; letter-spacing: 2px; color: var(--color-brand-gold); margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
+    .formula-body  { font-size: 17px; line-height: 1.8; font-weight: 600; }
+    .formula-sub   { font-family: 'Inter','Noto Sans TC',sans-serif; font-size: 13px; color: #94a3b8; margin-top: 10px; }
+
+    /* --- PRACTICE BLOCK --- */
+    .practice-block { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.8rem; margin-bottom: 1.5rem; box-shadow: var(--theme-shadow); }
+    .practice-q { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 16px; color: var(--theme-primary); margin-bottom: 10px; }
+    .practice-content { font-size: 14.5px; line-height: 1.7; margin-bottom: 12px; }
+    .answer-toggle { display: inline-flex; align-items: center; background: var(--theme-accent-light); border: 1px solid var(--color-border-tertiary); color: var(--theme-primary); font-size: 12px; font-weight: 700; padding: 6px 16px; border-radius: 20px; cursor: pointer; user-select: none; transition: all 0.2s ease; margin-bottom: 10px; }
+    .answer-toggle:hover { background: var(--color-border-tertiary); }
+    .answer-box { background: var(--color-background-secondary); border-left: 4px solid var(--theme-accent); border-radius: 4px; padding: 1.2rem; font-size: 14px; line-height: 1.7; display: none; margin-top: 10px; animation: fadeIn 0.3s ease; }
+    .answer-box.open { display: block; }
+
+    /* --- ALERTS --- */
+    .alert { display: flex; gap: 12px; align-items: flex-start; border-radius: var(--border-radius-md); padding: 1.2rem; margin: 1.5rem 0; border-left: 4px solid transparent; box-shadow: var(--theme-shadow); }
+    .alert-icon { font-size: 20px; line-height: 1; }
+    .alert-content { font-size: 14px; line-height: 1.7; }
+    .alert-label { font-weight: 700; font-size: 12px; color: var(--theme-primary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+    .alert.tip     { background: rgba(0,151,178,0.03);      border-left-color: var(--color-accent-teal); }
+    .alert.warn    { background: var(--theme-error-light);  border-left-color: var(--theme-error); }
+    .alert.success { background: var(--theme-success-light);border-left-color: var(--theme-success); }
+    .alert.amber   { background: rgba(197,160,89,0.05);     border-left-color: var(--color-brand-gold); }
+    .alert.tip     .alert-label { color: var(--color-brand-green); }
+    .alert.warn    .alert-label { color: var(--theme-error); }
+    .alert.success .alert-label { color: var(--theme-success); }
+    .alert.amber   .alert-label { color: var(--color-brand-gold); }
+
+    /* --- TAGS --- */
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 1rem 0; }
+    .tag { background: var(--theme-accent-light); border: 1px solid var(--color-border-tertiary); color: var(--theme-primary); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+
+    /* --- LISTS --- */
+    ul, ol { margin-left: 20px; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; }
+
+    /* ═══ FLOW STATE COMPONENTS ═══ */
+    .flow-progress-container { width: 100%; height: 5px; background: rgba(0,122,135,0.08); position: fixed; top: 0; left: 0; z-index: 1000; }
+    .flow-progress-fill { height: 100%; background: linear-gradient(90deg, var(--color-brand-green) 0%, var(--color-brand-gold) 100%); width: 0%; transition: width 0.4s cubic-bezier(0.4,0,0.2,1); }
+
+    .step-card-container { position: relative; margin-top: 1.5rem; }
+    .step-card { display: none; animation: fadeInSlide 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .step-card.active { display: block; }
+    @keyframes fadeInSlide { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+    .step-nav-buttons { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+    .step-btn { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); color: var(--color-text-secondary); padding: 10px 20px; border-radius: 30px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 8px; }
+    .step-btn:hover:not(:disabled) { border-color: var(--color-brand-green); color: var(--color-brand-green); background: rgba(0,122,135,0.03); }
+    .step-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .step-btn.primary-btn { background: var(--color-brand-green); color: #fff; border-color: transparent; box-shadow: 0 4px 10px rgba(0,122,135,0.15); }
+    .step-btn.primary-btn:hover:not(:disabled) { background: var(--color-brand-gold); border-color: transparent; box-shadow: 0 6px 14px rgba(197,160,89,0.35); color: #fff; }
+
+    .step-dots-container { display: flex; gap: 6px; justify-content: center; margin-top: 1.5rem; margin-bottom: 1rem; }
+    .step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-border-tertiary); transition: all 0.25s ease; }
+    .step-dot.active    { background: var(--color-brand-green); transform: scale(1.25); }
+    .step-dot.completed { background: var(--color-brand-gold); }
+
+    /* ═══ INTERACTIVE WIDGETS ═══ */
+    .sentence-display { font-family: 'Noto Serif TC', serif; font-size: 18px; line-height: 1.8; padding: 1.5rem; background: var(--color-background-secondary); border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); margin: 1.5rem 0; min-height: 70px; }
+
+    /* Flip Cards */
+    .flip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+    .flip-card { background-color: transparent; height: 150px; perspective: 1000px; cursor: pointer; }
+    .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); transform-style: preserve-3d; border-radius: var(--border-radius-md); box-shadow: var(--theme-shadow); }
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1.2rem; border-radius: var(--border-radius-md); border: 1px solid var(--color-border-tertiary); box-sizing: border-box; }
+    .flip-card-front { background-color: var(--color-background-primary); color: var(--color-text-primary); }
+    .flip-card-back  { background-color: var(--theme-success-light); border-color: #c5e1a5; color: var(--color-text-primary); transform: rotateY(180deg); }
+    .flip-hint-badge { font-size: 10px; background: rgba(197,160,89,0.15); color: var(--color-brand-gold); padding: 2px 8px; border-radius: 10px; margin-top: 8px; }
+
+    /* Checkpoint Card */
+    .checkpoint-card { background: linear-gradient(to bottom right, var(--color-background-primary), var(--color-background-secondary)); border: 1.5px solid var(--color-brand-gold); border-radius: var(--border-radius-lg); padding: 1.8rem; box-shadow: var(--theme-shadow-lg); position: relative; }
+    .checkpoint-header { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--color-brand-gold); margin-bottom: 1rem; font-size: 15px; }
+    .checkpoint-options { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 1.2rem; }
+    .checkpoint-opt { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); padding: 12px 16px; border-radius: var(--border-radius-md); cursor: pointer; text-align: left; font-size: 14px; transition: all 0.2s ease; color: var(--color-text-primary); width: 100%; box-sizing: border-box; }
+    .checkpoint-opt:hover:not(:disabled) { border-color: var(--color-brand-green); background: rgba(0,122,135,0.03); }
+    .checkpoint-opt.correct   { background: var(--theme-success-light) !important; border-color: var(--theme-success) !important; color: var(--theme-success) !important; font-weight: 600; }
+    .checkpoint-opt.incorrect { background: var(--theme-error-light) !important;   border-color: var(--theme-error) !important;   color: var(--theme-error) !important; }
+    .checkpoint-feedback { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--color-border-tertiary); font-size: 13.5px; display: none; animation: fadeIn 0.3s ease; }
+
+    /* ═══ QUIZ ENGINE ═══ */
+    .quiz-container { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 2.2rem; box-shadow: var(--theme-shadow); margin-bottom: 2rem; }
+    .quiz-subnav { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .qsnav-btn { padding: 8px 18px; border-radius: 30px; border: 1px solid var(--color-border-tertiary); background: var(--color-background-primary); font-size: 13.5px; font-weight: 600; font-family: inherit; cursor: pointer; color: var(--color-text-secondary); transition: all 0.2s ease; }
+    .qsnav-btn:hover { border-color: var(--color-accent-teal); color: var(--color-accent-teal); }
+    .qsnav-btn.active { background: linear-gradient(135deg,var(--color-brand-gold),#a8833a); color: #fff; border-color: transparent; box-shadow: 0 4px 10px rgba(197,160,89,0.3); }
+    .quiz-section { display: none; }
+    .quiz-section.active { display: block; }
+    .mcq-wrap { margin: 1rem 0; }
+    .mcq-option { display: block; width: 100%; text-align: left; padding: 0.75rem 1.2rem; margin: 0.5rem 0; border-radius: var(--border-radius-md); border: 1.5px solid var(--color-border-tertiary); background: var(--color-background-primary); font-size: 14.5px; font-family: inherit; cursor: pointer; transition: all 0.2s ease; color: var(--color-text-primary); }
+    .mcq-option:hover:not(:disabled) { border-color: var(--color-brand-green); background: rgba(0,122,135,0.03); }
+    .mcq-option.correct { background: var(--theme-success-light); border-color: #a5d6a7; color: #1b5e20; font-weight: 600; }
+    .mcq-option.wrong { background: var(--theme-error-light); border-color: #ef9a9a; color: #b71c1c; }
+    .mcq-option:disabled { cursor: default; }
+    .mcq-feedback { font-size: 14px; padding: 0.8rem 1rem; border-radius: var(--border-radius-md); margin-top: 0.6rem; display: none; border-left: 4px solid transparent; }
+    .mcq-feedback.show { display: block; }
+    .mcq-feedback.ok { background: var(--theme-success-light); border-left-color: var(--theme-success); color: #1b5e20; }
+    .mcq-feedback.ng { background: var(--theme-error-light); border-left-color: var(--theme-error); color: #b71c1c; }
+    .multi-option { display: block; width: 100%; text-align: left; padding: 0.75rem 1.2rem; margin: 0.5rem 0; border-radius: var(--border-radius-md); border: 1.5px solid var(--color-border-tertiary); background: var(--color-background-primary); font-size: 14.5px; font-family: inherit; cursor: pointer; transition: all 0.2s ease; color: var(--color-text-primary); }
+    .multi-option.selected { border-color: var(--color-accent-teal); background: rgba(0,151,178,0.04); color: var(--color-accent-teal); font-weight: 600; }
+    .multi-option.correct { background: var(--theme-success-light); border-color: #a5d6a7; color: #1b5e20; font-weight: 600; }
+    .multi-option.wrong { background: var(--theme-error-light); border-color: #ef9a9a; color: #b71c1c; }
+    .multi-option:disabled { cursor: default; }
+    .fq-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+    .fq-round-label { font-size: 11px; font-weight: 700; color: var(--color-brand-gold); letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
+    .fq-dots { display: flex; gap: 5px; flex: 1; }
+    .fq-dot { height: 6px; border-radius: 3px; flex: 1; background: var(--color-border-tertiary); transition: all 0.35s ease; }
+    .fq-dot.done { background: var(--color-brand-gold); }
+    .fq-dot.active { background: var(--color-brand-green); }
+    .fq-dot.wrong { background: var(--theme-error); }
+    .fq-card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 2rem; box-shadow: var(--theme-shadow); animation: fadeInSlide 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .fq-qnum { font-size: 11px; font-weight: 700; color: var(--color-text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .fq-qtext { font-family: 'Noto Serif TC', serif; font-size: 16px; line-height: 1.9; margin-bottom: 1.2rem; }
+    .round-summary { background: linear-gradient(135deg,var(--color-brand-green),#004d55); border-bottom: 3px solid var(--color-brand-gold); border-radius: var(--border-radius-lg); padding: 2.2rem; color: #fff; text-align: center; animation: fadeInSlide 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .rs-score { font-size: 3rem; font-weight: 700; font-family: 'Noto Serif TC', serif; line-height: 1.1; }
+    .rs-label { opacity: 0.85; font-size: 14px; margin-top: 0.3rem; margin-bottom: 0.2rem; }
+    .rs-wrong-list { background: rgba(255,255,255,0.1); border-radius: var(--border-radius-md); padding: 1.1rem 1.3rem; margin: 1.2rem 0; text-align: left; }
+    .rs-wrong-title { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; opacity: 0.65; margin-bottom: 0.7rem; text-transform: uppercase; }
+    .rs-wrong-item { font-size: 13.5px; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); line-height: 1.6; }
+    .rs-wrong-item:last-child { border-bottom: none; }
+    .rs-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 1.3rem; }
+    .rs-btn { padding: 11px 26px; border-radius: 30px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+    .rs-btn.retry { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.4); }
+    .rs-btn.retry:hover { background: rgba(255,255,255,0.22); }
+    .rs-btn.next { background: var(--color-brand-gold); color: #fff; border-color: var(--color-brand-gold); }
+    .rs-btn.next:hover { background: #a8833a; }
+    .final-score { background: linear-gradient(135deg,var(--color-brand-green),#004d55); border-bottom: 4px solid var(--color-brand-gold); border-radius: var(--border-radius-lg); padding: 2.5rem 2rem; color: #fff; text-align: center; margin-top: 2rem; display: none; box-shadow: var(--theme-shadow-lg); }
+    .final-score.show { display: block; }
+    .final-score-num { font-size: 4rem; font-weight: 700; font-family: 'Noto Serif TC', serif; }
+    .final-score-sub { opacity: 0.8; font-size: 14px; margin-top: 0.3rem; }
+    .score-breakdown { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 1.5rem 0; }
+    .score-part { background: rgba(255,255,255,0.12); border-radius: var(--border-radius-md); padding: 1rem; }
+    .score-part-num { font-size: 1.8rem; font-weight: 700; font-family: 'Noto Serif TC', serif; }
+    .score-part-label { font-size: 12px; opacity: 0.8; margin-top: 2px; }
+    .score-msg { background: rgba(197,160,89,0.2); border: 1px solid rgba(197,160,89,0.4); border-radius: var(--border-radius-md); padding: 0.8rem 1.2rem; font-size: 15px; font-weight: 600; margin-top: 1rem; }
+    .wrongbook-btn { font-size: 12px; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--theme-error); background: none; color: var(--theme-error); cursor: pointer; font-family: inherit; margin-top: 0.6rem; transition: all 0.2s; }
+    .wrongbook-btn:hover { background: var(--theme-error-light); }
+    .wrongbook-btn.added { border-color: var(--color-text-muted); color: var(--color-text-muted); }
+
+    /* ═══ JUDGMENT GAME ═══ */
+    .judgment-game { margin: 1.2rem 0; }
+    .judgment-counter { text-align: center; font-size: 12px; color: var(--color-text-muted); margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+    .judgment-sentence-display { font-family: 'Noto Serif TC',serif; font-size: 17px; font-weight: 600; padding: 1.2rem 1.5rem; background: var(--color-background-secondary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); text-align: center; line-height: 1.8; margin-bottom: 1rem; min-height: 76px; display: flex; align-items: center; justify-content: center; }
+    .judgment-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 0.8rem; }
+    .judgment-btn { padding: 12px; border-radius: var(--border-radius-md); font-size: 15px; font-weight: 700; cursor: pointer; border: 2px solid; transition: all 0.18s ease; font-family: inherit; }
+    .judgment-btn.good-btn { background: var(--theme-success-light); border-color: var(--theme-success); color: var(--theme-success); }
+    .judgment-btn.good-btn:hover:not(:disabled) { background: var(--theme-success); color: #fff; }
+    .judgment-btn.bad-btn  { background: var(--theme-error-light);   border-color: var(--theme-error);   color: var(--theme-error); }
+    .judgment-btn.bad-btn:hover:not(:disabled)  { background: var(--theme-error); color: #fff; }
+    .judgment-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .judgment-feedback { display: none; padding: 0.9rem 1.1rem; border-radius: var(--border-radius-md); font-size: 13.5px; line-height: 1.65; margin-bottom: 0.8rem; animation: jFadeIn 0.28s ease; }
+    .judgment-feedback.correct { background: var(--theme-success-light); border: 1px solid var(--theme-success); color: #1b5e20; }
+    .judgment-feedback.wrong   { background: var(--theme-error-light);   border: 1px solid var(--theme-error);   color: #b71c1c; }
+    .judgment-next-btn { display: none; width: 100%; padding: 11px; background: var(--color-brand-green); color: #fff; border: none; border-radius: var(--border-radius-md); font-size: 14.5px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background 0.2s ease; }
+    .judgment-next-btn:hover { background: var(--color-brand-gold); }
+    .judgment-score-card { display: none; text-align: center; padding: 1.5rem; background: var(--color-background-secondary); border-radius: var(--border-radius-md); border: 1.5px solid var(--color-brand-gold); margin: 1.2rem 0; animation: jFadeIn 0.4s ease; }
+    @keyframes jFadeIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ═══ EFFECT GAME ═══ */
+    .effect-ref-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.2rem; justify-content: center; }
+    .effect-ref { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+    .effect-ref.ef-primary { background: rgba(0,151,178,0.1);   color: var(--color-accent-teal); }
+    .effect-ref.ef-teal    { background: rgba(0,122,135,0.1);   color: var(--color-brand-green); }
+    .effect-ref.ef-coral   { background: rgba(198,40,40,0.08);  color: var(--theme-error); }
+    .effect-ref.ef-amber   { background: rgba(197,160,89,0.15); color: var(--color-brand-gold); }
+    .effect-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 0.8rem; }
+    .effect-btn { padding: 11px 10px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 600; cursor: pointer; border: 2px solid; transition: all 0.18s ease; font-family: inherit; text-align: center; line-height: 1.4; }
+    .effect-btn.ef-primary { background: rgba(0,151,178,0.07); border-color: var(--color-accent-teal); color: var(--color-accent-teal); }
+    .effect-btn.ef-primary:hover:not(:disabled) { background: var(--color-accent-teal); color: #fff; }
+    .effect-btn.ef-teal    { background: rgba(0,122,135,0.07); border-color: var(--color-brand-green); color: var(--color-brand-green); }
+    .effect-btn.ef-teal:hover:not(:disabled)    { background: var(--color-brand-green); color: #fff; }
+    .effect-btn.ef-coral   { background: rgba(198,40,40,0.07); border-color: var(--theme-error); color: var(--theme-error); }
+    .effect-btn.ef-coral:hover:not(:disabled)   { background: var(--theme-error); color: #fff; }
+    .effect-btn.ef-amber   { background: rgba(197,160,89,0.1); border-color: var(--color-brand-gold); color: #b8872a; }
+    .effect-btn.ef-amber:hover:not(:disabled)   { background: var(--color-brand-gold); color: #fff; }
+    .effect-btn:disabled   { opacity: 0.45; cursor: not-allowed; }
+    .effect-btn.btn-correct { background: var(--theme-success); border-color: var(--theme-success); color: #fff; opacity: 1; }
+    .effect-btn.btn-wrong   { background: var(--theme-error);   border-color: var(--theme-error);   color: #fff; opacity: 0.6; }
+
+    /* ═══ CONCEPT CHIPS ═══ */
+    .chips-area { margin: 0.5rem 0 1rem 0; }
+    .chips-instruction { font-size: 12.5px; color: var(--color-text-muted); text-align: center; margin-bottom: 0.8rem; font-weight: 500; }
+    .concept-chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 0.5rem; }
+    .concept-chip { background: var(--color-background-secondary); border: 1.5px solid var(--color-border-tertiary); border-radius: 12px; padding: 10px 14px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); width: calc(50% - 5px); min-width: 140px; max-width: 220px; text-align: left; }
+    .chip-name { font-weight: 700; font-size: 14px; color: var(--color-text-primary); display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .chip-badge { font-size: 11px; background: rgba(197,160,89,0.15); color: var(--color-brand-gold); padding: 2px 8px; border-radius: 10px; transition: all 0.3s ease; font-weight: 700; }
+    .chip-desc { font-size: 12px; color: transparent; line-height: 1.5; max-height: 0; overflow: hidden; transition: all 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .concept-chip.revealed { background: rgba(0,122,135,0.04); border-color: var(--color-brand-green); }
+    .concept-chip.revealed .chip-badge { background: rgba(0,122,135,0.12); color: var(--color-brand-green); }
+    .concept-chip.revealed .chip-desc  { color: var(--color-text-secondary); max-height: 60px; margin-top: 6px; }
+    .chips-progress { text-align: center; font-size: 12px; color: var(--color-text-muted); margin-top: 8px; transition: color 0.3s; }
+    .chips-progress.all-done { color: var(--color-brand-green); font-weight: 600; }
+
+    /* ═══ MISC ═══ */
+    .image-overlay { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center; cursor: zoom-out; backdrop-filter: blur(8px); }
+    .overlay-content { margin: auto; display: block; max-width: 90%; max-height: 90%; box-shadow: 0 4px 30px rgba(0,0,0,0.5); border-radius: var(--border-radius-lg); border: 3px solid rgba(255,255,255,0.1); animation: zoomAnimation 0.25s cubic-bezier(0.4,0,0.2,1); cursor: default; }
+    @keyframes zoomAnimation { from { transform:scale(0.95); opacity:0; } to { transform:scale(1); opacity:1; } }
+    .close-overlay { position: absolute; top: 20px; right: 30px; color: #f8f6f2; font-size: 40px; font-weight: 300; transition: 0.2s; cursor: pointer; user-select: none; }
+    .close-overlay:hover { color: var(--color-brand-gold); }
+    .no-scroll { overflow: hidden; }
+    .review-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--color-brand-green); margin-top: 8px; padding: 4px 10px; border: 1px solid var(--color-brand-green); border-radius: 20px; cursor: pointer; transition: all 0.18s ease; font-weight: 500; }
+    .review-link:hover { background: var(--color-brand-green); color: #fff; }
+    .print-btn-container { text-align: center; margin-top: 2rem; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .print-btn { background: transparent; border: 1px solid var(--color-border-tertiary); color: var(--color-text-secondary); padding: 10px 20px; border-radius: 30px; font-size: 13px; cursor: pointer; transition: all 0.2s ease; font-family: inherit; }
+    .print-btn:hover { border-color: var(--color-brand-green); color: var(--color-brand-green); }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes fadeInSlide { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes shake { 0%,100% { transform:translateX(0); } 20%,60% { transform:translateX(-5px); } 40%,80% { transform:translateX(5px); } }
+    @keyframes slideInUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    .btn-appear { animation: slideInUp 0.32s cubic-bezier(0.4,0,0.2,1) forwards; }
+
+    /* Print */
+    @media print {
+      .flow-progress-container, .step-nav-buttons, .step-dots-container,
+      .checkpoint-card, .progress-bar-container-global, .tab-navigation-container,
+      .print-btn-container, .answer-toggle, .answer-box,
+      .quiz-container, .chips-area, .judgment-game, .judgment-score-card,
+      .effect-quiz, .effect-score-card { display: none !important; }
+      @page { margin: 12mm 10mm; }
+      body { background: #fff !important; color: #000 !important; padding: 0 !important; }
+      .wrap { max-width: 100% !important; padding: 0 !important; }
+      .tab-content { display: none !important; }
+      .print-only-images { display: block !important; page-break-before: always; break-before: page; }
+      .card, .example-box, .formula { page-break-inside: avoid; background: #fff !important; color: #000 !important; box-shadow: none !important; }
+      .print-q-card { page-break-inside: avoid; margin-bottom: 1.5rem; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+      .hero { background: #fff !important; color: #000 !important; border: 2px solid #000 !important; }
+      .hero * { color: #000 !important; }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body { padding: 0.75rem; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .tab-navigation-container { margin-left: -0.75rem; margin-right: -0.75rem; padding-left: 0.75rem; padding-right: 0.75rem; }
+      .tab-btn { padding: 8px 16px; font-size: 13px; }
+      .hero { padding: 2.5rem 1.2rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .card, .quiz-container { padding: 1.5rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ FRAMEWORK：頂部進度條 ═══ -->
+  <div class="flow-progress-container">
+    <div class="flow-progress-fill" id="topProgressFill"></div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ╔══════════════════════════════════════════════════╗
+         ║  ZONE B：課題設定（HTML）                         ║
+         ║  改 hero、tab 按鈕文字、tab ID                    ║
+         ╚══════════════════════════════════════════════════╝ -->
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-tag">文言文能力評估</div>
+      <h1>初中中國語文能力評估．闖關版</h1>
+      <p>潘SIR中文教室編撰</p>
+    </div>
+
+    <!-- STICKY TAB NAVIGATION
+         規則：
+         · 每個 tab-btn 的 id="btn-tab-[stageId]"
+         · onclick="switchTab('[stageId]')"
+         · 第一個永遠 class="tab-btn active"
+         · 其餘永遠 class="tab-btn locked"
+         · stageId 必須與 TOPIC_CONFIG.stageSequence 完全一致 -->
+    <div class="tab-navigation-container">
+      <div class="tab-navigation">
+        <button class="tab-btn active" id="btn-tab-home" onclick="switchTab('home')">🏠 主頁</button>
+        <button class="tab-btn locked"  id="btn-tab-ch1"  onclick="switchTab('ch1')">📖 閱讀理解</button>
+        <button class="tab-btn locked"  id="btn-tab-ch2"  onclick="switchTab('ch2')">🎮 句讀應用</button>
+        <button class="tab-btn locked"  id="btn-tab-ch3"  onclick="switchTab('ch3')">🎮 成語造句</button>
+        <button class="tab-btn locked"  id="btn-tab-ch4"  onclick="switchTab('ch4')">📝 專書問對</button>
+        <button class="tab-btn locked"  id="btn-tab-quiz" onclick="switchTab('quiz')">🎯 挑戰測驗</button>
+      </div>
+      <div class="progress-bar-container-global">
+        <div class="progress-bar-fill-global" id="globalProgressBarFill"></div>
+      </div>
+    </div>
+    <!-- ╚══════════════════════════════════════════════════╝ -->
+
+
+    <!-- ╔══════════════════════════════════════════════════╗
+         ║  ZONE C：HOME TAB                                ║
+         ║  改：成果承諾文字、學習說明、適合對象             ║
+         ╚══════════════════════════════════════════════════╝ -->
+    <div id="tab-home" class="tab-content active">
+
+      <!-- 成果承諾卡 -->
+      <div class="card" style="border:2px solid var(--color-brand-green); background:linear-gradient(135deg,rgba(0,122,135,0.04) 0%,rgba(197,160,89,0.04) 100%);">
+        <p style="text-align:center;font-size:11.5px;color:var(--color-brand-green);font-weight:700;letter-spacing:2px;margin-bottom:0.5rem;text-transform:uppercase;">完成後你能夠</p>
+        <h2 style="text-align:center;font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;margin-bottom:1.3rem;line-height:1.5;">
+          掌握文言閱讀、句讀、成語運用與專書論述，四關全破，能力評估過關斬將
+        </h2>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p style="margin:0;font-size:14.5px;line-height:1.5;">✅ 準確理解文言篇章與重點字詞</p>
+          <p style="margin:0;font-size:14.5px;line-height:1.5;">✅ 掌握文言句讀規律，正確斷句</p>
+          <p style="margin:0;font-size:14.5px;line-height:1.5;">✅ 靈活運用成語於語體文造句</p>
+        </div>
+      </div>
+
+      <!-- Feature badges（保留不動） -->
+      <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:0.2rem 0 0.8rem;">
+        <span style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:20px;font-size:14px;font-weight:600;background:rgba(0,122,135,0.08);color:var(--color-brand-green);border:1px solid rgba(0,122,135,0.2);">🎮 互動遊戲闖關</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:20px;font-size:14px;font-weight:600;background:rgba(197,160,89,0.10);color:#9a7a30;border:1px solid rgba(197,160,89,0.3);">🔒 逐步解鎖設計</span>
+      </div>
+
+      <!-- 漫畫圖片縮圖（由 JS 自動從每章 step-1 取圖，不用手動填） -->
+      <div style="margin:0.2rem 0 1rem;">
+        <p style="text-align:center;font-size:12px;color:var(--color-text-muted);margin-bottom:0.8rem;font-weight:600;letter-spacing:0.5px;">課程章節預覽</p>
+        <div id="homeThumbnails" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;"></div>
+      </div>
+
+      <!-- 學習指南 -->
+      <div class="card">
+        <div class="subsection-title"><div class="dot accent"></div> 學習指南</div>
+        <p style="font-size:13.5px;color:var(--color-text-secondary);margin-bottom:1.2rem;">
+          <b style="color:var(--color-text-primary);">適合對象：</b>初中程度學生，適合用作文言文閱讀理解、句讀及成語運用的總複習
+        </p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.2rem;">
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:13.5px;"><span style="color:var(--color-brand-green);font-weight:700;flex-shrink:0;">①</span><span>先看教學，建立整體印象</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:13.5px;"><span style="color:var(--color-brand-green);font-weight:700;flex-shrink:0;">②</span><span>完成互動遊戲，在實戰中確認理解</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:13.5px;"><span style="color:var(--color-brand-green);font-weight:700;flex-shrink:0;">③</span><span>挑戰分級測驗，消滅所有錯題</span></div>
+        </div>
+        <div class="alert tip" style="margin-bottom:0.8rem;">
+          <span class="alert-icon">👨‍👧</span>
+          <div class="alert-content" style="font-size:13px;">
+            <b>家長提示：</b>建議學生逐章完成，答錯的關底題目會提供提示，不必心急，理解後再過關。
+          </div>
+        </div>
+      </div>
+
+      <!-- 開始按鈕（FRAMEWORK，不用動） -->
+      <div style="display:flex;justify-content:center;margin:1.5rem 0 0.5rem;">
+        <button class="step-btn primary-btn" style="font-size:16px;padding:14px 36px;" onclick="startLearningFlow()">開始學習 🚀</button>
+      </div>
+      <div style="text-align:center;margin-top:0.8rem;">
+        <span onclick="if(confirm('確定要清除所有進度，從頭開始嗎？')){localStorage.removeItem(TOPIC_CONFIG.saveKey);location.reload();}"
+          style="font-size:11px;color:var(--color-text-muted);cursor:pointer;text-decoration:underline;">重設進度</span>
+      </div>
+    </div>
+    <!-- ╚═ HOME TAB END ══════════════════════════════════╝ -->
+
+
+    <!-- ╔══════════════════════════════════════════════════════════╗
+         ║  ZONE C：教學章節                                         ║
+         ║                                                           ║
+         ║  結構規則：                                                ║
+         ║  · 每章 id="tab-[stageId]"                                ║
+         ║  · 每個 step id="step-[stageId]-[n]"（n 從 1 起）         ║
+         ║  · 第一個 step-card 加 class="step-card active"           ║
+         ║  · 最後一個 step 放 checkpoint-card（必須）                ║
+         ║  · step 總數必須與 TOPIC_CONFIG.stageStepCounts 一致       ║
+         ║                                                           ║
+         ║  可用元件：                                                ║
+         ║  .graphic-card        漫畫圖片（點擊放大）                  ║
+         ║  .card                通用內容卡                           ║
+         ║  .example-box         例句框（加 .teal / .coral 換色）      ║
+         ║  .keyword-grid        關鍵字卡片格                          ║
+         ║  .compare-grid        好壞對照格                           ║
+         ║  .flow                流程步驟 pills                        ║
+         ║  .formula             公式深色卡                            ║
+         ║  .practice-block      練習題 + 開合答案                     ║
+         ║  .alert               提示框（.tip/.warn/.success/.amber）  ║
+         ║  .flip-grid           翻牌記憶卡                            ║
+         ║  .chips-area          概念解鎖 chips                        ║
+         ╚══════════════════════════════════════════════════════════╝ -->
+
+    <!-- ── CH1：閱讀理解（文帝詔令 + 論語）── -->
+    <div id="tab-ch1" class="tab-content">
+      <div class="step-card-container">
+
+        <!-- Step 1：文一原文 -->
+        <div class="step-card active" id="step-ch1-1">
+          <div class="card">
+            <div class="subsection-title"><div class="dot purple"></div> 文一．原文</div>
+            <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">節錄自《史記．卷十．孝文本紀第十》，記述漢文帝廢除「誹謗妖言之罪」的詔令。</p>
+            <div class="sentence-display" style="font-size:16px;line-height:2.1;text-align:left;">
+              上曰：「古之治天下，朝有進善之旌，誹謗之木，所以通治道而來諫者。今法有誹謗妖言之罪，是使眾臣不敢盡情，而上無由聞過失也。將何以來遠方之賢良？其除之。民或祝詛上以相約結而後相謾，吏以為大逆，其有他言，而吏又以為誹謗。此細民之愚無知抵死，朕甚不取。自今以來，有犯此者勿聽治。」
+            </div>
+            <p style="font-size:12px;color:var(--color-text-secondary);margin-top:0.6rem;text-align:right;">——《史記．卷十．孝文本紀第十》</p>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch1')" disabled>⬅️ 上一步</button>
+              <button class="step-btn btn-next" onclick="nextStep('ch1')" disabled>我看完了 ✅</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch1-1 -->
+
+        <!-- Step 2：文二原文 + 背景說明 -->
+        <div class="step-card" id="step-ch1-2">
+          <div class="card">
+            <div class="subsection-title"><div class="dot purple"></div> 文二．原文</div>
+            <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">節錄自《論語．八佾》，記孔子批評季氏僭用天子規格的「八佾之舞」。</p>
+            <div class="sentence-display" style="font-size:17px;line-height:2.1;text-align:left;">
+              孔子謂季氏，八佾舞於庭，是可忍也，孰不可忍也。
+            </div>
+            <p style="font-size:12px;color:var(--color-text-secondary);margin-top:0.6rem;text-align:right;">——《論語．八佾》</p>
+
+            <div class="card" style="box-shadow:none;border:none;padding:1rem 0 0;margin:0;">
+              <div class="subsection-title" style="font-size:15px;"><div class="dot teal"></div> 文章背景</div>
+              <p>文帝指出古代賢君設「進善之旌」、「誹謗之木」，目的是廣開言路。他認為當時法律以言入罪，令臣民不敢直言，故下令廢除。孔子則因季氏僭用天子專用的「八佾之舞」，發出「是可忍也，孰不可忍也」的嚴厲斥責。</p>
+            </div>
+            <div class="alert tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-content">
+                <div class="alert-label">潘SIR提示</div>
+                回答文言文問答題，一定要扣連原文字句，不可以憑空發揮。
+              </div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch1')">⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch1')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch1-2 -->
+
+        <!-- Step 3：關鍵字詞 + 練習 -->
+        <div class="step-card" id="step-ch1-3">
+          <div class="card">
+            <div class="subsection-title"><div class="dot teal"></div> 關鍵字詞</div>
+            <div class="keyword-grid">
+              <div class="kw-card"><div class="kw-word">抵死</div><div class="kw-def">至死；以致觸犯死罪，非解作「堅決」</div></div>
+              <div class="kw-card"><div class="kw-word">誹謗之木</div><div class="kw-def">供人書寫諫言的木柱，象徵廣開言路</div></div>
+              <div class="kw-card"><div class="kw-word">八佾</div><div class="kw-def">八行八列六十四人的舞樂編制，天子專用</div></div>
+              <div class="kw-card"><div class="kw-word">孰不可忍</div><div class="kw-def">「孰」解「哪一件事」，全句指忍無可忍</div></div>
+            </div>
+
+            <div class="practice-block">
+              <div class="practice-q">練習：文一諭令的目的是？</div>
+              <div class="practice-content">請先自行構思答案，再打開參考答案核對。</div>
+              <div class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'▲ 收起答案':'▼ 查看答案';">▼ 查看答案</div>
+              <div class="answer-box">廢除「誹謗妖言」之罪，鼓勵臣民直言進諫，讓君主得悉施政過失，藉此招徠賢良之士。</div>
+            </div>
+            <div class="practice-block">
+              <div class="practice-q">練習：孔子為何要責罵季孫？</div>
+              <div class="practice-content">請先自行構思答案，再打開參考答案核對。</div>
+              <div class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'▲ 收起答案':'▼ 查看答案';">▼ 查看答案</div>
+              <div class="answer-box">季氏僅為大夫，卻僭用只有天子才可享用的八佾之舞，嚴重踐踏禮制、以下犯上，孔子重視「禮」，故對此深感憤慨。</div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch1')">⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch1')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch1-3 -->
+
+        <!-- Step 4：概念鞏固 -->
+        <div class="step-card" id="step-ch1-4">
+          <div class="card">
+            <div class="subsection-title"><div class="dot accent"></div> 概念鞏固</div>
+            <p style="font-size:13.5px;color:var(--color-text-secondary);margin-bottom:1rem;">點擊卡片，解鎖每個概念的深層意義 👇</p>
+            <div class="chips-area">
+              <p class="chips-instruction">點擊每張卡片，解鎖概念說明 👇</p>
+              <div class="concept-chips">
+                <div class="concept-chip" onclick="toggleChip(this, 'ch1')">
+                  <div class="chip-name">進善之旌<span class="chip-badge">點擊解鎖</span></div>
+                  <div class="chip-desc">古代供百姓進諫時所執的旗幟，象徵君主廣納諫言。</div>
+                </div>
+                <div class="concept-chip" onclick="toggleChip(this, 'ch1')">
+                  <div class="chip-name">誹謗妖言之罪<span class="chip-badge">點擊解鎖</span></div>
+                  <div class="chip-desc">漢初法律，將批評朝政的言論定為重罪，文帝認為此舉堵塞言路。</div>
+                </div>
+                <div class="concept-chip" onclick="toggleChip(this, 'ch1')">
+                  <div class="chip-name">禮崩樂壞<span class="chip-badge">點擊解鎖</span></div>
+                  <div class="chip-desc">春秋時期禮制遭諸侯大夫僭越破壞的現象，季氏八佾舞正是一例。</div>
+                </div>
+                <div class="concept-chip" onclick="toggleChip(this, 'ch1')">
+                  <div class="chip-name">是可忍孰不可忍<span class="chip-badge">點擊解鎖</span></div>
+                  <div class="chip-desc">形容對嚴重踰越根本原則的行為忍無可忍、極度憤慨。</div>
+                </div>
+              </div>
+              <p class="chips-progress" id="chips-ch1-progress">0 / 4 已解鎖</p>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch1')">⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch1')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch1-4 -->
+
+        <!-- Step 5：Checkpoint -->
+        <div class="step-card" id="step-ch1-5">
+          <div class="card">
+            <div class="subsection-title"><div class="dot accent"></div> 課堂小測</div>
+            <p style="font-size:13.5px;color:var(--color-text-secondary);margin-bottom:1rem;">完成以下題目，即可解鎖下一章。</p>
+            <div class="checkpoint-card">
+              <div class="checkpoint-header">🔐 微測驗</div>
+              <p style="font-size:15px;font-weight:600;line-height:1.6;">文一中「抵死」一詞應解作？</p>
+              <div class="checkpoint-options">
+                <button class="checkpoint-opt" onclick="checkCh1Checkpoint(0, this)">A. 堅決、拚死</button>
+                <button class="checkpoint-opt" onclick="checkCh1Checkpoint(1, this)">B. 以致觸犯死罪</button>
+                <button class="checkpoint-opt" onclick="checkCh1Checkpoint(2, this)">C. 死心不息</button>
+              </div>
+              <div class="checkpoint-feedback" id="feedback-ch1"></div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch1')">⬅️ 上一步</button>
+              <button class="step-btn btn-next" onclick="nextStep('ch1')" style="display:none;">請回答上方微練習</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch1-5 -->
+
+      </div>
+    </div><!-- /tab-ch1 -->
+
+
+    <!-- ── CH2：句讀應用（含效果分類遊戲）── -->
+    <div id="tab-ch2" class="tab-content">
+      <div class="step-card-container">
+
+        <div class="step-card active" id="step-ch2-1">
+          <div class="card">
+            <div class="subsection-title"><div class="dot purple"></div> 斷句原文——《春夜宴桃李園序》</div>
+            <p>本段選自李白《春夜宴桃李園序》，是駢散結合的小品文。斷句時要留意句子結構的對仗特性，以及虛詞（「者」、「也」、「而」）在句末或句中的停頓作用。</p>
+            <div class="sentence-display">夫天地者，萬物之逆旅；光陰者，百代之過客。而浮生若夢，為歡幾何？古人秉燭夜遊，良有以也。</div>
+            <div class="alert warn">
+              <span class="alert-icon">⚠️</span>
+              <div class="alert-content">
+                <div class="alert-label">常見陷阱</div>
+                「者……也」是文言文判斷句的固定結構，考生斷句時容易漏斷「者」字後的逗號。
+              </div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch2')" disabled>⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch2')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch2-1 -->
+
+        <!-- Step 2：效果遊戲（四選一分類：判斷該處應加哪種標點）-->
+        <div class="step-card" id="step-ch2-2">
+          <div class="card">
+            <div class="subsection-title"><div class="dot teal"></div> 標點判斷練習</div>
+            <p style="font-size:13.5px;color:var(--color-text-secondary);margin-bottom:1rem;">判斷以下每個文言句子後面，應加哪種標點符號。</p>
+            <div id="effectQuiz">
+              <p class="judgment-counter" id="effectCounter">第 1 / ? 句</p>
+              <div class="judgment-sentence-display" id="effectSentence">載入中…</div>
+              <div class="effect-ref-row" id="effectRefRow"></div>
+              <div class="effect-btn-grid" id="effectBtnGrid"></div>
+              <div class="judgment-feedback" id="effectFeedback"></div>
+              <button class="judgment-next-btn" id="effectNextBtn" onclick="nextEffectQ()">下一句 ➡️</button>
+            </div>
+            <div class="judgment-score-card" id="effectScoreCard">
+              <p style="font-size:20px;font-weight:700;color:var(--color-brand-gold);margin-bottom:0.5rem;">完成！</p>
+              <p id="effectFinalScore" style="font-size:16px;font-weight:700;margin-bottom:0.5rem;"></p>
+              <p id="effectScoreMsg"   style="font-size:13.5px;color:var(--color-text-secondary);"></p>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;"><div class="step-nav-buttons" style="margin-top:0;"><button class="step-btn btn-prev" onclick="prevStep('ch2')">⬅️ 上一步</button><button class="step-btn btn-next" onclick="nextStep('ch2')" style="display:none;">下一步 ➡️</button></div></div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch2-2 -->
+
+        <div class="step-card" id="step-ch2-3">
+          <div class="card">
+            <div class="subsection-title"><div class="dot accent"></div> 完整斷句答案</div>
+            <div class="punct-formula-wrap">
+            <div class="formula">
+              <div class="formula-title">參考斷句</div>
+              <div class="formula-body" style="font-size:14.5px;line-height:2;">夫天地者，萬物之逆旅；光陰者，百代之過客。而浮生若夢，為歡幾何？古人秉燭夜遊，良有以也。況陽春召我以煙景，大塊假我以文章。會桃李之芳園，序天倫之樂事。群季俊秀，皆為惠連；吾人詠歌，獨慚康樂。幽賞未已，高談轉清。開瓊筵以坐花，飛羽觴而醉月。不有佳作，何伸雅懷？如詩不成，罰依金谷酒數。</div>
+            </div>
+            </div>
+            <div class="keyword-grid">
+              <div class="kw-card"><div class="kw-word">逆旅</div><div class="kw-def">旅舍，喻天地為萬物暫居之所</div></div>
+              <div class="kw-card"><div class="kw-word">大塊</div><div class="kw-def">指大自然、天地</div></div>
+              <div class="kw-card"><div class="kw-word">惠連／康樂</div><div class="kw-def">分別指謝惠連、謝靈運，借指才學出眾者</div></div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch2')">⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch2')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch2-3 -->
+
+        <div class="step-card" id="step-ch2-4">
+          <div class="card">
+            <div class="subsection-title"><div class="dot accent"></div> 課堂小測</div>
+            <div class="checkpoint-card">
+              <div class="checkpoint-header">🔐 微測驗</div>
+              <p style="font-size:15px;font-weight:600;line-height:1.6;">「者……也」句式在斷句時，通常應如何處理？</p>
+              <div class="checkpoint-options">
+                <button class="checkpoint-opt" onclick="checkCh2Checkpoint(0,this)">A. 者後加逗號、也後加句號</button>
+                <button class="checkpoint-opt" onclick="checkCh2Checkpoint(1,this)">B. 者也之間不需標點</button>
+                <button class="checkpoint-opt" onclick="checkCh2Checkpoint(2,this)">C. 兩者皆用問號</button>
+              </div>
+              <div class="checkpoint-feedback" id="feedback-ch2"></div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;"><div class="step-nav-buttons" style="margin-top:0;"><button class="step-btn btn-prev" onclick="prevStep('ch2')">⬅️ 上一步</button><button class="step-btn btn-next" onclick="nextStep('ch2')" style="display:none;">請回答上方微練習</button></div></div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch2-4 -->
+
+      </div>
+    </div><!-- /tab-ch2 -->
+
+
+    <!-- ── CH3：成語造句（含判斷遊戲）── -->
+    <div id="tab-ch3" class="tab-content">
+      <div class="step-card-container">
+
+        <div class="step-card active" id="step-ch3-1">
+          <div class="card">
+            <div class="subsection-title"><div class="dot purple"></div> 五個成語解釋</div>
+            <div class="keyword-grid">
+              <div class="kw-card"><div class="kw-word">因噎廢食</div><div class="kw-def">因偶然出現問題便索性放棄整件事</div></div>
+              <div class="kw-card"><div class="kw-word">抱殘守缺</div><div class="kw-def">思想保守，不肯接受新事物或改變</div></div>
+              <div class="kw-card"><div class="kw-word">物傷其類</div><div class="kw-def">見同類遭遇不幸，觸發自身傷感</div></div>
+              <div class="kw-card"><div class="kw-word">信口雌黃</div><div class="kw-def">不加考究，隨口亂說、任意評論是非</div></div>
+              <div class="kw-card"><div class="kw-word">陳陳相因</div><div class="kw-def">沿襲舊法，缺乏創新，一成不變</div></div>
+            </div>
+            <div class="alert success">
+              <span class="alert-icon">✅</span>
+              <div class="alert-content">
+                <div class="alert-label">重點提示</div>
+                造句應包含「原因＋結果」或「情境＋反應」結構，切忌只堆砌成語而無實際內容。
+              </div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch3')" disabled>⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch3')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch3-1 -->
+
+        <!-- Step 2：判斷遊戲（好句／壞句二選一）-->
+        <div class="step-card" id="step-ch3-2">
+          <div class="card">
+            <div class="subsection-title"><div class="dot accent"></div> 造句判斷練習</div>
+            <p style="font-size:13.5px;color:var(--color-text-secondary);margin-bottom:1rem;">閱讀每個造句例子，判斷成語運用是否正確。</p>
+            <div class="judgment-game" id="judgmentGame">
+              <p class="judgment-counter" id="judgmentCounter">第 1 / ? 句</p>
+              <div class="judgment-sentence-display" id="judgmentSentence">載入中…</div>
+              <div class="judgment-btns">
+                <button class="judgment-btn good-btn" id="judgeBtnGood" onclick="judgeMetaphor(true)"></button>
+                <button class="judgment-btn bad-btn"  id="judgeBtnBad"  onclick="judgeMetaphor(false)"></button>
+              </div>
+              <div class="judgment-feedback" id="judgmentFeedback"></div>
+              <button class="judgment-next-btn" id="judgmentNextBtn" onclick="nextJudgment()">下一句 ➡️</button>
+            </div>
+            <div class="judgment-score-card" id="judgmentScoreCard">
+              <p style="font-size:20px;font-weight:700;color:var(--color-brand-gold);margin-bottom:0.5rem;">完成！</p>
+              <p id="judgmentFinalScore" style="font-size:16px;font-weight:700;margin-bottom:0.5rem;"></p>
+              <p id="judgmentScoreMsg"   style="font-size:13.5px;color:var(--color-text-secondary);"></p>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;"><div class="step-nav-buttons" style="margin-top:0;"><button class="step-btn btn-prev" onclick="prevStep('ch3')">⬅️ 上一步</button><button class="step-btn btn-next" onclick="nextStep('ch3')" style="display:none;">下一步 ➡️</button></div></div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch3-2 -->
+
+        <div class="step-card" id="step-ch3-3">
+          <div class="card">
+            <div class="subsection-title"><div class="dot teal"></div> 造句示例</div>
+            <div class="example-box pink">
+              <span class="example-label">因噎廢食</span>
+              <p class="example-text">上次投資失利便從此拒絕接觸任何理財產品，未免因噎廢食，錯失日後穩健增值資產的機會。</p>
+            </div>
+            <div class="example-box">
+              <span class="example-label">抱殘守缺</span>
+              <p class="example-text">面對電子支付大行其道，這間老店仍堅持只收現金，未免顯得抱殘守缺，難以吸引年輕顧客。</p>
+            </div>
+            <div class="example-box gold">
+              <span class="example-label">物傷其類</span>
+              <p class="example-text">得悉同行小店相繼結業，這位老闆物傷其類，不禁擔心自己的生意能否捱過經濟寒冬。</p>
+            </div>
+            <div class="example-box coral">
+              <span class="example-label">信口雌黃</span>
+              <p class="example-text">網上流言真假難辨，若未經查證便信口雌黃地轉發消息，隨時會誤導公眾。</p>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch3')">⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch3')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch3-3 -->
+
+        <div class="step-card" id="step-ch3-4">
+          <div class="card">
+            <div class="subsection-title"><div class="dot accent"></div> 課堂小測</div>
+            <div class="checkpoint-card">
+              <div class="checkpoint-header">🔐 微測驗</div>
+              <p style="font-size:15px;font-weight:600;line-height:1.6;">「陳陳相因」正確用法是？</p>
+              <div class="checkpoint-options">
+                <button class="checkpoint-opt" onclick="checkCh3Checkpoint(0,this)">A. 形容因循守舊，缺乏創新</button>
+                <button class="checkpoint-opt" onclick="checkCh3Checkpoint(1,this)">B. 形容小心謹慎</button>
+                <button class="checkpoint-opt" onclick="checkCh3Checkpoint(2,this)">C. 形容互相幫助</button>
+              </div>
+              <div class="checkpoint-feedback" id="feedback-ch3"></div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;"><div class="step-nav-buttons" style="margin-top:0;"><button class="step-btn btn-prev" onclick="prevStep('ch3')">⬅️ 上一步</button><button class="step-btn btn-next" onclick="nextStep('ch3')" style="display:none;">請回答上方微練習</button></div></div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch3-4 -->
+
+      </div>
+    </div><!-- /tab-ch3 -->
+
+
+    <!-- ── CH4：專書問對（射雕英雄傳）── -->
+    <div id="tab-ch4" class="tab-content">
+      <div class="step-card-container">
+
+        <div class="step-card active" id="step-ch4-1">
+          <div class="card">
+            <div class="subsection-title"><div class="dot purple"></div> 題目分析</div>
+            <p>題目要求就金庸《射雕英雄傳》，闡釋「為國為民，俠之大者」一句。此句出自郭靖的成長領悟，是全書貫穿始終的核心思想。答題時應扣連小說情節（郭靖成長經歷、與楊康對比），並帶出「俠」的兩個層次——個人義氣之俠與家國大義之俠。</p>
+            <div class="formula">
+              <div class="formula-title">📌 答題架構建議</div>
+              <div class="formula-body" style="font-size:14.5px;">起段：解釋字面及深層意義</div>
+            </div>
+            <div class="flow">
+              <div class="flow-step">起段：釋義</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">中段一：人物對照</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">中段二：俠義提升</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">末段：總結</div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch4')" disabled>⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch4')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch4-1 -->
+
+        <div class="step-card" id="step-ch4-2">
+          <div class="card">
+            <div class="subsection-title"><div class="dot teal"></div> 郭靖 vs 楊康</div>
+            <div class="compare-grid">
+              <div class="compare-card bad">
+                <div class="compare-label">❌ 楊康</div>
+                <div class="compare-text">武功高強，卻認賊作父，為求富貴出賣民族大義，屬「俠之小者」都稱不上。</div>
+              </div>
+              <div class="compare-card good">
+                <div class="compare-label">✅ 郭靖</div>
+                <div class="compare-text">將武藝投放於守護國家、庇佑百姓，長年鎮守襄陽，體現「為國為民」的崇高情操。</div>
+              </div>
+            </div>
+            <div class="alert amber">
+              <span class="alert-icon">📌</span>
+              <div class="alert-content">
+                <div class="alert-label">提醒</div>
+                對比手法凸顯「武功」與「俠義」並非等同，若缺乏正確價值取向，武功愈高，為害愈大。
+              </div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch4')">⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch4')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch4-2 -->
+
+        <div class="step-card" id="step-ch4-3">
+          <div class="card">
+            <div class="subsection-title"><div class="dot accent"></div> 參考論述</div>
+            <div class="practice-block">
+              <div class="practice-q">參考論述全文</div>
+              <div class="practice-content">「為國為民，俠之大者」一句，出自金庸小說《射雕英雄傳》，是郭靖在成長過程中逐漸領悟的人生信念。真正稱得上「大俠」的人，並非僅武功高強，而是能夠將個人武藝與道德修為，投放於守護國家、庇佑百姓的宏大事業之上。郭靖經歷與楊康的強烈對照後，明白到個人恩怨與千萬百姓的存亡相比實屬微不足道，因此甘願長年鎮守襄陽，與百姓共存亡，體現「為國為民」的崇高情操。</div>
+              <div class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'▲ 收起延伸':'▼ 查看延伸總結';">▼ 查看延伸總結</div>
+              <div class="answer-box">由此可見，「為國為民，俠之大者」不僅是郭靖個人的成長體悟，更是金庸透過小說寄寓的價值觀——真正的「俠」，應超越個人恩怨，將自身能力奉獻於更廣大的群體福祉，令《射雕英雄傳》超越一般武俠小說的格局，賦予深刻的家國情懷。</div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;">
+            <div class="step-nav-buttons" style="margin-top:0;">
+              <button class="step-btn btn-prev" onclick="prevStep('ch4')">⬅️ 上一步</button>
+              <button class="step-btn primary-btn btn-next" onclick="nextStep('ch4')">下一步 ➡️</button>
+            </div>
+          </div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch4-3 -->
+
+        <div class="step-card" id="step-ch4-4">
+          <div class="card">
+            <div class="subsection-title"><div class="dot accent"></div> 課堂小測</div>
+            <div class="checkpoint-card">
+              <div class="checkpoint-header">🔐 微測驗</div>
+              <p style="font-size:15px;font-weight:600;line-height:1.6;">「為國為民，俠之大者」主要體現什麼精神？</p>
+              <div class="checkpoint-options">
+                <button class="checkpoint-opt" onclick="checkCh4Checkpoint(0,this)">A. 只顧個人恩怨</button>
+                <button class="checkpoint-opt" onclick="checkCh4Checkpoint(1,this)">B. 將武藝投放於守護國家人民的大義</button>
+                <button class="checkpoint-opt" onclick="checkCh4Checkpoint(2,this)">C. 獨善其身，隱居山林</button>
+              </div>
+              <div class="checkpoint-feedback" id="feedback-ch4"></div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem 2.2rem;margin-bottom:0;"><div class="step-nav-buttons" style="margin-top:0;"><button class="step-btn btn-prev" onclick="prevStep('ch4')">⬅️ 上一步</button><button class="step-btn btn-next" onclick="nextStep('ch4')" style="display:none;">請回答上方微練習，完成全部章節！</button></div></div>
+          <div class="step-dots-container"></div>
+        </div><!-- /step-ch4-4 -->
+
+      </div>
+    </div><!-- /tab-ch4 -->
+
+
+    <!-- ═══ FRAMEWORK：Quiz Tab（由 ZONE D 資料自動驅動，不用動）═══ -->
+    <div id="tab-quiz" class="tab-content">
+      <div class="quiz-container">
+        <div class="subsection-title"><div class="dot accent"></div> 挑戰測驗</div>
+        <!-- 甲乙丙 subnav — 由 switchQuizSection() 驅動 -->
+        <div class="quiz-subnav">
+          <button class="qsnav-btn active" onclick="switchQuizSection('jia',this)">甲部：單選</button>
+          <button class="qsnav-btn" onclick="switchQuizSection('yi',this)">乙部：雙選</button>
+          <button class="qsnav-btn" onclick="switchQuizSection('bing',this)">丙部：分析</button>
+        </div>
+        <div class="quiz-section active" id="qs-jia"><div id="jia-flow"></div></div>
+        <div class="quiz-section" id="qs-yi"><div id="yi-flow"></div></div>
+        <div class="quiz-section" id="qs-bing"><div id="bing-flow"></div></div>
+        <!-- 總成績結算卡 -->
+        <div class="final-score" id="finalScore">
+          <div class="final-score-num" id="finalScoreNum">–</div>
+          <div class="final-score-sub" id="finalScoreSub">總分</div>
+          <div class="score-breakdown">
+            <div class="score-part"><div class="score-part-num" id="jiaScore">–</div><div class="score-part-label" id="jiaScoreLabel">甲部</div></div>
+            <div class="score-part"><div class="score-part-num" id="yiScore">–</div><div class="score-part-label" id="yiScoreLabel">乙部</div></div>
+            <div class="score-part"><div class="score-part-num" id="bingScore">–</div><div class="score-part-label" id="bingScoreLabel">丙部</div></div>
+          </div>
+          <div class="score-msg" id="scoreMsgTxt"></div>
+        </div>
+      </div>
+    </div><!-- /tab-quiz -->
+
+
+    <!-- ═══ FRAMEWORK：底部按鈕 ═══ -->
+    <div class="print-btn-container">
+      <button class="print-btn" onclick="switchTab('home')">🏠 返回主頁</button>
+      <button class="print-btn" onclick="window.print()">🖨️ 列印 / 儲存 PDF</button>
+    </div>
+    <div id="printImagesContainer" class="print-only-images" style="display:none;"></div>
+    <div id="printQuestionsContainer" style="display:none;"></div>
+
+  </div><!-- /wrap -->
+
+  <!-- ═══ FRAMEWORK：圖片放大 Overlay ═══ -->
+  <div class="image-overlay" id="imageOverlay" onclick="closeImageZoom()">
+    <span class="close-overlay" onclick="closeImageZoom()">×</span>
+    <img class="overlay-content" id="overlayImage" src="" alt="" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+  // ╔══════════════════════════════════════════════════════════╗
+  // ║  ZONE D：題庫資料                                         ║
+  // ║  填入你的題目，不要動其他地方                               ║
+  // ╠══════════════════════════════════════════════════════════╣
+
+  // ── 甲部：單選辨析題（每章 5 題，共建議 30–35 題）──
+  // 每組第一題加 topic 欄位作為分組標題；ans 用字母 'A'/'B'/'C'/'D'
+  const jiaData = [
+    { q: '文帝下令廢除「誹謗妖言之罪」，主要原因是？', opts: ['A. 此罪太輕微', 'B. 此罪令臣民不敢直言進諫', 'C. 此罪耗費太多刑罰', 'D. 此罪只針對官員'], ans: 'B', explain: '文帝認為此罪令臣民噤聲，無從得知過失', topic: '主題一：閱讀理解 — 第1–4題' },
+    { q: '「是可忍也，孰不可忍也」中「孰」字解作？', opts: ['A. 誰', 'B. 甚麼（哪一件事）', 'C. 為何', 'D. 怎樣'], ans: 'B', explain: '「孰」於此解作「哪一件事」' },
+    { q: '季氏「八佾舞於庭」僭越了哪種身分的規格？', opts: ['A. 士', 'B. 卿', 'C. 諸侯', 'D. 天子'], ans: 'D', explain: '八佾為天子專用規格' },
+    { q: '「抵死」在文中的意思最貼近？', opts: ['A. 堅決', 'B. 以致觸犯死罪', 'C. 拼死反抗', 'D. 死心不息'], ans: 'B', explain: '指因愚昧而觸犯重罪' },
+    { q: '「者……也」句式在斷句時，通常應如何處理？', opts: ['A. 者後逗號、也後句號', 'B. 者也之間不需標點', 'C. 者後句號、也後逗號', 'D. 兩者皆用問號'], ans: 'A', explain: '判斷句固定格式', topic: '主題二：句讀應用 — 第5–8題' },
+    { q: '「陽春召我以煙景」中「煙景」意指？', opts: ['A. 煙花', 'B. 朦朧美景', 'C. 戰火', 'D. 炊煙'], ans: 'B', explain: '指春日朦朧秀麗的景色' },
+    { q: '「因噎廢食」與「抱殘守缺」兩個成語的共通點是？', opts: ['A. 都形容勇敢', 'B. 都帶負面義，形容不理性或守舊的態度', 'C. 都形容勤奮', 'D. 都形容謙虛'], ans: 'B', explain: '兩者皆為貶義成語', topic: '主題三：成語與專書 — 第9–10題' },
+    { q: '郭靖與楊康的對比，主要突出哪個主題？', opts: ['A. 武功高低', 'B. 家境貧富', 'C. 武功與俠義並非等同，價值取向決定俠之大小', 'D. 兩人感情深厚'], ans: 'C', explain: '對比帶出俠義精神的核心' }
+  ];
+
+  const yiData = [
+    { q: '以下哪兩個成語都帶明顯貶義，形容不理性或不負責任的行為？', opts: ['A. 信口雌黃', 'B. 因噎廢食', 'C. 物傷其類', 'D. 陳陳相因'], ans: ['A','B'], explain: '信口雌黃、因噎廢食均帶貶義；物傷其類、陳陳相因語氣較中性', topic: '雙重理解 — 第1–4題' },
+    { q: '以下哪兩個成語都可用來形容「墨守成規、不肯改變」？', opts: ['A. 抱殘守缺', 'B. 陳陳相因', 'C. 物傷其類', 'D. 信口雌黃'], ans: ['A','B'], explain: '兩者皆形容守舊不變' },
+    { q: '以下哪兩項均涉及「言論自由」或「諫言」的主題？', opts: ['A. 文一《史記》', 'B. 進善之旌', 'C. 八佾舞於庭', 'D. 桃李芳園'], ans: ['A','B'], explain: '進善之旌正正出自文一，兩者都關於廣開言路' },
+    { q: '以下邊兩個詞語都指謝氏才子？', opts: ['A. 惠連', 'B. 康樂', 'C. 逆旅', 'D. 大塊'], ans: ['A','B'], explain: '惠連指謝惠連，康樂指謝靈運（謝康樂）' }
+  ];
+
+  const bingData = [
+    { q: '「不有佳作，何伸雅懷？」',
+      stepA: { opts: ['A. 反問句', 'B. 陳述句', 'C. 祈使句', 'D. 感嘆句'], ans: 'A', explain: '以反問加強語氣' },
+      stepB: { opts: ['A. 加強否定語氣，強調必須有佳作方能抒發雅興', 'B. 純粹提問', 'C. 表達懷疑', 'D. 表達命令'], ans: 'A', explain: '反問修辭加強語氣、不容置疑' }
+    },
+    { q: '「陽春召我以煙景，大塊假我以文章」',
+      stepA: { opts: ['A. 對偶句', 'B. 設問句', 'C. 比喻句', 'D. 排比句'], ans: 'A', explain: '「陽春」對「大塊」、「煙景」對「文章」，結構工整對稱' },
+      stepB: { opts: ['A. 純粹修飾文句', 'B. 透過對偶強調風景令人文思泉湧', 'C. 表達懷疑', 'D. 純粹押韻'], ans: 'B', explain: '對偶手法強化主題內涵' }
+    }
+  ];
+
+  const ROUNDS = {
+    jia:  [[0,1,2,3],[4,5,6,7]],
+    yi:   [[0,1,2,3]],
+    bing: [[0,1]]
+  };
+  const ROUND_NAMES = {
+    jia:  ['第一關：閱讀理解', '第二關：句讀、成語與專書'],
+    yi:   ['乙部：雙重理解'],
+    bing: ['丙部：分析作用']
+  };
+
+  // 【判斷遊戲】造句正確／錯誤二選一（第三章：成語造句）
+  const judgmentData = [
+    { sentence: "上次投資失利便從此拒絕接觸任何理財產品，未免因噎廢食。", isGood: true, reason: "正確運用「因噎廢食」，比喻因偶然挫折而放棄整件應做的事。" },
+    { sentence: "他因噎廢食地努力溫習，終於考取佳績。", isGood: false, reason: "「因噎廢食」帶負面義，形容不理性地放棄，不可用於形容努力溫習呢種正面行為。" },
+    { sentence: "面對電子支付大行其道，這間老店仍堅持只收現金，未免顯得抱殘守缺。", isGood: true, reason: "正確運用「抱殘守缺」，形容守舊不肯革新。" },
+    { sentence: "他信口雌黃地稱讚朋友的作品，令對方十分感動。", isGood: false, reason: "「信口雌黃」指隨口亂說、顛倒是非，帶貶義，不可用於形容真誠稱讚。" }
+  ];
+
+  // 【效果辨認遊戲】判斷句子後應加哪種標點（第二章：句讀應用）
+  const effectData = [
+    { sentence: "夫天地者", answer: 0, why: "「者」表提頓，判斷句式中「者」後應加逗號。" },
+    { sentence: "光陰者，百代之過客", answer: 1, why: "句意至此完結，「過客」後應加句號。" },
+    { sentence: "序天倫之樂事", answer: 1, why: "此句與上文對仗完整，句意完結，應加句號。" },
+    { sentence: "不有佳作，何伸雅懷", answer: 3, why: "此為反問句，句末應加問號。" }
+  ];
+  const effectLabels = [
+    "① 逗號，",
+    "② 句號。",
+    "③ 分號；",
+    "④ 問號？"
+  ];
+  const effectBtnClasses = ['ef-primary', 'ef-teal', 'ef-coral', 'ef-amber'];
+
+  // ╚══════════════════════════════════════════════════════════╝
+
+
+  // ╔══════════════════════════════════════════════════════════╗
+  // ║  ZONE B：課題設定（JS）                                   ║
+  // ║  與 HTML 的 tab-btn / tab-content / step-card ID 對應     ║
+  // ╠══════════════════════════════════════════════════════════╣
+
+  const TOPIC_CONFIG = {
+
+    saveKey: 'panSir_zhongwenpinggu_v1',
+
+    stageSequence: ['home', 'ch1', 'ch2', 'ch3', 'ch4', 'quiz'],
+
+    stageNames: {
+      home: '主頁',
+      ch1:  '閱讀理解',
+      ch2:  '句讀應用',
+      ch3:  '成語造句',
+      ch4:  '專書問對',
+      quiz: '挑戰測驗'
+    },
+
+    stageStepCounts: {
+      ch1: 5,
+      ch2: 4,
+      ch3: 4,
+      ch4: 4
+    },
+
+    // 迷你遊戲觸發點
+    miniGameHooks: {
+      'ch2-2': 'effect',
+      'ch3-2': 'judgment'
+    },
+
+    // 判斷遊戲按鈕文字
+    judgmentLabels: {
+      good: '👍 造句正確',
+      bad:  '👎 造句錯誤'
+    }
+  };
+
+  // ╚══════════════════════════════════════════════════════════╝
+
+
+  // ╔══════════════════════════════════════════════════════════╗
+  // ║  ZONE C：Checkpoint 答題函數                              ║
+  // ║  每章一個函數，填入：正確答案 index、答對解釋、答錯提示     ║
+  // ╠══════════════════════════════════════════════════════════╣
+
+  // 通用 Checkpoint 處理器（不用動）
+  function handleCheckpoint(stageId, optIdx, btn, correctIdx, correctMsg, wrongHint) {
+    if (stageCheckpointSolved[stageId]) return;
+    const opts = btn.parentNode.querySelectorAll('.checkpoint-opt');
+    opts.forEach(o => o.disabled = true);
+    const fb = document.getElementById('feedback-' + stageId);
+    fb.style.display = 'block';
+    if (optIdx === correctIdx) {
+      btn.classList.add('correct');
+      fb.innerHTML = `<span style="color:var(--theme-success);font-weight:bold;">🎉 答對了！</span>${correctMsg}`;
+      stageCheckpointSolved[stageId] = true; saveProgress();
+      setTimeout(() => showStep(stageId, stageSteps[stageId].total), 800);
+    } else {
+      btn.classList.add('incorrect');
+      fb.innerHTML = `<span style="color:var(--theme-error);font-weight:bold;">❌ 答錯了，請再試試！</span>${wrongHint}`;
+      setTimeout(() => {
+        btn.classList.remove('incorrect');
+        opts.forEach(o => o.disabled = false);
+      }, 2000);
+    }
+  }
+
+  // ── 各章 Checkpoint 函數（改正確答案 index 和文字）──
+
+  function checkCh1Checkpoint(optIdx, btn) {
+    handleCheckpoint('ch1', optIdx, btn,
+      1,
+      '「抵死」在文言文中解作「以致觸犯死罪」，並非現代口語的「堅決」，現在可以解鎖下一章了！',
+      '提示：留意這個詞在文言文與白話文的意思有分別，重新細讀文一該句的上下文。'
+    );
+  }
+
+  function checkCh2Checkpoint(optIdx, btn) {
+    handleCheckpoint('ch2', optIdx, btn,
+      0,
+      '「者」表提頓，其後應加逗號；「也」表判斷句結束，其後應加句號。現在可以解鎖下一章！',
+      '提示：回想「天地者，萬物之逆旅」這句的斷句方式。'
+    );
+  }
+
+  function checkCh3Checkpoint(optIdx, btn) {
+    handleCheckpoint('ch3', optIdx, btn,
+      0,
+      '「陳陳相因」原指糧倉舊糧堆疊，後喻沿襲舊法、缺乏創新。現在可以解鎖下一章！',
+      '提示：留意這個成語與「陳舊」、「重複」的意思有關。'
+    );
+  }
+
+  function checkCh4Checkpoint(optIdx, btn) {
+    handleCheckpoint('ch4', optIdx, btn,
+      1,
+      '「為國為民，俠之大者」指的是將武藝投放於守護國家人民的大義，超越個人恩怨。你已完成所有章節，可以解鎖【挑戰測驗】了！',
+      '提示：回想郭靖與楊康的對比，哪個才是真正的「大俠」？'
+    );
+  }
+
+  // ╚══════════════════════════════════════════════════════════╝
+
+
+  // ════════════════════════════════════════════════════════════
+  //  FRAMEWORK：以下全部不需要動
+  // ════════════════════════════════════════════════════════════
+
+  // 由 TOPIC_CONFIG 自動建立的狀態變數
+  const SAVE_KEY = TOPIC_CONFIG.saveKey;
+  const stageSequence = TOPIC_CONFIG.stageSequence;
+
+  let unlockedStages = Object.fromEntries(
+    stageSequence.map((id, i) => [id, i === 0])
+  );
+
+  let stageSteps = Object.fromEntries(
+    Object.entries(TOPIC_CONFIG.stageStepCounts).map(([k, v]) => [k, { current: 1, total: v }])
+  );
+
+  let stageCheckpointSolved = Object.fromEntries(
+    Object.keys(TOPIC_CONFIG.stageStepCounts).map(k => [k, false])
+  );
+
+  // 遊戲狀態
+  let judgmentIdx = 0, judgmentScore = 0, judgmentGameCompleted = false;
+  let effectIdx = 0,   effectScore = 0,   effectGameCompleted = false;
+
+  // 測驗狀態
+  let quizAnswers = {}, quizRound = {jia:0, yi:0, bing:0}, wrongBook = [], quizDone = false;
+  let fqState = {section:null, roundIdx:0, qPos:0, answers:{}, retryQueue:[], retryPos:0};
+
+  // ── 圖片放大 ──
+  function openImageZoom(imgSrc) {
+    const overlay = document.getElementById('imageOverlay');
+    const overlayImg = document.getElementById('overlayImage');
+    if (overlay && overlayImg) { overlayImg.src = imgSrc; overlay.style.display = 'flex'; document.body.classList.add('no-scroll'); }
+  }
+  function closeImageZoom() {
+    const overlay = document.getElementById('imageOverlay');
+    if (overlay) { overlay.style.display = 'none'; document.body.classList.remove('no-scroll'); }
+  }
+
+  // ── Tab 切換 ──
+  function switchTab(tabId) {
+    if (!unlockedStages[tabId]) {
+      alert('請按學習路徑逐步通關！完成隨堂微練習即可解鎖下一章 🚀');
+      return;
+    }
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    const btn = document.getElementById('btn-tab-' + tabId);
+    if (btn) btn.classList.add('active');
+    const content = document.getElementById('tab-' + tabId);
+    if (content) content.classList.add('active');
+    if (stageSteps[tabId]) { stageSteps[tabId].current = 1; showStep(tabId, 1); }
+    if (tabId === 'quiz') {
+      const activeNav = document.querySelector('.qsnav-btn.active');
+      switchQuizSection('jia', activeNav || document.querySelector('.qsnav-btn'));
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    updateGlobalProgress();
+  }
+
+  function startLearningFlow() {
+    const firstStage = stageSequence[1];
+    unlockedStages[firstStage] = true;
+    switchTab(firstStage);
+  }
+
+  // ── 全域進度條 ──
+  function updateGlobalProgress() {
+    const total = stageSequence.length - 1;
+    let unlocked = 0;
+    stageSequence.forEach(s => { if (unlockedStages[s]) unlocked++; });
+    const pct = ((unlocked - 1) / total) * 100;
+    const fill = document.getElementById('globalProgressBarFill');
+    if (fill) fill.style.width = pct + '%';
+    const top = document.getElementById('topProgressFill');
+    if (top) top.style.width = pct + '%';
+    stageSequence.forEach(s => {
+      const b = document.getElementById('btn-tab-' + s);
+      if (b) { unlockedStages[s] ? b.classList.remove('locked') : b.classList.add('locked'); }
+    });
+  }
+
+  // ── Step 翻頁 ──
+  function getNextStageName(stage) {
+    const idx = stageSequence.indexOf(stage);
+    if (idx < stageSequence.length - 1) return TOPIC_CONFIG.stageNames[stageSequence[idx + 1]] || '';
+    return '';
+  }
+
+  function showStep(stage, stepIdx) {
+    const tabEl = document.getElementById('tab-' + stage);
+    if (!tabEl) return;
+    tabEl.querySelectorAll('.step-card').forEach(c => c.classList.remove('active'));
+    const activeCard = document.getElementById(`step-${stage}-${stepIdx}`);
+    if (activeCard) activeCard.classList.add('active');
+
+    if (activeCard) {
+      const prevBtn = activeCard.querySelector('.btn-prev');
+      const nextBtn = activeCard.querySelector('.btn-next');
+      if (prevBtn) prevBtn.disabled = (stepIdx === 1);
+      if (nextBtn) {
+        if (stepIdx < stageSteps[stage].total) {
+          nextBtn.innerHTML = stepIdx === 1 ? '我看完了 ✅' : '下一步 ➡️';
+          nextBtn.disabled = false; nextBtn.style.display = ''; nextBtn.classList.remove('primary-btn');
+        } else {
+          if (stageCheckpointSolved[stage]) {
+            nextBtn.innerHTML = `解鎖【${getNextStageName(stage)}】 ➡️`;
+            nextBtn.disabled = false; nextBtn.classList.add('primary-btn'); nextBtn.style.display = '';
+            nextBtn.classList.remove('btn-appear'); void nextBtn.offsetWidth; nextBtn.classList.add('btn-appear');
+          } else {
+            nextBtn.style.display = 'none'; nextBtn.disabled = true; nextBtn.classList.remove('primary-btn');
+          }
+        }
+      }
+
+      // 迷你遊戲觸發
+      const hookKey = `${stage}-${stepIdx}`;
+      const gameType = TOPIC_CONFIG.miniGameHooks[hookKey];
+      if (gameType === 'judgment') {
+        const nextBtn2 = activeCard.querySelector('.btn-next');
+        if (nextBtn2) nextBtn2.style.display = 'none';
+        if (judgmentGameCompleted) {
+          document.getElementById('judgmentGame').style.display = 'none';
+          document.getElementById('judgmentScoreCard').style.display = 'block';
+          if (nextBtn2) { nextBtn2.style.display = ''; nextBtn2.disabled = false; nextBtn2.classList.add('primary-btn'); }
+        } else { initJudgmentGame(); }
+      }
+      if (gameType === 'effect') {
+        const nextBtn2 = activeCard.querySelector('.btn-next');
+        if (nextBtn2) nextBtn2.style.display = 'none';
+        if (effectGameCompleted) {
+          document.getElementById('effectQuiz').style.display = 'none';
+          document.getElementById('effectScoreCard').style.display = 'block';
+          if (nextBtn2) { nextBtn2.style.display = ''; nextBtn2.disabled = false; nextBtn2.classList.add('primary-btn'); }
+        } else { initEffectGame(); }
+      }
+    }
+
+    // Dot 指示器
+    const dotsContainer = tabEl.querySelector('.step-card.active .step-dots-container') ||
+                          document.getElementById(`step-${stage}-${stepIdx}`)?.querySelector('.step-dots-container');
+    tabEl.querySelectorAll('.step-dots-container').forEach(d => {
+      d.innerHTML = '';
+      for (let i = 1; i <= stageSteps[stage].total; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'step-dot' +
+          (i === stepIdx ? ' active' : '') +
+          (i < stepIdx || (i === stageSteps[stage].total && stageCheckpointSolved[stage]) ? ' completed' : '');
+        d.appendChild(dot);
+      }
+    });
+  }
+
+  function nextStep(stage) {
+    const { current, total } = stageSteps[stage];
+    if (current < total) {
+      stageSteps[stage].current++;
+      showStep(stage, stageSteps[stage].current);
+      saveProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const idx = stageSequence.indexOf(stage);
+      if (idx < stageSequence.length - 1) {
+        const next = stageSequence[idx + 1];
+        unlockedStages[next] = true;
+        saveProgress();
+        switchTab(next);
+      }
+    }
+  }
+
+  function prevStep(stage) {
+    if (stageSteps[stage].current > 1) {
+      stageSteps[stage].current--;
+      saveProgress();
+      showStep(stage, stageSteps[stage].current);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // ── Concept Chips ──
+  function toggleChip(el, stageId) {
+    el.classList.toggle('revealed');
+    const badge = el.querySelector('.chip-badge');
+    if (badge) badge.textContent = el.classList.contains('revealed') ? '已解鎖 ✓' : '點擊解鎖';
+    const area = el.closest('.chips-area');
+    if (!area) return;
+    const total = area.querySelectorAll('.concept-chip').length;
+    const revealed = area.querySelectorAll('.concept-chip.revealed').length;
+    const prog = area.querySelector('.chips-progress');
+    if (prog) { prog.textContent = `${revealed} / ${total} 已解鎖`; prog.classList.toggle('all-done', revealed === total); }
+  }
+
+  // ── 判斷遊戲 ──
+  function initJudgmentGame() {
+    judgmentIdx = 0; judgmentScore = 0;
+    const gameEl = document.getElementById('judgmentGame');
+    const scoreCard = document.getElementById('judgmentScoreCard');
+    if (gameEl) gameEl.style.display = 'block';
+    if (scoreCard) scoreCard.style.display = 'none';
+    const goodBtn = document.getElementById('judgeBtnGood');
+    const badBtn  = document.getElementById('judgeBtnBad');
+    if (goodBtn) goodBtn.textContent = TOPIC_CONFIG.judgmentLabels.good;
+    if (badBtn)  badBtn.textContent  = TOPIC_CONFIG.judgmentLabels.bad;
+    loadJudgmentQuestion();
+  }
+
+  function loadJudgmentQuestion() {
+    const data = judgmentData[judgmentIdx];
+    const sentEl  = document.getElementById('judgmentSentence');
+    const ctrEl   = document.getElementById('judgmentCounter');
+    const fbEl    = document.getElementById('judgmentFeedback');
+    const nextBtn = document.getElementById('judgmentNextBtn');
+    const goodBtn = document.getElementById('judgeBtnGood');
+    const badBtn  = document.getElementById('judgeBtnBad');
+    if (!sentEl) return;
+    sentEl.textContent = data.sentence;
+    if (ctrEl)   ctrEl.textContent = `第 ${judgmentIdx + 1} / ${judgmentData.length} 句`;
+    if (fbEl)    { fbEl.style.display = 'none'; fbEl.className = 'judgment-feedback'; }
+    if (nextBtn) nextBtn.style.display = 'none';
+    if (goodBtn) goodBtn.disabled = false;
+    if (badBtn)  badBtn.disabled  = false;
+  }
+
+  function judgeMetaphor(userSaysGood) {
+    const data = judgmentData[judgmentIdx];
+    const correct = (userSaysGood === data.isGood);
+    if (correct) judgmentScore++;
+    const fbEl    = document.getElementById('judgmentFeedback');
+    const nextBtn = document.getElementById('judgmentNextBtn');
+    const goodBtn = document.getElementById('judgeBtnGood');
+    const badBtn  = document.getElementById('judgeBtnBad');
+    if (!fbEl) return;
+    fbEl.className = 'judgment-feedback ' + (correct ? 'correct' : 'wrong');
+    const verdict = data.isGood ? `✅ ${TOPIC_CONFIG.judgmentLabels.good.replace(/[👍👎]\s*/,'')}` : `❌ ${TOPIC_CONFIG.judgmentLabels.bad.replace(/[👍👎]\s*/,'')}`;
+    fbEl.innerHTML = `<b>${correct ? '答對了！' : '答錯了。'}</b> ${verdict}<br><span style="font-size:12.5px">${data.reason}</span>`;
+    fbEl.style.display = 'block';
+    if (goodBtn) goodBtn.disabled = true;
+    if (badBtn)  badBtn.disabled  = true;
+    if (nextBtn) {
+      nextBtn.textContent = (judgmentIdx === judgmentData.length - 1) ? '查看結果 🏆' : '下一句 ➡️';
+      nextBtn.style.display = 'block';
+    }
+  }
+
+  function nextJudgment() {
+    if (judgmentIdx < judgmentData.length - 1) { judgmentIdx++; loadJudgmentQuestion(); }
+    else { showJudgmentResult(); }
+  }
+
+  function showJudgmentResult() {
+    judgmentGameCompleted = true; saveProgress();
+    document.getElementById('judgmentGame').style.display = 'none';
+    document.getElementById('judgmentScoreCard').style.display = 'block';
+    document.getElementById('judgmentFinalScore').textContent = judgmentScore + ' / ' + judgmentData.length + ' 答對';
+    const msgEl = document.getElementById('judgmentScoreMsg');
+    if (msgEl) {
+      if (judgmentScore === judgmentData.length) msgEl.textContent = '完美！判斷力無懈可擊。';
+      else if (judgmentScore >= Math.ceil(judgmentData.length * 0.7)) msgEl.textContent = '答得不錯！繼續學習，判斷力會更強。';
+      else msgEl.textContent = '多加練習，回顧一下判斷標準吧。';
+    }
+    // 顯示「下一步」按鈕
+    const hookStage = Object.keys(TOPIC_CONFIG.miniGameHooks).find(k => TOPIC_CONFIG.miniGameHooks[k] === 'judgment');
+    if (hookStage) {
+      const [s, n] = hookStage.split('-');
+      const card = document.getElementById(`step-${s}-${n}`);
+      if (card) {
+        const nb = card.querySelector('.btn-next');
+        if (nb) { nb.style.display = ''; nb.disabled = false; nb.classList.add('primary-btn'); nb.classList.remove('btn-appear'); void nb.offsetWidth; nb.classList.add('btn-appear'); }
+      }
+    }
+  }
+
+  // ── 效果遊戲 ──
+  function initEffectGame() {
+    effectIdx = 0; effectScore = 0;
+    const quizEl   = document.getElementById('effectQuiz');
+    const scoreCard = document.getElementById('effectScoreCard');
+    if (quizEl)    quizEl.style.display = 'block';
+    if (scoreCard) scoreCard.style.display = 'none';
+    // 生成參考標籤列
+    const refRow = document.getElementById('effectRefRow');
+    if (refRow) {
+      refRow.innerHTML = effectLabels.map((l, i) => `<span class="effect-ref ${effectBtnClasses[i]}">${l}</span>`).join('');
+    }
+    // 生成選項按鈕
+    const btnGrid = document.getElementById('effectBtnGrid');
+    if (btnGrid) {
+      btnGrid.innerHTML = effectLabels.map((l, i) =>
+        `<button class="effect-btn ${effectBtnClasses[i]}" onclick="selectEffect(${i})">${l}</button>`
+      ).join('');
+    }
+    loadEffectQuestion();
+  }
+
+  function loadEffectQuestion() {
+    const data   = effectData[effectIdx];
+    const sentEl = document.getElementById('effectSentence');
+    const ctrEl  = document.getElementById('effectCounter');
+    const fbEl   = document.getElementById('effectFeedback');
+    const nxtBtn = document.getElementById('effectNextBtn');
+    if (!sentEl) return;
+    sentEl.textContent = data.sentence;
+    if (ctrEl)  ctrEl.textContent = `第 ${effectIdx + 1} / ${effectData.length} 句`;
+    if (fbEl)   { fbEl.style.display = 'none'; fbEl.className = 'judgment-feedback'; }
+    if (nxtBtn) nxtBtn.style.display = 'none';
+    document.querySelectorAll('.effect-btn').forEach(b => { b.disabled = false; b.classList.remove('btn-correct', 'btn-wrong'); });
+  }
+
+  function selectEffect(chosenIdx) {
+    const data    = effectData[effectIdx];
+    const correct = (chosenIdx === data.answer);
+    if (correct) effectScore++;
+    const fbEl   = document.getElementById('effectFeedback');
+    const nxtBtn = document.getElementById('effectNextBtn');
+    if (!fbEl) return;
+    fbEl.className = 'judgment-feedback ' + (correct ? 'correct' : 'wrong');
+    fbEl.innerHTML = `<b>${correct ? '正確！' : '答錯了。'}</b> 答案是 <b>${effectLabels[data.answer]}</b><br><span style="font-size:12.5px">${data.why}</span>`;
+    fbEl.style.display = 'block';
+    document.querySelectorAll('.effect-btn').forEach((b, i) => {
+      b.disabled = true;
+      if (i === data.answer) b.classList.add('btn-correct');
+      else if (i === chosenIdx && !correct) b.classList.add('btn-wrong');
+    });
+    if (nxtBtn) {
+      nxtBtn.textContent = (effectIdx === effectData.length - 1) ? '查看結果 🏆' : '下一句 ➡️';
+      nxtBtn.style.display = 'block';
+    }
+  }
+
+  function nextEffectQ() {
+    if (effectIdx < effectData.length - 1) { effectIdx++; loadEffectQuestion(); }
+    else { showEffectResult(); }
+  }
+
+  function showEffectResult() {
+    effectGameCompleted = true; saveProgress();
+    document.getElementById('effectQuiz').style.display = 'none';
+    document.getElementById('effectScoreCard').style.display = 'block';
+    document.getElementById('effectFinalScore').textContent = effectScore + ' / ' + effectData.length + ' 答對';
+    const msgEl = document.getElementById('effectScoreMsg');
+    if (msgEl) {
+      if (effectScore === effectData.length) msgEl.textContent = '完美！效果分析一流。';
+      else if (effectScore >= Math.ceil(effectData.length * 0.7)) msgEl.textContent = '不錯！繼續練習會更準確。';
+      else msgEl.textContent = '可以回顧一下四種效果，再試一次。';
+    }
+    const hookStage = Object.keys(TOPIC_CONFIG.miniGameHooks).find(k => TOPIC_CONFIG.miniGameHooks[k] === 'effect');
+    if (hookStage) {
+      const [s, n] = hookStage.split('-');
+      const card = document.getElementById(`step-${s}-${n}`);
+      if (card) {
+        const nb = card.querySelector('.btn-next');
+        if (nb) { nb.style.display = ''; nb.disabled = false; nb.classList.add('primary-btn'); nb.classList.remove('btn-appear'); void nb.offsetWidth; nb.classList.add('btn-appear'); }
+      }
+    }
+  }
+
+  // ── 主測驗引擎（Flow Quiz）──
+
+  function switchQuizSection(key, btn) {
+    document.querySelectorAll('.quiz-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.qsnav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('qs-' + key).classList.add('active');
+    if (btn) btn.classList.add('active');
+    fqState.answers = {};
+    if (key === 'jia') { for (let i = 0; i < jiaData.length; i++) { const a = quizAnswers['jia_'+i]; if (a) fqState.answers['jia_'+i] = a; } }
+    else if (key === 'yi') { for (let i = 0; i < yiData.length; i++) { const a = quizAnswers['yi_'+i]; if (a) fqState.answers['yi_'+i] = a; } }
+    else if (key === 'bing') { for (let i = 0; i < bingData.length; i++) { const aOk = quizAnswers['bing_a_'+i]?.correct, bOk = quizAnswers['bing_b_'+i]?.correct; if (aOk !== undefined || bOk !== undefined) fqState.answers['bing_'+i] = {correct:!!(aOk&&bOk)}; } }
+    fqState.section = key;
+    fqState.roundIdx = Math.min(quizRound[key] ?? 0, ROUNDS[key].length - 1);
+    fqState.qPos = 0; fqState.retryQueue = [];
+    renderFlowQ(key);
+  }
+
+  function renderFlowQ(sec) {
+    const cont = document.getElementById(sec+'-flow'); if (!cont) return;
+    const round = ROUNDS[sec][fqState.roundIdx];
+    const qIdx = round[fqState.qPos];
+    const name = ROUND_NAMES[sec][fqState.roundIdx];
+    const roundSize = round.length;
+    const dots = round.map((qi,i) => {
+      const a = fqState.answers[sec+'_'+qi];
+      const c = i < fqState.qPos ? (a?.correct ? 'done' : 'wrong') : i === fqState.qPos ? 'active' : '';
+      return '<div class="fq-dot '+c+'"></div>';
+    }).join('');
+    const isLast = fqState.qPos >= roundSize - 1;
+    const jiaOffset = 0, yiOffset = jiaData.length, bingOffset = jiaData.length + yiData.length;
+    let qHtml = '';
+    if (sec === 'jia') {
+      const d = jiaData[qIdx];
+      qHtml = `<div class="fq-card"><div class="fq-qnum">第 ${qIdx+1} 題　甲部：辨析</div>
+        <div class="fq-qtext">${d.q}</div>
+        <div class="mcq-wrap" id="fq-opts">${d.opts.map(o=>`<button class="mcq-option" onclick="fqAnsJia(${qIdx},'${o[0]}')">${o}</button>`).join('')}</div>
+        <div class="mcq-feedback" id="fq-fb"></div>
+        <button class="step-btn primary-btn" id="fq-next" style="display:none;margin-top:1rem" onclick="fqNext('${sec}')">${isLast?'查看結算 →':'下一題 →'}</button>
+      </div>`;
+    } else if (sec === 'yi') {
+      const d = yiData[qIdx];
+      qHtml = `<div class="fq-card"><div class="fq-qnum">第 ${yiOffset+qIdx+1} 題　乙部：雙重修辭</div>
+        <div class="fq-qtext">${d.q}</div>
+        <p style="font-size:13px;color:var(--color-text-muted);margin-bottom:0.5rem">請選出兩種修辭手法：</p>
+        <div id="fq-opts">${d.opts.map(o=>`<button class="multi-option" data-letter="${o[0]}" onclick="fqYiToggle(${qIdx},this)">${o}</button>`).join('')}</div>
+        <div class="mcq-feedback" id="fq-fb"></div>
+        <button class="step-btn primary-btn" id="fq-next" style="display:none;margin-top:1rem" onclick="fqNext('${sec}')">${isLast?'查看結算 →':'下一題 →'}</button>
+      </div>`;
+    } else if (sec === 'bing') {
+      const d = bingData[qIdx];
+      qHtml = `<div class="fq-card"><div class="fq-qnum">第 ${bingOffset+qIdx+1} 題　丙部：分析作用</div>
+        <div class="example-box gold" style="margin-bottom:1rem"><span class="example-label">句子</span><span class="example-text">${d.q}</span></div>
+        <p style="font-size:13px;font-weight:700;color:var(--color-text-secondary);margin-bottom:0.5rem">Step A：選出修辭手法</p>
+        <div class="mcq-wrap" id="fq-a-opts">${d.stepA.opts.map(o=>`<button class="mcq-option" onclick="fqBingA(${qIdx},'${o[0]}')">${o}</button>`).join('')}</div>
+        <div class="mcq-feedback" id="fq-a-fb"></div>
+        <div id="fq-b-wrap" style="display:none;margin-top:1rem">
+          <p style="font-size:13px;font-weight:700;color:var(--color-text-secondary);margin-bottom:0.5rem">Step B：選出最貼切的作用描述</p>
+          <div class="mcq-wrap" id="fq-b-opts">${d.stepB.opts.map(o=>`<button class="mcq-option" onclick="fqBingB(${qIdx},'${o[0]}')">${o}</button>`).join('')}</div>
+          <div class="mcq-feedback" id="fq-b-fb"></div>
+        </div>
+        <button class="step-btn primary-btn" id="fq-next" style="display:none;margin-top:1rem" onclick="fqNext('${sec}')">${isLast?'查看結算 →':'下一題 →'}</button>
+      </div>`;
+    }
+    cont.innerHTML = `<div class="fq-progress">
+      <span class="fq-round-label">${name}</span>
+      <div class="fq-dots">${dots}</div>
+      <span style="font-size:12px;color:var(--color-text-muted);white-space:nowrap">${fqState.qPos+1}/${roundSize}</span>
+    </div>${qHtml}`;
+  }
+
+  function fqRefreshDots(sec) {
+    const dots = document.querySelector('.fq-dots'); if (!dots) return;
+    const round = ROUNDS[sec][fqState.roundIdx];
+    dots.innerHTML = round.map((qi,i) => {
+      const a = fqState.answers[sec+'_'+qi];
+      const c = i < fqState.qPos ? (a?.correct?'done':'wrong') : i === fqState.qPos ? (a?(a.correct?'done':'wrong'):'active') : '';
+      return '<div class="fq-dot '+c+'"></div>';
+    }).join('');
+  }
+  function fqShowNext(sec) {
+    const btn = document.getElementById('fq-next'); if (!btn) return;
+    btn.style.display = 'inline-flex';
+    btn.textContent = fqState.qPos >= ROUNDS[sec][fqState.roundIdx].length - 1 ? '查看結算 →' : '下一題 →';
+  }
+  function fqNext(sec) {
+    if (fqState.qPos < ROUNDS[sec][fqState.roundIdx].length - 1) { fqState.qPos++; renderFlowQ(sec); }
+    else { showRoundSummary(sec); }
+  }
+
+  function fqAnsJia(qIdx, choice) {
+    const d = jiaData[qIdx]; const ok = choice === d.ans;
+    document.querySelectorAll('#fq-opts .mcq-option').forEach(b => { b.disabled=true; const l=b.textContent[0]; if(l===d.ans)b.classList.add('correct'); else if(l===choice&&!ok)b.classList.add('wrong'); });
+    const fb = document.getElementById('fq-fb'); fb.classList.add('show', ok?'ok':'ng');
+    fb.innerHTML = ok ? `✅ 正確！${d.explain}` : `❌ 答案是 ${d.ans}。${d.explain}`;
+    fqState.answers['jia_'+qIdx] = {correct:ok}; quizAnswers['jia_'+qIdx] = {choice, correct:ok}; saveProgress();
+    fqRefreshDots('jia'); fqShowNext('jia');
+  }
+
+  function fqYiToggle(qIdx, btn) {
+    if (btn.disabled) return;
+    const cont = document.getElementById('fq-opts');
+    const sel = cont.querySelectorAll('.multi-option.selected');
+    if (btn.classList.contains('selected')) { btn.classList.remove('selected'); return; }
+    if (sel.length >= 2) return;
+    btn.classList.add('selected');
+    const nowSel = cont.querySelectorAll('.multi-option.selected');
+    if (nowSel.length === 2) {
+      const d = yiData[qIdx]; const cs = [...nowSel].map(b=>b.dataset.letter).sort().join(''); const ok = cs === [...d.ans].sort().join('');
+      cont.querySelectorAll('.multi-option').forEach(b => { b.disabled=true; if(d.ans.includes(b.dataset.letter))b.classList.add('correct'); else if([...nowSel].some(s=>s.dataset.letter===b.dataset.letter)&&!d.ans.includes(b.dataset.letter))b.classList.add('wrong'); });
+      const fb = document.getElementById('fq-fb'); fb.classList.add('show', ok?'ok':'ng');
+      fb.innerHTML = ok ? `✅ 正確！${d.explain}` : `❌ 正確答案是 ${d.ans.join('＋')}。${d.explain}`;
+      fqState.answers['yi_'+qIdx] = {correct:ok}; quizAnswers['yi_'+qIdx] = {choices:cs, correct:ok}; saveProgress();
+      fqRefreshDots('yi'); fqShowNext('yi');
+    }
+  }
+
+  function fqBingA(qIdx, choice) {
+    const d = bingData[qIdx]; const ok = choice === d.stepA.ans;
+    document.querySelectorAll('#fq-a-opts .mcq-option').forEach(b => { b.disabled=true; const l=b.textContent[0]; if(l===d.stepA.ans)b.classList.add('correct'); else if(l===choice&&!ok)b.classList.add('wrong'); });
+    const fb = document.getElementById('fq-a-fb'); fb.classList.add('show', ok?'ok':'ng');
+    fb.innerHTML = ok ? `✅ 正確！${d.stepA.explain} ↓ 現在回答作用` : `❌ 答案是 ${d.stepA.ans}。${d.stepA.explain}`;
+    quizAnswers['bing_a_'+qIdx] = {choice, correct:ok}; saveProgress();
+    if (ok) { document.getElementById('fq-b-wrap').style.display = 'block'; }
+    else { fqState.answers['bing_'+qIdx] = {correct:false}; fqRefreshDots('bing'); fqShowNext('bing'); }
+  }
+
+  function fqBingB(qIdx, choice) {
+    const d = bingData[qIdx]; const ok = choice === d.stepB.ans;
+    document.querySelectorAll('#fq-b-opts .mcq-option').forEach(b => { b.disabled=true; const l=b.textContent[0]; if(l===d.stepB.ans)b.classList.add('correct'); else if(l===choice&&!ok)b.classList.add('wrong'); });
+    const fb = document.getElementById('fq-b-fb'); fb.classList.add('show', ok?'ok':'ng');
+    fb.innerHTML = ok ? `✅ 正確！${d.stepB.explain}` : `❌ 答案是 ${d.stepB.ans}。${d.stepB.explain}`;
+    const aOk = quizAnswers['bing_a_'+qIdx]?.correct;
+    fqState.answers['bing_'+qIdx] = {correct:!!(aOk&&ok)}; quizAnswers['bing_b_'+qIdx] = {choice, correct:ok}; saveProgress();
+    fqRefreshDots('bing'); fqShowNext('bing');
+  }
+
+  function showRoundSummary(sec) {
+    const cont = document.getElementById(sec+'-flow');
+    const round = ROUNDS[sec][fqState.roundIdx];
+    const name = ROUND_NAMES[sec][fqState.roundIdx];
+    const roundSize = round.length;
+    let correct = 0; const wrong = [];
+    round.forEach(qi => { const a = fqState.answers[sec+'_'+qi]; if (a?.correct) correct++; else wrong.push(qi); });
+    const isLast = fqState.roundIdx >= ROUNDS[sec].length - 1;
+    const medal = correct === roundSize ? '🏆' : correct >= roundSize*0.8 ? '⭐' : correct >= roundSize*0.6 ? '✅' : '📖';
+    const msg = correct === roundSize ? '完美！全部答對！' : correct >= roundSize*0.8 ? '非常好！' : correct >= roundSize*0.6 ? '繼續加油！' : '建議重試錯題！';
+    let wrongHtml = '';
+    if (wrong.length > 0) {
+      wrongHtml = '<div class="rs-wrong-list"><div class="rs-wrong-title">需要複習的題目</div>';
+      const yiOffset = jiaData.length, bingOffset = jiaData.length + yiData.length;
+      wrong.forEach(qi => {
+        let qt, at, num;
+        if (sec==='jia') { qt=jiaData[qi].q; at=jiaData[qi].ans; num=qi+1; }
+        else if (sec==='yi') { qt=yiData[qi].q; at=yiData[qi].ans.join('＋'); num=yiOffset+qi+1; }
+        else { qt=bingData[qi].q; at=bingData[qi].stepA.ans; num=bingOffset+qi+1; }
+        qt = qt.length > 30 ? qt.substring(0,30)+'…' : qt;
+        wrongHtml += `<div class="rs-wrong-item">❌ 第${num}題：${qt}<br><span style="opacity:0.75;font-size:12px">正確答案：${at}</span></div>`;
+      });
+      wrongHtml += '</div>';
+    }
+    if (!quizRound) quizRound = {};
+    quizRound[sec] = isLast ? ROUNDS[sec].length - 1 : fqState.roundIdx + 1;
+    saveProgress();
+    const retryHtml = wrong.length > 0 ? `<button class="rs-btn retry" onclick='fqStartRetry("${sec}",${JSON.stringify(wrong)})'>🔁 重試錯題（${wrong.length}題）</button>` : '';
+    let nextHtml;
+    if (!isLast) { nextHtml = `<button class="rs-btn next" onclick="fqNextRound('${sec}')">下一關 →</button>`; }
+    else if (sec==='jia') { nextHtml = `<button class="rs-btn next" onclick="switchQuizSection('yi',document.querySelectorAll('.qsnav-btn')[1])">前往乙部 →</button>`; }
+    else if (sec==='yi') { nextHtml = `<button class="rs-btn next" onclick="switchQuizSection('bing',document.querySelectorAll('.qsnav-btn')[2])">前往丙部 →</button>`; }
+    else { nextHtml = `<button class="rs-btn next" onclick="showFinalScore()">查看總成績 🏁</button>`; }
+    cont.innerHTML = `<div class="fq-progress">
+      <span class="fq-round-label">${name} · 結算</span>
+      <div class="fq-dots">${round.map(()=>'<div class="fq-dot done"></div>').join('')}</div>
+    </div>
+    <div class="round-summary">
+      <div style="font-size:2.8rem;margin-bottom:0.4rem">${medal}</div>
+      <div class="rs-score">${correct}／${roundSize}</div>
+      <div class="rs-label">${msg}</div>
+      ${wrongHtml}
+      <div class="rs-btns">${retryHtml}${nextHtml}</div>
+    </div>`;
+  }
+
+  function fqNextRound(sec) { fqState.roundIdx++; fqState.qPos = 0; fqState.retryQueue = []; renderFlowQ(sec); }
+  function fqStartRetry(sec, wrongIndices) { fqState.retryQueue = [...wrongIndices]; fqState.retryPos = 0; renderRetryQ(sec); }
+
+  function renderRetryQ(sec) {
+    if (fqState.retryPos >= fqState.retryQueue.length) { showRoundSummary(sec); return; }
+    const cont = document.getElementById(sec+'-flow');
+    const qIdx = fqState.retryQueue[fqState.retryPos];
+    const total = fqState.retryQueue.length; const pos = fqState.retryPos;
+    const dots = fqState.retryQueue.map((qi,i) => {
+      const a = fqState.answers[sec+'_'+qi];
+      const c = i < pos ? (a?.correct?'done':'wrong') : i === pos ? 'active' : '';
+      return '<div class="fq-dot '+c+'"></div>';
+    }).join('');
+    const isLastRetry = pos >= total - 1;
+    const yiOffset = jiaData.length, bingOffset = jiaData.length + yiData.length;
+    let qHtml = '';
+    if (sec === 'jia') {
+      const d = jiaData[qIdx];
+      qHtml = `<div class="fq-card"><div class="fq-qnum" style="color:var(--theme-error)">🔁 重試 · 第 ${qIdx+1} 題</div>
+        <div class="fq-qtext">${d.q}</div>
+        <div class="mcq-wrap" id="fq-rt-opts">${d.opts.map(o=>`<button class="mcq-option" onclick="fqRetryJia(${qIdx},'${o[0]}')">${o}</button>`).join('')}</div>
+        <div class="mcq-feedback" id="fq-rt-fb"></div>
+        <button class="step-btn primary-btn" id="fq-rt-next" style="display:none;margin-top:1rem" onclick="fqRetryNext('${sec}')">${isLastRetry?'查看結算 →':'下一題 →'}</button>
+      </div>`;
+    } else if (sec === 'yi') {
+      const d = yiData[qIdx];
+      qHtml = `<div class="fq-card"><div class="fq-qnum" style="color:var(--theme-error)">🔁 重試 · 第 ${yiOffset+qIdx+1} 題</div>
+        <div class="fq-qtext">${d.q}</div>
+        <p style="font-size:13px;color:var(--color-text-muted);margin-bottom:0.5rem">請選出兩種修辭手法：</p>
+        <div id="fq-rt-opts">${d.opts.map(o=>`<button class="multi-option" data-letter="${o[0]}" onclick="fqRetryYi(${qIdx},this)">${o}</button>`).join('')}</div>
+        <div class="mcq-feedback" id="fq-rt-fb"></div>
+        <button class="step-btn primary-btn" id="fq-rt-next" style="display:none;margin-top:1rem" onclick="fqRetryNext('${sec}')">${isLastRetry?'查看結算 →':'下一題 →'}</button>
+      </div>`;
+    } else {
+      const d = bingData[qIdx];
+      qHtml = `<div class="fq-card"><div class="fq-qnum" style="color:var(--theme-error)">🔁 重試 · 第 ${bingOffset+qIdx+1} 題</div>
+        <div class="example-box gold" style="margin-bottom:1rem"><span class="example-label">句子</span><span class="example-text">${d.q}</span></div>
+        <p style="font-size:13px;font-weight:700;color:var(--color-text-secondary);margin-bottom:0.5rem">Step A：選出修辭手法</p>
+        <div class="mcq-wrap" id="fq-rt-a-opts">${d.stepA.opts.map(o=>`<button class="mcq-option" onclick="fqRetryBingA(${qIdx},'${o[0]}')">${o}</button>`).join('')}</div>
+        <div class="mcq-feedback" id="fq-rt-a-fb"></div>
+        <div id="fq-rt-b-wrap" style="display:none;margin-top:1rem">
+          <p style="font-size:13px;font-weight:700;color:var(--color-text-secondary);margin-bottom:0.5rem">Step B：選出最貼切的作用描述</p>
+          <div class="mcq-wrap" id="fq-rt-b-opts">${d.stepB.opts.map(o=>`<button class="mcq-option" onclick="fqRetryBingB(${qIdx},'${o[0]}')">${o}</button>`).join('')}</div>
+          <div class="mcq-feedback" id="fq-rt-b-fb"></div>
+        </div>
+        <button class="step-btn primary-btn" id="fq-rt-next" style="display:none;margin-top:1rem" onclick="fqRetryNext('${sec}')">${isLastRetry?'查看結算 →':'下一題 →'}</button>
+      </div>`;
+    }
+    cont.innerHTML = `<div class="fq-progress">
+      <span class="fq-round-label" style="color:var(--theme-error)">🔁 重試錯題</span>
+      <div class="fq-dots">${dots}</div>
+      <span style="font-size:12px;color:var(--color-text-muted);white-space:nowrap">${pos+1}/${total}</span>
+    </div>${qHtml}`;
+  }
+
+  function fqRetryJia(qIdx, choice) {
+    const d = jiaData[qIdx]; const ok = choice === d.ans;
+    document.querySelectorAll('#fq-rt-opts .mcq-option').forEach(b => { b.disabled=true; const l=b.textContent[0]; if(l===d.ans)b.classList.add('correct'); else if(l===choice&&!ok)b.classList.add('wrong'); });
+    const fb = document.getElementById('fq-rt-fb'); fb.classList.add('show', ok?'ok':'ng');
+    fb.innerHTML = ok ? `✅ 正確！${d.explain}` : `❌ 答案是 ${d.ans}。${d.explain}`;
+    fqState.answers['jia_'+qIdx] = {correct:ok}; quizAnswers['jia_'+qIdx] = {choice, correct:ok}; saveProgress();
+    document.getElementById('fq-rt-next').style.display = 'inline-flex';
+  }
+  function fqRetryYi(qIdx, btn) {
+    if (btn.disabled) return;
+    const cont = document.getElementById('fq-rt-opts');
+    const sel = cont.querySelectorAll('.multi-option.selected');
+    if (btn.classList.contains('selected')) { btn.classList.remove('selected'); return; }
+    if (sel.length >= 2) return;
+    btn.classList.add('selected');
+    const nowSel = cont.querySelectorAll('.multi-option.selected');
+    if (nowSel.length === 2) {
+      const d = yiData[qIdx]; const cs = [...nowSel].map(b=>b.dataset.letter).sort().join(''); const ok = cs === [...d.ans].sort().join('');
+      cont.querySelectorAll('.multi-option').forEach(b => { b.disabled=true; if(d.ans.includes(b.dataset.letter))b.classList.add('correct'); else if([...nowSel].some(s=>s.dataset.letter===b.dataset.letter)&&!d.ans.includes(b.dataset.letter))b.classList.add('wrong'); });
+      const fb = document.getElementById('fq-rt-fb'); fb.classList.add('show', ok?'ok':'ng');
+      fb.innerHTML = ok ? `✅ 正確！${d.explain}` : `❌ 正確答案是 ${d.ans.join('＋')}。${d.explain}`;
+      fqState.answers['yi_'+qIdx] = {correct:ok}; quizAnswers['yi_'+qIdx] = {choices:cs, correct:ok}; saveProgress();
+      document.getElementById('fq-rt-next').style.display = 'inline-flex';
+    }
+  }
+  function fqRetryBingA(qIdx, choice) {
+    const d = bingData[qIdx]; const ok = choice === d.stepA.ans;
+    document.querySelectorAll('#fq-rt-a-opts .mcq-option').forEach(b => { b.disabled=true; const l=b.textContent[0]; if(l===d.stepA.ans)b.classList.add('correct'); else if(l===choice&&!ok)b.classList.add('wrong'); });
+    const fb = document.getElementById('fq-rt-a-fb'); fb.classList.add('show', ok?'ok':'ng');
+    fb.innerHTML = ok ? `✅ 正確！${d.stepA.explain} ↓ 現在回答作用` : `❌ 答案是 ${d.stepA.ans}。${d.stepA.explain}`;
+    quizAnswers['bing_a_'+qIdx] = {choice, correct:ok}; saveProgress();
+    if (ok) { document.getElementById('fq-rt-b-wrap').style.display = 'block'; }
+    else { fqState.answers['bing_'+qIdx] = {correct:false}; document.getElementById('fq-rt-next').style.display = 'inline-flex'; }
+  }
+  function fqRetryBingB(qIdx, choice) {
+    const d = bingData[qIdx]; const ok = choice === d.stepB.ans;
+    document.querySelectorAll('#fq-rt-b-opts .mcq-option').forEach(b => { b.disabled=true; const l=b.textContent[0]; if(l===d.stepB.ans)b.classList.add('correct'); else if(l===choice&&!ok)b.classList.add('wrong'); });
+    const fb = document.getElementById('fq-rt-b-fb'); fb.classList.add('show', ok?'ok':'ng');
+    fb.innerHTML = ok ? `✅ 正確！${d.stepB.explain}` : `❌ 答案是 ${d.stepB.ans}。${d.stepB.explain}`;
+    const aOk = quizAnswers['bing_a_'+qIdx]?.correct;
+    fqState.answers['bing_'+qIdx] = {correct:!!(aOk&&ok)}; quizAnswers['bing_b_'+qIdx] = {choice, correct:ok}; saveProgress();
+    document.getElementById('fq-rt-next').style.display = 'inline-flex';
+  }
+  function fqRetryNext(sec) { fqState.retryPos++; renderRetryQ(sec); }
+
+  function showFinalScore() {
+    let jia = 0, yi = 0, bing = 0;
+    for (let i = 0; i < jiaData.length; i++) { if (quizAnswers[`jia_${i}`]?.correct) jia++; }
+    for (let i = 0; i < yiData.length; i++) { if (quizAnswers[`yi_${i}`]?.correct) yi++; }
+    for (let i = 0; i < bingData.length; i++) { if (quizAnswers[`bing_a_${i}`]?.correct) bing++; if (quizAnswers[`bing_b_${i}`]?.correct) bing++; }
+    const total = jia + yi + bing;
+    const maxScore = jiaData.length + yiData.length + bingData.length * 2;
+    document.getElementById('jiaScore').textContent = jia;
+    document.getElementById('yiScore').textContent = yi;
+    document.getElementById('bingScore').textContent = bing;
+    document.getElementById('finalScoreNum').textContent = total;
+    document.getElementById('finalScoreSub').textContent = `總分 / ${maxScore}`;
+    document.getElementById('jiaScoreLabel').textContent = `甲部 / ${jiaData.length}`;
+    document.getElementById('yiScoreLabel').textContent = `乙部 / ${yiData.length}`;
+    document.getElementById('bingScoreLabel').textContent = `丙部 / ${bingData.length * 2}`;
+    const pct = Math.round(total / maxScore * 100);
+    document.getElementById('scoreMsgTxt').textContent = pct >= 95 ? '🏆 修辭大師！完美表現！' : pct >= 80 ? '✅ 深進高手，表現出色！' : pct >= 60 ? '📖 繼續加油，回頭複習薄弱章節！' : '🔁 建議回到各章重新學習，再來挑戰！';
+    const fs = document.getElementById('finalScore'); fs.classList.add('show'); fs.scrollIntoView({behavior:'smooth'});
+    quizDone = true; saveProgress(); updateGlobalProgress();
+  }
+
+  // ── 進度持久化 ──
+  function saveProgress() {
+    const steps = Object.fromEntries(Object.keys(stageSteps).map(s => [s, stageSteps[s].current]));
+    const tab = document.querySelector('.tab-btn.active')?.id?.replace('btn-tab-', '') || 'home';
+    localStorage.setItem(SAVE_KEY, JSON.stringify({
+      unlockedStages, stageCheckpointSolved,
+      judgmentGameCompleted, effectGameCompleted,
+      stageCurrentSteps: steps, currentTab: tab,
+      quizAnswers, quizRound, wrongBook, quizDone
+    }));
+  }
+
+  function loadProgress() {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return;
+    try {
+      const d = JSON.parse(raw);
+      Object.assign(unlockedStages, d.unlockedStages || {});
+      Object.assign(stageCheckpointSolved, d.stageCheckpointSolved || {});
+      if (d.stageCurrentSteps) Object.keys(d.stageCurrentSteps).forEach(s => { if (stageSteps[s]) stageSteps[s].current = d.stageCurrentSteps[s]; });
+      if (d.judgmentGameCompleted) judgmentGameCompleted = true;
+      if (d.effectGameCompleted)   effectGameCompleted   = true;
+      if (d.quizAnswers)  Object.assign(quizAnswers, d.quizAnswers);
+      if (d.quizRound)    Object.assign(quizRound,   d.quizRound);
+      if (d.wrongBook)    wrongBook = d.wrongBook;
+      if (d.quizDone)     quizDone  = true;
+      const tab = d.currentTab || 'home';
+      if (unlockedStages[tab]) {
+        switchTab(tab);
+        const savedStep = d.stageCurrentSteps?.[tab];
+        if (savedStep && savedStep > 1 && stageSteps[tab]) { stageSteps[tab].current = savedStep; showStep(tab, savedStep); }
+      }
+    } catch(e) {}
+  }
+
+  // ── 首頁縮圖自動生成 ──
+  function buildHomeThumbnails() {
+    const container = document.getElementById('homeThumbnails');
+    if (!container) return;
+    // 從每章的第一個 step 自動抓圖（step-[stageId]-1 的第一張 img）
+    const stages = stageSequence.filter(s => s !== 'home' && s !== 'quiz');
+    stages.forEach(stageId => {
+      const card = document.getElementById(`step-${stageId}-1`);
+      const img  = card?.querySelector('img');
+      if (!img) return;
+      const cell = document.createElement('div');
+      cell.style.cssText = 'border-radius:8px;overflow:hidden;border:1.5px solid var(--color-border-tertiary);';
+      const thumbImg = document.createElement('img');
+      thumbImg.src = img.src;
+      thumbImg.style.cssText = 'width:100%;display:block;';
+      const lbl = document.createElement('p');
+      lbl.style.cssText = 'text-align:center;font-size:11px;padding:5px 4px 6px;margin:0;font-weight:700;background:var(--color-background-secondary);color:var(--color-text-secondary);';
+      lbl.textContent = TOPIC_CONFIG.stageNames[stageId] || stageId;
+      cell.appendChild(thumbImg);
+      cell.appendChild(lbl);
+      container.appendChild(cell);
+    });
+  }
+
+  // ── DOMContentLoaded ──
+  window.addEventListener('DOMContentLoaded', () => {
+    loadProgress();
+    buildHomeThumbnails();
+    updateGlobalProgress();
+  });
+
+  </script>
+</body>
+</html>
