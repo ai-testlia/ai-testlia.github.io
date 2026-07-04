@@ -91,6 +91,23 @@
   }
   .hero.writing p { color: rgba(46,26,18,0.5); }
 
+  /* TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title { font-weight: bold; margin-bottom: 0.6rem; font-family: 'Noto Serif TC', serif; }
+  .toc a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .toc a:hover { color: #2E1A12; }
+
   /* Section Headers */
   .section-header {
     display: flex;
@@ -281,6 +298,39 @@
   .view-ans-btn:active { transform: scale(0.97); }
   .view-ans-btn.active { background: #d97706; }
 
+  /* PRINT BUTTONS */
+  .print-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+  }
+  .print-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #004754 !important;
+    background: #FFD700 !important;
+    border: none !important;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .print-btn:hover {
+    background: #e6c200 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  }
+
   /* Print Rules - Strictly Enforced */
   @media print {
     @page { margin: 12mm 10mm; }
@@ -295,6 +345,7 @@
     .section-divider { page-break-after: avoid; }
     .ans-box { display: block !important; }
     .view-ans-btn { display: none !important; }
+    .print-btn, .print-btn-container { display: none !important; }
   }
 </style>
 </head>
@@ -308,7 +359,18 @@
     <p>潘SIR中文教室編撰</p>
   </div>
 
-  <div class="section-header">
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <a href="#sec1">一、題目分析與立意</a>
+    <a href="#sec2">二、寫作構思指引</a>
+    <a href="#sec3">三、詳細寫作步驟</a>
+    <a href="#sec4">四、寫作技巧與詞彙提升</a>
+    <a href="#sec5">五、常見錯誤與改進建議</a>
+    <a href="#sec6">六、範文大綱（供學生跟隨練習）</a>
+    <a href="#sec7">七、課堂練習題</a>
+  </div>
+
+  <div class="section-header" id="sec1">
     <div class="section-icon">🔍</div>
     <h2>一、題目分析與立意</h2>
   </div>
@@ -382,7 +444,7 @@
   </div>
 
 
-  <div class="section-header">
+  <div class="section-header" id="sec2">
     <div class="section-icon">🧭</div>
     <h2>二、寫作構思指引</h2>
   </div>
@@ -410,7 +472,7 @@
   </div>
 
 
-  <div class="section-header">
+  <div class="section-header" id="sec3">
     <div class="section-icon">📝</div>
     <h2>三、詳細寫作步驟</h2>
   </div>
@@ -440,7 +502,7 @@
   </div>
 
 
-  <div class="section-header">
+  <div class="section-header" id="sec4">
     <div class="section-icon">✨</div>
     <h2>四、寫作技巧與詞彙提升</h2>
   </div>
@@ -502,7 +564,7 @@
   </div>
 
 
-  <div class="section-header">
+  <div class="section-header" id="sec5">
     <div class="section-icon">🛠</div>
     <h2>五、常見錯誤與改進建議</h2>
   </div>
@@ -530,7 +592,7 @@
   </div>
 
 
-  <div class="section-header">
+  <div class="section-header" id="sec6">
     <div class="section-icon">📖</div>
     <h2>六、範文大綱（供學生跟隨練習）</h2>
   </div>
@@ -548,7 +610,7 @@
   </div>
 
 
-  <div class="section-header">
+  <div class="section-header" id="sec7">
     <div class="section-icon">✍️</div>
     <h2>七、課堂練習題</h2>
   </div>
@@ -617,6 +679,12 @@
       版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
     </div>
   </footer>
+
+  <!-- PRINT PANEL -->
+  <div class="print-btn-container">
+    <a href="index.html" class="print-btn" style="background: #e2e8f0 !important; color: #475569 !important; box-shadow: none;">返回首頁</a>
+    <button class="print-btn" onclick="window.print()">🖨️ 列印此頁 / 儲存 PDF</button>
+  </div>
 
 </div>
 
