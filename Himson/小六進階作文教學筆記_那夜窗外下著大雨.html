@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小六進階作文教學筆記：《那夜，窗外下著大雨》｜潘SIR中文教室</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0f0ee;
+      --color-text-secondary: #aaa;
+      --color-background-primary: #1c1c1e;
+      --color-background-secondary: #2c2c2e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+    }
+    .example-box { background: rgba(59, 130, 246, 0.1) !important; border-left-color: #3b82f6 !important; }
+    .example-box .example-label { background: #3b82f6 !important; color: #fff !important; }
+    .alert.tip { background: rgba(67, 56, 202, 0.2) !important; color: #c7d2fe !important; border-color: rgba(99, 102, 241, 0.3) !important; }
+    .alert.warn { background: rgba(153, 27, 27, 0.2) !important; color: #fecaca !important; border-color: rgba(220, 38, 38, 0.3) !important; }
+    .alert.success { background: rgba(22, 101, 52, 0.2) !important; color: #bbf7d0 !important; border-color: rgba(34, 197, 94, 0.3) !important; }
+    .compare-card.bad { background: rgba(153, 27, 27, 0.2) !important; border-color: rgba(220, 38, 38, 0.3) !important; }
+    .compare-card.good { background: rgba(22, 101, 52, 0.2) !important; border-color: rgba(34, 197, 94, 0.3) !important; }
+    .ans-box { background: rgba(255,255,255,0.05) !important; border-color: rgba(255,255,255,0.1) !important; }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--color-background-primary);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    min-height: 100vh;
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { font-size: 13px; margin: 0; }
+
+  /* 寫作：霧玫瑰 */
+  .hero.writing { background: #E8D5C8; color: #2E1A12; }
+  .hero.writing .hero-tag {
+    border: 1px solid rgba(46,26,18,0.3);
+    color: rgba(46,26,18,0.65);
+  }
+  .hero.writing p { color: rgba(46,26,18,0.5); }
+
+  /* TOC */
+  .toc {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title { font-weight: bold; margin-bottom: 0.6rem; font-family: 'Noto Serif TC', serif; }
+  .toc a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .toc a:hover { color: #2E1A12; }
+
+  /* Section Headers */
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin: 3rem 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0 0.5rem;
+    color: var(--color-text-primary);
+  }
+  .section-icon { font-size: 1.5rem; }
+
+  /* Cards */
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .dot-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+  }
+  .dot-title::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background-color: #f59e0b;
+  }
+  
+  ul { padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0; }
+  li { margin-bottom: 0.5rem; }
+
+  /* Alerts */
+  .alert {
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius-md);
+  }
+  .alert.tip { background: #eef2ff; color: #312e81; border: 1px solid #c7d2fe; }
+  .alert.warn { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+  .alert.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+
+  /* Formula / Highlight Box */
+  .formula {
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .formula h3 {
+    font-family: 'Noto Serif TC', serif;
+    margin-top: 0;
+    color: #fbbf24;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Compare Grid */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .compare-card {
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+  }
+  .compare-card.bad { background: #fef2f2; border: 1px solid #fecaca; }
+  .compare-card.good { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .compare-title { font-weight: bold; margin-bottom: 0.8rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 0.5rem; }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  th, td {
+    padding: 0.8rem;
+    border: 1px solid var(--color-border-tertiary);
+    text-align: left;
+  }
+  th { background: var(--color-background-secondary); font-weight: bold; }
+
+  /* Example Box */
+  .example-box {
+    background: #f0f4f8;
+    border-left: 4px solid #3b82f6;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    position: relative;
+  }
+  .example-label {
+    display: inline-block;
+    background: #3b82f6;
+    color: #fff;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+  }
+  .example-text { font-style: italic; color: var(--color-text-secondary); }
+
+  /* Keyword Grid */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .kw-card {
+    background: var(--color-background-secondary);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .kw-word { font-weight: bold; color: #d97706; font-size: 1.1rem; margin-bottom: 0.3rem; }
+  .kw-def { font-size: 0.9rem; color: var(--color-text-secondary); }
+
+  /* Flow Diagram */
+  .flow { margin-bottom: 1.5rem; }
+  .flow-step {
+    background: var(--color-background-secondary);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid #10b981;
+    margin-bottom: 0.5rem;
+  }
+  .flow-arrow {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Questions & Answers */
+  .qbox { margin-bottom: 1.5rem; }
+  .q-title { font-weight: bold; margin-bottom: 0.5rem; }
+  .ans-box {
+    background: #f9fafb;
+    border: 1px dashed var(--color-border-tertiary);
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    margin-top: 1rem;
+    display: none;
+  }
+  .ans-box.show { display: block; }
+
+  /* View Answer Button */
+  .view-ans-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+    padding: 0.55rem 1.3rem;
+    background: #1f2937;
+    color: #f9fafb;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+  .view-ans-btn:hover { background: #374151; }
+  .view-ans-btn:active { transform: scale(0.97); }
+  .view-ans-btn.active { background: #d97706; }
+
+  /* PRINT BUTTONS */
+  .print-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+  }
+  .print-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #004754 !important;
+    background: #FFD700 !important;
+    border: none !important;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .print-btn:hover {
+    background: #e6c200 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  }
+
+  /* Print Rules - Strictly Enforced */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, .compare-grid, .kw-card { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+    .ans-box { display: block !important; }
+    .view-ans-btn { display: none !important; }
+    .print-btn, .print-btn-container { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero writing">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>小六進階作文教學<br>《那夜，窗外下著大雨》</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <a href="#sec1">一、題目分析與立意</a>
+    <a href="#sec2">二、寫作構思指引</a>
+    <a href="#sec3">三、詳細寫作步驟</a>
+    <a href="#sec4">四、寫作技巧與詞彙提升</a>
+    <a href="#sec5">五、常見錯誤與改進建議</a>
+    <a href="#sec6">六、範文大綱（供學生跟隨練習）</a>
+    <a href="#sec7">七、課堂練習題</a>
+  </div>
+
+  <div class="section-header" id="sec1">
+    <div class="section-icon">🔍</div>
+    <h2>一、題目分析與立意</h2>
+  </div>
+
+  <p>要寫好這篇文章，首先要學會「拆題」，找出題目的靈魂。我們將題目拆解為三個核心元素：</p>
+
+  <div class="card">
+    <ul>
+      <li><strong>「那夜」：</strong>這是一個回憶性的記敘文。事情已經發生在過去的某一個晚上，文章必須帶出一種回顧、反思的語氣。</li>
+      <li><strong>「窗外」：</strong>這是視角的設定。主角必然身處室內（如睡房、書房），透過窗戶向外觀察。窗戶是一道界線，分隔了室內的寧靜（或壓抑）與室外的動盪。</li>
+      <li><strong>「大雨」：</strong>這是整篇文章的佈景與氣氛核心。大雨通常象徵著煩躁、悲傷、衝突、危機，或者是一場洗滌心靈的轉折。</li>
+    </ul>
+  </div>
+
+  <div class="alert tip">
+    <strong>💡 情感核心與寫作重點：</strong><br>
+    本文的重點絕非單純描寫雨景，而是<strong>「借景抒情」</strong>或<strong>「情景交融」</strong>。窗外的雨勢大小，必須與主角內心的情緒起伏產生連繫（例如：雨勢最大時，主角內心最崩潰；雨勢轉弱時，主角心結解開）。
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 常見離題與薄弱情況：</strong>
+    <ul>
+      <li><strong>雨景與故事脫節：</strong>整篇都在寫一件與大雨無關的事，把「大雨」換成「大晴天」對故事毫無影響。（大雨必須是推動情節或烘托氣氛的關鍵）</li>
+      <li><strong>流水帳敘事：</strong>只平鋪直敘交代當晚吃了甚麼、做了甚麼，缺乏聚焦於單一深刻事件。</li>
+      <li><strong>情感突兀：</strong>情緒轉變缺乏鋪排，前一秒還在嚎啕大哭，下一秒突然就開心了，沒有過渡。</li>
+    </ul>
+  </div>
+
+  <div class="formula">
+    <h3>寫作前的靈魂拷問</h3>
+    <p style="text-align: left; margin-bottom: 0;">請在構思故事前，先問自己以下三個問題：</p>
+    <ul style="text-align: left;">
+      <li><strong>Q1：這場「大雨」在你的故事中扮演甚麼角色？</strong><br>
+      <span style="opacity:0.8; font-size:0.9em;">是主角內心憤怒與悲傷的投射？是一場突如其來的考驗？還是最終洗刷誤會、帶來生機的轉折？</span></li>
+      <li><strong>Q2：這個「夜晚」有甚麼特別之處？</strong><br>
+      <span style="opacity:0.8; font-size:0.9em;">為甚麼這件事必須發生在晚上？夜晚通常代表著寧靜、孤獨，或是讓人放下防備、面對真實自我的時刻。</span></li>
+      <li><strong>Q3：經歷了這個雨夜，主角（你）迎來了甚麼「成長」？</strong><br>
+      <span style="opacity:0.8; font-size:0.9em;">由幼稚變得成熟？由抱怨轉為感恩？由迷惘走向堅定？（切記：好文章的主角，在開頭和結尾的心境必須有所轉變。）</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="dot-title">立意高低的分別（對比示範）</div>
+    <p>要讓學生明白甚麼是「深刻的立意」，最直接的方法就是作層次對比：</p>
+    <table>
+      <thead>
+        <tr>
+          <th width="15%">立意層次</th>
+          <th width="45%">內容大意</th>
+          <th width="40%">點評</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🥉 平庸<br>(流水帳)</td>
+          <td>那夜下著大雨，我家窗戶忘了關，弄濕了書桌上的功課，我急忙清理，覺得很倒霉。</td>
+          <td><strong>流於表面：</strong>只寫了天氣帶來的物理影響，完全沒有情感起伏與內心反思，像一篇日記。</td>
+        </tr>
+        <tr>
+          <td>🥈 良好<br>(有情感)</td>
+          <td>那夜下著大雨，陪伴我多年的小狗病逝了。看著窗外的暴雨，我覺得天空也在為我哭泣，我感到十分悲痛。</td>
+          <td><strong>情景交融：</strong>懂得利用大雨來烘托悲傷的氣氛，情感真摯，但缺少了一點走出悲傷的「感悟」。</td>
+        </tr>
+        <tr>
+          <td>🥇 拔尖<br>(有昇華)</td>
+          <td>那夜的狂風暴雨猶如我與父親爭吵後的憤怒。然而，當我從窗外看見父親冒雨為我買消夜的背影，那場大雨洗刷了我的任性。我頓悟到，深沉的父愛總在風雨中為我撐傘。</td>
+          <td><strong>以小見大：</strong>將天氣與內心完美結合，並透過一件小事產生強烈的心理轉折，最後提煉出對親情的感恩與個人的成長，立意深刻。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="section-header" id="sec2">
+    <div class="section-icon">🧭</div>
+    <h2>二、寫作構思指引</h2>
+  </div>
+  
+  <p>這道題目非常適合寫「親情」、「成長」或「面對挫折」。</p>
+
+  <div class="card">
+    <div class="dot-title">建議可選題材</div>
+    <ul>
+      <li><strong>親情衝突與和解：</strong>因為測驗成績或態度問題與父母大吵一場，把自己關在房間。看著窗外大雨，發現父母冒雨為自己做了一件事（如收回遺在樓下的書包/買生病要吃的藥），從而感到懊悔。</li>
+      <li><strong>面對挫折與恐懼：</strong>比賽落敗或犯下大錯，那夜感到前路茫茫，就像窗外的黑夜與暴雨。後來透過某個契機（如家人的一杯熱牛奶、一句安慰），內心重新獲得力量。</li>
+      <li><strong>生離死別的思念：</strong>親人或寵物剛離世／離開，那夜的雨彷彿是天空在代自己哭泣，最後在雨聲中回憶起溫馨片段，學會釋懷。</li>
+    </ul>
+  </div>
+
+  <p><strong>📈 情節發展與情感鋪排建議（以「親情衝突」為例）：</strong></p>
+  <div class="flow">
+    <div class="flow-step"><strong>1. 起因（狂風初起）：</strong>發生激烈爭執，摔門回房。 <br><span style="color:#ef4444; font-size:0.9em;">[情感：憤怒、委屈]</span></div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>2. 經過（傾盆大雨）：</strong>看著窗外狂風暴雨，覺得沒人理解自己，孤獨感襲來。<br><span style="color:#3b82f6; font-size:0.9em;">[情感：孤獨、傷心]</span></div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>3. 高潮（雨中背影）：</strong>無意中望向窗外（或客廳），發現父母淋著雨為自己做事，或者看到他們悄悄放在門外的熱湯。<br><span style="color:#f59e0b; font-size:0.9em;">[情感：震驚、內疚]</span></div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><strong>4. 結局（雨勢漸弱）：</strong>主動道歉，大雨漸漸變成毛毛細雨，迎來黎明。<br><span style="color:#10b981; font-size:0.9em;">[情感：釋懷、感恩]</span></div>
+  </div>
+
+
+  <div class="section-header" id="sec3">
+    <div class="section-icon">📝</div>
+    <h2>三、詳細寫作步驟</h2>
+  </div>
+
+  <div class="example-box">
+    <div class="example-label">1. 開頭 (Intro)</div>
+    <p><strong>教學重點：</strong>不要用「今天發生了一件事」來開頭。嘗試用「聲音先入」或「情境渲染」的方法，一開筆就緊扣題目，營造壓抑的氣氛，吸引讀者。</p>
+    <div class="example-text">
+      「轟隆——」一道刺眼的閃電劃破漆黑的天際，緊接著是震耳欲聾的雷聲。那夜，窗外下著傾盆大雨，雨滴如無數狂暴的小野獸，無情地拍打著我房間的玻璃窗。我蜷縮在床角，臉上的淚痕還未乾透，心裡的雨，下得比窗外還要大。
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-label">2. 中段 (Body)</div>
+    <p><strong>教學重點：</strong>要清楚交代「為甚麼心情會這樣」。運用「動作描寫」和「內心獨白」來刻畫心理。事件不需要寫得太長，但細節必須放大。</p>
+    <div class="example-text">
+      半小時前與母親爭吵的畫面，仍在我腦海中揮之不去。「你為甚麼總是不懂事？」母親嚴厲的責備聲彷彿還在耳邊迴盪。我猛地把頭埋進雙膝之間，心裡充滿了委屈。就在這時，我無意間瞥向窗外，在那昏暗的街燈下，一個熟悉的身影正撐著一把單薄的傘，在狂風暴雨中艱難地前行。那……那是母親！她手裡緊緊護著的，竟是我今早隨口說想吃的栗子蛋糕。
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-label">3. 結尾 (Conclusion)</div>
+    <p><strong>教學重點：</strong>結尾必須「昇華」。雨不一定要完全停，但心境必須有所改變。總結自己從這場雨、這件事中學到了甚麼。</p>
+    <div class="example-text">
+      不知過了多久，窗外的雨勢漸漸微弱下來，化作了淅淅瀝瀝的細雨。我推開房門，接過母親遞來那微微被雨水沾濕、卻依然溫暖的蛋糕，眼淚再次奪眶而出。那夜的大雨，雖然帶來了寒意，卻也洗刷了我內心的幼稚與任性，讓我真正讀懂了那份深沉而無言的母愛。
+    </div>
+  </div>
+
+
+  <div class="section-header" id="sec4">
+    <div class="section-icon">✨</div>
+    <h2>四、寫作技巧與詞彙提升</h2>
+  </div>
+
+  <div class="alert success">
+    <strong>✅ 環境烘托（情景交融）：寫雨，其實是在寫心。</strong>
+    <ul>
+      <li><strong>當你憤怒時：</strong>雨是「狂暴的」、「猛烈的」、「打在窗上砰砰作響」。</li>
+      <li><strong>當你悲傷時：</strong>雨是「淒涼的」、「連綿不斷的」、「彷彿天空在落淚」。</li>
+      <li><strong>當你釋懷時：</strong>雨是「輕柔的」、「洗滌塵埃的」、「空氣中夾雜著泥土的清新」。</li>
+    </ul>
+  </div>
+
+  <div class="alert success">
+    <strong>✅ 以小見大與鏡頭特寫</strong>
+    <ul>
+      <li><strong>以小見大：</strong>不要寫父母給了你一百萬，這太誇張了。寫他們在暴雨中為你買的一件小東西（如一碗熱粥），或是一個微小的動作（如把傘傾斜到你那邊），用微小的細節來展現巨大的愛。</li>
+      <li><strong>電影鏡頭法：</strong>把你的眼睛當作攝影機，略過無關緊要的細節（例如洗澡、刷牙），直接把鏡頭「特寫」在窗外的雨景，以及那個讓你感動的瞬間。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="dot-title">進階詞語庫</div>
+    <div class="keyword-grid">
+      <div class="kw-card">
+        <div class="kw-word">狂風驟雨</div>
+        <div class="kw-def">形容風雨極大。（例：窗外狂風驟雨，彷彿要把整座城市吞噬。）</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">傾盆大雨</div>
+        <div class="kw-def">形容雨大得像從盆裡倒下來一樣。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">淅淅瀝瀝</div>
+        <div class="kw-def">形容輕微的風雨聲，多用於結尾雨勢減弱時。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">愁雲慘霧</div>
+        <div class="kw-def">形容色彩暗淡，也比喻悲慘的氣氛或心境。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">心如刀絞</div>
+        <div class="kw-def">形容內心極度痛苦。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">豁然開朗</div>
+        <div class="kw-def">形容心情由狹窄、壓抑變得開闊、明朗。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-label">✨ 精選佳句（供仿寫）</div>
+    <ul>
+      <li><strong>視覺與聽覺：</strong>「雨點瘋狂地砸在玻璃窗上，留下一道道蜿蜒的水痕，宛如大自然流下的眼淚。」</li>
+      <li><strong>內心連結：</strong>「窗外的雨聲和著我低聲的抽泣，交織成那一夜最悲涼的交響樂。」</li>
+      <li><strong>昇華哲理：</strong>「沒有那一夜的狂風暴雨，我便不會懂得，那為我遮風擋雨的屋簷，究竟承載了多少深沉的愛。」</li>
+    </ul>
+  </div>
+
+
+  <div class="section-header" id="sec5">
+    <div class="section-icon">🛠</div>
+    <h2>五、常見錯誤與改進建議</h2>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-title">❌ 問題一：情感空洞，只懂用「很傷心」</div>
+      <p><strong>修改前：</strong><br>我很後悔對媽媽發脾氣。看著外面的大雨，我忍不住哭了起來，我覺得自己真的很不對。</p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-title">✅ 改進後：加入具體動作與心理活動</div>
+      <p><strong>修改後：</strong><br>看著媽媽被雨水打濕的肩膀，一股強烈的酸楚湧上鼻尖。我恨不得給自己一巴掌，為甚麼要對最愛我的人說出那麼尖銳的話？淚水模糊了我的視線，與窗外的雨景融為一體。</p>
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-title">❌ 問題二：天氣與情節完全割裂</div>
+      <p><strong>修改前：</strong><br>那夜窗外下著大雨。我在房間裡打機，突然媽媽進來送了一杯牛奶給我，我很高興。然後雨就停了。</p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-title">✅ 改進後：情景交融，以冷襯暖</div>
+      <p><strong>修改後：</strong><br>窗外風雨交加，冷風從窗縫鑽進房間，讓我忍不住打了個冷顫。就在我感到無助與孤獨之際，「吱呀」一聲，房門被輕輕推開。媽媽端著一杯熱騰騰的牛奶走進來，那裊裊上升的熱氣，瞬間驅散了那一夜的寒意。</p>
+    </div>
+  </div>
+
+
+  <div class="section-header" id="sec6">
+    <div class="section-icon">📖</div>
+    <h2>六、範文大綱（供學生跟隨練習）</h2>
+  </div>
+
+  <div class="card">
+    <div class="dot-title">題目：那夜，窗外下著大雨</div>
+    <p><strong>主題：</strong>因誤會與父親爭吵，後在雨夜中看見父親的付出而懊悔、成長。</p>
+    <ul>
+      <li><strong>第一段（起 - 環境渲染）：</strong>描寫那夜大雨的猛烈（雷聲、雨打窗戶的聲音）。點出自己正把自己反鎖在房間內，心情極度壓抑、憤怒。</li>
+      <li><strong>第二段（承 - 回憶事件）：</strong>運用「倒敘法」，簡述半小時前發生的事（例如：父親誤會我沒有溫習只顧玩樂，撕毀了我辛辛苦苦畫的畫作）。描寫自己當時委屈的心情，以及摔門而出的經過。</li>
+      <li><strong>第三段（轉 - 雨中契機 / 觀察）：</strong>回到現實，透過窗戶望向樓下街角。驚訝地發現在狂風暴雨中，父親正彎著腰，在屋邨樓下的垃圾筒旁焦急地翻找著甚麼。仔細一看，原來父親知道錯怪了我，正冒雨尋回那張被他撕毀的畫作。父親全身濕透的狼狽模樣深深震撼了我。</li>
+      <li><strong>第四段（合 - 心理轉變）：</strong>內心的憤怒瞬間瓦解，取而代之的是深深的內疚與心痛。明白到父親雖然嚴厲、不善辭令，但他愛我的心卻比任何人都真摯。</li>
+      <li><strong>第五段（結語 - 昇華收結）：</strong>雨勢由狂暴轉為平靜（象徵父女/父子關係的緩和）。我拿著毛巾走出房門，迎接濕透回家的父親。總結那夜的大雨洗滌了彼此的誤解，讓我一夜長大。</li>
+    </ul>
+  </div>
+
+
+  <div class="section-header" id="sec7">
+    <div class="section-icon">✍️</div>
+    <h2>七、課堂練習題</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title">題目 1：詞語填充</div>
+    <p>請將適當的四字詞語填入空格中。<br><em>（提供詞語：狂風驟雨 / 豁然開朗 / 愁雲慘霧 / 傾盆大雨 / 心如刀絞）</em></p>
+    <ul>
+      <li>(1) 得知陪伴我多年的小狗重病入院的消息，我頓時感到___________。</li>
+      <li>(2) 原本天空只是陰沉沉的，突然間下起了___________，路人紛紛走避。</li>
+      <li>(3) 經過老師耐心的開導，我心中的鬱結終於___________。</li>
+    </ul>
+    <button class="view-ans-btn" onclick="toggleAnswer('ans1', this)">👁️ 觀看答案</button>
+    <div class="ans-box" id="ans1">
+      <div class="q-title">📝 參考答案</div>
+      <p>(1) 心如刀絞 &nbsp;&nbsp; (2) 傾盆大雨 &nbsp;&nbsp; (3) 豁然開朗</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title">題目 2：寫作技巧判斷（選擇題）</div>
+    <p>以下哪一句描寫最能做到「情景交融」，以雨景烘托「悲傷」的心情？</p>
+    <ul>
+      <li>A. 窗外下著很大的雨，雨點打在玻璃上發出滴滴答答的聲音，我感到很難過。</li>
+      <li>B. 雨越下越大，街道上積滿了水，路上的車輛都開得很慢。</li>
+      <li>C. 冰冷的雨水無情地拍打著窗櫺，彷彿連老天爺都在為我的遭遇而落淚，那淅瀝的雨聲更添幾分淒涼。</li>
+      <li>D. 今天晚上不但打雷還下大雨，真是個壞天氣，令我心情也不好。</li>
+    </ul>
+    <button class="view-ans-btn" onclick="toggleAnswer('ans2', this)">👁️ 觀看答案</button>
+    <div class="ans-box" id="ans2">
+      <div class="q-title">📝 參考答案</div>
+      <p><strong>答案：C</strong><br>解析：選項C運用了擬人手法「老天爺落淚」，將悲傷情緒與冰冷雨水完美結合，做到情景交融；其餘選項僅為單純的天氣敘述或直白的感受表達。</p>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title">題目 3：段落改寫</div>
+    <p>請將以下這段平鋪直敘的文字，加入<strong>環境描寫</strong>與<strong>心理描寫</strong>，改寫成約 60 字的精彩段落。（提示：運用「雨」來烘托心情的轉變）<br><br>
+    <em>原句：媽媽拿著熱湯進來，我喝了之後覺得很溫暖，原諒了她。</em></p>
+    <button class="view-ans-btn" onclick="toggleAnswer('ans3', this)">👁️ 觀看答案</button>
+    <div class="ans-box" id="ans3">
+      <div class="q-title">📝 參考答案</div>
+      <p>窗外依舊狂風驟雨，寒意漸濃。忽然，房門輕啟，媽媽端著一碗熱騰騰的湯走進來。那裊裊上升的白煙，瞬間驅散了房間的冰冷。喝下一口熱湯，暖意流遍全身，我心中的怨氣也隨著窗外漸漸轉弱的雨勢，慢慢平息下來。</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleAnswer(id, btn) {
+      var box = document.getElementById(id);
+      var isShown = box.classList.contains('show');
+      if (isShown) {
+        box.classList.remove('show');
+        btn.textContent = '👁️ 觀看答案';
+        btn.classList.remove('active');
+      } else {
+        box.classList.add('show');
+        btn.textContent = '🙈 隱藏答案';
+        btn.classList.add('active');
+      }
+    }
+  </script>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+  <!-- PRINT PANEL -->
+  <div class="print-btn-container">
+    <a href="index.html" class="print-btn" style="background: #e2e8f0 !important; color: #475569 !important; box-shadow: none;">返回首頁</a>
+    <button class="print-btn" onclick="window.print()">🖨️ 列印此頁 / 儲存 PDF</button>
+  </div>
+
+</div>
+
+</body>
+</html>
