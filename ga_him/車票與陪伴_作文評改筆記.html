@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《車票與陪伴》作文評改筆記 | 潘SIR中文教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0, 0, 0, 0.1);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+
+      --hero-bg: #E8D5C8;
+      --hero-text: #2E1A12;
+
+      --dot-purple: #8b6fb3;
+      --dot-blue: #4a7ba6;
+      --dot-teal: #3f8f83;
+      --dot-coral: #c9654f;
+      --dot-amber: #c0912a;
+      --dot-pink: #b5567a;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #f0ece6;
+        --color-text-secondary: #b8b0a6;
+        --color-background-primary: #211d19;
+        --color-background-secondary: #2b2622;
+        --color-border-tertiary: rgba(255, 255, 255, 0.12);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "PMingLiU", sans-serif;
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      line-height: 1.8;
+    }
+
+    h1,
+    h2,
+    h3,
+    .section-header .title {
+      font-family: "Noto Serif TC", "Noto Sans TC", serif;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 20px 90px;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--hero-bg);
+      color: var(--hero-text);
+      border-radius: var(--border-radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      border: 1.5px solid rgba(46, 26, 18, 0.3);
+      color: rgba(46, 26, 18, 0.65);
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: 1.85em;
+      font-weight: 900;
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      margin: 0;
+      color: rgba(46, 26, 18, 0.5);
+      font-size: 14px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 18px 22px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 20px;
+    }
+
+    .toc-item {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--color-border-tertiary);
+    }
+
+    .toc-item b {
+      color: var(--color-text-primary);
+    }
+
+    /* Section header */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 44px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--hero-bg);
+    }
+
+    .section-header .icon {
+      font-size: 1.6em;
+    }
+
+    .section-header .chapter-no {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      letter-spacing: 1px;
+    }
+
+    .section-header .title {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    /* Card */
+    .card {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 18px;
+    }
+
+    .subsection-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      margin: 6px 0 10px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .dot.purple {
+      background: var(--dot-purple);
+    }
+
+    .dot.blue {
+      background: var(--dot-blue);
+    }
+
+    .dot.teal {
+      background: var(--dot-teal);
+    }
+
+    .dot.coral {
+      background: var(--dot-coral);
+    }
+
+    .dot.amber {
+      background: var(--dot-amber);
+    }
+
+    .dot.pink {
+      background: var(--dot-pink);
+    }
+
+    .card p,
+    .card li {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--color-text-primary);
+    }
+
+    /* Example box */
+    .example-box {
+      background: #f2effa;
+      border-left: 4px solid var(--dot-purple);
+      border-radius: var(--border-radius-md);
+      padding: 12px 16px;
+      margin: 12px 0;
+    }
+
+    .example-box.teal {
+      background: #eaf6f4;
+      border-left-color: var(--dot-teal);
+    }
+
+    .example-box.coral {
+      background: #fbeeeb;
+      border-left-color: var(--dot-coral);
+    }
+
+    .example-box.amber {
+      background: #fbf3e2;
+      border-left-color: var(--dot-amber);
+    }
+
+    .example-box.pink {
+      background: #f9ecf1;
+      border-left-color: var(--dot-pink);
+    }
+
+    .example-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .example-text {
+      font-size: 14px;
+      color: var(--color-text-primary);
+      line-height: 1.9;
+    }
+
+    /* Alert */
+    .alert {
+      display: flex;
+      gap: 12px;
+      border-radius: var(--border-radius-md);
+      padding: 14px 18px;
+      margin: 14px 0;
+      align-items: flex-start;
+    }
+
+    .alert-icon {
+      font-size: 1.3em;
+      line-height: 1.4;
+    }
+
+    .alert-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .alert-text {
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .alert.tip {
+      background: #e9f2fb;
+    }
+
+    .alert.tip .alert-label {
+      color: #2c6aa3;
+    }
+
+    .alert.warn {
+      background: #fbeaea;
+    }
+
+    .alert.warn .alert-label {
+      color: #b23a3a;
+    }
+
+    .alert.success {
+      background: #eaf6ec;
+    }
+
+    .alert.success .alert-label {
+      color: #3f7a52;
+    }
+
+    .alert.amber {
+      background: #fbf3e2;
+    }
+
+    .alert.amber .alert-label {
+      color: #a5761f;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .alert.tip {
+        background: #1f2b38;
+      }
+
+      .alert.warn {
+        background: #3a2323;
+      }
+
+      .alert.success {
+        background: #22301f;
+      }
+
+      .alert.amber {
+        background: #37301e;
+      }
+
+      .example-box {
+        background: #2a2535;
+      }
+
+      .example-box.teal {
+        background: #1f2f2c;
+      }
+
+      .example-box.coral {
+        background: #372521;
+      }
+
+      .example-box.amber {
+        background: #37301e;
+      }
+
+      .example-box.pink {
+        background: #332229;
+      }
+
+      .compare-card.bad {
+        background: #3a2323 !important;
+        border-color: #5a3535 !important;
+      }
+
+      .compare-card.good {
+        background: #22301f !important;
+        border-color: #3a5237 !important;
+      }
+
+      .err-table td,
+      .err-table th {
+        border-color: var(--color-border-tertiary) !important;
+      }
+
+      .err-table th {
+        background: #332c25 !important;
+      }
+    }
+
+    /* Compare grid */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 14px 0;
+    }
+
+    .compare-card {
+      border-radius: var(--border-radius-md);
+      padding: 14px 16px;
+      font-size: 13.5px;
+      line-height: 1.8;
+    }
+
+    .compare-card.bad {
+      background: #fbeaea;
+      border: 1px solid #f0c9c9;
+    }
+
+    .compare-card.good {
+      background: #eaf6ec;
+      border: 1px solid #c9e6cf;
+    }
+
+    .compare-card .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+
+    .compare-card.bad .tag {
+      background: #b23a3a;
+      color: #fff;
+    }
+
+    .compare-card.good .tag {
+      background: #3f7a52;
+      color: #fff;
+    }
+
+    .compare-card .note {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: 6px;
+    }
+
+    /* Flow */
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .flow-step {
+      background: var(--color-background-secondary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 16px;
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    .flow-arrow {
+      color: var(--dot-coral);
+      font-weight: 700;
+      font-size: 1.1em;
+    }
+
+    /* Formula box */
+    .formula {
+      background: #2e1a12;
+      color: #f5ece4;
+      border-radius: var(--border-radius-lg);
+      padding: 20px 24px;
+      margin: 18px 0;
+      font-size: 14.5px;
+      line-height: 1.95;
+    }
+
+    .formula b {
+      color: #e8c9ae;
+    }
+
+    /* Keyword grid */
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .kw-card {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 12px 14px;
+    }
+
+    .kw-word {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: var(--dot-coral);
+    }
+
+    .kw-def {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+    }
+
+    /* Error tables */
+    .err-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13.5px;
+    }
+
+    .err-table th {
+      background: #f1e6d9;
+      color: #3a2a1c;
+      border: 1px solid var(--color-border-tertiary);
+      padding: 9px 12px;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .err-table td {
+      border: 1px solid var(--color-border-tertiary);
+      padding: 9px 12px;
+      vertical-align: top;
+      line-height: 1.8;
+      background: var(--color-background-primary);
+    }
+
+    .err-table .wrong {
+      color: #b23a3a;
+      font-weight: 700;
+    }
+
+    .err-table .right {
+      color: #3f7a52;
+      font-weight: 700;
+    }
+
+    /* Grade table */
+    .grade-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+
+    .grade-table th {
+      background: #f1e6d9;
+      color: #3a2a1c;
+      border: 1px solid var(--color-border-tertiary);
+      padding: 10px 12px;
+    }
+
+    .grade-table td {
+      border: 1px solid var(--color-border-tertiary);
+      padding: 10px 12px;
+      background: var(--color-background-primary);
+      vertical-align: top;
+      line-height: 1.8;
+    }
+
+    .grade-pill {
+      display: inline-block;
+      background: var(--dot-coral);
+      color: #fff;
+      padding: 2px 12px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .grade-table th {
+        background: #332c25;
+        color: #e8dfd4;
+      }
+    }
+
+    .grade-badge {
+      display: inline-block;
+      background: var(--dot-coral);
+      color: #fff;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    @media (max-width:600px) {
+
+      .compare-grid,
+      .toc,
+      .keyword-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      @page {
+        margin: 12mm 10mm;
+      }
+
+      body {
+        background: white;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .toc {
+        display: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card,
+      .qbox,
+      .example-box,
+      .alert,
+      .formula {
+        page-break-inside: avoid;
+      }
+
+      .section-header {
+        page-break-before: always;
+        page-break-after: avoid;
+      }
+
+      .section-header:first-of-type {
+        page-break-before: auto;
+      }
+
+      .hero {
+        page-break-after: avoid;
+      }
+
+      .section-divider {
+        page-break-after: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="hero-tag">作文評改筆記</div>
+      <h1>《車票與陪伴》—— DSE中文科作文評改報告</h1>
+      <p>潘SIR中文教室編撰</p>
+    </div>
+
+    <div class="toc">
+      <div class="toc-item"><b>01</b>　分項評級與總評</div>
+      <div class="toc-item"><b>02</b>　審題與立意：題眼失焦</div>
+      <div class="toc-item"><b>03</b>　內容評析：六大弱點詳析</div>
+      <div class="toc-item"><b>04</b>　表達評析（甲）：錯別字與詞語誤用</div>
+      <div class="toc-item"><b>05</b>　表達評析（乙）：口語方言詞入文</div>
+      <div class="toc-item"><b>06</b>　表達評析（丙）：搭配不當與邏輯矛盾</div>
+      <div class="toc-item"><b>07</b>　表達評析（丁）：冗贅、語病與重複</div>
+      <div class="toc-item"><b>08</b>　結構評析</div>
+      <div class="toc-item"><b>09</b>　升格示範：結尾改寫</div>
+      <div class="toc-item"><b>10</b>　修改行動清單與自我檢查表</div>
+    </div>
+
+    <!-- ============ 01 ============ -->
+    <div class="section-header">
+      <span class="icon">📋</span>
+      <div>
+        <div class="chapter-no">CHAPTER 01</div>
+        <div class="title">分項評級與總評</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p><span class="grade-badge">整體評級：第3級（中品偏下）</span></p>
+
+      <table class="grade-table">
+        <tr>
+          <th style="width:14%;">評分項目</th>
+          <th style="width:18%;">評級</th>
+          <th>評語撮要</th>
+        </tr>
+        <tr>
+          <td><b>內容</b></td>
+          <td><span class="grade-pill">中下品</span></td>
+          <td>選材（車票、祖孫情）本身可取，惟題眼「陪伴」幾乎無實質着墨，全文所寫實為「送別」；情感缺乏因由與鋪墊，關鍵情感位（沒有答覆爺爺的遺憾）僅一句帶過，白白浪費。</td>
+        </tr>
+        <tr>
+          <td><b>表達</b></td>
+          <td><span class="grade-pill">下上品</span></td>
+          <td>錯別字三處、成語及詞語誤用四處、粵語及北方口語詞混入書面語七處以上、搭配不當及邏輯矛盾多處、「地」字濫用成習。錯誤密度之高，已直接封鎖表達分數的上限。</td>
+        </tr>
+        <tr>
+          <td><b>結構</b></td>
+          <td><span class="grade-pill">中中品</span></td>
+          <td>「現在—回憶—現在」框架完整，首尾有呼應意識，值得肯定；惟詳略嚴重失衡（月台一幕佔近三分之二篇幅），結尾由送別直接跳接墓前，時間跨度全無交代，屬結構斷層。</td>
+        </tr>
+        <tr>
+          <td><b>標點字體</b></td>
+          <td><span class="grade-pill">中下品</span></td>
+          <td>「滴溚」「己經」「掙著雙眼」三處錯別字；省略號時而「⋯⋯」時而「⋯」，格式不統一（正規為六點「……」，佔兩格）。</td>
+        </tr>
+      </table>
+
+      <div class="alert warn">
+        <div class="alert-icon">⚠</div>
+        <div>
+          <div class="alert-label">為何評級較一般預期為低？</div>
+          <div class="alert-text">
+            此文乍看情感真摯、結構齊整，容易獲得「第4級」的初步印象。但逐句細核後可見：<b>語文錯誤的密度</b>（平均每兩至三句即有一處問題）與<b>題眼「陪伴」的失焦</b>，是兩個結構性缺陷，並非個別瑕疵。DSE評卷實況中，錯別字加成語誤用加口語入文三者並發，「表達」一項必然重扣；而題目兩個關鍵詞只寫好一個，「內容」上品無望。故整體只能評為第3級。此評級嚴格但公道：正因為文章底子不差，更不應以寬鬆評語掩蓋問題。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 02 ============ -->
+    <div class="section-header">
+      <span class="icon">🎯</span>
+      <div>
+        <div class="chapter-no">CHAPTER 02</div>
+        <div class="title">審題與立意：題眼失焦（全文最大內傷）</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>題目拆解：《車票與陪伴》有兩個題眼，缺一不可</div>
+      <div class="keyword-grid">
+        <div class="kw-card">
+          <div class="kw-word">車票（物）</div>
+          <div class="kw-def">敘事線索兼象徵物。✅ 文章有處理：開首拾票、結尾持票，物件貫穿意識存在。</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">陪伴（情）</div>
+          <div class="kw-def">情感主題核心。❌ 文章嚴重失焦：全文實際只寫了「一次送別」。</div>
+        </div>
+      </div>
+
+      <div class="alert warn">
+        <div class="alert-icon">⚠</div>
+        <div>
+          <div class="alert-label">嚴格指出：「送別」不等於「陪伴」</div>
+          <div class="alert-text">
+            「陪伴」一詞必然包含<b>時間的縱深</b>：長年累月的同行、困境中的支撐、離世後精神上的延續。本文的爺爺只在月台出現了五分鐘，說了一段話，然後火車開走、鏡頭直跳墓前。以最嚴格的審題標準衡量，這是一篇寫得不錯的《車票與送別》，卻不是《車票與陪伴》。評卷員完全有理由在「切題」一項扣分。
+          </div>
+        </div>
+      </div>
+
+      <div class="alert warn">
+        <div class="alert-icon">⚠</div>
+        <div>
+          <div class="alert-label">連帶問題：車票在回憶中「消失」了</div>
+          <div class="alert-text">
+            更嚴重的是，細讀月台一幕，<b>車票本身完全沒有出場</b>。整段回憶寫手錶、寫行李箱、寫對話，唯獨沒有寫這張車票是誰買的、誰交到誰手上、上車時如何使用。首尾的道具與中段的情節完全脫節，令「車票」淪為機械式的開關掣，而非有機的情感載體。這是內容經營上的明顯疏漏。
+          </div>
+        </div>
+      </div>
+
+      <div class="example-box coral">
+        <div class="example-label">💡 切實可行的補救方法（二選一，各約三十字即可）</div>
+        <div class="example-text">
+          <b>方法一：</b>在月台一幕加入細節：「爺爺從口袋掏出那張車票，摺得整整齊齊，塞進我的手心：『這是我第一次替你買車票，也是最後一次了。』」一句話同時激活車票、埋下伏線、深化祖孫情。<br><br>
+          <b>方法二：</b>在結尾補一段大學歲月：「往後四年，這張車票一直夾在我的筆記簿裡。每逢深夜溫習得快要放棄，指尖觸到它，月台上那句『我相信你』便在耳邊響起。」如此「陪伴」二字才算真正落地。
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 03 ============ -->
+    <div class="section-header">
+      <span class="icon">📝</span>
+      <div>
+        <div class="chapter-no">CHAPTER 03</div>
+        <div class="title">內容評析：六大弱點詳析</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot teal"></span>先講優點（僅兩項，且均屬「雛型」層次）</div>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">爺爺對白有真實質感</div>
+          <div class="alert-text">「雖然我從來沒有上過學，沒有試過考試這樣東西，但我知道大學學位是得來不易的」，以「無學識的長輩肯定讀書的價值」製造反差，是全文最動人的一筆，人物聲音可信。</div>
+        </div>
+      </div>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">「三看手錶」有技巧意識</div>
+          <div class="alert-text">以7:25、7:26、7:27三個時間點營造迫近感，證明作者懂得用重複製造節奏，只是執行上三句用字完全相同，技巧意識有了，執行力未跟上（詳見第七章）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>弱點一：情感無因——自我懷疑從天而降</div>
+      <p>
+        主角在月台突然說「我未清楚自己是否準備好，我真的值得這個學位嗎？」全文<b>沒有任何一句</b>交代這份不安的來源：他是家中第一個大學生嗎？曾經重讀嗎？家境令學費來之不易嗎？沒有因，果就是空的。讀者被迫「奉旨感動」，這正是中等文章與上品文章的分水嶺。
+      </p>
+      <div class="example-box coral">
+        <div class="example-label">💡 可行修改（回憶開始前加約四十字）</div>
+        <div class="example-text">「我是家中三代以來第一個考上大學的人。放榜那天爺爺笑得合不攏嘴，我卻整夜睡不着，那個學位像一件不屬於我的衣服。」如此，月台上的不安便有根有據。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>弱點二：全文最珍貴的情感槓桿被一句浪費掉</div>
+      <p>
+        「遺憾是我那時沒有答覆他⋯⋯」這其實是<b>整篇文章最有力的一句</b>：少年的羞澀、來不及的道別、永遠無法補償的虧欠，全部可以從這句生發出來。但作者只用一句交代完畢，隨即跳到墓前。為何沒有答覆？是不好意思？是以為來日方長？這個「為何」正是文章可以深挖的金礦，現時原封不動埋在地下。
+      </p>
+      <div class="example-box coral">
+        <div class="example-label">💡 可行修改（此句後擴寫約六十字）</div>
+        <div class="example-text">「那年十八歲的我，總覺得道別是難為情的事，只低頭裝作整理行李。我以為每年暑假都可以再站在這個月台，向他好好說一聲再見。原來有些話，錯過了一班車，便錯過了一生。」</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>弱點三：爺爺之死零鋪排，抒情變成「通知」</div>
+      <p>
+        上一段爺爺還在月台揮手，下一段已是墳前，中間隔了多少年？爺爺何時、因何離世？主角接到消息時在做甚麼？全部空白。抒情文最忌「告知式悲傷」：讀者未及醞釀情緒，作者已宣佈結局，眼淚自然流不出來。前文「身子虛弱的爺爺」「用盡力氣抽起行李箱」其實已隱約埋下健康伏線，可惜作者自己也沒有回收這條線。
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>弱點四：情感靠「講」不靠「呈現」（tell 多於 show）</div>
+      <p>
+        「背脊不停流下汗水」「坐立不安地回答」「那一種熟悉的不安又回來了」，全部是<b>直接宣佈</b>情緒狀態，而非透過細節讓讀者自行感受。對比爺爺一段的成功（透過「沒上過學卻懂得學位可貴」呈現人物），主角自身的心理描寫明顯粗糙。
+      </p>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">原文（宣佈式）</span>那一種熟悉的不安又回來了，腦海浮現一個問題：「我為這個冒險準備好了嗎⋯⋯」</div>
+        <div class="compare-card good"><span class="tag">呈現式示範</span>我的腳尖抵着車廂那一級鐵梯，卻像抵着一道無形的門檻。指節不自覺地收緊，行李箱的手柄被我攥出了汗。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>弱點五：「畢業袍」的時間跨度暗示過於突兀</div>
+      <p>
+        結尾「特別穿上他會想見我穿的畢業袍」，讀者至此才驚覺主角原來已經畢業，即中間至少過了三四年。這種「補交代」令讀者需要回頭重新校準時間線，閱讀節奏被打斷。時間跨度應在跳接處先行示意（哪怕只是「四年後」三個字），而非留待道具出場才揭盅。
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>弱點六：對白略帶「演講稿」味道</div>
+      <p>
+        爺爺整段安慰語一氣呵成、層次分明（先自謙、再肯定、後總結「我相信你」），修辭上工整得不似一位「從未上過學」的老人臨場所言。不必要爺爺講粗糙的話，只要加插動作打斷語流，例如中途停頓、拍背、望向路軌，對白便能回歸生活質感，人物形象也更立體。
+      </p>
+    </div>
+
+    <!-- ============ 04 ============ -->
+    <div class="section-header">
+      <span class="icon">✒️</span>
+      <div>
+        <div class="chapter-no">CHAPTER 04</div>
+        <div class="title">表達評析（甲）：錯別字與詞語誤用</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>錯別字（三處，DSE設有錯別字扣分機制，必須清零）</div>
+      <table class="err-table">
+        <tr>
+          <th style="width:32%;">原文</th>
+          <th style="width:22%;">正確寫法</th>
+          <th>說明</th>
+        </tr>
+        <tr>
+          <td>靜靜地<span class="wrong">滴溚</span>的手錶</td>
+          <td><span class="right">滴答</span></td>
+          <td>鐘錶聲正寫為「滴答」。此錯字隨句式重複而<b>連錯三次</b>，扣分位置倍增。</td>
+        </tr>
+        <tr>
+          <td>我發現<span class="wrong">己經</span>時間不多了</td>
+          <td><span class="right">已經</span></td>
+          <td>「己」「已」形近致誤。此類錯字屬低級失誤，評卷員觀感極差。</td>
+        </tr>
+        <tr>
+          <td>我<span class="wrong">掙著</span>雙眼</td>
+          <td><span class="right">睜着／瞪大</span></td>
+          <td>「掙」解掙扎、掙脫；張開眼睛必須用「睜」。</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>成語及詞語誤用（四處，性質比錯別字更嚴重）</div>
+      <table class="err-table">
+        <tr>
+          <th style="width:30%;">原文</th>
+          <th style="width:24%;">建議修改</th>
+          <th>誤用分析</th>
+        </tr>
+        <tr>
+          <td>我<span class="wrong">曖昧地</span>行去車廂</td>
+          <td><span class="right">遲疑地／猶豫地</span>走向車廂</td>
+          <td>「曖昧」專指關係或態度不清不楚（多用於男女之間），用於形容步伐屬<b>嚴重誤用</b>，且會令評卷員失笑，直接摧毀該段的抒情氣氛。</td>
+        </tr>
+        <tr>
+          <td><span class="wrong">硬著眉頭</span>地踏了那步</td>
+          <td>硬着<span class="right">頭皮</span>踏出那一步</td>
+          <td>正確成語為「硬着頭皮」。自創「硬著眉頭」屬成語誤記，在DSE屬明確扣分項，成語寧可不用，不可錯用。</td>
+        </tr>
+        <tr>
+          <td>我<span class="wrong">坐立不安</span>地回答</td>
+          <td><span class="right">侷促不安</span>地回答／聲音發顫地回答</td>
+          <td>語境矛盾：主角<b>正站在月台</b>，何來「坐」？「坐立不安」形容坐也不是、站也不是的煩躁狀態，須有可坐可站的場景支撐。此處屬成語與語境不合。</td>
+        </tr>
+        <tr>
+          <td>我<span class="wrong">一刻醒覺</span></td>
+          <td><span class="right">霎時醒覺／恍然大悟</span></td>
+          <td>「一刻」是名詞（一段短時間），不能直接作狀語修飾「醒覺」。同一問題亦見於開首「抽出了<span class="wrong">一刻</span>的回憶」，回憶的量詞應為「一段」。</td>
+        </tr>
+      </table>
+
+      <div class="alert amber">
+        <div class="alert-icon">📌</div>
+        <div>
+          <div class="alert-label">給學生的硬規則</div>
+          <div class="alert-text">
+            凡是四字詞、成語，落筆前必須能夠<b>完整默寫兼講出一個正確例句</b>；做不到，一律改用淺白詞語代替。「遲疑地」永遠好過錯用的「曖昧地」，DSE評分準則中，用詞準確遠比用詞「深」重要。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 05 ============ -->
+    <div class="section-header">
+      <span class="icon">🗣️</span>
+      <div>
+        <div class="chapter-no">CHAPTER 05</div>
+        <div class="title">表達評析（乙）：口語及方言詞入文（系統性問題）</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>此問題在全文<b>反覆出現七處以上</b>，已非偶發筆誤，而是書面語語感未穩的系統性問題。DSE寫作卷要求規範書面語，口語詞每現一次即損害文章的語體統一性：</p>
+      <table class="err-table">
+        <tr>
+          <th style="width:28%;">原文</th>
+          <th style="width:22%;">書面語寫法</th>
+          <th>問題性質</th>
+        </tr>
+        <tr>
+          <td>我<span class="wrong">瞅了</span>手錶（×3）</td>
+          <td><span class="right">瞥了一眼／望了望</span></td>
+          <td>「瞅」為北方口語詞，與全文語境格格不入；且連用三次。</td>
+        </tr>
+        <tr>
+          <td>嘴巴不斷<span class="wrong">郁動</span></td>
+          <td><span class="right">翕動／顫動</span></td>
+          <td>「郁動」為粵語詞，書面語無此用法。</td>
+        </tr>
+        <tr>
+          <td><span class="wrong">背脊</span>不停流下汗水</td>
+          <td><span class="right">背上／背部</span>滲出冷汗</td>
+          <td>「背脊」屬粵語口語；同一詞於第四段再現（「拍打我的背脊」），連錯兩次。</td>
+        </tr>
+        <tr>
+          <td>我曖昧地<span class="wrong">行去</span>車廂</td>
+          <td><span class="right">走向</span>車廂</td>
+          <td>「行」表行走屬粵語用法，書面語作「走」。</td>
+        </tr>
+        <tr>
+          <td>我<span class="wrong">未清楚</span>自己是否準備好</td>
+          <td>我<span class="right">還不確定</span>自己是否準備好</td>
+          <td>「未＋形容詞」屬粵語否定式，書面語須作「還未／尚未／不」。</td>
+        </tr>
+        <tr>
+          <td>我們<span class="wrong">兩爺孫</span></td>
+          <td>我們<span class="right">祖孫倆</span></td>
+          <td>「兩爺孫」為粵語稱謂語序，書面語作「祖孫倆／爺孫二人」。</td>
+        </tr>
+        <tr>
+          <td>每<span class="wrong">架</span>火車</td>
+          <td>每<span class="right">列／班</span>火車</td>
+          <td>「架」用於車輛屬粵語量詞習慣；火車的規範量詞為「列」。</td>
+        </tr>
+        <tr>
+          <td>沒有<span class="wrong">試過</span>考試<span class="wrong">這樣東西</span></td>
+          <td>沒有<span class="right">經歷過</span>考試<span class="right">這回事</span></td>
+          <td>「試過」「這樣東西」均帶粵語口語色彩（對白內可酌情從寬，但仍以規範為佳）。</td>
+        </tr>
+      </table>
+
+      <div class="alert tip">
+        <div class="alert-icon">💡</div>
+        <div>
+          <div class="alert-label">切實可行的訓練方法</div>
+          <div class="alert-text">
+            建立個人「口語詞黑名單」：將上表八個詞抄入筆記簿末頁，每次作文交卷前，逐一用眼睛「搜尋」全文一次（每個詞約十秒，八個詞共兩分鐘）。堅持三至五篇文章後，這批高頻口語詞會自然絕跡。這比籠統的「多讀多寫」有效得多，因為每個人的口語滲漏詞其實高度固定。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 06 ============ -->
+    <div class="section-header">
+      <span class="icon">🔍</span>
+      <div>
+        <div class="chapter-no">CHAPTER 06</div>
+        <div class="title">表達評析（丙）：搭配不當與邏輯矛盾</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>詞語搭配不當（七處）</div>
+      <table class="err-table">
+        <tr>
+          <th style="width:32%;">原文</th>
+          <th style="width:26%;">建議修改</th>
+          <th>分析</th>
+        </tr>
+        <tr>
+          <td><span class="wrong">撲開</span>字條上的塵埃</td>
+          <td>輕輕<span class="right">拂去</span>塵埃</td>
+          <td>「撲」是猛力動作（撲火、撲打），與拂拭薄塵的輕柔動作相悖。</td>
+        </tr>
+        <tr>
+          <td>用盡力氣<span class="wrong">抽起</span>行李箱</td>
+          <td>吃力地<span class="right">提起</span>行李箱</td>
+          <td>「抽」用於從縫隙中拉出（抽屜、抽籤）；提起重物用「提／拎」。「抽」字在開首兩句已用三次（抽屜、抽出×2），此處再用，更顯用詞貧乏。</td>
+        </tr>
+        <tr>
+          <td>亦是我<span class="wrong">面臨冒險的裝備</span></td>
+          <td>亦是我<span class="right">迎接這場冒險的行裝</span></td>
+          <td>「面臨」後接處境（面臨困境／抉擇），不能修飾「裝備」；全句結構混亂。</td>
+        </tr>
+        <tr>
+          <td>車廂在月台<span class="wrong">停頓</span></td>
+          <td><span class="right">列車</span>在月台<span class="right">停定</span></td>
+          <td>雙重問題：主語應為「列車」而非「車廂」；「停頓」用於言語、動作的中斷，車輛應作「停下／停定」。</td>
+        </tr>
+        <tr>
+          <td>向我揮手<span class="wrong">再見</span></td>
+          <td>向我揮手<span class="right">道別</span></td>
+          <td>「揮手」不能直接帶「再見」作賓語；「再見」是招呼語，不是動作對象。</td>
+        </tr>
+        <tr>
+          <td>我那時沒有<span class="wrong">答覆</span>他</td>
+          <td>我那時沒有<span class="right">回應</span>他</td>
+          <td>「答覆」用於正式回覆查詢、信件；回應揮手道別應用「回應」。</td>
+        </tr>
+        <tr>
+          <td>他輕輕地拍打我的背脊，<span class="wrong">告訴：</span></td>
+          <td>他輕拍我的背，<span class="right">說道：</span></td>
+          <td>「告訴」是及物動詞，必須帶對象（告訴<b>我</b>）；引出對白應用「說道／說」。</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>邏輯矛盾（三處，反映下筆前欠缺畫面推敲）</div>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">原文</span>我瞅了<b>靜靜地滴溚</b>的手錶<div class="note">
+            自相矛盾：既然「靜靜」，何來聽得見「滴答」聲？兩個修飾語互相打架。此句連錯三次。</div>
+        </div>
+        <div class="compare-card good"><span class="tag">建議</span>我瞥了一眼腕上的手錶，秒針一格一格地走着<div class="note">
+            改為視覺描寫，矛盾即消，且「一格一格」更能傳達煎熬感。</div>
+        </div>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">原文</span>列車的頭燈從外面<b>慢慢閃</b>過來<div class="note">
+            「閃」的本義是快速掠過，與「慢慢」矛盾；「從外面」亦語意不明，主角本已身在月台，何謂外面？</div>
+        </div>
+        <div class="compare-card good"><span class="tag">建議</span>列車的頭燈自隧道深處緩緩亮起，愈來愈近<div class="note">
+            交代光源方位，動詞改「亮起」，畫面即成立。</div>
+        </div>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">原文</span>如時光一下子地<b>飛向未知</b>
+          <div class="note">回憶是回到「已知的過去」，「飛向未知」方向完全相反，比喻失效。</div>
+        </div>
+        <div class="compare-card good"><span class="tag">建議</span>彷彿時光倒流，把我拽回那個夏天的月台<div class="note">方向正確，並順勢預告下文場景。
+          </div>
+        </div>
+      </div>
+
+      <div class="alert tip">
+        <div class="alert-icon">💡</div>
+        <div>
+          <div class="alert-label">畫面測試法</div>
+          <div class="alert-text">寫描寫句時自問一句：「這個畫面拍成影片，拍得出來嗎？」「靜靜地滴答」拍不出、「慢慢地閃」拍不出、「曖昧地行」拍不出。拍不出的句子，就是邏輯有問題的句子。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 07 ============ -->
+    <div class="section-header">
+      <span class="icon">✂️</span>
+      <div>
+        <div class="chapter-no">CHAPTER 07</div>
+        <div class="title">表達評析（丁）：冗贅、語病與重複</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>「地」字濫用（貫穿全文的壞習慣）</div>
+      <p>全文出現「一下子<span style="color:#b23a3a;font-weight:700;">地</span>」「一瞬間<span
+          style="color:#b23a3a;font-weight:700;">地</span>」「逐一<span
+          style="color:#b23a3a;font-weight:700;">地</span>」「親口<span
+          style="color:#b23a3a;font-weight:700;">地</span>」「堅持<span
+          style="color:#b23a3a;font-weight:700;">地</span>」「掙著雙眼<span
+          style="color:#b23a3a;font-weight:700;">地</span>」等至少六處生硬的「〜地」結構。並非每個狀語都需要「地」；「一下子」「逐一」「親口」本身已可直接作狀語，強加「地」字反令句子機械拖沓。<b>規則：能刪去「地」而句子仍通順者，一律刪去。</b>
+      </p>
+
+      <div class="subsection-title" style="margin-top:20px;"><span class="dot coral"></span>語病與缺漏（四處）</div>
+      <table class="err-table">
+        <tr>
+          <th style="width:34%;">原文</th>
+          <th>修改及分析</th>
+        </tr>
+        <tr>
+          <td>我在堆滿紙張的抽屜摸索</td>
+          <td>在抽屜<span class="right">裡</span>摸索，處所詞後缺方位詞「裡／中」。</td>
+        </tr>
+        <tr>
+          <td>我發現己經時間不多了</td>
+          <td>我發現<span class="right">時間已經不多了</span>，「已經」須置於「時間」之後，原句語序倒錯。</td>
+        </tr>
+        <tr>
+          <td>遺憾是我那時沒有答覆他</td>
+          <td>遺憾<span class="right">的</span>是，「遺憾的是」為固定結構，缺「的」即成語病。</td>
+        </tr>
+        <tr>
+          <td>我站在爺爺的墳墓持着那一張車票</td>
+          <td>我站在爺爺的<span class="right">墳前</span>，<span
+              class="right">手裡拿</span>着那張車票，「站在墳墓」搭配不通（人不能站在墓上），且「持着」前缺主語部位，兩個動作間缺標點。</td>
+        </tr>
+        <tr>
+          <td>身子虛弱的爺爺堅持地<span class="wrong">一邊</span>跟著列車向我揮手再見</td>
+          <td>「一邊」須成對使用（一邊⋯⋯一邊⋯⋯），單用即為孤立關聯詞。改：身子虛弱的爺爺仍堅持追着列車，不住向我揮手道別。</td>
+        </tr>
+      </table>
+
+      <div class="subsection-title" style="margin-top:20px;"><span class="dot coral"></span>重複用語（暴露詞彙儲備不足）</div>
+      <ul>
+        <li>「即將要踏上人生的另一步」，第三段與第五段<b>一字不改地重複</b>整句。同一意念第二次出現必須換一種說法（如「人生的新一頁快將揭開」）。</li>
+        <li>「瞅了靜靜地滴溚的手錶」，三次重複中連動詞也不變。刻意重複的修辭（反復）容許句式相近，但至少動詞須有變化（瞥→望→盯），否則只是懶惰而非技巧。</li>
+        <li>開首連續三個「抽」：抽屜、抽出廢紙、抽出回憶，兩句之內同字三現，開篇即予人詞彙貧乏之感，第一印象已失分。</li>
+      </ul>
+    </div>
+
+    <!-- ============ 08 ============ -->
+    <div class="section-header">
+      <span class="icon">🏗️</span>
+      <div>
+        <div class="chapter-no">CHAPTER 08</div>
+        <div class="title">結構評析</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">可取之處</div>
+          <div class="alert-text">「現在（拾票）—回憶（月台）—現在（墓前）」的框架式結構完整，睹物思人的入題方式恰當，首尾均有車票出現，呼應意識明確。這個骨架不必推倒，問題出在血肉分配。</div>
+        </div>
+      </div>
+
+      <div class="subsection-title"><span class="dot coral"></span>問題一：篇幅比例嚴重失衡</div>
+      <p>粗略統計各部分佔全文比例：</p>
+      <table class="err-table">
+        <tr>
+          <th>段落內容</th>
+          <th style="width:18%;">現時佔比</th>
+          <th style="width:18%;">建議佔比</th>
+          <th>說明</th>
+        </tr>
+        <tr>
+          <td>開首拾票、觸發回憶</td>
+          <td>約 20%</td>
+          <td>10–12%</td>
+          <td>開首鋪陳可再精煉，「抽出廢紙和郵件」等瑣碎細節可刪。</td>
+        </tr>
+        <tr>
+          <td>月台等車與對話</td>
+          <td>約 60%</td>
+          <td>40–45%</td>
+          <td>三看手錶可減至兩次；等車過程的重複鋪陳宜壓縮。</td>
+        </tr>
+        <tr>
+          <td>列車開出至爺爺離世（時間跨度）</td>
+          <td><b>約 5%</b></td>
+          <td><b>25–30%</b></td>
+          <td><b>全文情感重心所在，現時近乎空白</b>，大學歲月中車票與爺爺的話如何「陪伴」主角，正應寫在這裡。</td>
+        </tr>
+        <tr>
+          <td>墓前作結</td>
+          <td>約 15%</td>
+          <td>15–20%</td>
+          <td>長度尚可，但須承接前段鋪墊方有力量。</td>
+        </tr>
+      </table>
+
+      <div class="subsection-title" style="margin-top:18px;"><span class="dot coral"></span>問題二：致命跳接——「列車開駛」直達「墳前」</div>
+      <p>兩段之間隔着數年光陰與一場死亡，卻連一個過渡句也沒有。這不是留白（留白須有足夠鋪墊供讀者想像），而是斷層。加上「畢業袍」遲至最後一句才揭示時間跨度，讀者需回頭重組時間線，閱讀體驗支離。</p>
+
+      <div class="subsection-title" style="margin-top:18px;"><span class="dot blue"></span>建議的結構藍圖</div>
+      <div class="flow">
+        <div class="flow-step">拾票（精簡）</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">背景一筆<br><span style="font-size:11px;color:var(--color-text-secondary);">三代首名大學生</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">月台送別（壓縮）<br><span
+            style="font-size:11px;color:var(--color-text-secondary);">加入車票交接細節</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="border:1.5px solid var(--dot-coral);">新增：大學四年<br><span
+            style="font-size:11px;color:var(--color-text-secondary);">車票夾在筆記簿・噩耗</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">墓前・畢業袍・道謝</div>
+      </div>
+    </div>
+
+    <!-- ============ 09 ============ -->
+    <div class="section-header">
+      <span class="icon">🌟</span>
+      <div>
+        <div class="chapter-no">CHAPTER 09</div>
+        <div class="title">升格示範：結尾兩段改寫</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>以下示範如何在<b>不改動故事骨架</b>的前提下，用約二百字修補「跳接斷層」、回收「車票」意象、落實「陪伴」題眼、兌現「沒有答覆」的遺憾，四個問題一次過解決：</p>
+
+      <div class="example-box coral">
+        <div class="example-label">原文結尾（共兩段，約七十字）</div>
+        <div class="example-text">
+          列車開駛了，並慢慢駛離月台，身子虛弱的爺爺堅持地一邊跟著列車向我揮手再見。遺憾是我那時沒有答覆他⋯⋯<br><br>我站在爺爺的墳墓持着那一張車票，亦特別穿上他會想見我穿的畢業袍，我親口地對著墓碑上的照片說：「爺爺，多謝你⋯⋯」
+        </div>
+      </div>
+
+      <div class="example-box teal">
+        <div class="example-label">升格示範（約二百字）</div>
+        <div class="example-text">
+          列車緩緩駛離月台。身子單薄的爺爺追着車窗，不住向我揮手。我隔着玻璃張了張口，終究沒有喊出那句道別。十八歲的我總覺得，道別是難為情的事，何況來日方長。<br><br>往後四年，那張車票一直夾在我的筆記簿裡。每逢深夜溫習得快要放棄，指尖觸到那片薄薄的紙，月台上那句「我相信你」便在耳邊響起，像爺爺仍站在我身旁。他終究沒能等到我畢業。<br><br>今天，我穿上他最想看見的畢業袍，站在墳前，把那張褪了色的車票輕輕放在碑上，一字一句地說：「爺爺，這一程，多謝你陪我上車。」
+        </div>
+      </div>
+
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">示範中的四個修補位</div>
+          <div class="alert-text">
+            ①「終究沒有喊出那句道別」後補一句<b>解釋遺憾成因</b>；②「往後四年」三字即完成<b>時間過渡</b>，畢業袍出場不再突兀；③車票夾在筆記簿裡，<b>意象回收</b>兼具體呈現「陪伴」；④末句「陪我上車」<b>直扣題眼</b>，車票與陪伴二詞在結穴處合流。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 10 ============ -->
+    <div class="section-header">
+      <span class="icon">🛠️</span>
+      <div>
+        <div class="chapter-no">CHAPTER 10</div>
+        <div class="title">修改行動清單與自我檢查表</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot coral"></span>修改行動清單（按優先次序執行）</div>
+      <ol>
+        <li><b>【必改・零容忍】清除三處錯別字</b>：滴溚→滴答、己經→已經、掙→睜。（約五分鐘）</li>
+        <li><b>【必改】訂正四處成語詞語誤用</b>：曖昧地→遲疑地、硬著眉頭→硬着頭皮、坐立不安→侷促不安、一刻醒覺→霎時醒覺。（約十分鐘）</li>
+        <li><b>【必改】替換八個口語方言詞</b>：按第五章表格逐一替換。（約十五分鐘）</li>
+        <li><b>【必改】在「列車開駛」與「墓前」之間增寫過渡段</b>：可直接參考第九章示範的中段（大學四年、車票夾在筆記簿），約六十至八十字即可。（約二十分鐘）</li>
+        <li><b>【應改】月台一幕加入車票交接細節</b>：一至兩句，令車票在回憶中「出場」。（約十分鐘）</li>
+        <li><b>【應改】三看手錶減為兩次並更換動詞</b>；刪去重複整句「即將要踏上人生的另一步」其中一次。（約十分鐘）</li>
+        <li><b>【應改】全文刪除多餘「地」字</b>：逐句朗讀，能刪則刪。（約十分鐘）</li>
+        <li><b>【宜改】回憶開始前補一句背景</b>（如「家中三代首名大學生」），令不安有因。（約五分鐘）</li>
+      </ol>
+      <p style="color:var(--color-text-secondary);font-size:13px;">
+        合計約一小時三十分鐘的針對性修改。完成第1至4項後，文章即可脫離第3級；完成全部八項，有力爭取第4級上游至第5級邊緣。</p>
+    </div>
+
+    <div class="card">
+      <div class="subsection-title"><span class="dot blue"></span>日後作文自我檢查表（交卷前五分鐘用）</div>
+      <div class="keyword-grid">
+        <div class="kw-card">
+          <div class="kw-word">① 題眼點算</div>
+          <div class="kw-def">題目每個關鍵詞，文中是否各有至少一段實質內容支撐？（本文教訓：「陪伴」近乎零）</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">② 口語詞掃描</div>
+          <div class="kw-def">用個人黑名單（瞅、郁、背脊、行、未、架⋯⋯）逐詞搜尋全文一次。</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">③ 成語自檢</div>
+          <div class="kw-def">凡四字詞，能否默寫兼造句？不能即換淺白說法。</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">④ 畫面測試</div>
+          <div class="kw-def">描寫句能否「拍成影片」？拍不出＝邏輯有問題。</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">⑤ 時間線覆核</div>
+          <div class="kw-def">凡有時間跳接，是否已有「多年後／那年冬天」一類路標？</div>
+        </div>
+        <div class="kw-card">
+          <div class="kw-word">⑥ 「地」字瘦身</div>
+          <div class="kw-def">每個「〜地」試刪一次，句子仍通則刪。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="formula">
+      <b>總結：</b>這篇文章的故事核心是真誠的，結構骨架也算完整，這一點值得肯定。問題出在<b>語文根基的漏洞（錯字、誤用、口語入文）密集到足以掩蓋所有優點</b>，題眼「陪伴」又寫得失焦，內容分數因此被鎖死。評為第3級，是想讓作者看清楚：一個不確定的詞沒有停下來想一想、一次跳接沒有補一個路標、一個題眼沒有給一段實寫，<b>這些才是卡住分數的地方，不是才華不夠</b>。按第十章清單完成修改後，這篇文章完全有條件重生為第4級上游的作品。
+    </div>
+
+    <footer
+      style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+        <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>
