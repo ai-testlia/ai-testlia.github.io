@@ -2,6 +2,11 @@
 const studentMemo = [
   {
     "type": "功課",
+    "content": "作文：《原來我沒有想象中的勇敢》",
+    "due": "2026-07-16"
+  },
+  {
+    "type": "功課",
     "content": "閱讀理解 Ex1",
     "due": "2026-07-13"
   },

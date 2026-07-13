@@ -1,6 +1,11 @@
 // Automatically generated memo data
 const studentMemo = [
   {
+    "type": "功課",
+    "content": "1.作文修改《舊車票》；2. 閱讀理解《我的母親》",
+    "due": "2026-07-20"
+  },
+  {
     "type": "溫習目標",
     "content": "1. 針對弱項 a) 題目理解 b) 答題關鍵詞掌握 c) 答題速度 加強訓練 2. 增強閱讀培訓 3. 盡量利用 Notebook LM 協助閱讀",
     "due": "2026-08-31"
