@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《倒數小學生活的日子》寫作教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* CSS 變數定義 */
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+/* 深色模式支援 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #f0f0ee;
+    --color-text-secondary: #aaa;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #2c2c2e;
+    --color-border-tertiary: rgba(255,255,255,0.15);
+  }
+  .example-box { background: #2a2a35 !important; border-left-color: #748ffc !important; }
+  .example-text { color: #ddd !important; }
+  .example-box.pink { background: #3b2830 !important; border-left-color: #f06595 !important; }
+  .alert.tip { background: #133035 !important; color: #99e9f2 !important; border-color: #0b2226 !important; }
+  .alert.warn { background: #3b1818 !important; color: #ff8787 !important; border-color: #2b0e0e !important; }
+  .alert.success { background: #16331d !important; color: #8ce99a !important; border-color: #0f2414 !important; }
+  .compare-card.bad { background: #2e1818 !important; }
+  .compare-card.good { background: #162e1a !important; }
+  .kw-card { background: var(--color-background-secondary) !important; }
+  .ans-box { background: #1c2c25 !important; border-left-color: #20c997 !important; }
+  table th { background: #2c2c2e !important; }
+  .formula { background: #1a0f0a !important; color: #e8d5c8 !important; border: 1px solid #4a2e22; }
+}
+
+/* 基礎排版 */
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  margin: 0;
+  padding: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .serif {
+  font-family: 'Noto Serif TC', serif;
+}
+
+.wrap {
+  max-width: 850px;
+  margin: 0 auto;
+  background: var(--color-background-primary);
+  padding: 40px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+/* 目錄 (.toc) */
+.toc {
+  background: var(--color-background-secondary);
+  padding: 20px 25px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 35px;
+  border: 1px solid var(--color-border-tertiary);
+}
+.toc-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin-bottom: 8px; }
+.toc a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.toc a:hover { color: var(--color-text-primary); text-decoration: underline; }
+
+/* 分區標題 (.section-header) */
+.section-header {
+  display: flex;
+  align-items: center;
+  margin: 45px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-border-tertiary);
+}
+.section-icon { font-size: 1.6rem; margin-right: 12px; }
+.section-header h2 { margin: 0; font-size: 1.45rem; font-weight: 700; }
+
+/* 內容卡片 (.card) */
+.card {
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 22px;
+  margin-bottom: 20px;
+  background: var(--color-background-primary);
+}
+.card-title {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 10px; background: #2E1A12; }
+
+/* 關鍵詞卡片 (.keyword-grid) */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.kw-card {
+  background: var(--color-background-secondary);
+  padding: 16px;
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid #2E1A12;
+}
+.kw-word {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  display: block;
+  color: var(--color-text-primary);
+}
+
+/* 提示框 (.alert) */
+.alert {
+  padding: 16px 20px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.alert-icon { font-size: 1.2rem; flex-shrink: 0; }
+.alert-content { flex-grow: 1; }
+.alert-title { font-weight: 700; margin-bottom: 4px; display: block; }
+.alert.tip { background: #e3fafc; color: #0b7285; border: 1px solid #c5f6fa; }
+.alert.warn { background: #fff5f5; color: #c92a2a; border: 1px solid #ffe3e3; }
+.alert.success { background: #ebfbee; color: #2b8a3e; border: 1px solid #d3f9d8; }
+
+/* 示例框 (.example-box) */
+.example-box {
+  background: #f8f9fa;
+  border-left: 4px solid #5c7cfa;
+  padding: 18px;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  margin: 15px 0;
+}
+.example-box.pink { background: #fff0f6; border-left-color: #f06595; }
+.example-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+  letter-spacing: 0.05em;
+}
+.example-box:not(.pink) .example-label { color: #5c7cfa; }
+.example-box.pink .example-label { color: #f06595; }
+.example-text {
+  font-family: 'Noto Serif TC', serif;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* 流程箭頭 (.flow) */
+.flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: var(--color-background-secondary);
+  padding: 18px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 20px;
+}
+.flow-step {
+  background: var(--color-background-primary);
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-weight: 500;
+  border: 1px solid var(--color-border-tertiary);
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
+}
+.flow-arrow {
+  color: var(--color-text-secondary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* 公式框 (.formula) */
+.formula {
+  background: #2E1A12;
+  color: #E8D5C8;
+  padding: 22px;
+  text-align: center;
+  border-radius: var(--border-radius-md);
+  font-size: 1.15rem;
+  margin: 25px 0;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 10px rgba(46,26,18,0.15);
+}
+
+/* 對比框 (.compare-grid) */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.compare-card {
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-tertiary);
+}
+.compare-card.bad { border-top: 4px solid #ff6b6b; background: #fff9f9; }
+.compare-card.good { border-top: 4px solid #51cf66; background: #f9fff9; }
+.compare-header { font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+
+/* 表格 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: var(--color-background-primary);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--color-border-tertiary);
+}
+th, td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-tertiary);
+  vertical-align: top;
+}
+th {
+  background: var(--color-background-secondary);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+tr:last-child td { border-bottom: none; }
+
+/* 練習題 (.qbox) */
+.qbox {
+  border: 1px solid var(--color-border-tertiary);
+  padding: 25px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 25px;
+  background: var(--color-background-primary);
+}
+.q-title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.q-num {
+  background: var(--color-text-primary);
+  color: var(--color-background-primary);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.ans-box {
+  margin-top: 20px;
+  padding: 18px;
+  background: #f8f9fa;
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid #20c997;
+}
+.ans-label { font-weight: 700; color: #0ca678; margin-bottom: 8px; display: block; }
+
+/* PRINT BUTTONS */
+.print-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 2.5rem;
+  padding: 1.2rem;
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+}
+.print-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #004754 !important;
+  background: #FFD700 !important;
+  border: none !important;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.print-btn:hover {
+  background: #e6c200 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
+/* ========================================= */
+/* Hero CSS 完整代碼 (Strictly from rules) */
+/* ========================================= */
+.hero {
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: inherit;
+}
+.hero p { font-size: 13px; }
+
+/* 寫作：霧玫瑰 */
+.hero.writing { background: #E8D5C8; color: #2E1A12; }
+.hero.writing .hero-tag {
+  border: 1px solid rgba(46,26,18,0.3);
+  color: rgba(46,26,18,0.65);
+}
+.hero.writing p { color: rgba(46,26,18,0.5); }
+
+/* 閱讀：霧藍灰 */
+.hero.reading { background: #C8D5D8; color: #122025; }
+.hero.reading .hero-tag {
+  border: 1px solid rgba(18,32,37,0.3);
+  color: rgba(18,32,37,0.65);
+}
+.hero.reading p { color: rgba(18,32,37,0.5); }
+
+/* 文言文：霧鼠尾草 */
+.hero.classical { background: #D5D8C5; color: #1A2015; }
+.hero.classical .hero-tag {
+  border: 1px solid rgba(26,32,21,0.3);
+  color: rgba(26,32,21,0.65);
+}
+.hero.classical p { color: rgba(26,32,21,0.5); }
+
+/* 歷史：霧磚陶 */
+.hero.history { background: #E0C8BE; color: #2A1510; }
+.hero.history .hero-tag {
+  border: 1px solid rgba(42,21,16,0.3);
+  color: rgba(42,21,16,0.65);
+}
+.hero.history p { color: rgba(42,21,16,0.5); }
+
+/* ========================================= */
+/* 列印／PDF 分頁規則 (Strictly from rules) */
+/* ========================================= */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+
+  /* 確保列印時顏色正確 */
+  .hero.writing {
+    background-color: #E8D5C8 !important;
+    color: #2E1A12 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .kw-card, .flow, table th {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* 列印時隱藏按鈕、強制顯示答案 */
+  .print-btn, .print-btn-container { display: none !important; }
+  details.ans-box { display: block !important; }
+  details.ans-box summary.ans-label { display: none !important; }
+  details.ans-box > *:not(summary) { display: block !important; }
+}
+
+@media (max-width: 600px) {
+  .compare-grid { grid-template-columns: 1fr; }
+  .wrap { padding: 20px; }
+  .flow-arrow { transform: rotate(90deg); margin: 5px 0; }
+  .flow { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero writing">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>《倒數小學生活的日子》<br>小六寫作教學</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📝 筆記導覽</div>
+    <ul>
+      <li><a href="#section-1">一、 題目分析</a></li>
+      <li><a href="#section-2">二、 寫作構思指引</a></li>
+      <li><a href="#section-3">三、 詳細寫作步驟</a></li>
+      <li><a href="#section-4">四、 寫作技巧講解</a></li>
+      <li><a href="#section-5">五、 詞語與表達提升</a></li>
+      <li><a href="#section-6">六、 常見錯誤與改進建議</a></li>
+      <li><a href="#section-7">七、 範文大綱（供學生跟隨練習）</a></li>
+      <li><a href="#section-8">八、 課堂練習</a></li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="section-1">
+    <div class="section-icon">🔍</div>
+    <h2>一、 題目分析</h2>
+  </div>
+  <p>這道題目看似簡單，但要寫得深刻，必須緊扣「倒數」二字。我們首先來拆解題目的關鍵詞：</p>
+
+  <div class="keyword-grid">
+    <div class="kw-card">
+      <span class="kw-word">倒數</span>
+      這是題目的<strong>題眼</strong>（核心）。代表時間所剩無幾，帶有急迫感、珍惜感，甚至是一絲感傷。文章必須展現出「時間正在流逝」的感覺。
+    </div>
+    <div class="kw-card">
+      <span class="kw-word">小學生活</span>
+      寫作的<strong>範圍</strong>。可以包含同學友誼、師生情誼、校園角落的回憶，或是自己六年間的成長。
+    </div>
+    <div class="kw-card">
+      <span class="kw-word">日子</span>
+      強調這是一段特定的<strong>時間</strong>，可以是某一天發生的具體事件，也可以是這段期間的心理狀態。
+    </div>
+  </div>
+
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div class="alert-content">
+      <span class="alert-title">情感核心與寫作重點</span>
+      <strong>情感核心：</strong>依依不捨、感恩、留戀，以及對未來的期盼。<br>
+      <strong>寫作重點：</strong>必須將「不捨」具象化。不要只喊「我很不捨得」，而是要透過具體的事件或物品來傳達這份情感。
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div class="alert-content">
+      <span class="alert-title">常見離題情況及表達薄弱問題</span>
+      <ul>
+        <li><strong>流水帳（大忌）：</strong>把一年級到六年級發生的事像列清單一樣寫出來，缺乏重點。</li>
+        <li><strong>忽略「倒數」：</strong>只寫了一件校園小事，卻沒有寫出因為即將畢業而產生的特殊感受，變成普通的《記一件校園趣事》。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-header" id="section-2">
+    <div class="section-icon">💡</div>
+    <h2>二、 寫作構思指引</h2>
+  </div>
+  <p>這篇文章的情感轉折非常重要，我們需要從一件貼近生活的小事切入。</p>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>建議可選題材（貼近學生生活）</div>
+    <ul>
+      <li><strong>方向一：物品觸發。</strong>同學們互相傳寫「畢業同學錄（紀念冊）」；或者清理儲物櫃時，發現低年級時的舊物。</li>
+      <li><strong>方向二：校園風景。</strong>最後一次代表學校參加陸運會；或者放學後留在空蕩蕩的課室做值日生，看着黑板上的「距離畢業還有X天」。</li>
+      <li><strong>方向三：師生互動。</strong>老師上最後一堂課時的叮囑；或者與曾經吵架但已和好的好朋友坐在操場聊天。</li>
+    </ul>
+  </div>
+
+  <p><strong>情節發展建議（四步曲）：</strong></p>
+  <div class="flow">
+    <div class="flow-step">起因<br><small>看到某個畫面/物品，驚覺即將結束</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">經過<br><small>引發具體事件/回憶深刻經歷</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">高潮<br><small>情感達到頂峰 (相視而笑/落淚/擁抱)</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">結局<br><small>收拾心情，感恩並走向未來</small></div>
+  </div>
+
+  <p><strong>指導如何鋪排情感轉折：</strong></p>
+  <div class="formula">
+    平靜 (日常) &nbsp;→&nbsp; 驚訝/不捨 (發現倒數) &nbsp;→&nbsp; 感恩 (回憶別人的好) &nbsp;→&nbsp; 釋懷/盼望 (微笑面對)
+  </div>
+
+  <div class="section-header" id="section-3">
+    <div class="section-icon">✍️</div>
+    <h2>三、 詳細寫作步驟</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>1. 開頭技巧：如何吸引讀者</div>
+    <ul>
+      <li><strong>情境描寫：</strong>描寫黑板上的倒數日曆，或是校園裡逐漸盛開的鳳凰木（代表畢業季）。</li>
+      <li><strong>設問開頭：</strong>用一個問題引發讀者共鳴。</li>
+    </ul>
+    <div class="example-box">
+      <span class="example-label">簡短示例（情境結合內心獨白）</span>
+      <div class="example-text">
+        「『距離畢業還有十五天』，今天早會後，值日生在黑板的右上角默默更新了這個數字。那白色的粉筆字明明那麼細小，卻像一塊大石重重地壓在我的心頭。小學生活，真的要進入倒數階段了嗎？」
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>2. 中段技巧：事件與細節描寫</div>
+    <ul>
+      <li><strong>事件描寫：</strong>集中火力寫一件事。例如寫同學錄。</li>
+      <li><strong>細節描寫：</strong>加入動作（如：摩挲着紙張、筆尖停頓）、語言（同學間的對話）。</li>
+      <li><strong>心理刻畫：</strong>描述內心的翻騰。</li>
+    </ul>
+    <div class="example-box">
+      <span class="example-label">簡短示例（事件與細節）</span>
+      <div class="example-text">
+        「小息時，同座的允行把一本精美的紀念冊遞給我。我接過來，看見上面貼滿了我們三年級時一起參加常識問答比賽的滑稽照片。我撫摸着那稍稍泛黃的照片，聽着窗外操場傳來熟悉的嬉鬧聲，眼眶不禁一熱。這間充滿歡笑聲的課室，我們還能坐多久呢？」
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>3. 結尾技巧：昇華主題</div>
+    <p>不要草草寫一句「我會永遠記得小學」就結束。要寫出成長的領悟。畢業不是終點，而是新的起點。</p>
+    <div class="example-box">
+      <span class="example-label">簡短示例（昇華與展望）</span>
+      <div class="example-text">
+        「倒數的日子雖然一天比一天少，但我們累積的回憶卻一天比一天厚。再見了，我的母校！我會把這六年的溫暖裝進大大的書包裡，帶着老師和同學的祝福，昂首闊步地邁向中學的新旅程。」
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" id="section-4">
+    <div class="section-icon">⭐</div>
+    <h2>四、 寫作技巧講解</h2>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div class="alert-content">
+      <span class="alert-title">技巧一：如何做到「以小見大」</span>
+      不要試圖寫盡整個校園，試着找一個「小焦點」。例如：一張被刻滿原子筆印的舊書桌、一條磨損的校呔、黑板右上角的倒數數字。抓住這件小物件來寫，六年的感情自然就帶出來了。
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div class="alert-content">
+      <span class="alert-title">技巧二：避免流水帳的方法（選重點）</span>
+      利用「蒙太奇」手法（畫面剪接）。與其寫「一年級我做甚麼、二年級我做甚麼」，不如寫：「操場上的籃球架，見證了我們揮灑的汗水；音樂室的鋼琴，記錄了我們初學走音的歌聲……」用幾個具代表性的場景輕輕帶過，然後立刻聚焦在「現在倒數的心情」。
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div class="alert-content">
+      <span class="alert-title">技巧三：環境烘托技巧</span>
+      利用天氣和環境來襯托心情。如果寫不捨，可以寫「夕陽的餘暉把操場染成了一片橘紅，拉長了我們的影子」；如果寫對未來的期待，可以寫「雨過天晴，一道彩虹掛在教學樓的屋頂」。
+    </div>
+  </div>
+
+  <div class="section-header" id="section-5">
+    <div class="section-icon">📚</div>
+    <h2>五、 詞語與表達提升</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">詞語 / 成語</th>
+        <th style="width: 35%;">解釋及用法</th>
+        <th style="width: 45%;">例句</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>光陰似箭</strong></td>
+        <td>形容時間消逝得極快。</td>
+        <td>光陰似箭，轉眼間我已從小一的新生，變成即將畢業的小六學生了。</td>
+      </tr>
+      <tr>
+        <td><strong>歷歷在目</strong></td>
+        <td>過去的事情清清楚楚地重現在眼前。</td>
+        <td>老師當年的諄諄教誨，至今依然歷歷在目。</td>
+      </tr>
+      <tr>
+        <td><strong>彌足珍貴</strong></td>
+        <td>形容事物十分珍貴。</td>
+        <td>這些在倒數日子裡與同學相處的點點滴滴，對我來說彌足珍貴。</td>
+      </tr>
+      <tr>
+        <td><strong>百感交集</strong></td>
+        <td>形容各種情感交織在一起。</td>
+        <td>看着黑板上日益減少的數字，我心裡百感交集，既有不捨，也有期待。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="example-box pink">
+    <span class="example-label">✨ 精選佳句示例（可供仿寫）</span>
+    <div class="example-text">
+      「時間是一個殘酷的魔術師，悄悄把我們稚嫩的臉龐變成熟，又準備把我們變出這個校園。」<br><br>
+      「那倒數的數字不是催促我們離開的時鐘，而是提醒我們要珍惜當下的警鐘。」
+    </div>
+  </div>
+
+  <div class="section-header" id="section-6">
+    <div class="section-icon">⚖️</div>
+    <h2>六、 常見錯誤與改進建議</h2>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header"><span style="color:#ff6b6b">❌ 常見問題一：情感空洞（只說不演）</span></div>
+      <p>我很捨不得離開學校，我會很想念我的好朋友小明，因為我們感情很好。</p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header"><span style="color:#51cf66">✅ 改進後：具象化描寫</span></div>
+      <p>我轉頭看着小明，他正低着頭笨拙地為我填寫紀念冊。看着他認真的側臉，想到九月後我們便要穿上不同顏色的校服，走向不同的中學，我的鼻頭頓時一酸。</p>
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header"><span style="color:#ff6b6b">❌ 常見問題二：結尾無力</span></div>
+      <p>這就是我倒數小學生活的日子。希望大家以後開開心心。</p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header"><span style="color:#51cf66">✅ 改進後：昇華主題，點出成長</span></div>
+      <p>倒數的鐘聲雖然催促着我們前進，但帶不走我們深厚的友誼。讓我們把這份不捨化作動力，在未來的日子裡各自發光發亮吧！</p>
+    </div>
+  </div>
+
+  <div class="section-header" id="section-7">
+    <div class="section-icon">📋</div>
+    <h2>七、 範文大綱（供學生跟隨練習）</h2>
+  </div>
+
+  <div class="card">
+    <ul style="line-height: 2;">
+      <li><strong>第一段：點題開頭（環境描寫 + 點出倒數）</strong><br>描寫六月校園的氣氛，目光落在課室黑板的「距離畢業還有X天」。帶出時間飛逝的感慨。</li>
+      <li><strong>第二段：過渡與觸發（一件小事）</strong><br>寫今天在學校發生的一件特別的事（如：最後一次大考結束 / 派發畢業冊 / 清理儲物櫃）。</li>
+      <li><strong>第三段：重點回憶（以小見大）</strong><br>由上述的事件，回憶起一個與同學或老師經歷的深刻片段（如：運動會接力掉棒卻互相鼓勵的經歷），帶出六年來的深厚感情。</li>
+      <li><strong>第四段：回到現實（情感抒發）</strong><br>視線回到當下，深刻體會到「倒數」的意義。描寫自己對校園一草一木、一桌一椅的不捨之情（運用內心獨白及環境烘托）。</li>
+      <li><strong>第五段：反思與結尾（昇華主題）</strong><br>接受即將分離的事實。明白畢業是成長的必經階段，表達對未來的期盼，並向小學生活好好道別。</li>
+    </ul>
+  </div>
+
+  <div class="section-header" id="section-8">
+    <div class="section-icon">📝</div>
+    <h2>八、 課堂練習</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1</span>詞語運用填充</div>
+    <p>請從以下詞語中選擇最合適的填入句子中：<br><strong>【 光陰似箭 / 歷歷在目 / 彌足珍貴 / 百感交集 】</strong></p>
+    <p>當我從小息的喧鬧聲中回過神來，想到這是我小學階段最後一次與同學在操場奔跑，心裡頓時（     ）。俗語說（     ），一年級入學時哭着找媽媽的情景依然（     ），如今卻已到了分離的時刻。</p>
+    
+    <details class="ans-box">
+      <summary class="ans-label">點擊查看參考答案</summary>
+      <p>百感交集；光陰似箭；歷歷在目</p>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2</span>寫作手法辨識</div>
+    <p>以下哪一個句子運用了「環境烘托」來表達臨別前的不捨之情？</p>
+    <p>A. 我十分不捨得離開母校，更不捨得教導我多年的陳老師。<br>
+       B. 窗外的雨淅淅瀝瀝地下着，陰沉的天空彷彿也感應到了我們即將離別的哀愁，給校園蒙上了一層灰暗。<br>
+       C. 還有十天我們就要畢業了，大家都在爭取時間填寫紀念冊。</p>
+    
+    <details class="ans-box">
+      <summary class="ans-label">點擊查看參考答案</summary>
+      <p>正確答案是 <strong>B</strong>。句子透過描寫陰雨天氣和灰暗的天空，營造出哀愁的氣氛，烘托出人物內心不捨與傷感的情緒。</p>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">3</span>短段落改寫（以小見大）</div>
+    <p>這句原本的表達非常平淡，請你加入<strong>「動作細節」</strong>和<strong>「一件小物件」</strong>，將它改寫得更具體、更感人。</p>
+    <p><em>原句：「我捨不得這間課室，因為我在這裡有很多回憶。」</em></p>
+    
+    <details class="ans-box">
+      <summary class="ans-label">點擊查看參考答案</summary>
+      <p><strong>參考改寫：</strong><br>我輕輕撫摸着課室角落那張稍稍掉漆的舊書桌，桌角上還有我三年級時不小心用鉛筆劃下的痕跡。這張小小的書桌，承載着我無數個埋頭苦讀的清晨和與同座偷傳紙條的歡樂時光，叫我怎捨得就這樣離開呢？</p>
+    </details>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+  <!-- PRINT PANEL -->
+  <div class="print-btn-container">
+    <a href="index.html" class="print-btn" style="background: #e2e8f0 !important; color: #475569 !important; box-shadow: none;">返回首頁</a>
+    <button class="print-btn" onclick="window.print()">🖨️ 列印此頁 / 儲存 PDF</button>
+  </div>
+
+</div>
+
+</body>
+</html>
