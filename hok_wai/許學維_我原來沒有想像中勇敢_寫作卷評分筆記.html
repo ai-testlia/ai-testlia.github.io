@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「我原來沒有想像中勇敢」寫作評卷分析筆記 — 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --hero-bg: #E8D5C8;
+  --hero-text: #2E1A12;
+
+  --purple: #7c5cbf;
+  --blue: #3b6ea5;
+  --teal: #2f8f7c;
+  --coral: #c75c4f;
+  --amber: #c08a2e;
+  --pink: #b95c8a;
+  --green: #3a8a52;
+  --red: #c44343;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ececec;
+    --color-text-secondary: #b3b3b3;
+    --color-background-primary: #1e1e1e;
+    --color-background-secondary: #262624;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 1.6rem 1.2rem 3rem; }
+
+/* Hero */
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem 1.8rem;
+  margin-bottom: 1.4rem;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid rgba(46,26,18,0.3);
+  color: rgba(46,26,18,0.65);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 0.8rem;
+}
+.hero h1 {
+  font-family: "Noto Serif TC", serif;
+  font-weight: 900;
+  font-size: 26px;
+  color: var(--hero-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.hero p { font-size: 13px; color: rgba(46,26,18,0.5); }
+.hero-meta {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.4rem;
+  font-size: 12.5px;
+  color: rgba(46,26,18,0.7);
+}
+.hero-meta span b { color: var(--hero-text); font-weight: 700; }
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 1.5rem;
+}
+.toc-title { grid-column: 1 / -1; font-weight: 700; font-size: 13px; color: var(--color-text-secondary); margin-bottom: 0.3rem; }
+.toc-item { font-size: 13.5px; color: var(--color-text-primary); display: flex; gap: 0.5rem; }
+.toc-item .num { color: var(--purple); font-weight: 700; }
+
+/* Section header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--color-border-tertiary);
+}
+.section-header .icon { font-size: 22px; }
+.section-header h2 {
+  font-family: "Noto Serif TC", serif;
+  font-size: 19px;
+  font-weight: 700;
+}
+.section-header .chno {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  background: var(--color-background-secondary);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-left: auto;
+}
+
+/* Card */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1rem;
+}
+.card-title { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.dot.purple { background: var(--purple); }
+.dot.coral { background: var(--coral); }
+.dot.teal { background: var(--teal); }
+.dot.amber { background: var(--amber); }
+.card-title h3 { font-size: 15.5px; font-weight: 700; }
+.card-title .score-tag {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--color-background-secondary);
+  color: var(--color-text-secondary);
+}
+.card p { font-size: 14px; color: var(--color-text-primary); margin-bottom: 0.5rem; }
+.card p:last-child { margin-bottom: 0; }
+
+/* Score table */
+.score-table { width: 100%; border-collapse: collapse; background: var(--color-background-primary); border-radius: var(--border-radius-lg); overflow: hidden; border: 1px solid var(--color-border-tertiary); }
+.score-table th, .score-table td { padding: 0.7rem 0.9rem; text-align: left; font-size: 13.5px; border-bottom: 1px solid var(--color-border-tertiary); }
+.score-table th { background: var(--color-background-secondary); font-weight: 700; color: var(--color-text-secondary); font-size: 12.5px; }
+.score-table td.num { text-align: center; }
+.score-table tr.total td { font-weight: 700; background: var(--color-background-secondary); }
+.score-table tr:last-child td { border-bottom: none; }
+.level-tag { font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 999px; }
+.level-tag.l1 { background: rgba(196,67,67,0.15); color: var(--red); }
+.level-tag.l2 { background: rgba(192,138,46,0.15); color: var(--amber); }
+.level-tag.l3 { background: rgba(47,143,124,0.15); color: var(--teal); }
+.level-tag.l4 { background: rgba(59,110,165,0.15); color: var(--blue); }
+
+/* Example box */
+.example-box { border-radius: var(--border-radius-md); padding: 0.9rem 1.1rem; margin: 0.7rem 0; border-left: 4px solid var(--purple); background: rgba(124,92,191,0.07); }
+.example-box.teal { border-left-color: var(--teal); background: rgba(47,143,124,0.07); }
+.example-box.coral { border-left-color: var(--coral); background: rgba(199,92,79,0.07); }
+.example-box.amber { border-left-color: var(--amber); background: rgba(192,138,46,0.07); }
+.example-label { font-size: 11.5px; font-weight: 700; color: var(--color-text-secondary); margin-bottom: 0.3rem; letter-spacing: 0.5px; }
+.example-text { font-size: 13.5px; font-style: italic; color: var(--color-text-primary); }
+
+/* Alert */
+.alert { display: flex; gap: 0.7rem; border-radius: var(--border-radius-md); padding: 0.8rem 1rem; margin: 0.6rem 0; }
+.alert-icon { font-size: 17px; flex-shrink: 0; }
+.alert-label { font-size: 12px; font-weight: 700; margin-bottom: 0.15rem; }
+.alert-text { font-size: 13.5px; }
+.alert.warn { background: rgba(196,67,67,0.08); }
+.alert.warn .alert-label { color: var(--red); }
+.alert.success { background: rgba(58,138,82,0.08); }
+.alert.success .alert-label { color: var(--green); }
+
+/* Compare grid */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 0.7rem 0; }
+.compare-card { border-radius: var(--border-radius-md); padding: 0.9rem 1rem; font-size: 13px; }
+.compare-card .clabel { font-size: 11.5px; font-weight: 700; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.3rem; }
+.compare-card.bad { background: rgba(196,67,67,0.07); border: 1px solid rgba(196,67,67,0.2); }
+.compare-card.bad .clabel { color: var(--red); }
+.compare-card.good { background: rgba(58,138,82,0.07); border: 1px solid rgba(58,138,82,0.2); }
+.compare-card.good .clabel { color: var(--green); }
+
+/* Fix table */
+.fix-table { width: 100%; border-collapse: collapse; margin: 0.7rem 0; }
+.fix-table th, .fix-table td { padding: 0.6rem 0.7rem; border-bottom: 1px solid var(--color-border-tertiary); font-size: 13px; text-align: left; vertical-align: top; }
+.fix-table th { background: var(--color-background-secondary); font-weight: 700; font-size: 12px; color: var(--color-text-secondary); }
+.fix-table td.orig { color: var(--red); }
+.fix-table td.fixed { color: var(--green); font-weight: 500; }
+
+/* Formula */
+.formula { background: var(--hero-text); color: #fdf6f0; border-radius: var(--border-radius-lg); padding: 1.2rem 1.4rem; margin: 1.2rem 0; text-align: center; }
+.formula .flabel { font-size: 11.5px; opacity: 0.65; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.formula .ftext { font-size: 15.5px; font-weight: 700; line-height: 1.7; }
+
+footer { margin-top: 2rem; padding: 1.2rem 1.5rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); text-align: center; }
+
+/* PRINT BUTTONS */
+.print-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 2.5rem;
+  padding: 1.2rem;
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+}
+.print-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #004754 !important;
+  background: #FFD700 !important;
+  border: none !important;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.print-btn:hover {
+  background: #e6c200 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
+@media (max-width: 560px) {
+  .toc { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .fix-table { font-size: 12px; }
+}
+
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .example-box, .alert, .formula, .fix-table { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .hero { background-color: #E8D5C8 !important; color: #2E1A12 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .print-btn, .print-btn-container { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>「我原來沒有想像中勇敢」記敘抒情文評卷分析</h1>
+    <p>潘SIR中文教室編撰</p>
+    <div class="hero-meta">
+      <span>學校：<b>基督教崇真中學</b></span>
+      <span>學生：<b>許學維</b></span>
+      <span>文體：<b>記敘抒情文</b></span>
+      <span>總分：<b>65 / 100</b>（Level 3 上，未達 Level 4 門檻）</span>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">本筆記內容</div>
+    <div class="toc-item"><span class="num">01</span>評分總覽</div>
+    <div class="toc-item"><span class="num">02</span>總評</div>
+    <div class="toc-item"><span class="num">03</span>弱點詳析</div>
+    <div class="toc-item"><span class="num">04</span>重寫與改善建議</div>
+  </div>
+
+  <!-- 01 評分總覽 -->
+  <div class="section-header">
+    <span class="icon">📊</span>
+    <h2>評分總覽</h2>
+    <span class="chno">第一章</span>
+  </div>
+
+  <table class="score-table">
+    <tr>
+      <th>評分項目</th>
+      <th>滿分</th>
+      <th>學生得分</th>
+      <th>表現等級評估（DSE 參考）</th>
+    </tr>
+    <tr>
+      <td>內容</td>
+      <td class="num">40</td>
+      <td class="num">26</td>
+      <td><span class="level-tag l4">中品上（Level 3+，未入 4）</span></td>
+    </tr>
+    <tr>
+      <td>詞句</td>
+      <td class="num">30</td>
+      <td class="num">18</td>
+      <td><span class="level-tag l3">中品（Level 3）</span></td>
+    </tr>
+    <tr>
+      <td>結構</td>
+      <td class="num">20</td>
+      <td class="num">14</td>
+      <td><span class="level-tag l4">中品上（Level 3+）</span></td>
+    </tr>
+    <tr>
+      <td>標點字體</td>
+      <td class="num">10</td>
+      <td class="num">7</td>
+      <td><span class="level-tag l4">中品上（Level 3+）</span></td>
+    </tr>
+    <tr class="total">
+      <td>總分</td>
+      <td class="num">100</td>
+      <td class="num">65</td>
+      <td>綜合評級：Level 3 上 ／ Level 4 邊緣</td>
+    </tr>
+  </table>
+
+  <!-- 02 總評 -->
+  <div class="section-header">
+    <span class="icon">📝</span>
+    <h2>總評</h2>
+    <span class="chno">第二章</span>
+  </div>
+
+  <div class="card">
+    <p>本文是一篇有意識經營意象、首尾呼應的記敘抒情文，情感基本真摯，比一般考生的平鋪直敘略勝一籌。但嚴格按 DSE 評卷準則審視，它並未走出「中品」的框框，原因不在於「寫得不好」，而在於三個實質性缺陷：<b>立意套路化、情節因果鋪墊不足、語言精準度不夠</b>。這三者才是拉低分數、令文章無法穩定站上 Level 4 的關鍵，並非零散的用詞小瑕疵。</p>
+    <p>閱卷員每日面對大量同類「盔甲／面具」意象的考生作品，若沒有獨特的細節或思辨深度支撐，內容分數天然被封頂在中品區間；同時，文中出現的錯別字、成語誤引與病句雖然數量不多，但性質嚴重（涉及漏字、簡體字、引用錯誤），在標準化評卷下屬於「一眼扣分」的硬傷，必須正視，不可視為小事。</p>
+  </div>
+
+  <div class="formula">
+    <div class="flabel">本次評卷核心結論</div>
+    <div class="ftext">意象需要獨特細節撐住　·　因果鋪墊決定情節是否可信　·　語言硬傷是內容以外的第二道分數天花板</div>
+  </div>
+
+  <!-- 03 弱點詳析 -->
+  <div class="section-header">
+    <span class="icon">🔍</span>
+    <h2>弱點詳析</h2>
+    <span class="chno">第三章</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="dot purple"></span>
+      <h3>內容——立意套路化、因果鋪墊不足</h3>
+      <span class="score-tag">26 / 40</span>
+    </div>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">意象套路化，缺乏獨特細節</div>
+        <div class="alert-text">「表面堅強、內心脆弱、最終在親人面前崩潰痛哭」是近年 DSE 考生極常見的寫法，「盔甲」「面具」更是這類題材的高頻意象。全文由頭到尾只靠同一個比喻推進（盔甲→防禦裝甲→面具），沒有其他角度的細節（例如具體的感官描寫、獨特的場景）去支撐這個比喻的新意，容易被閱卷員視為「熟口熟面」，內容分數因而被封頂在中品區間，難以觸及 Level 5 要求的「立意新穎有深度」。</div>
+      </div>
+    </div>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">人物設定與觸發事件的因果強度不成正比</div>
+        <div class="alert-text">開首建立的是「泰山崩於前而色不改」「刀槍不入」這種極端的自我形象，但觸發全面崩潰的事件，只是「一次等級二」，文中完全沒有交代這次考試的份量（是公開試？是關乎升學分班的關鍵考試？），令「從不失手的人設」與「一次挫折就徹底瓦解」之間出現邏輯跳躍，說服力不足。這是內容組織上的硬傷，而非語言問題。</div>
+      </div>
+    </div>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">高潮轉折過快、衝突解決過於順利</div>
+        <div class="alert-text">母親由發問「今天發成績表了吧？」到完全接納、溫柔安慰，過程沒有任何一絲遲疑、追問或情感上的拉鋸，整段對話在極短篇幅內順利解決，令原本應該最有張力的「坦白」場面失去戲劇重量，情感層次因此顯得單薄，未能達到高分作文要求的「情感遞進有層次」。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="dot coral"></span>
+      <h3>詞句——硬傷型錯誤，非小瑕疵</h3>
+      <span class="score-tag">18 / 30</span>
+    </div>
+    <p>本文句子基本通順，用詞不算貧乏，但出現的幾處錯誤性質嚴重，屬於閱卷員一眼可見的硬傷，必須逐一根除：</p>
+
+    <table class="fix-table">
+      <tr>
+        <th style="width:32%">原文</th>
+        <th style="width:24%">問題類型</th>
+        <th style="width:44%">建議修正</th>
+      </tr>
+      <tr>
+        <td class="orig">半聲不「响」</td>
+        <td>簡體字錯別字</td>
+        <td class="fixed">半聲不「響」</td>
+      </tr>
+      <tr>
+        <td class="orig">這樣我還「那」一個無懈可擊的勇者</td>
+        <td>漏字病句（缺「是」）</td>
+        <td class="fixed">這樣我還「是」那一個無懈可擊的勇者</td>
+      </tr>
+      <tr>
+        <td class="orig">我總能泰山崩於前而色「不改」</td>
+        <td>成語誤引（蘇洵《心術》原句為「色不變」）</td>
+        <td class="fixed">我總能泰山崩於前而色「不變」</td>
+      </tr>
+      <tr>
+        <td class="orig">我依然是那個「無堅不摧」、永遠溫暖的指路明燈</td>
+        <td>成語搭配不當（無堅不摧形容攻勢，非人格特質）</td>
+        <td class="fixed">我依然是那個「堅不可摧」、永遠溫暖的指路明燈</td>
+      </tr>
+    </table>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">長句失控，斷句能力未展現</div>
+        <div class="alert-text">全文至少有三處句子由逗號串連超過一百字才到句號，例如「然而，天意弄人，當成績單發放的那一刻……那昔日的開導者現在卻連自己也開導不了」一句長達約一百二十字。這類一句到底的寫法會令閱卷員無法判斷考生是否具備清晰斷句、組織長句的能力，是「詞句」一項失分的主因，比個別用詞問題更影響評級。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="dot teal"></span>
+      <h3>結構——前輕後重失衡，收結倉促</h3>
+      <span class="score-tag">14 / 20</span>
+    </div>
+    <p>起承轉合的框架清晰，但份量分配不均：第一段以概括性敘述交代「勇士人設」，沒有任何具體場景，與後文具體詳盡的寫法形成落差，讀起來像是兩種不同的寫作方式硬接在一起；結尾段落則明顯偏短，在情感最需要沉澱、昇華的位置草草收筆，未能與前面細緻的心理描寫相稱。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="dot amber"></span>
+      <h3>標點字體——引號使用不一致</h3>
+      <span class="score-tag">7 / 10</span>
+    </div>
+    <p>全文對話與強調字詞皆使用「」，唯獨「會徹底失去<b>『勇者』</b>的尊嚴」一句忽然改用『』。『』在中文標點規範中只用於「引號中的引號」（雙重引用），此處並非嵌套引用，屬於標點誤用，應統一改為「勇者」。</p>
+  </div>
+
+  <!-- 04 重寫與改善建議 -->
+  <div class="section-header">
+    <span class="icon">✍️</span>
+    <h2>重寫與改善建議</h2>
+    <span class="chno">第四章</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="dot purple"></span>
+      <h3>一、補強因果鋪墊，交代考試份量</h3>
+    </div>
+    <p>在進入考試情節前，必須加插一句說明這次考試對主角的意義，令後面的崩潰有充分理據，而非「一次等級二」就足以擊潰一個「泰山崩於前而色不變」的人。</p>
+
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="clabel">✗ 原文</div>
+        又一次考試完結後，這次我胸有成竹，在考前我預先兩個月溫習……
+      </div>
+      <div class="compare-card good">
+        <div class="clabel">✓ 建議改寫</div>
+        這一次的呈分試將直接影響升讀大學聯招的選科部署，比任何一次都關鍵。我比以往更早部署——提早兩個月，我已將每一條公式、每一個歷史年份、每一篇範文都背得滾瓜爛熟。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="dot coral"></span>
+      <h3>二、以「事」帶「理」重寫結尾，避免直接說教</h3>
+    </div>
+    <p>結尾三句「我會害怕失敗，會恐懼別人的眼光……」屬於直白的自我剖白式總結，缺乏具體動作或畫面去「示現」這種頓悟，容易給人「公式化收筆」的印象。建議改為透過一個具體動作或畫面帶出領悟，讓道理從情節中自然浮現，而非由作者直接講出來。</p>
+
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="clabel">✗ 原文</div>
+        我會害怕失敗，會恐懼別人的眼光，會為了虛榮而自欺欺人。我不是甚麼無懈可擊的勇士，我只是一個會受傷、會迷茫的普通人。
+      </div>
+      <div class="compare-card good">
+        <div class="clabel">✓ 建議改寫</div>
+        我抹去眼角的淚，抬頭看向母親——她臉上沒有一絲失望，只有心疼。原來卸下盔甲後的自己，反而能被更真實地擁抱。那一夜，沒有盔甲，沒有面具，我第一次睡得如此安穩。
+      </div>
+    </div>
+
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>
+        <div class="alert-label">重點</div>
+        <div class="alert-text">道理由畫面帶出，比直接陳述更有餘韻，也是內容評分中「以事顯理」與「直接說教」之間分數差距的關鍵。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="dot teal"></span>
+      <h3>三、拆解長句，練習斷句</h3>
+    </div>
+    <p>謄文前，把每一句大聲讀一遍，換氣的位置往往就是應該斷句的地方。以原文為例：</p>
+
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="clabel">✗ 原文（一句到底）</div>
+        然而，天意弄人，當成績單發放的那一刻，我卻是呆了，上面一個個「等級二」使我大腦一瞬間一片空白，這稱不上及格，更不用提頂級與否，我聽着身旁同學討論成績的聲音……
+      </div>
+      <div class="compare-card good">
+        <div class="clabel">✓ 建議斷句</div>
+        然而，天意弄人。當成績單發放的那一刻，我怔住了。上面一個個「等級二」，使我大腦一瞬間一片空白——這稱不上及格，更不用提頂級與否。身旁同學討論成績的聲音傳入耳中……
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="dot amber"></span>
+      <h3>四、謄文後自查清單</h3>
+    </div>
+    <p>完卷後預留至少五分鐘，逐句默讀全文，重點檢查以下四項，即可根除本文出現的硬傷：</p>
+    <div class="flow">
+      <div class="flow-step">錯別字／簡體字</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">主謂賓是否齊全</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">成語是否準確</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">引號「」『』一致</div>
+    </div>
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+  <!-- PRINT PANEL -->
+  <div class="print-btn-container">
+    <a href="index.html" class="print-btn" style="background: #e2e8f0 !important; color: #475569 !important; box-shadow: none;">返回首頁</a>
+    <button class="print-btn" onclick="window.print()">🖨️ 列印此頁 / 儲存 PDF</button>
+  </div>
+
+</div>
+</body>
+</html>
