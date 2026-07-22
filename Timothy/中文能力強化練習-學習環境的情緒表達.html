@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>語文基礎筆記：學習環境的情緒表達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --color-ans-bg: #f0f7f0;
+    --color-ans-text: #2e7d32;
+    --color-ans-border: #4caf50;
+    --color-vocab-accent: #a15c2f;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  @media prefers-color-scheme: dark {
+    :root {
+      --color-text-primary: #f0f0f0;
+      --color-text-secondary: #aaaaaa;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-ans-bg: #1a2e1a;
+      --color-ans-text: #81c784;
+      --color-ans-border: #66bb6a;
+      --color-vocab-accent: #e0925a;
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    padding: 2rem 1rem;
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { 
+    font-size: 13px; 
+    margin: 0;
+  }
+
+  /* 寫作：霧玫瑰 (這裏借用作語基，因主題相近) */
+  .hero.writing { background: #E8D5C8; color: #2E1A12; }
+  .hero.writing .hero-tag {
+    border: 1px solid rgba(46,26,18,0.3);
+    color: rgba(46,26,18,0.65);
+  }
+  .hero.writing p { color: rgba(46,26,18,0.5); }
+
+  /* 組件樣式 */
+  .section-header {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-border-tertiary);
+    padding-bottom: 0.5rem;
+    margin: 2.5rem 0 1.5rem 0;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    background: var(--color-background-secondary);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+  }
+
+  .kw-word {
+    background: var(--color-background-primary);
+    padding: 0.5rem;
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .qbox {
+    margin-bottom: 1.8rem;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+  }
+
+  .q-num {
+    font-weight: 700;
+    margin-right: 0.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .blank {
+    display: inline-block;
+    border-bottom: 1px solid var(--color-text-primary);
+    width: 80px;
+    margin: 0 5px;
+  }
+  
+  .blank-long {
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+    height: 25px;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-left: 0.5rem;
+  }
+
+  .reading-text {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #b3a398;
+    line-height: 2;
+    text-indent: 0;
+  }
+
+  /* 詞語教學卡 */
+  .vocab-card {
+    background: var(--color-background-secondary);
+  }
+
+  .vocab-item {
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+  }
+
+  .vocab-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .vocab-word {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-vocab-accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .vocab-meaning {
+    margin-bottom: 0.25rem;
+  }
+
+  .vocab-example {
+    color: var(--color-text-secondary);
+  }
+
+  /* 互動答案區域樣式 */
+  .toggle-ans-btn {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    color: var(--color-text-secondary);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 1.5rem;
+    display: block;
+    transition: all 0.2s;
+    text-indent: 0;
+  }
+
+  .toggle-ans-btn:hover {
+    background: var(--color-border-tertiary);
+    color: var(--color-text-primary);
+  }
+
+  .inline-answer {
+    display: none;
+    margin-top: 8px;
+    margin-left: 1.5rem;
+    padding: 8px 12px;
+    background: var(--color-ans-bg);
+    border-left: 3px solid var(--color-ans-border);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--color-ans-text);
+    text-indent: 0;
+  }
+
+  .inline-answer.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* PRINT BUTTONS */
+  .print-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+  }
+  .print-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #004754 !important;
+    background: #FFD700 !important;
+    border: none !important;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .print-btn:hover {
+    background: #e6c200 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, .keyword-grid, .reading-text, .vocab-item { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+    
+    /* 確保列印時顏色正確 */
+    .hero.writing { 
+      background-color: #E8D5C8 !important; 
+      color: #2E1A12 !important; 
+      -webkit-print-color-adjust: exact; 
+      print-color-adjust: exact; 
+    }
+    .keyword-grid {
+      background-color: #f5f5f3 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* 列印時隱藏按鈕及答案，只印題目 */
+    .print-btn, .print-btn-container { display: none !important; }
+    .toggle-ans-btn { display: none !important; }
+    .inline-answer { display: none !important; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero writing">
+    <div class="hero-tag">語文基礎強化筆記</div>
+    <h1>中文能力強化練習<br>主題：學習環境的情緒表達<br>（測驗與專題研習篇）</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <p>💡 <b>學習目標：</b>不少同學寫情緒感受時，仍不自覺地用「英式中文」的直譯思維遣詞。這份練習從你熟悉的校園生活、溫習和測考場景出發，帶你掌握地道的情緒詞彙和成語，讓日常寫作讀起來自然順暢。</p>
+
+  <div class="section-header">
+    <span>一、供詞填充</span>
+  </div>
+  <div class="card vocab-card">
+    <p>📖 <b>詞語教學：</b>在完成下面的填充練習前，請先掌握以下十個詞語的意思和用法。</p>
+    <div class="vocab-item">
+      <div class="vocab-word">1. 焦頭爛額</div>
+      <div class="vocab-meaning"><b>解釋：</b>事情多到應付不來，忙得狼狽不堪。</div>
+      <div class="vocab-example"><b>例句：</b>面對突如其來的大量功課，他忙得焦頭爛額。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">2. 恍然大悟</div>
+      <div class="vocab-meaning"><b>解釋：</b>原本想不通，忽然一下子完全明白過來。</div>
+      <div class="vocab-example"><b>例句：</b>聽老師講解後，他終於恍然大悟，明白了解題的關鍵。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">3. 絞盡腦汁</div>
+      <div class="vocab-meaning"><b>解釋：</b>想破了頭，用盡一切辦法去思考。</div>
+      <div class="vocab-example"><b>例句：</b>他絞盡腦汁，終於想出一個有趣的故事開頭。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">4. 如釋重負</div>
+      <div class="vocab-meaning"><b>解釋：</b>放下心頭大石後，頓時感到輕鬆。</div>
+      <div class="vocab-example"><b>例句：</b>考試結束後，他終於如釋重負地舒了一口氣。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">5. 心灰意冷</div>
+      <div class="vocab-meaning"><b>解釋：</b>失去信心和鬥志，情緒低落消沉。</div>
+      <div class="vocab-example"><b>例句：</b>一再落選後，他一度心灰意冷，不想再參加比賽。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">6. 忐忑不安</div>
+      <div class="vocab-meaning"><b>解釋：</b>心裡七上八下，擔心又不安。</div>
+      <div class="vocab-example"><b>例句：</b>等待成績公佈時，她感到忐忑不安。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">7. 沾沾自喜</div>
+      <div class="vocab-meaning"><b>解釋：</b>自覺得意，還忍不住表現出來。</div>
+      <div class="vocab-example"><b>例句：</b>他因為考了滿分而沾沾自喜，四處向人炫耀。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">8. 胸有成竹</div>
+      <div class="vocab-meaning"><b>解釋：</b>事前準備充足，做起事來從容不迫。</div>
+      <div class="vocab-example"><b>例句：</b>經過反覆練習，他對這次演講已胸有成竹。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">9. 興高采烈</div>
+      <div class="vocab-meaning"><b>解釋：</b>情緒高漲，開心得不得了。</div>
+      <div class="vocab-example"><b>例句：</b>得知學校旅行的消息後，同學們都興高采烈。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">10. 愁眉苦臉</div>
+      <div class="vocab-meaning"><b>解釋：</b>滿臉愁容，一副心事重重的樣子。</div>
+      <div class="vocab-example"><b>例句：</b>他因為默書不及格而愁眉苦臉。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p>請從下表中選出最適合的四字詞語填在橫線上（每個詞語只可使用一次）。</p>
+    <div class="keyword-grid">
+      <div class="kw-word">焦頭爛額</div>
+      <div class="kw-word">恍然大悟</div>
+      <div class="kw-word">絞盡腦汁</div>
+      <div class="kw-word">如釋重負</div>
+      <div class="kw-word">心灰意冷</div>
+      <div class="kw-word">忐忑不安</div>
+      <div class="kw-word">沾沾自喜</div>
+      <div class="kw-word">胸有成竹</div>
+      <div class="kw-word">興高采烈</div>
+      <div class="kw-word">愁眉苦臉</div>
+    </div>
+
+    <div class="qbox">
+      <span class="q-num">1.</span>距離呈分試只剩下一星期，面對堆積如山的溫習資料，大衛感到<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：焦頭爛額</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>經過老師悉心講解，原本對這道科學難題一頭霧水的我終於<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：恍然大悟</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>為了想出一條引人入勝的演講題目，他整晚<span class="blank"></span>，連晚飯也忘了吃。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：絞盡腦汁</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>交上那份耗時一個月才完成的歷史專題報告後，組員們都感到<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：如釋重負</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>雖然這次測驗成績退步了，但你也不必<span class="blank"></span>，只要找出弱點，下次一定能考好。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：心灰意冷</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>明天就是中文口試，平時很少說中文的約翰感到<span class="blank"></span>，手心直冒汗。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：忐忑不安</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>看到測驗卷上滿分的紅字，志明不禁<span class="blank"></span>，到處向同學炫耀。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：沾沾自喜</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>溫習準備得十分充足的班長，對這次期末考試<span class="blank"></span>，毫不緊張。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：胸有成竹</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>知道學校下星期舉辦電競比賽後，熱愛打機的男同學們都<span class="blank"></span>地討論戰術。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：興高采烈</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>由於連續兩次默書都不及格，家明整天<span class="blank"></span>，擔心會被家長責罵。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：愁眉苦臉</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>二、不供詞填充</span>
+  </div>
+  <div class="card vocab-card">
+    <p>📖 <b>詞語教學：</b>在完成下面的填充練習前，請先掌握以下十個詞語的意思和用法。</p>
+    <div class="vocab-item">
+      <div class="vocab-word">1. 困惑</div>
+      <div class="vocab-meaning"><b>解釋：</b>心裡感到疑惑，不知道該怎麼辦或不明白事情的道理。</div>
+      <div class="vocab-example"><b>例句：</b>面對艱深的文言文，他讀得十分困惑。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">2. 氣餒</div>
+      <div class="vocab-meaning"><b>解釋：</b>遇到挫折後失去信心和勇氣，情緒低落。</div>
+      <div class="vocab-example"><b>例句：</b>雖然初賽落選，但她沒有氣餒，決心再接再厲。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">3. 專注（同「專心」）</div>
+      <div class="vocab-meaning"><b>解釋：</b>把注意力集中在一件事上，不受外界干擾。</div>
+      <div class="vocab-example"><b>例句：</b>他專注地做功課，完全沒聽見媽媽的呼喚。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">4. 煩躁</div>
+      <div class="vocab-meaning"><b>解釋：</b>心情煩悶焦急，容易發脾氣。</div>
+      <div class="vocab-example"><b>例句：</b>塞車令他等得十分煩躁。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">5. 焦急</div>
+      <div class="vocab-meaning"><b>解釋：</b>因擔心某事而心情急切不安。</div>
+      <div class="vocab-example"><b>例句：</b>媽媽遲遲未到，小明焦急地張望着。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">6. 驚喜</div>
+      <div class="vocab-meaning"><b>解釋：</b>出乎意料的驚訝和喜悅。</div>
+      <div class="vocab-example"><b>例句：</b>生日那天，朋友的突然到訪讓她十分驚喜。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">7. 期待（同「盼望」）</div>
+      <div class="vocab-meaning"><b>解釋：</b>心裡懷着希望，等候某事發生。</div>
+      <div class="vocab-example"><b>例句：</b>他十分期待這次的畢業旅行。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">8. 輕鬆</div>
+      <div class="vocab-meaning"><b>解釋：</b>沒有壓力或負擔，感覺舒暢自在。</div>
+      <div class="vocab-example"><b>例句：</b>考試結束後，他頓時感到一身輕鬆。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">9. 畏懼（同「害怕」）</div>
+      <div class="vocab-meaning"><b>解釋：</b>心裡感到恐懼，不敢面對。</div>
+      <div class="vocab-example"><b>例句：</b>他對於在眾人面前發言感到十分畏懼。</div>
+    </div>
+    <div class="vocab-item">
+      <div class="vocab-word">10. 懊悔（同「後悔」）</div>
+      <div class="vocab-meaning"><b>解釋：</b>對已經做錯的事情感到自責、悔恨。</div>
+      <div class="vocab-example"><b>例句：</b>他因臨考前貪玩而沒溫習，結果不及格，感到十分懊悔。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p>請根據句子意思及括號內的提示，填寫最合適的情緒詞語（須為<b>兩個字</b>的詞語）。</p>
+    <div class="qbox">
+      <span class="q-num">1.</span>面對這篇充滿生字和文言文的閱讀理解，我感到十分<span class="blank"></span>，不知從何入手。<span class="hint">[提示：感到疑難，不知所措]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：困惑</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>努力溫習了兩星期，但測驗依然不及格，這讓他感到十分<span class="blank"></span>。<span class="hint">[提示：失去信心和勇氣]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：氣餒</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>只要戴上耳機，聽着純音樂，我就能<span class="blank"></span>地完成繁重的功課。<span class="hint">[提示：集中精神，全神貫注]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：專注 / 專心</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>哥哥正在努力準備明天的測驗，但窗外不斷傳來地盤施工的噪音，讓他感到很<span class="blank"></span>。<span class="hint">[提示：心情煩悶急躁]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：煩躁</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>距離網上遞交功課的限期只剩下五分鐘，但電腦突然死機了，嚇得我十分<span class="blank"></span>。<span class="hint">[提示：着急、焦慮]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：焦急</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>本以為這次默書一定會不及格，沒想到竟然剛好及格了，真是讓我感到<span class="blank"></span>。<span class="hint">[提示：又驚又喜]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：驚喜</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>終於考完試了，同學們都非常<span class="blank"></span>即將到來的聖誕節聯歡會。<span class="hint">[提示：充滿期待地盼望]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：期待 / 盼望</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>考完最後一科，走出禮堂的那一刻，我的心情頓時變得無比<span class="blank"></span>。<span class="hint">[提示：不感到有負擔或壓力]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：輕鬆</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>每次被老師抽中要在全班面前用中文演講，不擅長表達的瑪麗都會感到<span class="blank"></span>。<span class="hint">[提示：害怕、畏縮]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：畏懼 / 害怕</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>如果我昨晚沒有沉迷打機，今天就不會在課堂上打瞌睡了，現在回想起來真是<span class="blank"></span>。<span class="hint">[提示：做錯事或說錯話後感到後悔]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：懊悔 / 後悔</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>三、改寫句子</span>
+  </div>
+  <div class="card">
+    <p>以下句子的語氣過於口語化，或受了「英式中文（English translated logic）」的影響。請以意思不變為原則，把它們改寫成流暢自然的<b>標準書面語</b>。</p>
+    
+    <div class="qbox">
+      <span class="q-num">1.</span>我感到很大 stress 當我在做中文功課的時候。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：做中文功課時，我感到壓力很大。（或：做中文功課讓我感到很大的壓力。）</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>我的腦一片空白當我看見那條好難的數學題。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：看到那道艱深的數學題時，我的腦海一片空白。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>這個 group project 讓我變得很頭痛。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：這份小組專題研習讓我感到十分頭痛。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>我覺得很 confused 對於老師剛才講的 grammar rules。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我對老師剛才講解的語法規則感到十分困惑。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>我很 worry 我的 report card 會不靚。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我很擔心自己的成績單不理想。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>他很 proud 當他拿到全班第一名。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：考取全班第一名後，他感到十分自豪。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>我 feel 到好 relief 當我 submit 了那篇 essay。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：遞交了那篇作文後，我頓時感到如釋重負。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>為什麼你 look 到好 sad？你 fail 了這個 test 嗎？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：為什麼你看起來悶悶不樂？是測驗不及格嗎？</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>我今天沒有 mood 去溫習 dictation。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我今天沒有心情溫習默書。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>這個老師的堂很 boring，我快要睡着了。
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：這位老師的課很沉悶，我快要睡着了。</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>四、重組句子</span>
+  </div>
+  <div class="card">
+    <p>請將下列散落的詞組重新組合成邏輯嚴謹、文句通順的書面語句子（需加上適當的標點符號）。</p>
+    
+    <div class="qbox">
+      <span class="q-num">1.</span>面對 / 難題 / 他 / 感到 / 複雜的 / 數學 / 十分 / 困惑
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：面對複雜的數學難題，他感到十分困惑。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>終於 / 專題研習 / 完成了 / 我們 / 感到 / 如釋重負 / 都
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：終於完成了專題研習，我們都感到如釋重負。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>讓 / 突如其來的 / 感到 / 測驗 / 同學們 / 驚惶失措
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：突如其來的測驗讓同學們感到驚惶失措。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>受到 / 他 / 老師的 / 感到 / 稱讚 / 沾沾自喜 / 後 / 十分
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他受到老師的稱讚後，感到十分沾沾自喜。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>專心地 / 同學們 / 都在 / 溫習 / 圖書館裏 / 準備 / 考試
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：同學們都在圖書館裏專心地溫習準備考試。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>絞盡腦汁 / 他 / 構思 / 為了 / 題目 / 寫作 / 整晚 / 都在
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：為了構思寫作題目，他整晚都在絞盡腦汁。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>成績 / 面對 / 的 / 感到 / 退步 / 心灰意冷 / 她 / 十分
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：面對退步的成績，她感到十分心灰意冷。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>期待着 / 充滿 / 同學們 / 畢業旅行 / 的 / 喜悅地 / 到來
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：同學們充滿喜悅地期待着畢業旅行的到來。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>滿懷 / 步出 / 考試 / 信心 / 地 / 禮堂 / 他
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他滿懷信心地步出考試禮堂。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>聽完 / 恍然大悟 / 老師的 / 終於 / 講解後 / 我 / 明白了
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：聽完老師的講解後，我恍然大悟，終於明白了。</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>五、段落理解</span>
+  </div>
+  <div class="card">
+    <p>閱讀以下兩段短文，並回答問題。</p>
+
+    <b>【文章一】</b>
+    <div class="reading-text">
+      今個星期的電腦課，老師要求我們分組編寫一個小遊戲程式。一開始，我對編程語法一竅不通，看着螢幕上密密麻麻的代碼，感到無比困惑和煩躁。我嘗試修改了幾次錯誤，但程式依然無法運行，那種挫敗感讓我幾乎想放棄。幸好，同組的彼得耐心地為我逐行解釋邏輯。在他的指導下，我突然恍然大悟，找到了程式碼裏的漏洞。當看到小遊戲終於成功在螢幕上運行時，我們兩人都興奮得擊掌歡呼，之前的焦慮和氣餒瞬間煙消雲散。
+    </div>
+    <div class="qbox">
+      <span class="q-num">1.</span>看到螢幕上密密麻麻的代碼時，作者最初的情緒是怎樣的？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他感到無比困惑和煩躁。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>為甚麼作者會產生挫敗感，甚至萌生放棄的念頭？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：因為他嘗試修改了幾次錯誤，但程式依然無法運行。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>文中哪個四字成語形容作者得到彼得指導後，突然明白過來的感覺？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：恍然大悟。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>當遊戲成功運行時，他們的甚麼肢體動作反映了高興激動的情緒？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他們興奮得擊掌歡呼。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>作者在這個編程過程中，情緒經歷了怎樣的轉變？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他的情緒由最初的困惑、煩躁及氣餒，最終轉變為興奮高興。</div>
+    </div>
+
+    <br>
+    <b>【文章二】</b>
+    <div class="reading-text">
+      隨着期末考試的腳步越來越近，班上的氣氛變得異常緊張。平時愛開玩笑的明華，這幾天也變得沉默寡言，眉頭深鎖。昨天放學後，我看到他獨自留在課室裏溫習數學，不時抓着頭髮，發出無奈的嘆息。我走過去拍拍他的肩膀，他抬起頭，眼神中流露出一絲擔憂。他告訴我，如果這次數學再不及格，就會被父母禁止參加暑假的籃球訓練營。為了幫助他減輕壓力，我提議每天小息陪他一起操練歷屆試題，希望能讓他重拾信心，不再那麼忐忑不安。
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>臨近期末考試，班上的氣氛有何變化？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：班上的氣氛變得異常緊張。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>作者透過甚麼外在行為，察覺到明華感到煩惱？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：明華變得沉默寡言、眉頭深鎖，並不時抓着頭髮和發出嘆息。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>明華感到擔憂的真正原因是什麼？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他害怕數學不及格，會被父母禁止參加暑假籃球訓練營。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>文中哪個四字成語形容明華心中擔憂，感到不安的狀態？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：忐忑不安。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>作者如何幫助明華改善負面情緒？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：作者提議每天小息陪他一起操練歷屆試題，幫助他重拾信心及減輕壓力。</div>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+  <!-- PRINT PANEL -->
+  <div class="print-btn-container">
+    <a href="index.html" class="print-btn" style="background: #e2e8f0 !important; color: #475569 !important; box-shadow: none;">返回首頁</a>
+    <button class="print-btn" onclick="window.print()">🖨️ 列印此頁 / 儲存 PDF</button>
+  </div>
+</div>
+
+<script>
+  function toggleAnswer(btn) {
+    const ansDiv = btn.nextElementSibling;
+    if (ansDiv.classList.contains('show')) {
+      ansDiv.classList.remove('show');
+      btn.innerHTML = '👀 顯示答案';
+    } else {
+      ansDiv.classList.add('show');
+      btn.innerHTML = '🙈 隱藏答案';
+    }
+  }
+</script>
+
+</body>
+</html>
