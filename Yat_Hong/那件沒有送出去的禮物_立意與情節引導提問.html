@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寫作構思筆記：《那件沒有送出去的禮物》立意與情節引導提問｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --color-primary-accent: #8a5a44;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0f0f0;
+      --color-text-secondary: #aaaaaa;
+      --color-background-primary: #1e1e1e;
+      --color-background-secondary: #2c2c2c;
+      --color-border-tertiary: rgba(255,255,255,0.15);
+      --color-primary-accent: #d4a373;
+    }
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    margin: 0;
+    padding: 2rem 1rem;
+  }
+
+  ::selection { background: var(--color-primary-accent); color: #fff; }
+
+  h1, h2, h3, h4, h5, .section-header, .hero h1, .formula {
+    font-family: 'Noto Serif TC', serif;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 3rem 4rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  }
+  .hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    pointer-events: none;
+  }
+  .hero::before { width: 220px; height: 220px; top: -110px; right: -60px; }
+  .hero::after { width: 140px; height: 140px; bottom: -80px; left: -40px; background: rgba(255,255,255,0.15); }
+  .hero-tag {
+    position: relative;
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    position: relative;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p {
+    position: relative;
+    font-size: 13px;
+    margin: 0;
+  }
+
+  .hero.writing { background: linear-gradient(135deg, #EFDDD2 0%, #E8D5C8 55%, #DFC3B2 100%); color: #2E1A12; }
+  .hero.writing .hero-tag {
+    border: 1px solid rgba(46,26,18,0.3);
+    color: rgba(46,26,18,0.65);
+  }
+  .hero.writing p { color: rgba(46,26,18,0.5); }
+
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem 2rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; margin-bottom: 1rem; color: var(--color-text-primary); }
+  .toc ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; }
+  .toc li {
+    border-radius: var(--border-radius-md);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .toc a {
+    display: block;
+    padding: 0.5rem 0.7rem;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: var(--border-radius-md);
+    transition: color 0.2s, background 0.2s, transform 0.15s;
+  }
+  .toc a:hover {
+    color: var(--color-primary-accent);
+    background: var(--color-background-primary);
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 700px) {
+    .toc ul { grid-template-columns: 1fr; }
+    .wrap { padding: 1.5rem; }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    margin: 3rem 0 0.6rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+    padding-bottom: 0.8rem;
+    font-weight: 700;
+    position: relative;
+  }
+  .section-header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 64px;
+    height: 2px;
+    background: var(--color-primary-accent);
+  }
+  .section-header:first-of-type { margin-top: 0; }
+
+  .section-intro {
+    color: var(--color-text-secondary);
+    margin-bottom: 1.6rem;
+    font-size: 0.95rem;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: var(--color-primary-accent);
+  }
+
+  /* 練習題區塊 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 2px dashed var(--color-border-tertiary);
+    padding: 1.5rem 2rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s;
+    page-break-inside: avoid;
+  }
+  .qbox:hover { border-color: var(--color-primary-accent); }
+  .q-num { font-weight: 700; color: var(--color-primary-accent); margin-right: 0.5rem; font-size: 1.1rem; }
+  .q-title { font-weight: 700; font-size: 1.05rem; }
+
+  .option-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.9rem 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .option-list li {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 0.6rem 0.9rem;
+  }
+  .option-list li strong { color: var(--color-primary-accent); margin-right: 0.4rem; }
+
+  .fill-line {
+    display: block;
+    border-bottom: 1px dashed var(--color-text-secondary);
+    min-height: 1.6rem;
+    margin: 0.4rem 0;
+  }
+
+  .example-box {
+    border-left: 4px solid #5a7d9a;
+    background: rgba(90, 125, 154, 0.08);
+    padding: 1rem 1.3rem;
+    margin: 1rem 0 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .example-label {
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: #5a7d9a;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .example-text { color: var(--color-text-primary); font-size: 0.95rem; }
+
+  .alert {
+    padding: 1.2rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .alert-title { font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+  .alert.tip { background: rgba(46, 204, 113, 0.1); border: 1px solid rgba(46, 204, 113, 0.3); }
+  .alert.tip .alert-title { color: #27ae60; }
+  .alert.amber { background: rgba(230, 162, 60, 0.1); border: 1px solid rgba(230, 162, 60, 0.35); }
+  .alert.amber .alert-title { color: #b9770e; }
+
+  .checklist {
+    background: var(--color-background-secondary);
+    border-left: 4px solid #2ecc71;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .checklist ul { margin: 0; padding-left: 1.2rem; line-height: 2; }
+
+  .stage-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-primary-accent);
+    background: rgba(138, 90, 68, 0.1);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    margin-bottom: 0.9rem;
+  }
+
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; border-radius: var(--border-radius-md); overflow: hidden; }
+  th, td { border: 1px solid var(--color-border-tertiary); padding: 0.9rem; text-align: left; }
+  th { background: var(--color-background-secondary); font-weight: 700; color: var(--color-text-primary); }
+
+  footer { margin-top: 4rem; }
+
+  .print-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .print-btn {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    background: var(--color-primary-accent);
+    color: #fff !important;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  }
+
+  .back-to-top {
+    position: fixed;
+    right: 1.6rem;
+    bottom: 1.6rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-primary-accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  }
+  .back-to-top.show { opacity: 1; pointer-events: auto; }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .qbox, .example-box, .alert, .checklist { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .print-btn-container, .back-to-top { display: none; }
+  }
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+
+  <div class="hero writing">
+    <div class="hero-tag">寫作構思筆記</div>
+    <h1>《那件沒有送出去的禮物》<br>立意與情節引導提問</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>📋 目錄</h3>
+    <ul>
+      <li><a href="#stage1">第一階段：確立立意</a></li>
+      <li><a href="#stage2">第二階段：根據立意構思情節</a></li>
+      <li><a href="#stage3">第三階段：檢視情節是否呈現立意</a></li>
+    </ul>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-title">💡 使用說明</div>
+    <div>本筆記共設十條引導提問，須按次序完成，先確立「立意」，再據此構思「情節」，最後回頭檢視情節有否具體呈現立意。每題均設選項或填空作提示，毋須從零開始構思。</div>
+  </div>
+
+  <div class="section-header" id="stage1">🧠 第一階段：確立立意</div>
+  <div class="section-intro">在構思任何情節之前，須先想清楚這篇文章想帶出的人生道理。</div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">1.</span>以選項縮窄方向</div>
+    <div>以下四種情感，哪一種最貼近你想寫的故事？請圈選其一，並說明原因。</div>
+    <ul class="option-list">
+      <li><strong>A</strong> 遺憾——錯過了便無法挽回</li>
+      <li><strong>B</strong> 勇氣——明知會尷尬，仍然要踏出那一步</li>
+      <li><strong>C</strong> 珍惜——擁有時未懂珍惜</li>
+      <li><strong>D</strong> 成長——經一事，長一智</li>
+    </ul>
+    <div>我的選擇：<span class="fill-line"></span></div>
+    <div>原因：<span class="fill-line"></span></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">2.</span>以句式填空，寫出直覺答案</div>
+    <div>試完成以下句子（不必想得太深入，寫出直覺答案即可）：</div>
+    <div class="example-box">
+      <div class="example-label">📝 句式</div>
+      <div class="example-text">這個故事想告訴讀者，______。</div>
+    </div>
+    <div style="margin-top:0.8rem;">我的答案：<span class="fill-line"></span></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">3.</span>追問一次「為什麼」</div>
+    <div>就第2題所寫的道理，加上一句「因為______」以解釋原因，把「口號」轉化為「理由」。</div>
+    <div class="example-box">
+      <div class="example-label">📝 句式</div>
+      <div class="example-text">要珍惜身邊的人，因為______。</div>
+    </div>
+    <div style="margin-top:0.8rem;">我的答案：<span class="fill-line"></span></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">4.</span>再追問一次「怎樣才算」</div>
+    <div>在第3題的基礎上，再問自己：「怎樣才算真正的珍惜／勇氣／不留遺憾？」試完成句式：</div>
+    <div class="example-box">
+      <div class="example-label">📝 句式</div>
+      <div class="example-text">真正的______並非______，而是______。</div>
+    </div>
+    <div class="example-box" style="border-left-color:#8a5a44; background:rgba(138,90,68,0.06);">
+      <div class="example-label" style="color:#8a5a44;">📖 參考示例</div>
+      <div class="example-text">珍惜不是掛在嘴邊的口號，而是願意承受被拒絕的風險，也要跨出表達心意的那一步。</div>
+    </div>
+    <div style="margin-top:0.8rem;">我的深層立意：<span class="fill-line"></span></div>
+  </div>
+
+  <div class="section-header" id="stage2">✍️ 第二階段：根據立意構思情節</div>
+  <div class="section-intro">立意決定情節，而非情節決定立意。以下三題須緊扣第一階段所定的立意去回答。</div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">5.</span>選定送禮對象</div>
+    <div>你的立意需要一個「送禮對象」才能構成故事。以下哪一種關係最能承載你的立意？請圈選其一：</div>
+    <ul class="option-list">
+      <li><strong>A</strong> 好朋友——吵架後想道歉</li>
+      <li><strong>B</strong> 家人——想表達感恩，卻覺得難以啟齒</li>
+      <li><strong>C</strong> 老師／長輩——即將離別</li>
+    </ul>
+    <div>我的選擇：<span class="fill-line"></span></div>
+    <div>我們之間的背景（相識多久、曾發生什麼事）：<span class="fill-line"></span></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">6.</span>選定阻礙，並解釋原因</div>
+    <div>令你未能送出禮物的原因，以下哪一種最配合你的立意？</div>
+    <ul class="option-list">
+      <li><strong>A</strong> 外在阻礙——鐘聲、車已開走、對方突然轉校</li>
+      <li><strong>B</strong> 內在阻礙——自尊、害怕被拒絕、害怕尷尬</li>
+      <li><strong>C</strong> 兩者同時出現</li>
+    </ul>
+    <div class="alert amber">
+      <div class="alert-title">📌 提示</div>
+      <div>若立意與「勇氣」有關，一般選 B 或 C 會更能突顯主題。</div>
+    </div>
+    <div>我的選擇：<span class="fill-line"></span></div>
+    <div>原因：<span class="fill-line"></span></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">7.</span>寫出「假如送出了」的畫面</div>
+    <div>試用一兩句想像：如果當時真的送出了禮物，對方會有什麼反應？你會有什麼感受？</div>
+    <div>「假如送出了」的畫面：<span class="fill-line"></span><span class="fill-line"></span></div>
+    <div style="margin-top:0.6rem;">與「未能送出」的結果對比，哪一句寫出來最能觸動人心？<span class="fill-line"></span></div>
+  </div>
+
+  <div class="section-header" id="stage3">🔍 第三階段：檢視情節是否呈現立意</div>
+  <div class="section-intro">情節寫成之後，須回頭檢視每個部分是否真正扣連立意，而非結尾才硬加一句道理。</div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">8.</span>選定表達情緒的細節</div>
+    <div>在「臨門一腳卻退縮」那一刻，你打算用哪種方法表達內心的掙扎？可選一項或多項：</div>
+    <ul class="option-list">
+      <li><strong>A</strong> 身體反應——手震、心跳加速、冒汗</li>
+      <li><strong>B</strong> 內心獨白——自問自答</li>
+      <li><strong>C</strong> 環境烘托——鐘聲、風、天氣轉變</li>
+    </ul>
+    <div>我的選擇：<span class="fill-line"></span></div>
+    <div>示範句子：<span class="fill-line"></span></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">9.</span>選定收結方式</div>
+    <div>結尾打算怎樣處理？請圈選其一：</div>
+    <ul class="option-list">
+      <li><strong>A</strong> 直接道出道理，例如：「我明白了要珍惜」</li>
+      <li><strong>B</strong> 以景結情——不直接說教，以畫面帶出感受，例如凝望那件禮物、望向窗外</li>
+    </ul>
+    <div class="alert tip">
+      <div class="alert-title">✅ 建議</div>
+      <div>選 B 一般能取得較高分數，昇華應自然流露，避免說教。</div>
+    </div>
+    <div>我的選擇：<span class="fill-line"></span></div>
+    <div>結句試寫：<span class="fill-line"></span><span class="fill-line"></span></div>
+  </div>
+
+  <div class="qbox">
+    <div class="q-title"><span class="q-num">10.</span>自我檢查表</div>
+    <div>完成全文後，以下列三項作自我檢查，逐項標示 ✓ 或 ✗：</div>
+    <div class="checklist">
+      <ul>
+        <li>□ 遮蓋結尾的反思句子，單憑情節，讀者能否感受到我的立意？</li>
+        <li>□ 第6題所選的阻礙，有否在情節中具體呈現，還是僅以一句帶過？</li>
+        <li>□ 第7題的對比，是否寫得足夠強烈，令遺憾之情更為深刻？</li>
+      </ul>
+    </div>
+    <div style="margin-top:0.8rem;">凡標示 ✗ 的部分，即為需要加強之處：<span class="fill-line"></span></div>
+  </div>
+
+  <footer style="padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+  <div class="print-btn-container">
+    <button class="print-btn" onclick="window.print()">🖨️ 列印此頁 / 儲存 PDF</button>
+  </div>
+
+</div>
+
+<a href="#top" class="back-to-top" id="backToTop" aria-label="回到頂部">↑</a>
+
+<script>
+  var backToTopBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>
