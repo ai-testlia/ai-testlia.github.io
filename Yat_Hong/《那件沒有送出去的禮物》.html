@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寫作教學筆記：《那件沒有送出去的禮物》｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --color-primary-accent: #8a5a44;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0f0f0;
+      --color-text-secondary: #aaaaaa;
+      --color-background-primary: #1e1e1e;
+      --color-background-secondary: #2c2c2c;
+      --color-border-tertiary: rgba(255,255,255,0.15);
+      --color-primary-accent: #d4a373;
+    }
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    margin: 0;
+    padding: 2rem 1rem;
+  }
+
+  ::selection { background: var(--color-primary-accent); color: #fff; }
+
+  h1, h2, h3, h4, h5, .section-header, .hero h1, .formula {
+    font-family: 'Noto Serif TC', serif;
+  }
+
+  .wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 3rem 4rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Hero 區塊共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  }
+  .hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    pointer-events: none;
+  }
+  .hero::before { width: 220px; height: 220px; top: -110px; right: -60px; }
+  .hero::after { width: 140px; height: 140px; bottom: -80px; left: -40px; background: rgba(255,255,255,0.15); }
+  .hero-tag {
+    position: relative;
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    position: relative;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p {
+    position: relative;
+    font-size: 13px;
+    margin: 0;
+  }
+
+  /* 寫作：霧玫瑰 */
+  .hero.writing { background: linear-gradient(135deg, #EFDDD2 0%, #E8D5C8 55%, #DFC3B2 100%); color: #2E1A12; }
+  .hero.writing .hero-tag {
+    border: 1px solid rgba(46,26,18,0.3);
+    color: rgba(46,26,18,0.65);
+  }
+  .hero.writing p { color: rgba(46,26,18,0.5); }
+
+  /* 目錄 (TOC) */
+  .toc {
+    background: var(--color-background-secondary);
+    padding: 1.5rem 2rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border-tertiary);
+  }
+  .toc h3 { margin-top: 0; margin-bottom: 1rem; color: var(--color-text-primary); }
+  .toc ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .toc li {
+    border-radius: var(--border-radius-md);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .toc a {
+    display: block;
+    padding: 0.5rem 0.7rem;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: var(--border-radius-md);
+    transition: color 0.2s, background 0.2s, transform 0.15s;
+  }
+  .toc a:hover {
+    color: var(--color-primary-accent);
+    background: var(--color-background-primary);
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 600px) {
+    .toc ul { grid-template-columns: 1fr; }
+    .wrap { padding: 1.5rem; }
+  }
+
+  /* 標題與分區 */
+  .section-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    margin: 3rem 0 1.5rem;
+    border-bottom: 2px solid var(--color-border-tertiary);
+    padding-bottom: 0.8rem;
+    font-weight: 700;
+    position: relative;
+  }
+  .section-header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 64px;
+    height: 2px;
+    background: var(--color-primary-accent);
+  }
+  .section-header:first-of-type { margin-top: 0; }
+
+  /* 內容卡片 */
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+  .card h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+  }
+  .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: var(--color-primary-accent);
+  }
+
+  /* 示例框 */
+  .example-box {
+    border-left: 4px solid #5a7d9a;
+    background: rgba(90, 125, 154, 0.08);
+    padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    transition: box-shadow 0.2s;
+  }
+  .example-box:hover { box-shadow: 0 4px 14px rgba(90, 125, 154, 0.18); }
+  .example-label {
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: #5a7d9a;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .example-text { font-style: normal; color: var(--color-text-primary); }
+
+  /* 提示框 */
+  .alert {
+    padding: 1.2rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .alert-title { font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+  .alert.tip { background: rgba(46, 204, 113, 0.1); border: 1px solid rgba(46, 204, 113, 0.3); }
+  .alert.warn { background: rgba(231, 76, 60, 0.08); border: 1px solid rgba(231, 76, 60, 0.3); }
+  .alert.warn .alert-title { color: #c0392b; }
+  .alert.tip .alert-title { color: #27ae60; }
+
+  /* 對比框 */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .compare-card {
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .compare-card:hover { transform: translateY(-2px); }
+  .compare-card.bad { border-top: 4px solid #e74c3c; background: rgba(231, 76, 60, 0.03); }
+  .compare-card.bad:hover { box-shadow: 0 6px 18px rgba(231, 76, 60, 0.12); }
+  .compare-card.good { border-top: 4px solid #2ecc71; background: rgba(46, 204, 113, 0.03); }
+  .compare-card.good:hover { box-shadow: 0 6px 18px rgba(46, 204, 113, 0.12); }
+  .compare-card h5 { margin-top: 0; font-size: 1.1rem; margin-bottom: 0.8rem; }
+  
+  @media (max-width: 700px) {
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+
+  /* 流程箭頭 */
+  .flow {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 1.5rem 0;
+    gap: 0.8rem;
+  }
+  .flow-step {
+    flex: 1;
+    background: var(--color-background-secondary);
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .flow-step:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+    transform: translateY(-2px);
+  }
+  .flow-step-title {
+    font-weight: 700;
+    color: var(--color-primary-accent);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--color-border-tertiary);
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  @media (max-width: 700px) {
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); justify-content: center; padding: 0.5rem 0; }
+  }
+
+  /* 關鍵詞卡片 */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .kw-card {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 1.2rem;
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-secondary);
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  }
+  .kw-card:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+    transform: translateY(-2px);
+    border-color: var(--color-primary-accent);
+  }
+  .kw-word {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--color-primary-accent);
+    margin-bottom: 0.5rem;
+    display: block;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+    padding-bottom: 0.3rem;
+  }
+  .kw-def { margin-bottom: 0.5rem; font-weight: 500; }
+  .kw-eg { color: var(--color-text-secondary); font-size: 0.95em; }
+
+  /* 公式框 */
+  .formula {
+    background: linear-gradient(135deg, var(--color-text-primary) 0%, #000 100%);
+    color: var(--color-background-primary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 2rem 0;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  /* 練習題區塊 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 2px dashed var(--color-border-tertiary);
+    padding: 1.5rem 2rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .qbox:hover { border-color: var(--color-primary-accent); }
+  .q-num { font-weight: 700; color: var(--color-primary-accent); margin-right: 0.5rem; font-size: 1.1rem; }
+  .ans-box {
+    background: var(--color-background-secondary);
+    border-left: 4px solid #2ecc71;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  
+  /* 表格 */
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; border-radius: var(--border-radius-md); overflow: hidden; }
+  th, td { border: 1px solid var(--color-border-tertiary); padding: 1rem; text-align: left; }
+  th { background: var(--color-background-secondary); font-weight: 700; color: var(--color-text-primary); }
+
+  /* Step by step 寫作指導 */
+  .step-guide { counter-reset: step-counter; }
+  .step-box {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-left: 5px solid var(--color-primary-accent);
+    border-radius: var(--border-radius-md);
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 1.8rem;
+    position: relative;
+    page-break-inside: avoid;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .step-box:hover {
+    box-shadow: 0 8px 22px rgba(0,0,0,0.07);
+    transform: translateY(-2px);
+  }
+  .step-head {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.9rem;
+  }
+  .step-num {
+    counter-increment: step-counter;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--color-primary-accent);
+    color: var(--color-background-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'Noto Serif TC', serif;
+  }
+  .step-num::before { content: counter(step-counter); }
+  .step-title { font-size: 1.15rem; font-weight: 700; color: var(--color-text-primary); }
+  .step-goal {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin: -0.4rem 0 1rem 3.4rem;
+  }
+  .step-guide-box {
+    background: rgba(90, 125, 154, 0.08);
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.3rem;
+    margin: 0 0 1rem 0;
+    font-size: 13px;
+  }
+  .step-guide-box ul { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+  .step-guide-box li { margin-bottom: 0.3rem; }
+  .write-lines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent, transparent 2.1rem,
+      var(--color-border-tertiary) 2.1rem, var(--color-border-tertiary) calc(2.1rem + 1px)
+    );
+    min-height: 6.4rem;
+    margin-top: 0.4rem;
+  }
+  .step-toggle summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--color-primary-accent);
+    margin-top: 1rem;
+    font-size: 13px;
+  }
+
+  /* 回到頂部按鈕 */
+  .back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--color-primary-accent);
+    color: var(--color-background-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 50;
+  }
+  .back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+  /* PRINT BUTTONS */
+  .print-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+  }
+  .print-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #004754 !important;
+    background: #FFD700 !important;
+    border: none !important;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .print-btn:hover {
+    background: #e6c200 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  }
+
+  /* 列印 / PDF 分頁規則（嚴格遵守） */
+  @media print {
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0,0,0,0.15);
+      --color-primary-accent: #8a5a44;
+    }
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, .compare-grid, .flow, .keyword-grid, .step-box { page-break-inside: avoid; }
+    .card:hover, .compare-card:hover, .flow-step:hover, .kw-card:hover, .qbox:hover, .step-box:hover, .example-box:hover {
+      box-shadow: none; transform: none;
+    }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; box-shadow: none; }
+    .hero.writing {
+      background: #E8D5C8 !important;
+      color: #2E1A12 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .formula {
+      background: #1a1a1a !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .keyword-grid, .kw-card {
+      background-color: #f5f5f3 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .section-divider { page-break-after: avoid; }
+
+    /* 列印時強制顯示所有參考示範／檢查清單內容，隱藏互動元素 */
+    details { display: block !important; }
+    details:not([open]) > *:not(summary) { display: block !important; }
+    summary { list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    .step-toggle summary { color: #000 !important; }
+    .ans-box { border-left-color: #666 !important; }
+
+    .back-to-top, .print-btn, .print-btn-container { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap" id="top">
+  <div class="hero writing">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>《那件沒有送出去的禮物》<br>記敘抒情文寫作全攻略</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <h3>📋 目錄</h3>
+    <ul>
+      <li><a href="#ch1">一、 題目分析與情感核心</a></li>
+      <li><a href="#ch2">二、 寫作構思指引</a></li>
+      <li><a href="#ch3">三、 詳細寫作步驟</a></li>
+      <li><a href="#ch4">四、 寫作技巧與昇華重點</a></li>
+      <li><a href="#ch5">五、 詞語與表達提升</a></li>
+      <li><a href="#ch6">六、 常見錯誤與改進對比</a></li>
+      <li><a href="#ch7">七、 滿分範文大綱</a></li>
+      <li><a href="#ch8">八、 實戰寫作指導</a></li>
+    </ul>
+  </div>
+
+  <h2 class="section-header" id="ch1">🎯 一、 題目分析與情感核心</h2>
+  <div class="card">
+    <h4><span class="dot"></span>拆解題目關鍵詞</h4>
+    <p><strong>「那件」：</strong>代表這是一件特定的、印象深刻的物品，不能泛泛而談。<br>
+    <strong>「沒有送出去」：</strong>這是題目的靈魂與核心。為什麼沒送出？是因為膽怯？錯過時機？還是對方已不在身邊？這個「未完成的動作」是推動故事發展的關鍵。<br>
+    <strong>「禮物」：</strong>不一定是昂貴的商品，可以是親手做的心意卡、一封道歉信、一隻摺紙鶴。禮物在這裡是情感的載體（如：歉意、謝意、告別）。</p>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-title">💡 寫作重點與情感核心</div>
+    <div>
+      <strong>情感核心：</strong>遺憾、懊悔、思念、釋懷、成長。<br>
+      <strong>寫作重點：</strong>必須把焦點放在「送禮前的準備」與「臨門一腳的退縮／錯過」。透過強烈的對比（滿心期待 vs 最終落空），帶出更深一層的反思：遺憾之所以刻骨，正是因為情感的表達本來有機會兌現，卻在猶豫中錯過。
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-title">⚠ 常見離題與薄弱問題</div>
+    <div>
+      <ul>
+        <li><strong>完全離題：</strong>寫成了「收到」一件禮物，或者最終把禮物「成功送出」了。</li>
+        <li><strong>情感薄弱：</strong>花了大篇幅寫去商場買禮物的過程（如格價、搭車），卻只用一句話交代「最後我沒有送給他」，缺乏內心掙扎的描寫。</li>
+        <li><strong>說教味濃：</strong>結尾強行加上「所以我們要做個好孩子」等與情節不符的刻板道理。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-header" id="ch2">🧠 二、 寫作構思指引</h2>
+
+  <div class="card">
+    <h4><span class="dot"></span>審題思考：落筆前先問自己</h4>
+    <p>撰寫這類「情感 + 物件」的記敘抒情文之前，不要心急構思題材，先用以下問題檢視自己對題目的理解，確保方向正確才落筆：</p>
+    <ol style="line-height: 2; margin-top: 1rem;">
+      <li><strong>情感方向：</strong>這件沒有送出的禮物，想承載的是哪一種情感？（歉意／感恩／思念／愛意）</li>
+      <li><strong>人物關係：</strong>禮物想送給誰？你們之間有什麼獨特的關係或往事，令這份心意特別重要？</li>
+      <li><strong>阻礙性質：</strong>令你沒有送出的原因，是外在的（時間、機會、環境），還是內在的（自尊、恐懼、猶豫）？兩者可否同時出現？</li>
+      <li><strong>後果對比：</strong>如果當時送出去了，與現在的結果相比，分別會是怎樣？這個對比可以怎樣加強你的遺憾？</li>
+      <li><strong>反思深度：</strong>這件事想帶出的不止是「後悔」，還有什麼你希望自己（或讀者）以後可以做得更好？</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h4><span class="dot"></span>「立意」教學：你想透過這篇文章講什麼道理？</h4>
+    <p><strong>立意</strong>是文章的中心思想，即你想透過《那件沒有送出去的禮物》這個故事，向讀者傳達的人生體會。立意的高低，直接決定文章的深度與分數。</p>
+
+    <div class="alert tip">
+      <div class="alert-title">💡 追問法：由淺入深，逼自己多想一層</div>
+      <div>
+        先寫下你直覺想到的道理（通常會相當陳腔濫調），然後不斷追問「為什麼」「怎樣」，逼自己想深一層：<br><br>
+        直覺立意 →「要珍惜身邊的人」<br>
+        追問一次「為什麼要珍惜？」→「因為機會一旦錯過便無法挽回」<br>
+        追問多一次「怎樣才算珍惜？」→「珍惜不是掛在嘴邊，而是願意承受被拒絕的風險也要說出來」<br>
+        → 這句就是你的<strong>深層立意</strong>，可以放在結尾用來昇華主題。
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>主題方向</th><th>❌ 淺層立意（陳腔濫調）</th><th>✅ 深層立意（值得高分）</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>珍惜</strong></td>
+          <td>要珍惜身邊的人</td>
+          <td>珍惜不是掛在嘴邊的口號，而是願意承受被拒絕的風險，也要跨出表達心意的那一步</td>
+        </tr>
+        <tr>
+          <td><strong>勇氣</strong></td>
+          <td>做人要勇敢</td>
+          <td>真正的勇氣不是無所畏懼，而是明知會膽怯，仍然選擇克服它去表達真心</td>
+        </tr>
+        <tr>
+          <td><strong>遺憾</strong></td>
+          <td>錯過了就無法挽回</td>
+          <td>情感的表達原來有「限期」，一旦錯過表達的那扇窗，便再沒有彌補的機會</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert warn">
+      <div class="alert-title">⚠ 怎樣判斷立意夠不夠「高」？</div>
+      <div>
+        <ul>
+          <li>能否由「這一件事」提升到「普遍的人生道理」，而不止是講述個人經歷？</li>
+          <li>有否避免「要珍惜」「要勇敢」這類空泛口號？這些只是立意的起點，不是終點</li>
+          <li>情感與情節是否緊密扣連，而不是在結尾才硬加一句道理上去？</li>
+          <li>昇華是否自然流露（以景結情、留白），而不是說教式直接講出來？</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4><span class="dot"></span>建議可選題材（貼近校園與生活）</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>題材方向</th>
+          <th>禮物內容</th>
+          <th>沒送出的原因（懸念 / 阻礙）</th>
+          <th>情感落腳點</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>遲來的歉意</strong></td>
+          <td>一張寫滿對不起的心意卡</td>
+          <td>和好朋友吵架後想道歉，但因為愛面子一直猶豫，結果朋友突然轉校了。</td>
+          <td>遺憾、學會放下自尊及時道歉</td>
+        </tr>
+        <tr>
+          <td><strong>未表達的感恩</strong></td>
+          <td>一個保溫水樽</td>
+          <td>想送給每天辛苦工作的爸爸，但在遞出去的一刻覺得「太肉麻」而退縮。</td>
+          <td>內疚、反思對家人的愛應勇敢表達</td>
+        </tr>
+        <tr>
+          <td><strong>錯過的告別</strong></td>
+          <td>一本貼滿合照的紀念冊</td>
+          <td>最喜歡的老師即將離職，想親手送給她，卻因為遲到錯過了見面的最後機會。</td>
+          <td>惋惜、明白機會稍縱即逝</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4><span class="dot"></span>情節發展與情感轉折（故事弧線 Story Arc）</h4>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-step-title">1. 起因（期待）</div>
+        <div>某個契機讓你準備了這份禮物，內心充滿期待或決心。</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-title">2. 經過（掙扎）</div>
+        <div>到了該送出的那一刻，內心出現了「天使與魔鬼」的交戰（如心跳加速、手心冒汗）。</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-title">3. 高潮（錯失）</div>
+        <div>因為外在因素（鐘聲、車開走）或內在因素（恐懼被拒），最終沒有送出。</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-title">4. 結局（反思）</div>
+        <div>看著這件留在身邊的禮物，情感由當下的失落，昇華為日後的成長。</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-header" id="ch3">✍️ 三、 詳細寫作步驟</h2>
+  
+  <div class="card">
+    <h4><span class="dot"></span>1. 開頭（引人入勝）</h4>
+    <p><strong>技巧：</strong>建議使用「物件倒敘法」或「懸念設問法」。不要一開始就平鋪直敘「今天我買了禮物」。</p>
+    <div class="example-box">
+      <div class="example-label">✏️ 示例示範</div>
+      <div class="example-text">「在我的書桌抽屜最深處，靜靜地躺著一個精緻的藍色小盒子。盒子上沾了些微灰塵，邊角也有些磨損，但裡面的那支鋼筆卻始終閃亮。這是一份永遠無法送達的禮物，每當看到它，那天的懊悔便會如潮水般湧上心頭……」</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4><span class="dot"></span>2. 中段（刻畫入微）</h4>
+    <p><strong>技巧：</strong>清楚交代雙方的關係，以及準備禮物時的用心。運用內心獨白寫出送禮前一刻的膽怯，配合動作與環境烘托。</p>
+    <div class="example-box">
+      <div class="example-label">✏️ 示例示範</div>
+      <div class="example-text">「我走到課室門外，隔著玻璃窗看著允行。我的手緊緊捏著口袋裡那張道歉卡，手心全都是汗，把信封都捏得發皺了。我的心像有一面小鼓在瘋狂地敲打：『如果他還在生氣怎麼辦？如果他當面撕掉心意卡，其他同學會取笑我嗎？』正當我鼓起勇氣邁出半步時，『叮噹——』無情的上課鐘聲驟然響起，硬生生把我的勇氣擊碎，我像觸電般縮回了手。」</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4><span class="dot"></span>3. 結尾（餘韻無窮）</h4>
+    <p><strong>技巧：</strong>避免硬生生說教（如：我們一定要勇敢）。改為用「以景結情」或「情感留白」，讓讀者自己體會當中的道理，昇華主題。</p>
+    <div class="example-box">
+      <div class="example-label">✏️ 示例示範</div>
+      <div class="example-text">「如今，允行已經移民遠方，這張沒有送出的心意卡成了我專屬的遺憾。或許，這份禮物注定要在我的抽屜裡沉睡，但它卻時刻提醒著我：時光不會倒流，有些抱歉如果不及時說出口，便會成為一輩子的錯過。」</div>
+    </div>
+  </div>
+
+  <h2 class="section-header" id="ch4">🌟 四、 寫作技巧與昇華重點</h2>
+  <div class="card">
+    <h4><span class="dot"></span>1. 情感描寫技巧（立體化你的感受）</h4>
+    <p>不要只寫「我很傷心」或「我很後悔」，要透過以下三招表現出來：</p>
+    <ul>
+      <li><strong>動作描寫：</strong>咬緊下唇、低著頭、把禮物藏在背後、眼眶泛紅。</li>
+      <li><strong>內心獨白：</strong>「算了吧，還是明天再給他吧……不，萬一明天他不在呢？」</li>
+      <li><strong>環境烘托：</strong>用天氣來反映心情。猶豫時可以寫「天色陰沉，烏雲密佈」；錯過時可以寫「一陣秋風吹過，捲起地上的落葉，顯得分外蕭瑟」。</li>
+    </ul>
+  </div>
+
+  <div class="formula">
+    核心公式：一件小物品 ＋ 臨門一腳的退縮／錯過 ＝ 昇華人生哲理
+  </div>
+
+  <div class="card">
+    <h4><span class="dot"></span>2. 避免流水帳的方法</h4>
+    <p>「選重點、加感受」。省略買禮物時「出門、搭港鐵、選顏色、付款回家」的繁瑣過程，只需用一句話帶過。要把 <strong>80% 的字數集中在「準備送出去的那五分鐘」</strong>，將那一刻的時間拉長，詳細寫出你的視、聽、觸覺和內心活動。</p>
+  </div>
+
+  <h2 class="section-header" id="ch5">📚 五、 詞語與表達提升</h2>
+  <div class="keyword-grid">
+    <div class="kw-card">
+      <span class="kw-word">躊躇不前 (chóu chú bù qián)</span>
+      <div class="kw-def">解釋：猶豫不決，不敢前進。</div>
+      <div class="kw-eg">例句：走到教員室門外，我卻躊躇不前，始終不敢推門進去。</div>
+    </div>
+    <div class="kw-card">
+      <span class="kw-word">欲言又止 (yù yán yòu zhǐ)</span>
+      <div class="kw-def">解釋：想說話卻又停下來，形容有難言之隱或顧慮。</div>
+      <div class="kw-eg">例句：看著媽媽疲憊的背影，我欲言又止，默默把那份禮物收回書包裡。</div>
+    </div>
+    <div class="kw-card">
+      <span class="kw-word">擦肩而過 (cā jiān ér guò)</span>
+      <div class="kw-def">解釋：形容沒有抓住機會，錯失良機。</div>
+      <div class="kw-eg">例句：因為一時的怯懦，我與這段珍貴的友誼就此擦肩而過。</div>
+    </div>
+    <div class="kw-card">
+      <span class="kw-word">百感交集 (bǎi gǎn jiāo jí)</span>
+      <div class="kw-def">解釋：各種情感交織在一起，形容感觸極深。</div>
+      <div class="kw-eg">例句：撫摸著這件佈滿灰塵的禮物，我內心百感交集。</div>
+    </div>
+  </div>
+
+  <div class="example-box" style="margin-top: 1.5rem;">
+    <div class="example-label">✨ 精選佳句（供仿寫）</div>
+    <ul style="margin: 0; padding-left: 1.2rem;">
+      <li style="margin-bottom: 0.5rem;"><strong>描寫遺憾：</strong>「這份沒有送出的禮物，像一根細小的刺，深深扎在我的心底，平時不覺痛，但一觸碰便隱隱作痛。」</li>
+      <li><strong>描寫猶豫：</strong>「我的雙腳像灌了鉛一樣沉重，短短幾步路的距離，此刻卻彷彿隔著一道無法跨越的鴻溝。」</li>
+    </ul>
+  </div>
+
+  <h2 class="section-header" id="ch6">🔍 六、 常見錯誤與改進對比</h2>
+  
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <h5 style="color:#e74c3c;">❌ 情節單薄 / 缺乏細節</h5>
+      <p>我見到老師走過來，我很害怕，最後沒有把禮物給她。</p>
+    </div>
+    <div class="compare-card good">
+      <h5 style="color:#27ae60;">✅ 動作與內心交織</h5>
+      <p>當老師熟悉的身影出現在走廊盡頭時，我心頭一緊，連忙轉過身，把那個精心包裝的禮物盒死死地藏在背後，連呼吸都不敢用力。</p>
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <h5 style="color:#e74c3c;">❌ 情感空洞 / 詞彙貧乏</h5>
+      <p>沒把禮物送出去，我覺得很後悔，非常傷心。</p>
+    </div>
+    <div class="compare-card good">
+      <h5 style="color:#27ae60;">✅ 情境渲染，立體感人</h5>
+      <p>看著老師遠去的背影，那一刻，強烈的懊悔湧上心頭，眼淚終於忍不住奪眶而出。這份禮物，終究還是遲了一步。</p>
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <h5 style="color:#e74c3c;">❌ 結尾無力 / 強硬說教</h5>
+      <p>所以我們做人要勇敢，有禮物就要立刻送出去，不要後悔。</p>
+    </div>
+    <div class="compare-card good">
+      <h5 style="color:#27ae60;">✅ 餘韻作結，以物寄情</h5>
+      <p>這件禮物成了我青春裡的一塊烙印，它無聲地告誡我：愛與歉意，都需要及時表達的勇氣。</p>
+    </div>
+  </div>
+
+  <h2 class="section-header" id="ch7">📝 七、 滿分範文大綱（供學生跟隨練習）</h2>
+  <div class="card">
+    <p><strong>主題設定：</strong>和最好的朋友（思晴）因誤會吵架，親手摺了一樽幸運星想道歉，卻因為對方突然轉校而永遠送不出去。</p>
+    <hr style="border: 0; border-top: 1px dashed var(--color-border-tertiary); margin: 1.5rem 0;">
+    <ul style="line-height: 2;">
+      <li><strong>第一段（起 - 製造懸念）：</strong>描寫書桌上那個裝滿紙星星的玻璃樽，指出這是一份沒有送出的禮物，引出對好友「思晴」的思念。</li>
+      <li><strong>第二段（承 - 用心準備）：</strong>交代兩人因小事爭吵（冷戰）。寫出自己其實很內疚，於是熬夜摺了 99 顆幸運星，打算在星期五的結業禮上送給她。</li>
+      <li><strong>第三段（轉 - 臨場退縮）：</strong>詳細描寫結業禮當天的情景。動作描寫（手在書包裡握著玻璃樽）；心理描寫（害怕她拒絕、覺得先低頭很沒面子），直到放學依然沒有拿出來。</li>
+      <li><strong>第四段（轉 - 突發錯失）：</strong>打算下星期一才給她，卻從老師口中得知，思晴已經跟隨家人移民轉校了。描寫當下晴天霹靂的感受。</li>
+      <li><strong>第五段（合 - 昇華反思）：</strong>視線回到眼前的星星樽。總結感悟：沒有送出的禮物教曉我「珍惜」與「勇敢」，有些話一旦錯過，就再也沒有機會說了。</li>
+    </ul>
+  </div>
+
+  <h2 class="section-header" id="ch8">✏️ 八、 實戰寫作指導（Step by Step）</h2>
+
+  <div class="alert tip">
+    <div class="alert-title">💡 使用方法</div>
+    <div>按照以下五個步驟，逐步構思、逐段落筆。每一步先想清楚「為什麼要這樣寫」，再在橫線位置寫下你自己的句子。完成五步，一篇《那件沒有送出去的禮物》的雛形就完成了。</div>
+  </div>
+
+  <div class="step-guide">
+
+    <div class="step-box">
+      <div class="step-head">
+        <span class="step-num"></span>
+        <span class="step-title">構思禮物與人物</span>
+      </div>
+      <div class="step-goal">目標：定好題材，避免臨場「無從下筆」</div>
+      <div class="step-guide-box">
+        先用第二部分「審題思考」的五條問題想清楚方向，再參考題材表回答以下三個問題（可參考「遲來的歉意」「未表達的感恩」「錯過的告別」三個方向）：
+        <ul>
+          <li>禮物是什麼？（具體物件，不要抽象）</li>
+          <li>想送給誰？你們是什麼關係？</li>
+          <li>為什麼最後沒有送出去？（懸念 / 阻礙 / 內心掙扎）</li>
+        </ul>
+      </div>
+      <div class="write-lines"></div>
+      <details class="step-toggle">
+        <summary>查看參考示範</summary>
+        <div class="ans-box">
+          禮物：一條親手編織的頸巾。對象：外婆。沒送出的原因：覺得男孩子送頸巾很害羞，心想「下次見面再給也不遲」，結果外婆突然病倒離世。
+        </div>
+      </details>
+    </div>
+
+    <div class="step-box">
+      <div class="step-head">
+        <span class="step-num"></span>
+        <span class="step-title">定立意：用「追問法」寫出你想講的道理</span>
+      </div>
+      <div class="step-goal">目標：由陳腔濫調的直覺，一步步逼自己想深，寫出屬於你自己的深層立意</div>
+      <div class="step-guide-box">
+        參照第二部分「立意」教學的追問法，按以下三步寫下你的立意：
+        <ul>
+          <li>直覺立意（通常相當普通）：____</li>
+          <li>追問一次「為什麼」：____</li>
+          <li>追問多一次「怎樣」，寫出你的深層立意：____</li>
+        </ul>
+        記住：這句深層立意就是你這篇文章結尾要昇華回歸的核心，寫完之後要記住它！
+      </div>
+      <div class="write-lines" style="min-height: 6rem;"></div>
+      <details class="step-toggle">
+        <summary>查看參考示範</summary>
+        <div class="ans-box">
+          直覺立意：要珍惜身邊的人。<br>
+          追問「為什麼」：因為機會一旦錯過，就無法挽回。<br>
+          追問「怎樣」：珍惜不是掛在嘴邊，而是願意承受被拒絕的風險，也要說出來。
+        </div>
+      </details>
+    </div>
+
+    <div class="step-box">
+      <div class="step-head">
+        <span class="step-num"></span>
+        <span class="step-title">寫開頭：運用「物件倒敘法」</span>
+      </div>
+      <div class="step-goal">目標：從眼前的禮物寫起，製造懸念，不要平鋪直敘</div>
+      <div class="step-guide-box">
+        參照第三部分「開頭」示例，描寫這件禮物現在放在哪裡（抽屜／盒子／衣櫃），它的外觀有什麼細節（顏色、磨損、氣味），再用一句說明「這是一份沒有送出去的禮物」帶出懸念。
+        <ul>
+          <li>禮物現在放在：____</li>
+          <li>它的細節（顏色/質感/磨損）：____</li>
+        </ul>
+      </div>
+      <div class="write-lines" style="min-height: 8.4rem;"></div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-head">
+        <span class="step-num"></span>
+        <span class="step-title">一句帶過準備過程</span>
+      </div>
+      <div class="step-goal">目標：避免流水帳，切記 80% 字數要留給下一步</div>
+      <div class="step-guide-box">
+        呼應第四部分「避免流水帳」技巧：用<strong>一句話</strong>交代你為什麼／如何準備這份禮物（不要寫格價、搭車等瑣碎過程），然後盡快進入「臨門一腳」那五分鐘。
+      </div>
+      <div class="write-lines" style="min-height: 3.5rem;"></div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-head">
+        <span class="step-num"></span>
+        <span class="step-title">寫「臨門一腳」：動作、獨白與環境</span>
+      </div>
+      <div class="step-goal">目標：這是全文最重要的一段，要把時間拉長，寫足三種手法</div>
+      <div class="step-guide-box">
+        參照第四部分技巧，這一段<strong>至少各寫一句</strong>：
+        <ul>
+          <li><strong>動作描寫：</strong>你的手、腳、表情做了什麼？（例：手心冒汗、腳步停滯）</li>
+          <li><strong>內心獨白：</strong>你心裡在猶豫什麼？（用「如果……怎麼辦」句式）</li>
+          <li><strong>環境烘托：</strong>當時天氣／聲音／周遭環境如何映襯你的心情？</li>
+        </ul>
+        最後寫出令你錯過的那個關鍵時刻（鐘聲、對方轉身、車開走……）。
+      </div>
+      <div class="write-lines" style="min-height: 10.5rem;"></div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-head">
+        <span class="step-num"></span>
+        <span class="step-title">寫結尾：以景結情，不要說教</span>
+      </div>
+      <div class="step-goal">目標：昇華主題，但讓讀者自己感受道理，不要硬加「所以我們要」</div>
+      <div class="step-guide-box">
+        回頭看看你在「定立意」那一步寫下的<strong>深層立意</strong>，參照第三部分「結尾」示例，回到開頭那件禮物，寫出它現在對你的意義；可運用第五部分的詞語（如「躊躇不前」「百感交集」）或仿寫佳句，將深層立意自然融入景物或感受之中帶出來，不要直接把那句立意講出來。
+      </div>
+      <div class="write-lines" style="min-height: 7rem;"></div>
+      <details class="step-toggle">
+        <summary>檢查清單（寫完自己核對）</summary>
+        <div class="ans-box">
+          <ul style="margin:0; padding-left: 1.2rem; line-height: 1.9;">
+            <li>□ 開頭有否運用「物件倒敘法」製造懸念？</li>
+            <li>□ 準備過程有否只用一句話帶過？</li>
+            <li>□ 「臨門一腳」段有否齊備三種手法（動作／獨白／環境）？</li>
+            <li>□ 結尾有否避免說教，改用以景結情？</li>
+            <li>□ 全文情感核心是否貫徹遺憾／懊悔／成長？</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </div>
+
+  <footer style="margin-top:4rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+  <!-- PRINT PANEL -->
+  <div class="print-btn-container">
+    <a href="index.html" class="print-btn" style="background: #e2e8f0 !important; color: #475569 !important; box-shadow: none;">返回首頁</a>
+    <button class="print-btn" onclick="window.print()">🖨️ 列印此頁 / 儲存 PDF</button>
+  </div>
+
+</div>
+
+<a href="#top" class="back-to-top" id="backToTop" aria-label="回到頂部">↑</a>
+
+<script>
+  var backToTopBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>
