@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>語文基礎筆記：國外旅遊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --color-ans-bg: #f0f7f0;
+    --color-ans-text: #2e7d32;
+    --color-ans-border: #4caf50;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  
+  @media prefers-color-scheme: dark {
+    :root {
+      --color-text-primary: #f0f0f0;
+      --color-text-secondary: #aaaaaa;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-ans-bg: #1a2e1a;
+      --color-ans-text: #81c784;
+      --color-ans-border: #66bb6a;
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    padding: 2rem 1rem;
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  /* Hero 共用結構 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { 
+    font-size: 13px; 
+    margin: 0;
+  }
+
+  /* 閱讀類：霧藍灰 */
+  .hero.reading { background: #C8D5D8; color: #122025; }
+  .hero.reading .hero-tag {
+    border: 1px solid rgba(18,32,37,0.3);
+    color: rgba(18,32,37,0.65);
+  }
+  .hero.reading p { color: rgba(18,32,37,0.5); }
+
+  /* 組件樣式 */
+  .section-header {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-border-tertiary);
+    padding-bottom: 0.5rem;
+    margin: 2.5rem 0 1.5rem 0;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    background: var(--color-background-secondary);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+  }
+
+  .kw-word {
+    background: var(--color-background-primary);
+    padding: 0.5rem;
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .qbox {
+    margin-bottom: 1.8rem;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+  }
+
+  .q-num {
+    font-weight: 700;
+    margin-right: 0.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .blank {
+    display: inline-block;
+    border-bottom: 1px solid var(--color-text-primary);
+    width: 80px;
+    margin: 0 5px;
+  }
+  
+  .blank-long {
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+    height: 25px;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-left: 0.5rem;
+  }
+
+  .vocab-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .vocab-table caption {
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 0.6rem;
+    color: var(--color-text-primary);
+  }
+
+  .vocab-table th,
+  .vocab-table td {
+    border: 1px solid var(--color-border-tertiary);
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.7;
+  }
+
+  .vocab-table th {
+    background: var(--color-background-secondary);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .vocab-table td:first-child {
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .reading-text {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #6c8a91;
+    line-height: 2;
+    text-indent: 0;
+  }
+
+  /* 互動答案區域樣式 */
+  .toggle-ans-btn {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    color: var(--color-text-secondary);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 1.5rem;
+    display: block;
+    transition: all 0.2s;
+    text-indent: 0;
+  }
+
+  .toggle-ans-btn:hover {
+    background: var(--color-border-tertiary);
+    color: var(--color-text-primary);
+  }
+
+  .inline-answer {
+    display: none;
+    margin-top: 8px;
+    margin-left: 1.5rem;
+    padding: 8px 12px;
+    background: var(--color-ans-bg);
+    border-left: 3px solid var(--color-ans-border);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--color-ans-text);
+    text-indent: 0;
+  }
+
+  .inline-answer.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .print-btn {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.2rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-text-primary);
+    color: var(--color-background-primary);
+    border: none;
+    padding: 0.6rem 1.1rem;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .print-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+
+  @media (max-width: 600px) {
+    .print-btn {
+      top: auto;
+      bottom: 1.2rem;
+      right: 1.2rem;
+    }
+  }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    .print-btn { display: none !important; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, .keyword-grid, .reading-text { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+    
+    /* 確保列印時顏色正確 */
+    .hero.reading { 
+      background-color: #C8D5D8 !important; 
+      color: #122025 !important; 
+      -webkit-print-color-adjust: exact; 
+      print-color-adjust: exact; 
+    }
+    .keyword-grid {
+      background-color: #f5f5f3 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* 列印時強制顯示答案，隱藏按鈕 */
+    .toggle-ans-btn { display: none !important; }
+    .inline-answer { 
+      display: block !important; 
+      background: transparent !important;
+      border: 1px solid #ccc !important;
+      border-left: 3px solid #666 !important;
+      color: #000 !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨️ 列印筆記</button>
+
+<div class="wrap">
+  <div class="hero reading">
+    <div class="hero-tag">語文基礎強化筆記</div>
+    <h1>中二銜接練習：國外旅遊<br>（擴闊眼界與文化體驗）</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <p>💡 <b>學習目標：</b>出國旅遊是大家最喜歡的活動之一！本練習旨在幫助同學掌握描寫旅行見聞的核心詞彙，並訓練同學將「英文思考邏輯」流暢地轉化為地道、標準的中文書面語，擺脫「港式英語（Chinglish）」的句式。</p>
+
+  <div class="section-header">
+    <span>一、供詞填充</span>
+  </div>
+  <div class="card">
+    <div class="vocab-table-wrap">
+      <table class="vocab-table">
+        <caption>詞語教學：四字詞語</caption>
+        <thead>
+          <tr><th>字詞</th><th>解釋</th><th>例句</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>迫不及待</td><td>形容心情急切，急於做某事，無法等待。</td><td>他迫不及待地打開生日禮物。</td></tr>
+          <tr><td>大開眼界</td><td>形容看到新奇事物，眼界大大擴闊，增長見識。</td><td>參觀科學館後，我對太空知識大開眼界。</td></tr>
+          <tr><td>流連忘返</td><td>形容留戀某地美好的景物，捨不得離開。</td><td>海灘的夕陽美景令遊人流連忘返。</td></tr>
+          <tr><td>入鄉隨俗</td><td>到一個新地方，便隨從當地的風俗習慣。</td><td>到日本旅遊時，我們應該入鄉隨俗，脫鞋進屋。</td></tr>
+          <tr><td>滿載而歸</td><td>形容收穫豐富，帶著大量成果歸來。</td><td>這次購物節，媽媽滿載而歸。</td></tr>
+          <tr><td>走馬看花</td><td>比喻粗略地觀察事物，不深入了解。</td><td>時間緊迫，我們只能走馬看花地遊覽博物館。</td></tr>
+          <tr><td>興致勃勃</td><td>形容興趣濃厚，情緒高昂。</td><td>同學們興致勃勃地討論旅行計劃。</td></tr>
+          <tr><td>風塵僕僕</td><td>形容旅途奔波勞累的樣子。</td><td>爸爸風塵僕僕地從機場趕回家。</td></tr>
+          <tr><td>依依不捨</td><td>形容捨不得離開，留戀不已。</td><td>畢業典禮上，同學們依依不捨地道別。</td></tr>
+          <tr><td>嘆為觀止</td><td>形容事物精妙美好到極點，令人讚嘆。</td><td>故宮的建築藝術令遊客嘆為觀止。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>請從下表中選出最適合的四字詞語填在橫線上（每個詞語只可使用一次）。</p>
+    <div class="keyword-grid">
+      <div class="kw-word">迫不及待</div>
+      <div class="kw-word">大開眼界</div>
+      <div class="kw-word">流連忘返</div>
+      <div class="kw-word">入鄉隨俗</div>
+      <div class="kw-word">滿載而歸</div>
+      <div class="kw-word">走馬看花</div>
+      <div class="kw-word">興致勃勃</div>
+      <div class="kw-word">風塵僕僕</div>
+      <div class="kw-word">依依不捨</div>
+      <div class="kw-word">嘆為觀止</div>
+    </div>
+
+    <div class="qbox">
+      <span class="q-num">1.</span>經過十多個小時的長途飛行，我們<span class="blank"></span>地抵達了倫敦的酒店。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：風塵僕僕</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>一放下行李，弟弟就<span class="blank"></span>地拉着爸爸出門，要去品嚐當地的特色美食。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：迫不及待</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>這次參觀法國羅浮宮，欣賞了無數珍貴的藝術品，真讓我<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：大開眼界</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>去到外國旅遊，我們應該<span class="blank"></span>，尊重當地的文化和生活習慣。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：入鄉隨俗</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>大峽谷壯麗的自然景色，氣勢磅礴，讓每一位遊客都<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：嘆為觀止</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>跟旅行團出遊往往行程緊密，每個景點只能<span class="blank"></span>，無法深入了解當地的歷史。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：走馬看花</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>這座古城充滿了濃厚的歷史氣息和特色小店，讓我們逛了一整天依然<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：流連忘返</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>第一天滑雪雖然常常跌倒，但大家還是<span class="blank"></span>地在雪地上玩耍。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：興致勃勃</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>在夜市裏，媽媽買了許多精緻的手信送給親戚朋友，我們一家可說是<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：滿載而歸</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>假期結束了，我們帶着美好的回憶，<span class="blank"></span>地踏上了歸途。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：依依不捨</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>二、不供詞填充</span>
+  </div>
+  <div class="card">
+    <div class="vocab-table-wrap">
+      <table class="vocab-table">
+        <caption>詞語教學：兩字詞語</caption>
+        <thead>
+          <tr><th>字詞</th><th>解釋</th><th>例句</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>啟程</td><td>出發、起程，開始旅程。</td><td>明天清晨我們就要啟程前往機場。</td></tr>
+          <tr><td>陌生</td><td>不熟悉、未曾接觸過。</td><td>初到異地，一切都顯得十分陌生。</td></tr>
+          <tr><td>溝通</td><td>彼此交流、傳遞訊息和想法。</td><td>即使語言不通，我們仍能用手勢溝通。</td></tr>
+          <tr><td>迷路</td><td>迷失方向，找不到原本要走的路。</td><td>我們在陌生的街道上迷路了。</td></tr>
+          <tr><td>悠閒</td><td>輕鬆自在，不慌不忙。</td><td>假日裏，他喜歡悠閒地在公園散步。</td></tr>
+          <tr><td>獨特</td><td>獨有的、與眾不同的。</td><td>每個地方都有其獨特的文化特色。</td></tr>
+          <tr><td>嚮往</td><td>心裏熱切地期盼、渴望。</td><td>她一直嚮往到巴黎旅行。</td></tr>
+          <tr><td>體驗</td><td>親身經歷、感受。</td><td>我們到農場體驗了摘水果的樂趣。</td></tr>
+          <tr><td>壯觀</td><td>景象雄偉盛大，氣勢驚人。</td><td>日出時分的雲海景色十分壯觀。</td></tr>
+          <tr><td>疲倦</td><td>身體或精神感到勞累。</td><td>長途跋涉後，大家都感到十分疲倦。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>請根據句子意思及括號內的提示，填寫最合適的詞語（須為<b>兩個字</b>的詞語）。</p>
+    <div class="qbox">
+      <span class="q-num">1.</span>明早我們六點就要去機場，所以今晚必須早點休息，準備<span class="blank"></span>。<span class="hint">[提示：出發、起程]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：啟程</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>這是我第一次來到這座城市，面對滿街的外語招牌，心裏難免感到有些<span class="blank"></span>。<span class="hint">[提示：不熟悉、沒有接觸過]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：陌生</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>雖然我不懂說日文，但透過簡單的肢體語言，依然能和當地人進行基本的<span class="blank"></span>。<span class="hint">[提示：互相交流、傳遞訊息]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：溝通</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>我們在東京市中心不小心<span class="blank"></span>了，幸好遇到一位熱心的警察幫忙指路。<span class="hint">[提示：迷失方向，找不到原本要走的路]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：迷路</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>這趟旅行我不打算趕行程，只想坐在湖邊的咖啡廳，度過一個<span class="blank"></span>的下午。<span class="hint">[提示：輕鬆自在、不急忙]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：悠閒</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>每個國家都有其<span class="blank"></span>的傳統服飾和節日，這些都是值得我們探索的寶藏。<span class="hint">[提示：獨有的、與眾不同的]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：獨特</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>瑞士的阿爾卑斯山一直是我非常<span class="blank"></span>的旅遊勝地，今年終於有機會親臨其境。<span class="hint">[提示：心裏熱切地嚮往、渴望]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：嚮往</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>為了更深入地了解泰國文化，我們決定報名參加當地的廚藝班，親自<span class="blank"></span>煮泰國菜的樂趣。<span class="hint">[提示：親身經歷、體會]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：體驗</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>站在觀景台上，俯瞰整個城市的璀璨夜景，場面非常<span class="blank"></span>。<span class="hint">[提示：景象宏偉、氣勢盛大]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：壯觀</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>連續走了三天山路，大家的雙腿都感到十分<span class="blank"></span>，一上旅遊巴就睡着了。<span class="hint">[提示：身體勞累、非常累]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：疲倦 / 勞累</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>三、改寫句子（英譯中強化訓練）</span>
+  </div>
+  <div class="card">
+    <p>以下句子為同學日常思考時常用的英文表達。請把它們翻譯並改寫成<b>流暢自然、符合中文語法</b>的標準書面語。</p>
+    
+    <div class="qbox">
+      <span class="q-num">1.</span>I am so excited to travel to Japan with my family this summer holiday.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：這個暑假能和家人一起去日本旅遊，我感到十分興奮。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>The scenery of the Swiss Alps is very beautiful and takes my breath away.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：瑞士阿爾卑斯山的風景非常優美，令人歎為觀止。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>We took a lot of photos in front of the Eiffel Tower.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我們在艾菲爾鐵塔前拍了許多照片。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>I bought many souvenirs for my classmates at the night market.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我在夜市買了許多手信給班上的同學。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>The local food is too spicy, so I cannot eat it.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：當地的食物太辣了，所以我吃不慣（或：所以我無法進食）。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>We got lost in the city centre because we couldn't read the map.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：因為我們看不懂地圖，所以在市中心迷路了。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>The flight was delayed for three hours, which made us very frustrated.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：航班延誤了三個小時，這讓我們感到十分沮喪（或：無奈）。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>You should try to speak the local language when you order food.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：你點餐時，應該嘗試使用當地的語言。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>It is important to respect different cultures when we travel abroad.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：出國旅遊時，尊重不同的文化是十分重要的。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>We packed our luggage last night and we are ready to go to the airport.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我們昨晚已經收拾好行李，準備前往機場了。</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>四、重組句子</span>
+  </div>
+  <div class="card">
+    <p>請將下列散落的詞組重新組合成邏輯嚴謹、文句通順的書面語句子（需加上適當的標點符號）。</p>
+    
+    <div class="qbox">
+      <span class="q-num">1.</span>買了 / 紀念品 / 許多 / 回國 / 哥哥 / 送給 / 特色 / 朋友
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：哥哥買了許多特色紀念品回國送給朋友。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>品嚐 / 我們 / 道地的 / 決定 / 街頭小食 / 去夜市 / 今晚
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：今晚我們決定去夜市品嚐道地的街頭小食。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>無數 / 吸引了 / 壯麗的 / 富士山 / 景色 / 遊客 / 前來參觀
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：富士山壯麗的景色吸引了無數遊客前來參觀。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>非常 / 感到 / 這次 / 新奇 / 對於 / 弟弟 / 歐洲之旅
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：對於這次歐洲之旅，弟弟感到非常新奇。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>不僅能 / 增廣見聞 / 出國旅遊 / 放鬆心情 / 還能 / 讓我們
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：出國旅遊不僅能讓我們放鬆心情，還能增廣見聞。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>充滿了 / 歷史氣息 / 漫步在 / 讓我 / 這座 / 感到 / 古城中
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：漫步在這座古城中，讓我感到充滿了歷史氣息。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>詳細的 / 為了 / 爸爸 / 旅遊計劃 / 避免迷路 / 制定了 / 提前
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：為了避免迷路，爸爸提前制定了詳細的旅遊計劃。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>依依不捨地 / 踏上 / 結束後 / 旅程 / 歸途 / 大家
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：旅程結束後，大家依依不捨地踏上歸途。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>拍照留念 / 著名 / 的 / 紛紛 / 在 / 遊客們 / 地標前
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：遊客們紛紛在著名的地標前拍照留念。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>最期待的 / 就是 / 這趟 / 滑雪體驗 / 旅程中 / 莫過於 / 環節
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：這趟旅程中最期待的環節，莫過於滑雪體驗。</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span>五、段落理解</span>
+  </div>
+  <div class="card">
+    <p>閱讀以下兩段短文，並回答問題。</p>
+
+    <b>【文章一】</b>
+    <div class="reading-text">
+      上個月，我和家人去了一趟東京。這是我第一次來到這個繁華的大都市。我們第一站去了著名的淺草寺，那裏人山人海，各式各樣的傳統手工藝品讓我大開眼界。午餐時，我們入鄉隨俗，在一家地道的居酒屋品嚐了美味的拉麵和刺身。雖然我不懂日文，但店員熱情的笑容和簡單的英語，讓我們感到十分親切。下午，我們在新宿的街頭不小心迷路了，幸好遇到一位熱心的當地人為我們指路，才順利回到酒店。這趟旅行讓我體驗了日本獨特的文化，也感受到當地人的友善。
+    </div>
+    <div class="qbox">
+      <span class="q-num">1.</span>作者和家人到了東京後，第一站去了哪裏參觀？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他們第一站去了著名的淺草寺。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>文中哪個四字成語形容作者看到傳統手工藝品時，感到眼界大開、增長見識？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：大開眼界。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>作者在居酒屋遇到甚麼困難？他們最後是如何解決的？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：作者不懂日文。他們靠着店員熱情的笑容和簡單的英語來溝通解決。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>在新宿街頭，作者一家遭遇了甚麼小意外？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他們在新宿的街頭不小心迷路了。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>根據文章結尾，這次東京之旅讓作者有哪兩方面的體會？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：體驗了日本獨特的文化，並感受到當地人的友善。</div>
+    </div>
+
+    <br>
+    <b>【文章二】</b>
+    <div class="reading-text">
+      去年的暑假，我們一家飛往新西蘭，展開了一場難忘的自然之旅。遠離了城市的喧囂，我們租了一輛露營車，沿途欣賞壯麗的湖泊和連綿的雪山。其中最讓我難忘的，是乘坐直升機俯瞰冰川。從高空望下，那晶瑩剔透的巨大冰層在陽光下閃閃發光，大自然的鬼斧神工真令人嘆為觀止。晚上的時候，我們把車停在湖邊，抬頭便能看見滿天繁星。雖然旅途奔波，有時還會感到疲倦，但這種悠閒自在、與大自然親密接觸的體驗，實在讓我流連忘返，捨不得離開。
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>作者一家在新西蘭選擇了甚麼特別的交通方式來旅遊？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他們租了一輛露營車。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>整個行程中，最讓作者難忘的活動是什麼？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：乘坐直升機俯瞰冰川。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>文中哪個四字成語形容大自然的景色雄偉壯觀，令人讚嘆？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：嘆為觀止。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>除了欣賞冰川外，他們在晚上還欣賞了甚麼自然景色？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他們在湖邊抬頭欣賞滿天繁星。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>雖然旅途會感到疲倦，但為甚麼作者依然「流連忘返」？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：因為他非常喜歡這種悠閒自在、與大自然親密接觸的體驗。</div>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+</div>
+
+<script>
+  function toggleAnswer(btn) {
+    const ansDiv = btn.nextElementSibling;
+    if (ansDiv.classList.contains('show')) {
+      ansDiv.classList.remove('show');
+      btn.innerHTML = '👀 顯示答案';
+    } else {
+      ansDiv.classList.add('show');
+      btn.innerHTML = '🙈 隱藏答案';
+    }
+  }
+</script>
+
+</body>
+</html>
