@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寫作教學筆記：《一個默默付出的人》</title>
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #F5A623;
+            --bg-color: #F8F9FA;
+            --text-color: #333333;
+            --card-bg: #FFFFFF;
+        }
+        body {
+            font-family: 'PingFang HK', 'Microsoft JhengHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        .header p {
+            margin-top: 10px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .section {
+            background-color: var(--card-bg);
+            margin-top: 20px;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #EAEAEA;
+            padding-bottom: 10px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h3 {
+            color: #2C3E50;
+            margin-top: 20px;
+        }
+        .highlight-box {
+            background-color: #FFF8E1;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #E0E0E0;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #F0F4F8;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .bad-example {
+            color: #D32F2F;
+            font-weight: bold;
+        }
+        .good-example {
+            color: #388E3C;
+            font-weight: bold;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #E3F2FD;
+            color: #1976D2;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-right: 5px;
+        }
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            z-index: 100;
+        }
+        .print-btn:hover {
+            background-color: #3A7BC8;
+        }
+        @media print {
+            @page {
+                margin: 12mm 10mm;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .header {
+                border-radius: 0;
+                box-shadow: none;
+                page-break-after: avoid;
+            }
+            .section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            .highlight-box, table, tr {
+                page-break-inside: avoid;
+            }
+            h2, h3 {
+                page-break-after: avoid;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">🖨️ 列印 / 儲存 PDF</button>
+
+<div class="container">
+    <div class="header">
+        <h1>📝 寫作教學筆記：《一個默默付出的人》</h1>
+        <p>適用對象：高小至初中</p>
+    </div>
+
+    <!-- 一、題目分析 -->
+    <div class="section">
+        <h2>🔍 一、題目分析</h2>
+        
+        <h3>1. 拆解題目關鍵詞</h3>
+        <table>
+            <tr>
+                <th width="20%">關鍵詞</th>
+                <th>字詞解說與寫作重點</th>
+            </tr>
+            <tr>
+                <td><strong>「一個」</strong></td>
+                <td><span class="tag">數量詞</span> 必須聚焦在<strong>單一人物</strong>身上，切忌同時詳細描寫多個人物（例如同時寫爸爸和媽媽，會令文章失去焦點）。</td>
+            </tr>
+            <tr>
+                <td><strong>「默默」</strong></td>
+                <td><span class="tag">核心特質</span> 意指不張揚、不炫耀、不求回報。這個人的善舉往往微小，甚至平常不會被人注意到。</td>
+            </tr>
+            <tr>
+                <td><strong>「付出」</strong></td>
+                <td><span class="tag">具體行動</span> 指奉獻出自己的時間、精力、勞力或金錢來照顧及守護別人。</td>
+            </tr>
+        </table>
+
+        <h3>2. 情感核心與寫作重點</h3>
+        <p>寫作的靈魂在於<strong>「發現」的過程</strong>：由最初「忽略／覺得理所當然」，到後來無意中察覺對方的付出，才慢慢生出驚訝、愧疚、感動和敬意。</p>
+
+        <h3>3. 常見離題與薄弱問題</h3>
+        <ul>
+            <li><strong>選材錯誤：</strong> 寫成「一個偉大的人」（例如寫知名的科學家或明星），偏離了身邊「默默」的平凡人物。</li>
+            <li><strong>缺乏轉折：</strong> 內容平鋪直敘，一味讚美對方有多好，卻沒有具體寫出自己內心「被觸動的瞬間」。</li>
+        </ul>
+    </div>
+
+    <!-- 二、寫作構思指引 -->
+    <div class="section">
+        <h2>💡 二、寫作構思指引</h2>
+        
+        <h3>1. 建議可選題材（貼近學生生活）</h3>
+        <ul>
+            <li><strong>家庭篇：</strong> 每天比全家人早起，在廚房忙碌準備熱騰騰早餐的媽媽或外婆。</li>
+            <li><strong>家庭篇：</strong> 下雨天接放學，總是把雨傘偷偷傾斜向我，自己半邊身子淋透卻毫無怨言的爸爸。</li>
+            <li><strong>校園篇：</strong> 每天放學後，在空無一人的走廊上獨自彎腰清潔去水渠的校工（工友）。</li>
+            <li><strong>社區篇：</strong> 屋苑裡總是笑容滿面，替住客擋著電梯門、默默整理報紙的保安叔叔。</li>
+        </ul>
+
+        <h3>2. 情節發展與情感轉折建議</h3>
+        <div class="highlight-box">
+            <p><strong>起（起因／背景）：</strong> 交代人物是誰。<em>情感：平淡、忽視、習以為常。</em></p>
+            <p><strong>承（經過／日常）：</strong> 描寫一至兩件他日常默默做的小事。<em>情感：開始有一點點好奇或依然不以為然。</em></p>
+            <p><strong>轉（高潮／發現）：</strong> 一個特定的契機（如惡劣天氣、生病、無意中看見），看見對方的辛勞。<em>情感轉折：震驚 ➔ 愧疚 ➔ 感動。</em></p>
+            <p><strong>合（結局／反思）：</strong> 抒發深深的感激之情，並帶出自己未來的改變。<em>情感：敬佩、感恩、下定決心。</em></p>
+        </div>
+    </div>
+
+    <!-- 三、詳細寫作步驟 -->
+    <div class="section">
+        <h2>📝 三、詳細寫作步驟</h2>
+        
+        <h3>1. 開頭（引人入勝）</h3>
+        <p><strong>技巧：</strong> 避免用「今天我要寫的人是我的媽媽」這種沉悶開頭。嘗試運用<strong>設問法</strong>或<strong>情境描寫</strong>來吸引讀者。</p>
+        <div class="highlight-box">
+            <strong>示例（情境 ＋ 設問）：</strong><br>
+            「每天清晨，當我還在溫暖的被窩裡做著甜夢時，廚房裡總會傳來一陣輕微的切菜聲。究竟是誰起得這麼早呢？原來是我的媽媽，那位永遠把家人放在第一位的人。」
+        </div>
+
+        <h3>2. 中段（具體刻畫）</h3>
+        <p><strong>技巧：</strong> 要清楚交代事件經過，運用<strong>細節描寫</strong>（動作、環境）和<strong>心理刻畫</strong>（內心變化）來放大最動人的一刻。</p>
+        <div class="highlight-box">
+            <strong>示例（動作細節 ＋ 心理刻畫）：</strong><br>
+            「深夜，我起牀喝水，經過客廳時，發現只有一盞微弱的枱燈亮著。只見爸爸戴著老花眼鏡，眉頭緊皺，正小心翼翼地用膠紙修補我白天撕破了的故事書。那一刻，昏黃的燈光打在他斑白的雙鬢上，我的心猛地抽緊了，一股愧疚感油然而生。」
+        </div>
+
+        <h3>3. 結尾（昇華主題）</h3>
+        <p><strong>技巧：</strong> 結尾不能草草了事，必須回應題目，把心中的感謝化為實質的行動或深刻的領悟。</p>
+        <div class="highlight-box">
+            <strong>示例（反思與情感總結）：</strong><br>
+            「那本修補好的故事書，不僅夾著膠紙的痕跡，更藏著爸爸無聲的愛。他就是這樣一個默默付出的人，從不把愛掛在嘴邊，卻用行動溫暖著我。我暗自下定決心，以後一定要好好珍惜他的心血，不再讓他操心。」
+        </div>
+    </div>
+
+    <!-- 四、寫作技巧講解 -->
+    <div class="section">
+        <h2>🛠 四、寫作技巧講解</h2>
+        <ul>
+            <li><strong>「以小見大」：</strong> 不需要寫生老病死等誇張大事。從「一碗熱湯」、「一把雨傘」、「一次縫補」等微不足道的事物中，寫出真摯情感。</li>
+            <li><strong>環境烘托：</strong> 利用天氣或環境來襯托人物辛勞。例如：用「寒風刺骨」來襯托校門外風紀老師的辛勞；用「寂靜的深夜」突出人物的不辭勞苦。</li>
+            <li><strong>避免流水帳：</strong> 不要把從早到晚發生的事全寫出來。要<strong>「選重點」</strong>，在一件事上停留，加入大量的動作描寫和自己的內心感受（獨白）。</li>
+        </ul>
+    </div>
+
+    <!-- 五、詞語與表達提升 -->
+    <div class="section">
+        <h2>📚 五、詞語與表達提升</h2>
+        
+        <h3>1. 實用成語與四字詞語</h3>
+        <table>
+            <tr>
+                <th width="20%">詞語</th>
+                <th width="30%">解釋</th>
+                <th>配合主題之例句</th>
+            </tr>
+            <tr>
+                <td><strong>無微不至</strong></td>
+                <td>形容關懷、照顧得非常細心周到。</td>
+                <td>媽媽對我的照顧無微不至，連我皺一下眉頭她都能察覺。</td>
+            </tr>
+            <tr>
+                <td><strong>任勞任怨</strong></td>
+                <td>做事不辭勞苦，不怕別人埋怨。</td>
+                <td>校工強叔任勞任怨地打掃著校園的每一個角落。</td>
+            </tr>
+            <tr>
+                <td><strong>習以為常</strong></td>
+                <td>經常看見，覺得很平常。</td>
+                <td>我們對她準備的豐盛早餐早已習以為常，卻忘了背後的辛勞。</td>
+            </tr>
+            <tr>
+                <td><strong>潤物無聲</strong></td>
+                <td>喻指暗中教導或無私奉獻，不求回報。</td>
+                <td>父母的愛就像春雨般潤物無聲，默默滋養著我成長。</td>
+            </tr>
+        </table>
+
+        <h3>2. 精選佳句（可供仿寫）</h3>
+        <ul style="list-style-type: '🌟 ';">
+            <li>「愛，有時不是轟轟烈烈的誓言，而是長年累月、不求回報的陪伴。」</li>
+            <li>「他就像一盞不起眼的路燈，雖然沒有太陽般耀眼，卻在黑暗中默默照亮了我前行的路。」</li>
+        </ul>
+    </div>
+
+    <!-- 六、常見錯誤與改進建議 -->
+    <div class="section">
+        <h2>⚠️ 六、常見錯誤與改進建議</h2>
+        <table>
+            <tr>
+                <th width="20%">常見問題</th>
+                <th width="40%">❌ 修改前（表達薄弱）</th>
+                <th width="40%">✅ 修改後（情感具體）</th>
+            </tr>
+            <tr>
+                <td><strong>情感空洞<br>只喊口號</strong></td>
+                <td class="bad-example">媽媽對我很好，做了很多事，我很感動，我真的很愛媽媽。</td>
+                <td class="good-example">看著媽媽為我熬夜縫補校服的背影，一股暖流湧上心頭。我才知道，原來那一針一線，都密密麻麻地縫進了她對我的愛。</td>
+            </tr>
+            <tr>
+                <td><strong>「默默」的<br>特質不突出</strong></td>
+                <td class="bad-example">爸爸一邊幫我修理玩具，一邊大聲說他有多辛苦，叫我以後要聽話。</td>
+                <td class="good-example">爸爸一句怨言也沒有，只是靜靜地坐在角落，默默地把散落一地的玩具零件重新拼砌好。</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 七、範文大綱 -->
+    <div class="section">
+        <h2>📑 七、範文大綱示例（以「清潔工友強叔」為例）</h2>
+        <div class="highlight-box" style="background-color: #E8F5E9; border-left-color: #4CAF50;">
+            <p><strong>第一段（引子）：</strong> 點出學校裡最容易被忽略的角落，總有一個最容易被忽視的身影——清潔工友強叔。</p>
+            <p><strong>第二段（日常經過）：</strong> 描寫強叔平時的工作狀態（總是低著頭掃地）。同學們對他習以為常，有時甚至不小心弄髒他剛掃好的地板，他也只是笑笑不說話。</p>
+            <p><strong>第三段（高潮／特寫）：</strong> 記敘一個大雨滂沱的放學後，全校師生都走光了。我回課室拿功課，偶然看見強叔正彎著腰，不顧骯髒，徒手清理被樹葉和淤泥堵塞的去水渠，全身都濕透了。</p>
+            <p><strong>第四段（心理變化）：</strong> 對比自己以前的視而不見，此刻內心感到無比震驚與愧疚。明白到校園之所以美麗整潔，是因為有人在背後默默負重前行。</p>
+            <p><strong>第五段（結尾）：</strong> 總結強叔雖然平凡，但他默默付出的精神卻十分偉大。抒發敬意，承諾以後要保持校園清潔，尊重別人的勞動成果。</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
