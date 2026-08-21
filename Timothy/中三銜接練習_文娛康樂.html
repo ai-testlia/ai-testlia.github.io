@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>語文基礎筆記：文娛康樂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --color-ans-bg: #f0f7f0;
+    --color-ans-text: #2e7d32;
+    --color-ans-border: #4caf50;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  
+  @media prefers-color-scheme: dark {
+    :root {
+      --color-text-primary: #f0f0f0;
+      --color-text-secondary: #aaaaaa;
+      --color-background-primary: #121212;
+      --color-background-secondary: #1e1e1e;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-ans-bg: #1a2e1a;
+      --color-ans-text: #81c784;
+      --color-ans-border: #66bb6a;
+    }
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    padding: 2rem 1rem;
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--color-background-primary);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  /* Hero 共用結構 - 康樂藝術主題：紫藤色 */
+  .hero {
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+    color: inherit;
+    line-height: 1.4;
+  }
+  .hero p { 
+    font-size: 13px; 
+    margin: 0;
+  }
+
+  .hero.arts { background: #E2DEEB; color: #2B1B40; }
+  .hero.arts .hero-tag {
+    border: 1px solid rgba(43,27,64,0.3);
+    color: rgba(43,27,64,0.7);
+  }
+  .hero.arts p { color: rgba(43,27,64,0.6); }
+
+  /* 組件樣式 */
+  .section-header {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-border-tertiary);
+    padding-bottom: 0.5rem;
+    margin: 2.5rem 0 1.5rem 0;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    background: var(--color-background-secondary);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+  }
+
+  .kw-word {
+    background: var(--color-background-primary);
+    padding: 0.5rem;
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .vocab-table-wrap {
+    overflow-x: auto;
+    margin-top: 1rem;
+  }
+
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .vocab-table th {
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 2px solid #8e7db3;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .vocab-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--color-border-tertiary);
+    vertical-align: top;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+  }
+
+  .vocab-table tr:last-child td { border-bottom: none; }
+
+  .vocab-table .term-col {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .vocab-table .def-col { color: var(--color-text-secondary); }
+
+  .qbox {
+    margin-bottom: 1.8rem;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+  }
+
+  .q-num {
+    font-weight: 700;
+    margin-right: 0.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .blank {
+    display: inline-block;
+    border-bottom: 1px solid var(--color-text-primary);
+    width: 80px;
+    margin: 0 5px;
+  }
+  
+  .blank-long {
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+    height: 25px;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-left: 0.5rem;
+  }
+
+  .reading-text {
+    background: var(--color-background-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #8e7db3;
+    line-height: 2;
+    text-indent: 0;
+  }
+
+  /* 互動答案區域樣式 */
+  .toggle-ans-btn {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    color: var(--color-text-secondary);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 1.5rem;
+    display: block;
+    transition: all 0.2s;
+    text-indent: 0;
+  }
+
+  .toggle-ans-btn:hover {
+    background: var(--color-border-tertiary);
+    color: var(--color-text-primary);
+  }
+
+  .inline-answer {
+    display: none;
+    margin-top: 8px;
+    margin-left: 1.5rem;
+    padding: 8px 12px;
+    background: var(--color-ans-bg);
+    border-left: 3px solid var(--color-ans-border);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--color-ans-text);
+    text-indent: 0;
+  }
+
+  .inline-answer.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .print-fab {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: #8e7db3;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 24px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .print-fab:hover {
+    background: #7a6a9e;
+    transform: translateY(-2px);
+  }
+
+  @media print {
+    .print-fab { display: none !important; }
+    @page { margin: 12mm 10mm; }
+    body { background: white; padding: 0; }
+    .wrap { max-width: 100%; padding: 0; box-shadow: none; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula, .keyword-grid, .reading-text { page-break-inside: avoid; }
+    .vocab-table tr { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+    
+    .hero.arts { 
+      background-color: #E2DEEB !important; 
+      color: #2B1B40 !important; 
+      -webkit-print-color-adjust: exact; 
+      print-color-adjust: exact; 
+    }
+    .keyword-grid {
+      background-color: #f5f5f3 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* 列印時隱藏按鈕，答案維持目前顯示/隱藏的狀態 */
+    .toggle-ans-btn { display: none !important; }
+    .inline-answer.show {
+      background: transparent !important;
+      border: 1px solid #ccc !important;
+      border-left: 3px solid #666 !important;
+      color: #000 !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-fab" onclick="window.print()">🖨️ 列印工作紙</button>
+
+<div class="wrap">
+  <!-- Hero 區塊 -->
+  <div class="hero arts">
+    <div class="hero-tag">中三級語文基礎強化筆記</div>
+    <h1>中三銜接練習：文娛康樂<br>（藝術、文化與運動篇）</h1>
+    <p>潘 Sir 中文教室編撰</p>
+  </div>
+
+  <p>💡 <b>學習目標：</b>本練習專為國際學校及海外回流的中三同學而設。透過藝術展覽、流行音樂會、運動競賽等課外活動情境，協助同學掌握中三級程度的核心詞彙，並訓練將「英語思維」精準轉化為流暢的高階中文書面語。</p>
+
+  <!-- 第一部分：供詞填充 -->
+  <div class="section-header">
+    <span>一、供詞填充</span>
+  </div>
+
+  <!-- 詞語解釋與例句（第一部分） -->
+  <div class="card">
+    <p>📖 <b>詞語解釋與例句</b>（請先掌握以下詞語的意思，再完成下面的填充練習）</p>
+    <div class="vocab-table-wrap">
+      <table class="vocab-table">
+        <thead>
+          <tr><th>詞語</th><th>解釋</th><th>例句</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="term-col">賞心悅目</td><td class="def-col">形容眼前景物美好，令人看了心情愉快。</td><td>公園裡種滿了各種顏色的花，環境賞心悅目。</td></tr>
+          <tr><td class="term-col">餘音繞樑</td><td class="def-col">形容歌聲或音樂優美動聽，餘韻久久不散，令人回味。</td><td>她的歌聲餘音繞樑，觀眾散場後仍然念念不忘。</td></tr>
+          <tr><td class="term-col">引人入勝</td><td class="def-col">形容事物十分吸引，使人產生濃厚興趣，欲罷不能。</td><td>這本推理小說的情節引人入勝，我一口氣看完了。</td></tr>
+          <tr><td class="term-col">拍案叫絕</td><td class="def-col">形容對某事物讚賞到極點，忍不住拍桌叫好。</td><td>觀眾對雜技演員高難度的表演拍案叫絕。</td></tr>
+          <tr><td class="term-col">栩栩如生</td><td class="def-col">形容藝術形象生動逼真，如同活的一樣。</td><td>博物館裡的蠟像栩栩如生，讓人幾乎分不清真假。</td></tr>
+          <tr><td class="term-col">雅俗共賞</td><td class="def-col">形容作品既有藝術水平，又能為普通大眾接受和欣賞。</td><td>這套動畫電影老少咸宜，可謂雅俗共賞。</td></tr>
+          <tr><td class="term-col">陶冶性情</td><td class="def-col">指透過藝術、閱讀等活動，潛移默化地培養美好的品格和情操。</td><td>家長鼓勵孩子學習樂器，藉此陶冶性情。</td></tr>
+          <tr><td class="term-col">汗流浹背</td><td class="def-col">形容出汗很多，濕透了背部的衣服，多用於形容天氣炎熱或運動勞累。</td><td>搬完這幾箱書，他已經汗流浹背。</td></tr>
+          <tr><td class="term-col">樂在其中</td><td class="def-col">形容從某件事情中得到樂趣，即使辛苦也感到快樂。</td><td>雖然練習很辛苦，但他一直樂在其中。</td></tr>
+          <tr><td class="term-col">意猶未盡</td><td class="def-col">形容興致還沒有得到滿足，還想繼續下去。</td><td>這頓飯吃得意猶未盡，下次還要再來。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <p>請從下表中選出最適合的四字詞語填在橫線上（每個詞語只可使用一次）。</p>
+    <div class="keyword-grid">
+      <div class="kw-word">賞心悅目</div>
+      <div class="kw-word">餘音繞樑</div>
+      <div class="kw-word">引人入勝</div>
+      <div class="kw-word">拍案叫絕</div>
+      <div class="kw-word">栩栩如生</div>
+      <div class="kw-word">雅俗共賞</div>
+      <div class="kw-word">陶冶性情</div>
+      <div class="kw-word">汗流浹背</div>
+      <div class="kw-word">樂在其中</div>
+      <div class="kw-word">意猶未盡</div>
+    </div>
+
+    <div class="qbox">
+      <span class="q-num">1.</span>這部科幻電影的視覺特效非常震撼，劇情更是<span class="blank"></span>，讓全場觀眾目不轉睛。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：引人入勝</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>學習書法不僅能練出一手好字，更能在靜心書寫的過程中<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：陶冶性情</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>經過兩個小時的劇烈籃球比賽，所有隊員都<span class="blank"></span>，但臉上卻掛着滿足的笑容。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：汗流浹背</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>這位著名歌手的嗓音清澈動人，演唱會結束後，美妙的歌聲彷彿依然<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：餘音繞樑</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>博物館裏展出的立體雕塑<span class="blank"></span>，連人物衣服上的細小皺褶都雕刻得十分細緻。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：栩栩如生</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>這套喜劇的題材既有深度又充滿幽默感，真是一部<span class="blank"></span>的優秀作品。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：雅俗共賞</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>雖然排練舞台劇的過程十分艱辛，但看到團隊合作的成果，大家都<span class="blank"></span>。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：樂在其中</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>魔術師在舞台上表演了神乎其技的脫逃魔術，令台下觀眾<span class="blank"></span>，掌聲雷動。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：拍案叫絕</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>演唱會已經超時，但歌迷們依然<span class="blank"></span>，在台下大喊「安歌（Encore）」。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：意猶未盡</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>植物園裏開滿了五顏六色的鬱金香，風景<span class="blank"></span>，是週末散步的好去處。
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：賞心悅目</div>
+    </div>
+  </div>
+
+  <!-- 第二部分：不供詞填充 -->
+  <div class="section-header">
+    <span>二、不供詞填充</span>
+  </div>
+
+  <!-- 詞語解釋與例句（第二部分） -->
+  <div class="card">
+    <p>📖 <b>詞語解釋與例句</b>（請先掌握以下詞語的意思，再完成下面的填充練習）</p>
+    <div class="vocab-table-wrap">
+      <table class="vocab-table">
+        <thead>
+          <tr><th>詞語</th><th>解釋</th><th>例句</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="term-col">培養</td><td class="def-col">以較長時間栽培或訓練，使某種特質、能力或興趣得以發展。</td><td>閱讀習慣需要從小培養。</td></tr>
+          <tr><td class="term-col">精彩</td><td class="def-col">形容表演、內容等特別優秀、出色，令人讚賞。</td><td>這場籃球賽的最後一節十分精彩。</td></tr>
+          <tr><td class="term-col">舒緩 / 緩解</td><td class="def-col">使緊張、痛苦或壓力等的程度減輕。</td><td>聽輕音樂有助舒緩緊張的情緒。</td></tr>
+          <tr><td class="term-col">展覽</td><td class="def-col">把物品陳列出來，供公眾參觀。</td><td>學校美術組將於下月舉行作品展覽。</td></tr>
+          <tr><td class="term-col">節奏</td><td class="def-col">音樂或動作中有規律的強弱、快慢變化。</td><td>這首歌的節奏輕快，令人不禁想跟着打拍子。</td></tr>
+          <tr><td class="term-col">鍛鍊</td><td class="def-col">通過反覆練習或運動，使身體或能力變得強健、熟練。</td><td>他每天早上跑步鍛鍊身體。</td></tr>
+          <tr><td class="term-col">喝彩 / 歡呼</td><td class="def-col">大聲叫好，表示讚賞或興奮。</td><td>球員射入致勝一球，全場觀眾都站起來喝彩。</td></tr>
+          <tr><td class="term-col">投入</td><td class="def-col">全神貫注地參與某件事情，形容專注、用心。</td><td>她演戲十分投入，完全融入了角色。</td></tr>
+          <tr><td class="term-col">氛圍 / 氣氛</td><td class="def-col">周圍環境所形成的氣息、情調。</td><td>聖誕節的商場總是充滿歡樂的氛圍。</td></tr>
+          <tr><td class="term-col">欣賞</td><td class="def-col">領略事物的美好之處，加以享受和讚賞。</td><td>媽媽喜歡在假日到畫廊欣賞藝術品。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <p>請根據句子意思及括號內的提示，填寫最合適的詞語（須為<b>兩個字</b>的詞語）。</p>
+    <div class="qbox">
+      <span class="q-num">1.</span>學校每年都會舉辦不同類型的課外活動，藉此<span class="blank"></span>學生多方面的興趣。<span class="hint">[提示：照料培育，使之發展]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：培養</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>這場管弦樂團的演出非常<span class="blank"></span>，我們全家都聽得如癡如醉。<span class="hint">[提示：優美出色、引人入勝]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：精彩</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>週末時，我喜歡到海濱長廊跑步，因為運動能夠有效<span class="blank"></span>我平日的學習壓力。<span class="hint">[提示：使緊張的情緒或壓力得到減輕]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：舒緩 / 緩解</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>西九文化區的M+博物館最近舉辦了一個大型的現代藝術<span class="blank"></span>，吸引了許多年輕人參觀。<span class="hint">[提示：把物品陳列出來供人觀看]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：展覽</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>隨着輕快的音樂<span class="blank"></span>，舞蹈員在台上展現出充滿活力的舞姿。<span class="hint">[提示：音樂中交替出現的有規律的強弱、長短現象]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：節奏</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>體育老師鼓勵我們每天堅持游泳，這樣才能有效<span class="blank"></span>強健的體魄。<span class="hint">[提示：通過體育運動使身體強壯]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：鍛鍊</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>看見主場球隊在最後一秒鐘投進致勝的三分球，全場球迷都激動地站起來<span class="blank"></span>。<span class="hint">[提示：大聲叫好，表示讚賞]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：喝彩 / 歡呼</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>由於這首流行曲的旋律非常洗腦，同學們很快便完全<span class="blank"></span>在演唱會的狂熱之中。<span class="hint">[提示：形容全神貫注，參與其中]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：投入</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>走進這間歷史悠久的圖書館，四周安靜得只剩下翻書聲，散發着濃厚的學術<span class="blank"></span>。<span class="hint">[提示：周圍的氣氛和情調]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：氛圍 / 氣氛</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>懂得<span class="blank"></span>藝術品，不但能提高個人的審美眼光，還能讓生活增添幾分情趣。<span class="hint">[提示：享受美好的事物，領略其中的趣味]</span>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 答案：欣賞</div>
+    </div>
+  </div>
+
+  <!-- 第三部分：改寫句子 (全英譯中) -->
+  <div class="section-header">
+    <span>三、改寫句子（英譯中強化訓練）</span>
+  </div>
+  <div class="card">
+    <p>以下句子為同學日常思考時常用的英文表達。請把它們準確地翻譯並改寫成<b>流暢自然、符合中三級中文語法</b>的標準書面語。</p>
+    
+    <div class="qbox">
+      <span class="q-num">1.</span>I really enjoy going to pop concerts because the live atmosphere is amazing.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我十分喜歡觀看流行音樂會，因為現場氣氛極佳。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>Playing basketball not only helps me stay healthy but also relieves my stress from studying.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：打籃球不僅能讓我保持健康，還能舒緩學習壓力。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>The art exhibition we visited yesterday was very impressive and eye-opening.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：我們昨天參觀的藝術展覽令人印象深刻，讓我大開眼界。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>I have been learning to play the piano for five years in order to cultivate my patience.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：為了培養耐性，我學習彈鋼琴已經五年了。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>My parents usually take me to the museum on weekends to learn about history.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：父母通常會在週末帶我參觀博物館，以認識歷史。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>We gave a big round of applause to the actors after the drama performance.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：戲劇表演結束後，我們給予演員熱烈的掌聲。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>Doing sports is a good way to build up team spirit with my classmates.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：做運動是與同學建立團隊精神的好方法。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>Reading fantasy novels is my favorite hobby in my free time.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：在空餘時間閱讀奇幻小說，是我最喜歡的嗜好。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>The melody of this classical music is so beautiful that I can't stop listening to it.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：這首古典音樂的旋律十分優美，讓我百聽不厭。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>Participating in extracurricular activities can make our school life more colorful.
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：參與課外活動能讓我們的校園生活更加多姿多采。</div>
+    </div>
+  </div>
+
+  <!-- 第四部分：重組句子 -->
+  <div class="section-header">
+    <span>四、重組句子</span>
+  </div>
+  <div class="card">
+    <p>請將下列散落的詞組重新組合成邏輯嚴謹、文句通順的書面語句子（需加上適當的標點符號）。</p>
+    
+    <div class="qbox">
+      <span class="q-num">1.</span>舒緩 / 聽 / 壓力 / 古典音樂 / 的 / 是 / 方法 / 學習 / 一個 / 很好
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：聽古典音樂是一個舒緩學習壓力的很好方法。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>畫展中 / 展出 / 的 / 令人 / 作品 / 這次 / 讚嘆不已 / 藝術
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：這次畫展中展出的藝術作品令人讚嘆不已。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>不僅 / 鍛鍊身體 / 培養 / 團隊精神 / 參與 / 體育活動 / 還能 / 能
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：參與體育活動不僅能鍛鍊身體，還能培養團隊精神。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>無數 / 攝影比賽 / 參加 / 吸引了 / 舉辦的 / 這次 / 學校 / 學生
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：這次學校舉辦的攝影比賽吸引了無數學生參加。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>優美 / 台上的 / 舞蹈員 / 展現出 / 隨着 / 音樂 / 的 / 舞姿
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：舞蹈員隨着音樂在台上展現出優美的舞姿。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>留下 / 這部 / 深刻的 / 讓 / 觀眾 / 電影 / 印象 / 緊湊的 / 劇情
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：這部電影緊湊的劇情讓觀眾留下深刻的印象。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>歡呼喝彩 / 贏得 / 全場觀眾 / 精彩的 / 為 / 紛紛 / 比賽 / 站起來
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：全場觀眾紛紛站起來為精彩的比賽歡呼喝彩。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>投入地 / 舞台劇 / 演藝學會的 / 排練 / 正在 / 禮堂裏 / 同學們
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：演藝學會的同學們正在禮堂裏投入地排練舞台劇。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>陶冶性情 / 能夠 / 欣賞 / 我們 / 和 / 藝術品 / 幫助 / 提升品味
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：欣賞藝術品能夠幫助我們陶冶性情和提升品味。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>十分 / 的 / 氣氛 / 讓 / 演唱會 / 狂熱 / 歌迷們 / 享受 / 現場
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：演唱會現場狂熱的氣氛讓歌迷們十分享受。</div>
+    </div>
+  </div>
+
+  <!-- 第五部分：段落理解 -->
+  <div class="section-header">
+    <span>五、段落理解</span>
+  </div>
+  <div class="card">
+    <p>閱讀以下兩段短文，並回答問題。</p>
+
+    <b>【文章一】</b>
+    <div class="reading-text">
+      上週末，中文老師安排我們到西九文化區參觀一個現代水墨畫展覽。原本我以為水墨畫只會畫一些沉悶的山水和花鳥，但這次展覽卻讓我大開眼界。展廳內的作品結合了傳統筆墨與西方抽象的藝術元素，其中一幅名為《都市叢林》的畫作更是引人入勝。畫家利用濃淡交錯的墨色，栩栩如生地勾勒出香港高樓林立的壓迫感，同時又保留了一絲寧靜的意境，可謂雅俗共賞。導賞員逐幅解說，我才漸漸看懂畫作背後藏着的情感。這趟參觀陶冶了我的性情，也改變了我對傳統藝術的刻板印象。
+    </div>
+    <div class="qbox">
+      <span class="q-num">1.</span>參觀展覽前，作者對「水墨畫」有什麼既定的刻板印象？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他以為水墨畫只會畫一些沉悶的山水和花鳥。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">2.</span>這次展覽中的作品在創作手法上有什麼特別之處？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：作品結合了傳統筆墨與西方抽象的藝術元素。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">3.</span>文中哪個四字成語形容畫作《都市叢林》十分吸引，讓人不自覺地沉醉其中？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：引人入勝。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">4.</span>畫家在《都市叢林》這幅畫中，想表達出香港社會的什麼感覺？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：高樓林立的壓迫感，同時又保留了一絲寧靜的意境。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">5.</span>根據文章結尾，這次展覽為作者帶來了哪兩個正面的影響？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：陶冶了他的性情，也改變了他對傳統藝術的刻板印象。</div>
+    </div>
+
+    <br>
+    <b>【文章二】</b>
+    <div class="reading-text">
+      升上中三後，我加入了學校的排球隊。排球是一項極度講求團隊合作的體育運動，單靠個人技術是無法取勝的。每個星期二和星期四的放學後，我們都要在體育館進行嚴格的體能及戰術訓練。雖然每次練完球都汗流浹背、四肢痠痛，但隊員們依然樂在其中。在最近一次的校際比賽中，我們在落後兩局的劣勢下，憑着永不言敗的體育精神和默契，最終逆轉勝出。裁判吹哨結束比賽的一刻，全場同學起立為我們喝彩，站在場上聽着掌聲，我忽然明白，堅持和團結原來這麼珍貴。
+    </div>
+    <div class="qbox">
+      <span class="q-num">6.</span>為什麼作者認為排球運動「單靠個人技術是無法取勝的」？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：因為排球是一項極度講求團隊合作的體育運動。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">7.</span>排球隊的訓練為作者的身體帶來了什麼反應？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：每次練完球都會汗流浹背、四肢痠痛。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">8.</span>在最近的校際比賽中，排球隊是如何反敗為勝的？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他們憑着永不言敗的體育精神和默契，最終逆轉勝出。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">9.</span>文中哪個雙音節詞語（兩個字）形容觀眾在比賽結束時，大聲叫好以示讚賞？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：喝彩。</div>
+    </div>
+    <div class="qbox">
+      <span class="q-num">10.</span>這次比賽的經歷讓作者領悟到什麼道理？
+      <div class="blank-long"></div>
+      <button class="toggle-ans-btn" onclick="toggleAnswer(this)">👀 顯示答案</button>
+      <div class="inline-answer">✅ 參考答案：他忽然明白到，堅持和團結原來這麼珍貴。</div>
+    </div>
+  </div>
+
+  <!-- 嚴格規定的版權聲明 -->
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">©2026 潘SIR中文教室</span><br>
+      版權歸 潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得 潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+</div>
+
+<!-- 互動按鈕腳本 -->
+<script>
+  function toggleAnswer(btn) {
+    const ansDiv = btn.nextElementSibling;
+    if (ansDiv.classList.contains('show')) {
+      ansDiv.classList.remove('show');
+      btn.innerHTML = '👀 顯示答案';
+    } else {
+      ansDiv.classList.add('show');
+      btn.innerHTML = '🙈 隱藏答案';
+    }
+  }
+
+</script>
+
+</body>
+</html>
