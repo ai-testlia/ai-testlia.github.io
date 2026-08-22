@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>閱讀有方法：找出中心思想 × 自我提問法｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-text-primary:#1a1a1a;
+    --color-text-secondary:#555;
+    --color-background-primary:#ffffff;
+    --color-background-secondary:#f5f5f3;
+    --color-border-tertiary:rgba(0,0,0,0.1);
+    --border-radius-md:8px;
+    --border-radius-lg:12px;
+
+    --hero-bg:#C8D5D8;
+    --hero-text:#122025;
+
+    --purple:#7B68C4; --purple-bg:#F1EEFB;
+    --blue:#4A90D9;   --blue-bg:#EAF3FC;
+    --teal:#2FA394;   --teal-bg:#E8F7F4;
+    --coral:#E36767;  --coral-bg:#FDEDED;
+    --amber:#D89A2B;  --amber-bg:#FBF3E3;
+    --pink:#D66FA0;   --pink-bg:#FBEBF3;
+    --green:#3FA556;  --green-bg:#EAF7EC;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --color-text-primary:#f0f0ef;
+      --color-text-secondary:#b8b8b6;
+      --color-background-primary:#1c1c1e;
+      --color-background-secondary:#242426;
+      --color-border-tertiary:rgba(255,255,255,0.12);
+    }
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans TC", sans-serif;
+    background:var(--color-background-secondary);
+    color:var(--color-text-primary);
+    line-height:1.8;
+  }
+  .wrap{max-width:840px; margin:0 auto; padding:28px 18px 60px;}
+
+  /* ===== Hero ===== */
+  .hero{
+    background:var(--hero-bg);
+    color:var(--hero-text);
+    border-radius:var(--border-radius-lg);
+    padding:38px 32px;
+    margin-bottom:24px;
+    text-align:center;
+  }
+  .hero-tag{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    padding:5px 16px;
+    border:1.5px solid rgba(18,32,37,0.3);
+    color:rgba(18,32,37,0.65);
+    border-radius:999px;
+    margin-bottom:14px;
+    letter-spacing:1px;
+  }
+  .hero h1{
+    font-family:"Noto Serif TC", serif;
+    font-size:30px;
+    font-weight:900;
+    margin:0 0 10px;
+    line-height:1.5;
+  }
+  .hero p{
+    margin:0;
+    font-size:14px;
+    color:rgba(18,32,37,0.5);
+    font-weight:500;
+  }
+
+  /* ===== TOC ===== */
+  .toc{
+    background:var(--color-background-primary);
+    border:1px solid var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:20px 24px;
+    margin-bottom:32px;
+  }
+  .toc-title{font-weight:900; font-size:15px; margin-bottom:12px; color:var(--color-text-primary);}
+  .toc-item{
+    display:flex; gap:10px; align-items:baseline;
+    font-size:14px; color:var(--color-text-secondary);
+    padding:5px 0;
+  }
+  .toc-item b{color:var(--blue); min-width:20px;}
+
+  /* ===== Section header ===== */
+  .section-header{
+    display:flex; align-items:center; gap:12px;
+    margin:40px 0 18px;
+    padding-bottom:10px;
+    border-bottom:3px solid var(--hero-bg);
+  }
+  .section-header .icon{font-size:24px;}
+  .section-header .num{
+    font-size:12px; font-weight:700; color:var(--color-text-secondary);
+    background:var(--color-background-secondary);
+    padding:3px 10px; border-radius:999px;
+  }
+  .section-header h2{
+    font-family:"Noto Serif TC", serif;
+    font-size:21px; font-weight:900; margin:0;
+    color:var(--color-text-primary);
+  }
+
+  .subsection{margin:22px 0;}
+  .subsection h3{
+    font-size:16px; font-weight:700; margin:0 0 10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .dot{width:9px; height:9px; border-radius:50%; display:inline-block; flex-shrink:0;}
+  .dot.purple{background:var(--purple);} .dot.blue{background:var(--blue);}
+  .dot.teal{background:var(--teal);} .dot.coral{background:var(--coral);}
+  .dot.amber{background:var(--amber);} .dot.pink{background:var(--pink);}
+
+  /* ===== Card ===== */
+  .card{
+    background:var(--color-background-primary);
+    border:1px solid var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:20px 22px;
+    margin-bottom:16px;
+    font-size:14px;
+  }
+
+  /* ===== Example box ===== */
+  .example-box{
+    border-radius:var(--border-radius-md);
+    padding:16px 18px;
+    margin:14px 0;
+    background:var(--purple-bg);
+    border-left:4px solid var(--purple);
+  }
+  .example-box.teal{background:var(--teal-bg); border-left-color:var(--teal);}
+  .example-box.coral{background:var(--coral-bg); border-left-color:var(--coral);}
+  .example-box.amber{background:var(--amber-bg); border-left-color:var(--amber);}
+  .example-box.pink{background:var(--pink-bg); border-left-color:var(--pink);}
+  .example-label{font-size:12px; font-weight:900; color:var(--color-text-secondary); margin-bottom:6px; letter-spacing:1px;}
+  .example-text{font-size:14.5px; color:var(--color-text-primary); line-height:1.9;}
+  .example-text .src{display:block; text-align:right; font-size:12.5px; color:var(--color-text-secondary); margin-top:8px;}
+
+  /* ===== Alert ===== */
+  .alert{
+    display:flex; gap:12px; align-items:flex-start;
+    border-radius:var(--border-radius-md);
+    padding:14px 16px; margin:14px 0;
+    font-size:13.5px;
+  }
+  .alert-icon{font-size:18px; flex-shrink:0;}
+  .alert-label{font-weight:900; margin-bottom:3px;}
+  .alert.tip{background:var(--blue-bg); color:#1d4d78;}
+  .alert.tip .alert-label{color:var(--blue);}
+  .alert.warn{background:var(--coral-bg); color:#7a2a2a;}
+  .alert.warn .alert-label{color:var(--coral);}
+  .alert.success{background:var(--green-bg); color:#1f5e2c;}
+  .alert.success .alert-label{color:var(--green);}
+  .alert.amber{background:var(--amber-bg); color:#6b4d14;}
+  .alert.amber .alert-label{color:var(--amber);}
+
+  /* ===== Flow ===== */
+  .flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:16px 0;}
+  .flow-step{
+    background:var(--blue-bg); color:#1d4d78; font-weight:700; font-size:13px;
+    padding:9px 16px; border-radius:999px;
+  }
+  .flow-arrow{color:var(--color-text-secondary); font-weight:900;}
+
+  /* ===== Keyword grid ===== */
+  .keyword-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin:16px 0;}
+  .kw-card{background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:12px 14px;}
+  .kw-word{font-weight:900; color:var(--teal); font-size:14px; margin-bottom:4px;}
+  .kw-def{font-size:13px; color:var(--color-text-secondary);}
+
+  /* ===== Passage box ===== */
+  .passage-box{
+    background:var(--color-background-secondary);
+    border:1px dashed var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:20px 22px;
+    margin:14px 0;
+    font-size:14.5px;
+    line-height:2;
+    text-indent:2em;
+    white-space:pre-line;
+  }
+  .passage-box .src{
+    display:block; text-align:right; text-indent:0;
+    font-size:13px; color:var(--color-text-secondary); margin-top:10px;
+  }
+  .passage-meta{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:12.5px; color:var(--color-text-secondary); margin:6px 0 10px;
+  }
+  .timer-tag{
+    background:var(--amber-bg); color:#6b4d14; font-weight:700;
+    padding:4px 12px; border-radius:999px; font-size:12px;
+  }
+
+  /* ===== Glossary ===== */
+  .glossary{
+    background:var(--color-background-secondary);
+    border-radius:var(--border-radius-md);
+    padding:14px 18px; margin:12px 0; font-size:13px;
+  }
+  .glossary-title{font-weight:900; margin-bottom:8px; display:flex; align-items:center; gap:6px;}
+  .glossary ol{margin:0; padding-left:18px;}
+  .glossary li{margin-bottom:4px;}
+
+  /* ===== Question box ===== */
+  .qbox{
+    background:var(--color-background-primary);
+    border:1px solid var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:18px 20px;
+    margin-bottom:14px;
+  }
+  .qbox-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;}
+  .qbox-num{font-weight:900; color:var(--blue);}
+  .qbox-marks{font-size:12px; color:var(--color-text-secondary); font-style:italic;}
+  .qtext{font-size:14.5px; margin-bottom:10px;}
+  .qoption{
+    display:flex; align-items:center; gap:10px;
+    font-size:14px; padding:6px 4px;
+  }
+  .radio{
+    width:16px; height:16px; border:1.5px solid #999; border-radius:50%;
+    flex-shrink:0; display:inline-block;
+  }
+  .checkbox{
+    width:15px; height:15px; border:1.5px solid #999; border-radius:3px;
+    flex-shrink:0; display:inline-block;
+  }
+  .blank-line{
+    border-bottom:1.3px solid #999;
+    display:inline-block; min-width:120px; height:1.4em; vertical-align:bottom;
+  }
+  .blank-line.long{min-width:100%; width:100%; margin:6px 0;}
+  .qhint{
+    margin-top:10px; font-size:12.5px; color:var(--color-text-secondary);
+    background:var(--color-background-secondary); padding:8px 12px; border-radius:var(--border-radius-md);
+  }
+
+  /* ===== Table (for 提問法 exercise) ===== */
+  .qtable{width:100%; border-collapse:collapse; margin:12px 0; font-size:13.5px;}
+  .qtable th, .qtable td{border:1px solid var(--color-border-tertiary); padding:10px 12px; text-align:left;}
+  .qtable th{background:var(--hero-bg); color:var(--hero-text); font-weight:700;}
+
+  /* ===== Formula ===== */
+  .formula{
+    background:#242832; color:#f0f0ef;
+    border-radius:var(--border-radius-lg);
+    padding:18px 22px; margin:16px 0;
+    font-size:14.5px; line-height:1.9;
+  }
+  .formula b{color:#8FD3C4;}
+
+  /* ===== Section divider ===== */
+  .section-divider{height:1px; background:var(--color-border-tertiary); margin:34px 0;}
+
+  footer{margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;}
+
+  /* ===== Print button ===== */
+  .print-btn{
+    position:fixed;
+    right:22px; bottom:22px;
+    display:flex; align-items:center; gap:8px;
+    background:var(--hero-bg); color:var(--hero-text);
+    border:none; border-radius:999px;
+    padding:13px 22px;
+    font-family:"Noto Sans TC", sans-serif;
+    font-size:14px; font-weight:700;
+    cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,0.18);
+    z-index:999;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .print-btn:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.22); }
+  .print-btn:active{ transform:translateY(0); }
+  .print-btn svg{ width:16px; height:16px; }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+    .print-btn { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()" aria-label="列印或儲存為 PDF">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+  列印筆記
+</button>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>閱讀有方法：<br>找出中心思想 × 自我提問法</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📖 本篇目錄</div>
+    <div class="toc-item"><b>01</b> 策略一：找出中心思想</div>
+    <div class="toc-item"><b>02</b> 自己來做做（一）：判斷中心思想句</div>
+    <div class="toc-item"><b>03</b> 自己來做做（二）：歸納中心思想</div>
+    <div class="toc-item"><b>04</b> 閱讀練習開箱：培根〈談禮貌〉</div>
+    <div class="toc-item"><b>05</b> 策略二：提問法——自我提問</div>
+    <div class="toc-item"><b>06</b> 自己來做做（一）：篩選有效提問</div>
+    <div class="toc-item"><b>07</b> 自己來做做（二）：自擬提問與作答</div>
+    <div class="toc-item"><b>08</b> 閱讀練習開箱：焦桐〈位子〉</div>
+  </div>
+
+  <!-- ============ 01 ============ -->
+  <div class="section-header">
+    <span class="icon">🎯</span>
+    <span class="num">01</span>
+    <h2>策略一：找出中心思想</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot purple"></span>什麼是「中心思想」？</h3>
+    <div class="card">
+      中心思想不是憑感覺猜出來的，而是要有根有據：先在段落中找出<b>關鍵詞</b>或<b>中心句</b>，逐段歸納，最後用自己的文字寫成一句完整的話，講出作者想帶出的道理。
+    </div>
+
+    <div class="flow">
+      <div class="flow-step">① 細閱全文</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">② 找出關鍵詞／中心句</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">③ 畫線標記</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">④ 歸納整合</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">⑤ 寫出中心思想</div>
+    </div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">考試技巧</div>
+        <div class="alert-text">中心思想句常見於段首或段末，留意帶有總結語氣的句子，例如「換言之」、「總之」、「說到底」等連接詞後面的內容，往往就是關鍵所在。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 02 自己來做做（一）============ -->
+  <div class="section-header">
+    <span class="icon">✏️</span>
+    <span class="num">02</span>
+    <h2>自己來做做（一）：判斷中心思想句</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot blue"></span>閱讀下文，運用剛學的方法，找出本文的中心思想</h3>
+    <div class="passage-box">外婆常說我雖然不是個能言善道的孩子，但是表情豐富，從我的臉色就能閱讀我內心的想法。她說那年家裏開聖誕派對，我和家人吃過火雞後，便一起交換禮物。派對完結，外婆定睛看着我說：「你雖然看來有些疲累，但是心情很暢快呢！」聽罷，我看着鏡子，卻看不清自己的內心。唯有一直看着我的外婆，才會明瞭我的想法吧！</div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">你找出中心思想了嗎？</span></div>
+      <div class="qoption"><span class="radio"></span>A．「我」不了解自己的所思所感。</div>
+      <div class="qoption"><span class="radio"></span>B．「我」不是個能說善道的孩子。</div>
+      <div class="qoption"><span class="radio"></span>C．「我」的表情能反映內心想法。</div>
+      <div class="qoption"><span class="radio"></span>D．外婆具有看清他人內心的能力。</div>
+      <div class="qoption"><span class="radio"></span>E．外婆非常關心作者的一舉一動。</div>
+      <div class="qhint">提示：留意首句「表情豐富，從我的臉色就能閱讀我內心的想法」——這正是全文反覆印證的核心概念。</div>
+    </div>
+  </div>
+
+  <!-- ============ 03 自己來做做（二）============ -->
+  <div class="section-header">
+    <span class="icon">✏️</span>
+    <span class="num">03</span>
+    <h2>自己來做做（二）：歸納中心思想</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot blue"></span>閱讀下文，寫出短文的中心思想</h3>
+
+    <div class="example-box">
+      <div class="example-label">① 段落一</div>
+      <div class="example-text">你知道維他命是什麼嗎？所謂維他命，就是我們身體賴以維生的營養素。維他命既能夠促進新陳代謝，也能夠預防慢性疾病，因此，我們必須攝取足夠的維他命。</div>
+    </div>
+    <div class="qbox">
+      <div class="qtext">1. 你知道這個段落說什麼嗎？</div>
+      <div class="qoption"><span class="radio"></span>A．維他命的功用</div>
+      <div class="qoption"><span class="radio"></span>B．維他命的影響</div>
+      <div class="qoption"><span class="radio"></span>C．維他命的壞處</div>
+      <div class="qoption"><span class="radio"></span>D．維他命的攝取方法</div>
+    </div>
+
+    <div class="example-box teal">
+      <div class="example-label">② 段落二</div>
+      <div class="example-text">既然維他命對維持身體正常機能運作如此重要，我們是不是要多攝取維他命呢？我們身體不論是缺乏或是攝取過量維他命，都會影響健康，例如，攝取過量的維他命E將會導致頭暈、腸胃不適等症狀，所以攝取各類維他命也要適可而止。</div>
+    </div>
+    <div class="qbox">
+      <div class="qtext">2. 試把關鍵詞或中心句找出來，在文中畫線。</div>
+      <div class="qtext">3. 找到中心句了，把它們歸納一下，然後寫出本文的中心思想。</div>
+      <div style="margin-top:10px;">中心思想：本文說明維他命的
+        <span class="blank-line"></span> 和對身體的
+        <span class="blank-line"></span>。
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ============ 04 閱讀練習開箱 ============ -->
+  <div class="section-header">
+    <span class="icon">📦</span>
+    <span class="num">04</span>
+    <h2>閱讀練習開箱：培根〈談禮貌〉</h2>
+  </div>
+
+  <div class="subsection">
+    <div class="passage-meta">
+      <span>閱讀以下文章，完成所附題目。</span>
+      <span class="timer-tag">⏱ 限時：20 分鐘</span>
+    </div>
+
+    <div class="passage-box">要做到舉止得體，只要不輕視它就大致可以了，因為不輕視，就會注意別人的舉止，其餘的就靠自己了，如果處心積慮地要表現一番，反而失去了它的優美；而優美應當是自然而然、不裝腔作勢的。有些人的舉止就像一節詩，每個音節都經過推敲，一個人太斤斤於細節，怎麼能理大事？一點不講究禮貌，等於叫別人對你也不講禮貌，這就會使別人對你不大尊重。對於陌生人和拘泥於禮儀的人，禮貌尤其不可忽視。然而一味地講禮貌，把禮貌捧得比天高，就不僅顯得無聊，而且會減少人們對說話者的信任。當然讚語中間是有一種效果好、印象深的表達方法的，如能找到，那就會有特殊的用途。
+
+人在同伴中間肯定受到親密無間的對待，因此還是嚴肅一點為好。人在下屬中間一定會受到敬重，因此親密一點才對。如果一個人什麼事都醉心於老一套，結果換了場合就惹得別人膩味，就使自己顯得太掉價、丟份兒。助人為樂值得稱道，但必須表明這樣做是出於對別人的關心，而不是為了自己的利益。在支持別人的意見的時候，一般加上一點自己的看法為好。如果你同意他的看法，應當略有一點區別；如果你擁護他的動議，最好附帶上一點條件；如果你贊成他的議論，不妨再提一點理由。
+
+人應當注意不要成為馬屁精。因為不管他別的方面是怎樣能幹，嫉妒他的人肯定會說這是他的唯一特長，有損於他的更大的才德。做事的時候奉命唯謹或過分計較時間場合也是不可取的，智者創造的機會比找到的更多。人的舉止應當像身上的衣服，不可太緊，不可過於精當，而應寬鬆一點，便於活動。<span class="src">——法蘭西斯・培根《談禮貌》（節錄）</span></div>
+
+    <div class="glossary">
+      <div class="glossary-title">📘 詞語怎麼解？</div>
+      <ol>
+        <li><b>膩味</b>：惹人討厭。</li>
+        <li><b>丟份兒</b>：失身份、失面子。</li>
+        <li><b>馬屁精</b>：愛奉承別人的人。</li>
+        <li><b>奉命唯謹</b>：接受命令，小心謹慎。</li>
+      </ol>
+    </div>
+
+    <div class="alert amber">
+      <div class="alert-icon">👨‍🏫</div>
+      <div>
+        <div class="alert-label">老師提一下</div>
+        <div class="alert-text">作答時，宜在理解內容後用自己的文字寫出，避免直接照抄原文句子。</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">1</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">作者認為怎樣才可以做到舉止得體？</div>
+      <div class="qoption"><span class="radio"></span>A．努力表現出自己的優雅</div>
+      <div class="qoption"><span class="radio"></span>B．注意自己的行為舉止</div>
+      <div class="qoption"><span class="radio"></span>C．自然而然地表現禮儀</div>
+      <div class="qoption"><span class="radio"></span>D．大力稱讚別人</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">2</span><span class="qbox-marks">（4 分）</span></div>
+      <div class="qtext">為什麼作者認為待人不宜太講究禮貌？</div>
+      <div>因為那會 (1) <span class="blank-line long"></span></div>
+      <div>而且 (2) <span class="blank-line long"></span></div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">3</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">作者認為上司對待下屬的態度應該要怎樣？</div>
+      <div class="qoption"><span class="radio"></span>A．嚴肅一點</div>
+      <div class="qoption"><span class="radio"></span>B．親密一點</div>
+      <div class="qoption"><span class="radio"></span>C．敬重一點</div>
+      <div class="qoption"><span class="radio"></span>D．嚴厲一點</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">4</span><span class="qbox-marks">（6 分）</span></div>
+      <div class="qtext">根據本文內容，稱讚別人或支持別人意見時有哪三項條件？</div>
+      <div style="margin:6px 0;">(1) 表明這是出於 <span class="blank-line long"></span></div>
+      <div style="margin:6px 0;">(2) 不是為了 <span class="blank-line long"></span></div>
+      <div style="margin:6px 0;">(3) 加上一點 <span class="blank-line long"></span></div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">5</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">本文的主旨是</div>
+      <div class="qoption"><span class="radio"></span>A．不可忽視禮貌。</div>
+      <div class="qoption"><span class="radio"></span>B．不應過分講究禮貌。</div>
+      <div class="qoption"><span class="radio"></span>C．人的舉止要自然適當。</div>
+      <div class="qoption"><span class="radio"></span>D．稱讚別人必須符合原則。</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">6</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">文中哪一個詞語有反覆思考的意思？</div>
+      <div class="blank-line long"></div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ============ 05 策略二 ============ -->
+  <div class="section-header">
+    <span class="icon">❓</span>
+    <span class="num">05</span>
+    <h2>策略二：提問法——自我提問</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot coral"></span>認識自我提問</h3>
+    <div class="card">
+      閱讀文章的時候，不妨代入角色，或者結合自己的生活經驗，主動向文章發問。這樣一邊讀一邊問，其實就是在檢查自己是否真的讀懂了，而不是純粹眼睛掃過文字。
+    </div>
+
+    <h3><span class="dot coral"></span>怎樣自我提問？</h3>
+    <div class="card">
+      讀完一篇文章，除了知道發生了什麼事，還可以再進一步，就文章提出自己的看法，例如評價作者的寫作手法、人物的行為是否恰當。以下四個角度，可以幫助你逐層深入：
+    </div>
+
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">發生什麼事？</div><div class="kw-def">先掌握事件本身，這是理解一切的基礎</div></div>
+      <div class="kw-card"><div class="kw-word">故事中人物怎樣做？</div><div class="kw-def">留意人物面對困境時的具體選擇</div></div>
+      <div class="kw-card"><div class="kw-word">有其他可行的做法嗎？</div><div class="kw-def">代入自己會怎樣做，比較異同</div></div>
+      <div class="kw-card"><div class="kw-word">對人物的做法有什麼評價？</div><div class="kw-def">說出你認同或不認同的原因</div></div>
+    </div>
+
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>
+        <div class="alert-label">重點</div>
+        <div class="alert-text">問題不是愈多愈好，關鍵在於「有沒有助你理解內容」。「主題是什麼？」、「文中的人物做什麼？」都能直接扣住文章重點，反而「文章的標題是什麼？」這類問題，答案再明確也無助理解。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 06 自己來做做（一）============ -->
+  <div class="section-header">
+    <span class="icon">✏️</span>
+    <span class="num">06</span>
+    <h2>自己來做做（一）：篩選有效提問</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot pink"></span>閱讀下面的文字，然後回答問題，在適當的方格內加 ✓</h3>
+    <div class="passage-box">自拍不是「自戀狂」的行為。相反，自拍能增加自信，使人心情愉悅。有研究發現，常自拍微笑表情，會使人笑得更自然，笑容更具感染力，既促進人際關係的和睦，也有助舒緩生活上面對的種種壓力。</div>
+
+    <div class="qbox">
+      <div class="qtext">你認為以下哪些問題有助理解文章內容？</div>
+      <div class="qoption"><span class="checkbox"></span>主題是什麼？</div>
+      <div class="qoption"><span class="checkbox"></span>文章的標題是什麼？</div>
+      <div class="qoption"><span class="checkbox"></span>文中的人物做什麼？</div>
+      <div class="qoption"><span class="checkbox"></span>文章提出什麼觀點？</div>
+      <div class="qoption"><span class="checkbox"></span>我有什麼觀點？</div>
+      <div class="qoption"><span class="checkbox"></span>我和作者的觀點不同嗎？</div>
+    </div>
+  </div>
+
+  <!-- ============ 07 自己來做做（二）============ -->
+  <div class="section-header">
+    <span class="icon">✏️</span>
+    <span class="num">07</span>
+    <h2>自己來做做（二）：自擬提問與作答</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot pink"></span>閱讀下文，把你要提問的問題和答案寫在空格內，完成下表</h3>
+    <div class="passage-box">可歎息的是，我們這個社會裏有很多人，不知道一個人戴着一隻一百元的電子錶，也可以守時，可以自在、歡喜、坦然，這才是社會最可悲的地方。
+
+一個做生意的朋友問我：「寫一個字可以賺多少錢？」我說：「運氣好的話，一個字可以賺一元。」他大笑：「那麼什麼時候才賺到一億呀！」我說：「可是，寫六個字就可以買一個饅頭，寫十個字就可以買一把青菜，寫十五個字就可以買一斤蛋，寫十七個字就可以買一斤蓬萊米，一天需要的還不到一百字呢！」
+
+對於心中有月亮和滿天星的人，生活就是如此簡單！生命不需要欲望妝扮，也戴着燦亮的光環。<span class="src">——林清玄《月亮下去了》（節錄）</span></div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">就着上文，你會問什麼問題？</div>
+        <div class="alert-text">記住！問題必須能有助理解內容，不要只問無關痛癢的枝節。</div>
+      </div>
+    </div>
+
+    <table class="qtable">
+      <tr><th style="width:45%">問題</th><th>你知道了</th></tr>
+      <tr><td>問題 1：主題是什麼？</td><td>主題是對生活物質追求的看法。</td></tr>
+      <tr><td>問題 2：<span class="blank-line long"></span></td><td><span class="blank-line long"></span></td></tr>
+      <tr><td>問題 3：<span class="blank-line long"></span></td><td><span class="blank-line long"></span></td></tr>
+    </table>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ============ 08 閱讀練習開箱 ============ -->
+  <div class="section-header">
+    <span class="icon">📦</span>
+    <span class="num">08</span>
+    <h2>閱讀練習開箱：焦桐〈位子〉</h2>
+  </div>
+
+  <div class="subsection">
+    <div class="passage-meta">
+      <span>閱讀以下的文章，完成所附題目。</span>
+      <span class="timer-tag">⏱ 限時：20 分鐘</span>
+    </div>
+
+    <div class="passage-box">「大風吹，吹什麼？吹……」還記得童年玩的遊戲嗎？大家緊張兮兮地各據己位，那個沒有位子的「鬼」就四處逡巡，覬覦別人的位子。
+
+人在這個世界上，好像總需要有一個位子。
+
+打從小學開始，教室裏就安排有座位，我們乖乖坐好，靜聽老師「傳道、授業、解惑」。長大了，踏出校門，正正經經上下班，辦公室也有一張屬於自己的位子。你可能從課員、主任、經理……隨着能力和資歷扶搖直上，一路升到案前有好多台電話的「長」字輩；呃，也許，也許經過十年的歲月，你依舊坐在老位子，從白領到白髮。但總之，你有一個位子。
+
+那天路過一條小巷，看見一戶人家，在車庫門上用了白漆寫上了兩行字：「門前請勿停車，以免輪胎易洩氣。」無獨有偶，在轉彎的牆角，又看到有人寫着：「這位子中午有手搖車，請讓開一點！」我這才意識到原來汽車也要位子，大家因為位子被佔而生氣，而爭執，而互相警告譴責。大概警察局也發現位子的問題逐漸複雜，乃在另一面牆上清楚規定：「雙月停西側，單月停東側——每月一日上午八時變換停車位置。」
+
+「大風吹，吹什麼？吹……」人活在這個世界上，往往也只圖一個位子。有人不滿意現有的位子，經常想要變換；有人擔心位子被奪，戒慎恐懼，時時提防着要堵別人的去處；有人佔了位子不放，希望牢牢固固的守它一生；至於沒位子的人呢？就拼盡全力要搞一個位子來坐。我常想，人間的許多糾紛，是不是只在計較一個位子呢？<span class="src">——焦桐《位子》</span></div>
+
+    <div class="glossary">
+      <div class="glossary-title">📘 詞語怎麼解？</div>
+      <ol>
+        <li><b>逡巡</b>：因為顧慮而徘徊不前。</li>
+        <li><b>覬覦</b>：希望得到不應該得到的東西。</li>
+        <li><b>戒慎恐懼</b>：經常警惕謹慎，恐怕有過失。</li>
+      </ol>
+    </div>
+
+    <div class="alert amber">
+      <div class="alert-icon">👨‍🏫</div>
+      <div>
+        <div class="alert-label">老師提一下</div>
+        <div class="alert-text">作答第 2 題時，留意前文提到上班的人會因為升遷而換位，以此推測依舊坐在老位子的含意。</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">1</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">作者提到大風吹的遊戲，目的是</div>
+      <div class="qoption"><span class="radio"></span>A．講解大風吹遊戲的玩法。</div>
+      <div class="qoption"><span class="radio"></span>B．喚起童年玩遊戲的快樂回憶。</div>
+      <div class="qoption"><span class="radio"></span>C．說明遊戲對人們成長的重要性。</div>
+      <div class="qoption"><span class="radio"></span>D．帶出每個人都在尋求自己的位置。</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">2</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">在第三段，作者說：「呃，也許，也許經過十年的歲月，你依舊坐在老位子，從白領到白髮。」（第 7-8 行），這句話有什麼含義？</div>
+      <div class="qoption"><span class="radio"></span>A．你一直都沒有升職</div>
+      <div class="qoption"><span class="radio"></span>B．你從沒有調換座位</div>
+      <div class="qoption"><span class="radio"></span>C．你在公司工作多年</div>
+      <div class="qoption"><span class="radio"></span>D．你的舊座沒有人坐</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">3</span><span class="qbox-marks">（4 分）</span></div>
+      <div class="qtext">文中多次提到「位子」二字，但其意思不盡相同。試根據上文下理，分辨不同段落中「位子」的意思，把答案寫在空格內。</div>
+      <table class="qtable">
+        <tr><th>句子</th><th style="width:30%">意思</th></tr>
+        <tr><td>第三段：辦公室也有一張屬於自己的「位子」。</td><td><span class="blank-line long"></span></td></tr>
+        <tr><td>第四段：大概警察局也發現「位子」的問題逐漸複雜。</td><td>車位</td></tr>
+        <tr><td>第五段：有人不滿意現有的「位子」，經常想要變換。</td><td><span class="blank-line long"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">4</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">文首和文末皆出現了「大風吹，吹什麼？吹……」，這種寫作手法在文章結構上起了什麼作用？</div>
+      <div class="qoption"><span class="radio"></span>A．重複語句</div>
+      <div class="qoption"><span class="radio"></span>B．首尾呼應</div>
+      <div class="qoption"><span class="radio"></span>C．強調主題</div>
+      <div class="qoption"><span class="radio"></span>D．引用說明</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">5</span><span class="qbox-marks">（3 分）</span></div>
+      <div class="qtext">根據第四段的內容，為什麼警察要讓車子在不同時間轉換泊車位置？</div>
+      <div>因為 <span class="blank-line long"></span></div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">6</span><span class="qbox-marks">（4 分）</span></div>
+      <div class="qtext">作者發問：「人間的許多糾紛，是不是只在計較一個位子呢？」（第 24-25 行）你會怎樣回答作者？</div>
+      <div class="blank-line long"></div>
+      <div class="blank-line long"></div>
+    </div>
+  </div>
+
+  <div class="formula">
+    <b>兩個策略，其實是一體兩面：</b>找中心思想，是讀完之後回頭歸納；自我提問，是邊讀邊主動發問。前者練「收」，後者練「問」——兩種習慣都養成了，讀任何文章都不會只停留在表面。
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
