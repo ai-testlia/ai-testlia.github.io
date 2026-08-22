@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>閱讀語基評估</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0, 0, 0, 0.1);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --hero-bg: #C8D5D8;
+      --hero-fg: #122025;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--hero-bg);
+      color: var(--hero-fg);
+      border-radius: var(--border-radius-lg);
+      padding: 34px 32px 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border: 1px solid rgba(18, 32, 37, 0.3);
+      color: rgba(18, 32, 37, 0.65);
+      border-radius: 999px;
+      padding: 3px 12px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: "Noto Serif TC", serif;
+      font-weight: 900;
+      font-size: 32px;
+      margin: 0 0 6px;
+      color: var(--hero-fg);
+    }
+
+    .hero p.author {
+      margin: 10px 0 0;
+      font-size: 13px;
+      color: rgba(18, 32, 37, 0.5);
+    }
+
+    /* Meta info bar */
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .meta-item {
+      flex: 1 1 150px;
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+
+    .meta-item b {
+      color: var(--color-text-primary);
+      font-size: 14px;
+    }
+
+    .meta-item .line {
+      display: inline-block;
+      border-bottom: 1px solid var(--color-text-secondary);
+      min-width: 90px;
+      height: 16px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 16px 20px;
+      margin-bottom: 26px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 18px;
+    }
+
+    .toc-title {
+      grid-column: 1 / -1;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .toc a {
+      font-size: 13.5px;
+      color: var(--color-text-primary);
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+      border-bottom: 1px dashed var(--color-border-tertiary);
+    }
+
+    .toc a span.marks {
+      color: var(--color-text-secondary);
+      font-size: 12px;
+    }
+
+    .toc a:hover {
+      color: #122025;
+    }
+
+    /* Question box */
+    .qbox {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 20px 22px 22px;
+      margin-bottom: 18px;
+    }
+
+    .qbox-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+
+    .qbox-num {
+      flex: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--hero-bg);
+      color: var(--hero-fg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Noto Serif TC", serif;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .qbox-title {
+      font-weight: 700;
+      font-size: 15.5px;
+      flex: 1;
+    }
+
+    .qbox-icon {
+      margin-right: 6px;
+    }
+
+    .qbox-meta {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+    }
+
+    .qitem {
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+
+    .qitem:last-child {
+      margin-bottom: 0;
+    }
+
+    .qitem .qn {
+      color: var(--color-text-secondary);
+      margin-right: 4px;
+    }
+
+    .qtag {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-left: 4px;
+    }
+
+    .name {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .blank {
+      display: inline-block;
+      border-bottom: 1px solid var(--color-text-primary);
+      min-width: 90px;
+      height: 18px;
+      vertical-align: bottom;
+      margin: 0 2px;
+    }
+
+    .blank.long {
+      min-width: 220px;
+    }
+
+    .blank.full {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+    }
+
+    .mc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+      margin: 6px 0 4px 20px;
+    }
+
+    .mc-grid.single {
+      grid-template-columns: 1fr;
+    }
+
+    .mc-opt {
+      font-size: 13.5px;
+      padding: 3px 0;
+    }
+
+    .mc-opt .circ {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--color-text-secondary);
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: -2px;
+    }
+
+    .poem-box {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 20px;
+      text-align: center;
+      margin: 6px 0 16px;
+    }
+
+    .poem-box .title {
+      font-family: "Noto Serif TC", serif;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .poem-box .body {
+      font-family: "Noto Serif TC", serif;
+      font-size: 17px;
+      line-height: 2.1;
+      letter-spacing: 1px;
+    }
+
+    .poem-box .cite {
+      font-size: 12.5px;
+      color: var(--color-text-secondary);
+      margin-top: 8px;
+    }
+
+    .footnotes {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin: -6px 0 14px 4px;
+    }
+
+    .passage {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 18px 20px;
+      font-size: 14px;
+      line-height: 2.05;
+      text-indent: 2em;
+      margin-bottom: 16px;
+    }
+
+    .passage p {
+      margin: 0 0 10px;
+    }
+
+    .passage p:last-child {
+      margin-bottom: 0;
+    }
+
+    table.ans-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin: 6px 0 4px;
+    }
+
+    table.ans-table th,
+    table.ans-table td {
+      border: 1px solid var(--color-border-tertiary);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.8;
+    }
+
+    table.ans-table th {
+      background: var(--color-background-secondary);
+      font-weight: 700;
+      font-size: 12.5px;
+    }
+
+    table.ans-table td.mood {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .wordbank {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+      border: 1px dashed var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 8px 14px;
+      margin: 6px 0 10px 20px;
+      font-size: 13px;
+      background: var(--color-background-secondary);
+    }
+
+    .wordbank .opt {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wordbank .opt .circ {
+      width: 12px;
+      height: 12px;
+      border: 1px solid var(--color-text-secondary);
+      border-radius: 50%;
+      flex: none;
+    }
+
+    .scramble {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 6px 0 10px;
+    }
+
+    .scramble .tok {
+      background: var(--color-background-secondary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 4px 10px;
+      font-size: 13.5px;
+    }
+
+    footer.copy {
+      margin-top: 24px;
+      padding: 1.2rem 1.5rem;
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+    }
+
+    footer.copy .inner {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+    }
+
+    footer.copy .inner b {
+      color: var(--color-text-primary);
+      font-weight: 500;
+    }
+
+    .print-btn {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      background: var(--hero-fg);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .print-btn:hover {
+      opacity: 0.9;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #17181a;
+        color: #eee;
+      }
+
+      .qbox,
+      .meta-item,
+      .toc,
+      footer.copy {
+        background: #1f2123;
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .passage,
+      .poem-box,
+      .wordbank,
+      .scramble .tok {
+        background: #24262a;
+      }
+
+      .qbox-title,
+      .meta-item b {
+        color: #f2f2f2;
+      }
+
+      table.ans-table th {
+        background: #24262a;
+      }
+
+      table.ans-table th,
+      table.ans-table td {
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .blank {
+        border-color: #ddd;
+      }
+
+      .mc-opt .circ,
+      .wordbank .opt .circ {
+        border-color: #aaa;
+      }
+    }
+
+    @media print {
+      @page {
+        margin: 12mm 10mm;
+      }
+
+      body {
+        background: white;
+      }
+
+      .wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .toc {
+        display: none;
+      }
+
+      .print-btn {
+        display: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card,
+      .qbox,
+      .example-box,
+      .alert,
+      .formula,
+      .poem-box,
+      .passage,
+      table.ans-table {
+        page-break-inside: avoid;
+      }
+
+      .section-header,
+      .qbox {
+        page-break-before: always;
+        page-break-after: avoid;
+      }
+
+      .section-header:first-of-type,
+      .qbox:first-of-type {
+        page-break-before: auto;
+      }
+
+      .hero {
+        page-break-after: avoid;
+      }
+
+      .section-divider {
+        page-break-after: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="hero-tag">閱讀教學筆記</div>
+      <h1>閱讀語基評估</h1>
+      <p class="author">潘SIR中文教室編撰</p>
+    </div>
+
+    <div class="meta-bar">
+      <div class="meta-item">姓名：<span class="line"></span></div>
+      <div class="meta-item">日期：<span class="line"></span></div>
+      <div class="meta-item">限時：<b>45</b> 分鐘</div>
+      <div class="meta-item">總分：<span class="line" style="min-width:50px"></span> / <b>100</b></div>
+    </div>
+
+    <div class="toc">
+      <div class="toc-title">目錄</div>
+      <a href="#s1">一、反義詞／近義詞填空<span class="marks">5分</span></a>
+      <a href="#s2">二、關聯詞選擇<span class="marks">4分</span></a>
+      <a href="#s3">三、標點符號<span class="marks">10分</span></a>
+      <a href="#s4">四、量詞填空<span class="marks">8分</span></a>
+      <a href="#s5">五、成語配對<span class="marks">7分</span></a>
+      <a href="#s6">六、古詩閱讀：山中送別<span class="marks">7分</span></a>
+      <a href="#s7">七、古詩閱讀：比喻手法<span class="marks">10分</span></a>
+      <a href="#s8">八、借代判斷<span class="marks">6分</span></a>
+      <a href="#s9">九、對比句續寫<span class="marks">4分</span></a>
+      <a href="#s10">十、句式聯結<span class="marks">10分</span></a>
+      <a href="#s11">十一、詞語排序<span class="marks">6分</span></a>
+      <a href="#s12">十二、閱讀理解：記敍文<span class="marks">23分</span></a>
+    </div>
+
+    <!-- 一 -->
+    <div class="qbox" id="s1">
+      <div class="qbox-head">
+        <div class="qbox-num">一</div>
+        <div class="qbox-title"><span class="qbox-icon">🔄</span>依照指示，在橫線上填上著色詞語的反義詞或近義詞。</div>
+        <div class="qbox-meta">(5分) ‧ 2分鐘</div>
+      </div>
+      <div class="qitem"><span class="qn">1.</span> 今天的陽光特別猛烈，在中午簡直酷熱難當。 &nbsp;（反義詞）<span class="blank"></span></div>
+      <div class="qitem"><span class="qn">2.</span> 狗的嗅覺非常靈敏，能夠嗅到數百米以外的氣味。 &nbsp;（反義詞）<span class="blank"></span></div>
+      <div class="qitem"><span class="qn">3.</span> <span class="name">志峯</span>是一個謙遜的人，從來不炫耀自己的才能。 &nbsp;（反義詞）<span
+          class="blank"></span></div>
+      <div class="qitem"><span class="qn">4.</span> <span class="name">小麗</span>戴上眼鏡後，眼前的景物變得清楚起來。 &nbsp;（近義詞）<span
+          class="blank"></span></div>
+      <div class="qitem"><span class="qn">5.</span> 哥哥著急地等候着比賽的結果，不停來回踱步。 &nbsp;（近義詞）<span class="blank"></span></div>
+    </div>
+
+    <!-- 二 -->
+    <div class="qbox" id="s2">
+      <div class="qbox-head">
+        <div class="qbox-num">二</div>
+        <div class="qbox-title"><span class="qbox-icon">🔗</span>下面句子的橫線上應填上哪一組關聯詞？圈出代表答案的英文字母。</div>
+        <div class="qbox-meta">(4分) ‧ 2分鐘</div>
+      </div>
+      <div class="qitem"><span class="qn">1.</span> <span class="blank"></span>你細心地品嚐這道菜式，<span
+          class="blank"></span>能感受到廚師的心思。</div>
+      <div class="mc-grid">
+        <div class="mc-opt"><span class="circ"></span>A. 要不是……，就……</div>
+        <div class="mc-opt"><span class="circ"></span>B. 雖然……，不過……</div>
+        <div class="mc-opt"><span class="circ"></span>C. 與其……，不如……</div>
+        <div class="mc-opt"><span class="circ"></span>D. 要是……，就……</div>
+      </div>
+      <div class="qitem"><span class="qn">2.</span> <span class="blank"></span>我忘記了檢查家課，今天<span
+          class="blank"></span>會因欠交家課而被罰留堂。</div>
+      <div class="mc-grid">
+        <div class="mc-opt"><span class="circ"></span>A. 縱使……，還是……</div>
+        <div class="mc-opt"><span class="circ"></span>B. 無論……，都……</div>
+        <div class="mc-opt"><span class="circ"></span>C. 不管……，反正……</div>
+        <div class="mc-opt"><span class="circ"></span>D. 要不是……，也不……</div>
+      </div>
+      <div class="qitem"><span class="qn">3.</span> 妹妹<span class="blank"></span>未能熟記二十六個英文字母，<span
+          class="blank"></span>用英文來造句子？</div>
+      <div class="mc-grid">
+        <div class="mc-opt"><span class="circ"></span>A. 不但……，還……</div>
+        <div class="mc-opt"><span class="circ"></span>B. 不是……，就是……</div>
+        <div class="mc-opt"><span class="circ"></span>C. 尚且……，何況……</div>
+        <div class="mc-opt"><span class="circ"></span>D. 既……，也……</div>
+      </div>
+      <div class="qitem"><span class="qn">4.</span> <span class="name">穎怡</span>坦白承認錯誤，老師<span
+          class="blank"></span>責怪<span class="name">穎怡</span>，<span class="blank"></span>稱讚她是誠實的好孩子。</div>
+      <div class="mc-grid">
+        <div class="mc-opt"><span class="circ"></span>A. 不是……，就是……</div>
+        <div class="mc-opt"><span class="circ"></span>B. 不但不……，反而……</div>
+        <div class="mc-opt"><span class="circ"></span>C. 一邊……，一邊……</div>
+        <div class="mc-opt"><span class="circ"></span>D. 不只……，更……</div>
+      </div>
+    </div>
+
+    <!-- 三 -->
+    <div class="qbox" id="s3">
+      <div class="qbox-head">
+        <div class="qbox-num">三</div>
+        <div class="qbox-title"><span class="qbox-icon">✒️</span>在下面句子適當的地方填上標點符號。</div>
+        <div class="qbox-meta">(10分) ‧ 2分鐘</div>
+      </div>
+      <div class="qitem"><span class="qn">1.</span> 文昌從背包拿出世界雀鳥圖鑑香港篇查看眼前的小鳥屬於甚麼品種
+        <span class="blank full"></span>
+      </div>
+      <div class="qitem"><span class="qn">2.</span> 學校將會於三十二舉辦科普活動介紹著名科學家尼古拉哥白尼
+        <span class="blank full"></span>
+      </div>
+    </div>
+
+    <!-- 四 -->
+    <div class="qbox" id="s4">
+      <div class="qbox-head">
+        <div class="qbox-num">四</div>
+        <div class="qbox-title"><span class="qbox-icon">🔢</span>在橫線上填上適當的量詞。</div>
+        <div class="qbox-meta">(8分) ‧ 2分鐘</div>
+      </div>
+      <div class="qitem"><span class="qn">1.</span> 這<span class="blank"></span>餐廳的服務員向我推薦了一<span
+          class="blank"></span>可口的甜點。</div>
+      <div class="qitem"><span class="qn">2.</span> 子健這<span class="blank"></span>文章整體寫得不錯，但有幾<span
+          class="blank"></span>犯了文法錯誤。</div>
+      <div class="qitem"><span class="qn">3.</span> 他是一<span class="blank"></span>受人尊敬的醫生，曾在貧窮地區醫治過無數<span
+          class="blank"></span>病人。</div>
+      <div class="qitem"><span class="qn">4.</span> 一<span class="blank"></span>帽子被風吹到湖面上，男孩正拿着一<span
+          class="blank"></span>棍子把它挑回來。</div>
+    </div>
+
+    <!-- 五 -->
+    <div class="qbox" id="s5">
+      <div class="qbox-head">
+        <div class="qbox-num">五</div>
+        <div class="qbox-title"><span class="qbox-icon">🈴</span>下面是哪一個成語表示的意思？在括號內填上代表答案的英文字母。</div>
+        <div class="qbox-meta">(7分) ‧ 3分鐘</div>
+      </div>
+      <table class="ans-table">
+        <tr>
+          <th style="width:72%">釋義</th>
+          <th>答案</th>
+        </tr>
+        <tr>
+          <td>1. 泛指人生所經歷的聚散、歡樂、悲傷的種種遭遇，也比喻人世間的聚散無常。</td>
+          <td class="mood">（　　）</td>
+        </tr>
+        <tr>
+          <td>2. 比喻和朋友斷絕友誼。</td>
+          <td class="mood">（　　）</td>
+        </tr>
+        <tr>
+          <td>3. 指事情不久就會實現。</td>
+          <td class="mood">（　　）</td>
+        </tr>
+        <tr>
+          <td>4. 比喻徹底斷絕關係。</td>
+          <td class="mood">（　　）</td>
+        </tr>
+        <tr>
+          <td>5. 比喻表面關係斷絕，實際仍有牽連。</td>
+          <td class="mood">（　　）</td>
+        </tr>
+        <tr>
+          <td>6. 比喻往事遺留的痕跡。</td>
+          <td class="mood">（　　）</td>
+        </tr>
+        <tr>
+          <td>7. 比喻夫妻失散或決裂後，重新團圓和好。</td>
+          <td class="mood">（　　）</td>
+        </tr>
+      </table>
+      <div class="mc-grid" style="margin-top:10px; grid-template-columns: repeat(3,1fr);">
+        <div class="mc-opt">A. 藕斷絲連</div>
+        <div class="mc-opt">B. 指日可待</div>
+        <div class="mc-opt">C. 破鏡重圓</div>
+        <div class="mc-opt">D. 割席絕交</div>
+        <div class="mc-opt">E. 悲歡離合</div>
+        <div class="mc-opt">F. 一刀兩斷</div>
+        <div class="mc-opt">G. 雪泥鴻爪</div>
+      </div>
+    </div>
+
+    <!-- 六 -->
+    <div class="qbox" id="s6">
+      <div class="qbox-head">
+        <div class="qbox-num">六</div>
+        <div class="qbox-title"><span class="qbox-icon">🎋</span>閱讀下面的文字，然後回答問題。</div>
+        <div class="qbox-meta">(7分) ‧ 3分鐘</div>
+      </div>
+      <div class="poem-box">
+        <div class="title">山中送別　王維</div>
+        <div class="body">山中相送罷，日暮掩柴扉。<br>春草明年綠，王孫歸不歸？</div>
+      </div>
+      <div class="qitem"><span class="qn">1.</span> 根據古詩內容，判斷下面單音節詞的意思，把答案填在橫線上。</div>
+      <div class="mc-grid">
+        <div class="mc-opt">(1) 送：<span class="blank"></span></div>
+        <div class="mc-opt">(2) 罷：<span class="blank"></span></div>
+        <div class="mc-opt">(3) 暮：<span class="blank"></span></div>
+        <div class="mc-opt">(4) 掩：<span class="blank"></span></div>
+        <div class="mc-opt">(5) 綠：<span class="blank"></span></div>
+        <div class="mc-opt">(6) 歸：<span class="blank"></span></div>
+      </div>
+      <div class="qitem" style="margin-top:10px"><span class="qn">2.</span> 古詩中有沒有對偶句？<span class="blank long"></span>
+      </div>
+    </div>
+
+    <!-- 七 -->
+    <div class="qbox" id="s7">
+      <div class="qbox-head">
+        <div class="qbox-num">七</div>
+        <div class="qbox-title"><span class="qbox-icon">🎭</span>閱讀下面的文字，然後回答問題。</div>
+        <div class="qbox-meta">(10分) ‧ 3分鐘</div>
+      </div>
+      <div class="poem-box">
+        <div class="body">江作青羅帶①，山如碧玉簪②。</div>
+        <div class="cite">（節錄自韓愈《送桂州嚴大夫同用南字》）</div>
+      </div>
+      <div class="footnotes">
+        ① 羅帶：絲綢做的帶子。羅，一種絲織品。<br>
+        ② 簪：頭飾，用來盤起頭髮或固定頭冠。
+      </div>
+      <div class="qitem"><span class="qn">1.</span> 寫出兩個詩句中的本體：<span class="blank"></span>、<span class="blank"></span>
+      </div>
+      <div class="qitem"><span class="qn">2.</span> 寫出兩個詩句中的喻詞：<span class="blank"></span>、<span class="blank"></span>
+      </div>
+      <div class="qitem"><span class="qn">3.</span> 寫出兩個詩句中的喻體：<span class="blank"></span>、<span class="blank"></span>
+      </div>
+      <div class="qitem"><span class="qn">4.</span> 語譯詩句：<span class="blank full"></span></div>
+      <div class="qitem"><span class="qn">5.</span> 這兩個詩句（是／不是）對偶句。（圈出正確的答案。）</div>
+    </div>
+
+    <!-- 八 -->
+    <div class="qbox" id="s8">
+      <div class="qbox-head">
+        <div class="qbox-num">八</div>
+        <div class="qbox-title"><span class="qbox-icon">🔀</span>判斷下面的句子用甚麼事物借代另一樣事物。</div>
+        <div class="qbox-meta">(6分) ‧ 2分鐘</div>
+      </div>
+      <div class="qitem"><span class="qn">1.</span> <span class="name">張老師</span>在中學執教多年，桃李滿門，每年都有不少舊生回校探望她。</div>
+      <div class="mc-grid">
+        <div class="mc-opt"><span class="circ"></span>A. 「桃李」借代「水果」。</div>
+        <div class="mc-opt"><span class="circ"></span>B. 「桃李」借代「名譽」。</div>
+        <div class="mc-opt"><span class="circ"></span>C. 「桃李」借代「學生」。</div>
+        <div class="mc-opt"><span class="circ"></span>D. 「桃李」借代「收成」。</div>
+      </div>
+      <div class="qitem"><span class="qn">2.</span> 這間店鋪遭祝融肆虐，所有貨物都被燒毀，幸好沒有人命傷亡。</div>
+      <div class="mc-grid">
+        <div class="mc-opt"><span class="circ"></span>A. 「店鋪」借代「財產」。</div>
+        <div class="mc-opt"><span class="circ"></span>B. 「貨物」借代「人命」。</div>
+        <div class="mc-opt"><span class="circ"></span>C. 「祝融」借代「盜賊」。</div>
+        <div class="mc-opt"><span class="circ"></span>D. 「祝融」借代「火災」。</div>
+      </div>
+      <div class="qitem"><span class="qn">3.</span> 移民政策問題是一個燙手山芋，是新一屆政府必須要處理的任務。</div>
+      <div class="mc-grid">
+        <div class="mc-opt"><span class="circ"></span>A. 「燙手山芋」借代「棘手的事」。</div>
+        <div class="mc-opt"><span class="circ"></span>B. 「燙手山芋」借代「緊急的事」。</div>
+        <div class="mc-opt"><span class="circ"></span>C. 「任務」借代「重要的事」。</div>
+        <div class="mc-opt"><span class="circ"></span>D. 「任務」借代「緊急的事」。</div>
+      </div>
+    </div>
+
+    <!-- 九 -->
+    <div class="qbox" id="s9">
+      <div class="qbox-head">
+        <div class="qbox-num">九</div>
+        <div class="qbox-title"><span class="qbox-icon">⚖️</span>把句子續寫為對比句。</div>
+        <div class="qbox-meta">(4分) ‧ 2分鐘</div>
+      </div>
+      <div class="qitem"><span class="qn">1.</span> 這裏傾盆大雨，<span class="blank full"></span></div>
+      <div class="qitem"><span class="qn">2.</span> 冠軍得主興奮得大叫，<span class="blank full"></span></div>
+    </div>
+
+    <!-- 十 -->
+    <div class="qbox" id="s10">
+      <div class="qbox-head">
+        <div class="qbox-num">十</div>
+        <div class="qbox-title"><span class="qbox-icon">⛓️</span>選出適當的句式，聯結下面的句子。</div>
+        <div class="qbox-meta">(10分) ‧ 4分鐘</div>
+      </div>
+
+      <div class="qitem"><span class="qn">1.</span> 爸爸犧牲私人時間。爸爸不會減少陪伴子女的時間。</div>
+      <div class="wordbank">
+        <div class="opt"><span class="circ"></span>既然……，於是……</div>
+        <div class="opt"><span class="circ"></span>寧可……，也不……</div>
+      </div>
+      <div class="blank full"></div>
+
+      <div class="qitem"><span class="qn">2.</span> 香港天文台發出「紅色暴雨警告」。活動會照常舉行。</div>
+      <div class="wordbank">
+        <div class="opt"><span class="circ"></span>縱使……，還是……</div>
+        <div class="opt"><span class="circ"></span>寧可……，也不……</div>
+      </div>
+      <div class="blank full"></div>
+
+      <div class="qitem"><span class="qn">3.</span> 哥哥說：「這個模型很難砌。」哥哥說：「我不會輕易放棄。」</div>
+      <div class="wordbank">
+        <div class="opt"><span class="circ"></span>既然……，於是……</div>
+        <div class="opt"><span class="circ"></span>雖然……，不過……</div>
+      </div>
+      <div class="blank full"></div>
+
+      <div class="qitem"><span class="qn">4.</span> 弟弟非常愛玩電子遊戲機。弟弟會在玩電子遊戲機之前，先完成功課。</div>
+      <div class="wordbank">
+        <div class="opt"><span class="circ"></span>雖然……，還是……</div>
+        <div class="opt"><span class="circ"></span>寧可……，也不……</div>
+      </div>
+      <div class="blank full"></div>
+
+      <div class="qitem"><span class="qn">5.</span> <span class="name">銘希</span>渴望成為運動健將。<span
+          class="name">銘希</span>每天跑步。<span class="name">銘希</span>努力地鍛煉身體。</div>
+      <div class="wordbank">
+        <div class="opt"><span class="circ"></span>既然……，於是……</div>
+        <div class="opt"><span class="circ"></span>雖然……，還是……</div>
+      </div>
+      <div class="blank full"></div>
+    </div>
+
+    <!-- 十一 -->
+    <div class="qbox" id="s11">
+      <div class="qbox-head">
+        <div class="qbox-num">十一</div>
+        <div class="qbox-title"><span class="qbox-icon">🧩</span>排列下面的詞語，組成通順的句子，並加上適當的標點符號。</div>
+        <div class="qbox-meta">(6分) ‧ 4分鐘</div>
+      </div>
+
+      <div class="qitem"><span class="qn">1.</span></div>
+      <div class="scramble">
+        <span class="tok">圍繞</span><span class="tok">也</span><span class="tok">誰</span><span class="tok">否認</span><span
+          class="tok">不能</span><span class="tok">是</span><span class="tok">地球</span><span class="tok">運行的</span><span
+          class="tok">太陽</span>
+      </div>
+      <div class="blank full"></div>
+
+      <div class="qitem"><span class="qn">2.</span></div>
+      <div class="scramble">
+        <span class="tok">粗心大意</span><span class="tok">這次</span><span class="tok">不得不</span><span
+          class="tok">我</span><span class="tok">承認</span><span class="tok">是</span><span class="tok">失誤</span><span
+          class="tok">自己的</span><span class="tok">因為</span>
+      </div>
+      <div class="blank full"></div>
+
+      <div class="qitem"><span class="qn">3.</span></div>
+      <div class="scramble">
+        <span class="tok">足球員</span><span class="tok">不知道</span><span class="tok">世界</span><span
+          class="tok">是</span><span class="tok">甘凌</span><span class="tok">知名的</span><span class="tok">可能</span><span
+          class="tok">大家</span><span class="tok">怎麼</span>
+      </div>
+      <div class="blank full"></div>
+    </div>
+
+    <!-- 十二 -->
+    <div class="qbox" id="s12">
+      <div class="qbox-head">
+        <div class="qbox-num">十二</div>
+        <div class="qbox-title"><span class="qbox-icon">📖</span>閱讀下面的文字，然後回答問題。</div>
+        <div class="qbox-meta">16分鐘</div>
+      </div>
+
+      <div class="passage">
+        <p>轉眼間，我快在這間學校學習了六年。在這段日子裏，我認識了很多同學。其中和我關係最好的，就是<span class="name">信寧</span>。<span
+            class="name">信寧</span>很愛說話，即使在上課的時候，她的嘴巴也沒有一刻是閉上的。她曾憑三寸不爛之舌幫助過不少人，讓我最深刻的一次，是關於一次數學小測的。</p>
+        <p>那次數學小測，我因為粗心而做錯了一些很簡單的題目，結果不及格。看着試卷上的紅交叉，我開始緊張起來：爸爸簽名時的表情一定會很嚴肅啊！媽媽肯定又會喋喋不休……想着想着，我鼻子一酸，眼淚快要奪眶而出。<span
+            class="name">信寧</span>看到我眼紅紅的樣子，馬上安慰道：「別傷心，不就是一次小測驗嘛！你看我，錯得比你還多，我也沒有傷心啊！」我不及<span
+            class="name">信寧</span>樂觀，也比她在意成績，所以無法開心起來，依然感到傷心難過。</p>
+        <p>放學後，<span class="name">信寧</span>的媽媽來到學校接<span class="name">信寧</span>回家。<span
+            class="name">信寧</span>和她媽媽耳語幾句，然後偷偷地朝我笑了一下。我想：<span
+            class="name">信寧</span>不會是和阿姨分享我小測不及格的事吧？待會如果阿姨在媽媽面前批評我，該怎麼辦呢？想到這裏，我不禁有點生氣。</p>
+        <p>這時，媽媽來接我回家，我低頭不敢望媽媽，害怕她會發現我有異樣，繼而知道我的「醜事」，心想還是在路上細想如何向媽媽坦白吧！可是，<span
+            class="name">信寧</span>不知何時走了過來，突然大叫：「阿姨，我有話想跟您說！子蘊，你別過來呀！」接着媽媽被她拉到一旁。我急得瞪大眼睛看着他們，<span
+            class="name">信寧</span>和媽媽對話的幾分鐘，我感覺如過了一個世紀，就像熱鍋上的螞蟻只能乾着急……終於，她們結束對話，<span
+            class="name">信寧</span>向我一笑就和阿姨轉身離開，媽媽則和顏悅色地向我走來，對我說：「傻孩子，只是一次小測驗，別太在意，以後認真點就行了。」原來，<span
+            class="name">信寧</span>知道我不知如何跟媽媽說數學小測不及格的事，就替我開口了，還為我求情呢！我剛才真是冤枉好人！</p>
+        <p>剛才緊張、焦急的情緒終於放鬆下來，心頭大石頓時消失得無影無蹤。我向<span
+            class="name">信寧</span>那漸漸遠去的背影投以感激的目光。她好像心有靈犀似的，突然轉過身來，朝我做了個鬼臉。這件事我一直牢牢記在心裏，並由衷地感謝<span
+            class="name">信寧</span>這個「鬼靈精」。</p>
+      </div>
+
+      <div class="qitem"><span class="qn">1.</span> 文中哪個詞語形容作者媽媽與<span class="name">信寧</span>傾談後的神情？(2分) <span
+          class="blank long"></span></div>
+
+      <div class="qitem"><span class="qn">2.</span> 文中哪兩段記述了<span class="name">信寧</span>幫作者解決問題的經過？(2分)</div>
+      <div class="mc-grid">
+        <div class="mc-opt"><span class="circ"></span>A. 第一段。</div>
+        <div class="mc-opt"><span class="circ"></span>B. 第二段。</div>
+        <div class="mc-opt"><span class="circ"></span>C. 第三段。</div>
+        <div class="mc-opt"><span class="circ"></span>D. 第四段。</div>
+        <div class="mc-opt"><span class="circ"></span>E. 第五段。</div>
+      </div>
+
+      <div class="qitem" style="margin-top:8px"><span class="qn">3.</span> 根據文章內容，完成下表。(12分)</div>
+      <table class="ans-table">
+        <tr>
+          <th style="width:65%">事件</th>
+          <th>作者的心情變化</th>
+        </tr>
+        <tr>
+          <td>作者 (1) <span class="blank long"></span>，害怕會被父母責備。</td>
+          <td>(2) <span class="blank"></span></td>
+        </tr>
+        <tr>
+          <td>放學後，作者看到<span class="name">信寧</span>跟阿姨耳語，以為<span class="name">信寧</span>把自己小測不及格的消息告知阿姨。</td>
+          <td>(3) <span class="blank"></span></td>
+        </tr>
+        <tr>
+          <td>作者看着 (4) <span class="blank long"></span>，但自己不能加入。</td>
+          <td>(5) <span class="blank"></span></td>
+        </tr>
+        <tr>
+          <td>作者得知 (6) <span class="blank long"></span>，發現自己冤枉了好人。</td>
+          <td class="mood">慚愧歉疚</td>
+        </tr>
+      </table>
+
+      <div class="qitem" style="margin-top:10px"><span class="qn">4.</span> 試從文章找一個例子，說明<span
+          class="name">信寧</span>的性格。(4分)</div>
+      <div class="blank full"></div>
+      <div class="blank full"></div>
+
+      <div class="qitem"><span class="qn">5.</span> 下面哪一項是作者寫這篇文章的主要目的？(3分)</div>
+      <div class="mc-grid single">
+        <div class="mc-opt"><span class="circ"></span>A. 通過回憶與好友<span class="name">信寧</span>的往事，突出<span
+            class="name">信寧</span>的性格特點。</div>
+        <div class="mc-opt"><span class="circ"></span>B. 通過回憶與好友<span class="name">信寧</span>的往事，描寫自己的心情變化。</div>
+        <div class="mc-opt"><span class="circ"></span>C. 通過記述<span class="name">信寧</span>幫助自己的事，表達對小學生活的熱愛。</div>
+        <div class="mc-opt"><span class="circ"></span>D. 通過記述<span class="name">信寧</span>幫助自己的事，抒發對<span
+            class="name">信寧</span>的感激之情。</div>
+      </div>
+    </div>
+
+    <footer class="copy">
+      <div class="inner">
+        <b>© 潘SIR中文教室</b><br>
+        版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+      </div>
+    </footer>
+
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨️ 列印本頁</button>
+
+</body>
+
+</html>
