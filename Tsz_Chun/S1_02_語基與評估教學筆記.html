@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>語基知識補帖：撮寫句子 × 評估一｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-text-primary:#1a1a1a;
+    --color-text-secondary:#555;
+    --color-background-primary:#ffffff;
+    --color-background-secondary:#f5f5f3;
+    --color-border-tertiary:rgba(0,0,0,0.1);
+    --border-radius-md:8px;
+    --border-radius-lg:12px;
+
+    --hero-bg:#E4D9B7;
+    --hero-text:#3B2E10;
+
+    --purple:#7B68C4; --purple-bg:#F1EEFB;
+    --blue:#4A90D9;   --blue-bg:#EAF3FC;
+    --teal:#2FA394;   --teal-bg:#E8F7F4;
+    --coral:#E36767;  --coral-bg:#FDEDED;
+    --amber:#D89A2B;  --amber-bg:#FBF3E3;
+    --pink:#D66FA0;   --pink-bg:#FBEBF3;
+    --green:#3FA556;  --green-bg:#EAF7EC;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --color-text-primary:#f0f0ef;
+      --color-text-secondary:#b8b8b6;
+      --color-background-primary:#1c1c1e;
+      --color-background-secondary:#242426;
+      --color-border-tertiary:rgba(255,255,255,0.12);
+    }
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans TC", sans-serif;
+    background:var(--color-background-secondary);
+    color:var(--color-text-primary);
+    line-height:1.8;
+  }
+  .wrap{max-width:840px; margin:0 auto; padding:28px 18px 60px;}
+
+  .hero{
+    background:var(--hero-bg);
+    color:var(--hero-text);
+    border-radius:var(--border-radius-lg);
+    padding:38px 32px;
+    margin-bottom:24px;
+    text-align:center;
+  }
+  .hero-tag{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    padding:5px 16px;
+    border:1.5px solid rgba(59,46,16,0.3);
+    color:rgba(59,46,16,0.65);
+    border-radius:999px;
+    margin-bottom:14px;
+    letter-spacing:1px;
+  }
+  .hero h1{
+    font-family:"Noto Serif TC", serif;
+    font-size:30px;
+    font-weight:900;
+    margin:0 0 10px;
+    line-height:1.5;
+  }
+  .hero p{
+    margin:0;
+    font-size:14px;
+    color:rgba(59,46,16,0.5);
+    font-weight:500;
+  }
+
+  .toc{
+    background:var(--color-background-primary);
+    border:1px solid var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:20px 24px;
+    margin-bottom:32px;
+  }
+  .toc-title{font-weight:900; font-size:15px; margin-bottom:12px; color:var(--color-text-primary);}
+  .toc-item{
+    display:flex; gap:10px; align-items:baseline;
+    font-size:14px; color:var(--color-text-secondary);
+    padding:5px 0;
+  }
+  .toc-item b{color:var(--blue); min-width:20px;}
+
+  .section-header{
+    display:flex; align-items:center; gap:12px;
+    margin:40px 0 18px;
+    padding-bottom:10px;
+    border-bottom:3px solid var(--hero-bg);
+  }
+  .section-header .icon{font-size:24px;}
+  .section-header .num{
+    font-size:12px; font-weight:700; color:var(--color-text-secondary);
+    background:var(--color-background-secondary);
+    padding:3px 10px; border-radius:999px;
+  }
+  .section-header h2{
+    font-family:"Noto Serif TC", serif;
+    font-size:21px; font-weight:900; margin:0;
+    color:var(--color-text-primary);
+  }
+
+  .subsection{margin:22px 0;}
+  .subsection h3{
+    font-size:16px; font-weight:700; margin:0 0 10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .dot{width:9px; height:9px; border-radius:50%; display:inline-block; flex-shrink:0;}
+  .dot.purple{background:var(--purple);} .dot.blue{background:var(--blue);}
+  .dot.teal{background:var(--teal);} .dot.coral{background:var(--coral);}
+  .dot.amber{background:var(--amber);} .dot.pink{background:var(--pink);}
+
+  .card{
+    background:var(--color-background-primary);
+    border:1px solid var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:20px 22px;
+    margin-bottom:16px;
+    font-size:14px;
+  }
+
+  .example-box{
+    border-radius:var(--border-radius-md);
+    padding:16px 18px;
+    margin:14px 0;
+    background:var(--purple-bg);
+    border-left:4px solid var(--purple);
+  }
+  .example-box.teal{background:var(--teal-bg); border-left-color:var(--teal);}
+  .example-box.coral{background:var(--coral-bg); border-left-color:var(--coral);}
+  .example-box.amber{background:var(--amber-bg); border-left-color:var(--amber);}
+  .example-label{font-size:12px; font-weight:900; color:var(--color-text-secondary); margin-bottom:6px; letter-spacing:1px;}
+  .example-text{font-size:14.5px; color:var(--color-text-primary); line-height:1.9;}
+  .example-text .strike{text-decoration:line-through; text-decoration-color:#c0392b; text-decoration-thickness:1.5px;}
+  .example-text .circle{border:1.6px solid #4A90D9; border-radius:50%; padding:0 4px;}
+
+  .alert{
+    display:flex; gap:12px; align-items:flex-start;
+    border-radius:var(--border-radius-md);
+    padding:14px 16px; margin:14px 0;
+    font-size:13.5px;
+  }
+  .alert-icon{font-size:18px; flex-shrink:0;}
+  .alert-label{font-weight:900; margin-bottom:3px;}
+  .alert.tip{background:var(--blue-bg); color:#1d4d78;}
+  .alert.tip .alert-label{color:var(--blue);}
+  .alert.warn{background:var(--coral-bg); color:#7a2a2a;}
+  .alert.warn .alert-label{color:var(--coral);}
+  .alert.success{background:var(--green-bg); color:#1f5e2c;}
+  .alert.success .alert-label{color:var(--green);}
+  .alert.amber{background:var(--amber-bg); color:#6b4d14;}
+  .alert.amber .alert-label{color:var(--amber);}
+
+  .keyword-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin:16px 0;}
+  .kw-card{background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:12px 14px;}
+  .kw-word{font-weight:900; color:var(--teal); font-size:14px; margin-bottom:4px;}
+  .kw-def{font-size:13px; color:var(--color-text-secondary);}
+
+  .passage-box{
+    background:var(--color-background-secondary);
+    border:1px dashed var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:20px 22px;
+    margin:14px 0;
+    font-size:14.5px;
+    line-height:2.1;
+  }
+  .passage-box p{margin:0 0 14px; text-indent:2em;}
+  .passage-box p:last-child{margin-bottom:0;}
+  .passage-box .src{
+    display:block; text-align:right; text-indent:0;
+    font-size:13px; color:var(--color-text-secondary); margin-top:10px;
+  }
+  .ln{
+    font-size:11px; color:#b0a58f; font-weight:700;
+    margin:0 2px; vertical-align:super;
+  }
+  .passage-meta{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:12.5px; color:var(--color-text-secondary); margin:6px 0 10px;
+  }
+  .timer-tag{
+    background:var(--amber-bg); color:#6b4d14; font-weight:700;
+    padding:4px 12px; border-radius:999px; font-size:12px;
+  }
+
+  .glossary{
+    background:var(--color-background-secondary);
+    border-radius:var(--border-radius-md);
+    padding:14px 18px; margin:12px 0; font-size:13px;
+  }
+  .glossary-title{font-weight:900; margin-bottom:8px; display:flex; align-items:center; gap:6px;}
+  .glossary ol{margin:0; padding-left:18px;}
+  .glossary li{margin-bottom:4px;}
+
+  .qbox{
+    background:var(--color-background-primary);
+    border:1px solid var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:18px 20px;
+    margin-bottom:14px;
+  }
+  .qbox-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;}
+  .qbox-num{font-weight:900; color:var(--blue);}
+  .qbox-marks{font-size:12px; color:var(--color-text-secondary); font-style:italic;}
+  .qtext{font-size:14.5px; margin-bottom:10px;}
+  .qoption{display:flex; align-items:center; gap:10px; font-size:14px; padding:6px 4px;}
+  .radio{width:16px; height:16px; border:1.5px solid #999; border-radius:50%; flex-shrink:0; display:inline-block;}
+  .blank-line{border-bottom:1.3px solid #999; display:inline-block; min-width:120px; height:1.4em; vertical-align:bottom;}
+  .blank-line.long{min-width:100%; width:100%; margin:6px 0;}
+  .qhint{margin-top:10px; font-size:12.5px; color:var(--color-text-secondary); background:var(--color-background-secondary); padding:8px 12px; border-radius:var(--border-radius-md);}
+  .subitem{margin:6px 0 6px 20px; display:flex; justify-content:space-between; gap:14px; align-items:baseline;}
+  .subitem .txt{font-size:14px;}
+  .judge-line{border-bottom:1.3px solid #999; display:inline-block; width:44px; height:1.3em;}
+
+  .qtable{width:100%; border-collapse:collapse; margin:12px 0; font-size:13.5px;}
+  .qtable th, .qtable td{border:1px solid var(--color-border-tertiary); padding:10px 12px; text-align:left;}
+  .qtable th{background:var(--hero-bg); color:var(--hero-text); font-weight:700;}
+
+  .flow-seq{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:10px 0;}
+  .flow-box{border:1.5px solid #999; border-radius:6px; width:40px; height:34px; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--color-text-secondary);}
+  .flow-arr{color:#999; font-weight:900;}
+
+  .formula{
+    background:#242832; color:#f0f0ef;
+    border-radius:var(--border-radius-lg);
+    padding:18px 22px; margin:16px 0;
+    font-size:14.5px; line-height:1.9;
+  }
+  .formula b{color:#E8D48C;}
+
+  .section-divider{height:1px; background:var(--color-border-tertiary); margin:34px 0;}
+
+  footer{margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;}
+
+  /* ===== Print button ===== */
+  .print-btn{
+    position:fixed;
+    right:22px; bottom:22px;
+    display:flex; align-items:center; gap:8px;
+    background:var(--hero-bg); color:var(--hero-text);
+    border:none; border-radius:999px;
+    padding:13px 22px;
+    font-family:"Noto Sans TC", sans-serif;
+    font-size:14px; font-weight:700;
+    cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,0.18);
+    z-index:999;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .print-btn:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.22); }
+  .print-btn:active{ transform:translateY(0); }
+  .print-btn svg{ width:16px; height:16px; }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; }
+    .toc { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+    .print-btn { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()" aria-label="列印或儲存為 PDF">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+  列印筆記
+</button>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">語文運用教學筆記</div>
+    <h1>語基知識補帖：撮寫句子<br>× 評估一</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📖 本篇目錄</div>
+    <div class="toc-item"><b>01</b> 語基知識：撮寫句子</div>
+    <div class="toc-item"><b>02</b> 練習一：圈出人事物</div>
+    <div class="toc-item"><b>03</b> 練習二：刪去附加成分</div>
+    <div class="toc-item"><b>04</b> 練習三：判斷對錯</div>
+    <div class="toc-item"><b>05</b> 練習四：撮寫段落</div>
+    <div class="toc-item"><b>06</b> 評估一・閱讀（一）：〈對與錯〉</div>
+    <div class="toc-item"><b>07</b> 評估一・閱讀（二）：〈定伯賣鬼〉</div>
+  </div>
+
+  <!-- ============ 01 語基知識 ============ -->
+  <div class="section-header">
+    <span class="icon">🧩</span>
+    <span class="num">01</span>
+    <h2>語基知識：撮寫句子</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot purple"></span>什麼是撮寫句子？</h3>
+    <div class="card">
+      撮寫句子，就是刪去句子中的附加成分——時間、地點、形容詞、數量詞、擬聲詞、修辭手法等，只留下最核心的骨幹：<b>誰・做了什麼</b>。刪走的只是修飾，句子原來的意思不可以因此而改變。
+    </div>
+    <div class="example-box">
+      <div class="example-label">示例</div>
+      <div class="example-text">
+        <span class="strike">早上，</span>我看見<span class="strike">兩隻可愛的</span>小狗<span class="strike">在公園裏</span>追逐。<br>
+        → 撮寫後：<b>我看見小狗追逐。</b>
+      </div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">判斷方法</div>
+        <div class="alert-text">先問自己：這句話裏「誰」對「誰」做了「什麼事」？找到這三樣，其餘形容時間、地點、狀態的字詞，通通都可以刪走。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 02 練習一 ============ -->
+  <div class="section-header">
+    <span class="icon">✏️</span>
+    <span class="num">02</span>
+    <h2>練習一：圈出人事物</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot blue"></span>仿照示例，圈起句子裏記述的人或事物，以及這些人事物相關的事情</h3>
+    <div class="example-box teal">
+      <div class="example-label">示例</div>
+      <div class="example-text">星期六，勤奮的<span class="circle">哥哥</span>在家裏專心致志地<span class="circle">溫習功課</span>。</div>
+    </div>
+    <div class="qbox">
+      <div class="qtext">1. 天亮了，紅彤彤的太陽從水平線慢慢地升起來。</div>
+      <div class="qtext">2. 中秋節前夕，不少市民特地前往香港島的大坑觀看舞火龍。</div>
+      <div class="qtext">3. 家明和志強在課室裏一起做壁報，兩人非常合拍，充滿幹勁。</div>
+      <div class="qtext">4. 蒲公英的種子一叢叢地隨風飄揚，散落世上的每一個角落。</div>
+    </div>
+  </div>
+
+  <!-- ============ 03 練習二 ============ -->
+  <div class="section-header">
+    <span class="icon">✏️</span>
+    <span class="num">03</span>
+    <h2>練習二：刪去附加成分</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot blue"></span>仿照示例，刪除句中的副詞、數量詞、形容詞，以及表示時間和地點的文字</h3>
+    <div class="example-box teal">
+      <div class="example-label">示例</div>
+      <div class="example-text"><span class="strike">下課後，</span>同學們<span class="strike">成群結隊地</span>去<span class="strike">九龍公園</span>寫生。</div>
+    </div>
+    <div class="qbox">
+      <div class="qtext">1. 隨着國歌奏起，國旗緩緩地升起。</div>
+      <div class="qtext">2. 午飯後，雨終於停了，我看見一道美麗的彩虹。</div>
+      <div class="qtext">3. 人們聽見一陣陣喧鬧的鑼鼓聲，知道盛大的巡遊已經開始了。</div>
+      <div class="qtext">4. 英勇的消防員奮不顧身地拯救被困在火場裏的居民。</div>
+      <div class="qtext">5. 今天早上，我和媽媽由九龍過海到香港，探望姑母。</div>
+      <div class="qtext">6. 粗心大意的志華連續幾天忘記澆水，所以陽台上的萬壽菊漸漸枯萎了。</div>
+    </div>
+  </div>
+
+  <!-- ============ 04 練習三 ============ -->
+  <div class="section-header">
+    <span class="icon">✏️</span>
+    <span class="num">04</span>
+    <h2>練習三：判斷對錯</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot amber"></span>判斷下面的句子撮寫是否正確。正確的，在橫線上加 ✓；錯誤的，加上 ✗</h3>
+
+    <div class="qbox">
+      <div class="qtext">1. 祖父和祖母在公園裏做早操。</div>
+      <div class="subitem"><span class="txt">(a) 祖父在公園裏做早操。</span><span class="judge-line"></span></div>
+      <div class="subitem"><span class="txt">(b) 祖父和祖母做早操。</span><span class="judge-line"></span></div>
+    </div>
+    <div class="qbox">
+      <div class="qtext">2. 考古專家小心翼翼地研究這批珍貴的文物，有錢幣、陶器和竹簡等。</div>
+      <div class="subitem"><span class="txt">(a) 考古人員研究文物。</span><span class="judge-line"></span></div>
+      <div class="subitem"><span class="txt">(b) 考古人員研究錢幣、陶器和竹簡等。</span><span class="judge-line"></span></div>
+    </div>
+    <div class="qbox">
+      <div class="qtext">3. 清澈的小河像一塊明亮的鏡子，倒映着紅色的花和綠色的樹。</div>
+      <div class="subitem"><span class="txt">(a) 小河倒映着花和樹。</span><span class="judge-line"></span></div>
+      <div class="subitem"><span class="txt">(b) 小河像一塊鏡子。</span><span class="judge-line"></span></div>
+    </div>
+
+    <div class="alert amber">
+      <div class="alert-icon">👨‍🏫</div>
+      <div>
+        <div class="alert-label">老師提一下</div>
+        <div class="alert-text">留意第 3 題：句中的「像一塊明亮的鏡子」是修辭（比喻），用來形容小河，並非小河本身做了什麼事，撮寫時應該刪走。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 05 練習四 ============ -->
+  <div class="section-header">
+    <span class="icon">✏️</span>
+    <span class="num">05</span>
+    <h2>練習四：撮寫段落</h2>
+  </div>
+
+  <div class="subsection">
+    <h3><span class="dot amber"></span>撮寫下面的段落，把句子寫在橫線上</h3>
+
+    <div class="glossary">
+      <div class="glossary-title">📘 詞語怎麼解？</div>
+      <ol>
+        <li><b>肆無忌憚</b>：任意妄為，沒有一點顧忌。</li>
+        <li><b>沐浴</b>：潤澤和滋養某事物。</li>
+      </ol>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">1</span></div>
+      <div class="qtext">膽小的野豬經常在晚間覓食，牠們會偷偷潛入農田叼走農夫的莊稼，例如：玉米、甘薯、馬鈴薯等。強壯的野豬待夜深無人時，輕易地躍過一米高的籬笆，肆無忌憚<sup>①</sup>地破壞農田，把農作物全部吃光。</div>
+      <div class="blank-line long"></div>
+      <div class="blank-line long"></div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">2</span></div>
+      <div class="qtext">春天悄悄地來了，輕輕地吹拂着沉睡的大地。綿綿的雨水滋潤了乾巴巴的泥土，熬過寒冬的植物在明媚陽光下沐浴<sup>②</sup>，花兒你推我撞，爭相盛放，本來光禿禿的樹木冒出新鮮嫩綠的葉子。</div>
+      <div class="blank-line long"></div>
+      <div class="blank-line long"></div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ============ 06 評估一 閱讀（一）============ -->
+  <div class="section-header">
+    <span class="icon">📝</span>
+    <span class="num">06</span>
+    <h2>評估一・閱讀（一）：〈對與錯〉</h2>
+  </div>
+
+  <div class="subsection">
+    <div class="passage-meta">
+      <span>閱讀以下的文章，然後根據文章內容回答第 1 至 8 題。</span>
+      <span class="timer-tag">⏱ 建議完成時間：40 分鐘</span>
+    </div>
+
+    <div class="passage-box">
+      <p>我七歲的小侄子從外地來江城玩。有一天，我帶他走過一所郵局，他一抬頭，停住腳不動了，一手拽<sup>①</sup>我，一手遙指郵局上方一塊巨大的地圖模型：「姑媽，錯了。」</p>
+      <p>「什麼錯了？」我莫名其妙。<span class="ln">5</span></p>
+      <p>「位置錯了，他們把南美洲和非洲放顛倒了。」</p>
+      <p>我不以為然<sup>②</sup>：「那只是種裝飾，誰會在意這個呢。」<span class="ln">10</span></p>
+      <p>小侄子卻不高興了，說：「那是地圖，如果地圖放錯了，人們會走丟的。」</p>
+      <p>我感到大人的面子受到威脅，如果這種錯誤被一個孩子發現的話。</p>
+      <p>我問：「你怎麼敢肯定錯了？」<span class="ln">15</span></p>
+      <p>「我擺過地圖，它就是錯的。」他固執地說。</p>
+      <p>我惱羞成怒<sup>③</sup>：「錯就錯吧，關你什麼事？」</p>
+      <p>小侄子委屈地跟我走了，但他卻不肯放棄這個問題。一回到家，就翻出一本地圖讓我看什麼是正確的，殊不知我早已忘了那錯誤的形狀。<span class="ln">20</span></p>
+      <p>七歲的孩子對我徹底失望了。不過，臨上火車告別江城時，他還不忘叮囑我：「姑媽，你再去看看，那肯定是錯的。」<span class="ln">25</span></p>
+      <p>時至今日我也沒弄明白那地圖的對與錯。這就是大人和孩子的區別。孩子從小接受教育的全部內容是識別對與錯，可作為一個大人，再糾纏到對與錯之中，便被認為是幼稚了。<span class="ln">30</span> 我們生活在對對錯錯、是是非非之中，早已淡漠<sup>④</sup>了孩子時期的標準答案。「難得糊塗」成為許多人的座右銘，「睜一隻眼閉一隻眼」成為最佳行為方式<span class="ln">33</span>，它們消解了人們對公理和正義的堅持。在利益面前，責任和原則都不值一提；在混淆對與錯上，人們有各種各樣的口實<sup>⑤</sup>。<span class="ln">35</span>聰明的大人不會做指出別人錯誤的蠢事，他們寧可把它當作背後的笑料。我常常因此而洋洋得意了，為了這孩子永遠也無法理解的大人的秘密。<span class="ln">37-38</span></p>
+      <span class="src">——《對與錯》</span>
+    </div>
+
+    <div class="glossary">
+      <div class="glossary-title">📘 詞語怎麼解？</div>
+      <ol>
+        <li><b>拽</b>：用力拉。</li>
+        <li><b>不以為然</b>：不認為是對的。</li>
+        <li><b>惱羞成怒</b>：因做錯事羞愧到了極點而發怒。</li>
+        <li><b>淡漠</b>：沒有熱情，冷淡。</li>
+        <li><b>口實</b>：可以利用的話柄。</li>
+      </ol>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">1</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">文中第一至九段主要是</div>
+      <div class="qoption"><span class="radio"></span>A．記述「我」和小侄子對地圖的爭論。</div>
+      <div class="qoption"><span class="radio"></span>B．記述小侄子發現地圖上位置錯了。</div>
+      <div class="qoption"><span class="radio"></span>C．反映「我」的地理知識不及小侄子。</div>
+      <div class="qoption"><span class="radio"></span>D．記述「我」對地圖位置錯放的反應。</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">2</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">為什麼「我」會惱羞成怒？因為</div>
+      <div class="qoption"><span class="radio"></span>A．地圖上的對錯與小孩子無關。</div>
+      <div class="qoption"><span class="radio"></span>B．沒有證據肯定地圖是否錯了。</div>
+      <div class="qoption"><span class="radio"></span>C．「我」認為沒有人會在意地圖上的錯誤。</div>
+      <div class="qoption"><span class="radio"></span>D．「我」認為小侄子不應指出別人的錯處。</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">3</span><span class="qbox-marks">（4 分）</span></div>
+      <div class="qtext">「我」認為大人和孩子有哪些區別？</div>
+      <div>孩子着重 (1) <span class="blank-line long"></span></div>
+      <div>大人卻認為這是 (2) <span class="blank-line long"></span> 的行為。</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">4</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">根據文章內容，下列哪一項是<b>不正確</b>的？</div>
+      <div class="qoption"><span class="radio"></span>A．小侄子終於向「我」證明了地圖是錯的。</div>
+      <div class="qoption"><span class="radio"></span>B．「我」沒有為錯怪小侄子而道歉。</div>
+      <div class="qoption"><span class="radio"></span>C．「我」沒有把地圖上的錯誤放在心上。</div>
+      <div class="qoption"><span class="radio"></span>D．發現地圖上的位置根本是正確的。</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">5</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">文中最後一句「為了這孩子永遠也無法理解的大人的秘密」（第 37-38 行）中，「大人的秘密」是指</div>
+      <div class="qoption"><span class="radio"></span>A．沒有了對公理和正義的堅持。</div>
+      <div class="qoption"><span class="radio"></span>B．常常混淆和掩飾自己的過錯。</div>
+      <div class="qoption"><span class="radio"></span>C．認為指出別人錯誤是愚蠢的。</div>
+      <div class="qoption"><span class="radio"></span>D．把指出別人錯誤的人當作笑話。</div>
+      <div class="qhint">老師提一下：作者在講出這句話前，提到大人不會做什麼？</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">6</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">從文中可看出小侄子有什麼樣的性格？</div>
+      <div class="qoption"><span class="radio"></span>A．堅持真理</div>
+      <div class="qoption"><span class="radio"></span>B．淡漠是非</div>
+      <div class="qoption"><span class="radio"></span>C．混淆對錯</div>
+      <div class="qoption"><span class="radio"></span>D．聰明好勝</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">7</span><span class="qbox-marks">（4 分）</span></div>
+      <div class="qtext">文中第十二段指成人「『睜一隻眼閉一隻眼』成為最佳行為方式」（第 33 行），這是怎樣的行為方式？</div>
+      <div>他們不在意 (1) <span class="blank-line long"></span></div>
+      <div>對問題 (2) <span class="blank-line long"></span></div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">8</span><span class="qbox-marks">（4 分）</span></div>
+      <div class="qtext">作者寫這篇文章的主要目的是甚麼？</div>
+      <div>讚揚 (1) <span class="blank-line long"></span></div>
+      <div>批評 (2) <span class="blank-line long"></span></div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ============ 07 評估一 閱讀（二）============ -->
+  <div class="section-header">
+    <span class="icon">📝</span>
+    <span class="num">07</span>
+    <h2>評估一・閱讀（二）：《列異傳・定伯賣鬼》</h2>
+  </div>
+
+  <div class="subsection">
+    <div class="passage-meta">
+      <span>閱讀以下的文章，然後根據文章內容回答第 1 至 7 題。</span>
+    </div>
+
+    <div class="passage-box">
+      <p>很久以前，一個常常鬧鬼的時代，有一個南陽郡人，名叫宋定伯，生性大膽，喜歡走夜路，朋友都勸他小心，別惹到了鬼，他總是笑一笑，不當一回事。</p>
+      <p>這天晚上，定伯終於遇到鬼了。他在半夜裏出門，打算天亮去趕市集。一路上無聲無息的，忽然身邊就多了一<span class="ln">5</span>個人！起初，定伯只是覺得有點奇怪，隨口一問：「你是誰啊？」「我是鬼。」那人也隨口答話。定伯心裏一驚，斜眼打量身邊這個「人」，只見他頭髮長長的，臉色泛青，兩邊眼角高高吊起，也不怎麼恐怖。那鬼急聲問道：「你又是誰？」<span class="ln">10</span></p>
+      <p>定伯一聽可樂了，心想：這個反應遲鈍的東西，敢情是個笨鬼，索性陪他玩一玩。就幽幽的歎了一口氣說：「我也是鬼呀！」那鬼一聽，馬上變得熱絡起來，說：「兄弟呀，你要到哪裏去啊？」定伯也不隱瞞的說：「我要到宛城趕<span class="ln">15</span>集去。」那鬼更加高興的說：「宛城嗎？我也正要去那裏呢！」接着就要求結伴同行，說這樣可以互相照應。定伯覺得正中下懷，他早就想見識一下，鬼究竟有什麼伎倆。</p>
+      <p>鬼提議說：「步行太累人了，我們不如輪流背着走，你覺得怎樣？」定伯說：「好極了！」鬼便先背着定伯，走了<span class="ln">20</span>幾里，鬼說：「你太重了，難道你不是鬼？」定伯說：「我剛死不久，所以身體比較重。」輪到定伯背鬼，鬼絲毫沒有重量。他們就這樣輪流背了好幾次。定伯又問：「我是個新鬼，不知鬼都怕些什麼？」鬼回答說：<span class="ln">25</span>「只是不喜歡別人吐口水。」</p>
+      <p>快走到宛城市場的時候，定伯就把鬼頂在頭上，並緊緊抓住他，鬼大聲慘叫，求定伯把他放了。定伯不理他，一直走到市場，把鬼一<span class="ln">30</span>摔，鬼着地變成了一隻羊，定伯便把牠賣了，而且為了怕牠再變回鬼，就對牠吐口水。最後宋定伯賣得了一千五百錢，就回家去了。</p>
+      <span class="src">——《列異傳・定伯賣鬼》</span>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">1</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">為什麼宋定伯在半夜出門？因為</div>
+      <div class="qoption"><span class="radio"></span>A．他喜歡走夜路。</div>
+      <div class="qoption"><span class="radio"></span>B．他希望遇到鬼。</div>
+      <div class="qoption"><span class="radio"></span>C．他想天亮前到市集。</div>
+      <div class="qoption"><span class="radio"></span>D．他愛路上寂靜無聲。</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">2</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">根據第一段和第二段的內容，宋定伯剛遇到鬼時有怎樣的反應？試按宋定伯遇鬼的反應排列以下各項。（請把英文字母填在方格內）</div>
+      <div class="qoption"><span class="radio"></span>A．疑慮困惑</div>
+      <div class="qoption"><span class="radio"></span>B．不慌不忙</div>
+      <div class="qoption"><span class="radio"></span>C．心裏一驚</div>
+      <div class="qoption"><span class="radio"></span>D．無畏無懼</div>
+      <div class="flow-seq">
+        <div class="flow-box"></div><div class="flow-arr">→</div>
+        <div class="flow-box"></div><div class="flow-arr">→</div>
+        <div class="flow-box"></div><div class="flow-arr">→</div>
+        <div class="flow-box"></div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">3</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">宋定伯答應與鬼結伴同行往宛城的原因是</div>
+      <div class="qoption"><span class="radio"></span>A．想索性陪這個笨鬼玩一玩。</div>
+      <div class="qoption"><span class="radio"></span>B．路上可互相照應。</div>
+      <div class="qoption"><span class="radio"></span>C．不怕遇到陌生人的侵犯。</div>
+      <div class="qoption"><span class="radio"></span>D．想見識一下鬼的伎倆。</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">4</span><span class="qbox-marks">（4 分）</span></div>
+      <div class="qtext">宋定伯用甚麼方法刺探鬼的特性？</div>
+      <div class="blank-line long"></div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">5</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">文中第五段主要寫什麼？</div>
+      <div class="qoption"><span class="radio"></span>A．定伯捉鬼的過程。</div>
+      <div class="qoption"><span class="radio"></span>B．定伯賣鬼的結果。</div>
+      <div class="qoption"><span class="radio"></span>C．定伯與鬼渡河的情況。</div>
+      <div class="qoption"><span class="radio"></span>D．定伯捉鬼賣鬼的情況。</div>
+      <div class="qhint">老師提一下：要留意選項中哪個最能概括第五段的內容。</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">6</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">最後鬼變成了甚麼動物？</div>
+      <div class="qoption"><span class="radio"></span>A．羊</div>
+      <div class="qoption"><span class="radio"></span>B．馬</div>
+      <div class="qoption"><span class="radio"></span>C．牛</div>
+      <div class="qoption"><span class="radio"></span>D．狗</div>
+    </div>
+
+    <div class="qbox">
+      <div class="qbox-head"><span class="qbox-num">7</span><span class="qbox-marks">（2 分）</span></div>
+      <div class="qtext">根據文章內容，宋定伯的性格是（請選擇<b>兩個</b>正確的答案）</div>
+      <div class="qoption"><span class="radio"></span>A．好勝逞強。</div>
+      <div class="qoption"><span class="radio"></span>B．膽大無畏。</div>
+      <div class="qoption"><span class="radio"></span>C．敢作敢為。</div>
+      <div class="qoption"><span class="radio"></span>D．隨機應變。</div>
+    </div>
+  </div>
+
+  <div class="formula">
+    <b>撮寫句子的關鍵，在於分清「骨幹」與「裝飾」：</b>先找出誰、做了什麼，再判斷其餘的字詞是不是修飾——是的話大可刪走，句子的原意不會因此改變。閱讀評估同一道理：先抓文章的主線和人物的態度轉折，再逐題對照原文核實答案，切忌單憑印象作答。
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
