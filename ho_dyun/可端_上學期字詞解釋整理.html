@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>字詞解釋筆記｜第一、四、五、七、八課</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --hero-bg: #E4D9BE;
+    --hero-text: #2E2410;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #f0f0ec;
+      --color-text-secondary: #b9b9b3;
+      --color-background-primary: #1c1c1a;
+      --color-background-secondary: #262622;
+      --color-border-tertiary: rgba(255,255,255,0.12);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    line-height: 1.8;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  .hero {
+    background: var(--hero-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 40px 32px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 16px;
+    border: 1.4px solid rgba(46,36,16,0.3);
+    color: rgba(46,36,16,0.65);
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 30px;
+    color: var(--hero-text);
+    margin: 6px 0 10px;
+    letter-spacing: 1px;
+  }
+  .hero p {
+    color: rgba(46,36,16,0.5);
+    font-size: 14px;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .toc {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 18px 20px;
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: var(--border-radius-md);
+    transition: background 0.15s;
+  }
+  .toc-item:hover { background: var(--color-background-secondary); }
+  .toc-num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--hero-bg);
+    color: var(--hero-text);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 2.5px solid var(--hero-bg);
+  }
+  .section-header .icon {
+    font-size: 20px;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+  .section-header .count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  table.word-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  table.word-table th {
+    background: var(--hero-bg);
+    color: var(--hero-text);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  table.word-table th:first-child { width: 90px; }
+  table.word-table td {
+    padding: 12px 14px;
+    border-top: 1px solid var(--color-border-tertiary);
+    vertical-align: top;
+    line-height: 1.85;
+  }
+  table.word-table td:first-child {
+    font-weight: 700;
+    color: var(--hero-text);
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  table.word-table tr:nth-child(even) td {
+    background: var(--color-background-secondary);
+  }
+  table.word-table td.explain { color: var(--color-text-primary); }
+  table.word-table td.example { color: var(--color-text-secondary); }
+
+  footer {
+    margin-top: 2rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+  }
+  footer .fw {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.9;
+  }
+  footer .fw span {
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  @media (max-width: 640px) {
+    table.word-table { font-size: 13px; }
+    table.word-table th, table.word-table td { padding: 9px 10px; }
+    .hero h1 { font-size: 24px; }
+  }
+
+  .print-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--hero-bg);
+    color: var(--hero-text);
+    border: none;
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .print-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  }
+  .print-btn svg { width: 16px; height: 16px; }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; }
+    .toc { display: none; }
+    .print-btn { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+
+  @media (max-width: 640px) {
+    .print-btn { bottom: 16px; right: 12px; padding: 9px 16px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+  列印筆記
+</button>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">字詞解釋筆記</div>
+    <h1>字詞解釋整理 | 上學期</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <a class="toc-item" href="#lesson1"><span class="toc-num">1</span>第一課字詞</a>
+    <a class="toc-item" href="#lesson4"><span class="toc-num">4</span>第四課字詞</a>
+    <a class="toc-item" href="#lesson5"><span class="toc-num">5</span>第五課字詞</a>
+    <a class="toc-item" href="#lesson7"><span class="toc-num">7</span>第七課字詞</a>
+    <a class="toc-item" href="#lesson8"><span class="toc-num">8</span>第八課字詞</a>
+  </div>
+
+  <!-- 第一課 -->
+  <div class="section-header" id="lesson1">
+    <span class="icon">📖</span>
+    <h2>第一課字詞</h2>
+    <span class="count">共 18 詞</span>
+  </div>
+  <div class="card">
+    <table class="word-table">
+      <tr><th>詞語</th><th>詳細解釋</th><th>例句</th></tr>
+      <tr><td>炸藥</td><td class="explain">一種能夠猛烈爆炸的化學物質，常用於開礦、拆卸建築物等工程。</td><td class="example">工人小心地把炸藥放進山洞，準備進行爆破工程。</td></tr>
+      <tr><td>刨</td><td class="explain">一種用來把木材表面削平磨滑的工具，也可以指用這種工具削平木材的動作。</td><td class="example">木匠用刨把木板表面刨得又平又滑。</td></tr>
+      <tr><td>爆炸</td><td class="explain">物體突然猛烈地炸裂開來，並發出巨大聲響。</td><td class="example">工廠內傳來一聲巨響，原來是鍋爐發生了爆炸。</td></tr>
+      <tr><td>瀰漫</td><td class="explain">煙、霧或某種氣氛充滿並擴散於周圍空間。</td><td class="example">火災過後，濃煙瀰漫了整條街道，久久未能散去。</td></tr>
+      <tr><td>扭曲</td><td class="explain">把原本的形狀、事實或意思弄歪，使它變得不真實。</td><td class="example">有些傳媒為了吸引讀者，故意扭曲事件的真相。</td></tr>
+      <tr><td>遺囑</td><td class="explain">一個人在生前寫下的文件，說明自己去世後財產應該如何分配。</td><td class="example">爺爺在遺囑中，把大部分積蓄捐給了慈善機構。</td></tr>
+      <tr><td>留神</td><td class="explain">小心留意，提高警覺。</td><td class="example">過馬路時要留神來往的車輛，確保安全。</td></tr>
+      <tr><td>置身</td><td class="explain">把自己安放在某個地方或處境當中。</td><td class="example">站在山頂眺望雲海，他彷彿置身仙境一樣。</td></tr>
+      <tr><td>威脅</td><td class="explain">用言語或行動使對方感到害怕，迫使對方屈服；也指構成危險。</td><td class="example">亂拋垃圾的行為，正威脅着海洋生物的生存。</td></tr>
+      <tr><td>研製</td><td class="explain">經過研究後製造出新的產品或技術。</td><td class="example">科學家正努力研製治療這種疾病的新藥物。</td></tr>
+      <tr><td>醉心</td><td class="explain">對某件事物非常沉迷，全心全意地投入其中。</td><td class="example">他從小便醉心於音樂，長大後成為了一位作曲家。</td></tr>
+      <tr><td>依賴</td><td class="explain">依靠別人或其他事物，自己不能獨立處理事情。</td><td class="example">小朋友應該學習獨立自主，不要事事依賴父母。</td></tr>
+      <tr><td>汗流浹背</td><td class="explain">形容出汗很多，把後背的衣服都弄濕了，多用來形容天氣炎熱或勞動辛苦。</td><td class="example">工人在烈日下搬運貨物，個個都汗流浹背。</td></tr>
+      <tr><td>震盪</td><td class="explain">猛烈地搖動；也可指局勢、情緒等受到強烈的衝擊。</td><td class="example">這宗醜聞被揭發後，在社會上引起了很大的震盪。</td></tr>
+      <tr><td>屢次</td><td class="explain">一次又一次，多次重複。</td><td class="example">他屢次犯同樣的錯誤，老師終於忍不住嚴厲地批評他。</td></tr>
+      <tr><td>百折不撓</td><td class="explain">形容一個人無論遇到多少次挫折，都堅持不放棄，勇往直前。</td><td class="example">憑着百折不撓的精神，他終於克服萬難，完成了任務。</td></tr>
+      <tr><td>頒發</td><td class="explain">由上級或有關機構鄭重地發出獎狀、證書或獎品等。</td><td class="example">校長在典禮上親自頒發獎狀給表現優異的同學。</td></tr>
+      <tr><td>獎勵</td><td class="explain">用獎品、稱讚等方式，鼓勵並肯定別人的良好表現。</td><td class="example">為了獎勵同學努力溫習，老師派發了小禮物給大家。</td></tr>
+    </table>
+  </div>
+
+  <!-- 第四課 -->
+  <div class="section-header" id="lesson4">
+    <span class="icon">📖</span>
+    <h2>第四課字詞</h2>
+    <span class="count">共 18 詞</span>
+  </div>
+  <div class="card">
+    <table class="word-table">
+      <tr><th>詞語</th><th>詳細解釋</th><th>例句</th></tr>
+      <tr><td>募捐</td><td class="explain">向社會大眾呼籲，收集金錢或物資，用來幫助有需要的人。</td><td class="example">學校舉辦賣旗活動，為災民募捐。</td></tr>
+      <tr><td>忘懷</td><td class="explain">從記憶中忘記，多指難以忘記某件深刻的事。</td><td class="example">那次難忘的旅行經歷，他一直未能忘懷。</td></tr>
+      <tr><td>麻痺</td><td class="explain">身體某部分因神經受損或受壓而失去知覺；也可比喻對事物失去警覺。</td><td class="example">長時間坐着不動，令他的雙腳感到麻痺。</td></tr>
+      <tr><td>窘態</td><td class="explain">因為處境尷尬或困難而顯露出來的不自然神情。</td><td class="example">被老師當眾提問卻答不出，他露出了尷尬的窘態。</td></tr>
+      <tr><td>解脫</td><td class="explain">從痛苦、困擾或束縛中擺脫出來，得到自由。</td><td class="example">完成沉重的考試後，他終於從壓力中解脫過來。</td></tr>
+      <tr><td>徽章</td><td class="explain">用來代表某個組織、學校或身份的小型標誌，通常佩戴在衣服上。</td><td class="example">風紀隊員胸前都佩戴着一枚金色的徽章。</td></tr>
+      <tr><td>井然</td><td class="explain">形容事物排列得整齊有秩序，一點也不混亂。</td><td class="example">圖書館內的書籍擺放得井然有序，方便讀者尋找。</td></tr>
+      <tr><td>犧牲</td><td class="explain">為了某個目的或他人利益，捨棄自己的生命、時間或利益。</td><td class="example">消防員為了拯救被困居民，不惜犧牲自己的性命。</td></tr>
+      <tr><td>夥伴</td><td class="explain">一起工作、學習或做事的同伴。</td><td class="example">他和小明是多年的學習夥伴，互相幫助。</td></tr>
+      <tr><td>彬彬有禮</td><td class="explain">形容一個人態度溫文，舉止十分有禮貌。</td><td class="example">這位小男孩見到長輩總是彬彬有禮地打招呼。</td></tr>
+      <tr><td>眾目睽睽</td><td class="explain">形容在很多人的注視之下，無法隱藏。</td><td class="example">在眾目睽睽之下，他緊張得說不出話來。</td></tr>
+      <tr><td>狼狽</td><td class="explain">形容處境困難，樣子十分尷尬窘迫的樣子。</td><td class="example">突然下起大雨，他沒有帶傘，被淋得十分狼狽。</td></tr>
+      <tr><td>形形色色</td><td class="explain">形容事物的種類繁多，各式各樣。</td><td class="example">展覽會上展出了形形色色的藝術作品，令人目不暇給。</td></tr>
+      <tr><td>鞠躬</td><td class="explain">彎下身子，表示尊敬或感謝的一種禮節。</td><td class="example">表演結束後，演員向觀眾深深地鞠躬致謝。</td></tr>
+      <tr><td>救濟</td><td class="explain">用金錢或物資幫助處於困境中的人，使他們渡過難關。</td><td class="example">慈善機構派發物資，救濟受災的居民。</td></tr>
+      <tr><td>殘障</td><td class="explain">身體某部分因先天或後天因素而失去正常功能。</td><td class="example">這座建築物設有斜道，方便殘障人士出入。</td></tr>
+      <tr><td>踴躍</td><td class="explain">形容情緒高漲，積極主動地參與某件事。</td><td class="example">同學們踴躍舉手，回答老師提出的問題。</td></tr>
+      <tr><td>微不足道</td><td class="explain">形容事物非常微小，不值得一提。</td><td class="example">他認為自己的貢獻微不足道，但其實幫助了很多人。</td></tr>
+    </table>
+  </div>
+
+  <!-- 第五課 -->
+  <div class="section-header" id="lesson5">
+    <span class="icon">📖</span>
+    <h2>第五課字詞</h2>
+    <span class="count">共 11 詞</span>
+  </div>
+  <div class="card">
+    <table class="word-table">
+      <tr><th>詞語</th><th>詳細解釋</th><th>例句</th></tr>
+      <tr><td>黝黑</td><td class="explain">形容皮膚顏色又黑又亮，多因長期在陽光下工作或曬太陽所致。</td><td class="example">農夫長年在田裏工作，皮膚曬得黝黑發亮。</td></tr>
+      <tr><td>水窖</td><td class="explain">用來儲存雨水或其他水源的地下坑洞。</td><td class="example">從前鄉村缺水，居民便挖掘水窖來儲存雨水。</td></tr>
+      <tr><td>枱燈</td><td class="explain">放在桌子上使用的照明燈具。</td><td class="example">他每晚都開着枱燈溫習功課到深夜。</td></tr>
+      <tr><td>零工</td><td class="explain">沒有固定僱主，按次數或按日計算酬勞的短期工作。</td><td class="example">為了幫補家計，他放學後兼職做零工。</td></tr>
+      <tr><td>破爛</td><td class="explain">形容物件因損壞或破舊而變得殘缺不完整。</td><td class="example">這間舊屋的門窗都已經十分破爛。</td></tr>
+      <tr><td>簡陋</td><td class="explain">形容設備或建築十分簡單，甚至有點粗糙，並不完善。</td><td class="example">這間鄉村小屋的設施十分簡陋，只有幾件基本家具。</td></tr>
+      <tr><td>沾滿</td><td class="explain">物件表面完全被某種液體或物質覆蓋。</td><td class="example">他辛勤工作了一天，衣服上沾滿了泥污。</td></tr>
+      <tr><td>大拇指</td><td class="explain">手上五根手指中最粗短的一根，即拇指。</td><td class="example">他伸出大拇指，稱讚弟弟做得好。</td></tr>
+      <tr><td>賺</td><td class="explain">通過工作或交易獲得金錢或利益。</td><td class="example">爸爸每天努力工作，賺取金錢養活家人。</td></tr>
+      <tr><td>誇獎</td><td class="explain">用言語稱讚別人的優點或成就。</td><td class="example">老師誇獎小明的作文寫得十分出色。</td></tr>
+      <tr><td>熱烈</td><td class="explain">形容氣氛或情緒非常熱情、興奮，反應強烈。</td><td class="example">同學們對這次旅行的建議反應十分熱烈。</td></tr>
+    </table>
+  </div>
+
+  <!-- 第七課 -->
+  <div class="section-header" id="lesson7">
+    <span class="icon">📖</span>
+    <h2>第七課字詞</h2>
+    <span class="count">共 17 詞</span>
+  </div>
+  <div class="card">
+    <table class="word-table">
+      <tr><th>詞語</th><th>詳細解釋</th><th>例句</th></tr>
+      <tr><td>慕名</td><td class="explain">因為仰慕某人或某事物的名聲而前往。</td><td class="example">許多遊客慕名而來，一睹這座古蹟的風采。</td></tr>
+      <tr><td>麥穗</td><td class="explain">麥類植物頂端結有麥粒的部分。</td><td class="example">金黃色的麥穗隨風搖曳，構成一片美麗的田園景色。</td></tr>
+      <tr><td>不忿</td><td class="explain">心裏感到不服氣、不滿。</td><td class="example">比賽輸了，他心裏感到十分不忿。</td></tr>
+      <tr><td>宛如</td><td class="explain">好像，形容事物極為相似。</td><td class="example">夜空中的繁星宛如一顆顆閃爍的鑽石。</td></tr>
+      <tr><td>躊躇</td><td class="explain">猶豫不決，遲遲未能作出決定。</td><td class="example">面對兩個難得的機會，他躊躇了很久也未能決定。</td></tr>
+      <tr><td>金燦燦</td><td class="explain">形容金光閃閃，非常耀眼的樣子。</td><td class="example">陽光照在麥田上，顯得金燦燦的，十分好看。</td></tr>
+      <tr><td>捨棄</td><td class="explain">把不需要或不喜歡的東西拋棄，不再擁有。</td><td class="example">為了健康，他決定捨棄不良的生活習慣。</td></tr>
+      <tr><td>沉甸甸</td><td class="explain">形容物件因為重量很重而使人感到沉重。</td><td class="example">他背着沉甸甸的書包，走路也顯得吃力。</td></tr>
+      <tr><td>規矩</td><td class="explain">大家共同遵守的做事準則或行為標準。</td><td class="example">學校訂立了規矩，要求同學準時上課。</td></tr>
+      <tr><td>盡頭</td><td class="explain">事物發展或道路延伸的最終終點。</td><td class="example">沿着這條小路一直走，就會到達山路的盡頭。</td></tr>
+      <tr><td>不約而同</td><td class="explain">事先沒有商量，卻做出相同的想法或行動。</td><td class="example">同學們不約而同地站起來，為老師鼓掌。</td></tr>
+      <tr><td>錯過</td><td class="explain">沒有把握住原本可以得到的機會或時間。</td><td class="example">他因為遲到，錯過了觀看表演的最佳位置。</td></tr>
+      <tr><td>語重心長</td><td class="explain">形容說話懇切，充滿深厚的情意和期望。</td><td class="example">老師語重心長地勸勉同學要珍惜光陰。</td></tr>
+      <tr><td>恍然大悟</td><td class="explain">忽然之間完全明白過來，解開了心中的疑惑。</td><td class="example">聽完老師的解釋，他終於恍然大悟。</td></tr>
+      <tr><td>漫長</td><td class="explain">形容時間或路途十分長久，難以在短時間內完結。</td><td class="example">這是一段漫長的旅程，需要好幾天才能到達目的地。</td></tr>
+      <tr><td>惟一</td><td class="explain">只有這一個，沒有其他選擇或可能。</td><td class="example">誠實是贏得別人信任的惟一方法。</td></tr>
+      <tr><td>良機</td><td class="explain">難得而有利的機會。</td><td class="example">他把握這次良機，努力表現自己的才能。</td></tr>
+    </table>
+  </div>
+
+  <!-- 第八課 -->
+  <div class="section-header" id="lesson8">
+    <span class="icon">📖</span>
+    <h2>第八課字詞</h2>
+    <span class="count">共 16 詞</span>
+  </div>
+  <div class="card">
+    <table class="word-table">
+      <tr><th>詞語</th><th>詳細解釋</th><th>例句</th></tr>
+      <tr><td>啟示</td><td class="explain">從某件事情中得到的領悟或教訓，能夠給人提示和幫助。</td><td class="example">這個故事給了我們很大的啟示，令人反思自己的行為。</td></tr>
+      <tr><td>執着</td><td class="explain">對某種想法或事物堅持不放，不願意改變。</td><td class="example">他對夢想十分執着，多年來從未放棄。</td></tr>
+      <tr><td>退縮</td><td class="explain">因為害怕困難或危險而向後退，不敢繼續前進。</td><td class="example">面對挑戰，他沒有退縮，反而勇敢地迎難而上。</td></tr>
+      <tr><td>蠻幹</td><td class="explain">不經過思考和計劃，只憑一時衝動魯莽地行事。</td><td class="example">做事要有計劃，不能只憑蠻幹，否則容易出錯。</td></tr>
+      <tr><td>迥然</td><td class="explain">形容差異非常明顯，完全不相同。</td><td class="example">兩兄弟的性格迥然不同，一個活潑，一個文靜。</td></tr>
+      <tr><td>感歎</td><td class="explain">因為某件事而發出感慨的言語或情緒。</td><td class="example">看到家鄉的變化，他不禁感歎時光飛逝。</td></tr>
+      <tr><td>屈服</td><td class="explain">因為受到壓力或威脅而放棄堅持，向對方讓步。</td><td class="example">他堅持自己的原則，絕不向不合理的要求屈服。</td></tr>
+      <tr><td>百折不回</td><td class="explain">無論遇到多少挫折，都堅持到底，決不放棄。</td><td class="example">他憑着百折不回的毅力，終於完成了艱鉅的任務。</td></tr>
+      <tr><td>自暴自棄</td><td class="explain">對自己失去信心，不再努力，任由自己墮落。</td><td class="example">一次失敗並不可怕，最重要的是不要自暴自棄。</td></tr>
+      <tr><td>歎氣</td><td class="explain">因為心情不好或無奈而發出的深長呼氣聲。</td><td class="example">看到考試成績，他忍不住歎氣。</td></tr>
+      <tr><td>盲目</td><td class="explain">沒有經過思考和判斷，只憑一時衝動或別人的說法而行動。</td><td class="example">我們不應該盲目跟從潮流，要有自己的判斷。</td></tr>
+      <tr><td>稍微</td><td class="explain">表示程度很輕，數量不多。</td><td class="example">這件事情稍微複雜一點，需要多花點時間處理。</td></tr>
+      <tr><td>改變</td><td class="explain">事物由原本的狀態變成另一種不同的狀態。</td><td class="example">經過一番努力，他成功改變了自己拖延的壞習慣。</td></tr>
+      <tr><td>反省</td><td class="explain">回顧並檢討自己的言行，找出不足之處加以改進。</td><td class="example">犯錯之後，他認真反省，決心以後不再重犯。</td></tr>
+      <tr><td>可悲</td><td class="explain">形容事情令人感到悲哀，值得同情或惋惜。</td><td class="example">一個人如果從不反省自己的錯誤，是十分可悲的。</td></tr>
+      <tr><td>觀點</td><td class="explain">對某件事情所持有的看法或立場。</td><td class="example">每個人對同一件事都可能有不同的觀點。</td></tr>
+    </table>
+  </div>
+
+  <footer>
+    <div class="fw">
+      <span>© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
