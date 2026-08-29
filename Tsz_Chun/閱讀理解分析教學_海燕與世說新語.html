@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>閱讀理解答題技巧筆記——《海燕》與《世說新語‧荀巨伯》精讀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --hero-bg: #C8D5D8;
+  --hero-text: #122025;
+
+  --accent-purple: #7c6fd6;
+  --accent-blue: #4a90b8;
+  --accent-teal: #2a9d8f;
+  --accent-coral: #e07a5f;
+  --accent-amber: #c48a1f;
+  --accent-pink: #c9648f;
+  --accent-green: #4f9166;
+  --accent-red: #c0524a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #eaeaea;
+    --color-text-secondary: #a8a8a8;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #26262a;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  border-radius: var(--border-radius-lg);
+  padding: 40px 32px;
+  margin-bottom: 24px;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 5px 14px;
+  border: 1px solid rgba(18,32,37,0.3);
+  color: rgba(18,32,37,0.65);
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: "Noto Serif TC", serif;
+  font-weight: 900;
+  font-size: 30px;
+  margin: 0 0 6px;
+  line-height: 1.4;
+  color: var(--hero-text);
+}
+.hero .subtitle {
+  font-size: 14px;
+  color: rgba(18,32,37,0.65);
+  margin: 0 0 4px;
+}
+.hero p.credit {
+  font-size: 13px;
+  color: rgba(18,32,37,0.5);
+  margin: 12px 0 0;
+}
+
+/* ---------- TOC ---------- */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+.toc-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: var(--color-text-primary);
+}
+.toc-item {
+  font-size: 14px;
+  padding: 6px 0;
+  color: var(--color-text-secondary);
+  border-bottom: 1px dashed var(--color-border-tertiary);
+}
+.toc-item:last-child { border-bottom: none; }
+.toc-item b { color: var(--color-text-primary); margin-right: 6px; }
+
+/* ---------- Section header ---------- */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 40px 0 18px;
+}
+.section-header .section-icon {
+  font-size: 22px;
+}
+.section-header .section-number {
+  font-family: "Noto Serif TC", serif;
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--color-text-secondary);
+}
+.section-header h2 {
+  font-family: "Noto Serif TC", serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+.section-divider {
+  height: 1px;
+  background: var(--color-border-tertiary);
+  margin: 8px 0 20px;
+}
+
+h3.sub-heading {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 26px 0 10px;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot.purple { background: var(--accent-purple); }
+.dot.blue   { background: var(--accent-blue); }
+.dot.teal   { background: var(--accent-teal); }
+.dot.coral  { background: var(--accent-coral); }
+.dot.amber  { background: var(--accent-amber); }
+.dot.pink   { background: var(--accent-pink); }
+.dot.green  { background: var(--accent-green); }
+.card p, .card li { font-size: 14px; line-height: 1.8; color: var(--color-text-primary); }
+.card ul, .card ol { margin: 6px 0; padding-left: 22px; }
+
+/* ---------- Example box ---------- */
+.example-box {
+  border-left: 4px solid var(--accent-purple);
+  background: rgba(124,111,214,0.07);
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+.example-box.teal   { border-left-color: var(--accent-teal); background: rgba(42,157,143,0.08); }
+.example-box.coral  { border-left-color: var(--accent-coral); background: rgba(224,122,95,0.08); }
+.example-box.amber  { border-left-color: var(--accent-amber); background: rgba(196,138,31,0.08); }
+.example-box.pink   { border-left-color: var(--accent-pink); background: rgba(201,100,143,0.08); }
+.example-box.green  { border-left-color: var(--accent-green); background: rgba(79,145,102,0.08); }
+.example-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+.example-text {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.85;
+}
+
+/* ---------- Alert ---------- */
+.alert {
+  display: flex;
+  gap: 12px;
+  border-radius: var(--border-radius-md);
+  padding: 14px 16px;
+  margin: 14px 0;
+}
+.alert.tip { background: rgba(74,144,184,0.1); }
+.alert.warn { background: rgba(192,82,74,0.1); }
+.alert.success { background: rgba(79,145,102,0.1); }
+.alert.amber { background: rgba(196,138,31,0.1); }
+.alert-icon { font-size: 18px; flex-shrink: 0; }
+.alert-label { font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.alert.tip .alert-label { color: var(--accent-blue); }
+.alert.warn .alert-label { color: var(--accent-red); }
+.alert.success .alert-label { color: var(--accent-green); }
+.alert.amber .alert-label { color: var(--accent-amber); }
+.alert-text { font-size: 13.5px; color: var(--color-text-primary); line-height: 1.75; }
+
+/* ---------- Compare grid ---------- */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 14px 0;
+}
+@media (max-width: 560px) { .compare-grid { grid-template-columns: 1fr; } }
+.compare-card {
+  border-radius: var(--border-radius-md);
+  padding: 14px 16px;
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+.compare-card.bad { background: rgba(192,82,74,0.08); border: 1px solid rgba(192,82,74,0.25); }
+.compare-card.good { background: rgba(79,145,102,0.08); border: 1px solid rgba(79,145,102,0.25); }
+.compare-label { font-weight: 700; font-size: 12px; margin-bottom: 6px; }
+.compare-card.bad .compare-label { color: var(--accent-red); }
+.compare-card.good .compare-label { color: var(--accent-green); }
+
+/* ---------- Flow ---------- */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+}
+.flow-step {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+.flow-arrow { color: var(--color-text-secondary); font-size: 15px; }
+
+/* ---------- Keyword grid ---------- */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 14px 0;
+}
+@media (max-width: 640px) { .keyword-grid { grid-template-columns: repeat(2, 1fr); } }
+.kw-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 12px 14px;
+  text-align: center;
+}
+.kw-word { font-family: "Noto Serif TC", serif; font-weight: 900; font-size: 18px; margin-bottom: 4px; }
+.kw-def { font-size: 12.5px; color: var(--color-text-secondary); }
+
+/* ---------- Formula ---------- */
+.formula {
+  background: var(--hero-text);
+  color: #fff;
+  border-radius: var(--border-radius-lg);
+  padding: 20px 22px;
+  margin: 16px 0;
+}
+.formula-title {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+.formula-text {
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* ---------- Table ---------- */
+table.qtable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 12px 0;
+}
+table.qtable th, table.qtable td {
+  border: 1px solid var(--color-border-tertiary);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.qtable th {
+  background: var(--color-background-secondary);
+  font-weight: 700;
+}
+
+/* ---------- Print button ---------- */
+.print-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--hero-text);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  z-index: 100;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.print-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+}
+.print-btn:active { transform: translateY(0); }
+@media (max-width: 600px) {
+  .print-btn { top: auto; bottom: 20px; right: 16px; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  .print-btn { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <button class="print-btn" onclick="window.print()" aria-label="列印筆記">🖨️ 列印 / 匯出 PDF</button>
+
+  <div class="hero">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>閱讀理解答題技巧全攻略</h1>
+    <div class="subtitle">以鄭振鐸《海燕》及劉義慶《世說新語‧德行》（荀巨伯）為教材</div>
+    <p class="credit">潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <div class="toc-item"><b>一</b>閱讀材料總覽</div>
+    <div class="toc-item"><b>二</b>記敘抒情散文閱讀技巧——以《海燕》為例</div>
+    <div class="toc-item"><b>三</b>文言文閱讀技巧——以《荀巨伯》為例</div>
+    <div class="toc-item"><b>四</b>總結：閱讀理解通用答題錦囊</div>
+  </div>
+
+  <!-- ========== 一、總覽 ========== -->
+  <div class="section-header">
+    <span class="section-icon">📖</span>
+    <span class="section-number">一</span>
+    <h2>閱讀材料總覽</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot blue"></span>本卷閱讀材料一覽</div>
+    <table class="qtable">
+      <tr><th>篇章</th><th>作者</th><th>體裁</th><th>內容大要</th></tr>
+      <tr>
+        <td>第一篇《海燕》</td>
+        <td>鄭振鐸</td>
+        <td>記敘抒情散文（白話文）</td>
+        <td>由故鄉燕子寫起，轉寫離鄉後在海上重遇燕子的情景，藉燕子觸動思鄉之情，情景交融。</td>
+      </tr>
+      <tr>
+        <td>第二篇《世說新語‧德行》（荀巨伯）</td>
+        <td>劉義慶</td>
+        <td>文言小品／人物軼事</td>
+        <td>記述荀巨伯不忍捨棄患病友人，甘願以身犯險，最終以德行感化胡賊、保全全郡的故事。</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">考試技巧</div>
+      <div class="alert-text">篇章題材年年不同，但答題思路其實離不開幾個範疇：文章結構、內容細節、修辭技巧，以及情感主旨。下面就按這幾個範疇，逐一拆解本卷題目的答題方法，並帶出一些改卷時常見的失分位置。</div>
+    </div>
+  </div>
+
+  <!-- ========== 二、白話文 ========== -->
+  <div class="section-header">
+    <span class="section-icon">🐦</span>
+    <span class="section-number">二</span>
+    <h2>記敘抒情散文閱讀技巧——以《海燕》為例</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <h3 class="sub-heading"><span class="dot purple"></span>2.1　文章結構與段落大意</h3>
+  <div class="card">
+    <p>全文十四段，按內容可分成五個部分。要劃分段落，最實用的方法是抓住文中時間、空間或情境轉換的字眼。第5段開首一個「如今」，就把全文由「回憶故鄉」帶入「海上所見」，這類轉折詞往往正正就是段落分界所在。</p>
+
+    <div class="flow">
+      <div class="flow-step">第1–4段<br>故鄉的燕子</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">第5–7段<br>海上重遇燕子</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">第8段<br>海天之美</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">第9–11段<br>海燕的姿態</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">第12–14段<br>鄉愁總收</div>
+    </div>
+
+    <table class="qtable">
+      <tr><th>部分</th><th>段落</th><th>內容大意</th></tr>
+      <tr><td>第一部分</td><td>第1至4段</td><td>描寫故鄉春天燕子活潑可愛的形貌，並記述故鄉燕子的生活習性，抒發對故鄉燕子的喜愛與懷念之情。</td></tr>
+      <tr><td>第二部分</td><td>第5至7段</td><td>記述在海上看見小燕子，因而引起鄉愁，抒發對故鄉的思念。</td></tr>
+      <tr><td>第三部分</td><td>第8段</td><td>描寫海上美麗的藍天，抒發對它的喜愛。</td></tr>
+      <tr><td>第四部分</td><td>第9至11段</td><td>記述海燕在海上從容飛翔、安然憩息的姿態，抒發對海燕的讚美與仰慕之情。</td></tr>
+      <tr><td>第五部分</td><td>第12至14段</td><td>記敘自己因看見海燕而引起對故鄉的懷想，抒發對故鄉的眷戀。</td></tr>
+    </table>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-label">常見陷阱</div>
+        <div class="alert-text">改卷時常見的失分位置，是學生只看第1段就以為「第一部分」到此為止，忽略了第2至4段（引詩句、寫主賓關係、寫故鄉人的反應）其實同樣圍繞「故鄉的燕子」這個主題。判斷段落歸屬，應該看主題有否轉換，而不是單憑段落長短來猜測。</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-heading"><span class="dot blue"></span>2.2　內容理解：選詞與摘錄技巧</h3>
+  <div class="card">
+    <p>遇到多項選擇題，例如問故鄉的春色包含甚麼元素，最穩妥的做法是逐項將選項代入原文核對。文中沒有明確寫到的，即使看似合理，也不能選。</p>
+    <div class="example-box">
+      <div class="example-label">原文例子（第1段）</div>
+      <div class="example-text">「輕風微微地吹拂著……千條萬條的柔柳……紅的白的黃的花，綠的草」，可對應「和暖微風」「花草盎然」「楊柳依依」；至於「車水馬龍」，文中並無提及，是干擾選項。</div>
+    </div>
+
+    <p>摘錄詞語題就簡單一點，只要留意題目對字數的要求（例如「四字詞語」），直接從原文照抄便可，不必自行改寫或濃縮——改寫反而容易與原意有出入。</p>
+    <div class="example-box teal">
+      <div class="example-label">原文例子（第3段）</div>
+      <div class="example-text">「他們賓主間是如何的融融泄泄呀！」「融融泄泄」正是形容主（故鄉的人）與賓（燕子）關係融洽的四字詞語，可直接摘錄作答。</div>
+    </div>
+
+    <p>至於比喻或借代理解題，像「浮宅」這一類，不能望文生義，一定要結合上下文的語境，判斷詞語實際指涉的事物。</p>
+    <div class="example-box coral">
+      <div class="example-label">原文例子（第5段）</div>
+      <div class="example-text">「托身於浮宅之上，奔馳於萬頃海濤之間」，結合「海濤」「奔馳」等語境線索，可推知「浮宅」實指作者所乘的船隻，而非陸上的居所。</div>
+    </div>
+  </div>
+
+  <h3 class="sub-heading"><span class="dot amber"></span>2.3　修辭手法辨析</h3>
+  <div class="card">
+    <p>辨識修辭手法其實有跡可尋，重點是留意句子的形式特徵。</p>
+    <div class="keyword-grid">
+      <div class="kw-card">
+        <div class="kw-word">反復</div>
+        <div class="kw-def">相同或相近的句式重複出現，加強語氣、渲染情感</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">比喻</div>
+        <div class="kw-def">用「如」「像」「就如」等喻詞，把本體比作另一性質相近的事物</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">擬聲詞</div>
+        <div class="kw-def">模擬聲音的詞語，增強畫面感與現場感</div>
+      </div>
+    </div>
+
+    <div class="example-box amber">
+      <div class="example-label">反復手法（第5段）</div>
+      <div class="example-text">「離家是幾千里！離國是幾千里！」「是幾千里」句式重複了兩次，加強了作者離鄉背井、路途遙遠的悵惘之情。</div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-label">比喻手法（第8段）</div>
+      <div class="example-text">「幾片薄紗似的輕雲……就如一個女郎，穿了絕美的藍色夏衣，而頸間卻圍繞了一段絕細絕輕的白紗巾」，以女郎的衣飾比喻天空的雲彩，將海天之美寫得具體可感。</div>
+    </div>
+
+    <div class="example-box teal">
+      <div class="example-label">擬聲詞（第1段）</div>
+      <div class="example-text">「咽的一聲，已由這裏稻田上，飛到了那邊的高柳之下了」，擬聲詞後面緊接的是空間位置的瞬間轉換，重點其實在燕子飛得快，不是聲音響亮，也不是燕子可愛或年幼。</div>
+    </div>
+  </div>
+
+  <h3 class="sub-heading"><span class="dot pink"></span>2.4　情感分析與主旨判斷</h3>
+  <div class="card">
+    <p>做情感分析題，先鎖定事件，再從事件前後的描寫或直接抒情的句子入手，找出情感線索。下表整理了作者情感隨海上所見而變化的軌跡：</p>
+    <table class="qtable">
+      <tr><th>海上所見（事件）</th><th>作者感受</th></tr>
+      <tr><td>在浮宅上意外見到故鄉的小燕子（第5段）</td><td>驚喜、意外</td></tr>
+      <tr><td>懷疑眼前燕子是否正是故鄉那一對（第6段）</td><td>驚訝疑惑，夾雜懷鄉之情</td></tr>
+      <tr><td>凝望絕美海天，一點雜念也沒有（第8段）</td><td>愉悅、陶醉</td></tr>
+    </table>
+
+    <p style="margin-top:14px;">至於「有雜念」與「無雜念」這一問，答案一定要扣緊段落內容，不能空泛地講感受：</p>
+    <div class="example-box pink">
+      <div class="example-label">為何當時「一點雜念也沒有」</div>
+      <div class="example-text">因為眼前的海天景色實在太美——「我沒有見過那末美的海！……我沒有見過那末美的天空！」作者完全被眼前景致吸引住，整個人「被沉醉了」，一時間甚麼都拋諸腦後。</div>
+    </div>
+    <div class="example-box pink">
+      <div class="example-label">為何後來「產生了雜念」</div>
+      <div class="example-text">第9段開始，作者見到燕子在茫茫大海上飛翔，開始擔心牠們的安危——「不會遇著暴風疾雨麼？我們真替它們擔心呢」——這份擔憂連帶牽動了深藏的鄉愁，令原本陶醉的心境不再純然。</div>
+    </div>
+
+    <p style="margin-top:14px;">比較異同題要逐項判斷究竟是「相同」還是「相異」，並各自引文佐證，不能只寫結論：</p>
+    <table class="qtable">
+      <tr><th>比較項目</th><th>判斷</th><th>說明</th></tr>
+      <tr><td>飛翔方法</td><td>相同</td><td>故鄉燕子「斜飛」掠過湖面；海燕「雋逸地從容地……斜掠著」，兩者都以輕巧斜飛的姿態掠過水面。</td></tr>
+      <tr><td>對水面的影響</td><td>相同</td><td>兩者尾翼沾水，都令水面泛起「一圈一圈」／「好幾圈」的圓暈漣漪。</td></tr>
+      <tr><td>休憩的地方</td><td>相異</td><td>故鄉燕子憩於電線或主人家所備的巢；海燕則直接憩於海面之上，如水禽般隨波浮沉。</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot green"></span>「海上英雄」的理解</div>
+    <p>作者稱海燕為「海上英雄」，是因為牠們能夠在浩瀚無邊、隨時可能波濤洶湧的大海上長時間飛翔，甚至安然憩息於海面——「雙翼如浮圈似的支持著體重……又安閒，又舒適」。這份堅毅從容，是牠們在故鄉時絕不會展現的一面，也正是「英雄」二字的由來。</p>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div>
+      <div class="alert-label">判斷題常見陷阱</div>
+      <div class="alert-text">「作者較喜愛海上的燕子，因此以『海燕』為文章題目」，這個說法是錯的。全文的重心是藉海上重遇燕子觸發思鄉之情，並不是要比較作者對兩地燕子的喜愛程度；文章之所以叫「海燕」，只是因為牽動全文情感的關鍵事件發生在海上。做判斷題最忌只憑題目字眼就妄下結論，一定要通讀全文，確認主旨所在。</div>
+    </div>
+  </div>
+
+  <!-- ========== 三、文言文 ========== -->
+  <div class="section-header">
+    <span class="section-icon">📜</span>
+    <span class="section-number">三</span>
+    <h2>文言文閱讀技巧——以《荀巨伯》為例</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <h3 class="sub-heading"><span class="dot purple"></span>3.1　實詞推斷技巧</h3>
+  <div class="card">
+    <p>解釋文言實詞，最實用的方法是代入法：將估計的字義代入句子，看看上下文意是否通順合理。</p>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">子</div><div class="kw-def">你（第二人稱代詞）</div></div>
+      <div class="kw-card"><div class="kw-word">止</div><div class="kw-def">留下、停留</div></div>
+      <div class="kw-card"><div class="kw-word">委</div><div class="kw-def">捨棄、拋棄</div></div>
+      <div class="kw-card"><div class="kw-word">遂</div><div class="kw-def">於是、就</div></div>
+      <div class="kw-card"><div class="kw-word">還</div><div class="kw-def">撤退、返回</div></div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">考試技巧</div>
+        <div class="alert-text">同一個字在不同語境可以有不同詞性或意思，例如本文「遂班軍而還」與「一郡並獲全」中的「還」與「全」，都要結合具體語境判斷，不能單靠死記硬背的字義生搬硬套。</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-heading"><span class="dot blue"></span>3.2　語譯技巧</h3>
+  <div class="card">
+    <p>文言語譯講求「信、達、雅」，先求準確，再求通順。遇到反問句時，記得保留反問的語氣，不要譯成直述句。</p>
+    <div class="example-box">
+      <div class="example-label">原文</div>
+      <div class="example-text">敗義以求生，豈荀巨伯所行邪？</div>
+    </div>
+    <div class="example-box teal">
+      <div class="example-label">語譯</div>
+      <div class="example-text">敗壞道義來換取生存，這難道是我荀巨伯會做的事嗎？</div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">答題技巧</div>
+        <div class="alert-text">句中「豈……邪」是文言常見的反問句式，語譯時對應白話文「難道……嗎」；還要留意「以」字（用來、藉此）帶出的因果關係，盡量逐字對應，不要漏譯了虛詞背後的語氣。</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-heading"><span class="dot coral"></span>3.3　人物形象刻畫手法</h3>
+  <div class="card">
+    <p>刻畫人物形象的手法有好幾種，答題時要分清楚：</p>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">語言描寫</div><div class="kw-def">透過人物對白直接展現性格</div></div>
+      <div class="kw-card"><div class="kw-word">側面描寫</div><div class="kw-def">借他人的言行、反應間接烘托人物</div></div>
+      <div class="kw-card"><div class="kw-word">對比</div><div class="kw-def">以相反的人物或情境作對照，突顯主要人物特質</div></div>
+      <div class="kw-card"><div class="kw-word">心理描寫</div><div class="kw-def">直接描述人物內心的思想活動</div></div>
+    </div>
+
+    <p style="margin-top:12px;">本文主要靠語言描寫與對比刻畫荀巨伯的形象——全文沒有直接的心理描寫，人物的內心活動全部透過對白帶出：</p>
+
+    <div class="example-box coral">
+      <div class="example-label">語言描寫</div>
+      <div class="example-text">「遠來相視，子今吾去；敗義以求生，豈荀巨伯所行邪？」「友人有疾，不忍委之，寧以我身代友人命。」這兩句對白，已經足以將荀巨伯重義輕生、不肯背棄朋友的品格立體地呈現出來。</div>
+    </div>
+
+    <div class="example-box amber">
+      <div class="example-label">對比手法</div>
+      <div class="example-text">友人勸他「子可去」獨自逃生，與荀巨伯堅持留下的抉擇形成強烈對比，突顯了他重義的一面；胡賊初時凶悍逼問，後來卻因感其德行而「班軍而還」，前後態度的轉變同樣從側面反襯出荀巨伯人格感召人心的力量。</div>
+    </div>
+  </div>
+
+  <h3 class="sub-heading"><span class="dot green"></span>3.4　內容理解與評鑑題</h3>
+  <div class="card">
+    <p>遇到「為何」類問題，例如荀巨伯為何不願離開，答案要緊扣原文的行動與對白，並清楚交代因果邏輯：</p>
+    <div class="example-box green">
+      <div class="example-text">荀巨伯不肯離開，是因為朋友患病，他不忍心撇下有病的朋友獨自逃生。在他心目中，為求活命而背棄道義，並不是自己應有的行為——他重視「義」甚於自身安危，寧願以身犯險留下照顧朋友，也不願棄義偷生。</div>
+    </div>
+
+    <p style="margin-top:14px;">至於開放式評鑑題，例如問胡賊是否真的是「無義之人」，本來就沒有標準答案，但寫法還是有章可循：先表明立場，再引文佐證，最後說明理據，三步缺一不可。</p>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-label">✗ 未夠完整</div>
+        我認為胡賊不是無義之人，因為他們最後撤退了。
+      </div>
+      <div class="compare-card good">
+        <div class="compare-label">✓ 較完整</div>
+        我認為胡賊未必是真正的「無義之人」，他們雖然以劫掠攻城，但聽到荀巨伯的話後懂得反省自身的「無義」，並因為敬佩他的德行而主動撤軍、保全全郡，可見他們並非完全泯滅良知，只是一時未受道義感召而已。
+      </div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">提醒</div>
+        <div class="alert-text">開放式問題的評分重點，始終在於論證是否有理有據，不在立場本身的對錯。就算持相反立場，認為胡賊確實是無義之人、只是懾於輿論才退兵，同樣可以拿分，最重要是能夠自圓其說，並且有原文支持。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 四、總結 ========== -->
+  <div class="section-header">
+    <span class="section-icon">🎯</span>
+    <span class="section-number">四</span>
+    <h2>總結：閱讀理解通用答題錦囊</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="formula">
+    <div class="formula-title">閱讀理解四步答題法</div>
+    <div class="formula-text">
+      ① 先看清題目，搞清楚作答方向——是找細節、找修辭、找情感，還是要評鑑<br>
+      ② 帶著問題重讀相關段落，不要單憑印象作答<br>
+      ③ 答案緊扣原文字眼組織，避免無根據的個人猜測<br>
+      ④ 交卷前檢查格式是否符合題目要求，例如字數、是否要摘錄原文、選擇題有沒有填塗
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot purple"></span>白話文與文言文答題要點對照</div>
+    <table class="qtable">
+      <tr><th></th><th>白話文閱讀</th><th>文言文閱讀</th></tr>
+      <tr><td>結構</td><td>留意轉折詞、時空轉換，劃分段落層次</td><td>留意事件發展脈絡（起因、經過、結果）</td></tr>
+      <tr><td>詞義</td><td>結合語境理解比喻、借代等修辭意涵</td><td>運用代入法推斷實詞詞義</td></tr>
+      <tr><td>手法</td><td>辨析修辭手法（比喻、反復、擬聲詞等）</td><td>辨析人物刻畫手法（語言、側面、對比、心理描寫）</td></tr>
+      <tr><td>情意</td><td>從事件與直接抒情句追蹤情感變化</td><td>從人物言行推斷品格與作者的褒貶態度</td></tr>
+    </table>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
