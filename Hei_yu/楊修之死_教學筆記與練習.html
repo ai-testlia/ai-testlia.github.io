@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《楊修之死》講讀教學筆記與練習｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --accent: #2f6f75;
+  --accent-soft: rgba(47,111,117,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ececec;
+    --color-text-secondary: #a8a8a8;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #242426;
+    --color-border-tertiary: rgba(255,255,255,0.14);
+    --accent: #6cc7cc;
+    --accent-soft: rgba(108,199,204,0.16);
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  font-size: 15px;
+}
+h1, h2, h3, .sec-title { font-family: 'Noto Serif TC', serif; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 70px; }
+
+/* Hero */
+.hero {
+  background: #C8D5D8;
+  color: #122025;
+  padding: 54px 24px 40px;
+  text-align: center;
+  margin-bottom: 26px;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid rgba(18,32,37,0.3);
+  color: rgba(18,32,37,0.65);
+  padding: 4px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+.hero h1 { font-size: 27px; margin: 0 0 12px; font-weight: 900; line-height: 1.55; }
+.hero .hero-meta { margin: 0 0 4px; color: rgba(18,32,37,0.6); font-size: 13px; letter-spacing: 1px; }
+.hero p.credit { margin: 10px 0 0; color: rgba(18,32,37,0.5); font-size: 13px; letter-spacing: 1px; }
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 18px 22px;
+  margin-bottom: 20px;
+}
+.toc-title { font-weight: 700; margin-bottom: 10px; font-size: 13px; color: var(--color-text-secondary); letter-spacing: 2px; }
+.toc-grid { display: grid; gap: 8px; }
+.toc-item a { color: var(--color-text-primary); text-decoration: none; font-size: 14.5px; display: flex; gap: 8px; }
+.toc-item a:hover { color: var(--accent); }
+.toc-item .toc-num { color: var(--accent); font-weight: 700; }
+
+/* Alert */
+.alert { display: flex; gap: 10px; padding: 14px 16px; border-radius: var(--border-radius-md); margin: 16px 0; font-size: 13px; }
+.alert-icon { font-size: 18px; flex-shrink: 0; }
+.alert-label { font-weight: 700; margin-bottom: 2px; }
+.alert.tip { background: rgba(74,144,217,0.08); border: 1px solid rgba(74,144,217,0.25); }
+.alert.warn { background: rgba(224,86,86,0.08); border: 1px solid rgba(224,86,86,0.25); }
+.alert.success { background: rgba(60,163,102,0.08); border: 1px solid rgba(60,163,102,0.25); }
+.alert.amber { background: rgba(217,164,65,0.08); border: 1px solid rgba(217,164,65,0.25); }
+
+/* Section header */
+.section-header { display: flex; align-items: center; gap: 12px; margin: 44px 0 18px; flex-wrap: wrap; }
+.sec-icon { font-size: 22px; }
+.sec-num { font-size: 11.5px; color: var(--color-text-secondary); border: 1px solid var(--color-border-tertiary); border-radius: 6px; padding: 2px 8px; }
+.sec-title { font-size: 20px; font-weight: 700; margin: 0; }
+.sec-marks { margin-left: auto; font-size: 12px; color: var(--accent); background: var(--accent-soft); padding: 3px 12px; border-radius: 999px; font-weight: 700; }
+.sec-sub { flex-basis: 100%; font-size: 13px; color: var(--color-text-secondary); margin-top: -8px; }
+
+/* Card */
+.card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px 22px; margin-bottom: 16px; }
+.subsection { margin-bottom: 16px; }
+.subsection:last-child { margin-bottom: 0; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; }
+.dot-blue{background:#4A90D9;} .dot-purple{background:#8B7FD4;} .dot-teal{background:#2FA89A;}
+.dot-coral{background:#E8836B;} .dot-amber{background:#D9A441;} .dot-pink{background:#D97FA8;}
+.sub-title { font-weight: 700; font-size: 14px; margin-bottom: 8px; display:flex; align-items:center; }
+.sub-body { font-size: 14.5px; line-height: 2; color: var(--color-text-primary); }
+
+/* Formula (theme box) */
+.formula { background: #1f2d2f; color: #eef7f6; border-radius: var(--border-radius-lg); padding: 20px 22px; font-size: 14.5px; line-height: 2.1; margin: 16px 0; }
+.formula .formula-label { font-size: 12px; letter-spacing: 2px; color: #8fe0d6; font-weight: 700; margin-bottom: 8px; }
+.formula .ans { color: #8fe0d6; }
+
+/* Event flow cards (課文概覽) */
+.event-card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 16px 18px; margin-bottom: 4px; page-break-inside: avoid; }
+.event-badge { display: inline-block; font-size: 11px; padding: 2px 11px; border-radius: 999px; margin-bottom: 8px; font-weight: 700; }
+.event-badge.near { background: rgba(232,131,107,0.15); color: #b5502f; }
+.event-badge.far { background: rgba(74,144,217,0.15); color: #2a5f8f; }
+.event-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+.event-row { display: grid; grid-template-columns: 52px 1fr; gap: 10px; margin-bottom: 8px; font-size: 13.5px; }
+.event-row:last-child { margin-bottom: 0; }
+.event-row .tag { font-weight: 700; color: var(--color-text-secondary); }
+.flow-arrow-v { text-align: center; color: var(--color-border-tertiary); font-size: 20px; line-height: 1; margin: 2px 0; }
+
+/* Question boxes */
+.qbox { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 18px 20px; margin-bottom: 16px; page-break-inside: avoid; }
+.qbox-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.qnum { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+.qtitle { font-weight: 700; font-size: 14.5px; }
+.qtag { font-size: 11px; color: var(--accent); background: var(--accent-soft); padding: 1px 8px; border-radius: 4px; }
+.qmarks { margin-left: auto; font-size: 11.5px; color: var(--color-text-secondary); font-weight: 700; }
+.subq { margin: 14px 0 14px 36px; font-size: 14px; }
+.subq:first-of-type { margin-top: 4px; }
+.subq-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+.subq-label { font-weight: 700; color: var(--color-text-secondary); }
+.subq-marks { font-size: 11px; color: var(--color-text-secondary); }
+
+/* Fill in blank */
+.fib { display: inline; }
+.blank { display: inline-block; min-width: 2.6em; padding: 0 2px; letter-spacing: -1px; }
+.ans { display: none; color: var(--accent); font-weight: 700; }
+body.show-answers .blank { display: none; }
+body.show-answers .ans { display: inline; }
+
+/* Block answers */
+.ans-block { display: none; margin-top: 10px; padding: 12px 14px; background: var(--color-background-secondary); border-left: 3px solid var(--accent); border-radius: 6px; font-size: 13.5px; line-height: 1.95; }
+.ans-block .ans-tag { font-size: 11px; font-weight: 700; color: var(--accent); margin-bottom: 4px; display: block; letter-spacing: 1px; }
+.ans-hint { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-secondary); font-style: italic; margin-top: 8px; }
+body.show-answers .ans-block { display: block; }
+body.show-answers .ans-hint { display: none; }
+
+/* Tables */
+table.qtable { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 8px 0; }
+table.qtable th, table.qtable td { border: 1px solid var(--color-border-tertiary); padding: 8px 10px; text-align: center; vertical-align: middle; }
+table.qtable th { background: var(--color-background-secondary); font-weight: 700; }
+table.qtable td.left { text-align: left; }
+table.qtable td.mark-cell .ans { font-size: 16px; }
+
+/* Multiple choice */
+.mc-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.mc-opt { display: flex; gap: 8px; align-items: center; padding: 9px 12px; border: 1px solid var(--color-border-tertiary); border-radius: 8px; font-size: 13.5px; }
+.mc-letter { font-weight: 700; color: var(--color-text-secondary); flex-shrink: 0; }
+.mc-mark { display: none; margin-left: auto; font-size: 11.5px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+body.show-answers .mc-opt.correct { background: var(--accent-soft); border-color: var(--accent); }
+body.show-answers .mc-opt.correct .mc-mark { display: inline; }
+
+/* Passage box */
+.passage-box { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 18px 20px; font-size: 13.5px; line-height: 2.1; margin: 14px 0; border: 1px dashed var(--color-border-tertiary); }
+.passage-title { font-weight: 700; margin-bottom: 8px; font-size: 14px; }
+.passage-source { text-align: right; font-size: 12px; color: var(--color-text-secondary); margin-top: 8px; }
+
+/* Section divider note */
+.section-note { font-size: 12.5px; color: var(--color-text-secondary); background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 14px; margin-bottom: 16px; }
+
+/* Floating controls */
+.float-controls { position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+.float-btn { border: none; cursor: pointer; padding: 12px 20px; border-radius: 999px; font-size: 13px; font-weight: 700; box-shadow: 0 4px 14px rgba(0,0,0,0.2); font-family: 'Noto Sans TC', sans-serif; }
+.float-btn.toggle-btn { background: var(--accent); color: #fff; }
+.float-btn.print-btn { background: var(--color-background-primary); color: var(--color-text-primary); border: 1px solid var(--color-border-tertiary); }
+
+/* Footer */
+footer.copyright { margin-top: 2rem; padding: 1.2rem 1.5rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); text-align: center; }
+
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula, .event-card { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+  .float-controls { display: none !important; }
+  .ans, .ans-block, .mc-opt.correct .mc-mark { display: none !important; }
+  .blank { display: inline-block !important; }
+  .ans-hint { display: inline-flex !important; }
+  .mc-opt.correct { background: none !important; border-color: var(--color-border-tertiary) !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">閱讀教學筆記</div>
+  <h1>細說今昔事——記敍的要素和方法<br>講讀《楊修之死》（羅貫中）</h1>
+  <p class="hero-meta">中一 單元一 ｜ 記敍要素・倒敍法・尋找中心句</p>
+  <p class="credit">潘SIR中文教室編撰</p>
+</div>
+
+<div class="wrap">
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <div class="toc-grid">
+      <div class="toc-item"><a href="#sec1"><span class="toc-num">01</span> 學習重點</a></div>
+      <div class="toc-item"><a href="#sec2"><span class="toc-num">02</span> 段意與主旨</a></div>
+      <div class="toc-item"><a href="#sec3"><span class="toc-num">03</span> 課文概覽（記敍要素流程圖）</a></div>
+      <div class="toc-item"><a href="#sec4"><span class="toc-num">04</span> 討論與練習・標準版（46分）</a></div>
+      <div class="toc-item"><a href="#sec5"><span class="toc-num">05</span> 討論與練習・調適版（43分）</a></div>
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">使用說明</div>
+      <div>按右下角「顯示答案」按鈕，可即時顯示／隱藏全部參考答案，方便對答；按「列印筆記」或使用瀏覽器列印功能匯出 PDF 時，答案會自動隱藏，可直接派發予學生作課業或溫習之用。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section-header" id="sec1">
+    <div class="sec-icon">📖</div>
+    <div class="sec-num">01</div>
+    <h2 class="sec-title">學習重點</h2>
+  </div>
+
+  <div class="card">
+    <div class="subsection">
+      <div class="sub-title"><span class="dot dot-blue"></span>閱讀重點</div>
+      <div class="sub-body">
+        1　認識記敍的要素：時間、地點、人物和事件（原因、經過和結果）。<br>
+        2　認識記敍的方法（一）：倒敍法。<br>
+        3　運用閱讀策略：尋找文章的中心句。
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section-header" id="sec2">
+    <div class="sec-icon">📝</div>
+    <div class="sec-num">02</div>
+    <h2 class="sec-title">段意與主旨</h2>
+  </div>
+
+  <div class="card">
+    <div class="subsection">
+      <div class="sub-title"><span class="dot dot-coral"></span>第 1–3 段（近因）</div>
+      <div class="sub-body">
+        記述曹操殺楊修的近因：<span class="fib"><span class="blank">＿＿</span><span class="ans">雞肋</span></span>事件──楊修從<span class="fib"><span class="blank">＿＿＿＿＿＿</span><span class="ans">夜間口號「雞肋」</span></span>猜中曹操退兵的心意，令軍士收拾行裝準備歸程，被曹操以<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">惑亂軍心</span></span>的罪名斬首。
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="sub-title"><span class="dot dot-amber"></span>第 4 段（遠因一：闊門事件）</div>
+      <div class="sub-body">
+        指出曹操殺楊修的遠因：楊修為人<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">恃才放曠</span></span>，數犯曹操之忌；記述楊修犯忌的第一件事：<span class="fib"><span class="blank">＿＿＿</span><span class="ans">闊門事件</span></span>──曹操在花園門上寫上一個「活」字，楊修猜中他嫌<span class="fib"><span class="blank">＿＿＿</span><span class="ans">門太闊</span></span>的心思。
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="sub-title"><span class="dot dot-amber"></span>第 5 段（遠因二：一合酥事件）</div>
+      <div class="sub-body">
+        記述楊修犯忌的第二件事：一合酥事件──曹操在酥餅盒上寫「一合酥」三字，楊修猜中是「<span class="fib"><span class="blank">＿＿＿＿＿</span><span class="ans">一人一口酥</span></span>」的意思，與眾人分食酥餅。
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="sub-title"><span class="dot dot-amber"></span>第 6 段（遠因三：夢中殺人事件）</div>
+      <div class="sub-body">
+        記述楊修犯忌的第三件事：<span class="fib"><span class="blank">＿＿＿＿＿</span><span class="ans">夢中殺人</span></span>事件──曹操害怕被人暗中謀害，假裝在<span class="fib"><span class="blank">＿＿＿＿＿</span><span class="ans">夢中殺人</span></span>，楊修識破他的詭計。
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="sub-title"><span class="dot dot-amber"></span>第 7 段（遠因四：吳質事件）</div>
+      <div class="sub-body">
+        記述楊修犯忌的第四件事：吳質事件──楊修向曹操告密，指曹丕打算<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿</span><span class="ans">偷運吳質入內府議事</span></span>，後來曹丕<span class="fib"><span class="blank">＿＿＿＿＿</span><span class="ans">以大簏載絹</span></span>惑騙使者，曹操反而懷疑楊修中傷曹丕。
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="sub-title"><span class="dot dot-amber"></span>第 8 段（遠因五：鄴門事件）</div>
+      <div class="sub-body">
+        記述楊修犯忌的第五件事：鄴門事件──楊修教曹植<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿</span><span class="ans">以斬殺阻擋者的方法</span></span>出鄴城門。
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="sub-title"><span class="dot dot-amber"></span>第 9 段（遠因六：答教事件）</div>
+      <div class="sub-body">
+        記述楊修犯忌的第六件事：<span class="fib"><span class="blank">＿＿</span><span class="ans">答教</span></span>事件──楊修為曹植作<span class="fib"><span class="blank">＿＿</span><span class="ans">答教</span></span>以應付曹操的答問，後被曹丕揭發。
+      </div>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="formula-label">全文主旨</div>
+    本文通過記述楊修<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿</span><span class="ans">屢次賣弄聰明，令曹操感到厭惡</span></span>，最終被曹操以<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">惑亂軍心</span></span>的罪名斬首的事，刻畫楊修的<span class="fib"><span class="blank">＿＿</span><span class="ans">自負</span></span>和曹操的<span class="fib"><span class="blank">＿＿</span><span class="ans">陰險</span></span>，並說明<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">恃才放曠</span></span>的害處。
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section-header" id="sec3">
+    <div class="sec-icon">🗺️</div>
+    <div class="sec-num">03</div>
+    <h2 class="sec-title">課文概覽：楊修之死流程圖</h2>
+  </div>
+
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div>
+      <div class="alert-label">結構提示</div>
+      <div>雞肋事件是楊修被殺的<strong>近因</strong>（直接原因）；其餘六件事均屬<strong>遠因</strong>（間接原因），曹操對楊修的不滿逐步升級，由溫和漸趨強烈。</div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-badge near">楊修之死・近因</div>
+    <div class="event-title">① 雞肋事件（第 1–3 段）</div>
+    <div class="event-row"><div class="tag">經過</div><div>楊修從夜間口號「<span class="fib"><span class="blank">＿＿</span><span class="ans">雞肋</span></span>」猜中曹操退兵的心意，叫軍士<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿</span><span class="ans">收拾行裝準備歸程</span></span>。</div></div>
+    <div class="event-row"><div class="tag">結果</div><div>曹操以<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">惑亂軍心</span></span>的罪名斬殺楊修。</div></div>
+  </div>
+  <div class="flow-arrow-v">↓</div>
+
+  <div class="event-card">
+    <div class="event-badge far">楊修之死・遠因</div>
+    <div class="event-title">② <span class="fib"><span class="blank">＿＿</span><span class="ans">闊門</span></span>事件（第 4 段）</div>
+    <div class="event-row"><div class="tag">經過</div><div>曹操在花園門上書一「活」字，楊修<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿</span><span class="ans">猜中他嫌門太闊的心意</span></span>。</div></div>
+    <div class="event-row"><div class="tag">結果</div><div>曹操雖稱美，<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">心甚忌之</span></span>。</div></div>
+  </div>
+  <div class="flow-arrow-v">↓</div>
+
+  <div class="event-card">
+    <div class="event-badge far">楊修之死・遠因</div>
+    <div class="event-title">③ 一合酥事件（第 5 段）</div>
+    <div class="event-row"><div class="tag">經過</div><div>曹操在酥餅盒上寫「一合酥」三字，楊修猜中是「<span class="fib"><span class="blank">＿＿＿＿＿</span><span class="ans">一人一口酥</span></span>」的意思，<span class="fib"><span class="blank">＿＿＿＿＿＿＿</span><span class="ans">便與眾人分食酥餅</span></span>。</div></div>
+    <div class="event-row"><div class="tag">結果</div><div>曹操雖喜而笑，<span class="fib"><span class="blank">＿＿＿</span><span class="ans">心惡之</span></span>。</div></div>
+  </div>
+  <div class="flow-arrow-v">↓</div>
+
+  <div class="event-card">
+    <div class="event-badge far">楊修之死・遠因</div>
+    <div class="event-title">④ <span class="fib"><span class="blank">＿＿＿＿＿</span><span class="ans">夢中殺人</span></span>事件（第 6 段）</div>
+    <div class="event-row"><div class="tag">經過</div><div>曹操害怕被人<span class="fib"><span class="blank">＿＿＿＿＿</span><span class="ans">暗中謀害</span></span>，假裝夢中殺人，楊修<span class="fib"><span class="blank">＿＿＿＿＿＿＿</span><span class="ans">識破他的詭計</span></span>。</div></div>
+    <div class="event-row"><div class="tag">結果</div><div>曹操<span class="fib"><span class="blank">＿＿＿＿＿</span><span class="ans">聞而愈惡之</span></span>。</div></div>
+  </div>
+  <div class="flow-arrow-v">↓</div>
+
+  <div class="event-card">
+    <div class="event-badge far">楊修之死・遠因</div>
+    <div class="event-title">⑤ 吳質事件（第 7 段）</div>
+    <div class="event-row"><div class="tag">經過</div><div>楊修向曹操告密，指曹丕<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿</span><span class="ans">打算偷運吳質入內府議事</span></span>，後來曹丕以大簏載絹惑騙使者，使者回報曹操大簏裝的是絹。</div></div>
+    <div class="event-row"><div class="tag">結果</div><div>曹操懷疑楊修中傷曹丕，<span class="fib"><span class="blank">＿＿＿</span><span class="ans">愈惡之</span></span>。</div></div>
+  </div>
+  <div class="flow-arrow-v">↓</div>
+
+  <div class="event-card">
+    <div class="event-badge far">楊修之死・遠因</div>
+    <div class="event-title">⑥ <span class="fib"><span class="blank">＿＿</span><span class="ans">鄴門</span></span>事件（第 8 段）</div>
+    <div class="event-row"><div class="tag">經過</div><div>楊修教曹植<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿</span><span class="ans">以斬殺阻擋者的方法</span></span>通過鄴城門。</div></div>
+    <div class="event-row"><div class="tag">結果</div><div>曹操<span class="fib"><span class="blank">＿＿</span><span class="ans">大怒</span></span>，因此亦不喜植。</div></div>
+  </div>
+  <div class="flow-arrow-v">↓</div>
+
+  <div class="event-card">
+    <div class="event-badge far">楊修之死・遠因</div>
+    <div class="event-title">⑦ <span class="fib"><span class="blank">＿＿</span><span class="ans">答教</span></span>事件（第 9 段）</div>
+    <div class="event-row"><div class="tag">經過</div><div>楊修為曹植<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿</span><span class="ans">作答教以應付曹操的提問</span></span>，後被曹丕揭發。</div></div>
+    <div class="event-row"><div class="tag">結果</div><div>曹操大怒，<span class="fib"><span class="blank">＿＿＿＿＿＿</span><span class="ans">起了殺楊修之心</span></span>。</div></div>
+  </div>
+
+  <!-- SECTION 4: 標準版 -->
+  <div class="section-header" id="sec4">
+    <div class="sec-icon">✏️</div>
+    <div class="sec-num">04</div>
+    <h2 class="sec-title">討論與練習・標準版</h2>
+    <div class="sec-marks">共 46 分</div>
+    <div class="sec-sub">適合一般程度學生，部分題目要求學生自行組織文字作答。</div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">1</div>
+      <div class="qtitle">本文的第 1 至第 3 段記敍了雞肋事件。試在下表中填寫事件的記敍要素。</div>
+      <span class="qtag">整合</span>
+      <div class="qmarks">8 分</div>
+    </div>
+    <table class="qtable">
+      <tr><th style="width:22%">記敍要素</th><th>內容</th></tr>
+      <tr><td>時間</td><td class="left">曹操屯兵的一夜</td></tr>
+      <tr><td>地點</td><td class="left">(1) <span class="fib"><span class="blank">＿＿＿＿＿＿＿</span><span class="ans">曹軍軍營中</span></span>（1分）</td></tr>
+      <tr><td>人物</td><td class="left">(2) <span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿</span><span class="ans">曹操、楊修、夏侯惇</span></span>（1分）</td></tr>
+      <tr><td>事件起因</td><td class="left">(3) <span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">夏侯惇稟請夜間口號，曹操隨口說出「雞肋」</span></span>。（2分）</td></tr>
+      <tr><td>事件經過</td><td class="left">(4) <span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">楊修從「雞肋」的口號推測曹操將會退兵，於是叫將士收拾行裝，準備歸程</span></span>。（2分）</td></tr>
+      <tr><td>事件結果</td><td class="left">(5) <span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">曹操以惑亂軍心的罪名斬殺楊修</span></span>。（2分）</td></tr>
+    </table>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">2</div>
+      <div class="qtitle">試根據本文內容回答以下問題。</div>
+      <span class="qtag">整合</span>
+      <div class="qmarks">共 5 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>作者運用了哪一種記敍方法寫楊修被殺，以及事件的前因後果？試簡略說明。</span><span class="subq-marks">（3分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>作者運用了倒敍法，（1分）先寫事情的結局，楊修由「雞肋」的暗號推測曹操有意撤軍，並教隨行軍士收拾行裝，因此被曹操以惑亂軍心的罪名斬殺；（1分）之後順序交代楊修恃才放曠，觸怒曹操的不同事件，說明楊修招來殺機的緣由。（1分）</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>承上題，運用這種記敍方法有甚麼好處？</span><span class="qtag">評價</span><span class="subq-marks">（2分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>把事情的結局放在文章的開頭，然後按時間順序敍述事情的起因和經過，這樣可以製造懸念，（1分）吸引讀者細看下去，並做到為讀者一一解開疑團的效果。（1分）</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">3</div>
+      <div class="qtitle">試摘錄能概括全文要旨的中心句，並說明你以這句作為文章的中心句的原因。</div>
+      <span class="qtag">整合</span>
+      <div class="qmarks">3 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>中心句：</span><span class="subq-marks">（1分）</span></div>
+      <div class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">原來楊修為人，恃才放曠，數犯曹操之忌。</span></div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>原因：</span><span class="subq-marks">（2分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>作者先用這一句總結了楊修被殺的原因，接着圍繞楊修「數犯曹操之忌」展開敍述，說明導致楊修被殺的各事件，因此這一句是本文的中心句。</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">4</div>
+      <div class="qtitle">試根據文章記述的雞肋事件到答教事件，回答以下問題。</div>
+      <div class="qmarks">共 6 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>直接和間接導致楊修被殺的事，分別有哪些？</span><span class="qtag">整合</span><span class="subq-marks">（2分）</span></div>
+      <div class="sub-body">
+        ● 直接導致楊修被殺的事：<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">雞肋事件</span></span><br>
+        ● 間接導致楊修被殺的事：<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">闊門事件、一合酥事件、夢中殺人事件、吳質事件、鄴門事件、答教事件</span></span>
+      </div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>在間接導致楊修被殺的各事件中，曹操對楊修的厭惡程度有甚麼變化？試加以描述。</span><span class="qtag">引申</span><span class="subq-marks">（1分，答案須是兩個字）</span></div>
+      <div class="sub-body">由 <span class="fib"><span class="blank">＿＿</span><span class="ans">溫和</span></span> 漸趨 <span class="fib"><span class="blank">＿＿</span><span class="ans">強烈</span></span>。</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(3)</span><span>承上題，作者這樣鋪排事件，對表達主題有甚麼作用？</span><span class="qtag">評價</span><span class="subq-marks">（3分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>作者先講述楊修被殺，再以曹操對楊修言行的反應鋪排事件的順序，厭惡之情由溫和至強烈，層層遞進，（1分）讓讀者了解曹操對楊修的成見一次比一次加深，（1分）令曹操斬殺楊修的情節變得符合情理。（1分）</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">5</div>
+      <div class="qtitle">作者形容楊修「恃才放曠」，試回答以下問題。</div>
+      <div class="qmarks">共 10 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>試分辨以下事件中楊修的行為的目的或影響，完成下表。（部分題目可選擇多於一項）</span><span class="qtag">整合</span><span class="subq-marks">（4分，每項0.5分，錯一項扣0.5分）</span></div>
+      <table class="qtable">
+        <tr><th>事件</th><th>表現自己</th><th>協助曹植</th><th>影響軍事決策</th></tr>
+        <tr><td class="left">雞肋事件</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td></tr>
+        <tr><td class="left">闊門事件</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td><td>○</td></tr>
+        <tr><td class="left">一合酥事件</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td><td>○</td></tr>
+        <tr><td class="left">夢中殺人事件</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td><td>○</td></tr>
+        <tr><td class="left">吳質事件</td><td>○</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td></tr>
+        <tr><td class="left">鄴門事件</td><td>○</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td></tr>
+        <tr><td class="left">答教事件</td><td>○</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td></tr>
+      </table>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>為甚麼曹操到了雞肋事件時才殺楊修？試結合上題加以分析。</span><span class="qtag">整合</span><span class="subq-marks">（4分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>楊修在闊門事件、一合酥事件、夢中殺人事件中，主要是為了表現自己的才幹，（1分）而在吳質事件、鄴門事件和答教事件中，楊修則協助曹植爭取曹操對他的認同。（1分）雖然楊修的言行令曹操的不滿升級，甚至有殺楊修之心，（1分）但要到雞肋事件，曹操認為他的軍事決策受到影響，事關重大，才以惑亂軍心為藉口，殺掉楊修。（1分）</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(3)</span><span>綜合全文，曹操的性格有甚麼特點？試舉例說明。</span><span class="qtag">引申</span><span class="subq-marks">（2分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>曹操猜忌多疑，如他怕有人暗中謀害他，於是假裝夢中殺人，借此警戒他人。（1分）曹操也是個殘暴不仁的人，如他無故殺害近侍，又借惑亂軍心之罪殺死楊修。（1分）</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">6</div>
+      <div class="qtitle">進階思考：試根據楊修的遭遇，回答以下問題。</div>
+      <div class="qmarks">共 6 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>試用一個熟語形容楊修的遭遇。</span><span class="qtag">引申</span><span class="subq-marks">（1分，答案須是七個字）</span></div>
+      <div class="sub-body"><span class="fib"><span class="blank">＿＿＿＿＿＿＿</span><span class="ans">聰明反被聰明誤</span></span></div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>你認為楊修被曹操所殺，是否咎由自取？</span><span class="qtag">評價</span><span class="subq-marks">（3分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案（僅供參考，學生可自由作答）</span>是咎由自取，（1分）楊修多次賣弄聰明才引起曹操的妒忌，他絲毫不察覺曹操的怒意，欠缺警覺性。（2分）／不是咎由自取，（1分）楊修雖喜歡賣弄聰明，但他是有才幹的，如果曹操愛惜人才，就不會妒忌楊修，不會殺他。（2分）</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(3)</span><span>你認為「楊修之死」一事能帶出甚麼教訓？請與同學分享，看看大家的想法是否相同。</span><span class="qtag">創意</span><span class="subq-marks">（2分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>「楊修之死」一事令我明白做人要謙虛厚重，不可恃才傲物，否則不但不受人歡迎，還可能招惹禍患。</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">7</div>
+      <div class="qtitle">比較閱讀：試閱讀以下節錄，然後回答問題。</div>
+      <span class="qtag">整合</span>
+      <div class="qmarks">共 8 分</div>
+    </div>
+    <div class="passage-box">
+      <div class="passage-title">絕妙好辭</div>
+      曹操曾經路過曹娥碑旁，楊修隨行。碑的背面題了「黃絹幼婦，外孫虀臼」八個字。曹操問楊修：「你懂它的意思嗎？」楊修回答：「懂。」曹操說：「你先別說出來，等我想一想。」走了三十里路，曹操說：「我想出來了。」並讓楊修寫下他所理解的意思。楊修寫：「黃絹，是有顏色的絲，合在一起是『絕』字；幼婦，是少女的意思，合在一起是『妙』字；外孫，是女兒的孩子，合在一起是『好』字；齏臼，是搗碎辛辣食物的石臼，合在一起是『辤』（「辭」的異體字）字，四個字合起來，就是『絕妙好辭』。」曹操把他理解的意思寫了下來，跟楊修的一樣，感歎道：「我的才華不如你，竟然相差了三十里。」
+      <div class="passage-source">故事出自《世說新語‧捷悟》</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>《絕妙好辭》所記的事，與課文中哪兩件事在選材上相似？試加以說明。</span><span class="subq-marks">（3分）</span></div>
+      <div class="sub-body">
+        ● 事件一：<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">闊門事件</span></span>（1分）<br>
+        ● 事件二：<span class="fib"><span class="blank">＿＿＿＿＿＿</span><span class="ans">一合酥事件</span></span>（1分）<br>
+        ● 說明：<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">《絕妙好辭》所記的事，跟闊門事件和一合酥事件相似，均通過拆字解謎的事，來表現楊修的才智。</span></span>（1分）
+      </div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>試比較《絕妙好辭》與課文，完成下表。</span><span class="subq-marks">（5分）</span></div>
+      <table class="qtable">
+        <tr><th style="width:26%">比較項目</th><th>《絕妙好辭》</th><th>《楊修之死》</th></tr>
+        <tr><td class="left">記敍方法</td><td>① <span class="fib"><span class="blank">＿＿＿</span><span class="ans">順敍法</span></span></td><td>倒敍法</td></tr>
+        <tr><td class="left">楊修的形象</td><td>② <span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">才思敏捷</span></span></td><td>③ <span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">恃才放曠</span></span></td></tr>
+        <tr><td class="left">曹操的形象</td><td>④ <span class="fib"><span class="blank">＿＿</span><span class="ans">謙遜</span></span></td><td>⑤ <span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">多疑、嫉妒</span></span></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 5: 調適版 -->
+  <div class="section-header" id="sec5">
+    <div class="sec-icon">🎯</div>
+    <div class="sec-num">05</div>
+    <h2 class="sec-title">討論與練習・調適版</h2>
+    <div class="sec-marks">共 43 分</div>
+    <div class="sec-sub">為能力稍遜的學生提供更多鷹架（填充提示、選擇題），內容與標準版對應，方便因材施教。</div>
+  </div>
+
+  <!-- Q1 (same) -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">1</div>
+      <div class="qtitle">本文的第 1 至第 3 段記敍了雞肋事件。試在下表中填寫事件的記敍要素。</div>
+      <span class="qtag">整合</span>
+      <div class="qmarks">8 分</div>
+    </div>
+    <table class="qtable">
+      <tr><th style="width:22%">記敍要素</th><th>內容</th></tr>
+      <tr><td>時間</td><td class="left">曹操屯兵的一夜</td></tr>
+      <tr><td>地點</td><td class="left">(1) <span class="fib"><span class="blank">＿＿＿＿＿＿＿</span><span class="ans">曹軍軍營中</span></span>（1分）</td></tr>
+      <tr><td>人物</td><td class="left">(2) <span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿</span><span class="ans">曹操、楊修、夏侯惇</span></span>（1分）</td></tr>
+      <tr><td>事件起因</td><td class="left">(3) <span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">夏侯惇稟請夜間口號，曹操隨口說出「雞肋」</span></span>。（2分）</td></tr>
+      <tr><td>事件經過</td><td class="left">(4) <span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">楊修從「雞肋」的口號推測曹操將會退兵，於是叫將士收拾行裝，準備歸程</span></span>。（2分）</td></tr>
+      <tr><td>事件結果</td><td class="left">(5) <span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">曹操以惑亂軍心的罪名斬殺楊修</span></span>。（2分）</td></tr>
+    </table>
+  </div>
+
+  <!-- Q2 adapted -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">2</div>
+      <div class="qtitle">試根據本文內容回答以下問題。</div>
+      <div class="qmarks">共 4 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>作者運用了哪一種記敍方法寫楊修被殺的前因後果？</span><span class="qtag">整合</span><span class="subq-marks">（1分）</span></div>
+      <div class="sub-body"><span class="fib"><span class="blank">＿＿＿</span><span class="ans">倒敍法</span></span></div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>試概述作者怎樣在《楊修之死》一文中，運用這種記敍方法寫楊修被殺的前因後果。</span><span class="qtag">整合</span><span class="subq-marks">（2分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>作者先寫事情的結局：楊修由「雞肋」的暗號推測曹操有意撤軍，並教隨行軍士收拾行裝，因此被曹操以惑亂軍心的罪名斬殺；（1分）之後順序交代楊修恃才放曠，觸怒曹操的不同事件，說明楊修招來殺機的緣由。（1分）</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(3)</span><span>作者把事情的結局放在文章的開頭，然後順序說出故事，這樣寫的好處是______，達到為讀者一一解開疑團的效果。</span><span class="qtag">評價</span><span class="subq-marks">（1分）</span></div>
+      <div class="sub-body"><span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">製造懸念，吸引讀者細看下去</span></span></div>
+    </div>
+  </div>
+
+  <!-- Q3 adapted -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">3</div>
+      <div class="qtitle">試摘錄能概括全文要旨的中心句，並說明你以這句作為文章的中心句的原因。</div>
+      <span class="qtag">整合</span>
+      <div class="qmarks">3 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>中心句：</span><span class="subq-marks">（1分）</span></div>
+      <div class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">原來楊修為人，恃才放曠，數犯曹操之忌。</span></div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>原因：作者先用這一句總結了______，圍繞楊修「數犯曹操之忌」展開敍述，說明______，因此這一句是本文的中心句。</span><span class="subq-marks">（2分）</span></div>
+      <div class="sub-body">
+        第一空：<span class="fib"><span class="blank">＿＿＿＿＿＿＿</span><span class="ans">楊修被殺的原因</span></span>（1分）　　
+        第二空：<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿</span><span class="ans">導致楊修被殺的各事件</span></span>（1分）
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 adapted -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">4</div>
+      <div class="qtitle">試根據文章記述的雞肋事件到答教事件，回答以下問題。</div>
+      <div class="qmarks">共 4 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>直接和間接導致楊修被殺的事，分別有哪些？</span><span class="qtag">整合</span><span class="subq-marks">（2分）</span></div>
+      <div class="sub-body">
+        ● 直接導致楊修被殺的事：<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">雞肋事件</span></span><br>
+        ● 間接導致楊修被殺的事：<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">闊門事件、一合酥事件、夢中殺人事件、吳質事件、鄴門事件、答教事件</span></span>
+      </div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>在間接導致楊修被殺的各事件中，曹操對楊修的厭惡程度有甚麼變化？試加以描述。</span><span class="qtag">引申</span><span class="subq-marks">（1分，答案須是兩個字）</span></div>
+      <div class="sub-body">由 <span class="fib"><span class="blank">＿＿</span><span class="ans">溫和</span></span> 漸趨 <span class="fib"><span class="blank">＿＿</span><span class="ans">強烈</span></span>。</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(3)</span><span>承上題，以下哪一項不是這樣鋪排的效用？</span><span class="qtag">評價</span><span class="subq-marks">（1分）</span></div>
+      <div class="mc-list">
+        <div class="mc-opt correct"><span class="mc-letter">A</span><span>達到層層遞進的效果。</span><span class="mc-mark">✓ 正確答案</span></div>
+        <div class="mc-opt"><span class="mc-letter">B</span><span>使楊修被殺害的情節更合理。</span></div>
+        <div class="mc-opt"><span class="mc-letter">C</span><span>讓讀者體會曹操的成見不斷加深。</span></div>
+        <div class="mc-opt"><span class="mc-letter">D</span><span>讓讀者逐漸了解曹操的陰險兇殘。</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 adapted -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">5</div>
+      <div class="qtitle">作者形容楊修「恃才放曠」，試回答以下問題。</div>
+      <div class="qmarks">共 10 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>試分辨以下事件中楊修的行為的目的或影響，完成下表。（部分題目可選擇多於一項）</span><span class="qtag">整合</span><span class="subq-marks">（4分，每項0.5分，錯一項扣0.5分）</span></div>
+      <table class="qtable">
+        <tr><th>事件</th><th>表現自己</th><th>協助曹植</th><th>影響軍事決策</th></tr>
+        <tr><td class="left">雞肋事件</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td></tr>
+        <tr><td class="left">闊門事件</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td><td>○</td></tr>
+        <tr><td class="left">一合酥事件</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td><td>○</td></tr>
+        <tr><td class="left">夢中殺人事件</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td><td>○</td></tr>
+        <tr><td class="left">吳質事件</td><td>○</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td></tr>
+        <tr><td class="left">鄴門事件</td><td>○</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td></tr>
+        <tr><td class="left">答教事件</td><td>○</td><td class="mark-cell"><span class="fib"><span class="blank">○</span><span class="ans">⚫</span></span></td><td>○</td></tr>
+      </table>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>為甚麼曹操到了雞肋事件時才殺楊修？試結合上題加以分析，在橫線上填上適當的答案。</span><span class="qtag">整合</span><span class="subq-marks">（4分）</span></div>
+      <div class="sub-body">
+        楊修在闊門事件、一合酥事件、夢中殺人事件中，主要是為了<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿</span><span class="ans">表現自己的才幹</span></span>；而在吳質事件、鄴門事件和答教事件中，楊修則<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">協助曹植爭取曹操對他的認同</span></span>。雖然楊修的言行令曹操的不滿升級，甚至有殺楊修之心，但要到<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">雞肋事件</span></span>，曹操認為<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿</span><span class="ans">他的軍事決策受到影響</span></span>，事關重大，才以惑亂軍心為藉口，殺掉楊修。
+      </div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(3)</span><span>綜合全文，曹操的性格有甚麼特點？試舉例說明。</span><span class="qtag">引申</span><span class="subq-marks">（2分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>曹操猜忌多疑，如他怕有人暗中謀害他，於是假裝夢中殺人，借此警戒他人。（1分）曹操也是個殘暴不仁的人，如他無故殺害近侍，又借惑亂軍心之罪殺死楊修。（1分）</div>
+    </div>
+  </div>
+
+  <!-- Q6 adapted (same content) -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">6</div>
+      <div class="qtitle">進階思考：試根據楊修的遭遇，回答以下問題。</div>
+      <div class="qmarks">共 6 分</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>試用一個熟語形容楊修的遭遇。</span><span class="qtag">引申</span><span class="subq-marks">（1分，答案須是七個字）</span></div>
+      <div class="sub-body"><span class="fib"><span class="blank">＿＿＿＿＿＿＿</span><span class="ans">聰明反被聰明誤</span></span></div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>你認為楊修被曹操所殺，是否咎由自取？</span><span class="qtag">評價</span><span class="subq-marks">（3分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案（僅供參考，學生可自由作答）</span>是咎由自取，（1分）楊修多次賣弄聰明才引起曹操的妒忌，他絲毫不察覺曹操的怒意，欠缺警覺性。（2分）／不是咎由自取，（1分）楊修雖喜歡賣弄聰明，但他是有才幹的，如果曹操愛惜人才，就不會妒忌楊修，更不會殺他。（2分）</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(3)</span><span>你認為「楊修之死」一事能帶出甚麼教訓？請與同學分享，看看大家的想法是否相同。</span><span class="qtag">創意</span><span class="subq-marks">（2分）</span></div>
+      <div class="ans-hint">👁 點擊右下角按鈕查看參考答案</div>
+      <div class="ans-block"><span class="ans-tag">參考答案</span>「楊修之死」一事令我明白到做人要謙虛敦厚，不可恃才傲物，否則不但不受人歡迎，還可能招惹禍患。</div>
+    </div>
+  </div>
+
+  <!-- Q7 adapted (same) -->
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum">7</div>
+      <div class="qtitle">比較閱讀：試閱讀以下節錄，然後回答問題。</div>
+      <span class="qtag">整合</span>
+      <div class="qmarks">共 8 分</div>
+    </div>
+    <div class="passage-box">
+      <div class="passage-title">絕妙好辭</div>
+      曹操曾經路過曹娥碑旁，楊修隨行。碑的背面題了「黃絹幼婦，外孫虀臼」八個字。曹操問楊修：「你懂它的意思嗎？」楊修回答：「懂。」曹操說：「你先別說出來，等我想一想。」走了三十里路，曹操說：「我想出來了。」並讓楊修寫下他所理解的意思。楊修寫：「黃絹，是有顏色的絲，合在一起是『絕』字；幼婦，是少女的意思，合在一起是『妙』字；外孫，是女兒的孩子，合在一起是『好』字；齏臼，是搗碎辛辣食物的石臼，合在一起是『辤』（「辭」的異體字）字，四個字合起來，就是『絕妙好辭』。」曹操把他理解的意思寫了下來，跟楊修的一樣，感歎道：「我的才華不如你，竟然相差了三十里。」
+      <div class="passage-source">故事出自《世說新語‧捷悟》</div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(1)</span><span>《絕妙好辭》所記的事，與課文中哪兩件事在選材上相似？試加以說明。</span><span class="subq-marks">（3分）</span></div>
+      <div class="sub-body">
+        ● 事件一：<span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">闊門事件</span></span>（1分）<br>
+        ● 事件二：<span class="fib"><span class="blank">＿＿＿＿＿＿</span><span class="ans">一合酥事件</span></span>（1分）<br>
+        ● 說明：<span class="fib"><span class="blank">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span><span class="ans">《絕妙好辭》所記的事，跟闊門事件和一合酥事件相似，均通過拆字解謎的事，來表現楊修的才智。</span></span>（1分）
+      </div>
+    </div>
+    <div class="subq">
+      <div class="subq-head"><span class="subq-label">(2)</span><span>試比較《絕妙好辭》與課文，完成下表。</span><span class="subq-marks">（5分）</span></div>
+      <table class="qtable">
+        <tr><th style="width:26%">比較項目</th><th>《絕妙好辭》</th><th>《楊修之死》</th></tr>
+        <tr><td class="left">記敍方法</td><td>① <span class="fib"><span class="blank">＿＿＿</span><span class="ans">順敍法</span></span></td><td>倒敍法</td></tr>
+        <tr><td class="left">楊修的形象</td><td>② <span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">才思敏捷</span></span></td><td>③ <span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">恃才放曠</span></span></td></tr>
+        <tr><td class="left">曹操的形象</td><td>④ <span class="fib"><span class="blank">＿＿</span><span class="ans">謙遜</span></span></td><td>⑤ <span class="fib"><span class="blank">＿＿＿＿</span><span class="ans">多疑、嫉妒</span></span></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <footer class="copyright">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+<div class="float-controls">
+  <button class="float-btn toggle-btn" id="toggleAnsBtn">👁️ 顯示答案</button>
+  <button class="float-btn print-btn" id="printBtn">🖨️ 列印筆記</button>
+</div>
+
+<script>
+  document.getElementById('toggleAnsBtn').addEventListener('click', function () {
+    document.body.classList.toggle('show-answers');
+    var on = document.body.classList.contains('show-answers');
+    this.textContent = on ? '🙈 隱藏答案' : '👁️ 顯示答案';
+  });
+  document.getElementById('printBtn').addEventListener('click', function () {
+    window.print();
+  });
+</script>
+
+</body>
+</html>
