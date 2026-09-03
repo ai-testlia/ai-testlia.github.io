@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《被誤會的滋味》寫作教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --accent: #B9694F;
+  --accent-dark: #7A3F2C;
+  --hero-bg: #E8D5C8;
+  --hero-text: #2E1A12;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ececec;
+    --color-text-secondary: #a8a8a8;
+    --color-background-primary: #1b1b1d;
+    --color-background-secondary: #262628;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', 'PingFang HK', sans-serif;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+h1, h2, h3, .section-title, .hero-tag {
+  font-family: 'Noto Serif TC', serif;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  border-radius: var(--border-radius-lg);
+  padding: 36px 32px 30px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 5px 16px;
+  border: 1px solid rgba(46,26,18,0.3);
+  color: rgba(46,26,18,0.65);
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: 26px;
+  font-weight: 900;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+.hero p {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(46,26,18,0.5);
+  letter-spacing: 1px;
+}
+
+/* ---------- TOC ---------- */
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 18px 22px;
+  margin-bottom: 26px;
+}
+.toc-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.toc-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.toc-list a {
+  display: block;
+  font-size: 13.5px;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--color-border-tertiary);
+}
+.toc-list a:hover { color: var(--accent); }
+
+/* ---------- Section header ---------- */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, var(--hero-bg), transparent);
+  border-left: 5px solid var(--accent);
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: 12px 18px;
+  margin: 34px 0 16px;
+}
+.section-header:first-of-type { margin-top: 0; }
+.section-icon { font-size: 20px; }
+.section-num {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--accent-dark);
+  background: var(--color-background-primary);
+  border-radius: 50%;
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.card-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.dot.purple { background: #8B7BB8; }
+.dot.blue   { background: #6E9BC4; }
+.dot.teal   { background: #4E9C8F; }
+.dot.coral  { background: #D2705A; }
+.dot.amber  { background: #C9922F; }
+.dot.pink   { background: #C46E96; }
+.card p { margin: 0 0 8px; }
+.card p:last-child { margin-bottom: 0; }
+.card ul, .card ol { margin: 6px 0 0; padding-left: 20px; }
+.card li { margin-bottom: 4px; }
+
+/* ---------- Example box ---------- */
+.example-box {
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  margin: 10px 0;
+  background: #F1EDF9;
+  border-left: 4px solid #8B7BB8;
+}
+.example-box.teal  { background: #EAF4F2; border-left-color: #4E9C8F; }
+.example-box.coral { background: #FBEEEB; border-left-color: #D2705A; }
+.example-box.amber { background: #FBF3E3; border-left-color: #C9922F; }
+.example-box.pink  { background: #FAEDF2; border-left-color: #C46E96; }
+.example-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+.example-text { font-size: 14px; }
+
+/* ---------- Alert ---------- */
+.alert {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  margin: 10px 0;
+}
+.alert-icon { font-size: 18px; line-height: 1.4; }
+.alert-label { font-weight: 700; font-size: 12.5px; margin-bottom: 3px; }
+.alert-text { font-size: 13.5px; }
+.alert.tip     { background: #E9F1FA; }
+.alert.tip .alert-label { color: #2E6DA4; }
+.alert.warn    { background: #FBECEC; }
+.alert.warn .alert-label { color: #B23A3A; }
+.alert.success { background: #EAF6EC; }
+.alert.success .alert-label { color: #2F8C4A; }
+.alert.amber   { background: #FBF3E3; }
+.alert.amber .alert-label { color: #A0721E; }
+
+/* ---------- Compare grid ---------- */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+.compare-card {
+  border-radius: var(--border-radius-md);
+  padding: 12px 14px;
+  font-size: 13.5px;
+}
+.compare-card .compare-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+.compare-card.bad  { background: #FBECEC; }
+.compare-card.bad .compare-tag { background: #E4A8A8; color: #6B1F1F; }
+.compare-card.good { background: #EAF6EC; }
+.compare-card.good .compare-tag { background: #9FD3AC; color: #1F5C2C; }
+
+/* ---------- Flow ---------- */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0;
+}
+.flow-step {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+.flow-arrow { color: var(--accent); font-weight: 700; }
+
+/* ---------- Keyword grid ---------- */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+.kw-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 12px 14px;
+}
+.kw-word {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--accent-dark);
+  margin-bottom: 4px;
+}
+.kw-def { font-size: 13px; color: var(--color-text-secondary); }
+
+/* ---------- Question / fill-in box ---------- */
+.qbox {
+  background: var(--color-background-primary);
+  border: 1px dashed var(--accent);
+  border-radius: var(--border-radius-md);
+  padding: 14px 16px;
+  margin: 10px 0;
+}
+.qbox-question {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 6px;
+}
+.qbox-question .q-num {
+  color: var(--accent-dark);
+  flex-shrink: 0;
+}
+.qbox-blank {
+  border-bottom: 1px solid var(--color-border-tertiary);
+  height: 26px;
+  margin-bottom: 6px;
+}
+.qbox-hint {
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Formula ---------- */
+.formula {
+  background: var(--accent-dark);
+  color: #fdf6f2;
+  border-radius: var(--border-radius-lg);
+  padding: 20px 24px;
+  text-align: center;
+  margin: 18px 0;
+}
+.formula-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+.formula-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px dashed var(--color-border-tertiary);
+  margin: 26px 0;
+}
+
+footer {
+  margin-top: 2rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+}
+
+/* ---------- Print button ---------- */
+.print-btn {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  background: var(--accent-dark);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  font-family: 'Noto Sans TC', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  z-index: 999;
+}
+.print-btn:hover { background: var(--accent); }
+
+@media (max-width: 560px) {
+  .toc-list, .compare-grid, .keyword-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 21px; }
+}
+
+/* ---------- Print rules ---------- */
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+  .print-btn { display: none; }
+}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨️ 列印本筆記</button>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>《被誤會的滋味》<br>記敘抒情文寫作教學</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <ul class="toc-list">
+      <li><a href="#sec1">一、解題：拆解題目要求</a></li>
+      <li><a href="#sec2">二、立意引導：從誤會到領悟</a></li>
+      <li><a href="#sec3">三、情感層次設計</a></li>
+      <li><a href="#sec4">四、取材指引</a></li>
+      <li><a href="#sec5">五、結構設計：雙線敘事法</a></li>
+      <li><a href="#sec6">六、段落示範</a></li>
+      <li><a href="#sec7">七、常見陷阱對比</a></li>
+      <li><a href="#sec8">八、總結：寫作提醒</a></li>
+    </ul>
+  </div>
+
+  <!-- ===================== 一、解題 ===================== -->
+  <div class="section-header" id="sec1">
+    <span class="section-icon">🔍</span>
+    <span class="section-num">一</span>
+    <span class="section-title">解題：拆解題目要求</span>
+  </div>
+
+  <div class="card">
+    <div class="card-heading"><span class="dot purple"></span>題目其實分兩層</div>
+    <p>前半「被誤會」講的是事件本身：誰誤會你？誤會了甚麼？但這些都只是背景。真正拿分的地方在「滋味」這兩個字——閱卷員想看到的，是你經歷這件事之後心裡留下了甚麼，而不是一堆事情經過。</p>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-label">常見陷阱</div>
+      <div class="alert-text">很多同學把力氣都放在「誤會如何發生、如何解開」上面，寫成一篇流水賬。結果「滋味」二字反而落空，白白丟分。</div>
+    </div>
+  </div>
+
+  <div class="keyword-grid">
+    <div class="kw-card">
+      <div class="kw-word">誤會</div>
+      <div class="kw-def">因為資訊不全，或者只看到片面的事實，就對別人的言行下了錯誤的判斷。</div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">滋味</div>
+      <div class="kw-def">事情過後心裡留下的感受，通常不只一種，往往是幾種情緒攪在一起。</div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-question"><span class="q-num">Q1</span>誰誤會了你？（家人／朋友／老師／陌生人）</div>
+    <div class="qbox-blank"></div>
+    <div class="qbox-question"><span class="q-num">Q2</span>對方誤會你做了甚麼、說了甚麼？</div>
+    <div class="qbox-blank"></div>
+    <div class="qbox-question"><span class="q-num">Q3</span>這個誤會，後來解開了沒有？</div>
+    <div class="qbox-blank"></div>
+    <div class="qbox-hint">提示：解開了和未解開，寫出來的「滋味」會很不一樣，下一部分再細談。</div>
+  </div>
+
+  <!-- ===================== 二、立意 ===================== -->
+  <div class="section-header" id="sec2">
+    <span class="section-icon">💡</span>
+    <span class="section-num">二</span>
+    <span class="section-title">立意引導：從誤會到領悟</span>
+  </div>
+
+  <div class="card">
+    <div class="card-heading"><span class="dot blue"></span>甚麼是「立意」</div>
+    <p>立意，是文章最後想留給讀者的一個想法。讀完之後，讀者應該感覺到你對「被誤會」這件事，有一套屬於自己的體會，而不只是聽你講完一件事就算。立意的深淺，直接決定文章能拿多少分。</p>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-label">行貨立意（盡量避免）</div>
+      <div class="alert-text">「這件事教會我要坦白」、「經過這次我學會了珍惜」——這類立意太籠統，換去任何題目都用得上，閱卷員一看就知道是背出來的結尾。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-heading"><span class="dot purple"></span>立意方向參考（可以自行修改）</div>
+    <div class="example-box teal">
+      <div class="example-label">方向一</div>
+      <div class="example-text">誤會不一定要解開才算有收穫。有時候，明白對方為甚麼會誤會自己，本身已經是一種成長。</div>
+    </div>
+    <div class="example-box coral">
+      <div class="example-label">方向二</div>
+      <div class="example-text">沉默有時比解釋更傷人。選擇不解釋，其實是在等對方主動理解自己，結果換來的卻是更深的隔閡。</div>
+    </div>
+    <div class="example-box amber">
+      <div class="example-label">方向三</div>
+      <div class="example-text">一句誤解，反而讓我看清楚自己真正在乎的是甚麼——原來我要的不是「證明自己沒有做錯」，而是對方對我的信任。</div>
+    </div>
+    <div class="example-box pink">
+      <div class="example-label">方向四</div>
+      <div class="example-text">被人誤會的滋味，讓我學會體諒那些也曾誤會過別人的人。立場一換，我才開始明白對方當時的心情。</div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-question"><span class="q-num">Q4</span>這篇文章想帶出的體會是：</div>
+    <div class="qbox-blank"></div>
+    <div class="qbox-blank"></div>
+    <div class="qbox-hint">提示：試試回答「經歷這次誤會之後，我對人與人之間的理解，有了甚麼新的想法？」答案不必正面或溫暖，是你真實的想法就可以。</div>
+  </div>
+
+  <!-- ===================== 三、情感層次 ===================== -->
+  <div class="section-header" id="sec3">
+    <span class="section-icon">🎭</span>
+    <span class="section-num">三</span>
+    <span class="section-title">情感層次設計</span>
+  </div>
+
+  <div class="card">
+    <div class="card-heading"><span class="dot coral"></span>情緒要有變化，不能只得一種</div>
+    <p>只寫「我覺得很委屈」，感受會很單薄。被誤會的過程裡，情緒其實會經過幾個階段，把這個變化寫出來，文章才立體得起來。</p>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step">錯愕<br><span style="font-size:11px;color:var(--color-text-secondary)">怔住、不明白發生了甚麼事</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">否認／急於解釋<br><span style="font-size:11px;color:var(--color-text-secondary)">想澄清</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">委屈／憤怒<br><span style="font-size:11px;color:var(--color-text-secondary)">解釋不了，情緒爆發</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">無奈／放棄解釋<br><span style="font-size:11px;color:var(--color-text-secondary)">不想再說</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">釋然 或 耿耿於懷<br><span style="font-size:11px;color:var(--color-text-secondary)">視乎有沒有解開</span></div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">考試技巧</div>
+      <div class="alert-text">與其直接講「我很委屈」，不如用身體反應、動作、細節去表現情緒，感染力會強很多。</div>
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <span class="compare-tag">直述式</span>
+      我聽到老師這樣說，心裡覺得很委屈，很想哭。
+    </div>
+    <div class="compare-card good">
+      <span class="compare-tag">呈現式</span>
+      老師的聲音仍在我耳邊迴盪，我張開口，卻一個字也說不出來，眼眶泛紅，鼻頭一酸。
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-question"><span class="q-num">Q5</span>在情緒最激動的那一刻，你的身體有甚麼反應？（例如：面紅、手震、心跳加速、胃部絞痛）</div>
+    <div class="qbox-blank"></div>
+    <div class="qbox-question"><span class="q-num">Q6</span>誤會解開／未解開之後，你的心情是怎樣的？</div>
+    <div class="qbox-blank"></div>
+  </div>
+
+  <!-- ===================== 四、取材 ===================== -->
+  <div class="section-header" id="sec4">
+    <span class="section-icon">🗂️</span>
+    <span class="section-num">四</span>
+    <span class="section-title">取材指引</span>
+  </div>
+
+  <div class="keyword-grid">
+    <div class="kw-card">
+      <div class="kw-word">家庭情境</div>
+      <div class="kw-def">例如：父母看見你和同學講電話，誤會你偷懶不溫習。</div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">朋輩情境</div>
+      <div class="kw-def">例如：同學誤會你說了他的壞話，之後對你冷戰。</div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">師生情境</div>
+      <div class="kw-def">例如：老師誤會你抄功課，或認為你遲交功課是因為偷懶。</div>
+    </div>
+    <div class="kw-card">
+      <div class="kw-word">陌生人情境</div>
+      <div class="kw-def">例如：在商店被誤會偷竊，或在公眾場合被誤認為另一個人。</div>
+    </div>
+  </div>
+
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div>
+      <div class="alert-label">選材準則</div>
+      <div class="alert-text">不必揀最戲劇化的事件，應該揀「情感衝突最強烈」、「最能反映你重視的價值觀」的一次經歷——即是那件事最能講出你是一個怎樣的人。</div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-question"><span class="q-num">Q7</span>在以上四類情境之中，你會選擇哪一類？這件事的簡單經過是怎樣的？</div>
+    <div class="qbox-blank"></div>
+    <div class="qbox-blank"></div>
+  </div>
+
+  <!-- ===================== 五、結構 ===================== -->
+  <div class="section-header" id="sec5">
+    <span class="section-icon">🧩</span>
+    <span class="section-num">五</span>
+    <span class="section-title">結構設計：雙線敘事法</span>
+  </div>
+
+  <div class="card">
+    <div class="card-heading"><span class="dot teal"></span>兩條線並行</div>
+    <p>「事實線」是真正發生的經過；「認知線」（即誤會線）是對方眼中所見、所以為的經過。把兩條線交替寫出來，讀者先看到對方的誤解，再看到真相，自然會有張力和懸念，文章讀起來也吸引得多。</p>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step">① 破題<br><span style="font-size:11px;color:var(--color-text-secondary)">誤會爆發一刻</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">② 追溯<br><span style="font-size:11px;color:var(--color-text-secondary)">誤會的源頭（倒敘）</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">③ 衝突<br><span style="font-size:11px;color:var(--color-text-secondary)">解釋 vs 對方堅持</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">④ 轉折<br><span style="font-size:11px;color:var(--color-text-secondary)">解開／未解開</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">⑤ 抒情昇華<br><span style="font-size:11px;color:var(--color-text-secondary)">扣連立意</span></div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <span class="compare-tag">平鋪直敘</span>
+      由頭到尾按時間順序敘述：先說誤會因何而起、再說如何澄清，最後才交代心情。
+    </div>
+    <div class="compare-card good">
+      <span class="compare-tag">倒敘帶懸念</span>
+      由誤會爆發的一刻（例如：老師突然在全班面前質問你）寫起，先製造懸念，再追溯之前發生的事。
+    </div>
+  </div>
+
+  <!-- ===================== 六、段落示範 ===================== -->
+  <div class="section-header" id="sec6">
+    <span class="section-icon">✍️</span>
+    <span class="section-num">六</span>
+    <span class="section-title">段落示範</span>
+  </div>
+
+  <div class="card">
+    <div class="card-heading"><span class="dot pink"></span>開篇範例（破題法）</div>
+    <div class="example-box teal">
+      <div class="example-label">示範段落</div>
+      <div class="example-text">「你自己說，是不是你說的？」老師的聲音在課室裡響起，四十雙眼睛齊刷刷地望向我。我張開口，卻一個字也吐不出來，只感到耳背一陣發燙，喉嚨像是被人掐住一樣。我明明沒有說過，為甚麼人人都說是我？</div>
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">寫作技巧</div>
+      <div class="alert-text">開篇直接帶入衝突高峰，加插對話、環境細節和身體感受，讀者會立即代入緊張氣氛，比起「今天我想跟大家講述一件我被人誤會的事」這種開場有效得多。</div>
+    </div>
+  </div>
+
+  <!-- ===================== 七、常見陷阱 ===================== -->
+  <div class="section-header" id="sec7">
+    <span class="section-icon">🚧</span>
+    <span class="section-num">七</span>
+    <span class="section-title">常見陷阱對比</span>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <span class="compare-tag">✗ 陷阱一</span>
+      開篇：「今天我想跟大家講述一件我被人誤會的事。」平鋪直敘，沒有懸念。
+    </div>
+    <div class="compare-card good">
+      <span class="compare-tag">✓ 改善</span>
+      從誤會爆發的一刻切入，加入對話和細節，製造懸念。
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <span class="compare-tag">✗ 陷阱二</span>
+      結尾：「這件事教會我以後做人要坦白，要互相諒解。」公式化，不具體。
+    </div>
+    <div class="compare-card good">
+      <span class="compare-tag">✓ 改善</span>
+      結尾扣連自己的立意，具體說明這件事怎樣改變了你的想法。
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <span class="compare-tag">✗ 陷阱三</span>
+      全文只交代事件經過，感受只用一句「我很委屈」帶過。
+    </div>
+    <div class="compare-card good">
+      <span class="compare-tag">✓ 改善</span>
+      加入情緒層次變化和身體反應，讓「滋味」二字真正在文字中呈現出來。
+    </div>
+  </div>
+
+  <!-- ===================== 八、總結 ===================== -->
+  <div class="section-header" id="sec8">
+    <span class="section-icon">🎯</span>
+    <span class="section-num">八</span>
+    <span class="section-title">總結：寫作提醒</span>
+  </div>
+
+  <div class="formula">
+    <div class="formula-label">記住這一句</div>
+    <div class="formula-text">「滋味」寫得好不好，不在於事件有多戲劇化，<br>而在於你有沒有讓讀者感受到你當時的心情變化。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-heading"><span class="dot purple"></span>執筆前，快速自我檢查</div>
+    <ul>
+      <li>我的立意是否具體、屬於自己，而不是「珍惜／感恩」這類公式化結尾？</li>
+      <li>我有沒有寫出情緒層次的變化，而不是只得一句「我很委屈」？</li>
+      <li>我的開篇有沒有製造懸念，還是平鋪直敘？</li>
+      <li>我的結尾有沒有扣連立意，清楚說明這件事怎樣改變了我？</li>
+    </ul>
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
