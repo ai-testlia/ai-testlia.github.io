@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《歪兒》導讀及綜合練習｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+
+  --hero-bg:#C8D5D8;
+  --hero-text:#122025;
+  --accent:#3f6672;
+  --blue:#4a7fa6;
+  --teal:#2f8f82;
+  --coral:#c65b45;
+  --amber:#b8842e;
+  --pink:#a15a80;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--color-background-secondary);
+  color:var(--color-text-primary);
+  font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
+  line-height:1.8;
+}
+h1,h2,h3,.font-serif{font-family:"Noto Serif TC","Noto Sans TC",serif;}
+.wrap{max-width:880px;margin:0 auto;padding:24px 20px 60px;}
+
+/* Hero */
+.hero{
+  background:var(--hero-bg);
+  color:var(--hero-text);
+  border-radius:var(--border-radius-lg);
+  padding:32px 28px 26px;
+  text-align:center;
+  margin-bottom:24px;
+}
+.hero-tag{
+  display:inline-block;
+  border:1px solid rgba(18,32,37,0.3);
+  color:rgba(18,32,37,0.65);
+  border-radius:999px;
+  padding:4px 16px;
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:14px;
+}
+.hero h1{font-size:26px;font-weight:900;margin:0 0 8px;}
+.hero .subtitle{font-size:14px;color:rgba(18,32,37,0.65);margin:0 0 14px;}
+.hero p.author{margin:0;color:rgba(18,32,37,0.5);font-size:13px;}
+
+/* Floating buttons */
+.fab-group{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:999;}
+.fab{
+  border:none;border-radius:999px;padding:12px 20px;font-size:13.5px;font-weight:700;
+  cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.18);
+  font-family:"Noto Sans TC",sans-serif;white-space:nowrap;
+}
+.fab-primary{background:var(--accent);color:#fff;}
+.fab-secondary{background:#fff;color:var(--color-text-primary);border:1px solid var(--color-border-tertiary);}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 24px;margin:0 0 28px;}
+.toc-title{font-weight:700;font-size:14px;margin-bottom:10px;color:var(--accent);}
+.toc a.toc-item{display:block;padding:7px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-weight:700;font-size:14.5px;}
+.toc a.toc-item:last-child{border-bottom:none;}
+.toc-sub{font-size:12px;color:var(--color-text-secondary);font-weight:400;margin-top:2px;}
+
+/* Alert */
+.alert{display:flex;gap:12px;align-items:flex-start;border-radius:var(--border-radius-md);padding:14px 16px;margin:0 0 24px;font-size:13.5px;page-break-inside:avoid;}
+.alert.tip{background:#eaf3f6;border:1px solid #b9d3da;}
+.alert-icon{font-size:18px;line-height:1;}
+.alert-label{font-weight:700;margin-bottom:2px;color:var(--accent);}
+.alert-text{color:var(--color-text-secondary);}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:12px;margin:36px 0 16px;}
+.section-header .icon{
+  width:38px;height:38px;border-radius:10px;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:18px;flex:0 0 38px;
+}
+.section-header h2{font-size:19px;margin:0;}
+.section-header .num{font-size:12px;color:var(--color-text-secondary);font-weight:400;}
+.section-header.sub{margin:26px 0 14px;}
+.section-header.sub .icon{width:30px;height:30px;font-size:14px;border-radius:8px;}
+.section-header.sub h2{font-size:16px;}
+
+/* Card */
+.card{background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:18px;page-break-inside:avoid;}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;background:var(--accent);}
+.dot.blue{background:var(--blue);} .dot.teal{background:var(--teal);} .dot.coral{background:var(--coral);} .dot.amber{background:var(--amber);}
+.card-title{font-weight:700;font-size:15px;margin-bottom:10px;}
+.obj-list{margin:0;padding-left:0;list-style:none;}
+.obj-list li{display:flex;gap:10px;margin-bottom:8px;font-size:14px;}
+.obj-list .n{flex:0 0 20px;height:20px;border-radius:50%;background:var(--blue);color:#fff;font-size:11.5px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+
+/* Tables */
+table.qtable{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+table.qtable th,table.qtable td{border:1px solid var(--color-border-tertiary);padding:9px 11px;text-align:left;vertical-align:top;}
+table.qtable th{background:var(--color-background-secondary);font-weight:700;}
+table.qtable td.center{text-align:center;vertical-align:middle;}
+
+/* Blanks & answers */
+.blank{display:inline-block;min-width:3.2em;border-bottom:1.5px solid var(--color-text-secondary);padding:1px 6px 0;text-align:center;}
+.blank .ans{visibility:hidden;color:#c0392b;font-weight:700;}
+.blank.wide{display:block;width:100%;border-bottom:none;background:var(--color-background-secondary);border-radius:8px;padding:10px 14px;margin-top:6px;text-align:left;}
+body.show-answers .blank .ans{visibility:visible;}
+
+.ans-block{display:none;margin-top:8px;padding:9px 12px;background:#fdf1ef;border-left:3px solid var(--coral);border-radius:6px;font-size:13.5px;color:#a5372a;line-height:1.75;}
+.ans-block .ab-label{font-weight:700;font-size:11.5px;color:var(--coral);margin-right:4px;}
+body.show-answers .ans-block{display:block;}
+
+/* Formula box (主旨) */
+.formula{background:#1f333a;color:#fff;border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:18px;font-size:14px;line-height:1.9;page-break-inside:avoid;}
+.formula .f-label{font-size:11.5px;letter-spacing:2px;color:#9fc4cf;font-weight:700;margin-bottom:8px;}
+.formula .blank{border-bottom:1.5px solid rgba(255,255,255,0.55);color:#fff;}
+.formula .blank .ans{color:#ffd479;}
+
+/* Mind map */
+.mindmap{margin-bottom:6px;}
+.mm-branch{display:flex;gap:14px;margin-bottom:18px;page-break-inside:avoid;}
+.mm-branch-label{flex:0 0 118px;border-radius:12px;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:700;font-size:15px;padding:10px 8px;line-height:1.4;white-space:nowrap;}
+.mm-branch-label .small{display:block;font-weight:400;font-size:11px;margin-top:4px;opacity:0.85;white-space:nowrap;}
+.mm-groups{flex:1;border-left:3px solid var(--color-border-tertiary);padding-left:16px;display:flex;flex-direction:column;gap:12px;}
+.mm-group-label{display:inline-block;font-weight:700;font-size:12.5px;background:var(--color-background-secondary);padding:3px 12px;border-radius:6px;margin-bottom:6px;}
+.mm-items{display:flex;flex-direction:column;gap:8px;}
+.mm-item{background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:8px;padding:10px 13px;font-size:13.5px;line-height:1.85;page-break-inside:avoid;}
+.mm-num{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;margin-right:6px;flex:none;vertical-align:middle;}
+.mm-summary{display:flex;align-items:center;gap:14px;background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;page-break-inside:avoid;}
+.mm-summary .mm-branch-label{flex:0 0 118px;}
+.mm-summary .mm-item{flex:1;margin:0;border:none;background:none;padding:0;}
+
+/* Exercise question box */
+.qbox{background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 18px;margin-bottom:16px;page-break-inside:avoid;}
+.qbox-head{display:flex;align-items:flex-start;gap:10px;}
+.qnum{flex:0 0 26px;height:26px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-top:1px;}
+.qtext{flex:1;font-size:14.5px;}
+.qmeta{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px 36px;}
+.tag{font-size:10.5px;padding:2px 9px;border-radius:999px;font-weight:700;}
+.tag.marks{background:#ececec;color:#666;}
+.tag.skill{border:1px solid currentColor;background:none;}
+.tag.skill.整合{color:var(--blue);} .tag.skill.引申{color:var(--pink);} .tag.skill.評價{color:var(--amber);}
+.qbody{margin-left:36px;}
+.write-lines{margin:8px 0;}
+.write-lines .line{border-bottom:1px solid var(--color-border-tertiary);height:26px;}
+.write-lines.mini .line{height:22px;}
+
+.mc-options{margin:8px 0;display:flex;flex-direction:column;gap:6px;}
+.mc-opt{font-size:13.5px;display:flex;gap:8px;}
+.mc-opt .circ{flex:none;}
+.mc-combo{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px;}
+.mc-combo-item{border:1px solid var(--color-border-tertiary);border-radius:8px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;}
+body.show-answers .mc-combo-item.correct{background:#e8f7ee;border-color:#2e9e5b;color:#1f7a43;}
+.mc-combo-item .ans{display:block;font-size:11px;margin-top:3px;visibility:hidden;}
+body.show-answers .mc-combo-item.correct .ans{visibility:visible;color:#1f7a43;}
+
+/* Footer */
+.copyright{margin-top:34px;padding:1.2rem 1.5rem;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);text-align:center;}
+.source-note{text-align:center;font-size:11px;color:var(--color-text-secondary);margin-top:14px;}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark){
+  body{background:#15181a;color:#e6e6e6;}
+  :root{
+    --color-text-primary:#e6e6e6;
+    --color-text-secondary:#aaa;
+    --color-background-primary:#1f2325;
+    --color-background-secondary:#26292b;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+  }
+  .ans-block{background:#3a2320;color:#ff9a8a;}
+  .mm-item,.qbox,.card,.toc{background:#1f2325;}
+  table.qtable th{background:#26292b;}
+}
+
+/* Print */
+@media print{
+  @page{margin:12mm 10mm;}
+  body{background:#fff;}
+  .wrap{max-width:100%;padding:0;}
+  .toc{display:none;}
+  .fab-group{display:none !important;}
+  a{color:inherit;text-decoration:none;}
+  .card,.qbox,.mm-item,.alert,.formula,.mm-summary{page-break-inside:avoid;}
+  .section-header{page-break-before:always;page-break-after:avoid;}
+  .section-header:first-of-type{page-break-before:auto;}
+  .hero{page-break-after:avoid;}
+  .ans{visibility:hidden !important;}
+  .ans-block{display:none !important;}
+  .mc-combo-item.correct{background:none !important;border-color:var(--color-border-tertiary) !important;color:inherit !important;}
+}
+@media (max-width:600px){
+  .qmeta,.qbody{margin-left:0;}
+  .qbox-head{flex-direction:column;}
+  .mc-combo{grid-template-columns:repeat(2,1fr);}
+  .mm-branch{flex-direction:column;}
+  .mm-branch-label{flex:none;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>《歪兒》導讀及綜合練習</h1>
+    <p class="subtitle">中一 單元一・細說今昔事——記敍的要素和方法｜馮驥才</p>
+    <p class="author">潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">使用提示</div>
+      <div class="alert-text">按右下角「顯示答案」按鈕即可查看全部答案；列印或匯出 PDF 時，答案會自動隱藏，方便直接派發空白版本予學生。</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <a class="toc-item" href="#sec-obj">一、學習重點</a>
+    <a class="toc-item" href="#sec-gist">二、段意與主旨<span class="toc-sub">段落大意填充 + 主旨歸納</span></a>
+    <a class="toc-item" href="#sec-map">三、課文概覽<span class="toc-sub">情節結構圖</span></a>
+    <a class="toc-item" href="#sec-ex">四、課文練習<span class="toc-sub">主旨段意・能力訓練・理解分析・進階思考（合共 47 分）</span></a>
+  </div>
+
+  <!-- 一、學習重點 -->
+  <div class="section-header" id="sec-obj">
+    <div class="icon">📖</div>
+    <h2>一、學習重點</h2>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot blue"></span>閱讀</div>
+    <ol class="obj-list">
+      <li><span class="n">1</span><span>掌握記敍的要素：時間、地點、人物和事件（原因、經過和結果）。</span></li>
+      <li><span class="n">2</span><span>掌握記敍的方法（一）：順敍法。</span></li>
+      <li><span class="n">3</span><span>運用閱讀策略：尋找文章的中心句。</span></li>
+    </ol>
+  </div>
+
+  <!-- 二、段意與主旨 -->
+  <div class="section-header" id="sec-gist">
+    <div class="icon">✏️</div>
+    <h2>二、段意與主旨</h2>
+  </div>
+  <div class="card">
+    <div class="card-title">試寫出課文中各意義段的段意，然後歸納段意成主旨。</div>
+    <table class="qtable">
+      <tr><th style="width:70px;">段落</th><th>段意</th></tr>
+      <tr>
+        <td class="center">1-2</td>
+        <td>作者憶述<span class="blank"><span class="ans">兒時最喜歡和同伴</span></span>玩「踢罐電報」，並介紹<span class="blank"><span class="ans">它的玩法</span></span>。</td>
+      </tr>
+      <tr>
+        <td class="center">3-4</td>
+        <td>介紹同伴<u>歪兒</u>：他的<span class="blank"><span class="ans">樣貌、名字</span></span>及他玩踢罐電報時歪歪扭扭的<span class="blank"><span class="ans">神態</span></span>，並說明大家是為了<u>歪兒</u>的<span class="blank"><span class="ans">長鐵罐</span></span>才和他玩。</td>
+      </tr>
+      <tr>
+        <td class="center">5</td>
+        <td>記述作者玩「踢罐電報」技巧了得，經常<span class="blank"><span class="ans">戲弄</span></span><u>歪兒</u>。有一次，<u>歪兒</u>被他們弄到<span class="blank"><span class="ans">痛哭不止</span></span>，受到媽媽的責罵，他們因此感到<span class="blank"><span class="ans">愧疚</span></span>。</td>
+      </tr>
+      <tr>
+        <td class="center">6</td>
+        <td>記述<u>歪兒</u>雖然退出「踢罐電報」遊戲，<span class="blank"><span class="ans">卻仍慷慨地把長罐兒借給大家</span></span>，大家因此感到<span class="blank"><span class="ans">內疚</span></span>，並叫歪兒來一起玩。</td>
+      </tr>
+      <tr>
+        <td class="center">7-8</td>
+        <td>記述歪兒回來跟同伴玩「踢罐電報」，大家同心幫助<u>歪兒</u>，作者感受到<span class="blank"><span class="ans">友情、關愛的可貴</span></span>。</td>
+      </tr>
+    </table>
+
+    <div class="formula">
+      <div class="f-label">主旨</div>
+      本文通過記述作者兒時跟同伴玩「踢罐電報」遊戲時<span class="blank"><span class="ans">發生的一場風波</span></span>，交代大家從取笑歪兒，到後來<span class="blank"><span class="ans">處處幫助歪兒玩遊戲</span></span>的過程，反映<span class="blank"><span class="ans">友情的可貴</span></span>，以及人與人之間彼此<span class="blank"><span class="ans">關愛、尊重</span></span>的美好。
+    </div>
+  </div>
+
+  <!-- 三、課文概覽 -->
+  <div class="section-header" id="sec-map">
+    <div class="icon">🗺️</div>
+    <h2>三、課文概覽</h2>
+  </div>
+  <div class="card">
+    <div class="mindmap">
+
+      <div class="mm-branch">
+        <div class="mm-branch-label" style="background:var(--blue);">背景<span class="small">（第1-4段）</span></div>
+        <div class="mm-groups">
+          <div class="mm-group">
+            <div class="mm-group-label">踢罐電報</div>
+            <div class="mm-items">
+              <div class="mm-item"><span class="mm-num">1</span>將空鐵罐放在<span class="blank"><span class="ans">白粉畫的圈裏</span></span>，坐莊的人需把被踢走的罐兒<span class="blank"><span class="ans">拾回原處</span></span>，再<span class="blank"><span class="ans">捉住一個孩子頂替他</span></span>。</div>
+            </div>
+          </div>
+          <div class="mm-group">
+            <div class="mm-group-label">歪兒</div>
+            <div class="mm-items">
+              <div class="mm-item"><span class="mm-num">2</span>身材細小、軟綿綿，歪歪扭扭；眼睛<span class="blank"><span class="ans">總像睜不開</span></span>；嘴脣<span class="blank"><span class="ans">有點斜</span></span>；耳朵<span class="blank"><span class="ans">一大一小</span></span>。</div>
+              <div class="mm-item"><span class="mm-num">3</span>熱愛玩「踢罐電報」，但身子歪，玩起來<span class="blank"><span class="ans">很吃虧</span></span>。</div>
+            </div>
+          </div>
+          <div class="mm-group">
+            <div class="mm-group-label">同伴</div>
+            <div class="mm-items">
+              <div class="mm-item"><span class="mm-num">4</span><span class="blank"><span class="ans">因為歪兒提供的鐵罐</span></span>才接受他一起玩。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mm-branch">
+        <div class="mm-branch-label" style="background:var(--teal);">遊戲<span class="small">（第5-8段）</span></div>
+        <div class="mm-groups">
+          <div class="mm-group">
+            <div class="mm-group-label">作者</div>
+            <div class="mm-items">
+              <div class="mm-item"><span class="mm-num">5</span>個子高、腿長，跑起來像<span class="blank"><span class="ans">騎摩托的郵差那樣風馳電掣</span></span>，能把罐兒踢到很遠。</div>
+            </div>
+          </div>
+          <div class="mm-group">
+            <div class="mm-group-label">歪兒</div>
+            <div class="mm-items">
+              <div class="mm-item"><span class="mm-num">6</span>追罐時<span class="blank"><span class="ans">一忽兒斜向左，一忽兒斜向右</span></span>，像個<span class="blank"><span class="ans">脫了軌而瞎撞的破車</span></span>。</div>
+            </div>
+          </div>
+          <div class="mm-group">
+            <div class="mm-group-label">一場風波</div>
+            <div class="mm-items">
+              <div class="mm-item"><span class="mm-num">7</span>有一天歪兒坐在白粉圈裏，快快無奈地痛哭，被媽媽拉回家後就<span class="blank"><span class="ans">不再來玩「踢罐電報」</span></span>。</div>
+              <div class="mm-item"><span class="mm-num">8</span>沒有歪兒的鐵罐，玩伴們的快樂<span class="blank"><span class="ans">減少許多</span></span>。</div>
+              <div class="mm-item"><span class="mm-num">9</span>後來歪兒<span class="blank"><span class="ans">扔下他的長鐵罐給玩伴</span></span>，作者迫不及待<span class="blank"><span class="ans">叫他一起來玩</span></span>。</div>
+              <div class="mm-item"><span class="mm-num">10</span>歪兒回來後，玩伴們<span class="blank"><span class="ans">相互配合照顧他</span></span>。</div>
+              <div class="mm-item"><span class="mm-num">11</span>一次，作者拉住歪兒躲在桌案下，他發現<span class="blank"><span class="ans">歪兒的小眼睛原來又美又動人</span></span>。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mm-summary">
+        <div class="mm-branch-label" style="background:var(--amber);">總結</div>
+        <div class="mm-item"><span class="mm-num">12</span><span class="blank wide"><span class="ans">是不是每個人都有這樣一雙眼睛，就看我們能不能把它點亮。</span></span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 四、課文練習 -->
+  <div class="section-header" id="sec-ex">
+    <div class="icon">📝</div>
+    <h2>四、課文練習<span class="num">（合共 47 分）</span></h2>
+  </div>
+
+  <div class="section-header sub">
+    <div class="icon" style="background:var(--blue);">🎯</div>
+    <h2>主旨段意</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--blue);">1</div>
+      <div class="qtext">試概括《歪兒》的段落大意。</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">10分</span><span class="tag skill 整合">整合</span></div>
+    <div class="qbody">
+      <table class="qtable">
+        <tr><th style="width:70px;">段落</th><th>段意</th></tr>
+        <tr><td class="center">1-2</td><td>(1) 作者憶述兒時最喜歡和同伴玩「<span class="blank"><span class="ans">踢罐電報</span></span>」，並介紹<span class="blank"><span class="ans">它的玩法</span></span>。</td></tr>
+        <tr><td class="center">3-4</td><td>(2) 介紹同伴<u>歪兒</u>：他的樣貌、名字及他<span class="blank"><span class="ans">玩踢罐電報時歪歪扭扭的神態</span></span>，並說明大家是為了<span class="blank"><span class="ans">歪兒的長鐵罐</span></span>才和他玩。</td></tr>
+        <tr><td class="center">5</td><td>(3) 記述作者玩「踢罐電報」技巧了得，經常戲弄<u>歪兒</u>。有一次，<u>歪兒</u><span class="blank"><span class="ans">被他們弄到痛哭不止，受到媽媽的責罵</span></span>，他們因此感到<span class="blank"><span class="ans">愧疚</span></span>。</td></tr>
+        <tr><td class="center">6</td><td>(4) 記述<u>歪兒</u>雖然退出「踢罐電報」遊戲，卻仍慷慨地<span class="blank"><span class="ans">把長罐兒借給大家</span></span>，大家因此感到內疚，並叫<span class="blank"><span class="ans">歪兒來一起玩</span></span>。</td></tr>
+        <tr><td class="center">7-8</td><td>(5) 記述<u>歪兒</u>回來<span class="blank"><span class="ans">跟同伴玩「踢罐電報」</span></span>，大家同心幫助歪兒，作者感受到<span class="blank"><span class="ans">友情、關愛的可貴</span></span>。</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--blue);">2</div>
+      <div class="qtext">試歸納《歪兒》的主旨。</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">3分</span><span class="tag skill 整合">整合</span><span class="tag skill 引申">引申</span></div>
+    <div class="qbody">
+      <div class="write-lines"><div class="line"></div><div class="line"></div></div>
+      <div class="ans-block"><span class="ab-label">參考答案</span>本文通過記述作者兒時跟同伴玩「踢罐電報」遊戲時發生的一場風波（1分），交代大家從取笑歪兒，到後來處處幫助歪兒玩遊戲的過程（1分），反映友情的可貴，以及人與人之間彼此關愛、尊重的美好。（1分）</div>
+    </div>
+  </div>
+
+  <div class="section-header sub">
+    <div class="icon" style="background:var(--teal);">💪</div>
+    <h2>能力訓練</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--teal);">3</div>
+      <div class="qtext">《歪兒》中記述的一場風波，發生在何時、何地？當中主要涉及甚麼人？</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">3分</span><span class="tag skill 整合">整合</span></div>
+    <div class="qbody">
+      <div style="font-size:13.5px;line-height:2.2;">
+        (1) 何時：<span class="blank" style="min-width:10em;"><span class="ans">某個暑假。</span></span><br>
+        (2) 何地：<span class="blank" style="min-width:10em;"><span class="ans">街的中央。</span></span><br>
+        (3) 主要涉及的人物：<span class="blank" style="min-width:14em;"><span class="ans">「我」、歪兒和其他同伴。</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--teal);">4</div>
+      <div class="qtext">《歪兒》第5至8段記述了作者兒時跟同伴玩「踢罐電報」遊戲時發生的一場風波，試概述這場風波的原因、經過和結果。</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">8分</span><span class="tag skill 整合">整合</span></div>
+    <div class="qbody">
+      <table class="qtable">
+        <tr><th style="width:110px;">記敍要素</th><th>說明</th></tr>
+        <tr><td>事情的起因</td><td>(1)
+          <div class="write-lines mini"><div class="line"></div></div>
+          <div class="ans-block"><span class="ab-label">參考答案</span>作者跟歪兒和其他同伴玩「踢罐電報」遊戲時，欺負歪兒，拿他取樂。（2分）</div>
+        </td></tr>
+        <tr><td>事情的經過</td><td>(2)
+          <div class="write-lines mini"><div class="line"></div><div class="line"></div></div>
+          <div class="ans-block"><span class="ab-label">參考答案</span>有一天，歪兒被作者和同伴戲弄到痛哭不止，被他的媽媽帶回家，從此不來玩「踢罐電報」。（2分）後來，歪兒卻主動扔下長鐵罐給作者和同伴，作者感到內疚，並叫歪兒來一起玩。（2分）</div>
+        </td></tr>
+        <tr><td>事情的結果</td><td>(3)
+          <div class="write-lines mini"><div class="line"></div></div>
+          <div class="ans-block"><span class="ab-label">參考答案</span>歪兒回到同伴的中間，遊戲時大家暗中幫助他，令作者感受到友情的可貴。（2分）</div>
+        </td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--teal);">5</div>
+      <div class="qtext">承上題，《歪兒》運用記敍法中的<span class="blank"><span class="ans">順敍法</span></span>來記述<span class="blank" style="min-width:12em;"><span class="ans">兒時跟同伴玩「踢罐電報」遊戲</span></span>時發生的一場風波，文中按事情發生的原因、經過和結果來記述這場風波，這樣寫的好處是使文章<span class="blank"><span class="ans">條理清晰</span></span>。</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">4分</span><span class="tag skill 整合">整合</span><span class="tag skill 評價">評價</span></div>
+  </div>
+
+  <div class="section-header sub">
+    <div class="icon" style="background:var(--coral);">🔍</div>
+    <h2>理解分析</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--coral);">6</div>
+      <div class="qtext">《歪兒》分別描寫了<u>歪兒</u>和作者。試根據課文的描述完成下表。</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">4分</span><span class="tag skill 整合">整合</span></div>
+    <div class="qbody">
+      <table class="qtable">
+        <tr><th>人物</th><th>身體</th><th>跑步時的樣子</th></tr>
+        <tr><td>歪兒</td><td>(1) <span class="blank"><span class="ans">細小、軟綿綿、歪歪扭扭</span></span></td><td>(2) <span class="blank"><span class="ans">跑起來就打斜</span></span></td></tr>
+        <tr><td>作者</td><td>(3) <span class="blank"><span class="ans">身高腿長</span></span></td><td>(4) <span class="blank"><span class="ans">跑起來風馳電掣</span></span></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--coral);">7</div>
+      <div class="qtext">承上題，作者描寫自己踢罐時威風的模樣，目的是甚麼？</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">2分</span><span class="tag skill 引申">引申</span></div>
+    <div class="qbody">
+      <div class="mc-options">
+        <div class="mc-opt"><span class="circ">①</span>襯托<u>歪兒</u>疲於奔命的狀態。</div>
+        <div class="mc-opt"><span class="circ">②</span>突出自己驕傲的性格。</div>
+        <div class="mc-opt"><span class="circ">③</span>為之後對<u>歪兒</u>的情感轉變作舖墊。</div>
+        <div class="mc-opt"><span class="circ">④</span>說明自己踢罐技術高超。</div>
+      </div>
+      <div class="mc-combo">
+        <div class="mc-combo-item">A　只有①②<span class="ans"></span></div>
+        <div class="mc-combo-item correct">B　只有①③<span class="ans">✓ 正確答案</span></div>
+        <div class="mc-combo-item">C　只有①②③<span class="ans"></span></div>
+        <div class="mc-combo-item">D　只有②③④<span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--coral);">8</div>
+      <div class="qtext">在《歪兒》一文中，隨着事情的發展，作者對<u>歪兒</u>的感情發生了甚麼變化？試完成下表。</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">4分</span><span class="tag skill 整合">整合</span></div>
+    <div class="qbody">
+      <table class="qtable">
+        <tr><th>事件</th><th>「我」的感情</th></tr>
+        <tr><td>歪兒坐莊</td><td>(1) <span class="blank"><span class="ans">開心／快樂</span></span></td></tr>
+        <tr><td>歪兒被媽媽責罵</td><td>(2) <span class="blank"><span class="ans">有點不安</span></span></td></tr>
+        <tr><td>歪兒扔下鐵罐</td><td>(3) <span class="blank"><span class="ans">十分內疚</span></span></td></tr>
+        <tr><td>歪兒回來一起玩</td><td>(4) <span class="blank"><span class="ans">快樂</span></span></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--coral);">9</div>
+      <div class="qtext">試根據《歪兒》的內容分析<u>歪兒</u>和作者性格上的優點。</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">4分</span><span class="tag skill 整合">整合</span></div>
+    <div class="qbody">
+      <div class="write-lines"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+      <div class="ans-block"><span class="ab-label">參考答案</span>雖然歪兒之前被同伴捉弄，但看到大家因為沒有好的罐子而玩得不盡興，還是偷偷地扔下他的罐子，由此可見他是一個大方、善良的人。（2分）作者因為歪兒挨罵而內疚，後來玩遊戲時故意輸給歪兒，讓他享受遊戲的樂趣，由此可見作者是一個善良、有愛心的人。（2分）</div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--coral);">10</div>
+      <div class="qtext">《歪兒》一文中的以下事件反映了<u>歪兒</u>和作者的甚麼性格特點？</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">2分</span><span class="tag skill 整合">整合</span></div>
+    <div class="qbody">
+      <table class="qtable">
+        <tr><th>事件</th><th>人物的性格特點</th></tr>
+        <tr><td>歪兒從二樓扔下鐵罐給同伴玩。</td><td>(1) <span class="blank"><span class="ans">大方／不計前嫌</span></span></td></tr>
+        <tr><td>歪兒快要被發現時，「我」飛身上去解救歪兒。</td><td>(2) <span class="blank"><span class="ans">善良</span></span></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-header sub">
+    <div class="icon" style="background:var(--amber);">🚀</div>
+    <h2>進階思考</h2>
+  </div>
+
+  <div class="qbox">
+    <div class="qbox-head">
+      <div class="qnum" style="background:var(--amber);">11</div>
+      <div class="qtext">課文結尾提到：「是不是每個人都有這樣一雙眼睛，就看我們能不能把它點亮。」你認為是甚麼把歪兒的眼睛點亮了？</div>
+    </div>
+    <div class="qmeta"><span class="tag marks">3分</span><span class="tag skill 整合">整合</span><span class="tag skill 引申">引申</span></div>
+    <div class="qbody">
+      <div class="write-lines"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+      <div class="ans-block"><span class="ab-label">參考答案</span>小伙伴們在玩踢罐電報遊戲中故意幫助歪兒，讓他也享受到遊戲的樂趣（1分），同時歪兒也因為別人的關心和尊重而覺得心中溫暖，眼睛被點亮了。（1分）因此，我認為是小伙伴的關心和幫助點亮了歪兒的眼睛。（1分）</div>
+    </div>
+  </div>
+
+  <div class="source-note">內容參考及改編自《啟思中國語文》單元教材（© 牛津大學出版社），經潘SIR中文教室重新編排製作，僅供課堂教學使用。</div>
+
+  <footer class="copyright">
+    <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.9;">
+      <span style="font-weight:500;color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+<div class="fab-group no-print">
+  <button id="toggleAnswersBtn" class="fab fab-primary" onclick="toggleAnswers()">👁️ 顯示答案</button>
+  <button class="fab fab-secondary" onclick="window.print()">🖨️ 列印筆記</button>
+</div>
+
+<script>
+function toggleAnswers(){
+  document.body.classList.toggle('show-answers');
+  var btn = document.getElementById('toggleAnswersBtn');
+  btn.textContent = document.body.classList.contains('show-answers') ? '🙈 隱藏答案' : '👁️ 顯示答案';
+}
+</script>
+</body>
+</html>
