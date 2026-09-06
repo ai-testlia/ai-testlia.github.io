@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>段義理解教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+
+    --hero-bg: #C8D5D8;
+    --hero-text: #122025;
+
+    --purple: #6C63C4;
+    --teal: #2F9E93;
+    --coral: #E0674F;
+    --amber: #C98A2C;
+    --pink: #C463A0;
+    --green: #3E9463;
+    --red: #C0483F;
+    --blue: #3E7FBF;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #ECECEA;
+      --color-text-secondary: #B4B4B0;
+      --color-background-primary: #1E1E1C;
+      --color-background-secondary: #2A2A27;
+      --color-border-tertiary: rgba(255,255,255,0.12);
+    }
+    body { background: #151513; }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Noto Sans TC", sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    line-height: 1.8;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  h1, h2, h3 { font-family: "Noto Serif TC", serif; margin: 0; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background: var(--hero-bg);
+    color: var(--hero-text);
+    border-radius: var(--border-radius-lg);
+    padding: 36px 32px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--hero-text) 30%, transparent);
+    color: color-mix(in srgb, var(--hero-text) 65%, transparent);
+    margin-bottom: 14px;
+  }
+  .hero h1 { font-size: 28px; font-weight: 900; line-height: 1.5; }
+  .hero-subtitle {
+    margin-top: 10px;
+    font-size: 14px;
+    color: color-mix(in srgb, var(--hero-text) 50%, transparent);
+  }
+  .hero > p.credit {
+    margin-top: 18px;
+    font-size: 13px;
+    color: color-mix(in srgb, var(--hero-text) 50%, transparent);
+  }
+
+  /* ---------- TOC ---------- */
+  .toc {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+  }
+  .toc-title {
+    grid-column: 1 / -1;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+    color: var(--color-text-secondary);
+  }
+  .toc-item {
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    display: flex;
+    gap: 8px;
+  }
+  .toc-item .num {
+    color: var(--purple);
+    font-weight: 700;
+    font-family: "Noto Serif TC", serif;
+  }
+
+  /* ---------- SECTION HEADER ---------- */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 38px 0 16px;
+  }
+  .section-header .icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+  }
+  .section-header .chapter-num {
+    font-family: "Noto Serif TC", serif;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.05em;
+  }
+  .section-header h2 { font-size: 20px; font-weight: 700; }
+
+  /* ---------- CARD ---------- */
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    display: flex; align-items: center; gap: 9px;
+    font-weight: 700; font-size: 15.5px;
+    margin-bottom: 8px;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .dot.purple { background: var(--purple); }
+  .dot.teal { background: var(--teal); }
+  .dot.coral { background: var(--coral); }
+  .dot.amber { background: var(--amber); }
+  .dot.pink { background: var(--pink); }
+  .card p, .card li { font-size: 14px; color: var(--color-text-primary); }
+
+  /* ---------- EXAMPLE BOX ---------- */
+  .example-box {
+    border-left: 4px solid var(--purple);
+    background: color-mix(in srgb, var(--purple) 7%, var(--color-background-primary));
+    border-radius: var(--border-radius-md);
+    padding: 14px 16px;
+    margin: 10px 0;
+  }
+  .example-box.teal { border-left-color: var(--teal); background: color-mix(in srgb, var(--teal) 7%, var(--color-background-primary)); }
+  .example-box.coral { border-left-color: var(--coral); background: color-mix(in srgb, var(--coral) 7%, var(--color-background-primary)); }
+  .example-box.amber { border-left-color: var(--amber); background: color-mix(in srgb, var(--amber) 7%, var(--color-background-primary)); }
+  .example-box.pink { border-left-color: var(--pink); background: color-mix(in srgb, var(--pink) 7%, var(--color-background-primary)); }
+  .example-label { font-size: 12px; font-weight: 700; color: var(--color-text-secondary); margin-bottom: 4px; }
+  .example-text { font-size: 14px; }
+
+  /* ---------- ALERT ---------- */
+  .alert {
+    display: flex; gap: 12px;
+    border-radius: var(--border-radius-md);
+    padding: 14px 16px;
+    margin: 14px 0;
+  }
+  .alert-icon { font-size: 18px; flex-shrink: 0; }
+  .alert-label { font-weight: 700; font-size: 13px; margin-bottom: 3px; }
+  .alert-text { font-size: 14px; }
+  .alert.tip { background: color-mix(in srgb, var(--blue) 10%, var(--color-background-primary)); }
+  .alert.tip .alert-label { color: var(--blue); }
+  .alert.warn { background: color-mix(in srgb, var(--red) 10%, var(--color-background-primary)); }
+  .alert.warn .alert-label { color: var(--red); }
+  .alert.success { background: color-mix(in srgb, var(--green) 10%, var(--color-background-primary)); }
+  .alert.success .alert-label { color: var(--green); }
+  .alert.amber { background: color-mix(in srgb, var(--amber) 12%, var(--color-background-primary)); }
+  .alert.amber .alert-label { color: var(--amber); }
+
+  /* ---------- COMPARE GRID ---------- */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .compare-card { border-radius: var(--border-radius-md); padding: 14px 16px; font-size: 13.5px; }
+  .compare-card .cc-label { font-weight: 700; font-size: 12.5px; margin-bottom: 6px; display: block; }
+  .compare-card.bad { background: color-mix(in srgb, var(--red) 8%, var(--color-background-primary)); border: 1px solid color-mix(in srgb, var(--red) 25%, transparent); }
+  .compare-card.bad .cc-label { color: var(--red); }
+  .compare-card.good { background: color-mix(in srgb, var(--green) 8%, var(--color-background-primary)); border: 1px solid color-mix(in srgb, var(--green) 25%, transparent); }
+  .compare-card.good .cc-label { color: var(--green); }
+
+  /* ---------- FLOW ---------- */
+  .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+  .flow-step {
+    background: var(--color-background-primary);
+    border: 1.5px solid var(--purple);
+    color: var(--purple);
+    font-weight: 700; font-size: 13.5px;
+    border-radius: 999px;
+    padding: 9px 18px;
+  }
+  .flow-arrow { color: var(--color-text-secondary); font-size: 18px; }
+
+  /* ---------- KEYWORD GRID ---------- */
+  .keyword-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .kw-card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px 14px; }
+  .kw-word { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .kw-def { font-size: 13px; color: var(--color-text-secondary); }
+
+  /* ---------- QBOX (題目框) ---------- */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 20px 22px;
+    margin-bottom: 18px;
+  }
+  .qbox .qnum {
+    display: inline-block;
+    background: var(--purple);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 11px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .qbox .qtext { font-size: 14.5px; margin-bottom: 12px; }
+  .qbox .qprompt { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+  .qbox .option { font-size: 14px; padding: 3px 0; }
+
+  /* ---------- FORMULA ---------- */
+  .formula {
+    background: #23262B;
+    color: #F2F0EA;
+    border-radius: var(--border-radius-lg);
+    padding: 22px 24px;
+    margin: 16px 0;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 2;
+  }
+  .formula .fx-main { font-size: 17px; font-weight: 700; color: #FFD9A0; }
+  .formula .fx-note { font-size: 12.5px; color: #B7B7B0; margin-top: 6px; }
+
+  /* ---------- REVEAL（隱藏答案） ---------- */
+  details.reveal {
+    margin-top: 14px;
+    border-top: 1px dashed var(--color-border-tertiary);
+    padding-top: 12px;
+  }
+  details.reveal summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--purple);
+    background: color-mix(in srgb, var(--purple) 10%, var(--color-background-primary));
+    padding: 7px 14px;
+    border-radius: 999px;
+    user-select: none;
+  }
+  details.reveal summary::-webkit-details-marker { display: none; }
+  details.reveal summary::marker { content: ""; }
+  details.reveal summary .rv-show { display: inline; }
+  details.reveal summary .rv-hide { display: none; }
+  details.reveal[open] summary .rv-show { display: none; }
+  details.reveal[open] summary .rv-hide { display: inline; }
+  details.reveal[open] summary { color: var(--green); background: color-mix(in srgb, var(--green) 10%, var(--color-background-primary)); }
+  details.reveal .alert { margin-top: 10px; margin-bottom: 0; }
+
+  .section-divider { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 34px 0; }
+
+  /* ---------- 浮動列印按鈕 ---------- */
+  .print-btn {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 999;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .print-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.3); }
+  .print-btn:active { transform: translateY(0); }
+
+  @media (max-width: 640px) {
+    .print-btn { right: 14px; bottom: 14px; padding: 11px 16px; font-size: 13px; }
+  }
+
+  footer {
+    margin-top: 2rem; padding: 1.2rem 1.5rem;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .toc { grid-template-columns: 1fr; }
+    .compare-grid, .keyword-grid { grid-template-columns: 1fr; }
+    .hero { padding: 26px 20px; }
+    .hero h1 { font-size: 22px; }
+  }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; }
+    .toc { display: none; }
+    .print-btn { display: none !important; }
+    details.reveal { display: none !important; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()" aria-label="列印或匯出PDF">🖨️ 列印 / PDF</button>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>段義理解教學筆記<br>三步拆解，精準概括</h1>
+    <p class="hero-subtitle">適用對象：小學四年級（呈分試／HKAT 題型）　|　題型：段義理解多項選擇題</p>
+    <p class="credit">潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <a class="toc-item" href="#s1"><span class="num">一</span>甚麼是段義理解</a>
+    <a class="toc-item" href="#s2"><span class="num">二</span>三步拆解法</a>
+    <a class="toc-item" href="#s3"><span class="num">三</span>四大選項陷阱</a>
+    <a class="toc-item" href="#s4"><span class="num">四</span>實戰例題示範</a>
+    <a class="toc-item" href="#s5"><span class="num">五</span>進階練習</a>
+    <a class="toc-item" href="#s6"><span class="num">六</span>總結公式</a>
+  </div>
+
+  <!-- ================= 一、甚麼是段義理解 ================= -->
+  <div class="section-header" id="s1">
+    <div class="icon">📖</div>
+    <div>
+      <div class="chapter-num">CHAPTER ONE</div>
+      <h2>甚麼是段義理解</h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot purple"></span>定義</div>
+    <p>段義理解，是指讀者能夠準確概括一段文字的核心內容。答題時，考生需要從眾多細節之中，抽取出整段文字最主要想表達的意思，而非單純摘錄某一句子，或聚焦於個別例子、個別人物的反應。</p>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">考試技巧</div>
+      <div class="alert-text">段義理解是各類閱讀理解卷、呈分試常見題型，佔分比重不輕。只要掌握清晰的解題步驟，並熟悉常見的選項陷阱，準確度可以大幅提升。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot teal"></span>段義　≠　摘錄句子</div>
+    <p>不少學生誤以為，只要選項的文字曾在段落中出現過，就是正確答案。其實，出題者經常會把段落中的某一句原文，直接放進選項之中作為陷阱——這類選項看似正確，實際上只反映局部內容，未能概括整段主旨。</p>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <span class="cc-label">✗ 誤解</span>
+        選取「段落中出現過的句子」作為段義。
+      </div>
+      <div class="compare-card good">
+        <span class="cc-label">✓ 正確理解</span>
+        選取能夠涵蓋整段核心內容的概括句子。
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 二、三步拆解法 ================= -->
+  <div class="section-header" id="s2">
+    <div class="icon">🧭</div>
+    <div>
+      <div class="chapter-num">CHAPTER TWO</div>
+      <h2>三步拆解法</h2>
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step">① 通讀全段</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">② 刪去枝節</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">③ 概括主幹</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">④ 對照選項</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot purple"></span>第一步：通讀全段，掌握人物與事件</div>
+    <p>先仔細閱讀整段文字，留意主要人物（或主要對象）是誰，發生了甚麼事情，事件有沒有轉折或結果。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot teal"></span>第二步：刪去枝節，保留主幹</div>
+    <p>段落中的具體例子、重複描寫、次要人物的反應，均屬於枝節內容，可以先行刪去，集中處理最核心的情節或論點。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot coral"></span>第三步：組織成句，概括段義</div>
+    <p>將餘下的核心內容，組織成一句完整而簡潔的說話，涵蓋以下三個部分：</p>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">主要人物／對象</div><div class="kw-def">段落圍繞哪個人物或事件展開</div></div>
+      <div class="kw-card"><div class="kw-word">核心行為／特質</div><div class="kw-def">該人物做了甚麼，或具備甚麼特點</div></div>
+      <div class="kw-card"><div class="kw-word">結果／意義</div><div class="kw-def">這件事帶來的影響或道理</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot amber"></span>第四步：對照選項，逐一驗證</div>
+    <p>將自己歸納出來的段義，與四個選項逐一比較，找出最貼近、最全面的一項。凡是只講局部細節、超出段落範圍，或者段落根本無提及的內容，均應排除。</p>
+  </div>
+
+  <!-- ================= 三、四大選項陷阱 ================= -->
+  <div class="section-header" id="s3">
+    <div class="icon">⚠️</div>
+    <div>
+      <div class="chapter-num">CHAPTER THREE</div>
+      <h2>四大選項陷阱</h2>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-label">常見陷阱</div>
+      <div class="alert-text">出題者設計錯誤選項時，通常離不開以下四種手法。認得出陷阱類型，排除錯誤答案的速度會快得多。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot purple"></span>陷阱一：以偏概全型</div>
+    <p>選項只描述段落中的某一個細節、某一個情節片段，並非整段想帶出的完整意思。</p>
+    <div class="example-box">
+      <div class="example-label">例子預告（詳見第四章例題一）</div>
+      <div class="example-text">段落講述一位賣藝老人為地震災民捐款的經過，選項「賣藝老人來到地震募捐點捐款」只是故事的開端，並非全段主旨。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot coral"></span>陷阱二：無中生有型</div>
+    <p>選項所講的內容，段落根本沒有提及，屬於憑空推測或過度聯想。</p>
+    <div class="example-box coral">
+      <div class="example-label">例子預告（詳見第四章例題二）</div>
+      <div class="example-text">段落講述晏子身為大官卻生活儉樸，選項「晏子為人低調，不愛出風頭」——段落全沒有提及晏子性格是否低調，屬於無中生有。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot amber"></span>陷阱三：過度引申型</div>
+    <p>選項加入了段落沒有明確表達的評價或結論，看似合理，其實已經超出了原文範圍。</p>
+    <div class="example-box amber">
+      <div class="example-label">例子預告（詳見第四章例題二）</div>
+      <div class="example-text">選項「晏子為官清廉」——「清廉」牽涉為官是否廉潔的評價，原文只描述生活儉樸，並沒有觸及為官操守，屬於過度引申。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot pink"></span>陷阱四：段首鋪陳型</div>
+    <p>選項只概括了段落開首的背景資訊，忽略了後段的關鍵轉折或主要情節——這是敘事段落中最常見的陷阱。</p>
+    <div class="example-box pink">
+      <div class="example-label">例子預告（詳見第四章例題三）</div>
+      <div class="example-text">段落講述小雪人捨身救人的故事，選項「孩子們在雪地裡壘了一個小雪人，小雪人和孩子們是好朋友」只是故事背景，後段小雪人捨身救人的情節才是全段重點。</div>
+    </div>
+  </div>
+
+  <!-- ================= 四、實戰例題示範 ================= -->
+  <div class="section-header" id="s4">
+    <div class="icon">🎯</div>
+    <div>
+      <div class="chapter-num">CHAPTER FOUR</div>
+      <h2>實戰例題示範</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">例題一</div>
+    <div class="qtext">一位在街頭以賣藝為生的老人來到地震募捐點捐款。在工作人員的攙扶下，穿戴破舊的他雙眼噙着淚水走上台，雙手捧着滿滿一堆零錢塞進了捐錢箱。老人哽咽着說：「我……我就這麼一點錢，請大家多……多多捐助。」說完他向大家鞠躬後泣不成聲，不少市民也隨之落淚。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 賣藝老人來到地震募捐點捐款。</div>
+    <div class="option">B. 賣藝老人為災區捐出了一堆零錢。</div>
+    <div class="option">C. 賣藝老人為災區捐款的言行感動了市民。</div>
+    <div class="option">D. 市民們為地震災區踴躍捐款。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">主要人物是賣藝老人，核心事件是「捐款」，結果是「感動市民」。A只是開端情節（陷阱一：以偏概全）；B只是捐款動作的細節；D把焦點轉移到市民身上，忽略了主角本身的行為。C同時涵蓋「老人捐款」與「感動市民」兩部分，才是最全面的概括。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">例題二</div>
+    <div class="qtext">晏子雖然是個大官，可是平時吃的是粗茶淡飯，玉米麪、青菜、涼瓜……穿的也不講究，都是些麻布的衣服；住的地方更不是甚麼豪宅深院，只是普普通通的民居；每日上朝，他的車駕沒有前呼後擁的大隊人馬，只是一輛裝備簡易的馬車。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 晏子為官清廉，生活節約。</div>
+    <div class="option">B. 晏子為人低調，不愛出風頭。</div>
+    <div class="option">C. 晏子雖為大官，生活卻十分儉樸。</div>
+    <div class="option">D. 晏子對生活要求不高，能吃飽，有衣服穿就夠了。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">段落圍繞「大官」與「生活簡樸」的對比展開。A的「清廉」涉及為官操守，原文沒有提及（陷阱三：過度引申）；B的「性格低調」原文完全沒有提及（陷阱二：無中生有）；D只擷取了飲食與衣着的細節，語氣亦偏向片面。C準確帶出「身份」與「生活」的對比，最貼合全段主旨。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">例題三</div>
+    <div class="qtext">小雪人是孩子們親手壘起來的，小雪人把這些可愛的孩子看成最好的朋友。它多麼希望能和這羣孩子永遠在一起啊！不過，它知道，只要春天來了，天氣轉暖了，自己就要融化了。值得慶幸的是，現在離春天還早着呢，小雪人可以盡情地和孩子們一起享受冬天帶來的歡樂。可是，因為寒冷乾燥，一個孩子的家着火了，那個小孩子被困在了火海裏。小雪人想都沒有想，就沖進火海，救出了孩子。可是，從火海裏出來的小雪人早就在不知不覺中融化了。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 小雪人也有捨己為人的高尚品質。</div>
+    <div class="option">B. 春天來到的時候，小雪人就會融化了。</div>
+    <div class="option">C. 孩子們在雪地裏壘了一個小雪人，小雪人和孩子們是好朋友。</div>
+    <div class="option">D. 在春天還沒有來的時候，小雪人為了救助火海裏的孩子，犧牲了自己。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：D</div>
+          <div class="alert-text">B、C 都只是段落開首的背景鋪陳（陷阱四：段首鋪陳型），完全沒有觸及後段「救人犧牲」的關鍵轉折。A雖然方向正確，但過於空泛，沒有交代具體事件。D 既點出了時間（春天未到）、事件（救助火海中的孩子）、結果（犧牲了自己），是四個選項中最完整、最貼題的概括。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ================= 五、進階練習 ================= -->
+  <div class="section-header" id="s5">
+    <div class="icon">✍️</div>
+    <div>
+      <div class="chapter-num">CHAPTER FIVE</div>
+      <h2>進階練習</h2>
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">練習指示</div>
+      <div class="alert-text">請運用第二章的「三步拆解法」，先自行分析以下三題，寫下你認為的段義，再對照選項作答。完成後可按題目下方的按鈕，查看答案與解析。</div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">練習一</div>
+    <div class="qtext">誤會的事，往往是人在不瞭解事情的來龍去脈、缺乏思考、未能體諒對方，反省自己的情況下發生的。誤會一開始，只會一直想到對方的錯誤，漸漸，誤會越陷越深，會造成不可收拾的地步，輕則雙方會不瞅不睬，重則你會在世界上失去了一個親人或朋友。因此，我們必須謹慎處理誤會。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 誤會的事，是很難預測的。</div>
+    <div class="option">B. 誤會的事，是人在未能體諒對方，反省自己的情況下發生的。</div>
+    <div class="option">C. 誤會如果越陷越深，會造成不可收拾的地步。</div>
+    <div class="option">D. 我們必須謹慎處理誤會，如不妥善處理，將會造成嚴重的後果。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：B</div>
+          <div class="alert-text">A過於空泛，段落並無提及誤會「難以預測」；C只是誤會惡化的其中一個階段（陷阱一：以偏概全）；D雖然方向正確，但只講結果與呼籲，未有交代誤會發生的根本原因，涵蓋面不及B全面。B同時點出誤會的成因，最貼合段落的核心論點。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">練習二</div>
+    <div class="qtext">明朝經過兩百多年的風風雨雨，到了嘉靖年間已是危機四伏。北京的紫禁城裏，嘉靖皇帝一心幻想着長生不死，不理朝政。在這樣的時代背景下，平民出身的宰相張居正以其非凡的智慧和勇氣，整頓朝綱，鞏固國防，推行一系列新法，使奄奄一息的明王朝重新獲得勃勃生機。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 明朝到嘉靖年間，已有二百多年的歷史了。</div>
+    <div class="option">B. 明朝宰相張居正獲得嘉靖皇帝寵信，改革成功。</div>
+    <div class="option">C. 明朝宰相張居正，輔佐皇帝治理國家有效，功不可沒。</div>
+    <div class="option">D. 明朝皇帝嘉靖，不思進取，幻想長生，使國家危機四伏。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">A只是背景年份陷阱（陷阱四：段首鋪陳型）；B「獲得嘉靖皇帝寵信」與原文「不理朝政」矛盾，屬於無中生有（陷阱二）；D只集中描述嘉靖皇帝一方，忽略了段落想帶出的重點人物張居正。C準確帶出張居正輔政有效這個核心，最貼合全段主旨。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">練習三</div>
+    <div class="qtext">相傳，一日楊時與遊酢，來到嵩陽書院拜見老師程頤，正遇上這位老先生閉目養神。不過老先生只是坐着假睡，他明知有兩個學生來了，卻不言不動，不予理睬，想看看那兩個學生會怎樣行事。楊、遊二人怕打擾先生休息，只好恭恭敬敬，肅然待立，一聲不吭等候他睜開眼來。兩人就這樣等了好半天。當時雪下得很大，很快就沒過了他們的腳踝。程頤這才假裝如夢初醒，並心裏暗暗稱讚他們。這個故事，就叫「程門立雪」。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 楊時與遊酢十分尊師重道。</div>
+    <div class="option">B. 楊時與遊酢來到嵩陽書院拜見老師程頤的經過。</div>
+    <div class="option">C. 尊敬老師，誠懇求教是一種傳統美德。</div>
+    <div class="option">D. 楊時與遊酢肅然待立，等了老師好半天，最終放棄了。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：A</div>
+          <div class="alert-text">B只是覆述事件經過，屬於段首鋪陳／情節覆述型陷阱（陷阱四）；C過度引申至「傳統美德」這個抽象概念，超出段落本身講述的具體事件（陷阱三：過度引申）；D與原文結局「程頤心裏暗暗稱讚」矛盾，屬於無中生有（陷阱二）。A準確捕捉了楊時與遊酢在事件中展現的態度，最貼合段義。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ================= 六、總結公式 ================= -->
+  <div class="section-header" id="s6">
+    <div class="icon">🧩</div>
+    <div>
+      <div class="chapter-num">CHAPTER SIX</div>
+      <h2>總結公式</h2>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="fx-main">段義　＝　主要人物／對象　＋　核心行為或特質　＋　結果或意義</div>
+    <div class="fx-note">不包括：具體例子・重複細節・次要人物反應・段首背景鋪陳</div>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-label">最後提醒</div>
+      <div class="alert-text">段義理解並非揀選段落中出現過的原句，而是要選取最全面、最貼切的概括。若選項只是段落中的其中一句話，往往並非最佳答案，因為它只能涵蓋局部內容，未能反映整段主旨。</div>
+    </div>
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
