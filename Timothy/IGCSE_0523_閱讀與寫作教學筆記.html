@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGCSE 中文閱讀與寫作教學筆記 | 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#C8D5D8;
+  --hero-text:#122025;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#eee;
+    --color-text-secondary:#aaa;
+    --color-background-primary:#1c1c1e;
+    --color-background-secondary:#242426;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
+  background:var(--color-background-secondary);
+  color:var(--color-text-primary);
+  line-height:1.8;
+}
+h1,h2,h3,h4{font-family:"Noto Serif TC",serif;}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 60px;}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:var(--hero-bg);
+  color:var(--hero-text);
+  border-radius:var(--border-radius-lg);
+  padding:38px 32px;
+  margin-bottom:26px;
+  text-align:center;
+}
+.hero-tag{
+  display:inline-block;
+  border:1px solid rgba(18,32,37,0.3);
+  color:rgba(18,32,37,0.65);
+  border-radius:20px;
+  padding:4px 16px;
+  font-size:13px;
+  letter-spacing:1px;
+  margin-bottom:14px;
+}
+.hero h1{font-size:26px;font-weight:900;margin:0 0 8px;line-height:1.5;}
+.hero p{margin:0;font-size:14px;color:rgba(18,32,37,0.5);}
+
+/* ---------- TOC ---------- */
+.toc{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:18px 22px;
+  margin-bottom:26px;
+}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:10px;}
+.toc-item{display:block;padding:6px 0;font-size:14px;color:var(--color-text-primary);text-decoration:none;border-bottom:0.5px dashed var(--color-border-tertiary);}
+.toc-item:last-child{border-bottom:none;}
+.toc-item span{color:var(--color-text-secondary);margin-right:6px;}
+
+/* ---------- SECTION HEADER ---------- */
+.section-header{
+  display:flex;align-items:center;gap:12px;
+  margin:34px 0 16px;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--hero-bg);
+}
+.section-header .icon{font-size:24px;}
+.section-header h2{font-size:19px;margin:0;flex:1;}
+.section-header .chno{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary);padding:3px 10px;border-radius:12px;}
+
+/* ---------- CARD ---------- */
+.card{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:18px 20px;
+  margin-bottom:16px;
+}
+.subsection{margin-bottom:14px;}
+.subsection-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:8px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.dot.blue{background:#5b8bc4;} .dot.teal{background:#2a9d8f;} .dot.coral{background:#e76f51;}
+.dot.amber{background:#e0a030;} .dot.pink{background:#d6537a;} .dot.purple{background:#7c5cbf;}
+.card p{font-size:14px;margin:0 0 6px;color:var(--color-text-primary);}
+
+/* ---------- PASSAGE ---------- */
+.passage{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-left:5px solid var(--hero-bg);
+  border-radius:var(--border-radius-lg);
+  padding:20px 24px;
+  margin-bottom:18px;
+  font-family:"Noto Serif TC",serif;
+}
+.passage .p-title{font-weight:700;font-size:16px;margin-bottom:10px;text-align:center;}
+.passage .p-author{font-size:13px;color:var(--color-text-secondary);text-align:right;margin-bottom:10px;}
+.passage p{text-indent:2em;font-size:15px;line-height:2;margin:0 0 10px;}
+.passage-label{
+  display:inline-block;background:var(--hero-bg);color:var(--hero-text);
+  font-size:12px;font-weight:700;border-radius:6px;padding:3px 10px;margin-bottom:10px;
+}
+
+/* ---------- KEYWORD GRID ---------- */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.kw-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;}
+.kw-word{font-weight:700;font-size:14px;margin-bottom:3px;}
+.kw-def{font-size:12.5px;color:var(--color-text-secondary);line-height:1.6;}
+
+/* ---------- EXAMPLE BOX ---------- */
+.example-box{border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0;background:#f5f0fa;border-left:4px solid #7c5cbf;}
+.example-box.teal{background:#e6f5f3;border-left-color:#2a9d8f;}
+.example-box.coral{background:#fdece7;border-left-color:#e76f51;}
+.example-box.amber{background:#fff6e5;border-left-color:#e0a030;}
+.example-box.pink{background:#fdeaf1;border-left-color:#d6537a;}
+.example-label{font-size:12px;font-weight:700;opacity:.75;margin-bottom:4px;}
+.example-text{font-size:14px;line-height:1.8;}
+
+/* ---------- ALERT ---------- */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:12px 14px;margin:10px 0;align-items:flex-start;}
+.alert-icon{font-size:18px;flex-shrink:0;}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px;}
+.alert-text{font-size:13.5px;line-height:1.7;}
+.alert.tip{background:#eaf3fc;color:#1c3d5a;} .alert.tip .alert-label{color:#2a6bab;}
+.alert.warn{background:#fdeaea;color:#5a1c1c;} .alert.warn .alert-label{color:#c0392b;}
+.alert.success{background:#eafaf0;color:#134d32;} .alert.success .alert-label{color:#2f9e6c;}
+.alert.amber{background:#fff6e5;color:#5a3d10;} .alert.amber .alert-label{color:#c98a1a;}
+
+/* ---------- VIEWPOINT BUBBLES ---------- */
+.viewpoint-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.viewpoint-bubble{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 16px;font-size:13.5px;text-align:center;position:relative;border:1px solid var(--color-border-tertiary);}
+.viewpoint-bubble .vp-tag{font-size:11px;color:var(--color-text-secondary);display:block;margin-top:6px;}
+
+/* ---------- FLOW ---------- */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;}
+.flow-step{background:var(--hero-bg);color:var(--hero-text);border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;}
+.flow-arrow{font-size:16px;color:var(--color-text-secondary);}
+
+/* ---------- COMPARE ---------- */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.compare-card{border-radius:var(--border-radius-md);padding:14px 16px;font-size:13.5px;line-height:1.7;}
+.compare-card .cc-label{font-weight:700;font-size:13px;margin-bottom:6px;display:block;}
+.compare-card.good{background:#eafaf0;} .compare-card.good .cc-label{color:#2f9e6c;}
+.compare-card.bad{background:#fdeaea;} .compare-card.bad .cc-label{color:#c0392b;}
+
+/* ---------- FORMULA / SUMMARY BOX ---------- */
+.formula{background:#1f2a30;color:#eef4f5;border-radius:var(--border-radius-lg);padding:18px 22px;margin:14px 0;font-size:14px;line-height:2;}
+.formula b{color:#9fd3cf;}
+
+/* ---------- QBOX ---------- */
+.qbox{display:flex;gap:12px;padding:14px 0;border-bottom:0.5px dashed var(--color-border-tertiary);}
+.qbox:last-child{border-bottom:none;}
+.qnum{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--hero-bg);color:var(--hero-text);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
+.qcontent{flex:1;}
+.qtext{font-size:14.5px;margin-bottom:2px;}
+.qmark{font-size:12px;color:var(--color-text-secondary);}
+
+/* ---------- ANSWER TOGGLE ---------- */
+.answer-toggle-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#5b8bc4;color:#fff;border:none;border-radius:20px;
+  padding:6px 16px;font-size:12.5px;cursor:pointer;margin-top:8px;
+  font-family:inherit;transition:opacity .15s;
+}
+.answer-toggle-btn:hover{opacity:.82;}
+.answer-content{display:none;margin-top:10px;padding:12px 16px;background:#eafaf0;border-left:4px solid #2f9e6c;border-radius:var(--border-radius-md);font-size:13.5px;line-height:1.85;}
+.answer-content.show{display:block;}
+.answer-content .ans-label{font-weight:700;color:#1c6b45;font-size:12px;margin-bottom:4px;}
+.answer-content.model-answer{background:#eaf3fc;border-left-color:#2a6bab;}
+.answer-content.model-answer .ans-label{color:#1c3d5a;}
+
+/* ---------- FOOTER ---------- */
+footer{margin-top:2rem;padding:1.2rem 1.5rem;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);text-align:center;}
+
+/* ---------- PRINT ---------- */
+@media print{
+  @page{margin:12mm 10mm;}
+  body{background:#fff;}
+  .wrap{max-width:100%;padding:0;}
+  .toc{display:none;}
+  a{color:inherit;text-decoration:none;}
+  .card,.qbox,.example-box,.alert,.formula,.passage{page-break-inside:avoid;}
+  .section-header{page-break-before:always;page-break-after:avoid;}
+  .section-header:first-of-type{page-break-before:auto;}
+  .hero{page-break-after:avoid;}
+  .print-btn,.answer-toggle-btn,.answer-content{display:none !important;}
+}
+
+/* ---------- PRINT BUTTON (screen only) ---------- */
+.print-btn{
+  position:fixed;bottom:24px;right:24px;
+  background:var(--hero-text);color:#fff;border:none;border-radius:50px;
+  padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,0.25);z-index:99;
+  font-family:inherit;
+}
+
+@media (max-width:600px){
+  .keyword-grid{grid-template-columns:1fr;}
+  .viewpoint-grid,.compare-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:21px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀與寫作教學筆記</div>
+    <h1>IGCSE 中文閱讀與寫作綜合練習</h1>
+    <p>取材自 Cambridge IGCSE™ Chinese as a Second Language 0523/01（2025年5/6月）｜潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📑 目錄</div>
+    <a class="toc-item" href="#overview"><span>00</span>考試總覽與應試策略</a>
+    <a class="toc-item" href="#ex1"><span>01</span>練習一：填空式閱讀理解——〈木雕師畢晟〉</a>
+    <a class="toc-item" href="#ex2"><span>02</span>練習二：問答式閱讀理解——〈超市〉</a>
+    <a class="toc-item" href="#ex3"><span>03</span>練習三：人物配對選擇題——〈極限運動〉</a>
+    <a class="toc-item" href="#ex4"><span>04</span>練習四：引導式寫作——日記</a>
+    <a class="toc-item" href="#ex5"><span>05</span>練習五：引導式寫作——書信（表明立場）</a>
+  </div>
+
+  <!-- ============ 00 考試總覽 ============ -->
+  <div class="section-header" id="overview">
+    <div class="icon">📋</div>
+    <h2>考試總覽與應試策略</h2>
+    <div class="chno">總分 60</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection">
+      <div class="subsection-title"><span class="dot blue"></span>試卷結構</div>
+      <p>本卷為 Paper 1 Reading and Writing，考試時間 2 小時，全卷共 60 分，題目及短文以繁體及簡體各印一次，考生可自選字體作答。全卷共分五個練習，結構如下：</p>
+    </div>
+    <div class="formula">
+      <b>練習一</b>　填空式閱讀理解（電商背景簡介）── 8 分<br>
+      <b>練習二</b>　問答式閱讀理解（超市）── 12 分<br>
+      <b>練習三</b>　人物配對選擇題（極限運動）── 10 分<br>
+      <b>練習四</b>　引導式寫作（日記，100–120字）── 8 分<br>
+      <b>練習五</b>　引導式寫作（書信，250–300字，須表態）── 22 分<br>
+      合計：8 + 12 + 10 + 8 + 22 = <b>60 分</b>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">時間分配建議</div>
+        <div class="alert-text">閱讀部分（練習一至三，合共30分）建議用時約45分鐘；寫作部分（練習四、五，合共30分）建議用時約60分鐘，餘下時間作檢查之用。練習五佔分最重，宜預留最多時間構思及檢查。</div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見失分陷阱</div>
+        <div class="alert-text">短答題（如練習二）切忌直接抄錄整句原文而不作篩選，答案須精準對應題目要求的字數／項數；配對題（練習三）易被相似選項混淆，須逐項核對細節而非憑印象作答；寫作題必須緊扣題目要求的所有要點（bullet points），漏答一項即使文筆再好也會失分。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 01 練習一 ============ -->
+  <div class="section-header" id="ex1">
+    <div class="icon">📖</div>
+    <h2>練習一：填空式閱讀理解</h2>
+    <div class="chno">第1–7題　8分</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection">
+      <div class="subsection-title"><span class="dot blue"></span>題型解讀</div>
+      <p>此題型要求考生根據短文內容，填寫一份結構化的資料表（本篇為《電商背景簡介》）。答題關鍵在於先看清表格的每個欄目名稱，再回到原文找出對應的段落及句子，用簡潔的詞語或短句填寫，毋須寫成完整句子。</p>
+    </div>
+    <div class="example-box">
+      <div class="example-label">📌 答題技巧</div>
+      <div class="example-text">表格欄目多按原文段落順序排列。建議先通讀全文一次，再按表格欄目逐一回到相應段落搜尋關鍵詞（如年份、地名、專有名詞），避免遺漏或答錯段落。</div>
+    </div>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文</div>
+    <div class="p-title">木雕師畢晟</div>
+    <p>畢晟出生於湖北大冶的木雕世家，父親是非遺項目「大冶佛像雕塑工藝」傳承人。受到家庭文化影響，他從小學習書法與國畫。在舊金山藝術大學插畫系取得碩士學位後，畢晟並沒有繼續研究學術，而是選擇全身心投入到復興木雕傳統手工藝的浪潮中。</p>
+    <p>做木雕難，半路出家更難，學習的過程漫長而痛苦。在熟練掌握了各項技術後，他回到父親的工坊開始自己的木雕創作，同年在淘寶上創立了網店「山舍木器」，產品包括各種木雕佛像及裝飾品。2016年，畢晟攜團隊研發的「荷」系列、「秋山」系列產品亮相上海國際家居展，廣受好評。為了更好地保護佛像雕塑技藝，他和父親首次將傳統手工雕刻與立體打印機配合使用，創造出了「墨石」佛像系列。該系列在米蘭手工藝術展獲銅獎。</p>
+    <p>作品雖受好評卻並不暢銷，畢晟開始著手調整創作方向，他認為一件商品可以兼顧藝術性與實用性。山舍木器陸續推出了隔熱墊、收納盒、手機架等現代實木器物，將普通的生活器具雕刻成為藝術品，既符合國人的使用需求和審美，也獲得了大眾對木雕工藝的認可。如今，畢晟的淘寶店鋪積累了三十多萬粉絲。</p>
+    <p>木雕工藝在被時光打磨的同時，不斷受到時代衝擊，一些傳統技藝已處於瀕危狀態。除了創作，畢晟準備整理木雕工藝的文獻材料，希望能夠承前繼往。他籌劃在兩年內建立教學實習基地，讓更多接受了現代美學薰陶的年輕人能接觸到原汁原味的傳統技藝。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection">
+      <div class="subsection-title"><span class="dot amber"></span>重點詞彙</div>
+      <div class="keyword-grid">
+        <div class="kw-card"><div class="kw-word">非遺</div><div class="kw-def">「非物質文化遺產」的簡稱，指傳統技藝、習俗等非實物形式的文化遺產。</div></div>
+        <div class="kw-card"><div class="kw-word">傳承人</div><div class="kw-def">獲官方認可、負責承傳某項傳統技藝的代表人物。</div></div>
+        <div class="kw-card"><div class="kw-word">半路出家</div><div class="kw-def">比喻中途轉行、並非從小專攻某行業。</div></div>
+        <div class="kw-card"><div class="kw-word">兼顧</div><div class="kw-def">同時顧及兩方面，不偏廢其一。</div></div>
+        <div class="kw-card"><div class="kw-word">瀕危</div><div class="kw-def">接近消失、面臨失傳的危機。</div></div>
+        <div class="kw-card"><div class="kw-word">承前繼往</div><div class="kw-def">承接前人的成果，繼續向前發展、傳承下去。</div></div>
+        <div class="kw-card"><div class="kw-word">薰陶</div><div class="kw-def">長期受某種環境或文化影響而潛移默化。</div></div>
+        <div class="kw-card"><div class="kw-word">原汁原味</div><div class="kw-def">保持事物最初、最純正的形態，未經改動。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot teal"></span>《電商背景簡介》填空題</div>
+    <p style="font-size:13.5px;color:var(--color-text-secondary);margin-bottom:10px;">網店名稱：山舍木器　木雕師：畢晟</p>
+
+    <div class="qbox">
+      <div class="qnum">1</div>
+      <div class="qcontent">
+        <div class="qtext">學歷：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a1-btn" onclick="toggleAnswer('a1')">👁 查看答案</button>
+        <div class="answer-content" id="a1"><div class="ans-label">參考答案</div>（美國）舊金山藝術大學插畫系碩士（學位）</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">2</div>
+      <div class="qcontent">
+        <div class="qtext">學木雕開網店的目的：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a2-btn" onclick="toggleAnswer('a2')">👁 查看答案</button>
+        <div class="answer-content" id="a2"><div class="ans-label">參考答案</div>復興木雕傳統手工藝</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">3</div>
+      <div class="qcontent">
+        <div class="qtext">榮獲獎項：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a3-btn" onclick="toggleAnswer('a3')">👁 查看答案</button>
+        <div class="answer-content" id="a3"><div class="ans-label">參考答案</div>（「墨石」佛像系列於）米蘭手工藝術展獲銅獎</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">4</div>
+      <div class="qcontent">
+        <div class="qtext">技術創新：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a4-btn" onclick="toggleAnswer('a4')">👁 查看答案</button>
+        <div class="answer-content" id="a4"><div class="ans-label">參考答案</div>將傳統手工雕刻與立體（3D）打印機配合使用</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">5</div>
+      <div class="qcontent">
+        <div class="qtext">新設計理念：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a5-btn" onclick="toggleAnswer('a5')">👁 查看答案</button>
+        <div class="answer-content" id="a5"><div class="ans-label">參考答案</div>讓商品兼顧藝術性與實用性（將普通生活器具雕刻成藝術品）</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">6</div>
+      <div class="qcontent">
+        <div class="qtext">未來規劃：(i) ______________ <span class="qmark">[1]</span></div>
+        <div class="qtext">　　　　　(ii) ______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a6-btn" onclick="toggleAnswer('a6')">👁 查看答案</button>
+        <div class="answer-content" id="a6"><div class="ans-label">參考答案</div>(i) 整理木雕工藝的文獻材料　(ii) 兩年內建立教學實習基地</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">7</div>
+      <div class="qcontent">
+        <div class="qtext">可選購的電商平臺：京東 □　淘寶 □　天貓 □ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a7-btn" onclick="toggleAnswer('a7')">👁 查看答案</button>
+        <div class="answer-content" id="a7"><div class="ans-label">參考答案</div>淘寶 ✓（原文：「同年在淘寶上創立了網店」）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 02 練習二 ============ -->
+  <div class="section-header" id="ex2">
+    <div class="icon">📖</div>
+    <h2>練習二：問答式閱讀理解</h2>
+    <div class="chno">第8–15題　12分</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot blue"></span>題型解讀</div>
+    <p>此題型要求考生用自己的文字（或摘取原文關鍵詞）簡答問題。留意題目中「列出兩項」「兩個目的」「列舉兩點」等字眼，代表答案須包含指定數量的要點，缺一即扣分；同時答案應簡潔精準，不宜整段照抄原文。</p>
+    <div class="example-box teal">
+      <div class="example-label">📌 答題示範</div>
+      <div class="example-text">題目問「兩項」時，宜用「①……；②……」的格式清楚列出兩個獨立要點，避免兩點意思重疊或只是同一要點的重複表述。</div>
+    </div>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文</div>
+    <div class="p-title">超市</div>
+    <p>超市進入中國百姓的日常生活不過40多年的時間，但這曾經人聲鼎沸的「大賣場時代」已在漸漸遠離人們的生活。眾所周知，電商行業的崛起改變了百姓的消費習慣。與此同時，也有越來越多的社區小店能更精準地滿足社區消費者的需求。兩者都讓傳統商超的客流量急劇減少。很多超市的租約到期後難以續約，也增加了閉店的可能。</p>
+    <p>新零售企業憑藉充滿驚喜感的差異化商品在競爭中脫穎而出。無論是以付費會員制設置門檻的山姆，還是提供堂食的盒馬，新穎的形式背後都有暢銷的獨家商品，這些差異化的商品才是其核心競爭力。</p>
+    <p>零售巨頭佳業近日攜全新「未來商店」閃亮登場。與一些無人店相似，店內裝有支持人工智能的攝像頭和互動式顯示器。但佳業的攝像頭都在監視貨架，而不是記錄消費者選了哪些商品。「這個設計思路主要針對的是提高運營效率，工作人員不需要花費大量時間在盤點貨物上，他們有更多精力和客戶交互。」某公司創始人任翔告訴科技日報記者。他還說：「佳業目前收集的數據只存儲一週，完全無法進行全數據的分析和處理。如果對此能有所改進，科技對超市這一場景的效率提升一定是全方位的。」有效地管理食物庫存不但減少了食物浪費，而且節約了超市運營成本。佳業還聯手新創公司將丟棄的食物製成肥料產品以達成可持續發展的目標。</p>
+    <p>當「買買買」的途徑日漸豐富，「逛超市」應愈加與情感交流、放鬆休閒等聯繫在一起。超市新貴意他利集團在各大城市的繁華地段創造出了溫馨的第三空間。在意他利，貨架的高度相對較低，客戶可以清楚地看到整個空間。這裡也提供各式美食沉浸體驗，如烹飪課和互動遊戲，最終創造長期客戶價值。對許多人來說，逛超市不是為了體會生活的妙處，只是生存所需的機械勞動，而意他利會顛覆這種想法，改變人們對超市的認知。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot amber"></span>重點詞彙</div>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">人聲鼎沸</div><div class="kw-def">形容人多聲雜、非常熱鬧的場面。</div></div>
+      <div class="kw-card"><div class="kw-word">脫穎而出</div><div class="kw-def">比喻突出的才能顯露出來，在眾多對手中勝出。</div></div>
+      <div class="kw-card"><div class="kw-word">差異化</div><div class="kw-def">與同類產品有明顯區別，形成獨特賣點。</div></div>
+      <div class="kw-card"><div class="kw-word">閃亮登場</div><div class="kw-def">形容新事物耀眼奪目地出現。</div></div>
+      <div class="kw-card"><div class="kw-word">第三空間</div><div class="kw-def">家與工作場所以外，讓人放鬆、社交的場所。</div></div>
+      <div class="kw-card"><div class="kw-word">顛覆</div><div class="kw-def">徹底推翻原有觀念或做法。</div></div>
+      <div class="kw-card"><div class="kw-word">沉浸體驗</div><div class="kw-def">讓人全情投入、彷彿身歷其境的體驗。</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot teal"></span>問答題</div>
+
+    <div class="qbox">
+      <div class="qnum">8</div>
+      <div class="qcontent">
+        <div class="qtext">傳統超市面臨哪些意想不到的挑戰？列出兩項。 <span class="qmark">[2]</span></div>
+        <button class="answer-toggle-btn" id="a8-btn" onclick="toggleAnswer('a8')">👁 查看答案</button>
+        <div class="answer-content" id="a8"><div class="ans-label">參考答案</div>①電商行業崛起，改變了消費者的購物習慣；②社區小店興起，能更精準地滿足社區消費者的需求，分薄超市客流。</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">9</div>
+      <div class="qcontent">
+        <div class="qtext">盒馬別出心裁的運營模式是什麼？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a9-btn" onclick="toggleAnswer('a9')">👁 查看答案</button>
+        <div class="answer-content" id="a9"><div class="ans-label">參考答案</div>提供堂食服務</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">10</div>
+      <div class="qcontent">
+        <div class="qtext">新零售企業更勝一籌的關鍵是什麼？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a10-btn" onclick="toggleAnswer('a10')">👁 查看答案</button>
+        <div class="answer-content" id="a10"><div class="ans-label">參考答案</div>擁有暢銷的獨家（差異化）商品，此為其核心競爭力</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">11</div>
+      <div class="qcontent">
+        <div class="qtext">佳業未來超市利用科技的兩個目的是什麼？ <span class="qmark">[2]</span></div>
+        <button class="answer-toggle-btn" id="a11-btn" onclick="toggleAnswer('a11')">👁 查看答案</button>
+        <div class="answer-content" id="a11"><div class="ans-label">參考答案</div>①監視貨架，藉此提高運營效率，減省員工盤點貨物的時間，讓員工有更多精力與顧客交流；②（若能改善數據儲存）進行全數據分析處理，令超市效率得到全方位提升。</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">12</div>
+      <div class="qcontent">
+        <div class="qtext">任翔希望佳業超市做出怎樣的改進？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a12-btn" onclick="toggleAnswer('a12')">👁 查看答案</button>
+        <div class="answer-content" id="a12"><div class="ans-label">參考答案</div>延長數據儲存時間（現時只儲存一週），以便進行全數據的分析和處理</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">13</div>
+      <div class="qcontent">
+        <div class="qtext">佳業超市在減少食物浪費方面做了哪些努力？列出兩項。 <span class="qmark">[2]</span></div>
+        <button class="answer-toggle-btn" id="a13-btn" onclick="toggleAnswer('a13')">👁 查看答案</button>
+        <div class="answer-content" id="a13"><div class="ans-label">參考答案</div>①有效管理食物庫存；②聯手新創公司，將丟棄的食物製成肥料產品。</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">14</div>
+      <div class="qcontent">
+        <div class="qtext">傳統超市應如何保留其存在價值？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a14-btn" onclick="toggleAnswer('a14')">👁 查看答案</button>
+        <div class="answer-content" id="a14"><div class="ans-label">參考答案</div>在購物功能以外，營造情感交流、放鬆休閒的體驗（如打造溫馨的「第三空間」），讓逛超市不再只是機械勞動，而是生活情趣的一部分。</div>
+      </div>
+    </div>
+
+    <div class="qbox">
+      <div class="qnum">15</div>
+      <div class="qcontent">
+        <div class="qtext">為什麼意他利超市著重營造體驗空間？列舉兩點。 <span class="qmark">[2]</span></div>
+        <button class="answer-toggle-btn" id="a15-btn" onclick="toggleAnswer('a15')">👁 查看答案</button>
+        <div class="answer-content" id="a15"><div class="ans-label">參考答案</div>①讓顧客能透過逛超市進行情感交流、放鬆休閒，扭轉「逛超市只是機械勞動」的觀念；②提供沉浸式美食體驗（如烹飪課、互動遊戲），藉此創造長期顧客價值。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 03 練習三 ============ -->
+  <div class="section-header" id="ex3">
+    <div class="icon">🎯</div>
+    <h2>練習三：人物配對選擇題</h2>
+    <div class="chno">第16–25題　10分</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot blue"></span>題型解讀</div>
+    <p>四位人物（A 張浩、B 大鵬、C 姚遠、D 樂樂）分別談論自己對極限運動的看法及經歷，考生須根據題目描述，判斷該說法出自哪位人物。此題型的關鍵在於細節配對，多個選項可能涉及相近主題（如「準備」「恐懼」），須仔細比對原文用詞，避免只憑主題大致相似就作答。</p>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見陷阱</div>
+        <div class="alert-text">留意「家人反對」（A）與「不讓父母擔心」（D）的分別：A 是家人強烈反對、明確表達不滿；D 只是主動避免讓家人擔心，家人未必反對。兩者用詞相近但語意程度不同，須小心分辨。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文（四人談極限運動）</div>
+    <div class="p-title">極限運動</div>
+    <p><b>A　張浩</b><br>極限運動我不鍾情哪一個，大部分我都喜歡。許多心理學文獻將極限運動與尋求刺激、享樂主義聯繫在一起，這未免以偏概全。極限運動讓我更有安全感，我能為所有潛在的問題提前做準備，出現意外的時候，大家也都會通力合作解決問題。回到城市中工作，我反而沒有明確的目標，極限運動是我唯一可以逃避迷茫生活的出路。在父母眼中，這是個既燒錢又受罪的嗜好，可無論他們如何表示不滿，只要有假期，我都第一時間衝向野外。</p>
+    <p><b>B　大鵬</b><br>人們對極限運動愛好者的一個常見誤解是，他們對恐懼的反應肯定比常人弱，其實不然。我第一次跳傘在斐濟，當我在酒店裡看見遠處天上像水母一樣打開的傘花時，單憑想像就已讓我振奮不已。等我開始跟教練訓練、到登上飛機再到縱身一躍，沒有什麼活著的感受比那更強烈了。跳傘能讓我忘卻工作生活中的焦慮。出艙前的膽怯、在高空的忐忑……每跳一次都是一次自我激活，這種恐懼是值得的。直到現在不管多忙我都保持每年跳一次，但不會跳得太頻繁。</p>
+    <p><b>C　姚遠</b><br>近年來，各類救援事件的新聞報導足以讓我們意識到極限運動的殘酷性。然而，極限運動絕非只需莽撞的勇氣，真正熱愛極限運動的人都知道，這項運動呼喚理性和極強的安全意識。做任何極限運動都一定要有專業人士的指導，每次出發前都要做最充分的準備。我在漂流黃河前準備了整整一年，除了體能訓練，還要上網瞭解黃河地形、水流速度、氣候變化等。我在腦海中預演了無數次漂流過程。極限運動愛好者要學會敬畏自然，這不會讓人膽怯，準備不足才會。</p>
+    <p><b>D　樂樂</b><br>我開始有潛水的想法只是因為看了一張潛水機構的宣傳海報。當我第一次完全潛入海中時，不僅感到前所未有的放鬆，而且對聲音更為敏感，平衡感也更強了。隨著越發頻繁的潛水，我變得越來越寡言，雖然我現在每個假期都去潛水，但為了不讓父母親友擔心，我也在盡力讓自己參與到家庭活動中。後來我在相關論壇中發現很多人都和我有同樣的感受，我們不是潛水上癮，而是回到本該屬於我們的海洋去。可能我們是魚進化來的吧。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot amber"></span>重點詞彙</div>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">以偏概全</div><div class="kw-def">用片面的看法概括整體，即以偏概全、不夠全面。</div></div>
+      <div class="kw-card"><div class="kw-word">縱身一躍</div><div class="kw-def">整個身體用力向前或向下跳出。</div></div>
+      <div class="kw-card"><div class="kw-word">忐忑</div><div class="kw-def">形容心神不安、忐忑不安的心情。</div></div>
+      <div class="kw-card"><div class="kw-word">莽撞</div><div class="kw-def">做事魯莽輕率，不加思考。</div></div>
+      <div class="kw-card"><div class="kw-word">敬畏自然</div><div class="kw-def">對大自然抱持尊敬與戒懼之心。</div></div>
+      <div class="kw-card"><div class="kw-word">寡言</div><div class="kw-def">說話少、性格沉默。</div></div>
+      <div class="kw-card"><div class="kw-word">上癮</div><div class="kw-def">對某事物產生難以戒除的依賴。</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot teal"></span>配對題（人物：A 張浩　B 大鵬　C 姚遠　D 樂樂）</div>
+    <p style="font-size:13px;color:var(--color-text-secondary);">例：誰在極限運動中獲取安全感？ → <b>A</b>（已示範）</p>
+
+    <div class="qbox">
+      <div class="qnum">16</div>
+      <div class="qcontent">
+        <div class="qtext">誰因為被廣告打動開始嘗試極限運動？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a16-btn" onclick="toggleAnswer('a16')">👁 查看答案</button>
+        <div class="answer-content" id="a16"><div class="ans-label">答案：D</div>「我開始有潛水的想法只是因為看了一張潛水機構的宣傳海報」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">17</div>
+      <div class="qcontent">
+        <div class="qtext">誰認為一些學者對極限愛好者有誤解？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a17-btn" onclick="toggleAnswer('a17')">👁 查看答案</button>
+        <div class="answer-content" id="a17"><div class="ans-label">答案：A</div>「許多心理學文獻將極限運動與尋求刺激、享樂主義聯繫在一起，這未免以偏概全」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">18</div>
+      <div class="qcontent">
+        <div class="qtext">誰為了紓解生活上的壓力定期參與極限運動？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a18-btn" onclick="toggleAnswer('a18')">👁 查看答案</button>
+        <div class="answer-content" id="a18"><div class="ans-label">答案：B</div>「跳傘能讓我忘卻工作生活中的焦慮……直到現在不管多忙我都保持每年跳一次」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">19</div>
+      <div class="qcontent">
+        <div class="qtext">誰詳細描述了自己為一次冒險做的準備工作？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a19-btn" onclick="toggleAnswer('a19')">👁 查看答案</button>
+        <div class="answer-content" id="a19"><div class="ans-label">答案：C</div>「我在漂流黃河前準備了整整一年……我在腦海中預演了無數次漂流過程」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">20</div>
+      <div class="qcontent">
+        <div class="qtext">誰提到極限運動的危險性受到媒體關注？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a20-btn" onclick="toggleAnswer('a20')">👁 查看答案</button>
+        <div class="answer-content" id="a20"><div class="ans-label">答案：C</div>「各類救援事件的新聞報導足以讓我們意識到極限運動的殘酷性」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">21</div>
+      <div class="qcontent">
+        <div class="qtext">誰的家人強烈反對他參與極限運動？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a21-btn" onclick="toggleAnswer('a21')">👁 查看答案</button>
+        <div class="answer-content" id="a21"><div class="ans-label">答案：A</div>「在父母眼中，這是個既燒錢又受罪的嗜好，可無論他們如何表示不滿……」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">22</div>
+      <div class="qcontent">
+        <div class="qtext">誰覺得恐懼可以讓自己的感知更豐富？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a22-btn" onclick="toggleAnswer('a22')">👁 查看答案</button>
+        <div class="answer-content" id="a22"><div class="ans-label">答案：B</div>「出艙前的膽怯、在高空的忐忑……每跳一次都是一次自我激活，這種恐懼是值得的」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">23</div>
+      <div class="qcontent">
+        <div class="qtext">誰提到自己的性格在做極限運動後有所改變？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a23-btn" onclick="toggleAnswer('a23')">👁 查看答案</button>
+        <div class="answer-content" id="a23"><div class="ans-label">答案：D</div>「隨著越發頻繁的潛水，我變得越來越寡言」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">24</div>
+      <div class="qcontent">
+        <div class="qtext">誰認為做極限運動前必須有專業教練的培訓？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a24-btn" onclick="toggleAnswer('a24')">👁 查看答案</button>
+        <div class="answer-content" id="a24"><div class="ans-label">答案：C</div>「做任何極限運動都一定要有專業人士的指導」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">25</div>
+      <div class="qcontent">
+        <div class="qtext">誰在社交網站上遇到有共同經歷的人？ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a25-btn" onclick="toggleAnswer('a25')">👁 查看答案</button>
+        <div class="answer-content" id="a25"><div class="ans-label">答案：D</div>「後來我在相關論壇中發現很多人都和我有同樣的感受」</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 04 練習四 ============ -->
+  <div class="section-header" id="ex4">
+    <div class="icon">✍️</div>
+    <h2>練習四：引導式寫作——日記</h2>
+    <div class="chno">第26題　8分</div>
+  </div>
+
+  <div class="card">
+    <p><b>題目：</b>你和同學一起編輯的校園雜誌出版了。寫一篇日記記錄你辦雜誌的經歷。</p>
+    <p>字數：100–120個漢字。滿分為8分，其中內容佔3分，語言佔5分。</p>
+    <p>在日記中，必須：</p>
+    <p>① 介紹雜誌的主要內容；② 描述編輯雜誌遇到的困難；③ 反思可以改進的地方。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot purple"></span>寫作結構</div>
+    <div class="flow">
+      <div class="flow-step">日期＋起首感受</div><div class="flow-arrow">→</div>
+      <div class="flow-step">要點①雜誌內容</div><div class="flow-arrow">→</div>
+      <div class="flow-step">要點②編輯困難</div><div class="flow-arrow">→</div>
+      <div class="flow-step">要點③反思改進</div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">評分要點提示</div>
+        <div class="alert-text">內容分（3分）按三個要點是否齊全及具體給分，三點缺一即使字數足夠也拿不到滿分；語言分（5分）視乎用詞是否準確、句式是否有變化、有否恰當運用連接詞（如「雖然……但……」「首先……其次……」）。字數不足100字或超過120字太多，均可能影響評分。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <button class="answer-toggle-btn" id="a26-btn" onclick="toggleAnswer('a26')">👁 查看範文及評分要點</button>
+    <div class="answer-content model-answer" id="a26">
+      <div class="ans-label">範文（約119字）</div>
+      今天，我和同學合編的校園雜誌出版了，大家都很興奮。這期雜誌以「成長」為主題，收錄了原創小說、詩歌及師生訪問。編輯期間並不輕鬆，我們常要開會商討稿件取捨，又要反覆校對文字，有時為排版意見不合，爭論到深夜。我認為往後應提早分工，訂立清晰截稿日期，減少趕工壓力，讓雜誌質素更佳。
+      <br><br>
+      <div class="ans-label">要點對照</div>
+      ①雜誌內容：主題「成長」、收錄小說／詩歌／師生訪問　②編輯困難：開會商討、反覆校對、意見不合、深夜討論　③反思改進：提早分工、訂立截稿日期
+    </div>
+  </div>
+
+  <!-- ============ 05 練習五 ============ -->
+  <div class="section-header" id="ex5">
+    <div class="icon">✍️</div>
+    <h2>練習五：引導式寫作——書信</h2>
+    <div class="chno">第27題　22分</div>
+  </div>
+
+  <div class="card">
+    <p><b>題目：</b>學校打算派一位學生參加一個大型賽事，有的學生認為應該由老師推薦，有的學生認為應該由同學選代表。給校長寫一封信說說你的看法。</p>
+    <p>以下是一些別人的觀點，你可以參考，也可以提出自己的意見，但必須表示傾向性。</p>
+    <p>字數：250–300個漢字。滿分為22分，其中內容佔10分，語言佔12分。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot pink"></span>參考觀點</div>
+    <div class="viewpoint-grid">
+      <div class="viewpoint-bubble">由學生推選比較公平。<span class="vp-tag">（同學觀點）</span></div>
+      <div class="viewpoint-bubble">老師更瞭解學生的水平。<span class="vp-tag">（同學觀點）</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot purple"></span>寫作結構（書信＋議論）</div>
+    <div class="flow">
+      <div class="flow-step">稱謂＋問候</div><div class="flow-arrow">→</div>
+      <div class="flow-step">帶出議題</div><div class="flow-arrow">→</div>
+      <div class="flow-step">表明立場</div><div class="flow-arrow">→</div>
+      <div class="flow-step">舉理由論證</div><div class="flow-arrow">→</div>
+      <div class="flow-step">回應相反觀點</div><div class="flow-arrow">→</div>
+      <div class="flow-step">結語＋敬禮具名</div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">「表示傾向性」是硬性要求</div>
+        <div class="alert-text">題目明確要求考生必須表態，切忌兩面討論而不下判斷，或立場模糊、忽正忽反。建議在文章開首或第二段已清楚表明支持哪一方，其後所有論證均圍繞該立場展開，即使提及對立觀點，也應以「先讓步、後反駁」的方式處理，鞏固自己的立場。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot teal"></span>正反論點參考</div>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <span class="cc-label">同學推選</span>
+        優點：過程公開、提高學生參與感及集體榮譽感。<br>
+        限制：容易受人緣因素左右，未必能反映真正實力。
+      </div>
+      <div class="compare-card good">
+        <span class="cc-label">老師推薦</span>
+        優點：老師長期觀察學生表現，評核較客觀全面，能挑選最適合人選。<br>
+        限制：學生參與感較低，須以徵詢學生意見加以平衡。
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--color-text-secondary);margin-top:6px;">*以上僅供参考，考生亦可選擇支持「同學推選」一方，只要論證充分、立場清晰即可。</p>
+  </div>
+
+  <div class="card">
+    <button class="answer-toggle-btn" id="a27-btn" onclick="toggleAnswer('a27')">👁 查看範文及評分要點</button>
+    <div class="answer-content model-answer" id="a27">
+      <div class="ans-label">範文（約271字，立場：支持老師推薦）</div>
+      尊敬的校長：<br><br>
+      您好！得悉學校將選派一位學生代表出席大型賽事，就選拔方式，本人有以下看法。<br><br>
+      有同學認為應由同學推選代表，較為公平；亦有同學認為應由老師推薦，因老師更瞭解學生水平。本人較傾向由老師推薦，理由有二。<br><br>
+      首先，老師長期與學生相處，透過日常課堂表現及過往比賽成績，能較客觀地評核學生能力，避免同學投票時出現的人緣因素，令結果更能反映學生真實水平。其次，大型賽事考驗學生的臨場應變及專業技巧，老師憑藉經驗，較能判斷哪位學生最能勝任，為校爭光。<br><br>
+      當然，同學推選亦有可取之處，例如能提高參與感。故本人建議，學校可先由老師初步推薦數位人選，再徵詢同學意見作最終決定，望校長考慮。<br><br>
+      此致<br>
+      敬禮<br><br>
+      學生　陳大文　上<br>
+      二零二六年九月八日
+      <br><br>
+      <div class="ans-label">評分要點對照</div>
+      ✓ 開首稱謂、結尾敬禮具名俱全（書信格式）　✓ 立場清晰（明確支持老師推薦，全文貫徹）　✓ 提出兩項具體理由（評核客觀、專業判斷）　✓ 有回應對立觀點並提出折衷建議，論證更全面　✓ 字數合乎250–300字要求
+    </div>
+  </div>
+
+  <footer>
+    <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.9;">
+      <span style="font-weight:500;color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨️ 列印筆記</button>
+
+<script>
+document.querySelectorAll('.answer-toggle-btn').forEach(function(b){
+  b.setAttribute('data-show-text', b.textContent);
+  b.setAttribute('data-hide-text', b.textContent.replace('👁 查看', '🙈 隱藏'));
+});
+function toggleAnswer(id){
+  var el = document.getElementById(id);
+  var btn = document.getElementById(id + '-btn');
+  if(!el || !btn) return;
+  var nowShown = el.classList.toggle('show');
+  btn.textContent = nowShown ? btn.getAttribute('data-hide-text') : btn.getAttribute('data-show-text');
+}
+</script>
+
+</body>
+</html>
