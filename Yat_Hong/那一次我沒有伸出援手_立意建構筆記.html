@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《那一次，我沒有伸出援手》立意建構教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --hero-bg: #E8D5C8;
+    --hero-text: #2E1A12;
+
+    --blue: #4A6FA5; --blue-bg: #EEF3FA;
+    --teal: #2F8F7E; --teal-bg: #E9F6F3;
+    --amber: #B8792A; --amber-bg: #FBF1E4;
+    --coral: #C05B4A; --coral-bg: #FBEDEA;
+    --pink:  #A05A82; --pink-bg: #F8EEF5;
+    --green: #3E8A56; --green-bg: #EAF6EE;
+    --red:   #B33A3A; --red-bg: #FBEBEB;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #ececec;
+      --color-text-secondary: #a8a8a8;
+      --color-background-primary: #1c1c1e;
+      --color-background-secondary: #262628;
+      --color-border-tertiary: rgba(255,255,255,0.12);
+      --blue-bg: #1c2733; --teal-bg: #16241f; --amber-bg: #2a2115;
+      --coral-bg: #2a1b18; --pink-bg: #251a22; --green-bg: #16241a; --red-bg: #291717;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: 'Noto Serif TC', serif; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  /* Hero */
+  .hero {
+    background: var(--hero-bg);
+    color: var(--hero-text);
+    border-radius: var(--border-radius-lg);
+    padding: 40px 32px 32px;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 5px 16px;
+    border: 1px solid rgba(46,26,18,0.3);
+    color: rgba(46,26,18,0.65);
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .hero h1 { font-size: 26px; font-weight: 900; margin: 0 0 10px; line-height: 1.5; }
+  .hero p { margin: 0; font-size: 13px; color: rgba(46,26,18,0.5); font-weight: 500; }
+
+  /* TOC */
+  .toc {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin: 24px 0 8px;
+    padding: 18px;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+  }
+  .toc-title { width: 100%; font-size: 13px; font-weight: 700; color: var(--color-text-secondary); margin-bottom: 6px; }
+  .toc-item {
+    font-size: 13px; text-decoration: none; color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--color-border-tertiary);
+  }
+
+  /* Section header */
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin: 44px 0 18px;
+  }
+  .section-header .num {
+    flex-shrink: 0; width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--hero-bg); color: var(--hero-text);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .section-header h2 { font-size: 19px; margin: 0; font-weight: 700; }
+  .section-header .sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+
+  .section-divider { height: 1px; background: var(--color-border-tertiary); margin: 8px 0 0; }
+
+  /* Card */
+  .card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  }
+  .card h3 { display:flex; align-items:center; gap:8px; font-size:15px; margin:0 0 10px; }
+  .dot { width:9px; height:9px; border-radius:50%; display:inline-block; }
+  .dot.blue{background:var(--blue);} .dot.teal{background:var(--teal);} .dot.amber{background:var(--amber);}
+  .dot.coral{background:var(--coral);} .dot.pink{background:var(--pink);}
+  .card p, .card li { font-size: 14px; color: var(--color-text-primary); }
+
+  /* Example box */
+  .example-box {
+    border-radius: var(--border-radius-md);
+    padding: 14px 18px;
+    margin: 14px 0;
+    background: var(--blue-bg);
+    border-left: 4px solid var(--blue);
+  }
+  .example-box.teal { background: var(--teal-bg); border-color: var(--teal); }
+  .example-box.coral { background: var(--coral-bg); border-color: var(--coral); }
+  .example-box.amber { background: var(--amber-bg); border-color: var(--amber); }
+  .example-box.pink { background: var(--pink-bg); border-color: var(--pink); }
+  .example-label { font-size: 12px; font-weight: 700; margin-bottom: 6px; opacity: 0.8; }
+  .example-text { font-size: 14px; line-height: 1.8; }
+
+  /* Alert */
+  .alert {
+    display: flex; gap: 12px;
+    border-radius: var(--border-radius-md);
+    padding: 14px 18px; margin: 16px 0;
+  }
+  .alert.tip { background: var(--blue-bg); }
+  .alert.warn { background: var(--red-bg); }
+  .alert.success { background: var(--green-bg); }
+  .alert.amber { background: var(--amber-bg); }
+  .alert-icon { font-size: 18px; }
+  .alert-label { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+  .alert.tip .alert-label { color: var(--blue); }
+  .alert.warn .alert-label { color: var(--red); }
+  .alert.success .alert-label { color: var(--green); }
+  .alert.amber .alert-label { color: var(--amber); }
+  .alert-text { font-size: 14px; line-height: 1.8; }
+
+  /* Compare grid */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+  .compare-card { border-radius: var(--border-radius-md); padding: 16px 18px; font-size: 14px; line-height:1.8; }
+  .compare-card.bad { background: var(--red-bg); border: 1px solid rgba(179,58,58,0.25); }
+  .compare-card.good { background: var(--green-bg); border: 1px solid rgba(62,138,86,0.25); }
+  .compare-card .tag { display:block; font-size:12px; font-weight:700; margin-bottom:8px; }
+  .compare-card.bad .tag { color: var(--red); }
+  .compare-card.good .tag { color: var(--green); }
+  @media (max-width: 640px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  /* Flow */
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 20px 0; justify-content:center; }
+  .flow-step {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 10px 16px; font-size: 13px; font-weight: 600; text-align:center;
+  }
+  .flow-arrow { color: var(--color-text-secondary); font-size: 16px; }
+
+  /* Qbox — 漸進問答專用 */
+  .qbox {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-left: 5px solid var(--blue);
+    border-radius: var(--border-radius-lg);
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .qbox.teal { border-left-color: var(--teal); }
+  .qbox.amber { border-left-color: var(--amber); }
+  .qbox.coral { border-left-color: var(--coral); }
+  .qbox.pink { border-left-color: var(--pink); }
+  .qbox .q-head { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .qbox .q-badge {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--blue); color:#fff; font-size:12px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .qbox.teal .q-badge { background: var(--teal); }
+  .qbox.amber .q-badge { background: var(--amber); }
+  .qbox.coral .q-badge { background: var(--coral); }
+  .qbox.pink .q-badge { background: var(--pink); }
+  .qbox .q-stage { font-size: 12px; color: var(--color-text-secondary); font-weight: 700; }
+  .qbox .q-text { font-size: 15px; font-weight: 700; margin: 0 0 10px; line-height:1.7; }
+  .qbox .q-guide { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.85; }
+  .qbox .q-guide b { color: var(--color-text-primary); }
+
+  /* Keyword grid */
+  .keyword-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .kw-card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 14px 16px;
+  }
+  .kw-word { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .kw-def { font-size: 13px; color: var(--color-text-secondary); line-height: 1.8; }
+  @media (max-width: 640px) { .keyword-grid { grid-template-columns: 1fr; } }
+
+  /* Formula */
+  .formula {
+    background: #2E1A12;
+    color: #F3E4D9;
+    border-radius: var(--border-radius-lg);
+    padding: 22px 24px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 2;
+    margin: 20px 0;
+  }
+  .formula .small { display:block; font-size: 12px; font-weight:500; opacity:0.7; margin-top:6px; }
+
+  /* Print button */
+  .print-btn {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--hero-text); color: #fff;
+    border: none; border-radius: 999px;
+    padding: 12px 20px; font-size: 13px; font-weight: 700;
+    cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+
+  footer { }
+
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; }
+    .toc { display: none; }
+    .print-btn { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">🖨️ 列印 / 儲存PDF</button>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>《那一次，我沒有伸出援手》<br>寫作教學筆記（立意建構＋寫作技巧）</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <a class="toc-item" href="#s1">01・審題拆解</a>
+    <a class="toc-item" href="#s2">02・立意常見誤區</a>
+    <a class="toc-item" href="#s3">03・五層漸進問答立意法</a>
+    <a class="toc-item" href="#s4">04・範例示範</a>
+    <a class="toc-item" href="#s5">05・立意方向參考庫</a>
+    <a class="toc-item" href="#s6">06・立意公式總結</a>
+    <a class="toc-item" href="#s7">07・選材技巧</a>
+    <a class="toc-item" href="#s8">08・全文結構藍圖</a>
+    <a class="toc-item" href="#s9">09・核心技巧：心理描寫</a>
+    <a class="toc-item" href="#s10">10・開頭與結尾技巧</a>
+    <a class="toc-item" href="#s11">11・常見扣分位</a>
+  </div>
+
+  <!-- 01 審題拆解 -->
+  <div class="section-header" id="s1">
+    <div class="num">🔍</div>
+    <div>
+      <h2>審題拆解：拆解題目關鍵詞</h2>
+      <div class="sub">在建構立意之前，先要準確理解題目的限制與空間</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot blue"></span>題目關鍵詞分析</h3>
+    <div class="keyword-grid">
+      <div class="kw-card">
+        <div class="kw-word">那一次</div>
+        <div class="kw-def">限定為單一、具體的一次經歷，須有明確的時間、地點及事件輪廓，不能寫成多次發生或泛化的習慣性描述。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">我</div>
+        <div class="kw-def">敘事人稱固定為第一人稱，全文須圍繞「我」的心理活動與反思展開，不宜側重描寫他人的遭遇而忽略自身的內在掙扎。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">沒有</div>
+        <div class="kw-def">關鍵否定詞，暗示「我」本來具備伸出援手的能力或機會，卻最終選擇沒有行動。理解這一點，是進入人物內在掙扎的入口，而不只是敘述「無能為力」。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">伸出援手</div>
+        <div class="kw-def">援手不限於實際行動，也可以是言語上的支持、情感上的陪伴，題目留有相當廣闊的取材空間。</div>
+      </div>
+    </div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">審題重點</div>
+        <div class="alert-text">本題的命題核心並非「事件本身」，而是「我為何沒有伸出援手」背後的心理動機。這一點，正是立意建構的入口。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 立意常見誤區 -->
+  <div class="section-header" id="s2">
+    <div class="num">⚠️</div>
+    <div>
+      <h2>立意常見誤區</h2>
+      <div class="sub">認清這些誤區，立意才不致淪為空泛的道德教訓</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot coral"></span>淺層立意 vs 深層立意</h3>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <span class="tag">✗ 淺層立意</span>
+        「這次經歷讓我明白，以後要樂於助人，不可再袖手旁觀。」
+        <br><br>
+        只停留於道德教訓層面，未有深入探討「未能伸出援手」背後更複雜的心理動機，內容單薄，欠缺對內在動機的挖掘。
+      </div>
+      <div class="compare-card good">
+        <span class="tag">✓ 深層立意</span>
+        「透過這次經歷，我發現助人的抉擇往往受制於恐懼、能力限制，以及一瞬間的自保本能。人性的複雜，遠超『應該』與『不應該』的簡單二分。」
+        <br><br>
+        從「事件」深入到「動機」，再昇華至「對人性的普遍理解」，立意層次分明，具備反思深度。
+      </div>
+    </div>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見陷阱</div>
+        <div class="alert-text">許多同學會將立意停留於「自責、悔悟、決心改進」的單一公式，令全文顯得單薄，缺乏深度。真正有深度的立意，需要進一步追問「當時的我，為何會做出這樣的選擇」，而不是急於下一個道德判斷。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 五層漸進問答立意法 -->
+  <div class="section-header" id="s3">
+    <div class="num">🧭</div>
+    <div>
+      <h2>五層漸進問答立意建構法</h2>
+      <div class="sub">從表層事件，一步一步追問到普遍人性主題</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot blue"></span>建構路徑總覽</h3>
+    <div class="flow">
+      <div class="flow-step">① 表層事件</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">② 表面理由</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">③ 深層動機</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">④ 事後反思</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">⑤ 主題昇華</div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">使用方法</div>
+        <div class="alert-text">按順序回答以下五條問題，不要跳過任何一層。每一層的答案，都是下一層追問的基礎；立意的深度，就是在這個逐層深挖的過程中建立起來的。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="qbox blue">
+    <div class="q-head">
+      <div class="q-badge">Q1</div>
+      <div class="q-stage">第一層・表層事件</div>
+    </div>
+    <div class="q-text">那一次，具體發生了什麼事？你「沒有伸出援手」的對象是誰？場景是怎樣的？</div>
+    <div class="q-guide">先確立具體的人、事、時、地，例如同學被欺凌、陌生人在街上跌倒、朋友情緒低落向你求助等，避免抽象籠統的描述。畫面愈具體，後續的反思才有根基。</div>
+  </div>
+
+  <div class="qbox teal">
+    <div class="q-head">
+      <div class="q-badge">Q2</div>
+      <div class="q-stage">第二層・表面理由</div>
+    </div>
+    <div class="q-text">當下，你選擇不伸出援手的「表面理由」是什麼？</div>
+    <div class="q-guide">例如：怕麻煩、趕時間、不懂如何處理、以為有其他人會出手。這類答案通常最先浮現，但往往並非事情的全部真相，只是進入下一層追問的起點。</div>
+  </div>
+
+  <div class="qbox amber">
+    <div class="q-head">
+      <div class="q-badge">Q3</div>
+      <div class="q-stage">第三層・深層動機</div>
+    </div>
+    <div class="q-text">撇開表面理由，你內心真正的顧慮或恐懼是什麼？</div>
+    <div class="q-guide">例如：怕被牽連、怕自己能力不足反而幫倒忙、怕面對尷尬的場面、怕暴露自己的軟弱。試著誠實面對行動背後真正的心理狀態，不要停留於表面藉口。<b>這一步，往往決定了立意的深度。</b></div>
+  </div>
+
+  <div class="qbox coral">
+    <div class="q-head">
+      <div class="q-badge">Q4</div>
+      <div class="q-stage">第四層・事後反思</div>
+    </div>
+    <div class="q-text">事後回想，你對「當時的自己」有什麼新的理解？你是否仍然認為自己做錯了？</div>
+    <div class="q-guide">不必急於將自己判斷為「錯」，可以嘗試從多角度理解，例如當時的自己也有其局限與無奈。這種不急於下定論的理解，本身就是一種成長。</div>
+  </div>
+
+  <div class="qbox pink">
+    <div class="q-head">
+      <div class="q-badge">Q5</div>
+      <div class="q-stage">第五層・主題昇華</div>
+    </div>
+    <div class="q-text">這次經歷讓你對「人」（包括自己與他人）有什麼更廣闊的體會？這體會能否連結到一個具普遍意義的人生道理？</div>
+    <div class="q-guide">嘗試將個人經歷提升至對人性、選擇、勇氣、局限等具普遍意義的思考層面。<b>這一句，往往就是全文昇華、決定立意高度的關鍵所在。</b></div>
+  </div>
+
+  <!-- 04 範例示範 -->
+  <div class="section-header" id="s4">
+    <div class="num">📖</div>
+    <div>
+      <h2>範例示範：從表層到深層</h2>
+      <div class="sub">以一個具體場景，示範五層問答如何逐步建構出立意</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot blue"></span>示範場景：巴士上的老人</h3>
+    <div class="example-box">
+      <div class="example-label">Q1 表層事件</div>
+      <div class="example-text">在擠迫的巴士上，一位老人突然跌倒，我就坐在她附近，卻沒有上前扶起她。</div>
+    </div>
+    <div class="example-box teal">
+      <div class="example-label">Q2 表面理由</div>
+      <div class="example-text">車廂太擠，我怕自己站起來反而阻礙到其他乘客；而且很快就有其他人上前幫忙了。</div>
+    </div>
+    <div class="example-box amber">
+      <div class="example-label">Q3 深層動機</div>
+      <div class="example-text">其實真正令我猶豫的，是怕萬一扶起她的方式不對，反而弄傷她；更深一層，是怕被誤會、怕萬一她的家人追究責任。這份恐懼讓我在一瞬間選擇了退縮。</div>
+    </div>
+    <div class="example-box coral">
+      <div class="example-label">Q4 事後反思</div>
+      <div class="example-text">我不再簡單地認為自己「冷漠」。我發現，善意與自保之間的掙扎，其實比我想像中更真實、更難以避免。這不代表我認同自己的選擇，但至少讓我更誠實地面對自己。</div>
+    </div>
+    <div class="example-box pink">
+      <div class="example-label">Q5 主題昇華</div>
+      <div class="example-text">人在面對善意與自保的兩難時，往往在剎那間做出違背良知的選擇；那次經歷讓我明白，真正的勇氣，不僅是伸出援手的勇氣，也是事後誠實承認自己曾經懦弱的勇氣。</div>
+    </div>
+
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>
+        <div class="alert-label">最終立意</div>
+        <div class="alert-text">善意與自保之間的掙扎，暴露了人性的真實複雜；而承認自己的軟弱，本身就是一種成長與勇氣。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 立意方向參考庫 -->
+  <div class="section-header" id="s5">
+    <div class="num">🗂️</div>
+    <div>
+      <h2>立意方向參考庫</h2>
+      <div class="sub">若對第五層問答仍感困難，可參考以下方向作延伸思考</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="keyword-grid">
+      <div class="kw-card">
+        <div class="kw-word">恐懼下的自保本能</div>
+        <div class="kw-def">探討人在突發情況下，本能的自我保護往往先於理性判斷，這是人性中難以完全消除的一部分。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">能力局限與無力感</div>
+        <div class="kw-def">探討「想幫忙」與「有能力幫忙」之間的落差，反思自身局限並非等同於冷漠。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">旁觀者效應</div>
+        <div class="kw-def">探討「以為總有其他人會出手」的心理，如何在群體場合中削弱個人的行動意願。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">選擇背後的複雜性</div>
+        <div class="kw-def">拒絕將事件簡化為單純的對錯二分，強調每個選擇背後都有其處境與掙扎。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">遲來的悔悟與成長</div>
+        <div class="kw-def">探討事後的反思如何轉化為對自己更誠實的理解，而非停留於表面的自責。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">承認軟弱的勇氣</div>
+        <div class="kw-def">提出「勇氣」不只在於行動一刻，也在於事後坦然面對自己曾經的懦弱。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 立意公式總結 -->
+  <div class="section-header" id="s6">
+    <div class="num">🎯</div>
+    <div>
+      <h2>立意公式與重點總結</h2>
+      <div class="sub">將五層問答濃縮為一條可記憶的公式</div>
+    </div>
+  </div>
+
+  <div class="formula">
+    立意 ＝ 具體事件 ＋ 真實心理動機 ＋ 多角度反思 ＋ 普遍人性主題
+    <span class="small">五層問答，缺一不可；跳過中間任何一層，立意都會失去深度</span>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot amber"></span>寫作提醒</h3>
+    <ul>
+      <li>立意句宜安排在文章結尾，作為全文情感與思考的收束，避免在開首過早點明。</li>
+      <li>立意句不宜直接複述題目文字（例如再次寫出「伸出援手」四字），宜用近義詞或具體畫面代替，避免重複、生硬。</li>
+      <li>真正打動閱卷老師的，往往是對自己「為何沒有行動」的誠實剖析，而非簡單的悔悟宣言。</li>
+    </ul>
+  </div>
+
+  <!-- 07 選材技巧 -->
+  <div class="section-header" id="s7">
+    <div class="num">🧩</div>
+    <div>
+      <h2>選材技巧：如何選一件「值得寫」的事</h2>
+      <div class="sub">立意建構的基礎，在於一開始就選對材料</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot blue"></span>選材三大原則</h3>
+    <ul>
+      <li><b>具體</b>：避免泛寫「幫助人」這類籠統概念，選一個明確、可畫面化的時刻。</li>
+      <li><b>貼身</b>：選擇與自己生活經驗貼近的素材，情感才有真實感，避免脫離現實的誇張情節。</li>
+      <li><b>反差</b>：事件本身應具備「本來可以做，卻沒有做」的張力，才有內心掙扎可寫。</li>
+    </ul>
+
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <span class="tag">✗ 取材過於老套／失實</span>
+        老人在街上跌倒卻無人理會，此類材料已被大量同學使用，難以令閱卷老師留下深刻印象。<br><br>
+        目睹持刀傷人案卻因害怕而未有阻止，情節過於戲劇化，一般中學生的生活經驗中甚少出現，容易令人質疑真確性，削弱說服力。
+      </div>
+      <div class="compare-card good">
+        <span class="tag">✓ 取材具體、貼身、可信</span>
+        同班同學在小組活動中被孤立，我察覺到卻因害怕被牽連而保持沉默。<br><br>
+        朋友在社交媒體上透露情緒低落，我因專注於自己的事而未有及時回覆。
+      </div>
+    </div>
+
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">選材小貼士</div>
+        <div class="alert-text">選材時，可從「最令自己感到不安、最難忘」的一次經歷入手，愈是困擾自己的事件，反思往往愈見深刻。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 全文結構藍圖 -->
+  <div class="section-header" id="s8">
+    <div class="num">🏗️</div>
+    <div>
+      <h2>全文結構藍圖</h2>
+      <div class="sub">配合五層問答，安排各部分的篇幅比例</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot teal"></span>五段式結構建議（以約600–800字為例）</h3>
+    <div class="flow">
+      <div class="flow-step">開端／場景鋪墊<br>約15%</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">事件觸發／掙扎浮現<br>約20%</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">內心掙扎／選擇的一刻<br>約30%</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">結果與事後反應<br>約15%</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">反思與立意昇華<br>約20%</div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-label">各部分對應內容</div>
+      <div class="example-text">
+        1. 開端：交代時間、地點、人物，營造事件發生前的氛圍。<br>
+        2. 事件觸發：需要伸出援手的情境開始出現，帶出「我」內心第一下的猶豫。<br>
+        3. 內心掙扎：全文核心，重點運用心理描寫，呈現表面理由與深層動機（對應第二、三層問答）。<br>
+        4. 結果：事件的後續發展，以及「我」的即時反應。<br>
+        5. 反思：對應第四、五層問答，收束全文，帶出立意句。
+      </div>
+    </div>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見失衡</div>
+        <div class="alert-text">不少同學把大量篇幅用於鋪陳事件背景，卻把「內心掙扎」這個全文核心部分寫得倉促，應特別留意第三部分的篇幅分配。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 核心技巧：心理描寫 -->
+  <div class="section-header" id="s9">
+    <div class="num">🧠</div>
+    <div>
+      <h2>核心技巧：如何寫好「猶豫的一刻」</h2>
+      <div class="sub">心理描寫是本文成敗的關鍵</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot amber"></span>四種心理描寫手法</h3>
+    <div class="keyword-grid">
+      <div class="kw-card">
+        <div class="kw-word">時間放慢法</div>
+        <div class="kw-def">將決定的一刻拉長描寫，逐格呈現心理變化，而非一句帶過。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">內心獨白法</div>
+        <div class="kw-def">直接以第一人稱心聲呈現掙扎，讓讀者直接進入「我」的思緒。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">對比法</div>
+        <div class="kw-def">將「心中所想」與「實際所做」形成反差，突顯掙扎的張力。</div>
+      </div>
+      <div class="kw-card">
+        <div class="kw-word">感官描寫輔助</div>
+        <div class="kw-def">透過環境細節（聲音、光線、氣味）烘托當下的心理狀態。</div>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <span class="tag">✗ 一筆帶過</span>
+        我猶豫了一下，最後都沒有上前幫忙。
+      </div>
+      <div class="compare-card good">
+        <span class="tag">✓ 放慢鏡頭</span>
+        我的手心開始冒汗，心裏一邊想著要不要站起來，一邊又擔心自己站起來後會不會反而阻礙其他人；短短兩三秒，卻像被拉長成了一分鐘——最後，我還是坐著沒有動。
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 開頭與結尾技巧 -->
+  <div class="section-header" id="s10">
+    <div class="num">🔑</div>
+    <div>
+      <h2>開頭與結尾技巧</h2>
+      <div class="sub">首尾呼應，令立意更有力</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot coral"></span>開頭三種寫法</h3>
+    <ul>
+      <li><b>倒敘法</b>：由事後的悔悟或反思開始，再回溯到事件本身，製造懸念。</li>
+      <li><b>場景切入法</b>：直接以具體畫面開篇，增強代入感。</li>
+      <li><b>設問法</b>：以一條問題開篇，引導讀者思考，並與結尾的立意互相呼應。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot pink"></span>結尾三種寫法</h3>
+    <ul>
+      <li><b>首尾呼應法</b>：結尾回應開頭的畫面或問題，形成結構上的閉環。</li>
+      <li><b>留白法</b>：不把道理講盡，留一句耐人尋味的句子讓讀者自行反思。</li>
+      <li><b>昇華法</b>：由個人事件過渡至對人性或人生的普遍體會，對應第五層問答。</li>
+    </ul>
+
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div>
+        <div class="alert-label">建議做法</div>
+        <div class="alert-text">開頭與結尾宜互相呼應，例如開頭描寫的畫面或提出的問題，可以在結尾以另一種姿態重現，令全文結構更見完整。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 常見扣分位 -->
+  <div class="section-header" id="s11">
+    <div class="num">📋</div>
+    <div>
+      <h2>常見扣分位</h2>
+      <div class="sub">寫作前後，可用此清單自我檢查</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">選材失實</div>
+        <div class="alert-text">情節過度誇張，脫離中學生的真實生活經驗，令閱卷老師質疑真確性。</div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">心理描寫不足</div>
+        <div class="alert-text">內心掙扎僅用一兩句帶過，未能呈現猶豫的真實過程，全文因而缺乏張力。</div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">立意句生硬如標語</div>
+        <div class="alert-text">把立意句寫成一句獨立的「金句」，與前文的情感和細節脫節，讀起來像貼上標籤，而非自然流露。</div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">對話代替反思</div>
+        <div class="alert-text">用大量對話交代情節，卻沒有進入人物內心，讀者難以感受到真正的掙扎。</div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
