@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文言知識六大範疇精讀筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --hero-bg: #D5D8C5;
+    --hero-text: #1A2015;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #eee;
+      --color-text-secondary: #aaa;
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #29291f;
+      --color-border-tertiary: rgba(255,255,255,0.12);
+    }
+    .opt, .ans-content { background:#2c2c26 !important; color:#eee !important; }
+    .example-box { background:#26261f !important; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; font-family:'Noto Sans TC', sans-serif;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+  }
+  h1,h2,h3 { font-family:'Noto Serif TC', serif; }
+  .wrap { max-width: 920px; margin:0 auto; padding: 28px 18px 70px; }
+
+  /* Hero */
+  .hero { background: var(--hero-bg); color: var(--hero-text); padding:44px 32px; border-radius: var(--border-radius-lg); text-align:center; margin-bottom:28px; }
+  .hero-tag { display:inline-block; padding:5px 16px; border:1px solid rgba(26,32,21,0.3); border-radius:999px; font-size:13px; color:rgba(26,32,21,0.65); margin-bottom:14px; letter-spacing:1px; }
+  .hero h1 { font-size:30px; margin:0 0 10px; font-weight:900; letter-spacing:1px; }
+  .hero p { color:rgba(26,32,21,0.5); font-size:14px; margin:0; }
+
+  /* Global control bar */
+  .global-bar { position: fixed; bottom:20px; right:20px; display:flex; flex-direction:column; align-items:flex-end; gap:10px; z-index:200; }
+  .global-btn { background:#1A2015; color:#fff; border:none; padding:10px 18px; border-radius:999px; font-size:13px; cursor:pointer; box-shadow:0 2px 10px rgba(0,0,0,0.25); font-family:'Noto Sans TC'; }
+  .global-btn.secondary { background:#ffffff; color:#1A2015; border:1px solid #1A2015; }
+  .global-btn:hover { opacity:0.85; }
+
+  /* Notice */
+  .usage-note { background:#eef1e6; border:1px solid #c9d0b8; border-radius:var(--border-radius-md); padding:12px 16px; font-size:13px; color:#3a3f2f; margin-bottom:26px; line-height:1.8; }
+
+  /* TOC */
+  .toc { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:36px; }
+  .toc-item { background:var(--color-background-primary); border:1px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:13px 14px; text-decoration:none; color:var(--color-text-primary); font-size:14px; font-weight:500; display:flex; align-items:center; gap:8px; transition:.2s; }
+  .toc-item:hover { background:#1A2015; color:#fff; }
+
+  /* Section header */
+  .section-header { display:flex; align-items:center; gap:12px; margin:44px 0 18px; padding-bottom:12px; border-bottom:2px solid #1A2015; }
+  .section-header .icon { font-size:26px; }
+  .section-header h2 { font-size:22px; margin:0; color:var(--color-text-primary); flex:1; }
+  .section-header .num { font-size:12px; color:var(--color-text-secondary); background:var(--color-background-secondary); padding:3px 12px; border-radius:999px; white-space:nowrap; }
+
+  .intro-text { font-size:14px; line-height:1.9; color:var(--color-text-primary); margin-bottom:14px; }
+  .subtitle-bar { font-size:15px; font-weight:700; margin:22px 0 10px; padding-left:10px; border-left:4px solid #1A2015; }
+
+  /* Card */
+  .card { background:var(--color-background-primary); border:1px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:18px 20px; margin-bottom:16px; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .card-title { font-size:16px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:9px; }
+  .dot { width:10px; height:10px; border-radius:50%; display:inline-block; flex-shrink:0; }
+  .dot-purple{background:#8b7cd8;} .dot-blue{background:#5b9bd5;} .dot-teal{background:#3fb8af;}
+  .dot-coral{background:#e8836b;} .dot-amber{background:#e0a840;} .dot-pink{background:#d878a8;}
+
+  .option-row { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  .opt { background:var(--color-background-secondary); border-radius:6px; padding:5px 12px; font-size:13px; }
+
+  /* Question line */
+  .qline { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; padding:10px 2px; border-bottom:1px dashed var(--color-border-tertiary); }
+  .qline:last-child { border-bottom:none; }
+  .qline-text { flex:1; font-size:14px; line-height:1.85; }
+  .qline-text .src { color:var(--color-text-secondary); font-size:12.5px; }
+  .qline-ans { display:flex; align-items:flex-start; gap:8px; flex-shrink:0; }
+  .ans-toggle-btn { font-size:12px; padding:5px 12px; border-radius:999px; border:1px solid #1A2015; background:transparent; color:#1A2015; cursor:pointer; white-space:nowrap; font-family:'Noto Sans TC'; }
+  .ans-toggle-btn:hover { background:#1A2015; color:#fff; }
+  .ans-content { display:none; font-size:13px; background:#eef1e6; color:#1A2015; padding:6px 12px; border-radius:8px; max-width:300px; text-align:left; line-height:1.7; }
+  .ans-content.show { display:inline-block; }
+
+  /* Example box */
+  .example-box { border-left:4px solid #8b7cd8; background:#f5f3fb; padding:11px 15px; border-radius:8px; margin:14px 0; font-size:13.5px; line-height:1.8; }
+  .example-box.teal { border-color:#3fb8af; background:#eef8f7; }
+  .example-box.coral { border-color:#e8836b; background:#fbf0ed; }
+  .example-box.amber { border-color:#e0a840; background:#fbf5e8; }
+  .example-box.pink { border-color:#d878a8; background:#fbeef4; }
+  .example-label { font-weight:700; margin-bottom:4px; }
+
+  /* Alert */
+  .alert { display:flex; gap:10px; padding:13px 16px; border-radius:10px; margin:18px 0; font-size:13.5px; line-height:1.8; }
+  .alert.tip { background:#eaf3fb; border:1px solid #b8d8f0; }
+  .alert.warn { background:#fbeaea; border:1px solid #f0b8b8; }
+  .alert.success { background:#eafbf0; border:1px solid #b8f0c8; }
+  .alert.amber { background:#fbf5e8; border:1px solid #f0dcb8; }
+  .alert-icon { font-size:19px; }
+  .alert-label { font-weight:700; margin-bottom:3px; }
+
+  /* Footer */
+  footer { margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center; }
+
+  /* Print rules */
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; }
+    .toc { display:none; }
+    .global-bar { display:none !important; }
+    .usage-note { display:none !important; }
+    a { color: inherit; text-decoration: none; }
+    .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+    .section-divider { page-break-after: avoid; }
+    /* 答案及切換按鈕於列印時強制隱藏 */
+    .ans-toggle-btn, .ans-content, .ans-content.show { display:none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="global-bar no-print">
+  <button class="global-btn secondary" onclick="window.print()">🖨️ 列印 / 匯出PDF</button>
+  <button class="global-btn" id="globalToggleBtn" onclick="toggleAll()">👁️ 顯示全部答案</button>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>文言知識六大範疇精讀</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="usage-note">
+    📌 使用說明：每題右方設有「顯示答案」按鈕，按下即可查看該題答案；亦可用右上角「顯示全部答案」一次過展開／收起所有答案。答案於列印或匯出 PDF 時會自動隱藏，適合用作課堂測驗或自行溫習之用。
+  </div>
+
+  <div class="toc">
+    <a class="toc-item" href="#sec1">① 一詞多義</a>
+    <a class="toc-item" href="#sec2">② 古今詞義</a>
+    <a class="toc-item" href="#sec3">③ 詞類活用</a>
+    <a class="toc-item" href="#sec4">④ 文言句式</a>
+    <a class="toc-item" href="#sec5">⑤ 文言虛詞</a>
+    <a class="toc-item" href="#sec6">⑥ 古音通假</a>
+  </div>
+
+  <!-- ============ 一、一詞多義 ============ -->
+  <div class="section-header" id="sec1">
+    <span class="icon">📖</span>
+    <h2>一詞多義</h2>
+    <span class="num">範疇一</span>
+  </div>
+
+  <p class="intro-text">古代漢語詞匯數量比較少，古人常透過引申、打比喻等方法，令一個詞語衍生出多個互相關聯的意義。例如「度」字本解作推測、量度，後來引申出創制的意思，如姜夔《揚州慢》「感慨今昔，因自度此曲」；亦可作量詞用，表示次數，如辛棄疾《青玉案．元夕》「眾裏尋他千百度」。</p>
+
+  <div class="example-box">
+    <div class="example-label">📎 示例：「度」的一詞多義</div>
+    推測、量度 → 創制（因自度此曲）→ 量詞，次數（千百度）
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div>做一詞多義題目時，先看該字在句中擔任的詞性（名詞／動詞／形容詞），再結合上下文推斷意思，比死記硬背更可靠。</div>
+  </div>
+
+  <div class="subtitle-bar">練習一：選出正確答案</div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-purple"></span>1　除</div>
+    <div class="option-row"><span class="opt">A 台階</span><span class="opt">B 清理</span><span class="opt">C 剷除</span><span class="opt">D 拜官授職</span></div>
+    <div class="qline"><div class="qline-text">(1) 趙王掃除自迎。<span class="src">（司馬遷《史記．魏公子列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　「掃除」原指清掃殿前台階，「除」本義即台階，此處借指恭敬相迎</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 庶竭駑鈍，攘除奸兇。<span class="src">（諸葛亮《出師表》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">C　剷除奸邪兇惡之人</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 予除右丞相兼樞密使，都督諸路軍馬。<span class="src">（文天祥《指南錄．後序》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">D　獲拜授右丞相一職</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 即除魏閹廢祠之址以葬之。<span class="src">（張溥《五人墓碑記》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">B　清理魏忠賢生祠的舊址</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-blue"></span>2　行</div>
+    <div class="option-row"><span class="opt">A 施展</span><span class="opt">B 趕路</span><span class="opt">C 品行</span><span class="opt">D 將要</span></div>
+    <div class="qline"><div class="qline-text">(1) 行者休於樹。<span class="src">（歐陽修《醉翁亭記》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">B　「行者」即趕路的人</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 官知止而神欲行。<span class="src">（莊子《庖丁解牛》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　感官停止而精神仍要運行、施展</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 感吾生之行休。<span class="src">（陶淵明《歸去來辭》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">D　感歎人生將要終結</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 性行淑均，曉暢軍事。<span class="src">（諸葛亮《出師表》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">C　性情品行善良公正</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-teal"></span>3　負</div>
+    <div class="option-row"><span class="opt">A 辜負</span><span class="opt">B 依仗</span><span class="opt">C 背着</span><span class="opt">D 違背</span></div>
+    <div class="qline"><div class="qline-text">(1) 秦貪，負其彊。<span class="src">（司馬遷《史記．廉頗藺相如列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">B　依仗秦國強大</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 步行負弓矢從者百餘人。<span class="src">（魏禧《大鐵椎傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">C　背着弓箭步行跟隨</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 臣誠恐見欺於王而負趙。<span class="src">（司馬遷《史記．廉頗藺相如列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　辜負趙國（有負趙國所託）</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 相如度秦王雖齋，決負約不償城。<span class="src">（司馬遷《史記．廉頗藺相如列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">D　違背約定不會割城</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-coral"></span>4　固</div>
+    <div class="option-row"><span class="opt">A 堅決</span><span class="opt">B 本來</span><span class="opt">C 頑固</span><span class="opt">D 堅固</span></div>
+    <div class="qline"><div class="qline-text">(1) 江山險固，沃野萬里。<span class="src">（司馬光《赤壁之戰》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">D　地勢險要堅固</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 汝心之固，固不可徹。<span class="src">（列子《愚公移山》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">C　思想頑固，不能變通</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 藺相如固止之。<span class="src">（司馬遷《史記．廉頗藺相如列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　堅決阻止他</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 然則予固不幸而遇張乎？<span class="src">（袁枚《黃生借書說》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">B　本來、原來</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-amber"></span>5　盡</div>
+    <div class="option-row"><span class="opt">A 完了</span><span class="opt">B 全部</span><span class="opt">C 極點</span><span class="opt">D 竭盡</span></div>
+    <div class="qline"><div class="qline-text">(1) 一屠晚歸，擔中肉盡，止有剩骨。<span class="src">（蒲松齡《狼》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　肉已賣完</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 觸草木盡死。<span class="src">（柳宗元《捕蛇者說》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">B　全部枯死</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 子謂《韶》：「盡美矣，又盡善也。」<span class="src">（《論語．八佾》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">C　美到極點</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 其謀臣皆不盡其忠也。<span class="src">（韓非子《初見秦》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">D　竭盡忠誠</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-pink"></span>6　兵</div>
+    <div class="option-row"><span class="opt">A 戰爭</span><span class="opt">B 壯丁</span><span class="opt">C 兵器</span><span class="opt">D 軍隊</span></div>
+    <div class="qline"><div class="qline-text">(1) 今南方已定，兵甲已足。<span class="src">（諸葛亮《出師表》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">C　「兵甲」即武器盔甲</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 可汗大點兵。<span class="src">（《木蘭辭》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">B　徵召應役的壯丁</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 兵連禍結三十餘年。<span class="src">（《匈奴傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　戰爭連年不斷</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 趙兵果敗，括死軍覆。<span class="src">（劉向《趙將括母》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">D　趙國軍隊</span></div></div>
+  </div>
+
+  <div class="subtitle-bar">練習二：寫出帶點詞語的意義</div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-purple"></span>1　益</div>
+    <div class="qline"><div class="qline-text">(1) 滿招損，謙受益。<span class="src">（《尚書》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">好處、益處（名詞）</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 至於斟酌損益，進盡忠言，則攸之、禕、允之任也。<span class="src">（諸葛亮《出師表》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">增加（與「損」相對）</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 君之病在肌膚，不治將益深。<span class="src">（《韓非子．喻老》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">更加（副詞）</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 益習其聲，又近出前後，終不敢搏。<span class="src">（柳宗元《黔之驢》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">漸漸（副詞）</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-blue"></span>2　伐</div>
+    <div class="qline"><div class="qline-text">(1) 賣炭翁，伐薪燒炭南山中。<span class="src">（白居易《賣炭翁》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">砍伐（樹木）</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 十年春，齊師伐我。<span class="src">（《左傳．曹劌論戰》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">攻打、進攻</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 口誅筆伐。<span class="src">（汪廷訥《三祝記》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">聲討、抨擊</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 北救趙而西卻秦，此五霸之伐也。<span class="src">（司馬遷《史記．魏公子列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">功勞、功業（名詞）</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-teal"></span>3　已</div>
+    <div class="qline"><div class="qline-text">(1) 學不可以已。<span class="src">（荀子《勸學》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">停止</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 然得而臘之以為餌，可以已大風。<span class="src">（柳宗元《捕蛇者說》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">治癒、止住（病）</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 舟已行矣，而劍不行。<span class="src">（《呂氏春秋．察今》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">已經（副詞）</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 自董卓已來，豪傑並起。<span class="src">（諸葛亮《隆中對》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">通「以」，「已來」即「以來」</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-coral"></span>4　故</div>
+    <div class="qline"><div class="qline-text">(1) 溫故而知新，可以為師矣。<span class="src">（《論語．為政》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">舊有的（知識）（形容詞／名詞）</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 吳不亡越，越故亡吳。<span class="src">（《戰國策．秦客卿造謂穰侯》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">必定、一定（副詞）</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 三日斷五疋，大人故嫌遲。<span class="src">（《孔雀東南飛》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">仍然、還是（副詞）</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 求也退，故進之。<span class="src">（《論語．先進》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">所以、因此（連詞）</span></div></div>
+    <div class="qline"><div class="qline-text">(5) 且以一璧之故逆彊秦之驩，不可。<span class="src">（司馬遷《史記．廉頗藺相如列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">緣故、原因（名詞）</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-amber"></span>5　會</div>
+    <div class="qline"><div class="qline-text">(1) 遷客騷人，多會於此。<span class="src">（范仲淹《岳陽樓記》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">聚集、會合</span></div></div>
+    <div class="qline"><div class="qline-text">(2) 公子於是乃置酒大會賓客。<span class="src">（司馬遷《史記．魏公子列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">宴請、聚會（動詞）</span></div></div>
+    <div class="qline"><div class="qline-text">(3) 會其怒，不敢獻。<span class="src">（司馬遷《史記．項羽本紀》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">適逢、恰巧遇上</span></div></div>
+    <div class="qline"><div class="qline-text">(4) 適逢其會。<span class="src">（文康《兒女英雄傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">時機、機會（名詞）</span></div></div>
+  </div>
+
+  <!-- ============ 二、古今詞義 ============ -->
+  <div class="section-header" id="sec2">
+    <span class="icon">🔄</span>
+    <h2>古今詞義</h2>
+    <span class="num">範疇二</span>
+  </div>
+
+  <p class="intro-text">白話文中不少詞語都是承襲文言詞語而來，但隨着語言演變，部分古今詞義已有轉變，常見有以下三種情況：</p>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-purple"></span>詞義擴大</div>
+    「甘」古義只解作食物味美，今義除此之外，還多了「心裏願意」的意思，如「心甘情願」。
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-blue"></span>詞義縮小</div>
+    「丈夫」古義是成年男子的通稱，今義則專指妻子的配偶。
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-teal"></span>詞義改變</div>
+    「乖」古義指偏執、不馴順，今義卻變成聽話、安順，意思完全相反。
+  </div>
+
+  <div class="subtitle-bar">練習一：寫出帶點詞語的古義與今義</div>
+
+  <div class="card">
+    <div class="qline"><div class="qline-text">1　有賣油翁釋擔而立，睨之，久而不去。<span class="src">（歐陽修《賣油翁》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：離開　今義：前往（某處）</span></div></div>
+    <div class="qline"><div class="qline-text">2　百千兒哭，百千犬吠，中間力拉崩倒之聲。<span class="src">（林嗣環《口技》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：其中夾雜著　今義：兩者之間的位置</span></div></div>
+    <div class="qline"><div class="qline-text">3　虎見之，龐然大物也，以為神。<span class="src">（柳宗元《黔之驢》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：把牠當作（是神）　今義：認為（凝固為單一詞語，表主觀判斷）</span></div></div>
+    <div class="qline"><div class="qline-text">4　今韓、魏，中國之處，而天下之樞也。<span class="src">（《戰國策．秦策》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：中原地區　今義：國家名稱（中華人民共和國）</span></div></div>
+    <div class="qline"><div class="qline-text">5　阿爺無大兒，木蘭無長兄。<span class="src">（《木蘭辭》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：父親　今義：祖父</span></div></div>
+    <div class="qline"><div class="qline-text">6　問今是何世，乃不知有漢，無論魏晉。<span class="src">（陶淵明《桃花源記》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：不要說、更不必說　今義：表條件不同而結果不變的連詞（無論⋯都⋯）</span></div></div>
+  </div>
+
+  <div class="subtitle-bar">練習二：分析古義與今義</div>
+
+  <div class="card">
+    <div class="qline"><div class="qline-text">1　臣竊以為其人勇士，有智謀，宜可使。<span class="src">（司馬遷《史記．廉頗藺相如列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：私下（謙辭）　今義：偷竊</span></div></div>
+    <div class="qline"><div class="qline-text">2　誠宜開張聖聽，以光先帝遺德。<span class="src">（諸葛亮《出師表》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：擴大、廣開　今義：商店開始營業</span></div></div>
+    <div class="qline"><div class="qline-text">3　以殘年餘力，曾不能毀山之一毛。<span class="src">（列子《愚公移山》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：地面所生的草木　今義：毛髮，或貨幣單位「角」</span></div></div>
+    <div class="qline"><div class="qline-text">4　取天下之田，與天下之民，合計其數而權之，而民各分其可得之田。<span class="src">（劉大櫆《井田》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：衡量、估量　今義：權力、權利</span></div></div>
+    <div class="qline"><div class="qline-text">5　置幣遺單于。<span class="src">（《漢書．蘇武傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">古義：禮物（絲織品等饋贈之物）　今義：貨幣、金錢</span></div></div>
+  </div>
+
+  <!-- ============ 三、詞類活用 ============ -->
+  <div class="section-header" id="sec3">
+    <span class="icon">🔧</span>
+    <h2>詞類活用</h2>
+    <span class="num">範疇三</span>
+  </div>
+
+  <p class="intro-text">在特定語境中，文言文部分詞語的詞性會被臨時改變，稱為「詞類活用」，常見有以下三種：</p>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-purple"></span>名詞活用為動詞</div>
+    「驢不勝怒，蹄之」（柳宗元《黔之驢》）中的「蹄」，由名詞「蹄」變成動詞「踢」。
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-blue"></span>動詞活用為名詞</div>
+    「奉不可失，敵不可縱」（《左傳．僖公三十三年》）中的「奉」，由動詞「贈送」變成名詞「贈送的機會」。
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-teal"></span>形容詞活用為動詞</div>
+    「吾妻之美我者」中的「美」，由形容詞「美麗」變成動詞「認為⋯美麗／喜歡」。
+  </div>
+
+  <div class="subtitle-bar">練習一：選出正確活用方式</div>
+  <div class="card">
+    <div class="option-row"><span class="opt">A 名詞活用為動詞</span><span class="opt">B 名詞活用為形容詞</span><span class="opt">C 形容詞活用為名詞</span><span class="opt">D 形容詞活用為動詞</span></div>
+    <div class="qline"><div class="qline-text">1　縱江東父兄憐而王我，我何面目見之？<span class="src">（司馬遷《史記．項羽本紀》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　「王」名詞作動詞，使動用法：使⋯為王</span></div></div>
+    <div class="qline"><div class="qline-text">2　孟嘗君客我。<span class="src">（《戰國策．馮諼客孟嘗君》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　「客」名詞作動詞，意動用法：以⋯為客</span></div></div>
+    <div class="qline"><div class="qline-text">3　假舟楫者，非能水也。<span class="src">（荀子《勸學》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　「水」名詞作動詞：游泳</span></div></div>
+    <div class="qline"><div class="qline-text">4　殫其地之出，竭其廬之入。<span class="src">（柳宗元《捕蛇者說》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">D　「出」「入」動詞作名詞：生產所得、收入所得（本題選項對應：動詞活用為名詞）</span></div></div>
+    <div class="qline"><div class="qline-text">5　春風又綠江南岸。<span class="src">（王安石《泊船瓜洲》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">D　「綠」形容詞作動詞，使動用法：使⋯變綠</span></div></div>
+    <div class="qline"><div class="qline-text">6　公將鼓之。<span class="src">（《左傳．曹劌論戰》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">C　「鼓」名詞作動詞：擊鼓</span></div></div>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div><div class="alert-label">常見陷阱</div>第 4 題的選項排列與練習一其餘各題略有不同（多了「動詞活用為名詞」一項），做題時務必先看清楚四個選項的內容，不要按習慣直接套用相同字母。</div>
+  </div>
+
+  <div class="subtitle-bar">練習二：寫出活用方式及詞義</div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-purple"></span>1　積善成德，而神明自得，聖心備焉。<span class="src">（荀子《勸學》）</span></div>
+    <div class="qline"><div class="qline-text">活用方式：__________ 活用為 __________　　詞義選項：A 優點　B 善行　C 仁慈　D 善心</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">形容詞活用為名詞；詞義：B 善行</span></div></div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-blue"></span>2　小學而大遺，吾未見其明也。<span class="src">（韓愈《師說》）</span></div>
+    <div class="qline"><div class="qline-text">活用方式：__________ 活用為 __________　　詞義選項：A 大多數　B 與「小」相對　C 大概　D 大的疑難（道理）</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">形容詞活用為名詞；詞義：D 大的疑難（指深奧的道理）</span></div></div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-teal"></span>3　昂其直，居為奇貨。<span class="src">（蒲松齡《促織》）</span></div>
+    <div class="qline"><div class="qline-text">活用方式：__________ 活用為 __________　　詞義選項：A 精神振奮　B 仰頭　C 使之價錢昂貴　D 昂貴</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">形容詞活用為動詞（使動）；詞義：C 使之價錢昂貴</span></div></div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-coral"></span>4　既臣大夏而君之。<span class="src">（《漢書．張騫李廣利傳》）</span></div>
+    <div class="qline"><div class="qline-text">活用方式：__________ 活用為 __________　　詞義選項：A 使之臣服　B 攻打　C 使之推舉　D 臣子</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">名詞活用為動詞（使動）；詞義：A 使之臣服</span></div></div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-amber"></span>5　汗牛塞屋，富貴家之書。<span class="src">（袁枚《黃生借書說》）</span></div>
+    <div class="qline"><div class="qline-text">活用方式：__________ 活用為 __________　　詞義選項：A 流汗的　B 汗水　C 使之出汗　D 汗顏</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">名詞活用為動詞（使動）；詞義：C 使之出汗</span></div></div>
+  </div>
+
+  <!-- ============ 四、文言句式 ============ -->
+  <div class="section-header" id="sec4">
+    <span class="icon">🏛️</span>
+    <h2>文言句式</h2>
+    <span class="num">範疇四</span>
+  </div>
+
+  <p class="intro-text">文言文有特定的句式結構，常見有以下四類：</p>
+
+  <div class="card">
+    <div class="card-title"><span class="dot dot-purple"></span>判斷句</div>
+    表示對事物或人的性質作出判斷，最常見句式是「⋯⋯者，⋯⋯也」或「⋯⋯也」。
+    <div class="example-box">例：庭下如積水空明，水中藻荇交橫，蓋竹柏影也。（蘇軾《記承天寺夜遊》）</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-blue"></span>省略句</div>
+    省略部分句子成分，最常見是省略主語和賓語。
+    <div class="example-box teal">省略主語：長老曰：「（百姓）苦為河伯娶婦，以故貧。」（司馬遷《史記．西門豹治鄴》）</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-teal"></span>倒裝句</div>
+    包括謂語前置、賓語前置、定語後置、狀語後置。
+    <div class="example-box coral">賓語前置：問女何所思，問女何所憶。（《木蘭辭》）</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot dot-coral"></span>被動句</div>
+    句子主語為被動者，多以「於」「見」「為」「被」等字表示被動。
+    <div class="example-box amber">為天下笑者，何也？（賈誼《過秦論》）</div>
+  </div>
+
+  <div class="subtitle-bar">練習一：辨別句式</div>
+  <div class="card">
+    <div class="option-row"><span class="opt">A 判斷句</span><span class="opt">B 省略句</span><span class="opt">C 倒裝句</span><span class="opt">D 被動句</span></div>
+    <div class="qline"><div class="qline-text">1　居廟堂之高，則憂其民。<span class="src">（范仲淹《岳陽樓記》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">C　定語後置，即「高廟堂」</span></div></div>
+    <div class="qline"><div class="qline-text">2　句讀之不知，惑之不解。<span class="src">（韓愈《師說》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">C　賓語前置，即「不知句讀，不解惑」</span></div></div>
+    <div class="qline"><div class="qline-text">3　於是辭相印不拜。<span class="src">（文天祥《指南錄．後序》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">B　省略主語「文天祥」</span></div></div>
+    <div class="qline"><div class="qline-text">4　父母宗族皆為戮沒。<span class="src">（《戰國策．燕策》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">D　「為戮沒」表被動：被殺</span></div></div>
+    <div class="qline"><div class="qline-text">5　夫戰，勇氣也。<span class="src">（《左傳．曹劌論戰》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">A　「⋯⋯也」判斷句式</span></div></div>
+  </div>
+
+  <div class="subtitle-bar">練習二：語譯及辨別句式</div>
+  <div class="card">
+    <div class="qline"><div class="qline-text">1　大哉！堯之為君也！<span class="src">（《論語．泰伯》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">語譯：堯作為君主，真偉大啊！　句式：倒裝句（謂語前置）</span></div></div>
+    <div class="qline"><div class="qline-text">2　昔者彌子瑕見愛於衞君。<span class="src">（司馬遷《史記．老子韓非列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">語譯：從前彌子瑕被衞君寵愛。　句式：被動句（見⋯於⋯）</span></div></div>
+    <div class="qline"><div class="qline-text">3　民不足而可治者，古及今，未之嘗聞。<span class="src">（賈誼《論積貯疏》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">語譯：百姓不富足而國家能治理得好的情況，從古到今，不曾聽聞過。　句式：倒裝句（賓語前置：未嘗聞之）</span></div></div>
+    <div class="qline"><div class="qline-text">4　老臣今者殊不欲食，乃自強步，日三四里。<span class="src">（《戰國策．趙策》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">語譯：老臣現在很不想吃東西，於是勉強自己走路，每天走三四里。　句式：省略句（「日三四里」省略謂語「步／行」）</span></div></div>
+    <div class="qline"><div class="qline-text">5　嬴乃夷門抱關者也。<span class="src">（司馬遷《史記．魏公子列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">語譯：我（侯嬴）是看守夷門的人。　句式：判斷句</span></div></div>
+    <div class="qline"><div class="qline-text">6　不聽吾言，身死，妻子為戮。<span class="src">（《國語．越語》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">語譯：不聽我的話，自己死了，妻兒被殺戮。　句式：被動句（為戮）</span></div></div>
+    <div class="qline"><div class="qline-text">7　此三者，吾遺恨也。<span class="src">（歐陽修《伶官傳序》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">語譯：這三件事，是我的遺恨。　句式：判斷句</span></div></div>
+  </div>
+
+  <!-- ============ 五、文言虛詞 ============ -->
+  <div class="section-header" id="sec5">
+    <span class="icon">🔗</span>
+    <h2>文言虛詞</h2>
+    <span class="num">範疇五</span>
+  </div>
+
+  <p class="intro-text">文言虛詞包括代詞、副詞、介詞、連詞、助詞、歎詞等。有些虛詞有幾種解釋，分屬不同詞性，必須掌握語境，配合上文下理來辨析意思。</p>
+
+  <div class="example-box">
+    <div class="example-label">📎 示例：「乎」的不同詞性</div>
+    醉翁之意不在酒，在乎山水之間也。（歐陽修《醉翁亭記》）——「乎」作介詞，解作「於」<br>
+    滕，小國也，間於齊楚，事齊乎，事楚乎？（《孟子．梁惠王下》）——「乎」作語氣助詞，解作「呢」
+  </div>
+
+  <div class="subtitle-bar">練習一：寫出帶點虛詞的意義</div>
+  <div class="card">
+    <div class="qline"><div class="qline-text">1　河水清且漣漪。<span class="src">（《詩經．魏風．伐檀》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">連詞，而且、又（表並列）</span></div></div>
+    <div class="qline"><div class="qline-text">2　使者歸報項王，項王乃疑范增與漢有私，稍奪之權。<span class="src">（司馬遷《史記．項羽本紀》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">副詞，於是、就</span></div></div>
+    <div class="qline"><div class="qline-text">3　水因地而制流，兵因敵而制勝。<span class="src">（《孫子兵法．虛實》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">介詞，依照、根據</span></div></div>
+    <div class="qline"><div class="qline-text">4　君子博學而日參省乎己，則知明而行無過矣。<span class="src">（荀子《勸學》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">連詞，而且（表遞進）</span></div></div>
+    <div class="qline"><div class="qline-text">5　項燕為楚將，數有功，愛士卒，楚人憐之。或以為死，或以為亡。<span class="src">（司馬遷《史記．陳涉世家》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">代詞，有人、有的人</span></div></div>
+    <div class="qline"><div class="qline-text">6　此印者才畢，則第二板已具。<span class="src">（沈括《活板》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">連詞，就（表順承）</span></div></div>
+  </div>
+
+  <div class="subtitle-bar">練習二：寫出意義並語譯</div>
+  <div class="card">
+    <div class="qline"><div class="qline-text">1　江南可採蓮，蓮葉何田田。<span class="src">（《江南》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">意義：多麼（表感歎程度）　語譯：江南可以採蓮，蓮葉是多麼茂盛啊。</span></div></div>
+    <div class="qline"><div class="qline-text">2　以身教者從，以言教者訟。<span class="src">（《後漢書》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">意義：用、憑藉　語譯：用行動教導人的，人們會服從；只用言語教導人的，人們會爭辯不服。</span></div></div>
+    <div class="qline"><div class="qline-text">3　驢一鳴，虎大駭，遂遁，以為且噬己也。<span class="src">（柳宗元《黔之驢》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">意義：將要　語譯：驢子一叫，老虎非常害怕，於是逃跑，以為驢子將要咬自己。</span></div></div>
+    <div class="qline"><div class="qline-text">4　居十日，扁鵲望桓侯而還走。桓侯故使人問之。<span class="src">（《韓非子．喻老》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">意義：代詞，指扁鵲（他）　語譯：過了十天，扁鵲望見桓侯就轉身跑開。桓侯特意派人去問他（為何跑開）。</span></div></div>
+    <div class="qline"><div class="qline-text">5　其濟，君之靈也；不濟，則以死繼之。<span class="src">（《左傳．僖公九年》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">意義：如果、假若（表假設）　語譯：如果成功，是您的福澤保佑；如果不成功，那麼我就以死延續這使命。</span></div></div>
+    <div class="qline"><div class="qline-text">6　秦王恐其破壁，乃辭謝。<span class="src">（司馬遷《史記．廉頗藺相如列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">意義：於是、就　語譯：秦王擔心他（藺相如）撞破璧玉，於是婉言道歉。</span></div></div>
+    <div class="qline"><div class="qline-text">7　大道以多歧亡羊。<span class="src">（馬中錫《中山狼傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">意義：因為　語譯：大路因為岔路太多而丟失了羊。</span></div></div>
+  </div>
+
+  <!-- ============ 六、古音通假 ============ -->
+  <div class="section-header" id="sec6">
+    <span class="icon">🔤</span>
+    <h2>古音通假</h2>
+    <span class="num">範疇六</span>
+  </div>
+
+  <p class="intro-text">文言文的用字，常常會借同音或近音字來代替，稱為「通假」，最常見的方式如下：</p>
+
+  <div class="card"><div class="card-title"><span class="dot dot-purple"></span>同音通假</div>知者不惑。（《論語．子罕》）——借「知」為「智」，解作聰明</div>
+  <div class="card"><div class="card-title"><span class="dot dot-blue"></span>雙聲通假</div>（顏回）不幸短命死矣，今也則亡，未聞好學者也。（《論語．雍也》）——借「亡」為「無」，解作沒有</div>
+  <div class="card"><div class="card-title"><span class="dot dot-teal"></span>疊韻通假</div>食其馮軾下七十餘城。（《漢書．酈食其傳》）——借「馮」為「憑」，解作憑倚、靠着</div>
+
+  <div class="subtitle-bar">練習一：寫出通假字的本字及意義</div>
+  <div class="card">
+    <div class="qline"><div class="qline-text">1　至於移風易俗，黎民醇厚。<span class="src">（《漢書．景帝紀》）</span><br>選項：A 淳　B 順　C 敦</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：A 淳　意義：樸實、敦厚</span></div></div>
+    <div class="qline"><div class="qline-text">2　反歸取之。及反，市罷，遂不得履。<span class="src">（《韓非子．外儲說左上》）</span><br>選項：A 翻　B 返　C 販</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：B 返　意義：返回</span></div></div>
+    <div class="qline"><div class="qline-text">3　雖欲強聒，終必不蒙見察，故略上報，不復一一自辨。<span class="src">（王安石《答司馬諫議書》）</span><br>選項：A 辯　B 辦　C 見</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：A 辯　意義：辯解、說明</span></div></div>
+    <div class="qline"><div class="qline-text">4　虞人道前，鷹犬羅後。<span class="src">（馬中錫《中山狼傳》）</span><br>選項：A 導　B 到　C 渡</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：A 導　意義：引導、帶路</span></div></div>
+    <div class="qline"><div class="qline-text">5　齊師敗績，知伯親禽顏庚。<span class="src">（《左傳．哀公二十三年》）</span><br>選項：A 給　B 及　C 擒</div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：C 擒　意義：捉拿、擒獲</span></div></div>
+  </div>
+
+  <div class="subtitle-bar">練習二：寫出通假字的本字及意義</div>
+  <div class="card">
+    <div class="qline"><div class="qline-text">1　內狼於囊，遂括囊口，肩舉驢上。<span class="src">（馬中錫《中山狼傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：納　意義：放入</span></div></div>
+    <div class="qline"><div class="qline-text">2　有頃，西門豹曰：「弟子何久也？復使一人趣之！」<span class="src">（司馬遷《史記．西門豹治鄴》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：促　意義：催促</span></div></div>
+    <div class="qline"><div class="qline-text">3　極天雲一線異色，須臾成五采。<span class="src">（姚鼐《登泰山記》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：彩　意義：色彩</span></div></div>
+    <div class="qline"><div class="qline-text">4　（與侯嬴）辭決而行。<span class="src">（司馬遷《史記．魏公子列傳》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：訣　意義：告別、辭別</span></div></div>
+    <div class="qline"><div class="qline-text">5　其北陵，文王之所辟風雨也。<span class="src">（《左傳．殽之戰》）</span></div>
+      <div class="qline-ans"><button class="ans-toggle-btn" onclick="toggleOne(this)">顯示答案</button><span class="ans-content">本字：避　意義：躲避</span></div></div>
+  </div>
+
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div><div class="alert-label">重點總結</div>文言知識六大範疇環環相扣：認清一詞多義及古今詞義的差異，有助準確理解文句；掌握詞類活用及通假字規律，能拆解看似陌生的字詞；熟習文言句式，則能準確語譯及判斷考卷中的句式辨析題。建議配合原文反覆誦讀，加深記憶。</div>
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+<script>
+function toggleOne(btn) {
+  const ans = btn.nextElementSibling;
+  const show = ans.classList.toggle('show');
+  btn.textContent = show ? '收起答案' : '顯示答案';
+}
+function toggleAll() {
+  const allAns = document.querySelectorAll('.ans-content');
+  const allBtns = document.querySelectorAll('.ans-toggle-btn');
+  let anyHidden = false;
+  allAns.forEach(a => { if (!a.classList.contains('show')) anyHidden = true; });
+  allAns.forEach(a => a.classList.toggle('show', anyHidden));
+  allBtns.forEach(b => b.textContent = anyHidden ? '收起答案' : '顯示答案');
+  document.getElementById('globalToggleBtn').textContent = anyHidden ? '🙈 隱藏全部答案' : '👁️ 顯示全部答案';
+}
+</script>
+</body>
+</html>
