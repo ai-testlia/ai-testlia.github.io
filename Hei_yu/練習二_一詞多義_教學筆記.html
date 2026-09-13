@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一詞多義 — 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#D5D8C5;
+  --hero-text:#1A2015;
+  --accent:#6F7C52;
+  --accent-10: rgba(111,124,82,0.10);
+  --accent-15: rgba(111,124,82,0.15);
+  --accent-30: rgba(111,124,82,0.30);
+  --teal:#4C8C86; --teal-bg:rgba(76,140,134,0.10);
+  --coral:#C1685A; --coral-bg:rgba(193,104,90,0.10);
+  --amber:#B8863B; --amber-bg:rgba(184,134,59,0.10);
+  --pink:#B06A8F; --pink-bg:rgba(176,106,143,0.10);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#eceae4;
+    --color-text-secondary:#b6b3ab;
+    --color-background-primary:#1c1d18;
+    --color-background-secondary:#25261f;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--color-background-secondary); color:var(--color-text-primary);
+  font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
+  line-height:1.8; font-size:14px;
+}
+h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;}
+.wrap{max-width:880px; margin:0 auto; padding:28px 20px 80px;}
+.hero{background:var(--hero-bg); color:var(--hero-text); border-radius:var(--border-radius-lg); padding:34px 30px; text-align:center; margin-bottom:20px;}
+.hero-tag{display:inline-block; padding:4px 14px; border-radius:999px; border:1px solid rgba(26,32,21,0.3); color:rgba(26,32,21,0.65); font-size:12.5px; letter-spacing:1px; margin-bottom:12px;}
+.hero h1{font-size:30px; font-weight:900; margin:0 0 8px;}
+.hero p{margin:0; color:rgba(26,32,21,0.5); font-size:13px;}
+.toc{background:var(--color-background-primary); border:1px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:16px 20px; margin-bottom:26px; display:grid; grid-template-columns:repeat(2,1fr); gap:8px 20px;}
+.toc-item{font-size:13.5px; color:var(--color-text-secondary); display:flex; gap:8px;}
+.toc-item b{color:var(--accent); font-family:"Noto Serif TC",serif;}
+.section-header{display:flex; align-items:center; gap:10px; margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--accent-30);}
+.section-header .num{width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.section-header h2{font-size:19px; margin:0; color:var(--color-text-primary);}
+.section-divider{margin:26px 0; border:none; border-top:1px dashed var(--color-border-tertiary);}
+.card{background:var(--color-background-primary); border:1px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:18px 20px; margin-bottom:14px;}
+.card h3{font-size:15px; margin:0 0 8px; display:flex; align-items:center; gap:8px;}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--accent); display:inline-block;}
+.dot.teal{background:var(--teal);} .dot.coral{background:var(--coral);} .dot.amber{background:var(--amber);} .dot.pink{background:var(--pink);}
+.card p{margin:6px 0;}
+.example-box{background:var(--accent-10); border-left:3px solid var(--accent); border-radius:0 var(--border-radius-md) var(--border-radius-md) 0; padding:10px 14px; margin:10px 0;}
+.example-box.teal{background:var(--teal-bg); border-color:var(--teal);}
+.example-box.coral{background:var(--coral-bg); border-color:var(--coral);}
+.example-box.amber{background:var(--amber-bg); border-color:var(--amber);}
+.example-label{font-size:11.5px; font-weight:700; color:var(--accent); margin-bottom:4px;}
+.example-box.teal .example-label{color:var(--teal);}
+.example-box.coral .example-label{color:var(--coral);}
+.example-box.amber .example-label{color:var(--amber);}
+.example-text{font-size:14px;}
+.alert{display:flex; gap:10px; padding:12px 14px; border-radius:var(--border-radius-md); margin:12px 0; align-items:flex-start;}
+.alert.tip{background:rgba(76,140,134,0.10);} .alert.warn{background:rgba(193,104,90,0.10);}
+.alert-icon{font-size:16px;}
+.alert-label{font-weight:700; font-size:12.5px; margin-bottom:2px;}
+.alert.tip .alert-label{color:var(--teal);} .alert.warn .alert-label{color:var(--coral);}
+.alert-text{font-size:13.5px; color:var(--color-text-secondary);}
+table{width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0;}
+th,td{border:1px solid var(--color-border-tertiary); padding:8px 10px; text-align:left; vertical-align:top;}
+th{background:var(--color-background-secondary); font-weight:700;}
+.qitem{border:1px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:12px 16px; margin:10px 0; background:var(--color-background-primary);}
+.qprompt{font-size:14.5px; margin-bottom:2px;}
+.q-source{font-size:12.5px; color:var(--color-text-secondary);}
+.qgroup-title{font-size:13.5px; font-weight:700; color:var(--accent); margin:16px 0 4px;}
+.answer-toggle{margin-top:8px; display:inline-flex; align-items:center; gap:6px; padding:5px 14px; border-radius:999px; border:1px solid var(--accent-30); background:var(--accent-10); color:var(--accent); font-size:12.5px; cursor:pointer; user-select:none; font-family:inherit;}
+.answer-toggle:hover{background:var(--accent-15);}
+.answer-content{display:none; margin-top:10px; padding:12px 16px; background:var(--color-background-secondary); border:1px dashed var(--accent-30); border-radius:var(--border-radius-md); font-size:13.5px;}
+.answer-content.show{display:block;}
+.ans-label{font-size:11.5px; font-weight:700; color:var(--accent); margin-bottom:6px; letter-spacing:1px;}
+.floating-bar{position:fixed; bottom:22px; right:22px; display:flex; flex-direction:column; gap:10px; z-index:99;}
+.fab{padding:11px 18px; border-radius:999px; border:none; cursor:pointer; font-size:13px; font-weight:700; box-shadow:0 4px 14px rgba(0,0,0,0.18); font-family:inherit; color:#fff;}
+.fab.primary{background:var(--accent);}
+.fab.secondary{background:var(--color-text-secondary);}
+footer{margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;}
+@media print{
+  @page{ margin:12mm 10mm; }
+  body{ background:#fff; }
+  .wrap{ max-width:100%; padding:0; }
+  .toc{ display:none; }
+  a{ color:inherit; text-decoration:none; }
+  .card,.qitem,.example-box,.alert{ page-break-inside:avoid; }
+  .section-header{ page-break-before:always; page-break-after:avoid; }
+  .section-header:first-of-type{ page-break-before:auto; }
+  .hero{ page-break-after:avoid; }
+  .section-divider{ page-break-after:avoid; }
+  .floating-bar,.answer-toggle{ display:none !important; }
+  .answer-content, .answer-content.show{ display:none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>一詞多義</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-item"><b>01</b>一詞多義是甚麼</div>
+    <div class="toc-item"><b>02</b>熱身活動：書與過</div>
+    <div class="toc-item"><b>03</b>一詞多義現象的成因</div>
+    <div class="toc-item"><b>04</b>課堂練習</div>
+  </div>
+
+  <div class="section-header"><div class="num">1</div><h2>一詞多義是甚麼</h2></div>
+  <div class="card">
+    <p>一個詞語有兩個或以上的意義，就叫一詞多義。文言文中有很多一詞多義的例子，閱讀時要理解它們的正確意思，才能讀通文章。</p>
+  </div>
+
+  <div class="section-header"><div class="num">2</div><h2>熱身活動：書與過</h2></div>
+  <div class="card">
+    <h3><span class="dot"></span>先試試：以下帶點的「書」和「過」字，在不同句子中有何不同意思？</h3>
+
+    <div class="qgroup-title">書</div>
+    <div class="qitem"><div class="qprompt">(1) 秦御史前書曰：「某月某日，秦王與趙王會飲，令趙王鼓瑟。」 <span class="q-source">（司馬遷《史記‧廉頗藺相如列傳》）</span></div>
+      <div style="font-size:12.5px;color:var(--color-text-secondary);">提示：御史是掌文書及記事的官員</div>
+      <button class="answer-toggle" onclick="toggleAnswer('w1',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="w1"><p>釋義：書寫、記錄</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(2) 乃丹書帛曰：「陳勝王」，置人所罾魚腹中。卒買魚烹食，得魚腹中書，固以怪之矣。 <span class="q-source">（司馬遷《史記‧陳涉世家》）</span></div>
+      <div style="font-size:12.5px;color:var(--color-text-secondary);">提示：注意上文提到的事</div>
+      <button class="answer-toggle" onclick="toggleAnswer('w2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="w2"><p>釋義：寫上「陳勝王」的小布條</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(3) 趙惠文王時，得楚和氏璧。秦昭王聞之，使人遺趙王書，願以十五城請易璧。 <span class="q-source">（司馬遷《史記‧廉頗藺相如列傳》）</span></div>
+      <div style="font-size:12.5px;color:var(--color-text-secondary);">提示：注意人物的身份和「書」的作用</div>
+      <button class="answer-toggle" onclick="toggleAnswer('w3',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="w3"><p>釋義：書信</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(4) 上書諫寡人者，受中賞。 <span class="q-source">（《戰國策‧齊策》）</span></div>
+      <div style="font-size:12.5px;color:var(--color-text-secondary);">提示：注意人物的身份和目的</div>
+      <button class="answer-toggle" onclick="toggleAnswer('w4',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="w4"><p>釋義：奏本</p></div>
+    </div>
+
+    <div class="qgroup-title">過</div>
+    <div class="qitem"><div class="qprompt">(1) 禹八年於外，三過其門而不入。 <span class="q-source">（《孟子‧滕文公上》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('g1',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="g1"><p>釋義：走過、經過</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(2) 於是乘其車，揭其劍，過其友，曰：「孟嘗君客我。」 <span class="q-source">（《戰國策‧齊策》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('g2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="g2"><p>釋義：拜訪、探望</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(3) 子貢問：「師與商也孰賢？」子曰：「師也過，商也不及。」曰：「然則師愈與？」子曰：「過猶不及。」 <span class="q-source">（《論語‧先進》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('g3',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="g3"><p>釋義：超過、超過某標準</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(4) 羣臣吏民能面刺寡人之過者，受上賞。 <span class="q-source">（《戰國策‧齊策》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('g4',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="g4"><p>釋義：過錯</p></div>
+    </div>
+  </div>
+
+  <div class="section-header"><div class="num">3</div><h2>一詞多義現象的成因</h2></div>
+
+  <div class="card">
+    <h3><span class="dot"></span>1　本義與引申義</h3>
+    <p>一個字或詞，最初創造時一般只有一個基本意義。人們在這個意義之外聯想到與它相近的意義，於是這個字或詞便有了第二、第三……種意義，這種情況稱為引申。由於引申義與本義有直接或間接的聯繫，只要知道基本意義，閱讀時就不難推斷出它在文中的意義。</p>
+    <div class="example-box">
+      <div class="example-label">例：上</div>
+      <div class="example-text">
+        本義：上下的上，表示方位。<br>
+        引申義：① 高的地位，如「上賓」　② 地位最高的人——皇帝　③ 價值的高低，如「上將」、「上駟」　④ 時間的先後，如「上古」、「上世」　⑤ 由下而上，如「上樓」　⑥ 居於人上、佔先，如「君子不欲多上人」
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot teal"></span>2　借用</h3>
+    <p>在文言文中，一些字往往與其他一些字通用。</p>
+    <div class="example-box teal">
+      <div class="example-label">假借字</div>
+      <div class="example-text">「假借者，本無其字，依聲託事。」（許慎《說文解字序》）某一詞義本來沒有字可以表示，於是借用一個同音字來表示。例如「而」（本義為鬍鬚）借用作連接詞，「八」（本義為分別）借用作數詞，「難」（本義為一種鳥的名稱）借用來表示困難。</div>
+    </div>
+    <div class="example-box teal">
+      <div class="example-label">通假字</div>
+      <div class="example-text">屬「本有其字」的假借，文字中已有某字，但人們卻用另一個讀音相同或相近的字來代替，兩字字形和意義不一定有關聯。例如「責」假借為「債」、「距」假借為「拒」、「內」假借為「納」、「倍」假借為「背」等。</div>
+    </div>
+    <p>明白字詞引申與通假的原則後，解釋詞義時還須因應文本，調節變化，才能解釋得確切，避免拘執死板。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot amber"></span>3　上文下理</h3>
+    <p>文章是前後連貫的，一個詞語在段落中會受到前後文的制約。因此解釋詞義時，要根據上下文的意思，在一般詞義的基礎上，指出它在文本中的特定意義。</p>
+    <div class="example-box amber">
+      <div class="example-label">例：猖獗</div>
+      <div class="example-text">孤不度德量力，欲信大義於天下。而智術淺短，遂用猖獗，至於今日。（《三國志‧諸葛亮傳》）<br>「猖獗」本有猖狂的意思，但在此句中則解釋為狼狽。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot pink"></span>4　古今異義</h3>
+    <p>詞匯是不斷變化的，一個詞的詞義也會新舊相代。所以要用古義解釋古語，以今義解釋今語，才能解釋得確切。</p>
+    <div class="example-box pink" style="background:var(--pink-bg); border-color:var(--pink);">
+      <div class="example-label" style="color:var(--pink);">例：寫意</div>
+      <div class="example-text">現今「寫意」是舒服愜意的意思，但在「忠可以寫意」（《戰國策‧趙策》）中，「寫」的古義是輸寫，「寫意」是把心意輸寫出來的意思。</div>
+    </div>
+  </div>
+
+  <div class="section-header"><div class="num">4</div><h2>課堂練習</h2></div>
+
+  <div class="card">
+    <h3><span class="dot"></span>1　試將以下句子中「更」字的意思配對</h3>
+    <div class="qitem"><div class="qprompt">(1) 功之成也不足以更責。 <span class="q-source">（《淮南子‧詮言訓》）</span></div><button class="answer-toggle" onclick="toggleAnswer('m1',this)">顯示答案 ▾</button><div class="answer-content" id="m1"><p>答案：D　抵償</p></div></div>
+    <div class="qitem"><div class="qprompt">(2) 舉杯銷愁愁更愁。 <span class="q-source">（李白《宣州謝朓樓餞別校書叔雲》）</span></div><button class="answer-toggle" onclick="toggleAnswer('m2',this)">顯示答案 ▾</button><div class="answer-content" id="m2"><p>答案：B　更加</p></div></div>
+    <div class="qitem"><div class="qprompt">(3) 更上一層樓。 <span class="q-source">（王之渙《登鸛雀樓》）</span></div><button class="answer-toggle" onclick="toggleAnswer('m3',this)">顯示答案 ▾</button><div class="answer-content" id="m3"><p>答案：A　再</p></div></div>
+    <div class="qitem"><div class="qprompt">(4) 此則寡人之罪也，寡人請更。 <span class="q-source">（《國語‧越語上》）</span></div><button class="answer-toggle" onclick="toggleAnswer('m4',this)">顯示答案 ▾</button><div class="answer-content" id="m4"><p>答案：G　改正</p></div></div>
+    <div class="qitem"><div class="qprompt">(5) 每有警，輒數月不就寢，使將士更休，而自坐帷幕外。 <span class="q-source">（方苞《左忠毅公軼事》）</span></div><button class="answer-toggle" onclick="toggleAnswer('m5',this)">顯示答案 ▾</button><div class="answer-content" id="m5"><p>答案：F　輪流</p></div></div>
+    <div class="qitem"><div class="qprompt">(6) 因欲通使（大月氏），道必更匈奴中。 <span class="q-source">（司馬遷《史記‧大宛列傳》）</span></div><button class="answer-toggle" onclick="toggleAnswer('m6',this)">顯示答案 ▾</button><div class="answer-content" id="m6"><p>答案：E　經過</p></div></div>
+    <div class="qitem"><div class="qprompt">(7) 鄉里皆謂已死，更相慶。 <span class="q-source">（劉義慶《世說新語‧自新》）</span></div><button class="answer-toggle" onclick="toggleAnswer('m7',this)">顯示答案 ▾</button><div class="answer-content" id="m7"><p>答案：C　一再</p></div></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot teal"></span>2　試寫出以下各句中「益」字的引申義（本義：水從器皿漫出來）</h3>
+    <div class="qitem"><div class="qprompt">(1) 城為保民為之也。民眾城小則益城。 <span class="q-source">（《穀梁傳‧隱公七年》）</span></div><button class="answer-toggle" onclick="toggleAnswer('y1',this)">顯示答案 ▾</button><div class="answer-content" id="y1"><p>引申義：增、加</p></div></div>
+    <div class="qitem"><div class="qprompt">(2) 觀布衣也，其友皆孝悌純謹畏令，如此者，其家必日益，身必日榮。 <span class="q-source">（《呂氏春秋‧貴當》）</span></div><button class="answer-toggle" onclick="toggleAnswer('y2',this)">顯示答案 ▾</button><div class="answer-content" id="y2"><p>引申義：富裕</p></div></div>
+    <div class="qitem"><div class="qprompt">(3) 古之人虛中樂善，不擇事而問焉，不擇人而問焉，取其有益於身而已。 <span class="q-source">（劉開《問說》）</span></div><button class="answer-toggle" onclick="toggleAnswer('y3',this)">顯示答案 ▾</button><div class="answer-content" id="y3"><p>引申義：利益、好處</p></div></div>
+    <div class="qitem"><div class="qprompt">(4) 是故聖益聖，愚益愚。 <span class="q-source">（韓愈《師說》）</span></div><button class="answer-toggle" onclick="toggleAnswer('y4',this)">顯示答案 ▾</button><div class="answer-content" id="y4"><p>引申義：更加</p></div></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot amber"></span>3　試寫出與以下句子中帶點的字相通的字，以及釋義</h3>
+    <div class="qitem"><div class="qprompt">(1) 必能裨補闕漏，有所廣益。 <span class="q-source">（諸葛亮《出師表》）</span></div><button class="answer-toggle" onclick="toggleAnswer('t1',this)">顯示答案 ▾</button><div class="answer-content" id="t1"><p>相通的字：缺　｜　釋義：缺點</p></div></div>
+    <div class="qitem"><div class="qprompt">(2) 生亦我所欲，所欲有甚於生者，故不為苟得也；死亦我所惡，所惡有甚於死者，故患有所不辟也。 <span class="q-source">（孟子《魚我所欲也》）</span></div><button class="answer-toggle" onclick="toggleAnswer('t2',this)">顯示答案 ▾</button><div class="answer-content" id="t2"><p>相通的字：避　｜　釋義：逃避</p></div></div>
+    <div class="qitem"><div class="qprompt">(3) 相如謂臣曰：「夫趙彊而燕弱，而君幸於趙王，故燕王欲結於君。」 <span class="q-source">（司馬遷《史記‧廉頗藺相如列傳》）</span></div><button class="answer-toggle" onclick="toggleAnswer('t3',this)">顯示答案 ▾</button><div class="answer-content" id="t3"><p>相通的字：強　｜　釋義：強大</p></div></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot pink"></span>4　試根據上文下理解釋以下句子中帶點的字的意思</h3>
+    <div class="qitem"><div class="qprompt">(1) 時操軍眾，已有疾疫。初一交戰，操軍不利，引次（停駐）江北。 <span class="q-source">（司馬光《資治通鑒‧漢紀》）</span></div><button class="answer-toggle" onclick="toggleAnswer('u1',this)">顯示答案 ▾</button><div class="answer-content" id="u1"><p>釋義：撤退</p></div></div>
+    <div class="qitem"><div class="qprompt">(2) 君子病無能焉，不病人之不己知也。 <span class="q-source">（《論語‧衞靈公》）</span></div><button class="answer-toggle" onclick="toggleAnswer('u2',this)">顯示答案 ▾</button><div class="answer-content" id="u2"><p>釋義：擔心、憂慮</p></div></div>
+    <div class="qitem"><div class="qprompt">(3) 樊噲曰：「臣死且不避，卮酒安足辭！夫秦王有虎狼之心，殺人如不能舉，刑人如恐不勝，天下皆叛之。」 <span class="q-source">（司馬遷《史記‧項羽本紀》）</span></div><button class="answer-toggle" onclick="toggleAnswer('u3',this)">顯示答案 ▾</button><div class="answer-content" id="u3"><p>釋義：盡、全部</p></div></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>5　試寫出以下句子中帶點字詞的古義</h3>
+    <div class="qitem">
+      <div class="qprompt">(1) 屈原至於江濱，被髮行吟澤畔。顏色憔悴，形容枯槁。 <span class="q-source">（司馬遷《史記‧屈原賈生列傳》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('o1',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="o1"><p>顏色　古義：面容神色（今義：光波反射產生的視覺效果）<br>形容　古義：體態容貌（今義：對事物的描述）</p></div>
+    </div>
+    <div class="qitem">
+      <div class="qprompt">(2) 萬鍾則不辯禮義而受之，萬鍾於我何加焉？為宮室之美、妻妾之奉、所識窮乏者得我與？ <span class="q-source">（孟子《魚我所欲也》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('o2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="o2"><p>宮　古義：房屋（今義：宮殿）</p></div>
+    </div>
+    <div class="qitem">
+      <div class="qprompt">(3) 秦王坐章台見相如，相如奉璧奏秦王。秦王大喜，傳以示美人及左右，左右皆呼萬歲。 <span class="q-source">（司馬遷《史記‧廉頗藺相如列傳》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('o3',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="o3"><p>美人　古義：歌伎、妃嬪（今義：美貌女子）<br>左右　古義：近臣、侍衞（今義：左方和右方、大致的範圍、控制）</p></div>
+    </div>
+    <div class="qitem">
+      <div class="qprompt">(4) 夫六國與秦皆諸侯，其勢弱於秦，而猶有可以不賂而勝之之勢；苟以天下之大，下而從六國破亡之故事，是又在六國下矣！ <span class="q-source">（蘇洵《六國論》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('o4',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="o4"><p>故事　古義：先例、歷史教訓（今義：真實或虛構有人物情節的事情）</p></div>
+    </div>
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。<br>
+      <span style="opacity:0.7;">內容參考自《讀寫能力精進練習（文言篇）》練習二，© 牛津大學出版社</span>
+    </div>
+  </footer>
+
+</div>
+
+<div class="floating-bar">
+  <button class="fab primary" onclick="toggleAllAnswers(this)">顯示全部答案</button>
+  <button class="fab secondary" onclick="window.print()">列印 / PDF</button>
+</div>
+
+<script>
+function toggleAnswer(id, btn){
+  const el = document.getElementById(id);
+  const showing = el.classList.toggle('show');
+  btn.textContent = showing ? '隱藏答案 ▴' : '顯示答案 ▾';
+}
+function toggleAllAnswers(btn){
+  const all = document.querySelectorAll('.answer-content');
+  const anyHidden = Array.from(all).some(el => !el.classList.contains('show'));
+  all.forEach(el => el.classList.toggle('show', anyHidden));
+  document.querySelectorAll('.answer-toggle').forEach(b => {
+    b.textContent = anyHidden ? '隱藏答案 ▴' : '顯示答案 ▾';
+  });
+  btn.textContent = anyHidden ? '隱藏全部答案' : '顯示全部答案';
+}
+</script>
+</body>
+</html>
