@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>段義理解：主旨判斷全攻略｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --accent-purple: #6C5CE7;
+  --accent-blue: #4A90D9;
+  --accent-teal: #16A398;
+  --accent-coral: #E8604C;
+  --accent-amber: #D98C2B;
+  --accent-pink: #D9548C;
+  --accent-green: #2E9E5B;
+  --accent-red: #D64545;
+
+  --hero-bg: #C8D5D8;
+  --hero-text: #122025;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-text-primary: #ececec;
+    --color-text-secondary: #a8a8a8;
+    --color-background-primary: #1c1c1e;
+    --color-background-secondary: #262628;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+  }
+}
+:root[data-theme="dark"] {
+  --color-text-primary: #ececec;
+  --color-text-secondary: #a8a8a8;
+  --color-background-primary: #1c1c1e;
+  --color-background-secondary: #262628;
+  --color-border-tertiary: rgba(255,255,255,0.12);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  line-height: 1.8;
+}
+.wrap { max-width: 880px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  border-radius: var(--border-radius-lg);
+  padding: 44px 36px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: 1px solid rgba(18,32,37,0.3);
+  color: rgba(18,32,37,0.65);
+  border-radius: 999px;
+  padding: 5px 16px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-family: "Noto Serif TC", serif;
+  font-weight: 900;
+  font-size: 34px;
+  margin: 0 0 10px;
+  letter-spacing: 1px;
+}
+.hero p { margin: 0; color: rgba(18,32,37,0.5); font-size: 14px; }
+
+.toc {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 22px 26px;
+  margin-bottom: 32px;
+}
+.toc-title { font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--color-text-primary); }
+.toc-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 0; font-size: 14px; color: var(--color-text-secondary);
+  text-decoration: none; border-bottom: 1px dashed var(--color-border-tertiary);
+}
+.toc-item:last-child { border-bottom: none; }
+.toc-item span.num {
+  width: 22px; height: 22px; flex-shrink: 0;
+  background: var(--hero-bg); color: var(--hero-text);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+}
+
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin: 44px 0 20px;
+}
+.section-header .icon {
+  width: 42px; height: 42px; flex-shrink: 0; border-radius: var(--border-radius-md);
+  background: var(--hero-bg); display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.section-header h2 {
+  font-family: "Noto Serif TC", serif;
+  font-size: 21px; margin: 0; color: var(--color-text-primary);
+}
+.section-header .chno { font-size: 12px; color: var(--color-text-secondary); letter-spacing: 1px; }
+
+.card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 22px 24px;
+  margin-bottom: 18px;
+}
+.card .dot { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; margin-bottom: 10px; }
+.card .dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); display: inline-block; }
+.card.purple .dot::before { background: var(--accent-purple); }
+.card.teal .dot::before { background: var(--accent-teal); }
+.card.coral .dot::before { background: var(--accent-coral); }
+.card.amber .dot::before { background: var(--accent-amber); }
+.card p, .card li { font-size: 14px; line-height: 1.8; color: var(--color-text-primary); }
+.card ul { padding-left: 20px; margin: 8px 0; }
+
+.example-box {
+  border-left: 4px solid var(--accent-purple);
+  background: color-mix(in srgb, var(--accent-purple) 7%, var(--color-background-primary));
+  border-radius: var(--border-radius-md);
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.example-box.teal { border-left-color: var(--accent-teal); background: color-mix(in srgb, var(--accent-teal) 7%, var(--color-background-primary)); }
+.example-box.coral { border-left-color: var(--accent-coral); background: color-mix(in srgb, var(--accent-coral) 7%, var(--color-background-primary)); }
+.example-box.amber { border-left-color: var(--accent-amber); background: color-mix(in srgb, var(--accent-amber) 7%, var(--color-background-primary)); }
+.example-box.pink { border-left-color: var(--accent-pink); background: color-mix(in srgb, var(--accent-pink) 7%, var(--color-background-primary)); }
+.example-label { font-size: 12px; font-weight: 700; color: var(--color-text-secondary); margin-bottom: 6px; }
+.example-text { font-size: 14px; color: var(--color-text-primary); }
+
+.alert {
+  display: flex; gap: 12px; align-items: flex-start;
+  border-radius: var(--border-radius-md);
+  padding: 14px 18px; margin: 16px 0;
+  border: 1px solid transparent;
+}
+.alert-icon { font-size: 18px; line-height: 1.4; }
+.alert-label { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
+.alert-text { font-size: 14px; }
+.alert.tip { background: rgba(74,144,217,0.08); border-color: rgba(74,144,217,0.25); }
+.alert.tip .alert-label { color: var(--accent-blue); }
+.alert.warn { background: rgba(214,69,69,0.08); border-color: rgba(214,69,69,0.25); }
+.alert.warn .alert-label { color: var(--accent-red); }
+.alert.success { background: rgba(46,158,91,0.08); border-color: rgba(46,158,91,0.25); }
+.alert.success .alert-label { color: var(--accent-green); }
+.alert.amber { background: rgba(217,140,43,0.08); border-color: rgba(217,140,43,0.25); }
+.alert.amber .alert-label { color: var(--accent-amber); }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0 4px; }
+.compare-card { border-radius: var(--border-radius-md); padding: 14px 16px; font-size: 13.5px; }
+.compare-card .tag { font-weight: 700; font-size: 12px; margin-bottom: 8px; display: inline-block; }
+.compare-card.bad { background: rgba(214,69,69,0.07); border: 1px solid rgba(214,69,69,0.25); }
+.compare-card.bad .tag { color: var(--accent-red); }
+.compare-card.good { background: rgba(46,158,91,0.07); border: 1px solid rgba(46,158,91,0.25); }
+.compare-card.good .tag { color: var(--accent-green); }
+@media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+
+.flow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+.flow-step {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 12px 18px; font-size: 14px; font-weight: 700; text-align: center; flex: 1; min-width: 140px;
+}
+.flow-arrow { font-size: 18px; color: var(--color-text-secondary); }
+
+.keyword-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+.kw-card {
+  background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md); padding: 16px 18px;
+}
+.kw-word { font-weight: 700; font-size: 15px; margin-bottom: 6px; color: var(--accent-coral); }
+.kw-def { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.7; }
+@media (max-width: 600px) { .keyword-grid { grid-template-columns: 1fr; } }
+
+.formula {
+  background: var(--color-text-primary); color: var(--color-background-primary);
+  border-radius: var(--border-radius-lg); padding: 20px 24px; margin: 18px 0;
+  font-size: 15px; text-align: center; font-weight: 700; letter-spacing: 0.5px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .formula { background: #ececec; color: #1c1c1e; }
+}
+:root[data-theme="dark"] .formula { background: #ececec; color: #1c1c1e; }
+
+.practice-toolbar {
+  display: flex; justify-content: flex-end; margin-bottom: 14px;
+}
+.toggle-all-btn {
+  background: var(--hero-bg); color: var(--hero-text);
+  border: none; border-radius: 999px; padding: 9px 20px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.qbox {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 20px 24px; margin-bottom: 16px;
+}
+.qbox .qno {
+  display: inline-block; font-weight: 700; font-size: 13px;
+  background: var(--color-background-secondary); border-radius: 999px;
+  padding: 3px 12px; margin-bottom: 10px; color: var(--color-text-secondary);
+}
+.qbox .passage { font-size: 14px; line-height: 1.85; margin-bottom: 12px; color: var(--color-text-primary); }
+.qbox .qstem { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.qbox .options { list-style: none; padding: 0; margin: 0 0 12px; }
+.qbox .options li { font-size: 14px; padding: 4px 0; color: var(--color-text-primary); }
+.qbox .options li b { margin-right: 6px; }
+.qtoggle-btn {
+  background: none; border: 1px solid var(--color-border-tertiary); color: var(--color-text-secondary);
+  border-radius: var(--border-radius-md); padding: 6px 14px; font-size: 12.5px; cursor: pointer;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.answer-panel {
+  display: none; margin-top: 12px; padding: 14px 16px 6px;
+  background: rgba(46,158,91,0.05); border: 1px solid rgba(46,158,91,0.2);
+  border-radius: var(--border-radius-md); font-size: 13.5px;
+}
+.answer-panel.show { display: block; }
+.answer-panel .ans-letter { font-weight: 700; color: var(--accent-green); margin-bottom: 6px; display: block; font-size: 14px; }
+
+.section-divider { height: 1px; background: var(--color-border-tertiary); margin: 40px 0; }
+
+footer { margin-top: 2rem; padding: 1.2rem 1.5rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); text-align: center; }
+
+.print-fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  border: none;
+  border-radius: 999px;
+  padding: 13px 22px 13px 18px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.print-fab:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.22); }
+.print-fab .icon { font-size: 17px; line-height: 1; }
+@media (max-width: 600px) {
+  .print-fab { right: 16px; bottom: 16px; padding: 12px 18px 12px 15px; font-size: 13px; }
+}
+
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header:first-of-type { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+  .toggle-all-btn, .qtoggle-btn, .practice-toolbar { display: none !important; }
+  .answer-panel { display: none !important; }
+  .print-fab { display: none !important; }
+}
+</style>
+</head>
+<body>
+<button class="print-fab" onclick="window.print()"><span class="icon">🖨️</span>列印 / 匯出 PDF</button>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>段義理解：主旨判斷全攻略</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <a class="toc-item" href="#s1"><span class="num">1</span>什麼是「段義理解」主旨題</a>
+    <a class="toc-item" href="#s2"><span class="num">2</span>三步拆解法</a>
+    <a class="toc-item" href="#s3"><span class="num">3</span>四大陷阱類型</a>
+    <a class="toc-item" href="#s4"><span class="num">4</span>全 16 題例題精講與練習</a>
+  </div>
+
+  <div class="section-header" id="s1">
+    <div class="icon">📖</div>
+    <div>
+      <div class="chno">CHAPTER 01</div>
+      <h2>什麼是「段義理解」主旨題</h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="dot">題型特點</div>
+    <p>
+      「段義理解」是段落主旨題，題目通常以一段百餘字的短文，配以「以上一段文字主要說明」作提問，
+      要求從四個選項中選出最能概括整段內容的答案。這類題目常見於呈分試、TSA 及各類小學閱讀理解卷，
+      是測試學生能否分辨「重點」與「細節」的核心題型。
+    </p>
+    <p>
+      學生答錯這類題目，通常不是因為讀不懂文章，而是選了一個文中確實提過、卻並非重點的選項。要答對，關鍵在於能否判斷出哪一句才是全段真正想說明的道理，這考的是<b>判斷力</b>，多於理解力。
+    </p>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">考試技巧</div>
+      <div class="alert-text">四個選項之中，通常只有一個能夠涵蓋全段內容。其餘三個雖然都是段落中真實提過的內容，但只反映局部，不夠全面。</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header" id="s2">
+    <div class="icon">🪜</div>
+    <div>
+      <div class="chno">CHAPTER 02</div>
+      <h2>三步拆解法</h2>
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step">① 通讀全段</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">② 找關鍵句</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">③ 刪去法對答案</div>
+  </div>
+
+  <div class="card purple">
+    <div class="dot">第一步：通讀全段，掌握結構</div>
+    <p>先快速讀完整段，弄清楚文章的基本結構：主角是誰？發生了什麼事？結果如何？段義理解的短文大多依循「背景 → 經過 → 結果 / 感悟」的結構鋪排。</p>
+  </div>
+
+  <div class="card teal">
+    <div class="dot">第二步：找出「關鍵句」</div>
+    <p>關鍵句（也叫總結句）多數出現在段首或段尾，並常帶有提示詞語，例如：</p>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">因此 / 於是</div><div class="kw-def">帶出前文的結果或結論</div></div>
+      <div class="kw-card"><div class="kw-word">難怪 / 可見</div><div class="kw-def">總結全段所要說明的道理</div></div>
+      <div class="kw-card"><div class="kw-word">最終 / 終於</div><div class="kw-def">點出人物最後的成就或結局</div></div>
+      <div class="kw-card"><div class="kw-word">由於……所以</div><div class="kw-def">交代因果關係，因果合起來即主旨</div></div>
+    </div>
+  </div>
+
+  <div class="card coral">
+    <div class="dot">第三步：用刪去法比對選項</div>
+    <p>找到關鍵句後，逐一檢視四個選項，判斷這個選項是「涵蓋全段」，還是「只講述其中一部分」。把明顯片面、離題或無中生有的選項剔除，餘下的一項通常就是答案。</p>
+  </div>
+
+  <div class="formula">
+    主旨 ＝ 關鍵句（因果 / 結論） ＋ 涵蓋全段，不多不少
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header" id="s3">
+    <div class="icon">⚠️</div>
+    <div>
+      <div class="chno">CHAPTER 03</div>
+      <h2>四大陷阱類型</h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="dot">陷阱一：以偏概全</div>
+    <p>選項只截取段落中的一個細節或例子作答案，未能概括全段內容。</p>
+    <div class="example-box">
+      <div class="example-label">例子（第 16 題・桂林山水）</div>
+      <div class="example-text">選項「灕江之水呈現出醉人的美」只涵蓋段落前半部分寫江水的內容，卻漏了後半段寫山峰的部分，屬於以偏概全。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="dot">陷阱二：無中生有 / 過度引申</div>
+    <p>選項提出段落根本沒有交代，或憑空推論出來的內容。</p>
+    <div class="example-box coral">
+      <div class="example-label">例子（第 14 題・本田公司）</div>
+      <div class="example-text">選項「賺錢越多的大財團越精明」是段落沒有講過的推論，文章只說本田公司觀察入微、懂得節儉，並無比較「財團越大越精明」。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="dot">陷阱三：偷換概念 / 張冠李戴</div>
+    <p>把段落中的關鍵詞語掉包，令意思出現偏差，字面相似但意思已經變質。</p>
+    <div class="example-box amber">
+      <div class="example-label">例子（第 1 題・司馬光）</div>
+      <div class="example-text">選項將原文「貪睡」偷換成「早睡」。司馬光要改的是「睡得太晚、起不了牀」，並非「太早睡覺」，一字之差，意思已經完全不同。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="dot">陷阱四：以次充主 / 主次不分</div>
+    <p>選項只反映段落中次要的部分，把配角當成主角，忽略了真正的核心。</p>
+    <div class="example-box pink">
+      <div class="example-label">例子（第 13 題・別墅比喻）</div>
+      <div class="example-text">段落將「機遇」比喻為別墅的裝潢，「堅持不懈」才是根基。選項「把握機遇比堅持不懈重要」把次要的裝潢當成主角，主次顛倒。</div>
+    </div>
+  </div>
+
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-label">常見陷阱</div>
+      <div class="alert-text">做段義理解時，遇到選項用字與原文十分相似，就要格外小心，查清楚是否偷換了關鍵詞（例如「貪睡」變「早睡」），這類陷阱最容易令人失分。</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section-header" id="s4">
+    <div class="icon">✏️</div>
+    <div>
+      <div class="chno">CHAPTER 04</div>
+      <h2>全 16 題例題精講與練習</h2>
+    </div>
+  </div>
+
+  <div class="card amber">
+    <div class="dot">使用說明</div>
+    <p>以下 16 題節錄自英華小學段義理解練習卷（學生版），每題均附完整陷阱分析。答案及分析預設隱藏，按個別「顯示答案與陷阱分析」或右上角按鈕可全部展開；列印時會自動隱藏，方便直接派發作課堂練習。</p>
+  </div>
+
+  <div class="practice-toolbar">
+    <button class="toggle-all-btn" onclick="toggleAllAnswers()">顯示全部答案</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="qbox">
+    <div class="qno">第 1 題</div>
+    <div class="passage">司馬光小時候是個既懶惰又貪睡的孩子。在老師的諄諄教誨下，他決心改掉貪睡的壞習慣。為了早早起牀，聰明的司馬光造了一個圓柱形的木枕頭，只要一翻身，頭便會從枕頭上滑落，讓他驚醒。從此他每天大清早便起牀讀書，最終成為學識淵博的大文豪。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 司馬光的成功是因為他改掉了早睡的壞習慣。</li>
+      <li><b>B.</b> 司馬光的成功是他堅持努力不懈地學習的結果。</li>
+      <li><b>C.</b> 司馬光的成功是他聽從老師的諄諄教誨的結果。</li>
+      <li><b>D.</b> 司馬光的成功是他做了一個圓柱形木枕頭的結果。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：B</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ A・陷阱：偷換概念</span>原文是「貪睡」，不是「早睡」，一字之差，意思已經不同。</div>
+        <div class="compare-card good"><span class="tag">✓ B・正確</span>涵蓋「造枕頭→早起→每日讀書」的完整因果鏈，才是真正主旨。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qbox">
+    <div class="qno">第 2 題</div>
+    <div class="passage">南國養了一頭力大無比的大白象，牠在戰事中把北國打得落花流水。於是，北國也找來了一頭大白象。可是，牠一直不吃不喝，使國王憂心如焚。大白象對國王說：「我年老的父母住在山裏，牠們無法自行覓食，現在一定餓壞了，我心裏很難受，試問又怎能在此獨自享受美食呢？」國王聽了大白象的話後感動不已，便放大白象歸山了。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 大白象擔心父母凍壞了。</li>
+      <li><b>B.</b> 大白象不想為國王出力。</li>
+      <li><b>C.</b> 大白象假裝不吃，要想離開。</li>
+      <li><b>D.</b> 大白象孝順自己的父母。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：D</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ A・陷阱：無中生有</span>原文沒有提過父母「凍壞」，只是說牠們無法自行覓食。</div>
+        <div class="compare-card good"><span class="tag">✓ D・正確</span>大白象的說話核心是掛念、心疼父母，全段主旨是孝順。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qbox">
+    <div class="qno">第 3 題</div>
+    <div class="passage">音樂家聶耳是國歌《義勇軍進行曲》的作曲者，他雖然沒有進入專門的音樂學校學習，也從未請過導師，但在音樂上卻有極大的成就。歸根究柢，那是由於聶耳具有堅強的意志，刻苦自學的精神。他的生活艱苦，但仍勤學苦練小提琴。平時他除了吃飯，就是練琴。聶耳只要用四個月的時間，便能練到別人花三、四年功夫才能達到的水準。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 聶耳是個音樂家，但沒進過音樂學校學習。</li>
+      <li><b>B.</b> 聶耳從未請過導師，但音樂成就非凡。</li>
+      <li><b>C.</b> 聶耳勤學苦練小提琴，連飯也不肯吃。</li>
+      <li><b>D.</b> 聶耳具有堅強的意志，刻苦自學成為音樂家。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：D</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ C・陷阱：扭曲原文</span>原文是說聶耳「除了吃飯，就是練琴」，並非「連飯都不肯吃」。</div>
+        <div class="compare-card good"><span class="tag">✓ D・正確</span>「歸根究柢」一句已經點明，聶耳是靠堅強意志與刻苦自學，才有音樂成就。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="qbox">
+    <div class="qno">第 4 題</div>
+    <div class="passage">笛卡兒是法國哲學家、物理學家和數學家。他從小便養成了積極思考、大膽懷疑的學習態度。除了學好老師安排的課業以外，笛卡兒還會閱讀大量的科學書籍。他平日埋首閱讀，吸收各種知識，又會對身邊的事物加以注意和思考。笛卡兒敢於懷疑書本上既有的知識，因此能破除迷信和不盲從，加上他思考敏捷，最終成為傑出的學者。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 笛卡兒閱讀了大量的科學書籍。</li>
+      <li><b>B.</b> 笛卡兒有非常傑出的學術成就。</li>
+      <li><b>C.</b> 笛卡兒敢於破除迷信和不盲從。</li>
+      <li><b>D.</b> 笛卡兒由於能善於思考、大膽懷疑，最終成為大學者。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：D</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ A・陷阱：以偏概全</span>只提到閱讀科學書籍這一個細節，沒有涵蓋思考、懷疑等其他重要元素。</div>
+        <div class="compare-card good"><span class="tag">✓ D・正確</span>結尾「最終成為傑出的學者」前的整條因果鏈，才是全段主旨。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="qbox">
+    <div class="qno">第 5 題</div>
+    <div class="passage">賣物會由慈善機構每年舉辦一次，今年的主題是「給孩子一個希望」，主要目的是為山區學童籌款。賣物會所賣的物品是募捐得來的，市民大眾一般都能夠在賣物會上買到一些物超所值的用品，而賣物會的收入亦會悉數用於慈善用途。今年，我在擠得水泄不通的賣物會上，用春節時收到的壓歲錢買了一本字典。在做善事之餘又可得到有用的物品，難怪賣物會一直受到大眾的踴躍支持。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 在賣物會可以買到一些物超所值的貨品。</li>
+      <li><b>B.</b> 賣物會的收入將會全部用於慈善用途。</li>
+      <li><b>C.</b> 賣物會是很受大眾歡迎的籌款方式。</li>
+      <li><b>D.</b> 賣物會每年都有不同的籌款主題。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：C</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ A・陷阱：以偏概全</span>只提到「買到便宜貨」這一個好處，未包括做善事、籌款的意義。</div>
+        <div class="compare-card good"><span class="tag">✓ C・正確</span>末句「難怪」總結全段，指出賣物會受歡迎的原因。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="qbox">
+    <div class="qno">第 6 題</div>
+    <div class="passage">當同學批評你的足球踢得不夠好；當老師批評你上課時不專心……那時，你的心裏有甚麼感受？是不服氣，還是虛心接受？其實，虛心受教是一種美德，也是一種待人接物的良好態度。越是有才學的人，面對別人的批評時便越謙卑，因為他們抱着「有則改之，無則加勉」的態度，希望自己能做到精益求精，更上一層樓，故此能坦然面對批評。有雅量接受批評的人，自然能有更大的進步。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 要坦然接受別人的批評。</li>
+      <li><b>B.</b> 能虛心接受批評的人才會有更大的進步。</li>
+      <li><b>C.</b> 要學會「有則改之，無則加勉」。</li>
+      <li><b>D.</b> 被批評後要分析別人的意見是否準確。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：B</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ A・陷阱：以偏概全</span>只講到「坦然接受」的態度，沒有提到接受批評帶來的「進步」這個結果。</div>
+        <div class="compare-card good"><span class="tag">✓ B・正確</span>末句直接將「虛心受教」與「更大的進步」連結，是全段結論。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="qbox">
+    <div class="qno">第 7 題</div>
+    <div class="passage">法國著名作家福樓拜居住在塞納河河畔時，每天晚上都會在一盞綠色罩的枱燈下寫作，他不怕辛勞，一動筆往往便是一整夜。由於福樓拜家中的書房剛巧面對着塞納河，燈光透過書房的窗戶照亮了晚上的塞納河。時間久了，夜晚在塞納河行船的人便說：「在這段航線上，福樓拜先生的窗戶就是我們的燈塔，使我們不會迷失方向。」</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 福樓拜家的書房不用窗簾。</li>
+      <li><b>B.</b> 福樓拜堅持每天寫作。</li>
+      <li><b>C.</b> 夜晚行船的人都喜歡福樓拜。</li>
+      <li><b>D.</b> 福樓拜是個勤奮、刻苦的作家。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：D</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ B・陷阱：以偏概全</span>只描述「堅持每天寫作」這個行為，未能概括「勤奮刻苦」這個更廣的性格總結。</div>
+        <div class="compare-card good"><span class="tag">✓ D・正確</span>每晚寫作與「燈塔」的比喻，都是用來說明他勤奮刻苦的性格。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="qbox">
+    <div class="qno">第 8 題</div>
+    <div class="passage">我參加了「經典文學誦讀班」，老師以講故事的形式教導我們學習《三字經》、《弟子規》和《論語》。更有趣的是，老師還配合《弟子規》的內容，讓我們學習武術呢！參加誦讀班後，我改正了一些缺點，例如從前爸媽叫我做事，我總是慢吞吞地說：「等一下。」然後隔了很久才完成。但在學會了「父母呼，應毋緩」的道理後，現在只要爸媽一吩咐，我便會馬上行動。誦讀班既使我增長知識，又助我改正了缺點。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 可配合《弟子規》來學習武術。</li>
+      <li><b>B.</b> 誦讀班的老師命令我改正缺點。</li>
+      <li><b>C.</b> 誦讀班教我明白「父母呼，應毋緩」的道理。</li>
+      <li><b>D.</b> 誦讀班使我增長知識，改正缺點。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：D</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ B・陷阱：扭曲原文</span>原文只是說學到「父母呼，應毋緩」的道理，並非老師「命令」他改正。</div>
+        <div class="compare-card good"><span class="tag">✓ D・正確</span>末句「既使我增長知識，又助我改正了缺點」正是全段總結。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="qbox">
+    <div class="qno">第 9 題</div>
+    <div class="passage">齊白石是二十世紀中國國畫藝術大師和書法家。他出身於貧苦農家，只讀過一年私塾，十二歲起為了生計，便跟從工匠學習木工，並以雕花手藝聞名。但齊白石從小熱愛繪畫，七、八歲時就天天抽空練習臨摹、寫生。為了使畫中的事物達到形神兼備的境界，他常常在野外悉心觀察各種動植物的形態和習性，晚上睡在被窩裏時，還在用手指畫草稿。經過數十年刻苦的磨練，齊白石終於成為一代宗師。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 齊白石是二十世紀中國國畫藝術大師、書法家。</li>
+      <li><b>B.</b> 齊白石從小熱愛繪畫，七、八歲時就天天練習臨摹、寫生。</li>
+      <li><b>C.</b> 齊白石經過數十年刻苦磨練，終於成為中國國畫藝術大師。</li>
+      <li><b>D.</b> 齊白石畫中的事物能夠達到形神兼備的境界。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：C</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ A・陷阱：以偏概全</span>只交代齊白石的身份，完全沒有提到他刻苦鍛鍊的過程。</div>
+        <div class="compare-card good"><span class="tag">✓ C・正確</span>末句「經過數十年刻苦的磨練……終於成為一代宗師」是全段結論。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="qbox">
+    <div class="qno">第 10 題</div>
+    <div class="passage">我國古代的科學家和天文學家張衡，從小興趣就很廣泛，他常常閱讀各種讀物，十歲時就已學富五車。一天，張衡讀到一首詩，詩中描述了北斗星在各個季節時的變化。他覺得天上閃爍的繁星太有意思了，於是便開始觀察、記錄星空的變化，並深入思考，提出各種問題。張衡發現星星有的像箕，有的像斗，有的像狗，還有的像熊，於是他便根據詩的內容，並參考書籍，找出星星的運行規律，最終畫成了天象圖。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 張衡從小興趣就很廣泛，他特別喜歡自然科學。</li>
+      <li><b>B.</b> 張衡善於學習、觀察和思考，最終畫成了天象圖。</li>
+      <li><b>C.</b> 張衡從小閱讀各種讀物，十歲時就已學富五車。</li>
+      <li><b>D.</b> 張衡根據一首詩的內容，畫成了天象圖。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：B</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ D・陷阱：以偏概全</span>只提到「根據一首詩」這個起點，漏了觀察、思考的過程。</div>
+        <div class="compare-card good"><span class="tag">✓ B・正確</span>涵蓋「讀書→觀察→思考→畫成天象圖」整條脈絡。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="qbox">
+    <div class="qno">第 11 題</div>
+    <div class="passage">爸爸是個詩人，他經常對我說，寫詩要有豐富的生活經驗。因此，我從童年起就跟着爸爸遊遍各大山嶺、森林、湖泊、海洋。我們曾踏上險峻的懸崖峭壁，曾路過冰封的阿爾卑斯山，曾在白朗峯的山腳居住，曾在遙遠的原野裏漂泊。在無數個遊歷的日子裏，我和爸爸一起看日出、日落，觀繁星、月亮。大自然的風光讓我既熱愛又享受，這些都成了我長大以後寫詩的源泉和養料。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 「我」從童年起跟着爸爸遊覽的經過、感受及獲得的啟示。</li>
+      <li><b>B.</b> 「我」從童年起便已經很熱愛和享受大自然的風光。</li>
+      <li><b>C.</b> 山嶺、森林、湖泊、海洋等自然風光十分優美。</li>
+      <li><b>D.</b> 寫詩要有豐富的生活經驗，遊歷大自然有助「我」寫詩。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：D</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ C・陷阱：以偏概全</span>只描述自然風光優美，沒有扣連「寫詩需要生活經驗」這個主題。</div>
+        <div class="compare-card good"><span class="tag">✓ D・正確</span>開首「寫詩要有豐富的生活經驗」與結尾「寫詩的源泉和養料」首尾呼應，正是主旨。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="qbox">
+    <div class="qno">第 12 題</div>
+    <div class="passage">老舍把自己積累的寫作材料比喻成「箱子裏的衣服」，「衣服」積得越多越厚，寫文章就能遊刃有餘；相反，假如「衣服」積得少，就會捉襟見肘。當我們的寫作材料積得少，就會在寫作時大歎「難為無米之炊」。積累好比是源頭活水，可使文思流暢。積累的最好方法是做作文卡片，我們可以把自己獨到的想法，又或讀報時發現的好材料記在卡片上。積累多了，再多練多寫，學會修改，寫作水平也就自然能提高了。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 老舍認為寫作材料積得少，會在寫作時遇到困難。</li>
+      <li><b>B.</b> 老舍認為多積累寫作材料，可以提高寫作水平。</li>
+      <li><b>C.</b> 老舍認為我們可把閱讀心得寫在作文卡片上。</li>
+      <li><b>D.</b> 老舍認為積累多了，便可以開始學習修改文章。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：B</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ D・陷阱：偷換概念</span>原文是說要「多練多寫，學會修改」才能提高水平，並非「積累多了就可以開始修改」。</div>
+        <div class="compare-card good"><span class="tag">✓ B・正確</span>末句「寫作水平也就自然能提高了」呼應開首比喻，是全段主線。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="qbox">
+    <div class="qno">第 13 題</div>
+    <div class="passage">如果把成功比作一棟豪華的別墅，那麼堅持不懈的精神就是這棟別墅的根基了。試想想，不論再大的別墅也是由工人用一磚一瓦慢慢砌成的，假如沒有經年累月的堅持，腳踏實地的努力，又怎麼可能成功呢？至於機遇，則是這棟別墅的裝潢，也是顯示房子氣派的點綴。一個成功的人，除了要有堅持不懈的精神，還要把握機會，在適當的時候發揮自己的才能，這樣才可以事半功倍。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 把握機遇比堅持不懈重要。</li>
+      <li><b>B.</b> 有了堅持不懈的精神才能成功。</li>
+      <li><b>C.</b> 成功的人除了堅持不懈，還要抓住機遇。</li>
+      <li><b>D.</b> 在興建別墅的過程中要克服很多困難。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：C</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ A・陷阱：以次充主</span>原文將「機遇」比喻為裝潢，「堅持不懈」才是地基，選項將次要的裝潢當成主角。</div>
+        <div class="compare-card good"><span class="tag">✓ C・正確</span>末句同時點出「堅持不懈」與「把握機遇」兩個要素。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="qbox">
+    <div class="qno">第 14 題</div>
+    <div class="passage">去年，我國的考察團到了日本進行訪問，並參觀了日本首屈一指的大財團——本田公司。有一個細心的團員發現了在本田公司的衞生間裏，每個抽水馬桶的水箱中都放有幾塊磚頭，其他團員知道後，無不嘖嘖稱奇。本田公司的公關人員解釋：在水箱中放磚頭是為了緩解抽水馬桶內的水流速度，從而節約沖水量。本田公司的員工觀察入微，懂得從生活細節着手節約資源，難怪能在商場中脫穎而出。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 我們應珍惜水資源。</li>
+      <li><b>B.</b> 賺錢越多的大財團越精明。</li>
+      <li><b>C.</b> 大財團十分小家子氣。</li>
+      <li><b>D.</b> 大財團觀察入微，不忘節儉。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：D</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ B・陷阱：無中生有</span>段落沒有比較過「財團越大越精明」，這是憑空推論出來的結論。</div>
+        <div class="compare-card good"><span class="tag">✓ D・正確</span>末句「觀察入微……懂得……節約資源」正是總結句。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="qbox">
+    <div class="qno">第 15 題</div>
+    <div class="passage">國際著名功夫影片巨星成龍，曾於一九九九年獲得香港政府頒發的「銀紫荊星章」。成龍的師傅是著名的京劇大師于占元師傅。學藝時，勤奮的成龍每天清晨五時便起牀練功，一直練習到晚上十二時才休息。練功的內容除了拉筋、劈腿、翻筋斗等基本動作外，還包括了較難的腳上功夫、打鬥方式和特技動作。練功可謂一點也不輕鬆，有時候成龍早上練過壓腿，到了晚上便痛得要架着腿睡覺。可是成龍仍勤於練習，除了練功以外，他還要洗碗和負責清潔等事務呢！</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 成龍跟著名的京劇大師于占元師傅學功夫。</li>
+      <li><b>B.</b> 成龍每天清晨五時便起牀練功，十分辛苦。</li>
+      <li><b>C.</b> 成龍除了練功以外，還要洗碗和負責清潔等事務。</li>
+      <li><b>D.</b> 成龍是國際著名功夫影片巨星，他的功夫是勤練出來的。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：D</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ B・陷阱：以偏概全</span>只提到起牀時間，未能概括他辛苦練功兼顧家務的整體努力。</div>
+        <div class="compare-card good"><span class="tag">✓ D・正確</span>涵蓋「成就」與「勤練過程」兩部分。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="qbox">
+    <div class="qno">第 16 題</div>
+    <div class="passage">清晨，桂林的灕江被輕紗般的薄霧籠罩着，散發着迷人的氣質。朝霞還沒等輕紗散盡，就已經迫不及待地把燦爛的霞光撒在江面上。這時，江水綠得像碧玉，霞光紅得像胭脂，碧玉般的綠和胭脂般的紅交融在一起，呈現出醉人的美。桂林的山峯更是形態各異，千姿百態：既有泰山的雄偉，又有廬山的清奇；既有峨眉山的秀麗，又有黃山的俊俏。桂林的山水真是美如圖畫，難怪能有「桂林山水甲天下」的美譽。</div>
+    <div class="qstem">以上一段文字主要說明</div>
+    <ul class="options">
+      <li><b>A.</b> 灕江之水呈現出醉人的美。</li>
+      <li><b>B.</b> 桂林的山光水色美如圖畫。</li>
+      <li><b>C.</b> 桂林的山形態各異，千姿百態。</li>
+      <li><b>D.</b> 桂林清晨的景色很特別。</li>
+    </ul>
+    <button class="qtoggle-btn" onclick="toggleOne(this)">顯示答案與陷阱分析</button>
+    <div class="answer-panel">
+      <span class="ans-letter">答案：B</span>
+      <div class="compare-grid">
+        <div class="compare-card bad"><span class="tag">✗ A・陷阱：以偏概全</span>只涵蓋段落前半部分寫江水的內容，漏了後半段寫山的部分。</div>
+        <div class="compare-card good"><span class="tag">✓ B・正確</span>末句「山水真是美如圖畫」同時涵蓋「山」與「水」兩部分。</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+<script>
+function toggleOne(btn) {
+  const panel = btn.nextElementSibling;
+  panel.classList.toggle('show');
+  btn.textContent = panel.classList.contains('show') ? '隱藏答案與陷阱分析' : '顯示答案與陷阱分析';
+}
+function toggleAllAnswers() {
+  const panels = document.querySelectorAll('.answer-panel');
+  const btns = document.querySelectorAll('.qtoggle-btn');
+  const allShown = document.querySelector('.toggle-all-btn').textContent === '隱藏全部答案';
+  panels.forEach(p => p.classList.toggle('show', !allShown));
+  btns.forEach(b => b.textContent = !allShown ? '隱藏答案與陷阱分析' : '顯示答案與陷阱分析');
+  document.querySelector('.toggle-all-btn').textContent = !allShown ? '隱藏全部答案' : '顯示全部答案';
+}
+</script>
+</body>
+</html>
