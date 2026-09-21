@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>段義理解練習．第三輯（三十題）｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --hero-bg: #C8D5D8;
+    --hero-text: #122025;
+    --purple: #6C63C4;
+    --green: #3E9463;
+    --blue: #3E7FBF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: #ECECEA;
+      --color-text-secondary: #B4B4B0;
+      --color-background-primary: #1E1E1C;
+      --color-background-secondary: #2A2A27;
+      --color-border-tertiary: rgba(255,255,255,0.12);
+    }
+    body { background: #151513; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Noto Sans TC", sans-serif; background: var(--color-background-secondary); color: var(--color-text-primary); line-height: 1.8; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 28px 20px 60px; }
+  h1, h2, h3 { font-family: "Noto Serif TC", serif; margin: 0; }
+  .hero { background: var(--hero-bg); color: var(--hero-text); border-radius: var(--border-radius-lg); padding: 36px 32px; margin-bottom: 24px; text-align: center; }
+  .hero-tag { display: inline-block; font-size: 13px; font-weight: 500; padding: 5px 14px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--hero-text) 30%, transparent); color: color-mix(in srgb, var(--hero-text) 65%, transparent); margin-bottom: 14px; }
+  .hero h1 { font-size: 28px; font-weight: 900; line-height: 1.5; }
+  .hero-subtitle { margin-top: 10px; font-size: 14px; color: color-mix(in srgb, var(--hero-text) 50%, transparent); }
+  .hero > p.credit { margin-top: 18px; font-size: 13px; color: color-mix(in srgb, var(--hero-text) 50%, transparent); }
+  .toc { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px 24px; margin-bottom: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .toc-title { grid-column: 1 / -1; font-family: "Noto Serif TC", serif; font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--color-text-secondary); }
+  .toc-item { font-size: 13.5px; text-decoration: none; color: var(--color-text-primary); display: flex; gap: 6px; }
+  .toc-item .num { color: var(--purple); font-weight: 700; font-family: "Noto Serif TC", serif; flex-shrink: 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin: 38px 0 16px; }
+  .section-header .icon { width: 40px; height: 40px; border-radius: 10px; background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; color: var(--purple); flex-shrink: 0; font-family: "Noto Serif TC", serif; }
+  .section-header .chapter-num { font-family: "Noto Serif TC", serif; font-size: 12px; color: var(--color-text-secondary); letter-spacing: 0.05em; }
+  .section-header h2 { font-size: 18px; font-weight: 700; }
+  .alert { display: flex; gap: 12px; border-radius: var(--border-radius-md); padding: 14px 16px; margin: 14px 0; }
+  .alert-icon { font-size: 18px; flex-shrink: 0; }
+  .alert-label { font-weight: 700; font-size: 13px; margin-bottom: 3px; }
+  .alert-text { font-size: 14px; }
+  .alert.tip { background: color-mix(in srgb, var(--blue) 10%, var(--color-background-primary)); }
+  .alert.tip .alert-label { color: var(--blue); }
+  .alert.success { background: color-mix(in srgb, var(--green) 10%, var(--color-background-primary)); }
+  .alert.success .alert-label { color: var(--green); }
+  .qbox { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px 22px; margin-bottom: 18px; }
+  .qbox .qnum { display: inline-block; background: var(--purple); color: #fff; font-size: 12px; font-weight: 700; padding: 3px 11px; border-radius: 999px; margin-bottom: 10px; }
+  .qbox .qtext { font-size: 14.5px; margin-bottom: 12px; text-align: justify; }
+  .qbox .qprompt { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+  .qbox .option { font-size: 14px; padding: 3px 0; }
+  details.reveal { margin-top: 14px; border-top: 1px dashed var(--color-border-tertiary); padding-top: 12px; }
+  details.reveal summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: var(--purple); background: color-mix(in srgb, var(--purple) 10%, var(--color-background-primary)); padding: 7px 14px; border-radius: 999px; user-select: none; }
+  details.reveal summary::-webkit-details-marker { display: none; }
+  details.reveal summary::marker { content: ""; }
+  details.reveal summary .rv-show { display: inline; }
+  details.reveal summary .rv-hide { display: none; }
+  details.reveal[open] summary .rv-show { display: none; }
+  details.reveal[open] summary .rv-hide { display: inline; }
+  details.reveal[open] summary { color: var(--green); background: color-mix(in srgb, var(--green) 10%, var(--color-background-primary)); }
+  details.reveal .alert { margin-top: 10px; margin-bottom: 0; }
+  .print-btn { position: fixed; right: 22px; bottom: 22px; z-index: 999; display: inline-flex; align-items: center; gap: 8px; background: var(--purple); color: #fff; border: none; font-family: "Noto Sans TC", sans-serif; font-size: 14px; font-weight: 700; padding: 12px 20px; border-radius: 999px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .print-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.3); }
+  .print-btn:active { transform: translateY(0); }
+  @media (max-width: 640px) { .print-btn { right: 14px; bottom: 14px; padding: 11px 16px; font-size: 13px; } }
+  footer { margin-top: 2rem; padding: 1.2rem 1.5rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); text-align: center; }
+  @media (max-width: 640px) { .toc { grid-template-columns: 1fr; } .hero { padding: 26px 20px; } .hero h1 { font-size: 22px; } }
+  @media print {
+    @page { margin: 12mm 10mm; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; }
+    .toc { display: none; }
+    .print-btn { display: none !important; }
+    details.reveal { display: none !important; }
+    a { color: inherit; text-decoration: none; }
+    .qbox, .alert { page-break-inside: avoid; }
+    .section-header { page-break-before: always; page-break-after: avoid; }
+    .section-header:first-of-type { page-break-before: auto; }
+    .hero { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()" aria-label="列印或匯出PDF">🖨️ 列印 / PDF</button>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀教學筆記</div>
+    <h1>段義理解練習<br>．第三輯（三十題）</h1>
+    <p class="hero-subtitle">適用對象：小學四年級（呈分試／HKAT 題型）　|　題型：段義理解多項選擇題　|　共三十題，分十五組，附答案與解析</p>
+    <p class="credit">潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <a class="toc-item" href="#g1"><span class="num">一</span>第1組（第1、2題）</a>
+    <a class="toc-item" href="#g2"><span class="num">二</span>第2組（第3、4題）</a>
+    <a class="toc-item" href="#g3"><span class="num">三</span>第3組（第5、6題）</a>
+    <a class="toc-item" href="#g4"><span class="num">四</span>第4組（第7、8題）</a>
+    <a class="toc-item" href="#g5"><span class="num">五</span>第5組（第9、10題）</a>
+    <a class="toc-item" href="#g6"><span class="num">六</span>第6組（第11、12題）</a>
+    <a class="toc-item" href="#g7"><span class="num">七</span>第7組（第13、14題）</a>
+    <a class="toc-item" href="#g8"><span class="num">八</span>第8組（第15、16題）</a>
+    <a class="toc-item" href="#g9"><span class="num">九</span>第9組（第17、18題）</a>
+    <a class="toc-item" href="#g10"><span class="num">十</span>第10組（第19、20題）</a>
+    <a class="toc-item" href="#g11"><span class="num">十一</span>第11組（第21、22題）</a>
+    <a class="toc-item" href="#g12"><span class="num">十二</span>第12組（第23、24題）</a>
+    <a class="toc-item" href="#g13"><span class="num">十三</span>第13組（第25、26題）</a>
+    <a class="toc-item" href="#g14"><span class="num">十四</span>第14組（第27、28題）</a>
+    <a class="toc-item" href="#g15"><span class="num">十五</span>第15組（第29、30題）</a>
+
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">使用方法</div>
+      <div class="alert-text">建議先自行作答，寫下答案後，才按「查看答案與解析」核對，效果會比一開始就看答案更好。</div>
+    </div>
+  </div>
+
+  <div class="section-header" id="g1">
+    <div class="icon">1</div>
+    <div>
+      <div class="chapter-num">GROUP 1</div>
+      <h2>第1組（第1、2題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第1題</div>
+    <div class="qtext">小軒在便利店買文具，收銀員一時失誤，多找了三十元給他。小軒起初沒為意，回家點算找續時才發現，沒有半分猶豫，立刻拿着收據返回店裡，把多出的錢交還給收銀員，並解釋事情經過。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 小軒發現店員多找錢後，主動退回，展現誠實的品格。</div>
+    <div class="option">B. 小軒在便利店買文具，準備開學用。</div>
+    <div class="option">C. 收銀員一時計錯數，多找了三十元給小軒，自己懵然不知。</div>
+    <div class="option">D. 小軒因為這次誠實的行為，獲店舖贈送禮物答謝。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：A</div>
+          <div class="alert-text">B只是購物的背景；C只交代了店員出錯這件事，並非重點；D段落沒有提到任何答謝，屬於無中生有的添加。小軒發現有多餘的錢後主動退還，這份誠實正是段落的重心，答案是A。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第2題</div>
+    <div class="qtext">弟弟怎樣也學不會綁鞋帶，急得快要哭出來。姐姐沒有嫌他笨拙，反而蹲下來，一步一步示範，讓弟弟跟着做，失敗了便再教一次。如是者練習了大半個月，弟弟終於能夠自己俐落地綁好鞋帶。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 弟弟無論怎樣練習，也學不會綁鞋帶，急得快要哭出來。</div>
+    <div class="option">B. 姐姐特意蹲下來，親自一步一步示範綁鞋帶的正確方法。</div>
+    <div class="option">C. 姐姐反覆教導，終令弟弟學會自行綁鞋帶。</div>
+    <div class="option">D. 弟弟因為這次經歷，自此立志長大後要成為一位老師。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">A只是弟弟遇到困難的起因；B只涉及姐姐教學的其中一個步驟；D段落完全沒有交代弟弟的志願，是憑空添加的情節。姐姐耐心反覆教導、直到弟弟學會的整個過程，才是段落的重點——C正好寫出了這一點。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g2">
+    <div class="icon">2</div>
+    <div>
+      <div class="chapter-num">GROUP 2</div>
+      <h2>第2組（第3、4題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第3題</div>
+    <div class="qtext">一位乘客下車後，的士司機發現後座遺下一張醫生紙。他記得乘客大概在哪一區下車，於是特意繞路回去該處，沿街張望，終於找到那位乘客，把醫生紙交還給他，自己卻因此遲了接下一單生意。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 一位乘客下車後，的士司機發現後座遺下一張醫生紙。</div>
+    <div class="option">B. 的士司機不惜繞路尋人，只為把遺失的醫生紙交還乘客。</div>
+    <div class="option">C. 的士司機記得乘客大概在哪一區下車。</div>
+    <div class="option">D. 的士司機因為這次善舉，獲傳媒訪問報道。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：B</div>
+          <div class="alert-text">A只是事情的緣起；C只是司機記憶中的其中一項細節；D段落沒有提到任何報道，屬於無中生有的推測。司機不惜耽誤生意也要物歸原主的用心，正是B所寫的重點。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第4題</div>
+    <div class="qtext">清潔阿姐在商場洗手間清潔時，發現洗手盆旁遺下一部手機。她沒有據為己有，反而立即拿到商場詢問處，交給職員處理，並留下自己的姓名，以便日後失主查詢時作證。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 清潔阿姐在商場洗手間清潔時，意外發現洗手盆旁遺下一部手機。</div>
+    <div class="option">B. 手機是遺留在洗手盆旁邊的。</div>
+    <div class="option">C. 清潔阿姐把手機交給商場詢問處的職員後，隨即獲得管理處公開表揚。</div>
+    <div class="option">D. 清潔阿姐拾獲手機後，妥善交還並留名作證。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：D</div>
+          <div class="alert-text">A只是清潔阿姐當時的工作背景；B只是手機遺失位置的細節；C段落並無提到任何表揚，屬於憑空添加。清潔阿姐不為金錢動心、妥善處理的態度，才是段落想表達的重點，這一點D概括得最到位。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g3">
+    <div class="icon">3</div>
+    <div>
+      <div class="chapter-num">GROUP 3</div>
+      <h2>第3組（第5、6題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第5題</div>
+    <div class="qtext">阿聰因病入院做手術，未能出席自己的生日會。班上同學商量後，決定每人拿出少許零用錢，湊夠了錢，買了一份阿聰一直想要的模型，再由班主任轉交給他，讓他在病房裏也能感受到同學的心意。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 阿聰因病入院做重要手術，未能出席為他而設的生日會。</div>
+    <div class="option">B. 每位同學都拿出少許零用錢，湊夠買禮物的金額。</div>
+    <div class="option">C. 同學合力籌錢購買禮物，為住院的阿聰送上心意。</div>
+    <div class="option">D. 阿聰出院後，成績比以前進步了不少。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">A只是阿聰缺席生日會的背景；B只涉及籌錢過程中的其中一環；D段落沒有提及阿聰的成績，屬於無中生有的添加。同學合力送上心意這份情誼，才是段落真正想寫的，C最能道出這一點。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第6題</div>
+    <div class="qtext">公園裏，一位老翁每逢假日都會擺開棋盤，義務教附近的小朋友下棋，從不收取任何費用。他總是耐心解釋每一步棋的用意，遇到小朋友下錯，也不急着糾正，而是引導他們自己想出更好的走法。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 老翁義教下棋，並引導小朋友自行思考。</div>
+    <div class="option">B. 公園裏，一位老翁每逢假日都會擺開棋盤，義教附近的小朋友。</div>
+    <div class="option">C. 老翁總是耐心解釋每一步棋背後的用意，從不敷衍了事。</div>
+    <div class="option">D. 老翁年輕時曾經是一位相當出色的職業棋手。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：A</div>
+          <div class="alert-text">B只是老翁出現的背景；C只是他教學方式的其中一項細節；D段落並無交代老翁的過去，是憑空的猜測。老翁義教並且引導小朋友思考的整體做法，最能呈現這一點的是A。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g4">
+    <div class="icon">4</div>
+    <div>
+      <div class="chapter-num">GROUP 4</div>
+      <h2>第4組（第7、8題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第7題</div>
+    <div class="qtext">護士阿詩負責照顧一位獨居的長者，除了上班時間內的巡房工作，她還會在下班後抽空探訪，陪伴長者聊天、提醒他按時服藥。這份額外的關懷，並非職責所要求，卻是阿詩多年來一直堅持的習慣。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 護士阿詩負責照顧一位獨居的長者。</div>
+    <div class="option">B. 阿詩會在下班後探訪長者，陪伴他聊天。</div>
+    <div class="option">C. 長者按時服藥，全靠阿詩每次提醒。</div>
+    <div class="option">D. 阿詩超越職責所需，主動付出額外的關懷陪伴長者。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：D</div>
+          <div class="alert-text">A只是阿詩工作的背景；B只涉及她探訪行動的其中一部分；C把長者服藥全歸功於阿詩提醒，說法過於絕對，超出了原文的意思。阿詩不計職責、主動付出的精神，才是段落真正的重點——這一點只有D能完整涵蓋。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第8題</div>
+    <div class="qtext">轉校生小晴剛加入四年級，性格內向，小息時總是獨自坐在座位上，沒有人主動跟她說話。阿玲留意到後，主動走過去坐在她身旁，邀請她一起到操場走走，又介紹其他同學給她認識，小晴漸漸開朗起來。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 轉校生小晴剛加入四年級，性格內向，經常獨來獨往。</div>
+    <div class="option">B. 阿玲主動接近孤單的小晴，邀她一起玩耍，助她融入班中。</div>
+    <div class="option">C. 小息時，小晴總是獨自靜靜坐在座位上，沒有人願意跟她說話。</div>
+    <div class="option">D. 小晴後來成為班上成績最優異的學生。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：B</div>
+          <div class="alert-text">A只是小晴的背景介紹；C只是她起初的處境，並非全段重心；D段落沒有提到小晴的成績，屬於無中生有的推測。阿玲主動關顧、幫助小晴融入的過程，這一點只有B完整概括到。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g5">
+    <div class="icon">5</div>
+    <div>
+      <div class="chapter-num">GROUP 5</div>
+      <h2>第5組（第9、10題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第9題</div>
+    <div class="qtext">王羲之自小酷愛書法，每天不斷臨摹練字，練完便到屋外的池塘洗筆。日子久了，池水竟被墨汁染成一片墨黑，這個池塘後人稱為「墨池」，成為王羲之勤練書法的見證。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 王羲之自小酷愛書法，每天不斷臨摹前人字帖，勤加練習。</div>
+    <div class="option">B. 王羲之練完字後，總會到屋外的池塘清洗毛筆。</div>
+    <div class="option">C. 王羲之長年苦練書法，其勤奮程度連池水也被染黑。</div>
+    <div class="option">D. 王羲之因為書法出眾，被朝廷冊封為宰相。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">A只是王羲之的背景介紹；B只涉及他練字後的一個習慣動作；D段落並無提及任何官職冊封，是憑空添加的情節。王羲之勤練書法、連池水也染黑的苦功，這正是C想寫的重點。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第10題</div>
+    <div class="qtext">范仲淹年少時家境清貧，每天只能煮一碗粥，待粥凝固後劃成四份，早晚各取兩份，配上切碎的醃菜充飢。即使生活艱苦，他依然把大部分時間用於讀書，從不因清貧而懈怠學業。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 范仲淹縱使清貧，仍刻苦向學，從不懈怠。</div>
+    <div class="option">B. 范仲淹年少時，家境十分清貧，生活相當艱苦。</div>
+    <div class="option">C. 范仲淹每天只能煮一碗粥，待凝固後劃成四份充飢。</div>
+    <div class="option">D. 范仲淹後來當上宰相，成為當朝最富有的官員。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：A</div>
+          <div class="alert-text">B只是范仲淹的家境背景；C只是他飲食安排的細節；D段落並無提及范仲淹日後的財富，屬於憑空猜測。范仲淹身處逆境仍堅持向學的精神，最貼切的概括是A。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g6">
+    <div class="icon">6</div>
+    <div>
+      <div class="chapter-num">GROUP 6</div>
+      <h2>第6組（第11、12題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第11題</div>
+    <div class="qtext">黃香九歲喪母，與父親相依為命。夏天天氣炎熱，他每晚睡前先替父親搧涼枕蓆，讓父親能睡得舒適；冬天寒冷，他又會先鑽進被窩，用體温把被子暖好，才請父親安寢。鄉里都稱讚他孝順。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 黃香九歲喪母，與父親相依為命。</div>
+    <div class="option">B. 夏天天氣炎熱，黃香會替父親搧涼枕蓆。</div>
+    <div class="option">C. 黃香長大後成為當地德高望重的官員。</div>
+    <div class="option">D. 黃香體貼父親冷暖，以行動表達孝心，深得鄉里稱讚。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：D</div>
+          <div class="alert-text">A只是黃香的家庭背景；B只是他行孝方式的其中一項；C段落並無交代黃香日後的官職，屬於憑空添加。黃香冬夏皆顧念父親冷暖的孝心，這一點正好由D道出。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第12題</div>
+    <div class="qtext">祖沖之自小喜愛鑽研數學，反覆演算圓形的周長與直徑的關係，最終把圓周率推算至小數點後第七位，這個成果比歐洲學者早了近一千年，至今仍為後世所稱道。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 祖沖之自小便喜愛鑽研數學，尤其對圓形特別感興趣。</div>
+    <div class="option">B. 祖沖之潛心鑽研，把圓周率推算至極精準的程度。</div>
+    <div class="option">C. 祖沖之反覆演算圓形的周長與直徑之間的比例關係。</div>
+    <div class="option">D. 祖沖之因這項成就，被後世尊為「數學之神」。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：B</div>
+          <div class="alert-text">A只是祖沖之興趣的背景；C只是他研究過程中的其中一步；D段落並沒有『數學之神』這樣的稱號，屬於過度誇大的講法。祖沖之推算圓周率、成就領先世界的貢獻，B寫得最為完整。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g7">
+    <div class="icon">7</div>
+    <div>
+      <div class="chapter-num">GROUP 7</div>
+      <h2>第7組（第13、14題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第13題</div>
+    <div class="qtext">東漢以前，人們主要用竹簡或絲帛書寫，既笨重又昂貴。蔡倫改良了造紙的方法，利用樹皮、麻頭、破布等便宜材料造紙，成本大減，紙張亦更輕便耐用，令書寫和知識傳播變得更加普及。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 東漢以前，人們主要靠竹簡或絲帛書寫，既笨重又十分昂貴。</div>
+    <div class="option">B. 蔡倫利用樹皮、麻頭、破布等便宜材料造紙。</div>
+    <div class="option">C. 蔡倫改良造紙術，令紙張成本大降，促進知識傳播普及。</div>
+    <div class="option">D. 蔡倫因這項發明，被後世封為「紙聖」。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">A只是造紙術改良前的背景；B只是造紙材料的其中一項細節；D段落沒有『紙聖』這樣的封號，屬於憑空添加。蔡倫改良造紙術、令知識傳播更普及的貢獻，C最能扣連段落原意。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第14題</div>
+    <div class="qtext">張衡憑着對天文地理的深厚認識，發明了一種名為「地動儀」的儀器，能夠在地震發生時，準確指示出震央大約的方向，讓朝廷及早得悉災情、部署救援，是世界上最早的地震探測儀器之一。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 張衡發明地動儀，能指示震央方向，助朝廷及早救災。</div>
+    <div class="option">B. 張衡憑着對天文地理的深厚認識，成為當代著名的學者。</div>
+    <div class="option">C. 地動儀能夠在地震發生時，準確指示出震央大約的方向。</div>
+    <div class="option">D. 地動儀是張衡耗費三十年時間，反覆試驗才成功研製的儀器。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：A</div>
+          <div class="alert-text">B只是張衡背景的鋪陳；C只是地動儀其中一項功能；D段落並無提及研製所花的年期，屬於憑空添加的細節。張衡發明地動儀、助朝廷及早救災的貢獻，A概括得最準確。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g8">
+    <div class="icon">8</div>
+    <div>
+      <div class="chapter-num">GROUP 8</div>
+      <h2>第8組（第15、16題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第15題</div>
+    <div class="qtext">有農夫報案，指自己耕牛的舌頭無故被人割去，心急如焚。包拯了解案情後，不動聲色，吩咐農夫回去把牛宰殺出售，違反當時私宰耕牛的禁令。不久，果然有人前來告發農夫，包拯便斷定此人正是割牛舌的兇手，一審之下，對方果然認罪。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 有農夫報案，指自己耕牛的舌頭無故被人割去。</div>
+    <div class="option">B. 包拯運用計謀，引蛇出洞，巧妙查出割牛舌的真兇。</div>
+    <div class="option">C. 包拯吩咐農夫回去把牛宰殺出售。</div>
+    <div class="option">D. 包拯憑這次斷案，獲皇帝賜封為「青天」。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：B</div>
+          <div class="alert-text">A只是案件發生的背景；C只是包拯計策中的其中一步；D段落並無提及任何封賞，屬於憑空添加的情節。包拯運用計謀、巧妙查出真兇的智慧，答案應選B。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第16題</div>
+    <div class="qtext">壁虎遇到天敵追捕時，能夠主動斷去自己的尾巴，斷落的尾巴仍會扭動一段時間，藉此吸引天敵的注意，讓壁虎趁機逃走。斷去的尾巴日後還能夠再生，雖然新尾巴的形狀和顏色未必完全相同。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 壁虎遇到天敵追捕，情急之下能夠主動斷去自己的尾巴。</div>
+    <div class="option">B. 斷落的尾巴仍會扭動一段頗長的時間，藉此吸引天敵。</div>
+    <div class="option">C. 壁虎的尾巴一旦斷去，就永遠不會再重新生長出來。</div>
+    <div class="option">D. 壁虎斷尾逃生，尾巴日後還能再生。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：D</div>
+          <div class="alert-text">A、B各自只涉及斷尾求生的其中一個環節；C與原文『日後還能夠再生』直接矛盾，屬於過度引申。壁虎斷尾逃生、尾巴日後再生的完整機制，D兼顧了兩方面的重點。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g9">
+    <div class="icon">9</div>
+    <div>
+      <div class="chapter-num">GROUP 9</div>
+      <h2>第9組（第17、18題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第17題</div>
+    <div class="qtext">貓頭鷹能夠在漆黑的夜裏準確捕獵，關鍵在於牠們的眼睛擁有極多感光細胞，能夠吸收極微弱的光線；加上瞳孔可以放到很大，讓更多光線進入眼球，因此即使在幾乎沒有光線的環境，牠們依然能夠看得一清二楚。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 貓頭鷹憑特殊的眼睛結構，能在漆黑環境中視力清晰。</div>
+    <div class="option">B. 貓頭鷹能夠在幾乎漆黑一片的夜裏，準確捕捉獵物。</div>
+    <div class="option">C. 貓頭鷹的瞳孔可以放到非常大，讓更多光線得以進入眼球。</div>
+    <div class="option">D. 貓頭鷹是所有雀鳥當中，視力表現最為突出的一種。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：A</div>
+          <div class="alert-text">B只是貓頭鷹捕獵能力的引言；C只涉及夜視原理的其中一項；D把貓頭鷹捧為『視力最好』，原文並無這樣的比較，屬於過度引申。貓頭鷹憑兩種特徵夜視清晰的原因，這一點由A概括得最完整。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第18題</div>
+    <div class="qtext">章魚遇到危險時，除了噴墨逃走，還懂得改變體色及皮膚紋理，模仿附近的珊瑚、岩石甚至海藻的外觀，讓自己幾乎與環境融為一體，天敵即使近在咫尺，也未必能夠察覺牠的存在。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 章魚遇到危險時，除了噴墨逃走，還有其他求生方法。</div>
+    <div class="option">B. 章魚能夠隨意改變自己的體色以及皮膚的紋理。</div>
+    <div class="option">C. 章魚透過擬態融入環境，令天敵難以察覺。</div>
+    <div class="option">D. 章魚是海洋眾多生物當中，唯一懂得擬態偽裝的一種。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">A、B各自只是章魚求生方式的其中一項；D把章魚捧為『唯一懂得擬態』的生物，原文並無這樣的比較，屬於過度引申。章魚透過擬態融入環境、躲避天敵的完整原因，正是C所概括的內容。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g10">
+    <div class="icon">10</div>
+    <div>
+      <div class="chapter-num">GROUP 10</div>
+      <h2>第10組（第19、20題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第19題</div>
+    <div class="qtext">蚯蚓終日在泥土中鑽動，看似不起眼，卻對土壤十分有益。牠們鑽出的孔道能讓空氣和水分滲入土壤深處，排泄物亦含有豐富養分，有助植物根部吸收，因此農夫都視蚯蚓為天然的「土壤醫生」。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 蚯蚓終日在泥土中鑽動，看似不起眼。</div>
+    <div class="option">B. 蚯蚓透過鑽土及排泄，改善土壤透氣度及養分，有益植物生長。</div>
+    <div class="option">C. 蚯蚓鑽出的孔道能讓空氣和水分滲入土壤。</div>
+    <div class="option">D. 沒有蚯蚓，所有農作物都無法生長。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：B</div>
+          <div class="alert-text">A只是蚯蚓外觀的背景描寫；C只涉及蚯蚓益處的其中一環；D把蚯蚓的作用誇大成『沒有牠農作物就無法生長』，原文並無這樣的說法，屬於過度引申。蚯蚓改善土壤、有益植物生長的整體貢獻，這一點B寫得最全面。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第20題</div>
+    <div class="qtext">不少人以為駱駝的駝峰儲存了水分，其實駝峰內主要儲存的是脂肪。當駱駝長時間缺乏食物，身體便會分解駝峰內的脂肪轉化成能量，因此駱駝在缺糧的沙漠中長途跋涉後，駝峰往往會明顯縮小、變得軟垂。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 不少人誤以為，駱駝背上的駝峰儲存的是水分。</div>
+    <div class="option">B. 駱駝的駝峰內主要儲存的是脂肪，並非水分。</div>
+    <div class="option">C. 駱駝在缺糧的沙漠中長途跋涉後，駝峰往往會明顯縮小變得軟垂。</div>
+    <div class="option">D. 駝峰其實儲存脂肪，供缺糧時分解成能量。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：D</div>
+          <div class="alert-text">A只是常見的誤解，屬於引言式的背景；B、C各自只是段落其中一部分的細節。駝峰儲存脂肪、供缺糧時轉化能量的真正原理，這正是D想表達的重點。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g11">
+    <div class="icon">11</div>
+    <div>
+      <div class="chapter-num">GROUP 11</div>
+      <h2>第11組（第21、22題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第21題</div>
+    <div class="qtext">珊瑚礁由無數微小的珊瑚蟲分泌石灰質骨骼堆疊而成，經歷成千上萬年才逐漸形成龐大的礁體。珊瑚礁不但為魚類及其他海洋生物提供棲息之所，亦有助抵擋海浪侵蝕海岸，因此被稱為「海洋的熱帶雨林」。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 珊瑚礁由珊瑚蟲分泌石灰質骨骼堆疊而成。</div>
+    <div class="option">B. 珊瑚礁需要經歷成千上萬年才能逐漸形成。</div>
+    <div class="option">C. 珊瑚礁為海洋生物提供棲息之所，亦有助保護海岸。</div>
+    <div class="option">D. 珊瑚礁是地球上眾多海洋生態結構當中，生長速度最快的一種。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">A、B各自只涉及珊瑚礁形成過程的其中一部分；D段落並無提及生長速度的比較，屬於憑空添加。珊瑚礁在生態及護岸方面的雙重價值，C概括得最為全面。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第22題</div>
+    <div class="qtext">蒲公英的種子頂端長有一叢細絨毛，形狀有如小小的降落傘。當風吹過，絨毛便能帶着種子隨風飄浮，飛到遙遠的地方落地生根，這種巧妙的構造，令蒲公英得以在廣闊的範圍內繁衍後代。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 蒲公英憑絨毛構造，隨風繁衍後代。</div>
+    <div class="option">B. 蒲公英的種子頂端，長有一叢細細的絨毛。</div>
+    <div class="option">C. 這些種子上的絨毛，形狀有如一把把小小的降落傘。</div>
+    <div class="option">D. 蒲公英的種子能夠隨風飄散，甚至飄到地球上任何一個角落。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：A</div>
+          <div class="alert-text">B只是種子外觀的背景描寫；C只是絨毛形狀的比喻細節；D把飄散範圍誇大成『任何角落』，原文只講『廣闊的範圍』，屬於過度引申。蒲公英憑絨毛構造隨風繁衍的巧妙原理，這一點由A道出得最貼切。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g12">
+    <div class="icon">12</div>
+    <div>
+      <div class="chapter-num">GROUP 12</div>
+      <h2>第12組（第23、24題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第23題</div>
+    <div class="qtext">南極的帝王企鵝面對嚴寒天氣，會成千上百地緊緊擠在一起，形成一個個「企鵝堆」，藉着彼此的體温互相取暖。牠們還會輪流站到外圍抵擋寒風，過一會兒便與內圈的企鵝交換位置，讓大家都有機會暖和身子。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 南極的帝王企鵝面對嚴寒天氣。</div>
+    <div class="option">B. 企鵝會成千上百地緊緊擠在一起，形成「企鵝堆」。</div>
+    <div class="option">C. 站在外圍的企鵝要獨自承受寒風。</div>
+    <div class="option">D. 企鵝透過群聚及輪流換位這兩種方法，合力抵禦嚴寒、彼此取暖。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：D</div>
+          <div class="alert-text">A只是企鵝面對的環境背景；B只是群聚取暖的其中一個做法；C與原文『輪流交換位置』直接矛盾，屬於過度引申。企鵝群聚兼輪流換位、合力抵禦嚴寒的完整方法，D把這一點寫得最完整。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第24題</div>
+    <div class="qtext">社區中心近年開辦長者飯堂，以相宜的價錢，為附近獨居或行動不便的長者提供午膳，義工亦會協助派飯，順道探望長者，了解他們的生活狀況。飯堂不但解決了長者「三餐」的煩惱，亦為他們帶來陪伴。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 社區中心近年開辦長者飯堂，以相宜的價錢為長者提供午膳。</div>
+    <div class="option">B. 長者飯堂在解決飲食需要之餘，亦為長者帶來陪伴與關懷。</div>
+    <div class="option">C. 義工會協助派飯，順道探望長者，了解他們的生活狀況。</div>
+    <div class="option">D. 長者飯堂自開辦以來，從未有任何一位長者缺席用膳。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：B</div>
+          <div class="alert-text">A、C各自只涉及長者飯堂服務的其中一部分；D段落並無提及出席率，屬於憑空添加。長者飯堂兼顧温飽與陪伴的雙重意義，B概括得最為到位。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g13">
+    <div class="icon">13</div>
+    <div>
+      <div class="chapter-num">GROUP 13</div>
+      <h2>第13組（第25、26題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第25題</div>
+    <div class="qtext">近年電子支付日趨普及，市民只需用手機掃描二維碼，便能夠完成付款，毋須攜帶現金，過程既快捷又衛生。不過，長者對這種新式付款方式未必熟悉，部分商戶因此仍保留現金交易，方便不同顧客的需要。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 電子支付快捷方便，惟部分顧客未必熟悉，商戶仍保留現金選項。</div>
+    <div class="option">B. 市民只需用手機掃描二維碼，便能夠完成付款。</div>
+    <div class="option">C. 長者對這種新式的電子支付方式，普遍感到未必熟悉。</div>
+    <div class="option">D. 電子支付已經完全取代現金，成為市面上唯一及最通行的付款方式。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：A</div>
+          <div class="alert-text">B、C各自只是段落其中一面的內容；D與原文『部分商戶仍保留現金交易』直接矛盾，屬於過度引申。段落其實兼顧了電子支付的便利，以及仍需保留現金選項的原因，這一點A寫得最周全。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第26題</div>
+    <div class="qtext">網上學習平台近年愈趨流行，學生只需登入帳戶，便能夠隨時重溫課堂內容，甚至按自己的進度調整學習速度。不過，這種學習方式也考驗學生的自律能力，缺乏監督下，部分學生容易分心，學習成效因人而異。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 學生只需登入個人帳戶，便能夠隨時重溫課堂內容。</div>
+    <div class="option">B. 學生可以按照自己的學習進度，自由調整學習速度。</div>
+    <div class="option">C. 網上學習靈活方便，惟成效視乎自律程度。</div>
+    <div class="option">D. 網上學習平台的出現，能夠令所有學生的成績大幅提升。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">A、B各自只是網上學習平台其中一項優點；D把成效誇大為『所有學生成績大幅提升』，與原文『學習成效因人而異』的說法不符，屬於過度引申。段落其實同時交代了網上學習的靈活性，以及對自律的考驗，C最能扣連這兩方面。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g14">
+    <div class="icon">14</div>
+    <div>
+      <div class="chapter-num">GROUP 14</div>
+      <h2>第14組（第27、28題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第27題</div>
+    <div class="qtext">屋苑近年在天台闢設共享種植區，讓有興趣的居民認領一小塊地方種植蔬果花卉。居民定期澆水施肥，收成後又會互相分享，種植區不但美化了天台環境，亦成為鄰居之間交流感情的好去處。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 屋苑近年在天台闢設共享種植區。</div>
+    <div class="option">B. 天台種植區既美化環境，亦促進居民之間的交流與感情。</div>
+    <div class="option">C. 居民定期為植物澆水施肥。</div>
+    <div class="option">D. 天台種植區已成為全港最著名的社區設施。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：B</div>
+          <div class="alert-text">A只是種植區設立的背景；C只是居民日常打理植物的細節；D段落並無這樣的比較，屬於過度誇大的講法。天台種植區兼具美化環境與聯繫感情的作用，這一點B概括得最貼切。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第28題</div>
+    <div class="qtext">近年不少社區設立二手物資交換平台，居民可以把家中用不着但狀態良好的物品，捐出或換取其他物資，既減少浪費，亦為有需要的家庭提供實惠選擇。平台亦定期舉辦跳蚤市集，讓交換活動更添趣味。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 近年不少社區都設立了二手物資交換平台，供居民使用。</div>
+    <div class="option">B. 居民可以把家中閒置但狀態良好的物品，捐出或作交換。</div>
+    <div class="option">C. 平台亦會定期舉辦跳蚤市集活動，增添交換活動的趣味。</div>
+    <div class="option">D. 二手交換平台減廢兼顧民生需要。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：D</div>
+          <div class="alert-text">A只是平台設立的背景；B、C各自只是平台運作方式的其中一項細節。二手交換平台減廢兼顧民生需要的雙重效益，D把這兩方面都寫進去了。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-header" id="g15">
+    <div class="icon">15</div>
+    <div>
+      <div class="chapter-num">GROUP 15</div>
+      <h2>第15組（第29、30題）</h2>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第29題</div>
+    <div class="qtext">為鼓勵市民多用公共交通，當局近年推出轉乘優惠，乘客在指定時間內轉乘巴士或鐵路，可獲車費扣減，藉此減輕交通開支。優惠推出後，選擇公共交通代步的市民明顯增加，路面私家車流量亦有所紓緩。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 為鼓勵市民多用公共交通，當局近年特意推出轉乘優惠，乘客可獲車費扣減。</div>
+    <div class="option">B. 選擇公共交通代步的市民明顯增加。</div>
+    <div class="option">C. 轉乘優惠鼓勵市民多用公共交通，兼助紓緩路面擠塞。</div>
+    <div class="option">D. 自從推出轉乘優惠後，路面私家車已完全絕跡。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：C</div>
+          <div class="alert-text">A、B各自只是優惠措施帶來的其中一項成效；D把成效誇大為『完全絕跡』，原文只講『有所紓緩』，屬於過度引申。轉乘優惠鼓勵市民乘搭公共交通、紓緩路面擠塞的整體作用，答案應選C。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="qbox">
+    <div class="qnum">第30題</div>
+    <div class="qtext">學校在圖書館旁設置了一個漂書箱，鼓勵學生把看完的圖書放進箱內，供其他同學自由取閱，看完後亦可以繼續放回箱中流轉。漂書箱推出後，不少學生開始主動整理家中書籍，捐出來與同學分享。</div>
+    <div class="qprompt">以上一段文字主要說明：</div>
+    <div class="option">A. 漂書箱推動圖書流轉，鼓勵學生互相分享。</div>
+    <div class="option">B. 學校特意在圖書館旁邊，設置了一個小小的漂書箱。</div>
+    <div class="option">C. 學生把書看完後，可以隨時把書放回漂書箱中流轉。</div>
+    <div class="option">D. 漂書箱推出後，全校學生的閱讀測驗成績都名列前茅。</div>
+    <details class="reveal">
+      <summary><span class="rv-show">🔍 查看答案與解析</span><span class="rv-hide">🙈 收起答案</span></summary>
+      <div class="alert success">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-label">正確答案：A</div>
+          <div class="alert-text">B只是漂書箱設置的背景；C只是使用方式的其中一環；D段落並無提及閱讀成績的變化，屬於過度誇大的講法。漂書箱推動圖書流轉、鼓勵學生分享的作用，A把這一點寫得最到位。</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
