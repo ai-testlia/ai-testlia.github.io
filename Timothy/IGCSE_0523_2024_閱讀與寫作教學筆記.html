@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGCSE 中文閱讀與寫作教學筆記（2024年5/6月）| 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#C8D5D8;
+  --hero-text:#122025;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#eee;
+    --color-text-secondary:#aaa;
+    --color-background-primary:#1c1c1e;
+    --color-background-secondary:#242426;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+  }
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;background:var(--color-background-secondary);color:var(--color-text-primary);line-height:1.8;}
+h1,h2,h3,h4{font-family:"Noto Serif TC",serif;}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 90px;}
+
+.hero{background:var(--hero-bg);color:var(--hero-text);border-radius:var(--border-radius-lg);padding:38px 32px;margin-bottom:26px;text-align:center;}
+.hero-tag{display:inline-block;border:1px solid rgba(18,32,37,0.3);color:rgba(18,32,37,0.65);border-radius:20px;padding:4px 16px;font-size:13px;letter-spacing:1px;margin-bottom:14px;}
+.hero h1{font-size:26px;font-weight:900;margin:0 0 8px;line-height:1.5;}
+.hero p{margin:0;font-size:14px;color:rgba(18,32,37,0.5);}
+
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px;}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:10px;}
+.toc-item{display:block;padding:6px 0;font-size:14px;color:var(--color-text-primary);text-decoration:none;border-bottom:0.5px dashed var(--color-border-tertiary);}
+.toc-item:last-child{border-bottom:none;}
+.toc-item span{color:var(--color-text-secondary);margin-right:6px;}
+
+.section-header{display:flex;align-items:center;gap:12px;margin:34px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--hero-bg);}
+.section-header .icon{font-size:24px;}
+.section-header h2{font-size:19px;margin:0;flex:1;}
+.section-header .chno{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary);padding:3px 10px;border-radius:12px;}
+
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;}
+.subsection{margin-bottom:14px;}
+.subsection-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:8px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.dot.blue{background:#5b8bc4;} .dot.teal{background:#2a9d8f;} .dot.coral{background:#e76f51;}
+.dot.amber{background:#e0a030;} .dot.pink{background:#d6537a;} .dot.purple{background:#7c5cbf;}
+.card p{font-size:14px;margin:0 0 6px;color:var(--color-text-primary);}
+
+.passage{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:5px solid var(--hero-bg);border-radius:var(--border-radius-lg);padding:20px 24px;margin-bottom:18px;font-family:"Noto Serif TC",serif;}
+.passage .p-title{font-weight:700;font-size:16px;margin-bottom:10px;text-align:center;}
+.passage p{text-indent:2em;font-size:15px;line-height:2;margin:0 0 10px;}
+.passage-label{display:inline-block;background:var(--hero-bg);color:var(--hero-text);font-size:12px;font-weight:700;border-radius:6px;padding:3px 10px;margin-bottom:10px;}
+
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.kw-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;}
+.kw-word{font-weight:700;font-size:14px;margin-bottom:3px;}
+.kw-def{font-size:12.5px;color:var(--color-text-secondary);line-height:1.6;}
+
+.example-box{border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0;background:#f5f0fa;border-left:4px solid #7c5cbf;}
+.example-box.teal{background:#e6f5f3;border-left-color:#2a9d8f;}
+.example-label{font-size:12px;font-weight:700;opacity:.75;margin-bottom:4px;}
+.example-text{font-size:14px;line-height:1.8;}
+
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:12px 14px;margin:10px 0;align-items:flex-start;}
+.alert-icon{font-size:18px;flex-shrink:0;}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px;}
+.alert-text{font-size:13.5px;line-height:1.7;}
+.alert.tip{background:#eaf3fc;color:#1c3d5a;} .alert.tip .alert-label{color:#2a6bab;}
+.alert.warn{background:#fdeaea;color:#5a1c1c;} .alert.warn .alert-label{color:#c0392b;}
+.alert.success{background:#eafaf0;color:#134d32;} .alert.success .alert-label{color:#2f9e6c;}
+.alert.amber{background:#fff6e5;color:#5a3d10;} .alert.amber .alert-label{color:#c98a1a;}
+
+.viewpoint-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.viewpoint-bubble{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 16px;font-size:13.5px;text-align:center;border:1px solid var(--color-border-tertiary);}
+.viewpoint-bubble .vp-tag{font-size:11px;color:var(--color-text-secondary);display:block;margin-top:6px;}
+
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;}
+.flow-step{background:var(--hero-bg);color:var(--hero-text);border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;}
+.flow-arrow{font-size:16px;color:var(--color-text-secondary);}
+
+.formula{background:#1f2a30;color:#eef4f5;border-radius:var(--border-radius-lg);padding:18px 22px;margin:14px 0;font-size:14px;line-height:2;}
+.formula b{color:#9fd3cf;}
+
+.level-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:10px 0;}
+.level-table th,.level-table td{border:0.5px solid var(--color-border-tertiary);padding:8px 10px;text-align:left;vertical-align:top;}
+.level-table th{background:var(--color-background-secondary);font-weight:700;}
+
+.qbox{display:flex;gap:12px;padding:14px 0;border-bottom:0.5px dashed var(--color-border-tertiary);}
+.qbox:last-child{border-bottom:none;}
+.qnum{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--hero-bg);color:var(--hero-text);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
+.qcontent{flex:1;}
+.qtext{font-size:14.5px;margin-bottom:2px;}
+.qmark{font-size:12px;color:var(--color-text-secondary);}
+
+.answer-toggle-btn{display:inline-flex;align-items:center;gap:6px;background:#5b8bc4;color:#fff;border:none;border-radius:20px;padding:6px 16px;font-size:12.5px;cursor:pointer;margin-top:8px;font-family:inherit;transition:opacity .15s;}
+.answer-toggle-btn:hover{opacity:.82;}
+.answer-content{display:none;margin-top:10px;padding:12px 16px;background:#eafaf0;border-left:4px solid #2f9e6c;border-radius:var(--border-radius-md);font-size:13.5px;line-height:1.85;}
+.answer-content.show{display:block;}
+.answer-content .ans-label{font-weight:700;color:#1c6b45;font-size:12px;margin-bottom:4px;}
+.answer-content.model-answer{background:#eaf3fc;border-left-color:#2a6bab;}
+.answer-content.model-answer .ans-label{color:#1c3d5a;}
+
+footer{margin-top:2rem;padding:1.2rem 1.5rem;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);text-align:center;}
+
+@media print{
+  @page{margin:12mm 10mm;}
+  body{background:#fff;}
+  .wrap{max-width:100%;padding:0;}
+  .toc{display:none;}
+  a{color:inherit;text-decoration:none;}
+  .card,.qbox,.example-box,.alert,.formula,.passage,.level-table{page-break-inside:avoid;}
+  .section-header{page-break-before:always;page-break-after:avoid;}
+  .section-header:first-of-type{page-break-before:auto;}
+  .hero{page-break-after:avoid;}
+  .print-btn,.toggle-all-btn,.answer-toggle-btn,.answer-content{display:none !important;}
+}
+
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--hero-text);color:#fff;border:none;border-radius:50px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.25);z-index:99;font-family:inherit;}
+.toggle-all-btn{position:fixed;bottom:24px;left:24px;background:#2f9e6c;color:#fff;border:none;border-radius:50px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.25);z-index:99;font-family:inherit;}
+
+@media (max-width:600px){
+  .keyword-grid{grid-template-columns:1fr;}
+  .viewpoint-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:21px;}
+  .toggle-all-btn{left:12px;padding:10px 14px;font-size:12.5px;}
+  .print-btn{right:12px;padding:10px 14px;font-size:12.5px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀與寫作教學筆記</div>
+    <h1>IGCSE 中文閱讀與寫作綜合練習</h1>
+    <p>取材自 Cambridge IGCSE™ Chinese as a Second Language 0523/01（2024年5/6月）附官方評分標準｜潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📑 目錄</div>
+    <a class="toc-item" href="#overview"><span>00</span>考試總覽與應試策略</a>
+    <a class="toc-item" href="#ex1"><span>01</span>練習一：填空式閱讀理解——〈體操名將李昂〉</a>
+    <a class="toc-item" href="#ex2"><span>02</span>練習二：問答式閱讀理解——〈移民外星〉</a>
+    <a class="toc-item" href="#ex3"><span>03</span>練習三：人物配對選擇題——〈韓流〉</a>
+    <a class="toc-item" href="#ex4"><span>04</span>練習四：引導式寫作——電子郵件</a>
+    <a class="toc-item" href="#ex5"><span>05</span>練習五：引導式寫作——博客（表明立場）</a>
+  </div>
+
+  <!-- ============ 00 考試總覽 ============ -->
+  <div class="section-header" id="overview">
+    <div class="icon">📋</div>
+    <h2>考試總覽與應試策略</h2>
+    <div class="chno">總分 60</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection">
+      <div class="subsection-title"><span class="dot blue"></span>試卷結構</div>
+      <p>本卷為 Paper 1 Reading and Writing，考試時間 2 小時，全卷共 60 分。本筆記所附答案，練習一至三取自官方公布的評分標準（Mark Scheme），練習四、五則按官方評分等級描述（Level Descriptors）撰寫示範文章，並非官方範文。</p>
+    </div>
+    <div class="formula">
+      <b>練習一</b>　填空式閱讀理解（簽證申請表）── 8 分<br>
+      <b>練習二</b>　問答式閱讀理解（移民外星）── 12 分<br>
+      <b>練習三</b>　人物配對選擇題（韓流）── 10 分<br>
+      <b>練習四</b>　引導式寫作（電郵，100–120字）── 8 分<br>
+      <b>練習五</b>　引導式寫作（博客，250–300字，須表態）── 22 分<br>
+      合計：8 + 12 + 10 + 8 + 22 = <b>60 分</b>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">評分總則（節錄自官方評分標準）</div>
+        <div class="alert-text">評卷員按答案是否切合評分標準的具體內容或等級描述給分；只要考生能清楚表達所知所能，即使用詞與官方答案不盡相同，亦可獲得學分（即容許同義表達）；答案不會因錯別字、遺漏而被扣分，除非題目本身要求評核語文準確度（如練習四、五）。</div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">本題型常見扣分位</div>
+        <div class="alert-text">練習二第10題考生常誤把「先被氣化成水蒸氣」當作最後一步，其實原文「最後一步」是指「冷凍收集成液態水」；官方評分標準亦特別註明拒收「冰塊要先被氣化」此答案，可見審題須留意題目問的是流程的哪一個階段。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 01 練習一 ============ -->
+  <div class="section-header" id="ex1">
+    <div class="icon">📖</div>
+    <h2>練習一：填空式閱讀理解</h2>
+    <div class="chno">第1–7題　8分</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot blue"></span>題型解讀</div>
+    <p>考生須代入短文主角李昂的身分，根據其背景資料填寫《簽證申請表》。留意表格欄目（國籍、職業、學歷、護照種類、簽證種類、邀請單位、行程安排）分別對應原文不同段落，答題時應簡潔摘取關鍵詞，毋須完整句子。</p>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文</div>
+    <div class="p-title">體操名將李昂</div>
+    <p>捷克運動名將李昂在1998年出生於布拉格，他的母親是捷克人，父親是中國天津人。父親去布拉格工作的時候結識了李昂的母親，於是兩人在捷克舉辦了婚禮，定居在布拉格。李昂從小便接受兩個國家文化的薰陶，並能流利地說三門語言。</p>
+    <p>李昂從7歲開始學習體操，很快就展現出極高的天賦。在2007年世界盃期間，他的父親結識了中國國家隊的教練。簡短介紹後，該教練邀請李昂前往中國長春和中國隊一起訓練。當時剛滿10歲的李昂就此踏上了改變他人生的旅程。和中國隊一起合練的18個月對於李昂作為體操運動員的成長起到了關鍵作用，他表示：「當時的經歷挺艱難的，在捷克，我們每週只有1–2次訓練，在中國則是一天兩練！對我而言那是一種截然不同的體驗。」</p>
+    <p>從那以後，李昂大部分的假期都在長春度過，除了接受系統的訓練，也會去當地語言學校上課，學習中文課程。慢慢地，他對中國文化也更加瞭解，說話的時候還帶著濃重的東北口音。今年高中剛畢業的他決定專心訓練一年後再考慮申請大學。</p>
+    <p>之前李昂每次到中國不是集訓，就是比賽，這次他受邀參與央視節目《開講啦》，打算跟母親一起去北京參與訪談的錄製。母親雖持有公務護照，但其簽證已過期。李昂決定這次跟母親用普通護照申請旅遊簽，這樣可以在節目錄製結束後順便去西安遊覽幾天。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot amber"></span>重點詞彙</div>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">薰陶</div><div class="kw-def">長期受某種環境或文化影響而潛移默化。</div></div>
+      <div class="kw-card"><div class="kw-word">天賦</div><div class="kw-def">與生俱來的才能。</div></div>
+      <div class="kw-card"><div class="kw-word">截然不同</div><div class="kw-def">形容兩者差別非常明顯，完全不一樣。</div></div>
+      <div class="kw-card"><div class="kw-word">公務護照</div><div class="kw-def">供公務人員因公出行使用的護照，有別於普通護照。</div></div>
+      <div class="kw-card"><div class="kw-word">旅遊簽</div><div class="kw-def">「旅遊簽證」的簡稱，供旅客以觀光為目的申請的簽證。</div></div>
+      <div class="kw-card"><div class="kw-word">順便</div><div class="kw-def">利用做某事的機會，附帶做另一件事。</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot teal"></span>《簽證申請表》填空題</div>
+    <p style="font-size:13.5px;color:var(--color-text-secondary);margin-bottom:10px;">姓名：李昂</p>
+
+    <div class="qbox">
+      <div class="qnum">1</div>
+      <div class="qcontent">
+        <div class="qtext">現有國籍：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a1-btn" onclick="toggleAnswer('a1')">👁 查看答案</button>
+        <div class="answer-content" id="a1"><div class="ans-label">官方答案</div>捷克（人可接受）</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">2</div>
+      <div class="qcontent">
+        <div class="qtext">當前職業：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a2-btn" onclick="toggleAnswer('a2')">👁 查看答案</button>
+        <div class="answer-content" id="a2"><div class="ans-label">官方答案</div>（體操）運動員</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">3</div>
+      <div class="qcontent">
+        <div class="qtext">受教育程度：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a3-btn" onclick="toggleAnswer('a3')">👁 查看答案</button>
+        <div class="answer-content" id="a3"><div class="ans-label">官方答案</div>高中（剛畢業可接受）</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">4</div>
+      <div class="qcontent">
+        <div class="qtext">護照種類：外交 □　公務 □　普通 □ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a4-btn" onclick="toggleAnswer('a4')">👁 查看答案</button>
+        <div class="answer-content" id="a4"><div class="ans-label">官方答案</div>普通 ✓（李昂決定用普通護照申請旅遊簽）</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">5</div>
+      <div class="qcontent">
+        <div class="qtext">申請簽證種類：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a5-btn" onclick="toggleAnswer('a5')">👁 查看答案</button>
+        <div class="answer-content" id="a5"><div class="ans-label">官方答案</div>旅遊（簽）</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">6</div>
+      <div class="qcontent">
+        <div class="qtext">中國境內邀請單位：______________ <span class="qmark">[1]</span></div>
+        <button class="answer-toggle-btn" id="a6-btn" onclick="toggleAnswer('a6')">👁 查看答案</button>
+        <div class="answer-content" id="a6"><div class="ans-label">官方答案</div>央視（節目《開講啦》）；亦接受「央視節目組」</div>
+      </div>
+    </div>
+    <div class="qbox">
+      <div class="qnum">7</div>
+      <div class="qcontent">
+        <div class="qtext">在中國境內行程安排：(i) ______________ [1]</div>
+        <div class="qtext">　　　　　　　　　　(ii) ______________ [1]</div>
+        <button class="answer-toggle-btn" id="a7-btn" onclick="toggleAnswer('a7')">👁 查看答案</button>
+        <div class="answer-content" id="a7"><div class="ans-label">官方答案</div>(i) 去北京參與訪談的錄製（亦接受「參與央視節目的錄製」）　(ii) 去西安遊覽（幾天）——注意：單寫「遊覽」不獲接受，須寫明地點「西安」</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 02 練習二 ============ -->
+  <div class="section-header" id="ex2">
+    <div class="icon">📖</div>
+    <h2>練習二：問答式閱讀理解</h2>
+    <div class="chno">第8–17題　12分</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot blue"></span>題型解讀</div>
+    <p>此篇說明文涉及較多科普概念（太空站、火星水資源、太空基地物料等），答題時須留意題目問的是流程的「哪一步」或「哪個階段」，切忌把整段內容一併照抄，而應精準定位題目所問的那一個環節。</p>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文</div>
+    <div class="p-title">移民外星</div>
+    <p>人類對星辰大海的嚮往從未止步。要向太空進發，建造圍繞地球運行的國際空間站是第一步，這樣宇航員能夠在那裡留守並做研究。對第一次在太空站俯瞰地球的經歷，宇航員鄧恩記憶猶新：「在巴西上空的時候我以為要好一會兒才能觀測到歐洲，結果半小時後看到的居然是喜馬拉雅山。」</p>
+    <p>離開地球後，如何獲取水源是個大問題。儘管科學家已在火星表面發現水冰，可這些水份並不容易抽取。冰塊要先被氣化成水蒸氣再冷凍收集成液態水，以防止其流失到大氣中。同樣必需，但不能反復遠程運送的，是建造太空基地的物料。有建築師提出可以把火星的泥土製成混凝土，配以立體打印機建成基地。更有操作性的提議是把基地設計成可折疊式，從地球運送時可折起來節省空間。</p>
+    <p>建好基地後，宇航員需要面對重力問題，必須進行大量操練來維持肌肉強度。早期在月球和火星基地工作的人類，生活作息要非常自律。人類是群居生物，需要和不同的人交流並建立關係，長期跟同一群人相處在有限的空間裡壓力很大，因此極強的自我調節能力也至關重要。</p>
+    <p>宇航員日常任務繁重，保持充沛的體力很關鍵。除了通過微生物發酵生產的蛋白質，科學家期望能以最少的投入實現最多的糧食產出，利用垂直農場，為宇航員提供長期的食物供應。</p>
+    <p>多年來，美國宇航局都由政府資助，但目前他們正在推進商業開發太空艙對接空間站的計劃，已授予公理航天公司相關合同。在該公司首席技術官翁德勒看來，早期的利潤將來自太空遊客，而製造業創造的利潤最終將大幅超越這部分收入。</p>
+    <p>宇航局負責人格里認為在未來數千年中人類免遭重大災難的可能性很小，他把移民外星稱之為人類的「生命保險」。他表示，移民外星計劃過程中涉及到的一系列研究，將是完美的催化劑，在極大程度上促進科技不斷進步。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot amber"></span>重點詞彙</div>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">嚮往</div><div class="kw-def">對某事物心生渴望、盼望達成。</div></div>
+      <div class="kw-card"><div class="kw-word">俯瞰</div><div class="kw-def">從高處往下看。</div></div>
+      <div class="kw-card"><div class="kw-word">記憶猶新</div><div class="kw-def">雖事隔多時，仍記得清清楚楚，如剛發生一樣。</div></div>
+      <div class="kw-card"><div class="kw-word">群居生物</div><div class="kw-def">習慣群體生活、彼此依存的生物，人類即屬此類。</div></div>
+      <div class="kw-card"><div class="kw-word">自我調節</div><div class="kw-def">自行調整情緒或行為，以適應環境。</div></div>
+      <div class="kw-card"><div class="kw-word">催化劑</div><div class="kw-def">比喻能加速事情發展或轉變的因素。</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot teal"></span>問答題</div>
+
+    <div class="qbox"><div class="qnum">8</div><div class="qcontent">
+      <div class="qtext">為了移民外星，人類已完成的首要任務是什麼？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a8-btn" onclick="toggleAnswer('a8')">👁 查看答案</button>
+      <div class="answer-content" id="a8"><div class="ans-label">官方答案</div>建造（圍繞地球運行的）國際空間站</div>
+    </div></div>
+
+    <div class="qbox"><div class="qnum">9</div><div class="qcontent">
+      <div class="qtext">宇航員鄧恩第一次俯瞰地球的感受是什麼？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a9-btn" onclick="toggleAnswer('a9')">👁 查看答案</button>
+      <div class="answer-content" id="a9"><div class="ans-label">官方答案</div>驚訝／意外（空間站繞行地球的速度之快，比預期更快看到不同大洲）；不接受「驚喜」「記憶猶新」</div>
+    </div></div>
+
+    <div class="qbox"><div class="qnum">10</div><div class="qcontent">
+      <div class="qtext">在火星獲取水資源的最後一步操作是什麼？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a10-btn" onclick="toggleAnswer('a10')">👁 查看答案</button>
+      <div class="answer-content" id="a10"><div class="ans-label">官方答案</div>冷凍收集成液態水；不接受「冰塊要先被氣化」（這是較前的步驟，非最後一步）</div>
+    </div></div>
+
+    <div class="qbox"><div class="qnum">11</div><div class="qcontent">
+      <div class="qtext">怎樣獲取建造火星基地的材料更加可行？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a11-btn" onclick="toggleAnswer('a11')">👁 查看答案</button>
+      <div class="answer-content" id="a11"><div class="ans-label">官方答案</div>把基地設計成可折疊式（從地球運送）</div>
+    </div></div>
+
+    <div class="qbox"><div class="qnum">12</div><div class="qcontent">
+      <div class="qtext">早期在外星居住的人類需要具備哪兩種特質？ <span class="qmark">[2]</span></div>
+      <button class="answer-toggle-btn" id="a12-btn" onclick="toggleAnswer('a12')">👁 查看答案</button>
+      <div class="answer-content" id="a12"><div class="ans-label">官方答案</div>①（生活作息）自律；②極強的自我調節能力</div>
+    </div></div>
+
+    <div class="qbox"><div class="qnum">13</div><div class="qcontent">
+      <div class="qtext">未來宇航員的食物補給可能來自哪兩種渠道？ <span class="qmark">[2]</span></div>
+      <button class="answer-toggle-btn" id="a13-btn" onclick="toggleAnswer('a13')">👁 查看答案</button>
+      <div class="answer-content" id="a13"><div class="ans-label">官方答案</div>①微生物發酵生產（的蛋白質）；②垂直農場</div>
+    </div></div>
+
+    <div class="qbox"><div class="qnum">14</div><div class="qcontent">
+      <div class="qtext">美國宇航局目前的新項目與以往有何不同？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a14-btn" onclick="toggleAnswer('a14')">👁 查看答案</button>
+      <div class="answer-content" id="a14"><div class="ans-label">官方答案</div>商業開發／商業參與（以往由政府資助，現正推進商業開發太空艙對接空間站的計劃）</div>
+    </div></div>
+
+    <div class="qbox"><div class="qnum">15</div><div class="qcontent">
+      <div class="qtext">長遠來看，翁德勒認為公理航天的市場收益主要來自哪裡？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a15-btn" onclick="toggleAnswer('a15')">👁 查看答案</button>
+      <div class="answer-content" id="a15"><div class="ans-label">官方答案</div>製造業</div>
+    </div></div>
+
+    <div class="qbox"><div class="qnum">16</div><div class="qcontent">
+      <div class="qtext">格里對人類在地球上的未來持有何種態度？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a16-btn" onclick="toggleAnswer('a16')">👁 查看答案</button>
+      <div class="answer-content" id="a16"><div class="ans-label">官方答案</div>悲觀／消極／現實</div>
+    </div></div>
+
+    <div class="qbox"><div class="qnum">17</div><div class="qcontent">
+      <div class="qtext">格里認為移民外星計劃還有什麼益處？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a17-btn" onclick="toggleAnswer('a17')">👁 查看答案</button>
+      <div class="answer-content" id="a17"><div class="ans-label">官方答案</div>促進科技（不斷）進步</div>
+    </div></div>
+  </div>
+
+  <!-- ============ 03 練習三 ============ -->
+  <div class="section-header" id="ex3">
+    <div class="icon">🎯</div>
+    <h2>練習三：人物配對選擇題</h2>
+    <div class="chno">第18–27題　10分</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot blue"></span>題型解讀</div>
+    <p>四位追星人物（A 曉東、B 芬妮、C 知遠、D 舒文）各有不同的追星經歷及看法，考生須配對題目描述與相應人物。此篇的難點在於各人經歷有重疊主題（如「打工／省錢」「父母態度」），須細心分辨動詞及細節的分別。</p>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見陷阱</div>
+        <div class="alert-text">第25題「誰為了買偶像的海報與帽衫打工攢錢？」答案是 B（芬妮：教英語存錢買周邊產品），而非 A（曉東：只是「省錢」「不吃早飯」，並非「打工」），可見須留意「打工」與「省錢」在原文中並不相同。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文（四人談追星經歷）</div>
+    <div class="p-title">韓流</div>
+    <p><b>A　曉東</b><br>曉東上初一那年，刮到中國的「韓流」正盛行，外表帥氣俊美的韓國組合H.O.T也順理成章地成了她的心頭愛。在網上瀏覽偶像的新聞、圖片，為了省錢買海報和唱片而不吃早飯，攢零花錢買韓語書自學……粉絲該做的事，她一件都不落。能現場欣賞H.O.T的動感音樂和華麗的舞美成了曉東必須去韓國的內心情結。不過，最終選擇留學首爾還是因為離父母近、經濟實惠。剛到韓國的那個月，曉東一口氣看了五場演唱會。完成心願後，她的不理智也就終結在了那個時候。</p>
+    <p><b>B　芬妮</b><br>為了防彈少年團，芬妮決定從蘇格蘭移民韓國，住在離偶像更近的地方。韓國發達的音樂工業以節拍強勁的曲風聞名，但防彈少年團更傾向探討嚴肅的主題，為了更好地理解歌詞傳達的訊息，芬妮一直努力學習韓語。她平時在首爾一間小學教英語，存錢買周邊產品，在漫長的等待後終於成功加入了歌迷俱樂部。除了可以交到志同道合的朋友，還能第一時間預訂演唱會門票。不過，身在異鄉，芬妮很想念自己的家人，而且首爾的冬天也十分難熬，但為了跟偶像一起努力共同進步，芬妮說，一切都值得。</p>
+    <p><b>C　知遠</b><br>許多家長固執地認為追星的孩子只是在追「顏值」。知遠對這個看法不以為然。他做過統計，在韓國，每年都有大約50個團體出道，幾乎每位成員都擁有好看的外表。想要在高淘汰率、殘酷的演藝圈生存下來並站上頂端，只靠顏值根本不可能。作為粉絲的他，更注重的是偶像背後的付出。知遠算是追星族中的「理智派」，不像很多狂熱的粉絲，對明星的人品及言行要求極高。學習壓力大、娛樂生活豐富，是知遠走出追星熱情的主要原因。</p>
+    <p><b>D　舒文</b><br>今年初，舒文的父母開始緊鑼密鼓地籌劃將兒子送到澳洲留學，但他堅持選擇韓國。為了說服擔心自己沉溺於追星的父母，舒文製作了一份留學規劃，在幾個月內拿到了韓語中級證書，並結合未來就業方向選好了高校及專業。看到兒子負責任的態度和行動，父母放心地將舒文送到了韓國。舒文說韓國娛樂氛圍濃厚，藝術節、電影節、音樂大賞等活動的門票很容易預訂到，有各種機會可以近距離接觸偶像，他的課餘生活將因此而多姿多彩。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot amber"></span>重點詞彙</div>
+    <div class="keyword-grid">
+      <div class="kw-card"><div class="kw-word">順理成章</div><div class="kw-def">依循事理發展，自然而然地成為某種結果。</div></div>
+      <div class="kw-card"><div class="kw-word">不以為然</div><div class="kw-def">不同意、不認為是對的。</div></div>
+      <div class="kw-card"><div class="kw-word">淘汰率</div><div class="kw-def">被篩選、被淘汰的比率，比率越高競爭越激烈。</div></div>
+      <div class="kw-card"><div class="kw-word">緊鑼密鼓</div><div class="kw-def">比喻事前緊張、密集的準備工作。</div></div>
+      <div class="kw-card"><div class="kw-word">沉溺</div><div class="kw-def">過度沉迷於某事，難以自拔。</div></div>
+      <div class="kw-card"><div class="kw-word">志同道合</div><div class="kw-def">彼此志趣、理想相同，能夠合得來。</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot teal"></span>配對題（人物：A 曉東　B 芬妮　C 知遠　D 舒文）</div>
+    <p style="font-size:13px;color:var(--color-text-secondary);">例：誰反對追星只是在追明星外表的說法？ → <b>C</b>（已示範）</p>
+
+    <div class="qbox"><div class="qnum">18</div><div class="qcontent">
+      <div class="qtext">誰在短期內自學韓語並通過了語言考試？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a18-btn" onclick="toggleAnswer('a18')">👁 查看答案</button>
+      <div class="answer-content" id="a18"><div class="ans-label">官方答案：D</div>「在幾個月內拿到了韓語中級證書」</div>
+    </div></div>
+    <div class="qbox"><div class="qnum">19</div><div class="qcontent">
+      <div class="qtext">誰選擇去韓國留學是因為在那裡讀書的性價比更高？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a19-btn" onclick="toggleAnswer('a19')">👁 查看答案</button>
+      <div class="answer-content" id="a19"><div class="ans-label">官方答案：A</div>「最終選擇留學首爾還是因為離父母近、經濟實惠」</div>
+    </div></div>
+    <div class="qbox"><div class="qnum">20</div><div class="qcontent">
+      <div class="qtext">誰認為明星能成功上位是其努力的結果？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a20-btn" onclick="toggleAnswer('a20')">👁 查看答案</button>
+      <div class="answer-content" id="a20"><div class="ans-label">官方答案：C</div>「更注重的是偶像背後的付出」</div>
+    </div></div>
+    <div class="qbox"><div class="qnum">21</div><div class="qcontent">
+      <div class="qtext">誰敘述了自己獲得優先訂票權的艱難歷程？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a21-btn" onclick="toggleAnswer('a21')">👁 查看答案</button>
+      <div class="answer-content" id="a21"><div class="ans-label">官方答案：B</div>「在漫長的等待後終於成功加入了歌迷俱樂部……還能第一時間預訂演唱會門票」</div>
+    </div></div>
+    <div class="qbox"><div class="qnum">22</div><div class="qcontent">
+      <div class="qtext">多彩的課餘生活讓誰在追星路上回歸了理智？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a22-btn" onclick="toggleAnswer('a22')">👁 查看答案</button>
+      <div class="answer-content" id="a22"><div class="ans-label">官方答案：C</div>「學習壓力大、娛樂生活豐富，是知遠走出追星熱情的主要原因」</div>
+    </div></div>
+    <div class="qbox"><div class="qnum">23</div><div class="qcontent">
+      <div class="qtext">誰描述了韓國娛樂工業的多元與發達？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a23-btn" onclick="toggleAnswer('a23')">👁 查看答案</button>
+      <div class="answer-content" id="a23"><div class="ans-label">官方答案：D</div>「韓國娛樂氛圍濃厚，藝術節、電影節、音樂大賞等活動的門票很容易預訂到」</div>
+    </div></div>
+    <div class="qbox"><div class="qnum">24</div><div class="qcontent">
+      <div class="qtext">誰認為自己的偶像團體在創作方面與眾不同？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a24-btn" onclick="toggleAnswer('a24')">👁 查看答案</button>
+      <div class="answer-content" id="a24"><div class="ans-label">官方答案：B</div>「防彈少年團更傾向探討嚴肅的主題」（有別於一般以節拍強勁見稱的韓國音樂工業）</div>
+    </div></div>
+    <div class="qbox"><div class="qnum">25</div><div class="qcontent">
+      <div class="qtext">誰為了買偶像的海報與帽衫打工攢錢？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a25-btn" onclick="toggleAnswer('a25')">👁 查看答案</button>
+      <div class="answer-content" id="a25"><div class="ans-label">官方答案：B</div>「她平時在首爾一間小學教英語，存錢買周邊產品」——注意須為「打工」所得，A 曉東只是「省錢」，並非打工</div>
+    </div></div>
+    <div class="qbox"><div class="qnum">26</div><div class="qcontent">
+      <div class="qtext">誰提到某些粉絲對偶像的行為舉止要求很苛刻？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a26-btn" onclick="toggleAnswer('a26')">👁 查看答案</button>
+      <div class="answer-content" id="a26"><div class="ans-label">官方答案：C</div>「不像很多狂熱的粉絲，對明星的人品及言行要求極高」</div>
+    </div></div>
+    <div class="qbox"><div class="qnum">27</div><div class="qcontent">
+      <div class="qtext">誰的家長對自己孩子追星的看法有所轉變？ <span class="qmark">[1]</span></div>
+      <button class="answer-toggle-btn" id="a27-btn" onclick="toggleAnswer('a27')">👁 查看答案</button>
+      <div class="answer-content" id="a27"><div class="ans-label">官方答案：D</div>「看到兒子負責任的態度和行動，父母放心地將舒文送到了韓國」（原本擔心兒子沉溺追星，最終轉為放心）</div>
+    </div></div>
+  </div>
+
+  <!-- ============ 04 練習四 ============ -->
+  <div class="section-header" id="ex4">
+    <div class="icon">✍️</div>
+    <h2>練習四：引導式寫作——電子郵件</h2>
+    <div class="chno">第28題　8分</div>
+  </div>
+
+  <div class="card">
+    <p><b>題目：</b>你參觀了一個設計展覽。寫一封郵件給你的朋友談談你的經歷。</p>
+    <p>字數：100–120個漢字。滿分為8分，其中內容佔3分，語言佔5分。</p>
+    <p>在電子郵件中，必須：</p>
+    <p>① 介紹組織這次展覽的機構；② 解釋你去看展覽的原因；③ 描述讓你印象最深的一個設計。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot purple"></span>寫作結構</div>
+    <div class="flow">
+      <div class="flow-step">稱呼＋開場</div><div class="flow-arrow">→</div>
+      <div class="flow-step">要點①主辦機構</div><div class="flow-arrow">→</div>
+      <div class="flow-step">要點②參觀原因</div><div class="flow-arrow">→</div>
+      <div class="flow-step">要點③印象最深設計</div><div class="flow-arrow">→</div>
+      <div class="flow-step">結語</div>
+    </div>
+    <div class="subsection-title"><span class="dot coral"></span>官方評分標準——語言（style and accuracy，5分）</div>
+    <table class="level-table">
+      <tr><th>分數</th><th>描述（節錄自官方評分標準，經翻譯）</th></tr>
+      <tr><td>5</td><td>廣泛而有效地運用各種句式（包括複雜句式）；準確度高，語言運用能力強；文體及語域始終恰當，段落組織良好，銜接自然。</td></tr>
+      <tr><td>4</td><td>恰當運用一系列句式，並嘗試運用較有難度的語言；大致準確，語言運用能力良好，錯誤不影響理解；文體及語域恰當，段落組織尚算完整，有一定銜接。</td></tr>
+      <tr><td>3</td><td>主要運用簡單句式及詞彙，偶爾嘗試較有難度的句式；嘗試較有難度語言時出現不準確之處，但整體意思仍算清楚；略有嘗試運用恰當文體語域及分段。</td></tr>
+      <tr><td>2</td><td>運用簡單句式及詞彙，控制能力一般，意思有時不清晰；文體及語域可能不一致或不恰當，甚少或沒有分段。</td></tr>
+      <tr><td>1</td><td>運用非常簡單的句式及詞彙，對簡單句式的掌握不足，令意思大致難以理解；文體及語域不恰當，沒有分段。</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <button class="answer-toggle-btn" id="a28-btn" onclick="toggleAnswer('a28')">👁 查看範文及評分要點</button>
+    <div class="answer-content model-answer" id="a28">
+      <div class="ans-label">潘SIR示範範文（約111字，非官方範文）</div>
+      親愛的阿俊：上星期六我去了一個設計展覽，由市政局藝術部主辦。我對工業設計有興趣，見海報介紹展出多位新晉設計師作品，便去參觀。最令我印象深刻的是一張可摺疊太陽能單車椅，設計巧妙，摺起來只有背包大小，方便攜帶。整個下午都逛得津津有味，下次約你一起去！
+      <br><br>
+      <div class="ans-label">要點對照</div>
+      ①主辦機構：市政局藝術部　②參觀原因：對工業設計有興趣　③印象最深設計：可摺疊太陽能單車椅（附具體描述）
+    </div>
+  </div>
+
+  <!-- ============ 05 練習五 ============ -->
+  <div class="section-header" id="ex5">
+    <div class="icon">✍️</div>
+    <h2>練習五：引導式寫作——博客</h2>
+    <div class="chno">第29題　22分</div>
+  </div>
+
+  <div class="card">
+    <p><b>題目：</b>你的家人在購買禮物時有不同的想法：有人覺得應該去連鎖店，有人覺得應該去獨立小店。寫一篇博客談談你的看法。</p>
+    <p>以下是一些別人的觀點，你可以參考，也可以提出自己的意見，但必須表示傾向性。</p>
+    <p>字數：250–300個漢字。滿分為22分，其中內容佔10分，語言佔12分。</p>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot pink"></span>參考觀點</div>
+    <div class="viewpoint-grid">
+      <div class="viewpoint-bubble">連鎖超市的選擇應有盡有。<span class="vp-tag">（家人觀點）</span></div>
+      <div class="viewpoint-bubble">支持小店就是支持本地經濟。<span class="vp-tag">（家人觀點）</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot purple"></span>寫作結構（博客＋議論）</div>
+    <div class="flow">
+      <div class="flow-step">帶出議題</div><div class="flow-arrow">→</div>
+      <div class="flow-step">表明立場</div><div class="flow-arrow">→</div>
+      <div class="flow-step">理由一</div><div class="flow-arrow">→</div>
+      <div class="flow-step">理由二</div><div class="flow-arrow">→</div>
+      <div class="flow-step">回應對立觀點</div><div class="flow-arrow">→</div>
+      <div class="flow-step">總結呼籲</div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">「表示傾向性」是硬性要求</div>
+        <div class="alert-text">與書信題一樣，本題明確要求表態，切忌兩面討論而不下判斷。建議開首或第二段已表明支持連鎖店或獨立小店，其後論證均圍繞該立場展開。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot coral"></span>官方評分標準（節錄，經翻譯）</div>
+    <div class="subsection-title" style="font-size:13px;"><span class="dot blue"></span>內容（10分）</div>
+    <table class="level-table">
+      <tr><th>等級</th><th>描述</th></tr>
+      <tr><td>Level 4（8–10）</td><td>緊扣題目要求，文體及語域始終恰當，目的與對象意識強；論點發展充分、表達有效、篇幅恰當、組織連貫，段落銜接良好。</td></tr>
+      <tr><td>Level 3（5–7）</td><td>緊扣題目要求，文體及語域恰當，具良好的目的與對象意識；論點發展充分，篇幅恰當，組織良好，段落尚算完整。</td></tr>
+      <tr><td>Level 2（3–4）</td><td>大致能完成任務，論點大致相關，文體及語域或有不一致之處，惟仍具合理的目的與對象意識；論點發展尚算充分，組織大致清晰，略有嘗試分段。</td></tr>
+      <tr><td>Level 1（1–2）</td><td>只能有限地回應題目，相關論點不多，文體及語域不恰當，目的／對象意識薄弱；論點發展不完整，組織欠連貫，分段不足或沒有分段。</td></tr>
+    </table>
+    <div class="subsection-title" style="font-size:13px;margin-top:10px;"><span class="dot blue"></span>語言（12分）</div>
+    <table class="level-table">
+      <tr><th>等級</th><th>描述</th></tr>
+      <tr><td>Level 4（10–12）</td><td>運用多樣句式，包括複雜句式及較少見的詞彙；準確度高，全篇掌握出色，僅在挑戰較高的結構上偶有失誤。</td></tr>
+      <tr><td>Level 3（7–9）</td><td>恰當運用一系列句式及詞彙；大致準確，掌握良好，嘗試較有難度語言時或略見生硬。</td></tr>
+      <tr><td>Level 2（4–6）</td><td>主要運用簡單句式及詞彙；具一定程度的掌握，嘗試較有難度語言時出現文法錯誤，惟意思大致清楚。</td></tr>
+      <tr><td>Level 1（1–3）</td><td>運用簡單句式及詞彙；對簡單句式的掌握有所欠缺，意思常被遮蔽。</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <button class="answer-toggle-btn" id="a29-btn" onclick="toggleAnswer('a29')">👁 查看範文及評分要點</button>
+    <div class="answer-content model-answer" id="a29">
+      <div class="ans-label">潘SIR示範範文（約281字，立場：支持獨立小店，非官方範文）</div>
+      最近家人為了買禮物應該去連鎖店還是獨立小店，意見不一。有人認為連鎖超市的選擇應有盡有，購物方便；亦有人認為支持小店就是支持本地經濟。本人較傾向支持獨立小店，理由有二。
+      <br><br>
+      首先，獨立小店的產品往往較具特色，店主親自挑選貨品，甚至提供訂製服務，送出的禮物更能表達心意，不像連鎖店的商品千篇一律，缺乏驚喜。其次，光顧小店能直接令本地小商戶受惠，有助維持社區的多元面貌，長遠而言對本地經濟及就業都有正面影響。
+      <br><br>
+      當然，連鎖店選擇多、價錢透明，購物確實較為方便快捷，這是不能忽視的優點。不過，購買禮物講求心意與獨特性，若只求方便，未免失卻送禮的原意。故此，下次為家人朋友選購禮物時，我會優先考慮到附近的獨立小店逛逛，說不定會有意想不到的收穫。
+      <br><br>
+      <div class="ans-label">評分要點對照</div>
+      ✓ 立場清晰（明確支持獨立小店，全文貫徹）　✓ 提出兩項具體理由（產品特色、本地經濟）　✓ 有回應對立觀點（連鎖店方便的優點）再重申立場　✓ 字數合乎250–300字要求　✓ 有恰當分段及銜接詞（首先、其次、當然、故此）
+    </div>
+  </div>
+
+  <footer>
+    <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.9;">
+      <span style="font-weight:500;color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+<button class="toggle-all-btn" id="toggle-all-btn" onclick="toggleAllAnswers()">👁️‍🗨️ 顯示全部答案</button>
+<button class="print-btn" onclick="window.print()">🖨️ 列印筆記</button>
+
+<script>
+document.querySelectorAll('.answer-toggle-btn').forEach(function(b){
+  b.setAttribute('data-show-text', b.textContent);
+  b.setAttribute('data-hide-text', b.textContent.replace('👁 查看', '🙈 隱藏'));
+});
+
+function toggleAnswer(id){
+  var el = document.getElementById(id);
+  var btn = document.getElementById(id + '-btn');
+  if(!el || !btn) return;
+  var nowShown = el.classList.toggle('show');
+  btn.textContent = nowShown ? btn.getAttribute('data-hide-text') : btn.getAttribute('data-show-text');
+  syncAllButtonLabel();
+}
+
+function toggleAllAnswers(){
+  var allContents = document.querySelectorAll('.answer-content');
+  var anyHidden = Array.prototype.some.call(allContents, function(el){ return !el.classList.contains('show'); });
+  allContents.forEach(function(el){
+    var btn = document.getElementById(el.id + '-btn');
+    if(anyHidden){
+      el.classList.add('show');
+      if(btn) btn.textContent = btn.getAttribute('data-hide-text');
+    } else {
+      el.classList.remove('show');
+      if(btn) btn.textContent = btn.getAttribute('data-show-text');
+    }
+  });
+  syncAllButtonLabel();
+}
+
+function syncAllButtonLabel(){
+  var allContents = document.querySelectorAll('.answer-content');
+  var allShown = Array.prototype.every.call(allContents, function(el){ return el.classList.contains('show'); });
+  var allBtn = document.getElementById('toggle-all-btn');
+  if(allBtn){ allBtn.textContent = allShown ? '🙈 隱藏全部答案' : '👁️‍🗨️ 顯示全部答案'; }
+}
+</script>
+
+</body>
+</html>
