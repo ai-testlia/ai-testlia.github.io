@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>喧鬧的傳統街市｜寫作教學筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --purple: #7A5CA8; --purple-bg: #F2EEF8;
+  --blue: #4A6FA5;   --blue-bg: #EAF0F8;
+  --teal: #2F8A78;   --teal-bg: #E6F4F1;
+  --coral: #D0654A;  --coral-bg: #FBEDE8;
+  --amber: #BF8424;  --amber-bg: #FBF3E3;
+  --pink: #C0527A;   --pink-bg: #FAEAF0;
+  --red: #C0443C;    --red-bg: #FBEAE8;
+  --green: #3E8A4E;  --green-bg: #E9F5EC;
+
+  --hero-bg: #E8D5C8;
+  --hero-text: 46,26,18;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ECE9E4;
+    --color-text-secondary: #B3ADA6;
+    --color-background-primary: #22201E;
+    --color-background-secondary: #171615;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+    --purple-bg: #2C2638; --blue-bg: #1F2733; --teal-bg: #1B2C29;
+    --coral-bg: #33231F; --amber-bg: #312A1C; --pink-bg: #33212A;
+    --red-bg: #34201E; --green-bg: #1E2D22;
+    --purple: #B39DDB; --blue: #8FB0DE; --teal: #6CC4B1; --coral: #EE9A83;
+    --amber: #E3B45F; --pink: #E68DAE; --red: #EE8A82; --green: #82C893;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 24px 16px 48px; }
+h1, h2, h3, .serif { font-family: 'Noto Serif TC', serif; }
+
+/* Hero */
+.hero {
+  background: var(--hero-bg);
+  border-radius: var(--border-radius-lg);
+  padding: 40px 32px 34px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 3px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--hero-text),0.3);
+  color: rgba(var(--hero-text),0.65);
+  margin-bottom: 14px;
+}
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: 34px;
+  font-weight: 900;
+  color: rgb(var(--hero-text));
+  letter-spacing: 2px;
+}
+.hero p { margin: 0; font-size: 14px; color: rgba(var(--hero-text),0.5); letter-spacing: 1px; }
+
+/* Intro */
+.intro {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-left: 4px solid var(--coral);
+  border-radius: var(--border-radius-lg);
+  padding: 18px 22px;
+  margin-bottom: 20px;
+}
+.intro .label { font-weight: 700; color: var(--coral); margin-bottom: 4px; }
+
+/* TOC */
+.toc {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 18px 22px;
+  margin-bottom: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 20px;
+}
+.toc-title { grid-column: 1 / -1; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+.toc-item { display: flex; gap: 10px; align-items: baseline; text-decoration: none; color: var(--color-text-primary); padding: 4px 6px; border-radius: 6px; }
+.toc-item:hover { background: var(--color-background-secondary); }
+.toc-num { color: var(--coral); font-weight: 700; min-width: 1.6em; }
+
+/* Section header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 36px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-border-tertiary);
+}
+.section-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  background: var(--coral-bg);
+  flex-shrink: 0;
+}
+.section-header h2 { margin: 0; font-size: 22px; font-weight: 700; flex: 1; }
+.section-num { font-size: 12px; color: var(--color-text-secondary); letter-spacing: 1px; white-space: nowrap; }
+
+/* Cards */
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 18px 22px;
+  margin-bottom: 14px;
+}
+.card h3 { margin: 0 0 8px; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+.card p { margin: 0 0 8px; }
+.card p:last-child { margin-bottom: 0; }
+.card ul { margin: 4px 0 0; padding-left: 1.3em; }
+.card li { margin-bottom: 4px; }
+.card li:last-child { margin-bottom: 0; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.dot.purple { background: var(--purple); } .dot.blue { background: var(--blue); }
+.dot.teal { background: var(--teal); } .dot.coral { background: var(--coral); }
+.dot.amber { background: var(--amber); } .dot.pink { background: var(--pink); }
+.hl { font-weight: 700; }
+.sub-label { display: inline-block; font-weight: 700; color: var(--color-text-primary); }
+
+/* Example box */
+.example-box {
+  background: var(--purple-bg);
+  border-left: 4px solid var(--purple);
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+.example-box.teal { background: var(--teal-bg); border-color: var(--teal); }
+.example-box.coral { background: var(--coral-bg); border-color: var(--coral); }
+.example-box.amber { background: var(--amber-bg); border-color: var(--amber); }
+.example-box.pink { background: var(--pink-bg); border-color: var(--pink); }
+.example-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--purple); margin-bottom: 4px; }
+.example-box.teal .example-label { color: var(--teal); }
+.example-box.coral .example-label { color: var(--coral); }
+.example-box.amber .example-label { color: var(--amber); }
+.example-box.pink .example-label { color: var(--pink); }
+.example-text { font-size: 15px; line-height: 1.95; }
+
+/* Alert */
+.alert {
+  display: flex; gap: 12px;
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  margin: 12px 0;
+  background: var(--blue-bg);
+  border: 0.5px solid var(--color-border-tertiary);
+}
+.alert-icon { font-size: 18px; line-height: 1.6; }
+.alert-label { font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.alert-text { font-size: 14px; }
+.alert.tip { background: var(--blue-bg); } .alert.tip .alert-label { color: var(--blue); }
+.alert.warn { background: var(--red-bg); } .alert.warn .alert-label { color: var(--red); }
+.alert.success { background: var(--green-bg); } .alert.success .alert-label { color: var(--green); }
+.alert.amber { background: var(--amber-bg); } .alert.amber .alert-label { color: var(--amber); }
+
+/* Flow */
+.flow { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
+.flow-step {
+  flex: 1 1 160px;
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 12px;
+  font-size: 13.5px;
+}
+.flow-step b { display: block; font-size: 13px; margin-bottom: 2px; }
+.flow-step.l1 b { color: var(--color-text-secondary); }
+.flow-step.l2 b { color: var(--blue); }
+.flow-step.l3 { border-color: var(--coral); background: var(--coral-bg); }
+.flow-step.l3 b { color: var(--coral); }
+.flow-arrow { display: flex; align-items: center; color: var(--color-text-secondary); font-size: 18px; }
+
+/* Keyword grid */
+.keyword-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 10px; }
+.kw-card {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 14px;
+}
+.kw-word { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+.kw-def { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.75; }
+.kw-card.purple .kw-word { color: var(--purple); } .kw-card.blue .kw-word { color: var(--blue); }
+.kw-card.teal .kw-word { color: var(--teal); } .kw-card.coral .kw-word { color: var(--coral); }
+.kw-card.amber .kw-word { color: var(--amber); } .kw-card.pink .kw-word { color: var(--pink); }
+
+/* Structure table */
+.table-wrap { overflow-x: auto; }
+table.structure { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+table.structure th {
+  background: var(--coral-bg);
+  color: var(--color-text-primary);
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--coral);
+}
+table.structure td { padding: 10px 12px; border-bottom: 0.5px solid var(--color-border-tertiary); vertical-align: top; }
+table.structure td:first-child { font-weight: 700; white-space: nowrap; }
+table.structure td:first-child small { display: block; font-weight: 400; color: var(--color-text-secondary); }
+table.structure tr.key td { background: var(--amber-bg); }
+table.structure td:nth-child(2) { color: var(--coral); font-weight: 500; white-space: nowrap; }
+
+/* Compare */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.compare-card { border-radius: var(--border-radius-md); padding: 12px 14px; border: 0.5px solid var(--color-border-tertiary); }
+.compare-card.bad { background: var(--red-bg); }
+.compare-card.good { background: var(--green-bg); }
+.compare-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+.compare-card.bad .compare-label { color: var(--red); }
+.compare-card.good .compare-label { color: var(--green); }
+.compare-num { font-family: 'Noto Serif TC', serif; font-weight: 700; margin: 14px 0 6px; font-size: 15px; }
+
+/* Pitfalls */
+.pitfall { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding: 10px 0; border-bottom: 0.5px dashed var(--color-border-tertiary); }
+.pitfall:last-child { border-bottom: none; padding-bottom: 0; }
+.pitfall:first-child { padding-top: 0; }
+.pitfall-name { font-weight: 700; color: var(--red); }
+
+/* Checklist */
+.checklist { list-style: none; padding: 0 !important; margin: 0; }
+.checklist li { display: flex; gap: 12px; align-items: flex-start; padding: 9px 0; border-bottom: 0.5px dashed var(--color-border-tertiary); margin: 0 !important; }
+.checklist li:last-child { border-bottom: none; }
+.box { width: 18px; height: 18px; border: 1.5px solid var(--color-text-secondary); border-radius: 4px; flex-shrink: 0; margin-top: 4px; }
+
+/* Formula */
+.formula {
+  background: #2E1A12;
+  color: #F4E9E1;
+  border-radius: var(--border-radius-lg);
+  padding: 18px 22px;
+  margin: 16px 0;
+  text-align: center;
+}
+.formula .f-label { font-size: 12px; letter-spacing: 2px; opacity: 0.7; margin-bottom: 6px; }
+.formula .f-text { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; letter-spacing: 1px; }
+
+/* Print button */
+.print-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 999px;
+  background: #2E1A12;
+  color: #fff;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.print-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,0.28); }
+@media (prefers-color-scheme: dark) {
+  .print-btn { background: #E8D5C8; color: #2E1A12; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 30px 18px 26px; }
+  .hero h1 { font-size: 26px; }
+  .toc { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .pitfall { grid-template-columns: 1fr; gap: 2px; }
+  .card { padding: 16px 16px; }
+  .section-header h2 { font-size: 19px; }
+  table.structure td:nth-child(2) { white-space: normal; }
+  .print-btn { right: 14px; bottom: 14px; padding: 10px 16px; }
+}
+
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; color: #1a1a1a; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  .print-btn { display: none !important; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula, .compare-grid, .kw-card, .pitfall, table.structure tr { page-break-inside: avoid; break-inside: avoid; }
+  .section-header { page-break-before: always; break-before: page; page-break-after: avoid; break-after: avoid; margin-top: 0; }
+  .section-header.first { page-break-before: auto; break-before: auto; margin-top: 20px; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()" aria-label="列印筆記">🖨️ 列印筆記</button>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">寫作教學筆記</div>
+    <h1>喧鬧的傳統街市</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="intro">
+    <div class="label">寫作教學分析｜中二級</div>
+    針對中二級別的寫作要求，評卷員主要看學生的「觀察力」、「描寫手法」（如多感官描寫、動靜結合、點面結合）和「文章立意」。這個題目最容易寫成「流水帳」，由第一個檔口寫到最後一個，沒有重點。想拿高分，就要寫出層次，而且「喧鬧」二字要貫穿全文。
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <a class="toc-item" href="#s1"><span class="toc-num">一</span>審題與立意原則</a>
+    <a class="toc-item" href="#s2"><span class="toc-num">二</span>核心寫作技巧</a>
+    <a class="toc-item" href="#s3"><span class="toc-num">三</span>建議篇章結構</a>
+    <a class="toc-item" href="#s4"><span class="toc-num">四</span>片段示範</a>
+    <a class="toc-item" href="#s5"><span class="toc-num">五</span>升格練習</a>
+    <a class="toc-item" href="#s6"><span class="toc-num">六</span>常見失分位</a>
+    <a class="toc-item" href="#s7"><span class="toc-num">七</span>實用詞彙庫</a>
+    <a class="toc-item" href="#s8"><span class="toc-num">八</span>寫作前自我檢查清單</a>
+  </div>
+
+  <!-- 一 -->
+  <div class="section-header first" id="s1">
+    <div class="section-icon">🎯</div>
+    <h2>一、審題與立意原則</h2>
+    <div class="section-num">PART 01</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot coral"></span>「喧鬧」是題眼</h3>
+    <p>表面是聲音嘈雜，例如叫賣聲、講價聲、剁肉聲；再深一層，是街坊生活的活力和人情味。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot blue"></span>全文扣題</h3>
+    <p>每一段都要跟「喧鬧」有關：開頭點題，中間寫出來，結尾寫感受。</p>
+    <div class="alert warn">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-label">常見偏題</div>
+        <div class="alert-text">寫成「陪媽媽買菜記」，只記下買了什麼，卻沒寫出街市有多喧鬧。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot teal"></span>「傳統街市」的特質</h3>
+    <p>看似很亂，其實亂中有序；檔主和街坊之間有很多交流，這些都是超級市場沒有的。跟超市比較一兩句就夠，寫多了會變成比較文。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot purple"></span>立意層次</h3>
+    <div class="flow">
+      <div class="flow-step l1"><b>基本</b>街市很熱鬧，我很喜歡。</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step l2"><b>良好</b>在喧鬧中看到檔主的勤勞和人情味。</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step l3"><b>優秀</b>喧鬧是街坊生活最真實的一面；傳統街市越來越少，這些聲音值得珍惜。</div>
+    </div>
+  </div>
+
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div>
+      <div class="alert-label">選材建議</div>
+      <div class="alert-text">背景可以選週末早上（人最多），或者收市前（檔主急着減價清貨，叫得最大聲），比較容易寫出「喧鬧」。</div>
+    </div>
+  </div>
+
+  <!-- 二 -->
+  <div class="section-header" id="s2">
+    <div class="section-icon">✍️</div>
+    <h2>二、核心寫作技巧（取分關鍵）</h2>
+    <div class="section-num">PART 02</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot coral"></span>1. 點面結合（步移法＋定點觀察）</h3>
+    <div class="flow">
+      <div class="flow-step"><b style="color:var(--blue)">面：步移法</b>跟着自己的腳步寫，例如從門口的擠迫，走到魚檔前濕滑的地面，再到菜檔的熱鬧。一段就夠。</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step l3"><b>點：定點特寫</b>挑一兩個最有代表性的檔口停下來細寫，高分通常就拿在這裏。不要每個檔口只寫一句。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot blue"></span>2. 多感官描寫（五覺法）</h3>
+    <div class="keyword-grid">
+      <div class="kw-card purple"><div class="kw-word">👀 視覺</div><div class="kw-def">紅燈照着的豬肉、堆成小山的蔬果、檔主滿頭大汗地忙個不停。</div></div>
+      <div class="kw-card coral"><div class="kw-word">👂 聽覺</div><div class="kw-def">刀砍在砧板上的「砰砰」聲、帶鄉音的叫賣聲、手推車輪子在地上滾過的聲音。</div></div>
+      <div class="kw-card teal"><div class="kw-word">👃 嗅覺</div><div class="kw-def">魚腥味、蔬菜帶着的泥土味、熟食檔的滷水香。</div></div>
+      <div class="kw-card blue"><div class="kw-word">✋ 觸覺</div><div class="kw-def">腳下濕滑的地磚、魚檔濺出來的冰水、在人堆中被擠到肩膀。</div></div>
+      <div class="kw-card amber"><div class="kw-word">👅 味覺</div><div class="kw-def">水果檔遞過來試吃的一片橙、熟食檔剛蒸好的燒賣。</div></div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">提醒</div>
+        <div class="alert-text">五種感官不用平均分配。題目是「喧鬧」，聽覺要寫得最多，其他點到即止。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot teal"></span>3. 聲音描寫專項（扣題重點）</h3>
+    <ul>
+      <li><span class="sub-label">擬聲詞：</span>砰砰、嘩啦嘩啦、吱吱，讓讀者「聽」得到。</li>
+      <li><span class="sub-label">層次變化：</span>寫聲音由遠到近、由少到多。例如在門口只聽到零碎的叫賣，走進去後，剁肉聲、講價聲、手推車聲混成一片。</li>
+      <li><span class="sub-label">以聲寫人：</span>從聲音寫出人物性格，例如檔主嗓門很大，看得出他為人爽快。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot purple"></span>4. 動靜結合</h3>
+    <p>四周吵吵鬧鬧，中間放一個安靜的畫面，街市反而顯得更熱鬧。</p>
+    <div class="example-box">
+      <div class="example-label">示例</div>
+      <div class="example-text">叫賣聲一陣接一陣，菜檔角落的婆婆卻坐在小櫈上慢慢剝豆，不吆喝，也不抬頭。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot amber"></span>5. 欲揚先抑</h3>
+    <div class="flow">
+      <div class="flow-step"><b style="color:var(--red)">抑</b>先寫街市讓人不舒服的地方，例如擠、吵、濕。</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><b style="color:var(--green)">揚</b>後面再寫它可愛的一面，例如人情味。</div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-label">注意</div>
+        <div class="alert-text">「抑」的部分一段就夠，寫太長會變成抱怨，主題反而不清楚。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot pink"></span>6. 人物語言與動作細節</h3>
+    <ul>
+      <li>用對話寫人情味，例如熟客不用開口，檔主已經知道她要什麼；或者檔主主動送兩棵蔥。</li>
+      <li>動詞要準確：刮鱗、裝袋、秤一秤、一手收錢一手找錢，比「很熟練」具體得多。</li>
+    </ul>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">語言提醒</div>
+        <div class="alert-text">敘述部分要用書面語。人物對話可以保留少量地道說法，顯得真實，但不要多。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot blue"></span>7. 修辭點綴</h3>
+    <div class="keyword-grid">
+      <div class="kw-card purple"><div class="kw-word">比喻</div><div class="kw-def">蔬果堆得像一座座小山。</div></div>
+      <div class="kw-card teal"><div class="kw-word">擬人</div><div class="kw-def">盆裏的魚拚命甩尾，好像在發脾氣。</div></div>
+      <div class="kw-card coral"><div class="kw-word">排比</div><div class="kw-def">叫賣聲、剁肉聲、講價聲，一陣接一陣。</div></div>
+      <div class="kw-card amber"><div class="kw-word">誇張</div><div class="kw-def">檔主的嗓門大得連屋頂也要震下來。</div></div>
+    </div>
+  </div>
+
+  <!-- 三 -->
+  <div class="section-header" id="s3">
+    <div class="section-icon">🧱</div>
+    <h2>三、建議篇章結構（五段式）</h2>
+    <div class="section-num">PART 03</div>
+  </div>
+
+  <div class="card">
+    <p style="color:var(--color-text-secondary)">全文約600字，可按學校要求調整。</p>
+    <div class="table-wrap">
+      <table class="structure">
+        <thead>
+          <tr><th>段落</th><th>寫作重點</th><th>具體操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>第一段（引入）<small>約60–80字</small></td><td>未見其景，先聞其聲</td><td>用一句叫賣聲或街市的聲音開頭，交代時間和為什麼去街市，點出「喧鬧」。</td></tr>
+          <tr><td>第二段（面）<small>約100–120字</small></td><td>整體環境渲染</td><td>走進街市，寫人多、聲音雜、氣味混在一起，先給讀者擠迫嘈吵的印象（欲揚先抑的「抑」）。</td></tr>
+          <tr class="key"><td>第三段（點）<small>約150–180字</small></td><td>聚焦單一場景</td><td>停在一個檔口前，寫檔主的樣子、手上的動作和叫賣聲。這是全文最重要的一段。</td></tr>
+          <tr><td>第四段（互動）<small>約120–150字</small></td><td>展現人情味</td><td>寫檔主和客人（或自己、同行家人）的交流，例如抹掉零頭、閒話家常，讓自己對街市改觀（欲揚先抑的「揚」）。</td></tr>
+          <tr><td>第五段（結尾）<small>約80–100字</small></td><td>主題昇華</td><td>離開街市，聲音越來越遠，跟開頭呼應，寫出自己對這份喧鬧的感受。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="f-label">結構口訣</div>
+    <div class="f-text">聞聲 → 入市 → 特寫 → 人情 → 聲遠</div>
+  </div>
+
+  <!-- 四 -->
+  <div class="section-header" id="s4">
+    <div class="section-icon">📖</div>
+    <h2>四、片段示範</h2>
+    <div class="section-num">PART 04</div>
+  </div>
+
+  <div class="example-box teal">
+    <div class="example-label">開頭</div>
+    <div class="example-text">「游水蝦！新鮮游水蝦！」我們還沒走到街市門口，已經聽到這把聲音。星期日早上八點，媽媽說要早點出門，遲了就買不到新鮮的魚。</div>
+  </div>
+
+  <div class="example-box coral">
+    <div class="example-label">特寫（豬肉檔）</div>
+    <div class="example-text">豬肉檔的紅燈把每塊肉都照得紅通通的。檔主是個光頭大叔，圍裙上一片片油漬，肩上搭着一條毛巾。他左手按住一條豬腩，右手的刀一下一下砍下去，「砰、砰、砰」，砧板也跟着震動。砍完，他用刀背把肉撥進膠袋，往秤上一放，眼睛也不用看就報出價錢，接着已經在問下一位：「要哪一塊？」</div>
+  </div>
+
+  <div class="example-box amber">
+    <div class="example-label">結尾</div>
+    <div class="example-text">走出街市，叫賣聲在身後越來越小。手上的膠袋很重，裏面多了兩棵蔥，是菜檔姨姨硬塞進來的，說回家煮湯用。媽媽說她在這裏買了十幾年菜，姨姨一直都是這樣。我回頭看了一眼，街市還是那麼吵。以前總嫌它吵，今天聽着，竟然有點親切。</div>
+  </div>
+
+  <!-- 五 -->
+  <div class="section-header" id="s5">
+    <div class="section-icon">📈</div>
+    <h2>五、升格練習（平淡句 → 升格句）</h2>
+    <div class="section-num">PART 05</div>
+  </div>
+
+  <div class="card">
+    <div class="compare-num" style="margin-top:0">1.</div>
+    <div class="compare-grid">
+      <div class="compare-card bad"><div class="compare-label">平淡句</div>街市很吵。</div>
+      <div class="compare-card good"><div class="compare-label">升格句</div>講價聲、叫賣聲、剁肉聲混在一起，媽媽在我耳邊說話，也要說兩次我才聽清楚。</div>
+    </div>
+    <div class="compare-num">2.</div>
+    <div class="compare-grid">
+      <div class="compare-card bad"><div class="compare-label">平淡句</div>魚檔的地很濕。</div>
+      <div class="compare-card good"><div class="compare-label">升格句</div>魚檔前的地上積了一層冰水，我走一步停一步，怕滑倒。</div>
+    </div>
+    <div class="compare-num">3.</div>
+    <div class="compare-grid" style="margin-bottom:0">
+      <div class="compare-card bad"><div class="compare-label">平淡句</div>檔主很熱情。</div>
+      <div class="compare-card good"><div class="compare-label">升格句</div>「拿兩棵蔥回去！」我們還沒開口，檔主已經把蔥塞進袋裏。</div>
+    </div>
+  </div>
+
+  <!-- 六 -->
+  <div class="section-header" id="s6">
+    <div class="section-icon">🚫</div>
+    <h2>六、常見失分位</h2>
+    <div class="section-num">PART 06</div>
+  </div>
+
+  <div class="card">
+    <div class="pitfall"><div class="pitfall-name">流水帳</div><div>每個檔口各寫一句，沒有停下來細寫。</div></div>
+    <div class="pitfall"><div class="pitfall-name">堆砌形容詞</div><div>一句連用四五個四字詞，讀者腦中卻沒有畫面。</div></div>
+    <div class="pitfall"><div class="pitfall-name">只寫聲音不寫人</div><div>喧鬧只剩下噪音，看不到人情味。</div></div>
+    <div class="pitfall"><div class="pitfall-name">偏題</div><div>寫成買菜經過，或者變成街市和超市的比較。</div></div>
+    <div class="pitfall"><div class="pitfall-name">結尾空泛</div><div>用「我愛街市」、「我們要保護傳統文化」這類口號收尾，跟前文接不上。</div></div>
+    <div class="pitfall"><div class="pitfall-name">氣氛斷裂</div><div>開頭寫得很熱鬧，中段卻突然平淡下來。</div></div>
+    <div class="pitfall"><div class="pitfall-name">語言不規範</div><div>敘述部分夾雜口語，如「好多嘢」、「啲人」。</div></div>
+  </div>
+
+  <!-- 七 -->
+  <div class="section-header" id="s7">
+    <div class="section-icon">📚</div>
+    <h2>七、實用詞彙庫</h2>
+    <div class="section-num">PART 07</div>
+  </div>
+
+  <div class="keyword-grid">
+    <div class="kw-card coral"><div class="kw-word">描寫環境</div><div class="kw-def">人聲鼎沸、熙來攘往、水洩不通、摩肩接踵、川流不息、琳瑯滿目、市井煙火</div></div>
+    <div class="kw-card purple"><div class="kw-word">描寫聲音</div><div class="kw-def">震耳欲聾、此起彼落、不絕於耳、高亢響亮、喧囂、嘈雜</div></div>
+    <div class="kw-card blue"><div class="kw-word">擬聲詞</div><div class="kw-def">砰砰、嘩啦嘩啦、吱吱、嗡嗡、噼噼啪啪</div></div>
+    <div class="kw-card teal"><div class="kw-word">描寫氣味</div><div class="kw-def">腥味撲鼻、香氣四溢、濃郁、泥土味</div></div>
+    <div class="kw-card amber"><div class="kw-word">描寫顏色</div><div class="kw-def">鮮紅、翠綠、金黃、五顏六色</div></div>
+    <div class="kw-card pink"><div class="kw-word">描寫動作／神態</div><div class="kw-def">俐落、麻利、手起刀落、眉飛色舞、大汗淋漓、笑容可掬、扯開嗓門</div></div>
+    <div class="kw-card coral"><div class="kw-word">描寫感受</div><div class="kw-def">人情味、樸實、親切、溫暖</div></div>
+  </div>
+
+  <!-- 八 -->
+  <div class="section-header" id="s8">
+    <div class="section-icon">✅</div>
+    <h2>八、寫作前自我檢查清單</h2>
+    <div class="section-num">PART 08</div>
+  </div>
+
+  <div class="card">
+    <ul class="checklist">
+      <li><span class="box"></span>開頭有沒有用聲音或畫面點題？</li>
+      <li><span class="box"></span>有沒有一個檔口寫得特別仔細？</li>
+      <li><span class="box"></span>用了幾種感官？聽覺是不是寫得最多？</li>
+      <li><span class="box"></span>有沒有人物對話或動作，寫出人情味？</li>
+      <li><span class="box"></span>結尾有沒有寫出自己的感受，並且跟開頭呼應？</li>
+      <li><span class="box"></span>敘述部分是不是全用書面語？</li>
+    </ul>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
