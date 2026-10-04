@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小學四年級生詞（一）｜潘SIR中文教室</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --hero-bg: #E3D8C2;
+  --hero-text: 42,32,16;
+  --accent: #9A7B4F;
+  --accent-soft: #F6EFE3;
+  --teal: #4F8A83;
+  --teal-soft: #E8F2F0;
+  --coral: #C46F5A;
+  --coral-soft: #FBEDE8;
+  --hl: #F3D98B;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ECEAE5;
+    --color-text-secondary: #AAA59C;
+    --color-background-primary: #22201D;
+    --color-background-secondary: #171614;
+    --color-border-tertiary: rgba(255,255,255,0.1);
+    --accent-soft: #2E2920;
+    --teal-soft: #1E2B29;
+    --coral-soft: #2F211D;
+    --hl: #6B5A25;
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  line-height: 1.8;
+}
+.wrap { max-width: 880px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+
+/* Hero */
+.hero {
+  background: var(--hero-bg);
+  border-radius: var(--border-radius-lg);
+  padding: 2.4rem 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(var(--hero-text),0.3);
+  color: rgba(var(--hero-text),0.65);
+  margin-bottom: 0.9rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: rgb(var(--hero-text));
+  margin-bottom: 0.5rem;
+}
+.hero p { font-size: 14px; color: rgba(var(--hero-text),0.5); letter-spacing: 1px; }
+
+/* TOC */
+.toc {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 10px;
+  margin-bottom: 1.8rem;
+}
+.toc-item {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 0.8rem 1rem; text-decoration: none; color: var(--color-text-primary);
+  font-size: 14px; transition: transform .15s;
+}
+.toc-item:hover { transform: translateY(-2px); }
+.toc-item b { display:block; font-family:'Noto Serif TC',serif; color: var(--accent); font-size: 15px; }
+.toc-item span { color: var(--color-text-secondary); font-size: 13px; }
+
+/* Section header */
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin: 2.2rem 0 1rem;
+}
+.section-icon {
+  width: 42px; height: 42px; border-radius: 10px; background: var(--accent-soft);
+  display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.section-header h2 { font-family: 'Noto Serif TC', serif; font-size: 1.35rem; }
+.section-no { font-size: 12px; color: var(--color-text-secondary); letter-spacing: 1px; }
+
+/* Word card */
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 0.9rem;
+  display: grid; grid-template-columns: 150px 1fr; gap: 1rem;
+}
+.word-col { border-right: 1px dashed var(--color-border-tertiary); padding-right: 0.8rem; }
+.word-no { font-size: 12px; color: var(--color-text-secondary); }
+.word {
+  font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 1.7rem;
+  color: var(--accent); line-height: 1.3; word-break: keep-all;
+}
+.word.long { font-size: 1.4rem; }
+.row { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
+.row + .row { margin-top: 0.55rem; }
+.label {
+  flex-shrink: 0; font-size: 12px; font-weight: 700; padding: 1px 9px; border-radius: 6px; margin-top: 3px;
+}
+.label.def { background: var(--teal-soft); color: var(--teal); }
+.label.ex { background: var(--coral-soft); color: var(--coral); }
+.text { line-height: 1.8; }
+mark { background: var(--hl); color: inherit; padding: 0 2px; border-radius: 3px; font-weight: 700; }
+
+/* Alert */
+.alert {
+  display: flex; gap: 12px; border-radius: var(--border-radius-md);
+  padding: 0.9rem 1.1rem; margin: 0.4rem 0 1rem; border-left: 4px solid;
+}
+.alert.tip { background: #EAF1F8; border-color: #5B88B5; }
+.alert.amber { background: #FBF3E4; border-color: #D39A3A; }
+@media (prefers-color-scheme: dark) {
+  .alert.tip { background: #1C2630; }
+  .alert.amber { background: #2E2618; }
+}
+.alert-icon { font-size: 18px; }
+.alert-label { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+.alert-text { font-size: 14px; line-height: 1.8; }
+
+/* Print button */
+.print-btn {
+  position: fixed; right: 20px; bottom: 20px; z-index: 99;
+  background: var(--accent); color: #fff; border: none; border-radius: 30px;
+  padding: 10px 20px; font-family: inherit; font-size: 14px; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+.print-btn:hover { opacity: .9; }
+
+@media (max-width: 600px) {
+  .card { grid-template-columns: 1fr; gap: 0.6rem; }
+  .word-col { border-right: none; border-bottom: 1px dashed var(--color-border-tertiary); padding: 0 0 0.5rem; }
+  .hero h1 { font-size: 1.6rem; }
+}
+
+@media print {
+  @page { margin: 12mm 10mm; }
+  :root { --color-text-primary:#1a1a1a; --color-text-secondary:#555; --color-background-primary:#fff; --color-border-tertiary: rgba(0,0,0,0.15); --accent-soft:#F6EFE3; --teal-soft:#E8F2F0; --coral-soft:#FBEDE8; --hl:#F3D98B; }
+  body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc, .print-btn { display: none !important; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header.first { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider { page-break-after: avoid; }
+  .alert.tip { background: #EAF1F8 !important; }
+  .alert.amber { background: #FBF3E4 !important; }
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">🖨 列印／PDF</button>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">詞語教學筆記</div>
+    <h1>小學四年級生詞（一）</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <a class="toc-item" href="#s1"><b>第一部分</b><span>遺失 · 詢問 · 查詢 · 鞏固 · 湊錢 · 未能 · 巡邏 · 額外</span></a>
+    <a class="toc-item" href="#s2"><b>第二部分</b><span>臨摹 · 醃菜 · 懈怠 · 凝固 · 鄉里 · 安寢 · 反覆 · 潛心</span></a>
+    <a class="toc-item" href="#s3"><b>第三部分</b><span>鑽研 · 亦 · 憑著 · 心急如焚 · 近在咫尺 · 分泌 · 抵擋</span></a>
+  </div>
+
+  <!-- ========== 第一部分 ========== -->
+  <div class="section-header first" id="s1">
+    <div class="section-icon">📘</div>
+    <div><div class="section-no">詞語 1 – 8</div><h2>第一部分</h2></div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">01</div><div class="word">遺失</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">不小心把東西丟了，找不回來。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">弟弟去公園時<mark>遺失</mark>了水壺，所以整個下午都沒有水喝。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">02</div><div class="word">詢問</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">向別人提出問題，請對方回答。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">我不知道圖書館在哪裏，於是向路旁的警察<mark>詢問</mark>。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">03</div><div class="word">查詢</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">翻查資料或向人打聽，找出想知道的事。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">媽媽上網<mark>查詢</mark>了電影的開場時間，然後才去買票。</span></div>
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">詢問 vs 查詢</div>
+      <div class="alert-text">「詢問」是問人；「查詢」可以問人，也可以自己翻查資料。所以我們會說「上網查詢」，不會說「上網詢問」。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">04</div><div class="word">鞏固</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">使原本學到或建立的東西更加穩固。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">老師每天都給我們一點功課，好讓我們<mark>鞏固</mark>上課學到的知識。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">05</div><div class="word">湊錢</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">幾個人各拿出一些錢，合起來使用。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">班主任下星期生日，所以我們幾個同學<mark>湊錢</mark>買了一個蛋糕送給她。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">06</div><div class="word">未能</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">沒有辦法做到。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">哥哥練習了整整一年，可惜這次比賽還是<mark>未能</mark>拿到冠軍。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">07</div><div class="word">巡邏</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">在一個地方來回走動，看看有沒有危險或可疑的事。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">保安員每晚都在屋苑裏<mark>巡邏</mark>，所以小偷很難有機會下手。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">08</div><div class="word">額外</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">在原定的以外，另外再加的。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">小明這次默書得了一百分，老師<mark>額外</mark>送了他一張貼紙。</span></div>
+    </div>
+  </div>
+
+  <!-- ========== 第二部分 ========== -->
+  <div class="section-header" id="s2">
+    <div class="section-icon">📗</div>
+    <div><div class="section-no">詞語 9 – 16</div><h2>第二部分</h2></div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">09</div><div class="word">臨摹</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">照著字帖或圖畫，一筆一筆地模仿。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">我先<mark>臨摹</mark>了字帖上的字十次，再自己寫的時候，字就整齊多了。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">10</div><div class="word">醃菜</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">用鹽等材料醃過的蔬菜，可以存放比較久。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">外婆做的<mark>醃菜</mark>又酸又脆，我每次去她家都要吃兩碗飯。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">11</div><div class="word">懈怠</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">鬆懈下來，做事不再用心。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">考試雖然完了，但是溫習不能<mark>懈怠</mark>，不然下學期就追不上了。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">12</div><div class="word">凝固</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">液體變成固體，例如水變成冰。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">媽媽把果汁倒進模具放入冰箱，過了幾個小時，果汁就<mark>凝固</mark>成冰條了。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">13</div><div class="word">鄉里</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">同一個家鄉的人。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">爺爺回鄉探親的時候，村裏的<mark>鄉里</mark>都來看他，跟他談了一整個下午。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">14</div><div class="word">安寢</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">安穩地睡覺。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">等孩子們都<mark>安寢</mark>了，媽媽才關燈離開房間。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">15</div><div class="word">反覆</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">一次又一次地重複。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">妹妹把課文<mark>反覆</mark>讀了十幾遍，終於能夠背出來了。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">16</div><div class="word">潛心</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">專心一意，不受外面的事打擾。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">這位科學家<mark>潛心</mark>研究了十多年，終於找到治療這種病的方法。</span></div>
+    </div>
+  </div>
+
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div>
+      <div class="alert-label">潛心 vs 鑽研</div>
+      <div class="alert-text">「潛心」是專心的態度，「鑽研」是深入研究的行動。兩個詞常常連在一起用，說成「潛心鑽研」。</div>
+    </div>
+  </div>
+
+  <!-- ========== 第三部分 ========== -->
+  <div class="section-header" id="s3">
+    <div class="section-icon">📙</div>
+    <div><div class="section-no">詞語 17 – 23</div><h2>第三部分</h2></div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">17</div><div class="word">鑽研</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">深入地研究。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">哥哥很喜歡機械人，所以每天放學後都會<mark>鑽研</mark>怎樣編寫程式。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">18</div><div class="word">亦</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">就是「也」的意思。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">哥哥喜歡游泳，<mark>亦</mark>喜歡打籃球，所以週末總是不在家。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">19</div><div class="word">憑著</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">依靠。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">小志個子不高，但是<mark>憑著</mark>每天練習，最後還是入選了籃球隊。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">20</div><div class="word long">心急如焚</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">心裏急得像火燒一樣。焚：燒。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">小貓走失了一整天還沒有回來，妹妹<mark>心急如焚</mark>，到處去找。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">21</div><div class="word long">近在咫尺</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">距離非常近。咫和尺都是古代很短的長度單位。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">終點已經<mark>近在咫尺</mark>了，可是他的腿抽筋，怎樣也跑不動。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">22</div><div class="word">分泌</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">身體製造出液體並排出來，例如出汗、流口水。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">一聞到媽媽煮咖喱的香味，我的嘴巴就<mark>分泌</mark>出很多口水來。</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="word-col"><div class="word-no">23</div><div class="word">抵擋</div></div>
+    <div>
+      <div class="row"><span class="label def">解釋</span><span class="text">擋住，不讓外來的東西侵入。</span></div>
+      <div class="row"><span class="label ex">例句</span><span class="text">今天的北風很大，我穿了兩件外套也<mark>抵擋</mark>不住寒冷。</span></div>
+    </div>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
