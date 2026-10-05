@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小六閱讀理解模擬練習（一）｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --hero-bg: #C8D5D8;
+  --hero-fg: 18,32,37;
+  --blue: #2f6f9f; --blue-bg: #eaf3fa;
+  --teal: #1f8a7a; --teal-bg: #e6f5f2;
+  --amber: #b7791f; --amber-bg: #fdf5e6;
+  --coral: #c8553d; --coral-bg: #fcefeb;
+  --green: #2f855a; --green-bg: #eaf6ef;
+  --line: rgba(0,0,0,0.28);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ececea;
+    --color-text-secondary: #a9adb0;
+    --color-background-primary: #1c1f21;
+    --color-background-secondary: #141617;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+    --blue: #8cc0e6; --blue-bg: #1b2a35;
+    --teal: #6fd0bf; --teal-bg: #172d29;
+    --amber: #e8b45c; --amber-bg: #33291a;
+    --coral: #f0947f; --coral-bg: #35211c;
+    --green: #7ed3a3; --green-bg: #1a2e23;
+    --line: rgba(255,255,255,0.3);
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--color-background-secondary); color: var(--color-text-primary);
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: 14px; line-height: 1.8;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+
+.hero { background: var(--hero-bg); border-radius: var(--border-radius-lg); padding: 2.2rem 2rem 2rem; margin-bottom: 1.2rem; text-align: center; }
+.hero-tag { display: inline-block; font-size: 12px; letter-spacing: 0.12em; padding: 3px 12px; border-radius: 999px; border: 1px solid rgba(var(--hero-fg),0.3); color: rgba(var(--hero-fg),0.65); margin-bottom: 0.9rem; }
+.hero h1 { margin: 0 0 0.4rem; font-family: "Noto Serif TC", serif; font-size: 28px; font-weight: 900; color: rgb(var(--hero-fg)); line-height: 1.35; }
+.hero p { margin: 0; color: rgba(var(--hero-fg),0.5); font-size: 13px; letter-spacing: 0.08em; }
+
+.info { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.3rem; margin-bottom: 1rem; }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px 20px; }
+.info-grid div { border-bottom: 1px solid var(--line); padding: 4px 0; color: var(--color-text-secondary); }
+.instr { margin-top: 0.8rem; font-size: 13.5px; }
+.instr b { color: var(--blue); }
+
+.toolbar { display: flex; justify-content: flex-end; margin: 0 0 1rem; }
+.btn-all { font: 500 13px "Noto Sans TC", sans-serif; border: 1px solid var(--green); color: var(--green); background: var(--color-background-primary); border-radius: 999px; padding: 0.4rem 1rem; cursor: pointer; }
+.btn-all:hover, .btn-all:focus-visible { background: var(--green-bg); outline: none; }
+
+.passage-block { margin-top: 1.6rem; }
+.passage { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.4rem 1.6rem; margin-bottom: 1rem; }
+.p-meta { display: flex; gap: 8px; justify-content: center; margin-bottom: 0.3rem; }
+.lvl, .genre { font-size: 12px; padding: 1px 10px; border-radius: 999px; letter-spacing: 0.06em; }
+.lvl1 { background: var(--teal-bg); color: var(--teal); }
+.lvl2 { background: var(--blue-bg); color: var(--blue); }
+.lvl3 { background: var(--coral-bg); color: var(--coral); }
+.genre { border: 1px solid var(--color-border-tertiary); color: var(--color-text-secondary); }
+.p-title { text-align: center; font-family: "Noto Serif TC", serif; font-size: 21px; margin: 0.3rem 0 1rem; }
+.passage p { text-indent: 2em; margin: 0 0 0.6rem; font-size: 15px; line-height: 2; text-align: justify; }
+
+.qbox { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 0.9rem 1.2rem; margin-bottom: 0.7rem; }
+.qhead { display: flex; gap: 8px; }
+.qn { font-weight: 700; color: var(--blue); min-width: 1.8em; }
+.qtext { flex: 1; min-width: 0; }
+.bracket { float: right; color: var(--color-text-secondary); white-space: nowrap; }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 18px; margin: 0.4rem 0 0 2.2em; }
+.opts.five { grid-template-columns: repeat(5, auto); justify-content: start; }
+.opt { min-width: 0; }
+.opt b { color: var(--color-text-secondary); margin-right: 2px; }
+.fill { margin: 0.4rem 0 0 2.2em; }
+.sortline { margin: 0.5rem 0 0 2.2em; letter-spacing: 0.05em; color: var(--color-text-secondary); }
+.lines { margin: 0.4rem 0 0 2.2em; }
+.line { border-bottom: 1px solid var(--line); height: 2em; }
+.line.short { width: 12em; }
+
+.ans-toggle { margin: 0.6rem 0 0 2.2em; font: 500 12px "Noto Sans TC", sans-serif; color: var(--green); background: transparent; border: 1px dashed var(--green); border-radius: 999px; padding: 2px 12px; cursor: pointer; }
+.ans-toggle:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.answer { margin: 0.5rem 0 0 2.2em; background: var(--green-bg); border-radius: var(--border-radius-md); padding: 0.6rem 0.9rem; }
+.answer span { display: inline-block; font-size: 12px; font-weight: 700; color: var(--green); margin-right: 8px; letter-spacing: 0.06em; }
+.ans-key { font-weight: 700; }
+.ans-ex { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; }
+.ans-ex span { color: var(--amber); }
+
+.endmark { text-align: center; color: var(--color-text-secondary); margin: 1.6rem 0 0; letter-spacing: 0.3em; }
+
+.print-btn { position: fixed; right: 18px; bottom: 18px; z-index: 50; background: #122025; color: #fff; border: 0; border-radius: 999px; padding: 0.65rem 1.1rem; font: 500 14px "Noto Sans TC", sans-serif; box-shadow: 0 4px 14px rgba(0,0,0,0.2); cursor: pointer; }
+.print-btn:hover { background: #2a4550; }
+
+@media (max-width: 560px) {
+  .opts, .opts.five { grid-template-columns: 1fr; margin-left: 0.5em; }
+  .fill, .lines, .sortline, .answer, .ans-toggle { margin-left: 0.5em; }
+  .passage { padding: 1.1rem 1.1rem; }
+  .bracket { float: none; display: block; }
+}
+
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; color: #1a1a1a; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc, .toolbar, .print-btn, .ans-toggle, .answer { display: none !important; }
+  a { color: inherit; text-decoration: none; }
+  .qbox, .card, .example-box, .alert, .formula { page-break-inside: avoid; }
+  .passage-block { page-break-before: always; }
+  .hero { page-break-after: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .lvl, .genre { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .passage, .qbox, .info { border-color: #ccc; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">閱讀理解練習</div>
+  <h1>小六閱讀理解模擬練習（一）</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="info">
+  <div class="info-grid">
+    <div>姓名：</div><div>班別：　　（　　）</div><div>日期：</div><div>成績：　　　／31</div>
+  </div>
+  <div class="instr">閱讀下面三篇文章，然後回答問題。全卷共 <b>31</b> 題。選擇題請把答案的英文字母填在括號內；「請選擇兩個答案」的題目須選兩項。</div>
+</div>
+
+<div class="toolbar"><button class="btn-all" id="btnAll" type="button">顯示全部答案</button></div>
+
+<section class="passage-block" id="p1">
+<div class="passage"><div class="p-meta"><span class="lvl lvl1">篇章一　基礎</span><span class="genre">記敘文</span></div><h2 class="p-title">爺爺的舊收音機</h2>
+<p>爺爺的書桌上放着一部棕色的舊收音機，外殼的木紋已經褪色，旋鈕上的數字也磨得模糊不清。它比爸爸的年紀還要大，是爺爺年輕時用第一個月的工資買回來的。</p>
+<p>上星期六，收音機忽然「啞」了。不論爺爺怎樣轉動旋鈕，它只發出「沙沙」的雜音。我拿出手機，在網上找到一部小巧的藍牙喇叭，興奮地對爺爺說：「這部喇叭可以播放幾千首歌，又不用調頻道，比那部老古董方便多了，我們把舊的扔掉吧！」</p>
+<p>爺爺沒有回答，只是摸了摸收音機的外殼，然後從牀底拖出一個生鏽的鐵盒子。盒子裏放滿了螺絲刀、鉗子和大大小小的零件。「先別急着扔，我們試試把它修好。你來當我的助手，好不好？」爺爺瞇着眼睛問。我心裏覺得麻煩，但看見爺爺期待的眼神，只好點頭答應。</p>
+<p>我們把收音機搬到窗前。爺爺戴上老花眼鏡，小心翼翼地擰開背板上的六顆螺絲，再把它們排在一張白紙上，旁邊寫上編號。我不解地問：「為甚麼要這樣排？」爺爺說：「拆的時候有次序，裝回去才不會手忙腳亂。」</p>
+<p>收音機的內部比我想像的複雜得多，密密麻麻的電線像蜘蛛網一樣交纏在一起。爺爺用放大鏡一寸一寸地檢查，足足看了半個小時，才發現有一條電線的焊口鬆脫了。他讓我拿着電筒照明，自己則屏住呼吸，用烙鐵把電線重新焊好。我的手臂舉得又酸又麻，好幾次想放下電筒，但看見爺爺額上滲出的汗珠，我又咬緊牙關堅持下去。</p>
+<p>誰知裝好背板，扭開開關，收音機仍然一聲不響。我泄氣地說：「白費心機了，還是買新的吧！」爺爺卻不慌不忙，再次拆開背板，逐一檢查每個零件。原來剛才我不小心碰歪了一個小開關。爺爺把它撥正，笑着說：「修東西就是這樣，出了錯就找原因，急不來的。」</p>
+<p>第三次扭開開關時，收音機先「沙」的一聲，接着傳出一把熟悉的歌聲。那是一首粵曲，爺爺跟着輕輕哼了起來。他告訴我，這是嫲嫲生前最愛聽的曲子，每逢星期日早上，兩人就一邊喝茶，一邊聽這個節目。我這才明白爺爺為甚麼一直不肯把它扔掉。</p>
+<p>那天晚上，我把藍牙喇叭從網上的購物車裏刪除了。現在，我每個周末都會到爺爺家，跟他一起拆拆裝裝。我已經認得不同大小的螺絲，拆背板也不再手忙腳亂了。每逢星期日早上，我還會陪爺爺一邊喝茶，一邊聽那個粵曲節目。</p>
+</div>
+<div class="qbox"><div class="qhead"><span class="qn">1.</span><div class="qtext">從文中找出適當的詞語，填在橫線上，使句子的意思完整。</div></div>
+<div class="fill"><div>A. 搬家前，媽媽把家裏的玻璃器皿＿＿＿＿地包好，生怕在搬運途中打破。</div><div>B. 時間快到了，他才開始收拾行李，結果＿＿＿＿，連護照也忘了帶。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>A. 小心翼翼　B. 手忙腳亂</div><div class="ans-ex"><span>解題提示</span>A句提示是「生怕打破」，即動作十分謹慎；B句提示是「時間快到了才收拾」，即慌亂。兩個詞分別在第四段。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">2.</span><div class="qtext">「我」最初想扔掉收音機，主要原因是<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 收音機的外殼又舊又殘破。</div><div class="opt"><b>B.</b> 「我」覺得新喇叭較方便。</div><div class="opt"><b>C.</b> 爺爺已經不再聽收音機了。</div><div class="opt"><b>D.</b> 「我」認為收音機無法修理。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>B</div><div class="ans-ex"><span>解題提示</span>第二段「比那部老古董方便多了」。A 是第一段的外觀描寫，不是扔掉的原因；C、D 文中沒有提及。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">3.</span><div class="qtext">爺爺把螺絲排在白紙上並寫上編號，目的是<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 方便「我」學習分辨螺絲。</div><div class="opt"><b>B.</b> 避免螺絲生鏽或者遺失。</div><div class="opt"><b>C.</b> 讓收音機的背板更易拆開。</div><div class="opt"><b>D.</b> 重新裝嵌時不會出錯。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>D</div><div class="ans-ex"><span>解題提示</span>第四段爺爺說「拆的時候有次序，裝回去才不會手忙腳亂」。A 是第八段後來的收穫，屬偷換細節。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">4.</span><div class="qtext">第五段主要記述<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 收音機內部的電線多得像蜘蛛網一樣交纏。</div><div class="opt"><b>B.</b> 「我」舉着電筒照明，手臂又酸又麻。</div><div class="opt"><b>C.</b> 爺爺找出毛病並修好電線的經過。</div><div class="opt"><b>D.</b> 爺爺用放大鏡仔細檢查了足足半小時。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>C</div><div class="ans-ex"><span>解題提示</span>A、B、D 都只是段中一句，屬以偏概全；C 才能概括整段。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">5.</span><div class="qtext">根據文章內容，下列哪一項是<b>不正確</b>的？<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 收音機是爺爺用第一個月工資買的。</div><div class="opt"><b>B.</b> 修理收音機時，「我」曾經想放棄。</div><div class="opt"><b>C.</b> 收音機第二次不響，是因為電線又鬆脫了。</div><div class="opt"><b>D.</b> 爺爺和嫲嫲以前每逢星期日早上都會一起聽那個節目。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>C</div><div class="ans-ex"><span>解題提示</span>第六段指出第二次不響是因為「我」碰歪了一個小開關，不是電線鬆脫，屬偷換細節。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">6.</span><div class="qtext">「我這才明白爺爺為甚麼一直不肯把它扔掉」（第七段），「我」明白了甚麼？<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 爺爺還捨不得那個裝滿工具的鐵盒子。</div><div class="opt"><b>B.</b> 收音機留有爺爺和嫲嫲的回憶。</div><div class="opt"><b>C.</b> 爺爺認為收音機比藍牙喇叭更值錢。</div><div class="opt"><b>D.</b> 爺爺捨不得花錢買新的喇叭。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>B</div><div class="ans-ex"><span>解題提示</span>同段提到這是嫲嫲生前最愛聽的曲子，兩人常一起收聽，所以收音機代表了爺爺和嫲嫲的回憶。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">7.</span><div class="qtext">從文中可見，爺爺是個怎樣的人？（請選擇兩個答案）<span class="bracket">（　　　）</span></div></div>
+<div class="opts five"><div class="opt"><b>A.</b> 珍惜舊物</div><div class="opt"><b>B.</b> 脾氣急躁</div><div class="opt"><b>C.</b> 吝嗇金錢</div><div class="opt"><b>D.</b> 遇挫不餒</div><div class="opt"><b>E.</b> 不善辭令</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>A、D</div><div class="ans-ex"><span>解題提示</span>爺爺不肯扔掉舊收音機（珍惜舊物）；第一次修理失敗後「不慌不忙，再次拆開背板」（遇挫不餒）。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">8.</span><div class="qtext">根據文章內容，按事情發生的先後次序排列下列各項。（請把英文字母填在括號內）</div></div>
+<div class="fill"><div>A. 收音機傳出粵曲</div><div>B. 爺爺把螺絲排在白紙上</div><div>C. 「我」建議把收音機扔掉</div><div>D. 「我」刪除了購物車裏的喇叭</div><div>E. 爺爺把碰歪了的開關撥正</div></div>
+<div class="sortline">（　　）→（　　）→（　　）→（　　）→（　　）</div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>C → B → E → A → D</div><div class="ans-ex"><span>解題提示</span>先找第一項（第二段的建議）和最後一項（第八段刪除喇叭），中間按修理的次序排列。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">9.</span><div class="qtext">這篇文章主要<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 記述修理收音機的經過和體會。</div><div class="opt"><b>B.</b> 比較收音機和藍牙喇叭的優點和缺點。</div><div class="opt"><b>C.</b> 記述「我」和爺爺到網上購物的經過。</div><div class="opt"><b>D.</b> 讚揚爺爺的修理技術比師傅更高超。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>A</div><div class="ans-ex"><span>解題提示</span>記敘文的主旨是「事件＋感受」。B、C、D 或只講一部分，或文中沒有提及。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">10.</span><div class="qtext">爺爺說：「修東西就是這樣，出了錯就找原因，急不來的。」你認同爺爺的做法嗎？試結合自己的經驗加以說明。</div></div>
+<div class="lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>學生自由作答。例如：我認同。文中第一次修理失敗後，爺爺沒有放棄，而是再次檢查，終於找到碰歪了的開關。我學游泳時一直換不到氣，後來請教教練，發現是頭部抬得太高，改正後便學會了。可見遇到失敗時，找出原因比放棄更重要。</div><div class="ans-ex"><span>解題提示</span>按「表明立場 → 文中依據 → 解釋理由 → 聯繫自己」作答。</div></div></div>
+</section>
+<section class="passage-block" id="p2">
+<div class="passage"><div class="p-meta"><span class="lvl lvl2">篇章二　進階</span><span class="genre">人物傳記</span></div><h2 class="p-title">李時珍</h2>
+<p>在中國古代的醫學家之中，明代的李時珍可說是家喻戶曉。他花了近三十年時間編寫《本草綱目》。這部書不但是中國藥物學的寶庫，後來更傳到日本和歐洲，被譯成多種文字。</p>
+<p>李時珍出生於湖北蘄州的一個醫生世家。父親李言聞是當地的名醫，卻不希望兒子行醫，因為當時醫生的地位不高，他期望李時珍讀書考取功名。李時珍十四歲便考中秀才，可是其後三次參加鄉試都名落孫山。他索性放下科舉的念頭，跟隨父親學醫。</p>
+<p>李時珍行醫時發現，古代的藥書有不少錯誤：有些藥物名稱混亂，有些把兩種不同的植物當成一種，甚至把有毒的藥說成無毒。他心想：「醫生用錯了藥，病人就可能喪命。」於是，他下定決心重新編寫一部完整而準確的藥書。</p>
+<p>為了寫好這部書，李時珍閱讀了八百多部書籍，並寫下大量筆記。不過，他明白只靠書本是不夠的。他背着藥簍，穿上草鞋，走遍了湖北、湖南、江西、安徽、江蘇等地的深山曠野，向農民、漁夫、樵夫和獵人請教，收集藥物標本。</p>
+<p>有一次，他聽說有一種叫曼陀羅的花，人吃了會手舞足蹈，甚至失去知覺。為了弄清真相，他找到曼陀羅花後，竟親自試服，並把服用後的感覺詳細記錄下來。他的弟子擔心地勸他不要冒險，他卻說：「不親自嘗試，又怎能知道書上寫的是真是假？」</p>
+<p>經過二十七年的努力，李時珍三易其稿，終於在六十歲左右完成了《本草綱目》。全書收錄藥物一千八百九十二種，附有藥方一萬一千多個，插圖一千一百多幅。可惜，這部巨著在他去世後才正式出版，他沒能親眼看見自己的心血流傳於世。</p>
+<p>李時珍讀了八百多部書，卻沒有盡信書本。他走進山野，親手採藥，親口試藥，才寫成一部可靠的藥書。今天我們讀書求學，也應該學習他實事求是、不怕艱苦的精神。</p>
+</div>
+<div class="qbox"><div class="qhead"><span class="qn">11.</span><div class="qtext">從文中找出適當的詞語，填在橫線上，使句子的意思完整。</div></div>
+<div class="fill"><div>A. 「龜兔賽跑」的故事＿＿＿＿，連幼稚園的小朋友也能說出大概。</div><div>B. 哥哥今年報考大學＿＿＿＿，但他沒有氣餒，決定明年再考。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>A. 家喻戶曉　B. 名落孫山</div><div class="ans-ex"><span>解題提示</span>A句提示「連小朋友也能說出」，即人人知道；B句提示「沒有氣餒，明年再考」，即考試落第。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">12.</span><div class="qtext">文中哪一個四字詞語有「根據實際情況，追求事情的真相」的意思？</div></div>
+<div class="lines"><div class="line short"></div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>實事求是</div><div class="ans-ex"><span>解題提示</span>把解釋拆成「實際」、「真相」兩個關鍵字，在末段找到。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">13.</span><div class="qtext">李時珍的父親最初不希望他行醫，因為<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 父親認為李時珍沒有學醫的天分。</div><div class="opt"><b>B.</b> 李時珍三次參加鄉試都不及格。</div><div class="opt"><b>C.</b> 當時醫生的社會地位不高。</div><div class="opt"><b>D.</b> 父親想李時珍繼承家族的生意。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>C</div><div class="ans-ex"><span>解題提示</span>第二段「因為當時醫生的地位不高」。B 是後來發生的事，屬時序混淆；A、D 文中沒有提及。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">14.</span><div class="qtext">李時珍決心重新編寫藥書，主要是因為<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 古代藥書錯漏多，可能害了病人。</div><div class="opt"><b>B.</b> 他想藉此提高醫生在社會上的地位。</div><div class="opt"><b>C.</b> 他科舉失敗後想另外建立名聲。</div><div class="opt"><b>D.</b> 他想完成父親編寫藥書的心願。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>A</div><div class="ans-ex"><span>解題提示</span>第三段「醫生用錯了藥，病人就可能喪命」。B、C、D 合乎常理，但文中沒有寫，不可以選。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">15.</span><div class="qtext">第四段主要記述<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 李時珍閱讀了八百多部書籍。</div><div class="opt"><b>B.</b> 李時珍向農民、漁夫等人請教。</div><div class="opt"><b>C.</b> 李時珍走遍了多個省份的深山。</div><div class="opt"><b>D.</b> 李時珍搜集資料的方法。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>D</div><div class="ans-ex"><span>解題提示</span>A、B、C 都只是第四段的其中一個方法，D 才能概括「讀書」和「實地考察」兩方面。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">16.</span><div class="qtext">作者在第五段記述李時珍試服曼陀羅花，目的是<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 說明曼陀羅花是一種毒性很強的藥物。</div><div class="opt"><b>B.</b> 指出他的弟子對他十分關心。</div><div class="opt"><b>C.</b> 突出他重視親身驗證的精神。</div><div class="opt"><b>D.</b> 說明他採藥時經常遇到危險。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>C</div><div class="ans-ex"><span>解題提示</span>用意題公式：為了突出＋該段重點。他說「不親自嘗試，又怎能知道書上寫的是真是假？」正是重視驗證。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">17.</span><div class="qtext">下列哪兩項符合文章的內容？（請選擇兩個答案）<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 李時珍十四歲便開始跟隨父親學醫。</div><div class="opt"><b>B.</b> 《本草綱目》前後經過三次修改。</div><div class="opt"><b>C.</b> 《本草綱目》出版時，李時珍親自寫序。</div><div class="opt"><b>D.</b> 《本草綱目》收錄的插圖多於藥方。</div><div class="opt"><b>E.</b> 《本草綱目》曾經傳到外國。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>B、E</div><div class="ans-ex"><span>解題提示</span>B：「三易其稿」即三次修改書稿。E：第一段「傳到日本和歐洲」。A 錯在時序（十四歲考中秀才，鄉試失敗後才學醫）；C 與第六段相反；D 數字對調（插圖一千一百多幅，藥方一萬一千多個）。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">18.</span><div class="qtext">本文主要<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 介紹《本草綱目》收錄的藥物、藥方和插圖。</div><div class="opt"><b>B.</b> 記述李時珍編寫《本草綱目》的經過和精神。</div><div class="opt"><b>C.</b> 說明中國古代藥書出現錯誤的原因。</div><div class="opt"><b>D.</b> 比較李時珍和他父親在醫學上的成就。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>B</div><div class="ans-ex"><span>解題提示</span>人物傳記的主旨是「事跡＋品格」。A 只是第六段的內容，太窄。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">19.</span><div class="qtext">試從文中舉出兩個例子，說明李時珍「不怕艱苦」。</div></div>
+<div class="lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>（1）他背着藥簍，穿上草鞋，走遍多個省份的深山曠野收集藥物標本。<br>（2）他冒着危險，親自試服曼陀羅花，並記錄服用後的感覺。<br>（亦可答：他花了二十七年時間，三次修改書稿，才完成《本草綱目》。）</div><div class="ans-ex"><span>解題提示</span>要求兩個例子，就分（1）（2）寫，每個例子都要來自文章。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">20.</span><div class="qtext">李時珍「讀了八百多部書，卻沒有盡信書本」。你認為讀書時應該完全相信書本嗎？試結合本文及你的學習經驗說明。</div></div>
+<div class="lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>學生自由作答。例如：我認為不應該完全相信書本。李時珍發現古代藥書把有毒的藥說成無毒，如果他照書用藥，病人就可能喪命，所以他要親自採藥、試藥。我在常識課讀到植物需要陽光，後來親手種綠豆，把一盆放在暗處，才看到它長得又黃又弱，這樣學到的知識我記得更清楚。</div><div class="ans-ex"><span>解題提示</span>先寫明「應該」或「不應該」，再引用文中李時珍的事例作依據。</div></div></div>
+</section>
+<section class="passage-block" id="p3">
+<div class="passage"><div class="p-meta"><span class="lvl lvl3">篇章三　挑戰</span><span class="genre">說明文</span></div><h2 class="p-title">紅樹林——海岸的守護者</h2>
+<p>在香港新界西北的后海灣沿岸，有一片在海水中生長的樹林。潮漲時，樹幹浸在水中，只露出茂密的樹冠；潮退時，盤纏在泥灘上的樹根才顯露出來。這片奇特的樹林，就是紅樹林。</p>
+<p>紅樹林是指生長在熱帶和亞熱帶海岸潮間帶的樹木和灌木羣落。也許你會以為紅樹的樹葉是紅色的，其實它們的葉子跟一般樹木一樣是綠色的。紅樹得名，是因為部分品種的樹皮含有豐富的單寧，割開後接觸空氣，會氧化成紅褐色。</p>
+<p>海岸泥灘含鹽量高，泥土鬆軟而缺氧，一般植物難以生存，紅樹卻有一套適應的本領。首先，不少紅樹能把多餘的鹽分排出，例如白骨壤的葉面上，常常可以看到一粒粒細小的鹽晶。其次，有些紅樹從泥中伸出一枝枝像鉛筆一樣的「呼吸根」，幫助根部吸取空氣。再者，秋茄等品種的種子會在母樹上發芽，長成一條條像豆角般的胚軸，成熟後才掉進泥中，迅速紮根生長。這種繁殖方式跟哺乳類動物相似，所以被稱為「胎生」。</p>
+<p>紅樹林對生態和人類都十分重要。紅樹交錯的根部能減弱海浪的衝擊，防止海岸被侵蝕，在颱風來襲時更是一道天然屏障。此外，紅樹的落葉在泥灘中分解，成為小魚、蝦、蟹和彈塗魚的食物，而這些小動物又吸引大量雀鳥前來覓食。每年冬天，數以萬計的候鳥會飛到后海灣一帶過冬，米埔自然保護區因而成為觀鳥者的熱門地點。</p>
+<p>可是，紅樹林正面對不少威脅。過去數十年，不少紅樹林因填海、興建道路和魚塘而被砍伐；從海上漂來的垃圾纏繞樹根，也阻礙紅樹生長。香港的紅樹林面積本來就不大，每失去一片，都難以在短時間內恢復。</p>
+<p>要保護紅樹林，政府、團體和市民都有責任。政府可以把重要的紅樹林劃為保護區，限制發展；環保團體可以舉辦清理海岸的活動；市民則應減少使用即棄塑膠，參觀時不採摘、不踐踏植物。紅樹林一直守護着香港的海岸，現在，輪到我們守護它了。</p>
+</div>
+<div class="qbox"><div class="qhead"><span class="qn">21.</span><div class="qtext">從文中找出適當的詞語，填在橫線上，使句子的意思完整。</div></div>
+<div class="fill"><div>A. 岸邊的岩石長年受海浪＿＿＿＿，變得凹凸不平。</div><div>B. 這排高聳的山嶺像一道＿＿＿＿，擋住了從北方吹來的寒風。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>A. 侵蝕　B. 屏障</div><div class="ans-ex"><span>解題提示</span>A句提示「長年受海浪」「凹凸不平」；B句提示「擋住寒風」。兩個詞都在第四段。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">22.</span><div class="qtext">文中第三段運用了哪兩種說明方法？（請選擇兩個答案）<span class="bracket">（　　　）</span></div></div>
+<div class="opts five"><div class="opt"><b>A.</b> 列數字</div><div class="opt"><b>B.</b> 舉例子</div><div class="opt"><b>C.</b> 列圖表</div><div class="opt"><b>D.</b> 打比方</div><div class="opt"><b>E.</b> 引用</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>B、D</div><div class="ans-ex"><span>解題提示</span>「例如白骨壤……」是舉例子；「像鉛筆一樣」、「像豆角般」是打比方。第三段沒有數字、圖表和引文。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">23.</span><div class="qtext">紅樹得名的原因是<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 紅樹的樹葉到了秋天會變成紅色。</div><div class="opt"><b>B.</b> 紅樹的樹幹浸在海水中會變紅。</div><div class="opt"><b>C.</b> 部分紅樹的樹皮割開後會變紅褐色。</div><div class="opt"><b>D.</b> 紅樹在開花季節會開出大量紅色花朵。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>C</div><div class="ans-ex"><span>解題提示</span>第二段「割開後接觸空氣，會氧化成紅褐色」。A 與原文相反（葉子是綠色的）。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">24.</span><div class="qtext">根據第三段，下列哪一項<b>不是</b>紅樹適應海岸環境的方法？<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 把多餘的鹽分排出。</div><div class="opt"><b>B.</b> 長出呼吸根吸取空氣。</div><div class="opt"><b>C.</b> 種子在母樹上發芽。</div><div class="opt"><b>D.</b> 把樹根深深紮進岩石。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>D</div><div class="ans-ex"><span>解題提示</span>先圈「不是」。A、B、C 第三段都有寫；D 文中沒有提及，泥灘也不是岩石。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">25.</span><div class="qtext">第三段的「胎生」一詞加上引號，作用是<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 表示特定的稱謂。</div><div class="opt"><b>B.</b> 表示引用古書的說法。</div><div class="opt"><b>C.</b> 表示反語，有諷刺意味。</div><div class="opt"><b>D.</b> 表示作者不同意這種說法。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>A</div><div class="ans-ex"><span>解題提示</span>原文「所以被稱為『胎生』」，引號標示這是一種特定的叫法。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">26.</span><div class="qtext">第四段主要說明<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 紅樹林對生態和人類的作用。</div><div class="opt"><b>B.</b> 紅樹林是候鳥在冬天的棲息地。</div><div class="opt"><b>C.</b> 紅樹林在颱風時可以保護海岸。</div><div class="opt"><b>D.</b> 米埔是觀鳥者喜愛的熱門地點。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>A</div><div class="ans-ex"><span>解題提示</span>首句「紅樹林對生態和人類都十分重要」就是段旨。B、C、D 都只是其中一點。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">27.</span><div class="qtext">根據第四段，按事情發生的先後次序排列下列各項。（請把英文字母填在括號內）</div></div>
+<div class="fill"><div>A. 雀鳥前來覓食</div><div>B. 紅樹的葉子掉落泥灘</div><div>C. 米埔成為觀鳥熱點</div><div>D. 蝦、蟹和彈塗魚以此為食</div><div>E. 落葉在泥灘中分解</div></div>
+<div class="sortline">（　　）→（　　）→（　　）→（　　）→（　　）</div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>B → E → D → A → C</div><div class="ans-ex"><span>解題提示</span>這是一條食物鏈：落葉 → 分解 → 小動物進食 → 雀鳥覓食 → 吸引觀鳥者。留意「而這些小動物又……」、「因而」等連接詞。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">28.</span><div class="qtext">下列哪一項<b>不符合</b>文章的內容？<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 紅樹的葉子含有豐富的單寧，所以呈紅色。</div><div class="opt"><b>B.</b> 潮漲時，紅樹的樹幹浸在水中，只露出樹冠。</div><div class="opt"><b>C.</b> 從海上漂來的垃圾會阻礙紅樹生長。</div><div class="opt"><b>D.</b> 一般植物難以在海岸泥灘上生存。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>A</div><div class="ans-ex"><span>解題提示</span>含單寧的是「樹皮」，不是葉子，而且葉子是綠色的，屬偷換細節。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">29.</span><div class="qtext">作者寫這篇文章的主要目的是<span class="bracket">（　　　）</span></div></div>
+<div class="opts"><div class="opt"><b>A.</b> 介紹米埔自然保護區每年冬天的候鳥。</div><div class="opt"><b>B.</b> 說明紅樹名稱的由來和生長的地方。</div><div class="opt"><b>C.</b> 批評政府填海和興建道路破壞環境。</div><div class="opt"><b>D.</b> 介紹紅樹林，並呼籲大家保護它。</div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>D</div><div class="ans-ex"><span>解題提示</span>說明文的主旨是「介紹對象＋特點」，本文末段更加入呼籲。A、B 太窄；C 偏離作者觀點，文中沒有批評政府。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">30.</span><div class="qtext">作者為甚麼把紅樹林稱為「海岸的守護者」？試結合文章內容，從兩方面加以說明。</div></div>
+<div class="lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>保護海岸方面，紅樹交錯的根部能減弱海浪的衝擊，防止海岸被侵蝕，颱風來襲時更是一道天然屏障。<br>保護生物方面，紅樹的落葉為魚、蝦、蟹提供食物，這些小動物又吸引雀鳥和候鳥前來覓食，維持了海岸的生態。</div><div class="ans-ex"><span>解題提示</span>題目要求「兩方面」，就用「○○方面，……；○○方面，……」分開作答。</div></div></div>
+<div class="qbox"><div class="qhead"><span class="qn">31.</span><div class="qtext">假如你參加米埔的導賞活動，你會向同行的同學提出哪兩項參觀守則？為甚麼？</div></div>
+<div class="lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+<button class="ans-toggle" type="button" aria-expanded="false">顯示答案</button>
+<div class="answer" hidden><div class="ans-key"><span>答案</span>學生自由作答。例如：第一，不要採摘或踐踏植物，因為文中提到紅樹林每失去一片，都難以在短時間內恢復。第二，不要帶即棄塑膠餐具，因為垃圾漂到海上會纏繞樹根，阻礙紅樹生長。</div><div class="ans-ex"><span>解題提示</span>守則要能在文中找到理由，才算「結合文章」。</div></div></div>
+</section>
+
+<div class="endmark">全卷完</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+<button class="print-btn" type="button" onclick="window.print()">🖨 列印／匯出 PDF</button>
+<script>
+(function(){
+  var toggles = document.querySelectorAll('.ans-toggle');
+  function setOne(btn, show){
+    var ans = btn.nextElementSibling;
+    ans.hidden = !show;
+    btn.textContent = show ? '隱藏答案' : '顯示答案';
+    btn.setAttribute('aria-expanded', show ? 'true' : 'false');
+  }
+  toggles.forEach(function(btn){
+    btn.addEventListener('click', function(){ setOne(btn, btn.nextElementSibling.hidden); syncAll(); });
+  });
+  var all = document.getElementById('btnAll');
+  function syncAll(){
+    var open = Array.prototype.every.call(toggles, function(b){ return !b.nextElementSibling.hidden; });
+    all.textContent = open ? '隱藏全部答案' : '顯示全部答案';
+  }
+  all.addEventListener('click', function(){
+    var open = all.textContent.indexOf('顯示') === 0;
+    toggles.forEach(function(b){ setOne(b, open); });
+    syncAll();
+  });
+})();
+</script>
+</body>
+</html>
