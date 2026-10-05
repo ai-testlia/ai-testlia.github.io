@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四年級詞語筆記</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#DCD3C3;
+  --hero-text:#2B2216;
+  --teal:#3E8E86; --teal-bg:#E6F2F0;
+  --amber:#B7791F; --amber-bg:#FBF1E1;
+  --coral:#C0563F; --coral-bg:#FBEAE5;
+  --hl:#FFE7A3;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#ECECEC;
+    --color-text-secondary:#B5B5B5;
+    --color-background-primary:#1E1E1E;
+    --color-background-secondary:#141414;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --teal-bg:#1D2E2C; --amber-bg:#2F2717; --coral-bg:#33201B;
+    --hl:#5C4A16;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--color-background-secondary);color:var(--color-text-primary);line-height:1.8;font-size:14px}
+.wrap{max-width:960px;margin:0 auto;padding:24px 16px 48px}
+.hero{background:var(--hero-bg);color:var(--hero-text);border-radius:var(--border-radius-lg);padding:36px 28px;text-align:center;margin-bottom:20px}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:2px;padding:3px 14px;border-radius:20px;border:1px solid rgba(43,34,22,0.3);color:rgba(43,34,22,0.65);margin-bottom:12px}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:28px;color:var(--hero-text);margin-bottom:6px}
+.hero p{color:rgba(43,34,22,0.5);font-size:13px}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:10px}
+.toc-item{flex:1 1 180px;text-decoration:none;color:var(--color-text-primary);background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;font-weight:500}
+.toc-item span{display:block;font-size:12px;color:var(--color-text-secondary);font-weight:400}
+.section-header{display:flex;align-items:center;gap:12px;margin:32px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--hero-bg)}
+.section-header .icon{font-size:24px}
+.section-header h2{font-family:'Noto Serif TC',serif;font-size:22px;flex:1}
+.section-header .num{font-size:12px;color:var(--color-text-secondary);letter-spacing:1px}
+.sub-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;margin:20px 0 10px}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.teal{background:var(--teal)} .dot.amber{background:var(--amber)}
+.sub-title small{font-weight:400;font-size:12px;color:var(--color-text-secondary)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.word-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;border-top:4px solid var(--teal)}
+.word-card.amber{border-top-color:var(--amber)}
+.wc-head{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.wc-no{font-size:12px;color:var(--color-text-secondary)}
+.wc-word{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;letter-spacing:2px}
+.wc-row{display:flex;gap:8px;margin-top:6px}
+.tag{flex-shrink:0;font-size:11px;font-weight:700;padding:1px 8px;border-radius:10px;height:fit-content;margin-top:3px}
+.tag.def{background:var(--teal-bg);color:var(--teal)}
+.word-card.amber .tag.def{background:var(--amber-bg);color:var(--amber)}
+.tag.ex{background:var(--coral-bg);color:var(--coral)}
+.wc-row p{font-size:14px}
+.hl{background:var(--hl);padding:0 2px;border-radius:3px;font-weight:700}
+.note{font-size:12.5px;color:var(--color-text-secondary)}
+.alert{display:flex;gap:10px;background:var(--color-background-primary);border-left:4px solid #4A7FB5;border-radius:var(--border-radius-md);padding:12px 14px;margin-bottom:8px}
+.alert-label{font-weight:700;font-size:13px}
+.alert-text{font-size:13.5px}
+.print-btn{position:fixed;right:18px;bottom:18px;z-index:99;background:var(--hero-text);color:#fff;border:none;border-radius:24px;padding:10px 18px;font-family:inherit;font-size:14px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+@media (max-width:600px){.hero h1{font-size:22px}.grid{grid-template-columns:1fr}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#1a1a1a}
+  .wrap{max-width:100%;padding:0}
+  .toc,.print-btn{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.word-card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid;break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .sub-title{page-break-after:avoid}
+  .hero{page-break-after:avoid}
+  .word-card{background:white}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">🖨 列印／PDF</button>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">詞語教學筆記</div>
+  <h1>四年級詞語筆記（第一、二、四課）</h1>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc">
+  <a class="toc-item" href="#l1">📘 第一課<span>認讀 6 個．書寫與運用 10 個</span></a>
+  <a class="toc-item" href="#l2">📗 第二課<span>認讀 4 個．書寫與運用 12 個</span></a>
+  <a class="toc-item" href="#l4">📙 第四課<span>認讀 6 個．書寫與運用 8 個</span></a>
+</div>
+
+<div class="alert">
+  <div>💡</div>
+  <div>
+    <div class="alert-label">怎樣溫習</div>
+    <div class="alert-text">先看解釋，再看例句裏的詞語怎樣用。「書寫與運用」的詞語要會默寫，也要會自己造句。</div>
+  </div>
+</div>
+
+<div class="section-header first" id="l1">
+  <div class="icon">📘</div><h2>第一課</h2><div class="num">LESSON 01</div>
+</div>
+
+<div class="sub-title"><span class="dot teal"></span>認讀<small>懂得讀、明白意思</small></div>
+<div class="grid">
+  <div class="word-card"><div class="wc-head"><span class="wc-no">01</span><span class="wc-word">遮掩</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>用東西擋住，不讓人看見。也可以指把心事藏起來，不讓人知道。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>弟弟把不合格的測驗卷藏在書包底，想<span class="hl">遮掩</span>自己的成績，可是媽媽收拾書包時還是發現了。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">02</span><span class="wc-word">彷彿</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>好像。明明不是真的，但感覺很像。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>外婆煮的粥味道和從前一模一樣，我喝了一口，<span class="hl">彷彿</span>回到了小時候住在她家的日子。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">03</span><span class="wc-word">心扉</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>「扉」是門，心扉就是「心的門」，指藏在心裏的想法和感受。「打開心扉」，就是肯把心裏話說出來。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>轉校生剛來時總是獨自坐着，後來班主任常常陪他聊天，他才漸漸打開<span class="hl">心扉</span>，和同學有說有笑。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">04</span><span class="wc-word">鞠躬</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>彎下腰向人行禮，表示尊敬或感謝。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>畢業典禮上，同學們一起向老師<span class="hl">鞠躬</span>，感謝老師六年來的悉心教導。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">05</span><span class="wc-word">接連</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>一件接一件，中間沒有停下來。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>這個星期<span class="hl">接連</span>下了五天大雨，學校只好把旅行日延到下個月。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">06</span><span class="wc-word">脫胎換骨</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>像換了一副身體一樣。比喻一個人徹底改變，和從前完全不同，通常指變好。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>表哥以前做事馬馬虎虎，自從參加童軍後，他像<span class="hl">脫胎換骨</span>一樣，變得認真又有責任感。</p></div></div>
+</div>
+
+<div class="sub-title"><span class="dot amber"></span>書寫與運用<small>懂得默寫、懂得運用</small></div>
+<div class="grid">
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">01</span><span class="wc-word">吩咐</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>口頭叫別人做某件事。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>爸爸出門前<span class="hl">吩咐</span>我替金魚換水，可是我玩得太入迷，到了晚上才想起來。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">02</span><span class="wc-word">分享</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>把自己的東西、快樂或想法拿出來，和別人一起享用，或讓別人知道。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>小玲帶了一盒曲奇回校，小息時和全組同學<span class="hl">分享</span>，大家都吃得很開心。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">03</span><span class="wc-word">鼓掌</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>拍手，用來表示歡迎、稱讚或鼓勵。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>志強的演講生動有趣，他剛說完最後一句，全班同學便熱烈地為他<span class="hl">鼓掌</span>。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">04</span><span class="wc-word">視線</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>眼睛望出去的方向，也指眼睛看得到的範圍。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>前排的觀眾突然站了起來，擋住了我的<span class="hl">視線</span>，我只好伸長脖子看台上的表演。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">05</span><span class="wc-word">講述</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>把事情或故事一步一步地說出來。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>爺爺向我們<span class="hl">講述</span>他小時候在鄉村放牛的經歷，我們聽得津津有味，都捨不得去睡覺。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">06</span><span class="wc-word">害羞</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>因為膽小或難為情而不好意思，臉會變紅。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>妹妹的性格很<span class="hl">害羞</span>，上台領獎時一直低着頭，連看也不敢看台下的觀眾。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">07</span><span class="wc-word">交談</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>兩個或以上的人互相說話。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>媽媽在街市遇到多年不見的舊同學，兩人站在路旁<span class="hl">交談</span>了很久，才依依不捨地道別。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">08</span><span class="wc-word">友善</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>對人和氣、親切，像對待朋友一樣。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>新同學第一天上學時不認識路，坐在她旁邊的阿欣十分<span class="hl">友善</span>，主動帶她到禮堂集隊。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">09</span><span class="wc-word">介意</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>把不開心的事放在心上，覺得在乎。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>我不小心把果汁灑在表姐的裙子上，雖然她說不<span class="hl">介意</span>，但是我心裏仍然很內疚。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">10</span><span class="wc-word">友誼</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>朋友之間的感情。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>阿明兩年前搬到英國，我們仍然每星期視像通話，所以這段<span class="hl">友誼</span>一直沒有變淡。</p></div></div>
+</div>
+
+<div class="section-header" id="l2">
+  <div class="icon">📗</div><h2>第二課</h2><div class="num">LESSON 02</div>
+</div>
+
+<div class="sub-title"><span class="dot teal"></span>認讀<small>懂得讀、明白意思</small></div>
+<div class="grid">
+  <div class="word-card"><div class="wc-head"><span class="wc-no">01</span><span class="wc-word">概括</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>用幾句話說出事情最重要的內容。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>老師要我們用一句話<span class="hl">概括</span>整個故事，我反覆讀了幾遍，才找出故事的重點。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">02</span><span class="wc-word">瞟</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>很快地斜着眼看一下。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>弟弟一邊抄生字，一邊不時<span class="hl">瞟</span>向電視，結果寫錯了好幾個字。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">03</span><span class="wc-word">瞬間</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>一眨眼那麼短的時間。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>剛才還是陽光普照，<span class="hl">瞬間</span>天色便暗了下來，接着下起了大雨。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">04</span><span class="wc-word">束縛</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>綁住、限制，令人不能自由行動。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>小鳥擺脫了籠子的<span class="hl">束縛</span>後，立刻拍着翅膀飛向天空。</p></div></div>
+</div>
+
+<div class="sub-title"><span class="dot amber"></span>書寫與運用<small>懂得默寫、懂得運用</small></div>
+<div class="grid">
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">01</span><span class="wc-word">沉默</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>不說話，不出聲。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>老師問是誰打破了花瓶，課室裏一片<span class="hl">沉默</span>，誰也不敢抬起頭來。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">02</span><span class="wc-word">組織</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>把分散的人或事安排好，讓大家一起做事。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>班長<span class="hl">組織</span>了幾位同學一起佈置課室，不到一個小息，壁報板上已經貼滿了聖誕卡。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">03</span><span class="wc-word">周圍</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>四周，圍着某個地方的一帶。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>我家<span class="hl">周圍</span>有好幾間便利店，所以晚上肚子餓時，很快就能買到食物。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">04</span><span class="wc-word">緊張</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>心裏不安定，放鬆不下來。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>還有五分鐘便輪到我朗誦，我<span class="hl">緊張</span>得手心冒汗，連講稿也拿不穩。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">05</span><span class="wc-word">勇敢</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>不怕危險和困難，有膽量。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>小志本來很怕黑，但是為了找回走失的小狗，他還是<span class="hl">勇敢</span>地走進了漆黑的後巷。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">06</span><span class="wc-word">呼喚</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>大聲叫別人的名字，或叫人過來。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>我在公園玩耍時，聽到媽媽在遠處<span class="hl">呼喚</span>我的名字，便立刻跑了過去。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">07</span><span class="wc-word">盼望</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>心裏很想某件事發生，一直在等。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>爸爸答應暑假帶我們去日本旅行，所以我天天都<span class="hl">盼望</span>暑假快點來臨。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">08</span><span class="wc-word">眼神</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>眼睛流露出來的神情，可以看出一個人的心情。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>弟弟雖然沒有說話，但是從他望着雪糕車的<span class="hl">眼神</span>，我知道他很想吃雪糕。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">09</span><span class="wc-word">似乎</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>好像。用在不太肯定的時候。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>天空的烏雲越來越密，<span class="hl">似乎</span>快要下雨了，我們連忙收拾東西回家。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">10</span><span class="wc-word">響亮</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>聲音大，而且清楚。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>司儀的聲音十分<span class="hl">響亮</span>，即使坐在禮堂最後一排，也能聽得清清楚楚。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">11</span><span class="wc-word">劇烈</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>非常猛烈、厲害。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>哥哥吃完午飯後立刻去踢足球，不久肚子便<span class="hl">劇烈</span>地痛起來，只好坐在場邊休息。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">12</span><span class="wc-word">證明</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>用事實或證據說明某件事是真的。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>有人說小美考第一只是靠運氣，可是她這次又考到全級第一，<span class="hl">證明</span>了她的成績是靠努力得來的。</p></div></div>
+</div>
+
+<div class="section-header" id="l4">
+  <div class="icon">📙</div><h2>第四課</h2><div class="num">LESSON 04</div>
+</div>
+
+<div class="sub-title"><span class="dot teal"></span>認讀<small>懂得讀、明白意思</small></div>
+<div class="grid">
+  <div class="word-card"><div class="wc-head"><span class="wc-no">01</span><span class="wc-word">氣喘</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>呼吸又急又快，好像透不過氣。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>升降機壞了，我只好走樓梯上十樓，到家門口時已經<span class="hl">氣喘</span>吁吁。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">02</span><span class="wc-word">怒吼</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>憤怒地大聲吼叫。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>獅子的腳被捕獸夾夾住，痛得不停地<span class="hl">怒吼</span>，把樹上的鳥兒都嚇跑了。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">03</span><span class="wc-word">索性</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>乾脆。不再等、不再猶豫，直接這樣做。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>我們等了二十分鐘也等不到巴士，便<span class="hl">索性</span>走路回家，結果比坐車還要早到。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">04</span><span class="wc-word">跪地求饒</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>跪在地上，求對方原諒或放過自己。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>狐狸偷雞時被獵人捉住了，牠立刻<span class="hl">跪地求饒</span>，答應以後不再偷東西。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">05</span><span class="wc-word">騰空</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>向上飛起，升到半空。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>煙花<span class="hl">騰空</span>而起，在夜空中綻放出一朵朵金色的花，岸邊的人都忍不住歡呼起來。</p></div></div>
+  <div class="word-card"><div class="wc-head"><span class="wc-no">06</span><span class="wc-word">溜冰</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>穿上冰鞋，在冰上或平滑的地面上滑行。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>哥哥第一次<span class="hl">溜冰</span>時跌倒了十多次，但他沒有放棄，練習幾次後終於能滑得又穩又快。</p></div></div>
+</div>
+
+<div class="sub-title"><span class="dot amber"></span>書寫與運用<small>懂得默寫、懂得運用</small></div>
+<div class="grid">
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">01</span><span class="wc-word">戴</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>把東西放在頭、臉、頸、手上，例如戴帽子、戴眼鏡。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>今天氣溫只有八度，媽媽叮囑我出門前一定要<span class="hl">戴</span>上手套和帽子。</p></div>
+    <div class="wc-row"><span class="tag def">留意</span><p class="note">「戴」是放在身上；「帶」是拿着走，例如帶雨傘。兩個字不要寫錯。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">02</span><span class="wc-word">額頭</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>眉毛以上、頭髮以下的地方。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>爸爸在太陽底下修理了一整個下午的單車，<span class="hl">額頭</span>上的汗水不停地流下來。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">03</span><span class="wc-word">道</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>量詞，用在門、牆、題目、彩虹、光線等，例如一道門、一道題。也可以解作「說」，例如「他笑着問道」。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>測驗的最後一<span class="hl">道</span>題目十分困難，我想了很久，到交卷前才想到答案。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">04</span><span class="wc-word">過街老鼠</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>老鼠一走到街上，人人都會追打牠。比喻做壞事的人，誰都討厭他。常說「過街老鼠，人人喊打」。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>那個專門欺騙長者的騙子，照片被傳到網上後，成了人人喊打的<span class="hl">過街老鼠</span>，最後街坊認出了他，並立即報警。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">05</span><span class="wc-word">奔跑</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>很快地跑。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>小狗一聽到主人開門的聲音，就從房間<span class="hl">奔跑</span>出來，不停地搖着尾巴。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">06</span><span class="wc-word">項</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>量詞，用於一件件分開的事情，例如一項比賽、一項工作。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>哥哥在運動會中參加了三<span class="hl">項</span>比賽，每一<span class="hl">項</span>都取得了獎牌。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">07</span><span class="wc-word">遍</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>量詞，指一個動作從頭到尾做完一次，例如讀一遍。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>這篇課文我已經讀了五<span class="hl">遍</span>，所以現在不用看書也能背出來。</p></div></div>
+  <div class="word-card amber"><div class="wc-head"><span class="wc-no">08</span><span class="wc-word">篇</span></div>
+    <div class="wc-row"><span class="tag def">解釋</span><p>量詞，用於文章、日記、作文等，例如一篇文章。</p></div>
+    <div class="wc-row"><span class="tag ex">例句</span><p>老師要求我們每星期寫一<span class="hl">篇</span>日記，堅持了一個月後，我發現自己的寫作進步了不少。</p></div></div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
