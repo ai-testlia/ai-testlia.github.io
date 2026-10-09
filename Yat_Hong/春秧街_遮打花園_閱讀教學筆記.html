@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>春秧街與遮打花園 閱讀教學筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#C8D5D8;
+  --hero-text:#122025;
+  --c-purple:#6b5fb5; --c-purple-bg:#f1effa;
+  --c-teal:#2f8f83;   --c-teal-bg:#e8f5f2;
+  --c-coral:#c8644f;  --c-coral-bg:#fbece8;
+  --c-amber:#b7791f;  --c-amber-bg:#fdf3e2;
+  --c-pink:#b5527e;   --c-pink-bg:#fbeaf2;
+  --c-blue:#3a6ea5;   --c-blue-bg:#e8f0f8;
+  --c-green:#3d8b4f;  --c-green-bg:#e9f5ec;
+  --c-red:#b8433a;    --c-red-bg:#fbeaea;
+  --formula-bg:#1f2b30; --formula-text:#eef3f4;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#e8e8e6;
+    --color-text-secondary:#a8a8a4;
+    --color-background-primary:#1d1f20;
+    --color-background-secondary:#141516;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --c-purple-bg:#26233a; --c-teal-bg:#1b2e2b; --c-coral-bg:#33221e;
+    --c-amber-bg:#33291a; --c-pink-bg:#33202a; --c-blue-bg:#1c2733;
+    --c-green-bg:#1d2e21; --c-red-bg:#352020;
+    --formula-bg:#0f1517;
+  }
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.8;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 40px;}
+h1,h2,h3,.serif{font-family:'Noto Serif TC',serif;}
+
+/* Hero */
+.hero{background:var(--hero-bg);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:36px 32px 30px;margin-bottom:22px;}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:2px;padding:3px 12px;border-radius:999px;
+  border:1px solid rgba(18,32,37,0.3);color:rgba(18,32,37,0.65);margin-bottom:12px;}
+.hero h1{margin:0 0 6px;font-size:28px;line-height:1.4;color:var(--hero-text);}
+.hero .sub{margin:0 0 10px;font-size:15px;color:rgba(18,32,37,0.75);}
+.hero p{margin:0;font-size:13px;color:rgba(18,32,37,0.5);}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px;}
+.toc-title{font-weight:700;margin-bottom:8px;font-family:'Noto Serif TC',serif;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 18px;}
+.toc-item a{color:var(--color-text-primary);text-decoration:none;display:flex;gap:8px;}
+.toc-item a:hover{color:var(--c-blue);}
+.toc-num{color:var(--c-blue);font-weight:700;min-width:26px;}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:34px 0 14px;}
+.sh-icon{width:44px;height:44px;border-radius:12px;background:var(--hero-bg);color:var(--hero-text);
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.sh-num{font-size:12px;color:var(--color-text-secondary);letter-spacing:1px;}
+.sh-title{font-size:21px;font-weight:700;font-family:'Noto Serif TC',serif;line-height:1.35;}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:14px;}
+.card h3{margin:0 0 8px;font-size:16px;display:flex;align-items:center;gap:8px;}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.dot.purple{background:var(--c-purple);} .dot.teal{background:var(--c-teal);}
+.dot.coral{background:var(--c-coral);} .dot.amber{background:var(--c-amber);}
+.dot.pink{background:var(--c-pink);} .dot.blue{background:var(--c-blue);}
+.card p{margin:6px 0;}
+.card ul,.card ol{margin:6px 0;padding-left:22px;}
+.card li{margin:3px 0;}
+.hl{background:linear-gradient(transparent 60%, rgba(183,121,31,0.28) 60%);font-weight:500;}
+.q{font-family:'Noto Serif TC',serif;color:var(--c-coral);}
+
+/* Example box */
+.example-box{border-left:4px solid var(--c-purple);background:var(--c-purple-bg);
+  border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:10px 16px;margin:10px 0;}
+.example-box.teal{border-color:var(--c-teal);background:var(--c-teal-bg);}
+.example-box.coral{border-color:var(--c-coral);background:var(--c-coral-bg);}
+.example-box.amber{border-color:var(--c-amber);background:var(--c-amber-bg);}
+.example-box.pink{border-color:var(--c-pink);background:var(--c-pink-bg);}
+.example-label{font-size:12px;font-weight:700;color:var(--color-text-secondary);letter-spacing:1px;margin-bottom:2px;}
+.example-text{font-size:14px;}
+
+/* Alerts */
+.alert{display:flex;gap:12px;border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0;}
+.alert-icon{font-size:18px;line-height:1.6;}
+.alert-label{font-weight:700;font-size:13px;}
+.alert-text{font-size:14px;}
+.alert.tip{background:var(--c-blue-bg);} .alert.tip .alert-label{color:var(--c-blue);}
+.alert.warn{background:var(--c-red-bg);} .alert.warn .alert-label{color:var(--c-red);}
+.alert.success{background:var(--c-green-bg);} .alert.success .alert-label{color:var(--c-green);}
+.alert.amber{background:var(--c-amber-bg);} .alert.amber .alert-label{color:var(--c-amber);}
+
+/* Compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;border:1px solid var(--color-border-tertiary);}
+.compare-card.bad{background:var(--c-red-bg);} .compare-card.good{background:var(--c-green-bg);}
+.compare-card.neutral{background:var(--c-blue-bg);} .compare-card.warm{background:var(--c-amber-bg);}
+.compare-head{font-weight:700;margin-bottom:4px;}
+.compare-card.bad .compare-head{color:var(--c-red);} .compare-card.good .compare-head{color:var(--c-green);}
+.compare-card.neutral .compare-head{color:var(--c-blue);} .compare-card.warm .compare-head{color:var(--c-amber);}
+
+/* Flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0;}
+.flow-step{flex:1 1 120px;background:var(--c-teal-bg);border:1px solid rgba(47,143,131,0.3);
+  border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px;text-align:center;}
+.flow-step b{display:block;color:var(--c-teal);font-size:14px;}
+.flow-arrow{display:flex;align-items:center;color:var(--c-teal);font-weight:700;}
+
+/* Keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:10px 0;}
+.kw{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-md);padding:10px 12px;}
+.kw-word{font-weight:700;color:var(--c-purple);font-family:'Noto Serif TC',serif;}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.7;}
+
+/* Formula */
+.formula{background:var(--formula-bg);color:var(--formula-text);border-radius:var(--border-radius-md);
+  padding:14px 18px;margin:12px 0;font-size:14px;}
+.formula .f-label{font-size:12px;letter-spacing:2px;opacity:0.65;margin-bottom:4px;}
+.formula .f-main{font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.9;}
+.formula .f-main em{font-style:normal;color:#f2c879;}
+
+/* Tables */
+table.nt{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+table.nt th,table.nt td{border:1px solid var(--color-border-tertiary);padding:7px 10px;vertical-align:top;text-align:left;}
+table.nt th{background:var(--color-background-secondary);font-weight:700;}
+
+/* Question box */
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);margin-bottom:16px;overflow:hidden;}
+.qbox-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 18px;
+  background:var(--c-blue-bg);border-bottom:0.5px solid var(--color-border-tertiary);}
+.qno{font-weight:900;font-family:'Noto Serif TC',serif;color:var(--c-blue);font-size:16px;}
+.qtag{font-size:12px;padding:1px 10px;border-radius:999px;background:var(--color-background-primary);
+  border:1px solid var(--color-border-tertiary);color:var(--color-text-secondary);}
+.qbox-body{padding:12px 18px 14px;}
+.qstem{font-weight:500;margin-bottom:6px;}
+.qpart-label{font-size:12px;font-weight:700;letter-spacing:1px;margin-top:10px;}
+.qpart-label.think{color:var(--c-teal);} .qpart-label.ans{color:var(--c-green);} .qpart-label.trap{color:var(--c-red);}
+.ansbox{background:var(--c-green-bg);border-radius:var(--border-radius-md);padding:8px 12px;margin-top:4px;}
+.trapbox{background:var(--c-red-bg);border-radius:var(--border-radius-md);padding:8px 12px;margin-top:4px;}
+
+.section-divider{height:0;}
+.muted{color:var(--color-text-secondary);font-size:13px;}
+
+/* Floating print control */
+.print-fab{position:fixed;right:18px;bottom:18px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.print-btn{border:none;cursor:pointer;background:var(--hero-text);color:#fff;font-family:'Noto Sans TC',sans-serif;
+  font-size:14px;font-weight:500;padding:10px 18px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,0.18);}
+.print-menu{display:none;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);box-shadow:0 6px 20px rgba(0,0,0,0.15);padding:6px;min-width:210px;}
+.print-menu.open{display:block;}
+.print-menu button{display:block;width:100%;text-align:left;border:none;background:none;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;font-size:14px;color:var(--color-text-primary);padding:9px 12px;border-radius:var(--border-radius-md);}
+.print-menu button:hover{background:var(--color-background-secondary);}
+.print-menu small{display:block;font-size:12px;color:var(--color-text-secondary);}
+
+/* Answer reveal */
+.reveal{display:none;}
+.reveal.show{display:block;}
+.ans-toggle{margin-top:10px;border:1px solid var(--c-green);background:var(--c-green-bg);color:var(--c-green);
+  font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:500;padding:5px 14px;border-radius:999px;cursor:pointer;}
+.ans-toggle:hover{filter:brightness(0.97);}
+.print-btn.alt{background:var(--c-green);}
+
+@media (max-width:640px){
+  .hero{padding:26px 20px;} .hero h1{font-size:22px;}
+  .compare-grid{grid-template-columns:1fr;}
+  .flow-arrow{display:none;}
+  .card,.qbox-body{padding-left:14px;padding-right:14px;}
+}
+
+@media print{
+  @page{margin:12mm 10mm;}
+  body{background:white;color:#1a1a1a;}
+  .wrap{max-width:100%;padding:0;}
+  .toc{display:none;}
+  a{color:inherit;text-decoration:none;}
+  .card,.qbox,.example-box,.alert,.formula,.compare-grid,table.nt{page-break-inside:avoid;}
+  .section-header{page-break-before:always;page-break-after:avoid;}
+  .section-header.first{page-break-before:auto;}
+  .hero{page-break-after:avoid;}
+  .section-divider{page-break-after:avoid;}
+  .print-fab,.ans-toggle{display:none !important;}
+  .reveal{display:block !important;}
+  body.print-student .reveal{display:none !important;}
+  :root{
+    --color-text-primary:#1a1a1a; --color-text-secondary:#555;
+    --color-background-primary:#ffffff; --color-background-secondary:#f5f5f3;
+    --color-border-tertiary:rgba(0,0,0,0.12);
+    --c-purple-bg:#f1effa; --c-teal-bg:#e8f5f2; --c-coral-bg:#fbece8; --c-amber-bg:#fdf3e2;
+    --c-pink-bg:#fbeaf2; --c-blue-bg:#e8f0f8; --c-green-bg:#e9f5ec; --c-red-bg:#fbeaea;
+    --formula-bg:#1f2b30;
+  }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body.print-student .ansbox, body.print-student .trapbox,
+  body.print-student .qpart-label.ans, body.print-student .qpart-label.trap{display:none !important;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">閱讀教學筆記</div>
+  <h1>描寫文與記敘抒情文閱讀：小思《春秧街》《遮打花園》精讀</h1>
+  <div class="sub">閱讀能力模擬試卷六｜第一篇、第二篇（第 1 至 14 題）</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc">
+  <div class="toc-title">目錄</div>
+  <div class="toc-grid">
+    <div class="toc-item"><a href="#s1"><span class="toc-num">01</span>基礎入門：描寫文與記敘抒情文</a></div>
+    <div class="toc-item"><a href="#s2"><span class="toc-num">02</span>描寫手法工具箱</a></div>
+    <div class="toc-item"><a href="#s3"><span class="toc-num">03</span>描寫類文章四步解讀法</a></div>
+    <div class="toc-item"><a href="#s4"><span class="toc-num">04</span>背景導讀：作者與兩個地方</a></div>
+    <div class="toc-item"><a href="#s5"><span class="toc-num">05</span>《春秧街》逐段精讀</a></div>
+    <div class="toc-item"><a href="#s6"><span class="toc-num">06</span>《遮打花園》逐段精讀</a></div>
+    <div class="toc-item"><a href="#s7"><span class="toc-num">07</span>兩篇比較</a></div>
+    <div class="toc-item"><a href="#s8"><span class="toc-num">08</span>題目解讀與答題框架（第1至7題）</a></div>
+    <div class="toc-item"><a href="#s9"><span class="toc-num">09</span>題目解讀與答題框架（第8至14題）</a></div>
+    <div class="toc-item"><a href="#s10"><span class="toc-num">10</span>答題技巧總整理</a></div>
+  </div>
+</div>
+
+<!-- ===================== 01 ===================== -->
+<div class="section-header first" id="s1">
+  <div class="sh-icon">📖</div>
+  <div><div class="sh-num">CHAPTER 01</div><div class="sh-title">基礎入門：描寫文與記敘抒情文</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>甚麼是「描寫」？</h3>
+  <p>描寫，就是用具體、細緻的文字，把人、事、物、景的<span class="hl">形態、聲音、顏色、動作、氣氛</span>呈現出來，讓讀者好像親眼看見、親耳聽見一樣。</p>
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-head">只是「交代」</div>
+      街上有很多魚攤，魚很新鮮。
+    </div>
+    <div class="compare-card good">
+      <div class="compare-head">這才是「描寫」</div>
+      切開了一半的大鯇魚仍在攤上掙扎跳動，水花濺到買魚的人身上。
+    </div>
+  </div>
+  <p>左邊直接說出「新鮮」；右邊沒有用「新鮮」二字，只寫魚跳和水花，讀者自然知道魚很新鮮。描寫的要訣是<b>寫出畫面，讓讀者自己得出結論</b>。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>描寫文、記敘抒情文，有何不同？</h3>
+  <table class="nt">
+    <tr><th style="width:18%">文體</th><th>重心</th><th>怎樣辨認</th><th style="width:22%">本卷例子</th></tr>
+    <tr><td><b>描寫文</b></td><td>以描寫為主體，重點是把景物、場面寫得具體生動</td><td>大部分段落都在「寫畫面」，事件很少，情感多放在結尾點出</td><td>《春秧街》</td></tr>
+    <tr><td><b>記敘抒情文</b></td><td>以記敘事件或回憶為線索，借事、借景抒發感情</td><td>有清楚的時間推移或事件經過，描寫只是其中一部分，重點是感受</td><td>《遮打花園》</td></tr>
+  </table>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div>
+    <div class="alert-text">兩種文體在考試中的問法很相近。不論是哪一種，都要問自己三個問題：<b>寫了甚麼？怎樣寫？為甚麼這樣寫（表達甚麼感情）？</b></div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>描寫的三大對象</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">景物描寫</div><div class="kw-def">寫環境、街道、建築、自然景色。例：春秧街兩旁的攤檔、遮打花園的樹木與長廊。</div></div>
+    <div class="kw"><div class="kw-word">場面描寫</div><div class="kw-def">寫一群人在某時某地的整體活動與氣氛。例：電車駛近，買菜的人側身讓路。</div></div>
+    <div class="kw"><div class="kw-word">人物描寫</div><div class="kw-def">寫人物的外貌、說話、動作、內心。例：外國人穿了白衣褲（肖像描寫）。</div></div>
+  </div>
+</div>
+
+<!-- ===================== 02 ===================== -->
+<div class="section-header" id="s2">
+  <div class="sh-icon">🧰</div>
+  <div><div class="sh-num">CHAPTER 02</div><div class="sh-title">描寫手法工具箱</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>工具一：感官描寫（五感）</h3>
+  <table class="nt">
+    <tr><th style="width:16%">感官</th><th>寫甚麼</th><th>《春秧街》例子</th></tr>
+    <tr><td>視覺</td><td>形狀、顏色、動作</td><td>電車逐寸向前挪移；大鯇魚掙扎暴跳</td></tr>
+    <tr><td>聽覺</td><td>聲音</td><td>老闆娘愛罵人；彩鳳「吵得很」</td></tr>
+    <tr><td>觸覺</td><td>冷熱、濕滑、碰撞</td><td>魚水濺得買者一身一臉</td></tr>
+    <tr><td>嗅覺／味覺</td><td>氣味、味道</td><td>（文中未直接寫，可提醒學生：這是「留白」，讀者可自行想像魚腥味）</td></tr>
+  </table>
+  <p class="muted">作用公式：多種感官結合 → 畫面立體、真實 → 讀者如置身其中。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>工具二：動態描寫與靜態描寫</h3>
+  <div class="compare-grid">
+    <div class="compare-card warm">
+      <div class="compare-head">動態描寫</div>
+      寫景物的變化和動作。<br>例：魚跳起、電車挪移、人側身。<br><b>效果：</b>生動、熱鬧、有生氣。
+    </div>
+    <div class="compare-card neutral">
+      <div class="compare-head">靜態描寫</div>
+      寫景物靜止的樣貌。<br>例：青草地上只有幾隻小麻雀。<br><b>效果：</b>寧靜、悠閒、冷清。
+    </div>
+  </div>
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div><div class="alert-label">留意對照</div>
+    <div class="alert-text">《春秧街》昔日部分以動態為主（熱鬧），今日部分只剩靜態（空蕩）。由動轉靜，也帶出了作者的失落感。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>工具三：常見修辭（描寫時最常用）</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">擬人</div><div class="kw-def">把物當作人來寫，賦予人的動作或感情。<br>例：攤檔「強橫霸道」；麻雀「享受悠閒」；街道「裸露著」。</div></div>
+    <div class="kw"><div class="kw-word">比喻</div><div class="kw-def">用相似的事物說明本體。明喻有喻詞（像、如）；暗喻用「是」；借喻只有喻體。</div></div>
+    <div class="kw"><div class="kw-word">疊詞</div><div class="kw-def">字詞重複，加強節奏和情態。<br>例：電車緩緩——緩緩地路過。</div></div>
+    <div class="kw"><div class="kw-word">設問／反問</div><div class="kw-def">設問：自問自答，引起注意；反問：用問句表達肯定意思，加強語氣。</div></div>
+    <div class="kw"><div class="kw-word">對比</div><div class="kw-def">把兩種相反的事物並列，突出差異。<br>例：昔日熱鬧／今日冷清；樹已參天／我仍矮小。</div></div>
+    <div class="kw"><div class="kw-word">前後呼應</div><div class="kw-def">文首提出的內容在文末再次出現，令結構嚴謹。<br>例：《遮打花園》第2段與第5段都寫「情有獨鍾」。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>工具四：人物描寫四法</h3>
+  <table class="nt">
+    <tr><th style="width:20%">手法</th><th>定義</th><th>辨認關鍵</th></tr>
+    <tr><td>肖像描寫</td><td>寫人物的外貌、衣著、神情</td><td>穿甚麼、長甚麼樣子</td></tr>
+    <tr><td>語言描寫</td><td>寫人物說的話</td><td>有引號或「說」</td></tr>
+    <tr><td>行動描寫</td><td>寫人物的動作</td><td>動詞：走、拿、跳、讓</td></tr>
+    <tr><td>心理描寫</td><td>寫人物的想法和感受</td><td>想、覺得、怕、希望</td></tr>
+  </table>
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div><div class="alert-label">常見陷阱</div>
+    <div class="alert-text">「穿了白衣褲」是<b>肖像描寫</b>，不是行動描寫。穿衣服看似動作，但句子的重點是讓讀者看見人物的衣著外貌。判斷時要看句子的焦點落在哪裏。</div></div>
+  </div>
+</div>
+
+<!-- ===================== 03 ===================== -->
+<div class="section-header" id="s3">
+  <div class="sh-icon">🧭</div>
+  <div><div class="sh-num">CHAPTER 03</div><div class="sh-title">描寫類文章四步解讀法</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="card">
+  <div class="flow">
+    <div class="flow-step"><b>① 找對象</b>寫的是甚麼地方、甚麼人物？</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>② 找順序</b>按空間？按時間？今昔對照？</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>③ 找手法</b>五感、動靜、修辭、人物描寫</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>④ 找情感</b>首尾段、點睛句、關鍵詞</div>
+  </div>
+  <p><b>第①步：找對象。</b>標題通常就是對象。《春秧街》寫一條街；《遮打花園》寫一個公園。</p>
+  <p><b>第②步：找順序。</b>描寫文最常見三種順序：</p>
+  <ul>
+    <li><b>空間順序</b>：由近至遠、由左至右、由街頭至街尾（《春秧街》第3、4段：兩旁的乾貨攤 → 街的快盡頭的魚攤）。</li>
+    <li><b>時間順序</b>：由早至晚、由兒時到長大（《遮打花園》：八九歲時 → 長大後）。</li>
+    <li><b>今昔對照</b>：先寫今，再回憶昔，最後回到今（兩篇都用了）。</li>
+  </ul>
+  <p><b>第③步：找手法。</b>對照第二章的工具箱，在文中畫線標記。</p>
+  <p><b>第④步：找情感。</b>描寫文的感情多數藏在三個位置：</p>
+  <div class="formula">
+    <div class="f-label">情感藏在哪裏</div>
+    <div class="f-main"><em>首段</em>（開門見山點出感受）＋ <em>尾段</em>（總結抒情）＋ <em>帶感情色彩的詞語</em>（陌生、若有所失、情有獨鍾）</div>
+  </div>
+</div>
+
+<div class="alert success">
+  <div class="alert-icon">✅</div>
+  <div><div class="alert-label">重點</div>
+  <div class="alert-text">描寫通常為抒情服務。作者把昔日寫得熱鬧、有人情味，是為了襯托今日的冷清，表達惋惜。答題時要把「怎樣寫」和「為甚麼這樣寫」一併交代。</div></div>
+</div>
+
+<!-- ===================== 04 ===================== -->
+<div class="section-header" id="s4">
+  <div class="sh-icon">🗺️</div>
+  <div><div class="sh-num">CHAPTER 04</div><div class="sh-title">背景導讀：作者與兩個地方</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>作者小思</h3>
+  <p>小思，原名盧瑋鑾，香港作家及學者，長期研究香港文學。她的散文很多以香港的街道、建築和舊日生活為題材，透過平實細膩的筆觸，記錄城市的變遷和市民的集體回憶。</p>
+  <p>本卷兩篇文章的共通點：<span class="hl">都在寫一個香港地方「變了」，以及作者面對改變時的感受。</span>讀這類文章，要時刻留意「昔」與「今」的對照。</p>
+</div>
+
+<div class="compare-grid">
+  <div class="card" style="margin:0">
+    <h3><span class="dot coral"></span>春秧街（北角）</h3>
+    <p>一條電車會駛經的街道，兩旁擠滿攤檔，形成獨特的街市景觀：電車在攤檔和人群之間慢慢駛過。</p>
+    <p>文中交代：1993年3月，攤販遷往附近新建的多層街市，街道回復原貌。文章寫於同月，是作者對這次轉變的即時感受。</p>
+  </div>
+  <div class="card" style="margin:0">
+    <h3><span class="dot purple"></span>遮打花園（中環）</h3>
+    <p>原址是一個由鐵欄柵圍住的木球場，在作者兒時屬外國人使用的場地，一般市民不能進入。</p>
+    <p>木球場遷走後，原址改建成人人可進入的公園。文章寫於1985年，作者以成年人的眼光回望童年所見。</p>
+  </div>
+</div>
+
+<!-- ===================== 05 ===================== -->
+<div class="section-header" id="s5">
+  <div class="sh-icon">🚋</div>
+  <div><div class="sh-num">CHAPTER 05</div><div class="sh-title">《春秧街》逐段精讀</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>全文結構一覽</h3>
+  <table class="nt">
+    <tr><th style="width:14%">部分</th><th style="width:14%">段落</th><th>內容</th><th style="width:16%">時間</th></tr>
+    <tr><td>第一部分</td><td>第1至2段</td><td>概述春秧街今昔之別：今日回復原貌，作者反覺陌生</td><td>今 → 回溯</td></tr>
+    <tr><td>第二部分</td><td>第3至4段</td><td>描寫兩旁的乾貨及濕貨攤檔，以及市民和檔販的百態</td><td>昔</td></tr>
+    <tr><td>第三部分</td><td>第5段</td><td>指出各攤檔的分別，突顯昔日春秧街的多元面貌</td><td>昔</td></tr>
+    <tr><td>第四部分</td><td>第6至7段</td><td>描述攤檔遷走後的樣貌，抒發對昔日春秧街的懷念與惋惜</td><td>今</td></tr>
+  </table>
+  <p class="muted">結構特色：今 → 昔 → 今，首尾都寫「今」，中間大篇幅寫「昔」。這種寫法稱為<b>倒敘</b>，也形成首尾呼應。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>第1段：開門見山的「陌生感」</h3>
+  <p>作者形容眼前的春秧街「<span class="q">這樣裸露著，這樣陌生</span>」。奇怪的是，回復原貌的街道，本應是街道「本來的樣子」，作者卻說自己完全忘記了。</p>
+  <div class="example-box coral">
+    <div class="example-label">精讀重點：「裸露」</div>
+    <div class="example-text">「裸露」本指身體沒有衣服遮蓋，這裏用了擬人：攤檔就像春秧街的衣服，攤檔遷走後，街道失去了遮蓋，顯得空蕩、單薄，也失去了生氣，流露作者的失落。</div>
+  </div>
+  <div class="example-box amber">
+    <div class="example-label">精讀重點：「陌生」</div>
+    <div class="example-text">作者早已習慣了熱鬧的春秧街，在她心中，有攤檔的街才是熟悉的春秧街。所以街道回復「原來的面貌」，她反而感到陌生。這種反常的感受，反映舊日面貌在她心中印象很深。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>第2段：一句問句，濃縮多年變遷</h3>
+  <p>作者用一條問句回顧春秧街的身份轉變：一條街 → 電車路 → 菜市場 → 「有車輛駛入的行人專用區」。</p>
+  <p>「經過多少歲月」一句帶出時間之長；問句不需回答，而是表達作者對歲月流逝的感慨。「有車輛駛入的行人專用區」本身互相矛盾，暗示春秧街是一個很特別、難以歸類的地方，為下文鋪墊。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>第3段：攤檔與電車「相安無事」</h3>
+  <p>這段是全文描寫的核心，要逐層拆解：</p>
+  <ol>
+    <li><b>攤檔</b>：固定攤檔外再加臨時小攤，作者用「<span class="q">強橫霸道</span>」形容（擬人），寫出攤檔佔據街道之多，連電車軌也被人遺忘。</li>
+    <li><b>電車</b>：「龐然」對比行人的渺小，卻「逐寸向前挪移」，慢得驚人。</li>
+    <li><b>市民</b>：買菜的人「感覺」電車駛近，便把身子一側讓路。「感覺」加上引號，表示他們不用回頭看，憑經驗就知道，可見早已習以為常。</li>
+    <li><b>破折號與疊詞</b>：「緩緩——緩緩地路過」，破折號把聲音拉長，配合疊詞，讓讀者讀起來也慢下來，就像電車的速度。</li>
+    <li><b>總結</b>：「<span class="q">相安無事</span>」——電車與市民互相遷就，沒有衝突，成為春秧街獨有的「風光」。</li>
+  </ol>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div>
+    <div class="alert-text">第2題要求「四字詞語」形容電車和市民的關係，答案就是第3段的「相安無事」。摘錄題必須<b>一字不差照抄原文</b>，不可自創「和平共處」等近義詞。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>第4段：最有聲有色的魚攤</h3>
+  <p>作者先修正上文：「乾濕貨攤子分立兩旁」並不準確，魚攤其實設在街的快盡頭。這是<b>空間順序</b>的推進：由兩旁到盡頭。</p>
+  <ul>
+    <li><b>動態描寫</b>：大鯇魚被切開仍掙扎暴跳，不知名的魚也作最後蹦躍。</li>
+    <li><b>觸覺描寫</b>：魚水濺得買者一身一臉。</li>
+    <li><b>行動描寫</b>：買者退後一步，又踩著後邊看者一腳。</li>
+    <li><b>感歎</b>：「哎喲！好新鮮。」被濺濕了也沒有生氣，反而讚魚新鮮。</li>
+  </ul>
+  <div class="example-box teal">
+    <div class="example-label">精讀重點：「沒有說對不起，又沒有誰生氣」</div>
+    <div class="example-text">被水濺到、被人踩到，都沒有人計較，大家都明白「那是魚的問題」。這反映街坊之間包容、體諒，不斤斤計較，人情味濃厚。這一句幽默輕鬆，也是第4題的考點。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>第5段：老主顧「心裏有數」</h3>
+  <p>本段用一連串比較，寫出各攤檔的細微分別：哪一檔雞蛋較好、哪位老闆娘更愛罵人、哪一檔生果價錢較老實、哪一攤專賣福建小食，甚至水果攤養的彩鳳很吵。</p>
+  <p>這些分別，只有長期光顧的人才知道。「<span class="q">心裏有數</span>」說明街坊與檔販非常熟絡，對每一檔瞭如指掌，彼此之間建立了長久的關係。</p>
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div><div class="alert-label">寫法提示</div>
+    <div class="alert-text">本段句子很長，用逗號串起多項比較，形成一種「數家珍」的語氣。作者把這些瑣碎細節寫得清清楚楚，可見她對春秧街十分熟悉和珍惜。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>第6至7段：從熱鬧到記憶</h3>
+  <p><b>第6段</b>：1993年3月1日，攤子遷往多層街市。春秧街回復一條街、一條電車路的樣貌。幾個拉著菜籃小車的主婦依然習慣地在街中央走著，神情「<span class="q">若有所失</span>」。</p>
+  <ul>
+    <li>主婦失去的：熟悉的買菜地方、多年來的生活習慣、與檔販的日常交流。</li>
+    <li>作者借主婦的神情，間接表達自己的失落，這是<b>側面烘托</b>的寫法。</li>
+  </ul>
+  <p><b>第7段</b>：「<span class="q">風光過後，一切變成記憶</span>」。只有一句，獨立成段，語氣平靜卻深沉。「風光」呼應第3段「春秧街的一種風光」，總結全文，抒發懷念和惋惜之情。</p>
+</div>
+
+<!-- ===================== 06 ===================== -->
+<div class="section-header" id="s6">
+  <div class="sh-icon">🌳</div>
+  <div><div class="sh-num">CHAPTER 06</div><div class="sh-title">《遮打花園》逐段精讀</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>全文結構一覽</h3>
+  <table class="nt">
+    <tr><th style="width:16%">段落</th><th>內容</th><th style="width:18%">時間</th></tr>
+    <tr><td>第1段</td><td>交代自己路過遮打花園總會進去逛逛</td><td>今</td></tr>
+    <tr><td>第2段</td><td>點出自己對這小園地「情有獨鍾」</td><td>今</td></tr>
+    <tr><td>第3段</td><td>回憶八九歲時所見的木球場：鐵欄柵、青草地、外國人打球；父親關於樹和人一起長高的話</td><td>昔（兒時）</td></tr>
+    <tr><td>第4段</td><td>鐵欄柵拆去，草地改建成花園；作者第一次進去，抬頭看樹，感到陌生和奇異</td><td>後來</td></tr>
+    <tr><td>第5段</td><td>總結：情有獨鍾，是因為對歷史演變印象太深</td><td>今</td></tr>
+  </table>
+  <p class="muted">結構特色：首尾都用「情有獨鍾」，<b>前後呼應</b>；中間按時間順序回憶，屬記敘抒情文。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>第1至2段：簡短開頭，點出感情</h3>
+  <p>第1段只有一句，用「總會」二字表示習慣，路過就一定進去，可見感情之深。</p>
+  <p>第2段「<span class="q">情有獨鍾</span>」意思是對某事物特別喜愛。「也不過分」帶點保留，似乎作者也覺得這份感情需要解釋，於是引出下文的回憶。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>第3段：兒時眼中的木球場</h3>
+  <p>本段是全文最詳細的部分，可分三層：</p>
+  <ol>
+    <li><b>環境</b>：熱鬧市區中難得的青草地，只有一排短鐵欄柵，卻把它「跟外面的人隔得很遠」。欄柵很矮，距離卻很遠，暗示阻隔人們的是身份的差別。</li>
+    <li><b>平日與假日的對照</b>：平日只有小麻雀「享受悠閒」（擬人、靜態描寫）；黃昏或假日，外國人穿了白衣褲打球（肖像描寫），作者「看來看去看不明白」，表現小孩的好奇與距離感。</li>
+    <li><b>父親的話</b>：工人在欄柵內種上瘦弱的幼樹，父親說「我會長高，它們也會長高」。後來樹已參天，作者卻仍「那麼矮小」。</li>
+  </ol>
+  <div class="example-box amber">
+    <div class="example-label">精讀重點：「為甚麼我們不能進去？」</div>
+    <div class="example-text">父親說這塊地只有外國人才能進去。作者用小孩的口吻寫「為甚麼我們不能進去？小孩子不懂追問」。這句話平淡，卻點出了當年華人與外國人之間的不平等。作者沒有直接批評，只如實記下，讓讀者自行體會。</div>
+  </div>
+  <div class="example-box teal">
+    <div class="example-label">精讀重點：樹與人的對比</div>
+    <div class="example-text">「它們已經參天，我還那麼矮小」是<b>對比</b>，帶自嘲的幽默。父親的話成了「笑話」，作者卻說「感謝」，可見這是一段溫暖的親情回憶，也是她記住這塊草地的原因之一。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>第4段：欄柵拆掉之後</h3>
+  <p>「<span class="q">鐵欄柵拆掉了，青草地也沒有了</span>」，取而代之的是長廊、垂柳、小池拱橋。作者用引號寫「豐富」，帶一點保留：花園確實多了設施，但原來的青草地沒有了。</p>
+  <p>作者第一次走進去，「趕快」站在園中抬頭看那幾棵樹，因為以前從沒有機會從這個角度看它們。兒時只能在欄柵外看樹，現在終於可以站在樹下仰望，「趕快」二字寫出作者的急切。</p>
+  <p>樹的背景是酒店和銀行，對作者來說「又陌生又奇異」。周邊換上了高樓大廈，可見城市面貌已經改變。</p>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div>
+    <div class="alert-text">第9題問欄柵為何拆掉，文中沒有直接說明，屬<b>推敲題</b>。要根據上下文合理推斷：木球場遷走，原址改建為公眾休憩的花園，讓所有市民都可進入。答案要有「原因＋結果」，不能只寫「因為要建花園」。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>第5段：情有獨鍾的原因</h3>
+  <p>作者總結：由鐵欄柵圍住的木球場，到人人能進去閒遊的花園，這片地方包含了許多歷史故事。她對遮打花園情有獨鍾，是因為<span class="hl">對歷史的演變印象太深</span>。</p>
+  <p>所以，作者喜愛的除了花園的景色，還有這片土地見證的變遷：由只供外國人使用，到屬於所有市民；當中也有她與父親的童年回憶。</p>
+</div>
+
+<!-- ===================== 07 ===================== -->
+<div class="section-header" id="s7">
+  <div class="sh-icon">⚖️</div>
+  <div><div class="sh-num">CHAPTER 07</div><div class="sh-title">兩篇比較</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="card">
+  <table class="nt">
+    <tr><th style="width:18%">比較項目</th><th>《春秧街》</th><th>《遮打花園》</th></tr>
+    <tr><td>文體</td><td>描寫文（描寫為主）</td><td>記敘抒情文（回憶為主）</td></tr>
+    <tr><td>昔日面貌</td><td>攤檔林立、電車慢駛、熱鬧有人情味</td><td>鐵欄柵圍住的木球場，只供外國人使用</td></tr>
+    <tr><td>今日面貌</td><td>攤檔遷走，回復一條街、一條電車路</td><td>欄柵拆去，建成人人可進的花園</td></tr>
+    <tr><td>改變原因</td><td>攤販遷往新建的多層街市</td><td>木球場遷走，原址改建為公園</td></tr>
+    <tr><td>作者感受</td><td>陌生、失落、懷念、惋惜</td><td>陌生又奇異、情有獨鍾、感慨歷史變遷</td></tr>
+    <tr><td>共同的關鍵詞</td><td colspan="2" style="text-align:center"><b>陌生</b>：兩篇作者面對改變後的地方，都感到陌生</td></tr>
+    <tr><td>敘事角度</td><td colspan="2" style="text-align:center">第一人稱（我）</td></tr>
+    <tr><td>結構</td><td>今 → 昔 → 今，首尾呼應</td><td>今 → 昔 → 今，「情有獨鍾」前後呼應</td></tr>
+  </table>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card warm">
+    <div class="compare-head">相似之處</div>
+    兩處地方都經歷了社會發展帶來的改變；舊日的特色消失了；作者對舊貌有深刻記憶，面對新貌感到陌生，借地方的變遷抒發對香港歷史變化的感慨。
+  </div>
+  <div class="compare-card neutral">
+    <div class="compare-head">不同之處</div>
+    春秧街的改變令作者惋惜，因為失去了熱鬧和人情味；遮打花園的改變較為正面，市民終於可以進入，作者的感受是複雜的感慨而非單純的惋惜。
+  </div>
+</div>
+
+<div class="alert amber">
+  <div class="alert-icon">📌</div>
+  <div><div class="alert-label">教學延伸</div>
+  <div class="alert-text">可以引導學生思考：「改變一定是壞事嗎？」春秧街的改變令街道更整潔安全，卻失去人情味；遮打花園的改變讓更多人享用，卻失去了青草地。學生明白作者的感受有不同層次，答第14題時便能寫得更深入。</div></div>
+</div>
+
+<!-- ===================== 08 ===================== -->
+<div class="section-header" id="s8">
+  <div class="sh-icon">✏️</div>
+  <div><div class="sh-num">CHAPTER 08</div><div class="sh-title">題目解讀與答題框架（第1至7題）</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 1 題</span><span class="qtag">段落分層＋內容大意</span><span class="qtag">8分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">把《春秧街》7段分成四部分，並填寫內容大意。</div>
+    <div class="qpart-label think">▍解題步驟</div>
+    <ol>
+      <li>先看題目已給的內容大意，當作「路標」：第一部分「今昔之別」、第三部分「不同攤檔的分別」、第四部分「改革後的樣貌」。</li>
+      <li>找轉折點：第3段開始寫攤檔（進入昔日）；第5段轉寫各攤分別；第6段出現年份，回到今日。</li>
+      <li>內容大意的空格要配合句子前後文，字數適中，用自己的文字概括。</li>
+    </ol>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">
+      (i) 第1至2段　(ii) 第3至4段　(iii) 第5段　(iv) 第6至7段<br>
+      (v) 乾貨和濕貨攤檔<br>
+      (vi) 懷念及惋惜之情
+    </div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">把第4段歸入第三部分。第4段雖然開始比較，但仍是寫「濕貨魚攤」，與第3段的「乾貨攤」同屬描寫兩類攤檔；第5段才逐一比較各攤的分別。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 2 題</span><span class="qtag">摘錄詞語</span><span class="qtag">2分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">第3段以哪一個四字詞語形容電車和市民的關係？</div>
+    <div class="qpart-label think">▍解題步驟</div>
+    <p>題目指明段落和字數。在第3段找所有四字詞語：強橫霸道、龐然、男男女女、老老幼幼、相安無事。然後問：哪一個同時涉及「電車」和「市民」兩方？</p>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">相安無事</div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">寫「強橫霸道」（那是形容攤檔）；或寫錯別字。摘錄題錯一字即不得分。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 3 題</span><span class="qtag">解釋用詞原因</span><span class="qtag">3分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">承上題，為何作者會用這個詞語形容電車和市民的關係？</div>
+    <div class="qpart-label think">▍答題框架</div>
+    <div class="formula">
+      <div class="f-label">框架</div>
+      <div class="f-main"><em>電車怎樣做</em> ＋ <em>市民怎樣做</em> ＋ <em>結果</em>（所以彼此相安無事）</div>
+    </div>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">春秧街攤檔林立，電車只能在人群中緩緩地逐寸前進；買菜的市民一感覺電車駛近，便自然側身讓路。電車與市民互相遷就，雖然擠在同一條街上，卻沒有發生衝突，所以作者用「相安無事」形容。</div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">只寫一方（例如只寫「市民會讓路」），欠缺電車一方；或只解釋詞義「平安沒有事」，沒有結合文中情況。3分題通常要有三個得分點。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 4 題</span><span class="qtag">由舉動推斷社區現象</span><span class="qtag">4分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">根據市民的舉動，指出所反映的社區現象。</div>
+    <div class="qpart-label think">▍解題步驟</div>
+    <p>「社區現象」是指這個地方的人普遍有甚麼相處模式。由「個別舉動」推到「整體風氣」：</p>
+    <div class="flow">
+      <div class="flow-step"><b>舉動</b>被濺濕、被踩到都不計較</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><b>原因</b>大家都明白是魚的問題</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><b>現象</b>街坊包容體諒</div>
+    </div>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">
+      (i) 街坊之間互相包容、體諒，不斤斤計較，人情味濃厚。<br>
+      (ii) 街坊長期光顧同一區的攤檔，與檔販非常熟絡，對各攤檔的特色瞭如指掌，彼此關係密切。
+    </div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">只把原句換個說法，例如「大家都不生氣」，沒有提升到「現象」的層次。答案必須帶出<b>社區的人際關係</b>。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 5 題</span><span class="qtag">推敲言外之意</span><span class="qtag">4分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">(i) 主婦們「失」了甚麼？(ii) 作者回首過去，自己又「失」了甚麼？</div>
+    <div class="qpart-label think">▍解題步驟</div>
+    <p>(i) 看主婦的動作：「依然慣性地在街中央走著」，說明她們仍保留舊習慣，但攤檔已經不在。<br>
+    (ii) 主婦是作者的「替身」。作者失去的層次更高，要結合全文的熱鬧描寫和末段「一切變成記憶」。</p>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">
+      (i) 主婦們失去了多年來在春秧街買菜的熟悉地方和生活習慣。<br>
+      (ii) 作者失去了昔日春秧街熱鬧而充滿人情味的風光，這些只能留在記憶之中。
+    </div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">(ii) 寫成「失去了買菜的地方」，與 (i) 重複。兩個小題問的層次不同：主婦失去的是生活上的便利和習慣，作者失去的是一種街道風光和情懷。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 6 題</span><span class="qtag">字詞賞析（今昔對比）</span><span class="qtag">6分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">作者為何以「裸露」形容春秧街？試以其今昔的改變為方向說明。</div>
+    <div class="qpart-label think">▍答題框架（6分＝昔＋今＋手法及感受）</div>
+    <div class="formula">
+      <div class="f-label">框架</div>
+      <div class="f-main"><em>昔</em>：攤檔林立，像衣服遮蓋街道，熱鬧<br><em>今</em>：攤檔遷走，街道毫無遮蓋，空蕩冷清<br><em>手法＋感受</em>：「裸露」運用擬人，表現作者的陌生、失落與惋惜</div>
+    </div>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">昔日春秧街兩旁擠滿乾貨和濕貨攤檔，連電車軌也被遮蓋，人來人往，十分熱鬧。1993年攤檔遷往多層街市後，街道一下子變得空蕩蕩，再沒有攤檔遮蓋，就像人失去了衣服一樣。作者運用擬人手法，以「裸露」形容春秧街，突出今日的冷清與昔日的熱鬧形成強烈對比，同時表現她面對街道新貌時的陌生感，以及對昔日風光逝去的失落和惋惜。</div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">只寫「因為攤檔搬走了」，沒有寫昔日面貌，也沒有交代情感。題目指明「今昔的改變」，兩邊都要寫；6分題還要有手法和感受。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 7 題</span><span class="qtag">修辭及人物描寫辨識</span><span class="qtag">4分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">(i) 「青蔥草地上只有幾隻小麻雀在享受悠閒」運用了哪種修辭？(ii) 「有許多外國人穿了白衣褲」運用了哪種人物描寫手法？</div>
+    <div class="qpart-label think">▍解題步驟</div>
+    <p>(i) 找關鍵詞：「享受悠閒」是人的感受，麻雀不會「享受」，所以是把物當作人來寫。<br>
+    (ii) 句子焦點是「白衣褲」，即外表衣著。</p>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">(i) C 擬人　(ii) D 肖像描寫</div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">(i) 選「擬物」：擬物是把人當作物，或把甲物當作乙物來寫，方向剛好相反。<br>(ii) 選「行動描寫」：「穿了」雖是動詞，但作者要讀者看見的是衣著。</div>
+  </div>
+</div>
+
+<!-- ===================== 09 ===================== -->
+<div class="section-header" id="s9">
+  <div class="sh-icon">📝</div>
+  <div><div class="sh-num">CHAPTER 09</div><div class="sh-title">題目解讀與答題框架（第8至14題）</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 8 題</span><span class="qtag">推斷</span><span class="qtag">1分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">外國人在玩甚麼球？</div>
+    <div class="qpart-label think">▍解題步驟</div>
+    <p>線索就在第3段開頭：作者和父親「走到這個木球場外」。題目看似考常識，答案卻可以在文中找到。</p>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">木球（板球）</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 9 題</span><span class="qtag">推敲原因</span><span class="qtag">2分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">根據第4段，為甚麼「鐵欄柵拆掉了，青草地也沒有了」？</div>
+    <div class="qpart-label think">▍解題步驟</div>
+    <p>第4段寫欄柵拆去後「多了供人休憩的建築物」；第5段寫「到人人能進去閒遊的遮打花園」。兩句合起來，便能推斷原因。</p>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">因為木球場不再使用，原址被改建成供公眾休憩的花園，讓所有市民都可以自由進入，所以拆去鐵欄柵，青草地也改建成長廊、池塘等設施。</div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">寫「因為鐵欄柵太舊」等文中沒有根據的推測。推敲題要「有根據地推斷」，不是自由想像。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 10 題</span><span class="qtag">限字概括</span><span class="qtag">3分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">以不多於30字，概括作者長大後遮打花園的樣貌。</div>
+    <div class="qpart-label think">▍解題步驟</div>
+    <ol>
+      <li>對照題目給的示範「擁有青草地和短鐵欄柵」，答案要用相同格式：寫出<b>有甚麼</b>、<b>沒有甚麼</b>。</li>
+      <li>在第4段找名詞：鐵欄柵（拆掉）、青草地（沒有了）、休憩建築物、長廊、參天樹木、垂柳、小池拱橋。</li>
+      <li>刪去修飾語，只留核心名詞，再加上「人人可進」這個重要改變。</li>
+    </ol>
+    <div class="qpart-label ans">▍參考答案（連標點共29字）</div>
+    <div class="ansbox">沒有欄柵和草地，建有長廊、垂柳和小池拱橋，人人可進去休憩。</div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">超出字數（標點符號一般也計算在內，宜預留空間）；或照抄原文長句「植滿草葉的長廊」等，浪費字數。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 11 題</span><span class="qtag">找原因（點題句）</span><span class="qtag">2分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">作者為甚麼特別鍾愛遮打花園？</div>
+    <div class="qpart-label think">▍解題步驟</div>
+    <p>第5段已給答案：「那就只為我對歷史的演變，有太深的印象了」。要用自己的文字，並補充「演變」的內容。</p>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">因為遮打花園見證了由只供外國人使用的木球場，變成人人都可以進入的公園的歷史演變，作者對這段變遷印象非常深刻，所以特別鍾愛它。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 12 題</span><span class="qtag">敘事角度</span><span class="qtag">4分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">(i) 兩篇都運用了哪種人稱？(ii) 這種敘事角度的其中一個好處是？</div>
+    <div class="qpart-label think">▍三種人稱的好處</div>
+    <table class="nt">
+      <tr><th style="width:20%">人稱</th><th>主要好處</th></tr>
+      <tr><td>第一人稱「我」</td><td>內容真實可信，便於直接抒發感情，更能感染讀者</td></tr>
+      <tr><td>第二人稱「你」</td><td>好像與讀者對話，拉近與讀者的距離，親切</td></tr>
+      <tr><td>第三人稱「他」</td><td>不受個人視角限制，敘述較客觀全面</td></tr>
+    </table>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">(i) 第一人稱　(ii) A 更能感染讀者</div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">選C「拉近讀者距離」：這是第二人稱最典型的好處。選B「更為客觀全面」：這是第三人稱的好處。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 13 題</span><span class="qtag">正確／錯誤／無從判斷</span><span class="qtag">6分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">判斷三項陳述。</div>
+    <div class="qpart-label think">▍判斷原則</div>
+    <div class="formula">
+      <div class="f-label">三選一判斷法</div>
+      <div class="f-main"><em>正確</em>：文中有根據，完全吻合　<em>錯誤</em>：文中有根據，但與陳述相反<br><em>無從判斷</em>：文中根本沒有提及</div>
+    </div>
+    <div class="qpart-label ans">▍參考答案及理由</div>
+    <div class="ansbox">
+      <b>(i) 錯誤。</b>三個破折號作用不同：第3段「緩緩——緩緩」表示聲音或語意延長；第4段「濕貨——水汪汪的魚攤」是解釋說明；第5段「彩鳳吵得很——春秧街老主顧都心裏有數」是補充總結。<br><br>
+      <b>(ii) 正確。</b>第2段和第5段都寫作者對遮打花園「情有獨鍾」，首尾呼應，結構嚴謹。<br><br>
+      <b>(iii) 錯誤。</b>《春秧街》對攤檔和魚攤的描寫有聲有色，細膩具體；但《遮打花園》重在回憶和歷史變遷，景物多是簡單列出（例如長廊、垂柳、小池拱橋），沒有細緻描寫聲音和形態，未算繪影繪聲。
+    </div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">(i) 只數到「三個破折號」便選正確，沒有逐一核對作用。<br>(iii) 陳述說「兩篇文章均」，只要其中一篇不符合，整句就是錯誤。看到「均」「都」「全部」等字眼，要兩邊逐一檢查。</div>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="qbox-head"><span class="qno">第 14 題</span><span class="qtag">綜合比較</span><span class="qtag">6分</span></div>
+  <div class="qbox-body">
+    <div class="qstem">綜合兩篇，春秧街和遮打花園的經歷有何相似之處？</div>
+    <div class="qpart-label think">▍答題框架（每點：論點＋兩篇例子）</div>
+    <div class="formula">
+      <div class="f-label">框架</div>
+      <div class="f-main">相似點一：<em>都經歷了今昔變遷</em>（春秧街例子＋遮打花園例子）<br>相似點二：<em>舊日特色都消失了</em>（例子＋例子）<br>相似點三：<em>作者都感到陌生，借此抒發對香港變遷的感慨</em>（例子＋例子）</div>
+    </div>
+    <div class="qpart-label ans">▍參考答案</div>
+    <div class="ansbox">
+      第一，兩處地方都因社會發展而改變了面貌。春秧街由攤檔林立的街市，因攤販遷往多層街市而回復成一條普通街道；遮打花園則由只供外國人使用的木球場，改建為人人可進的公園。<br><br>
+      第二，兩處地方原有的特色都消失了。春秧街失去了電車與市民相安無事、街坊充滿人情味的熱鬧風光；遮打花園則失去了鐵欄柵內那片青草地。<br><br>
+      第三，作者面對兩處地方的新貌，都感到陌生。她形容回復原貌的春秧街「這樣陌生」，又說遮打花園的新背景「又陌生又奇異」。作者借兩處地方的變遷，抒發對香港社會演變的感慨和對舊日的懷念。
+    </div>
+    <div class="qpart-label trap">▍失分陷阱</div>
+    <div class="trapbox">只寫「兩處地方都改變了」一句，沒有例子；或兩篇分開各寫一段，沒有點出「相似」的地方。比較題的每一點都要<b>先寫共同點，再用兩篇的例子支持</b>。</div>
+  </div>
+</div>
+
+<!-- ===================== 10 ===================== -->
+<div class="section-header" id="s10">
+  <div class="sh-icon">🎯</div>
+  <div><div class="sh-num">CHAPTER 10</div><div class="sh-title">答題技巧總整理</div></div>
+</div>
+<div class="section-divider"></div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>題型速查表</h3>
+  <table class="nt">
+    <tr><th style="width:22%">題型</th><th>答題重點</th><th style="width:14%">本卷題號</th></tr>
+    <tr><td>段落分層</td><td>先看題目給的大意作路標；找時間詞、轉折詞、話題轉換</td><td>1</td></tr>
+    <tr><td>摘錄題</td><td>一字不差照抄；看清段落範圍和字數</td><td>2</td></tr>
+    <tr><td>解釋用詞</td><td>詞義＋文中情況＋效果；分數＝得分點數目</td><td>3</td></tr>
+    <tr><td>推斷現象／言外之意</td><td>由個別舉動推到整體風氣；層次要比原文高一級</td><td>4、5</td></tr>
+    <tr><td>字詞賞析</td><td>本義＋文中意思＋手法＋情感</td><td>6</td></tr>
+    <tr><td>修辭／描寫手法辨識</td><td>找關鍵詞；看句子焦點；留意相近選項</td><td>7、12</td></tr>
+    <tr><td>推敲原因</td><td>必須有文本根據，原因＋結果</td><td>8、9、11</td></tr>
+    <tr><td>限字概括</td><td>只留核心名詞；跟隨示範格式；預留字數</td><td>10</td></tr>
+    <tr><td>正誤判斷</td><td>正確、錯誤都要有根據；「無從判斷」＝文中沒提</td><td>13</td></tr>
+    <tr><td>綜合比較</td><td>論點＋兩篇例子；分點作答</td><td>14</td></tr>
+  </table>
+</div>
+
+<div class="formula">
+  <div class="f-label">描寫類文章萬用賞析公式</div>
+  <div class="f-main">作者運用<em>（手法）</em>，描寫<em>（對象）</em>的<em>（特點）</em>，<br>例如<em>（引文）</em>，<br>突出<em>（景物特點／氣氛）</em>，表達作者<em>（情感）</em>。</div>
+</div>
+
+<div class="card">
+  <h3><span class="dot green" style="background:var(--c-green)"></span>示範：用萬用公式賞析第4段</h3>
+  <div class="example-box teal">
+    <div class="example-label">示範答案</div>
+    <div class="example-text">作者運用動態描寫和觸覺描寫，描寫魚攤的熱鬧情況，例如切開一半的大鯇魚仍掙扎暴跳，魚水濺得買者一身一臉，突出魚攤的貨品新鮮和氣氛熱鬧，表達作者對昔日春秧街生活風光的喜愛與懷念。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>考前自我檢查</h3>
+  <ul>
+    <li>□ 我有沒有分清「今」和「昔」？</li>
+    <li>□ 摘錄題有沒有一字不差？</li>
+    <li>□ 幾分的題目，我有沒有寫出相同數目的得分點？</li>
+    <li>□ 賞析題有沒有寫到「情感」？</li>
+    <li>□ 比較題每一點有沒有兩篇的例子？</li>
+    <li>□ 限字題有沒有數清楚字數？</li>
+  </ul>
+</div>
+
+<div class="alert success">
+  <div class="alert-icon">✅</div>
+  <div><div class="alert-label">總結</div>
+  <div class="alert-text">讀描寫文，先看清作者寫了甚麼畫面，再找出畫面背後的感情。小思這兩篇文章，都是借寫昔日的地方，抒發對香港變遷的感慨。</div></div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="print-fab">
+  <div class="print-menu" id="printMenu">
+    <button type="button" onclick="doPrint('teacher')">教師版<small>連參考答案及失分陷阱</small></button>
+    <button type="button" onclick="doPrint('student')">學生版<small>隱藏參考答案及失分陷阱</small></button>
+  </div>
+  <button type="button" class="print-btn alt" id="toggleAll" onclick="toggleAll()">顯示全部答案</button>
+  <button type="button" class="print-btn" onclick="document.getElementById('printMenu').classList.toggle('open')">🖨 列印／匯出 PDF</button>
+</div>
+<script>
+function doPrint(mode){
+  document.getElementById('printMenu').classList.remove('open');
+  document.body.classList.toggle('print-student', mode==='student');
+  setTimeout(function(){ window.print(); }, 50);
+}
+
+document.querySelectorAll('.qbox-body').forEach(function(body){
+  var start=body.querySelector('.qpart-label.ans');
+  if(!start) return;
+  var wrap=document.createElement('div'); wrap.className='reveal';
+  var btn=document.createElement('button'); btn.type='button'; btn.className='ans-toggle'; btn.textContent='顯示答案';
+  btn.onclick=function(){ var on=wrap.classList.toggle('show'); btn.textContent=on?'隱藏答案':'顯示答案'; syncAll(); };
+  body.insertBefore(btn,start); body.insertBefore(wrap,start);
+  var n=start; while(n){ var next=n.nextSibling; wrap.appendChild(n); n=next; }
+});
+function syncAll(){
+  var all=document.querySelectorAll('.reveal'), shown=document.querySelectorAll('.reveal.show');
+  document.getElementById('toggleAll').textContent=(all.length&&shown.length===all.length)?'隱藏全部答案':'顯示全部答案';
+}
+function toggleAll(){
+  var all=document.querySelectorAll('.reveal'), shown=document.querySelectorAll('.reveal.show');
+  var on=shown.length!==all.length;
+  all.forEach(function(w){ w.classList.toggle('show',on); var b=w.previousElementSibling; if(b) b.textContent=on?'隱藏答案':'顯示答案'; });
+  syncAll();
+}
+
+window.addEventListener('afterprint', function(){ document.body.classList.remove('print-student'); });
+</script>
+</body>
+</html>
