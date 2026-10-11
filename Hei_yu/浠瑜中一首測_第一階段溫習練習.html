@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中一第一次測驗 第一階段溫習練習</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#D5D8C5; --hero-fg:26,32,21;
+  --purple:#6b5fb5; --purple-bg:#efedfa;
+  --teal:#2f8a7e; --teal-bg:#e3f3f0;
+  --coral:#c4573e; --coral-bg:#fbebe6;
+  --amber:#b37a12; --amber-bg:#fbf1dc;
+  --pink:#b44d7c; --pink-bg:#f9e8f0;
+  --blue:#3a6fb0; --blue-bg:#e6eef9;
+  --red:#b8382f; --red-bg:#fbe7e5;
+  --green:#3c8a4f; --green-bg:#e5f3e8;
+  --line:#b9bcae;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececea;
+    --color-text-secondary:#a9a9a4;
+    --color-background-primary:#1f211d;
+    --color-background-secondary:#151714;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --hero-bg:#3a3e30; --hero-fg:226,232,212;
+    --purple:#a99ff0; --purple-bg:#2a2740;
+    --teal:#7fd0c3; --teal-bg:#1c3330;
+    --coral:#f0a08c; --coral-bg:#3a241e;
+    --amber:#eac06a; --amber-bg:#372c16;
+    --pink:#ec9cc0; --pink-bg:#3a2230;
+    --blue:#9cbcea; --blue-bg:#1d2a3c;
+    --red:#f09a92; --red-bg:#3b1f1d;
+    --green:#8fd3a0; --green-bg:#1c3322;
+    --line:#5b5e52;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:28px 16px 48px}
+h1,h2,h3{font-family:"Noto Serif TC",serif;margin:0}
+
+/* Hero */
+.hero{background:var(--hero-bg);border-radius:var(--border-radius-lg);padding:34px 30px 28px;margin-bottom:20px}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:.12em;padding:3px 12px;border-radius:999px;border:1px solid rgba(var(--hero-fg),.3);color:rgba(var(--hero-fg),.65);margin-bottom:12px}
+.hero h1{font-size:clamp(24px,4.5vw,32px);font-weight:900;color:rgb(var(--hero-fg));line-height:1.35}
+.hero .sub{margin:8px 0 0;color:rgba(var(--hero-fg),.75);font-size:14px}
+.hero p.by{margin:14px 0 0;color:rgba(var(--hero-fg),.5);font-size:13px}
+
+/* TOC */
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:20px}
+.toc-item{display:flex;gap:10px;align-items:center;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px;text-decoration:none;color:var(--color-text-primary)}
+.toc-item:hover{border-color:var(--teal)}
+.toc-num{font-family:"Noto Serif TC",serif;font-weight:900;font-size:18px;color:var(--teal);min-width:22px}
+.toc-text{font-size:13px;line-height:1.4}
+.toc-text small{display:block;color:var(--color-text-secondary);font-size:11.5px}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:34px 0 14px}
+.sec-icon{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-weight:900;font-size:22px;color:#fff;flex-shrink:0}
+.sec-title h2{font-size:21px;line-height:1.3}
+.sec-title .sec-no{font-size:12px;letter-spacing:.1em;color:var(--color-text-secondary)}
+.bg-purple{background:var(--purple)} .bg-teal{background:var(--teal)} .bg-coral{background:var(--coral)} .bg-amber{background:var(--amber)} .bg-pink{background:var(--pink)} .bg-blue{background:var(--blue)}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
+.card h3{font-size:16px;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot.purple{background:var(--purple)} .dot.teal{background:var(--teal)} .dot.coral{background:var(--coral)} .dot.amber{background:var(--amber)} .dot.pink{background:var(--pink)} .dot.blue{background:var(--blue)}
+.card .lead{color:var(--color-text-secondary);margin:0 0 10px}
+
+/* Poem */
+.poem{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:14px 18px;font-family:"Noto Serif TC",serif;font-size:16px;line-height:2.1;letter-spacing:.06em;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 24px}
+.poem-meta{font-size:12px;color:var(--color-text-secondary);margin-top:6px}
+
+/* Questions */
+.qbox{padding:10px 0;border-top:1px dashed var(--color-border-tertiary)}
+.qbox:first-of-type{border-top:0}
+.q{display:flex;gap:10px}
+.qn{font-weight:700;color:var(--teal);min-width:22px;font-variant-numeric:tabular-nums}
+.qt{flex:1;min-width:0}
+.blank{display:inline-block;min-width:5.5em;border-bottom:1.5px solid var(--line);margin:0 3px;height:1.3em;vertical-align:bottom}
+.blank.s{min-width:3em} .blank.l{min-width:9em}
+.wline{border-bottom:1.5px solid var(--line);height:2.1em}
+.boxes{display:inline-flex;gap:3px;vertical-align:middle}
+.boxes i{width:1.7em;height:1.7em;border:1.5px solid var(--line);display:inline-block}
+.choices{display:flex;flex-wrap:wrap;gap:4px 22px;margin-top:4px}
+.ans-bracket{white-space:nowrap}
+
+/* Tables */
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:0.5px solid var(--color-border-tertiary);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--color-background-secondary);font-weight:700;font-size:13px}
+td.fill{height:2.4em;min-width:6em}
+.center{text-align:center}
+
+/* Alerts */
+.alert{display:flex;gap:12px;border-radius:var(--border-radius-md);padding:12px 14px;margin:10px 0}
+.alert-icon{font-size:18px;line-height:1.4}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert-text{font-size:13.5px;line-height:1.75}
+.alert.tip{background:var(--blue-bg)} .alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)} .alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)} .alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)} .alert.amber .alert-label{color:var(--amber)}
+
+/* Flow */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0}
+.flow-step{background:var(--teal-bg);color:var(--teal);font-weight:700;border-radius:999px;padding:5px 14px;font-size:13.5px}
+.flow-arrow{color:var(--color-text-secondary)}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-size:14px}
+
+/* Formula */
+.formula{background:#2b2f26;color:#eef0e6;border-radius:var(--border-radius-md);padding:14px 18px;margin:10px 0;font-size:14px;line-height:1.9}
+.formula b{color:#d8e6a6}
+
+/* Answers */
+.answers .card{border-left:4px solid var(--green)}
+.answers ol{margin:0;padding-left:20px}
+.answers li{margin-bottom:4px}
+.k{font-weight:700;color:var(--green)}
+
+
+/* Answers */
+.ans{margin-top:8px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);color:var(--green);background:transparent;border-radius:999px;padding:2px 12px;cursor:pointer}
+.ans-btn:hover{background:var(--green-bg)}
+.ans-btn:focus-visible,.fab button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.answer{display:none;margin-top:6px;background:var(--green-bg);border-left:3px solid var(--green);border-radius:0 6px 6px 0;padding:8px 12px;font-size:13.5px;line-height:1.8}
+.answer .tbl{margin:4px 0 0}
+.ans.show .answer{display:block}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px;z-index:50}
+.fab button{font:inherit;font-size:13px;font-weight:700;border:0;border-radius:999px;padding:9px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+#toggleAll{background:var(--green);color:#fff}
+#printBtn{background:var(--color-background-primary);color:var(--color-text-primary);border:0.5px solid var(--color-border-tertiary)}
+td.ref{background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:13px}
+.section-divider{height:0}
+
+@media (max-width:520px){.hero{padding:26px 20px 22px}.card{padding:16px}}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header:first-of-type{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider{page-break-after:avoid}
+  .ans-btn,.answer,.fab{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">測驗溫習筆記</div>
+  <h1>中一第一次測驗　第一階段溫習練習</h1>
+  <div class="sub">《行行重行行》　《迢迢牽牛星》　修辭　背誦｜黃浠瑜（中一丁）</div>
+  <p class="by">潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc">
+  <a class="toc-item" href="#s1"><span class="toc-num">甲</span><span class="toc-text">行行重行行<small>字詞・語譯・段意・問答</small></span></a>
+  <a class="toc-item" href="#s2"><span class="toc-num">乙</span><span class="toc-text">迢迢牽牛星<small>字詞・語譯・疊字・問答</small></span></a>
+  <a class="toc-item" href="#s3"><span class="toc-num">丙</span><span class="toc-text">比較及文學常識<small>五言古詩・古詩十九首</small></span></a>
+  <a class="toc-item" href="#s4"><span class="toc-num">丁</span><span class="toc-text">修辭<small>疊字・反復・象聲詞</small></span></a>
+  <a class="toc-item" href="#s5"><span class="toc-num">戊</span><span class="toc-text">背誦<small>廿四孝・新舊詩比較表</small></span></a>
+</div>
+
+<!-- 甲部 -->
+<div class="section-header" id="s1">
+  <div class="sec-icon bg-teal">甲</div>
+  <div class="sec-title"><div class="sec-no">第一部分</div><h2>《行行重行行》</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>原文</h3>
+  <div class="poem">
+    <div>行行重行行，與君生別離。<br>相去萬餘里，各在天一涯。<br>道路阻且長，會面安可知？<br>胡馬依北風，越鳥巢南枝！</div>
+    <div>相去日已遠，衣帶日已緩。<br>浮雲蔽白日，遊子不顧返。<br>思君令人老，歲月忽已晚。<br>棄捐勿復道，努力加餐飯！</div>
+  </div>
+  <div class="poem-meta">古詩十九首　佚名｜啟思中一上 P.4.26</div>
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div>
+      <div class="alert-label">溫習重點</div>
+      <div class="alert-text">這首詩寫思婦的心情，全詩分為以下三層。字詞要特別留意「重、安、依、巢、緩」。</div>
+    </div>
+  </div>
+  <div class="flow"><span class="flow-step">離別之事</span><span class="flow-arrow">→</span><span class="flow-step">相思之苦</span><span class="flow-arrow">→</span><span class="flow-step">自我寬慰</span></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>一、字詞解釋</h3>
+  <p class="lead">解釋以下句子中「」內的字詞。</p>
+  <div class="tbl"><table>
+    <tr><td>1. 行行「重」行行</td><td class="fill"></td><td>5. 衣帶日已「緩」</td><td class="fill"></td></tr>
+    <tr><td>2. 會面「安」可知</td><td class="fill"></td><td>6. 浮雲「蔽」白日</td><td class="fill"></td></tr>
+    <tr><td>3. 胡馬「依」北風</td><td class="fill"></td><td>7.「相去」萬餘里</td><td class="fill"></td></tr>
+    <tr><td>4. 越鳥「巢」南枝</td><td class="fill"></td><td>8. 棄捐勿復「道」</td><td class="fill"></td></tr>
+  </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">1. 再　2. 怎麼／哪裏　3. 依戀　4. 築巢　5. 鬆弛（寬鬆）　6. 遮蔽　7. 相距／相隔　8. 說／訴說</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>二、語譯</h3>
+  <p class="lead">把以下詩句譯為白話文。</p>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">道路阻且長，會面安可知？<div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">（我們之間的）路途既險阻又漫長，又怎麼能知道再會面的時候呢？</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">思君令人老，歲月忽已晚。<div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">思念你使人衰老得很快，時光快速地流逝。</div></div></div></div></div>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">答題提示</div>
+      <div class="alert-text">詩中省略了的主語（你、我、我們），語譯時可用括號補上，例如「（我們之間的）路途……」。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>三、段意及主旨</h3>
+  <p class="lead">在橫線上填上適當的答案。</p>
+  <div class="tbl"><table>
+    <tr><th style="width:90px">段落</th><th>段意</th></tr>
+    <tr><td>第 1–8 句</td><td>寫妻子與離家遠行的丈夫<span class="blank"></span>，路途<span class="blank"></span>，見面無期。</td></tr>
+    <tr><td>第 9–14 句</td><td>寫妻子渴望丈夫回家，又擔心丈夫<span class="blank"></span>而不能回來，導致自己在思念中<span class="blank l"></span>。</td></tr>
+    <tr><td>第 15–16 句</td><td>寫妻子<span class="blank"></span>，不再訴說丈夫久久不歸的事，並學會<span class="blank"></span>，愛惜自己。</td></tr>
+  </table></div>
+  <p>主旨：本詩通過思婦憶述<span class="blank"></span>，訴說<span class="blank l"></span>之苦，抒發對遠行丈夫深切的<span class="blank"></span>之情。</p><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">段意：相隔萬里；艱險遙遠／遇到阻滯；日漸消瘦，快速老去／自我寬慰；保重身體。<br>主旨：與丈夫分別；路遠無法見面的相思；思念。</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>四、理解問答</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">下列哪一項<b>不是</b>婦人與遊子難以相見的原因？<span class="ans-bracket">（　　）</span>
+    <div class="choices"><span>A. 二人相隔萬里</span><span>B. 道路險阻難行</span><span>C. 路途遙遠漫長</span><span>D. 遊子另娶</span></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">D</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">作者通過婦人的哪兩種狀況，突出她對遊子的思念之深？試摘錄詩句作答。
+    <div>狀況一（身體消瘦）：<span class="blank l"></span><span class="blank l"></span></div>
+    <div>狀況二（加快衰老）：<span class="blank l"></span><span class="blank l"></span></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">狀況一：相去日已遠，衣帶日已緩。<br>狀況二：思君令人老，歲月忽已晚。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">試完成下表。
+    <div class="tbl"><table>
+      <tr><th style="width:110px">詩句</th><th>表面的意思</th><th>實際的意思</th></tr>
+      <tr><td>胡馬依北風</td><td class="fill"></td><td rowspan="2"></td></tr>
+      <tr><td>越鳥巢南枝</td><td class="fill"></td></tr>
+    </table></div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">答題提示</div>
+        <div class="alert-text">先寫馬和鳥字面上做了甚麼，再想想牠們和遊子有甚麼相似的地方。</div>
+      </div>
+    </div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">表面的意思：北方的馬匹到了南方，仍然依戀着北風；南方的鳥兒到了北方，也會築巢在向南的樹枝上。<br>實際的意思：馬匹、鳥兒等動物尚且會依戀故土，遊子離家已久，也應該會想念家鄉，思念親人。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">4.</span><div class="qt">婦人說出「胡馬依北風，越鳥巢南枝」時，帶着甚麼心情？<div class="wline"></div><div class="wline"></div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">答題提示</div>
+        <div class="alert-text">這題問「心情」，要從兩方面作答，只寫一方面不能拿滿分。</div>
+      </div>
+    </div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">一方面對遊子久久不歸感到疑惑，不知他為甚麼不回來；另一方面通過動物也有思鄉的舉動，表達對遊子久久不歸的怨恨。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">5.</span><div class="qt">「浮雲蔽白日，遊子不顧返」反映婦人對遊子有甚麼擔憂？<div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">婦人擔憂遊子在外遇到阻滯，或因事業受阻，或受到迷惑，不再有還鄉之念，甚至忘記了在家中熱切等他回來的妻子。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">6.</span><div class="qt">婦人最後用哪兩句詩寬慰自己？你認為她這樣做的目的是甚麼？
+    <div>詩句：<span class="blank l"></span><span class="blank l"></span></div>
+    <div>目的：</div><div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">詩句：棄捐勿復道，努力加餐飯。<br>目的（自由作答）：為了自我開解。遊子長久不歸，與其無止境地等待，不如好好生活，或許有一日遊子思歸，也能好好迎接他。</div></div></div></div></div>
+</div>
+
+<!-- 乙部 -->
+<div class="section-header" id="s2">
+  <div class="sec-icon bg-coral">乙</div>
+  <div class="sec-title"><div class="sec-no">第二部分</div><h2>《迢迢牽牛星》</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>原文</h3>
+  <div class="poem">
+    <div>迢迢牽牛星，皎皎河漢女。<br>纖纖擢素手，札札弄機杼。<br>終日不成章，泣涕零如雨。</div>
+    <div>河漢清且淺，相去復幾許。<br>盈盈一水間，脈脈不得語。</div>
+  </div>
+  <div class="poem-meta">古詩十九首　佚名｜啟思中一上 P.4.28</div>
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div>
+      <div class="alert-label">溫習重點</div>
+      <div class="alert-text">這首詩借牛郎織女的傳說寫相思之苦。全詩十句，六句以疊字開頭，疊字的作用必須掌握。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>一、字詞解釋</h3>
+  <p class="lead">解釋以下句子中「」內的字詞。</p>
+  <div class="tbl"><table>
+    <tr><td>1.「迢迢」牽牛星</td><td class="fill"></td><td>5. 相「去」復幾許</td><td class="fill"></td></tr>
+    <tr><td>2.「皎皎」河漢女</td><td class="fill"></td><td>6. 相去復「幾許」</td><td class="fill"></td></tr>
+    <tr><td>3. 終日不成「章」</td><td class="fill"></td><td>7. 脈脈不得「語」</td><td class="fill"></td></tr>
+    <tr><td>4. 河漢清「且」淺</td><td class="fill"></td><td></td><td></td></tr>
+  </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">1. 遙遠　2. 潔白（明亮）　3. 紋理／布匹　4. 而且　5. 距離　6. 多少　7. 說話</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>二、語譯</h3>
+  <p class="lead">把以下詩句譯為白話文。</p>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">纖纖擢素手，札札弄機杼。<div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">織女擺動細長潔白的手（織布），織布機札札地響個不停。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">盈盈一水間，脈脈不得語。<div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">在清澈透明的銀河兩旁，他們只能互相凝望，無法交談。</div></div></div></div></div>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">答題提示</div>
+      <div class="alert-text">疊字也要譯出來，例如「纖纖」譯作「細長」，「脈脈」譯作「互相凝望」。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>三、段意及主旨</h3>
+  <p class="lead">在橫線上填上適當的答案。</p>
+  <div class="tbl"><table>
+    <tr><th style="width:90px">段落</th><th>段意</th></tr>
+    <tr><td>第 1–6 句</td><td>寫牛郎和織女<span class="blank"></span>，織女因掛念牛郎而<span class="blank"></span>、<span class="blank"></span>。</td></tr>
+    <tr><td>第 7–10 句</td><td>寫牛郎和織女之間隔着<span class="blank l"></span>，可望而不可即。</td></tr>
+  </table></div>
+  <p>主旨：本詩通過<span class="blank l"></span>，表達<span class="blank l"></span>的相思之苦。</p><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">段意：分隔兩地；織不成布；淚如雨下／清淺的銀河。<br>主旨：織女思念牛郎的愁苦心情；男女相戀，卻不能相聚。</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>四、疊字</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">把詩中的疊字與它強調的內容配對，把代表字母填在括號內。
+    <div class="tbl"><table>
+      <tr><th>疊字</th><th class="center">答案</th><th>選項</th></tr>
+      <tr><td>迢迢</td><td class="center">（　　）</td><td>A. 手的細長</td></tr>
+      <tr><td>皎皎</td><td class="center">（　　）</td><td>B. 密密地織布的聲音</td></tr>
+      <tr><td>纖纖</td><td class="center">（　　）</td><td>C. 距離的遙遠</td></tr>
+      <tr><td>札札</td><td class="center">（　　）</td><td>D. 銀河的清淺</td></tr>
+      <tr><td>盈盈</td><td class="center">（　　）</td><td>E. 色彩的明亮</td></tr>
+      <tr><td>脈脈</td><td class="center">（　　）</td><td>F. 牛郎和織女互相凝望的神態</td></tr>
+    </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">迢迢 C、皎皎 E、纖纖 A、札札 B、盈盈 D、脈脈 F</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">在詩歌中運用疊字，可以增強詩歌的<span class="blank"></span>，令詩歌朗讀起來<span class="blank"></span>。例如第 1–2 句、第 3–4 句和第 9–10 句，均以<span class="blank s"></span>開頭，兩兩相對。<div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">節奏感；鏗鏘悅耳；疊字</div></div></div></div></div>
+  <div class="example-box teal">
+    <div class="example-label">答題句式</div>
+    <div class="example-text">說明疊字的效果，可用「強調了……」作答，例如「迢迢」強調了距離的遙遠。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>五、理解問答</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">織女「札札弄機杼」，為甚麼卻「終日不成章」？<div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">因為她思念牛郎，傷心地哭泣，而且淚如雨下，令她無法好好織布。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">為甚麼作者說牛郎和織女之間「脈脈不得語」？<div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">因為牛郎和織女互相思念對方，但他們之間隔着一條清淺的銀河，不能互訴衷情。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">試以一個六個字的成語概括牛郎和織女的境況：<span class="boxes"><i></i><i></i><i></i><i></i><i></i><i></i></span><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">可望而不可即</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">4.</span><div class="qt">作者借牛郎織女的故事抒發甚麼感情？<div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">表達兩情相悅、彼此相愛的戀人因為各種原因，像被一條清淺的銀河間隔着，可望而不可即的痛苦。</div></div></div></div></div>
+</div>
+
+<!-- 丙部 -->
+<div class="section-header" id="s3">
+  <div class="sec-icon bg-purple">丙</div>
+  <div class="sec-title"><div class="sec-no">第三部分</div><h2>兩首詩的比較及文學常識</h2></div>
+</div>
+
+<div class="card">
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div>
+      <div class="alert-label">溫習重點</div>
+      <div class="alert-text">人名、書名不能寫錯字。</div>
+    </div>
+  </div>
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div>
+      <div class="alert-label">常見陷阱</div>
+      <div class="alert-text">體裁題規定答四個字，要寫「五言古詩」；只寫「古體詩」不夠準確。</div>
+    </div>
+  </div>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">《行行重行行》和《迢迢牽牛星》屬於甚麼詩歌體裁？（答案須是四個字）<span class="boxes"><i></i><i></i><i></i><i></i></span><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">五言古詩</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">試完成下表。
+    <div class="tbl"><table>
+      <tr><th style="width:90px">項目</th><th>《行行重行行》</th><th>《迢迢牽牛星》</th></tr>
+      <tr><td>全詩句數</td><td class="fill"></td><td class="fill"></td></tr>
+      <tr><td>每句字數</td><td class="fill"></td><td class="fill"></td></tr>
+      <tr><td>押韻</td><td class="fill" style="height:4em"></td><td class="fill"></td></tr>
+    </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">全詩句數：16 句／10 句。每句字數：兩首均為 5 字。<br>押韻：《行行重行行》首八句的雙數句押韻，然後換韻，其後八句的雙數句押韻；《迢迢牽牛星》雙數句押韻。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">古體詩的特點：句數<span class="blank s"></span>，字數有四言、五言、七言，也有長短不一的<span class="blank s"></span>；沒有嚴格的<span class="blank s"></span>和<span class="blank s"></span>限制，一般在<span class="blank s"></span>句的最後一字押韻。<div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">不限；雜言體；對偶；平仄；雙數</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">4.</span><div class="qt">《古詩十九首》文學常識：<br>
+    《古詩十九首》是十九首<span class="blank s"></span>詩歌的合稱，由南朝梁代的太子<span class="blank s"></span>編入《<span class="blank"></span>》，全都沒有注明<span class="blank s"></span>。一般認為它出自<span class="blank s"></span>末年多位作者的手筆。內容多寫<span class="blank s"></span>、<span class="blank s"></span>分隔異地的思念之情。南朝的鍾嶸在《詩品》中稱它「驚心動魄，可謂幾乎<span class="blank"></span>」；劉勰在《文心雕龍》中稱它為「<span class="blank"></span>」。<div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">五言；蕭統；昭明文選；作者；東漢；夫婦；朋友；一字千金；五言之冠冕</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">5.</span><div class="qt">兩首詩寫的都是五倫中的哪一倫？這一倫的德目是甚麼？<br>五倫：<span class="blank"></span>　德目：<span class="blank"></span><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">夫婦；敬愛</div></div></div></div></div>
+</div>
+
+<!-- 丁部 -->
+<div class="section-header" id="s4">
+  <div class="sec-icon bg-amber">丁</div>
+  <div class="sec-title"><div class="sec-no">第四部分</div><h2>修辭：疊字、反復、象聲詞</h2></div>
+</div>
+
+<div class="alert success">
+  <div class="alert-icon">✅</div>
+  <div>
+    <div class="alert-label">溫習重點</div>
+    <div class="alert-text">老師在修辭工作紙目錄上標明，疊字疊詞、反復、象聲詞三課要考。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>一、疊字、疊詞</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">在橫線上填寫疊字，完成以下詞語。（部分題目可有多於一個答案）
+    <div class="tbl"><table>
+      <tr><th style="width:90px">形式</th><th>詞語</th></tr>
+      <tr><td>ABB 式</td><td>紅<span class="blank s"></span>、黃<span class="blank s"></span>、白<span class="blank s"></span>、黑<span class="blank s"></span>、熱<span class="blank s"></span>、硬<span class="blank s"></span></td></tr>
+      <tr><td>AABB 式</td><td>堂堂<span class="blank s"></span>、鬼鬼<span class="blank s"></span>、吞吞<span class="blank s"></span>、隱隱<span class="blank s"></span>、空空<span class="blank s"></span></td></tr>
+      <tr><td>AABC 式</td><td><span class="blank s"></span>善誘、<span class="blank s"></span>自喜、<span class="blank s"></span>勝利、<span class="blank s"></span>起舞、<span class="blank s"></span>之交</td></tr>
+      <tr><td>ABCC 式</td><td>忠心<span class="blank s"></span>、小心<span class="blank s"></span>、來勢<span class="blank s"></span>、金光<span class="blank s"></span>、涼風<span class="blank s"></span></td></tr>
+    </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">（參考答案，合理即可）<br>ABB：紅通通、黃澄澄、白茫茫、黑漆漆、熱辣辣、硬梆梆<br>AABB：堂堂正正、鬼鬼祟祟、吞吞吐吐、隱隱約約、空空洞洞<br>AABC：循循善誘、沾沾自喜、節節勝利、翩翩起舞、泛泛之交<br>ABCC：忠心耿耿、小心翼翼、來勢洶洶、金光閃閃、涼風習習</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">按照修辭工作紙的定義，下列哪些詞語屬於疊字或疊詞？屬於的加 ✓，不屬於的加 ✗，並寫出不屬於的原因。
+    <div class="tbl"><table>
+      <tr><th style="width:90px">詞語</th><th class="center" style="width:70px">✓ / ✗</th><th>原因（如不屬於）</th></tr>
+      <tr><td>猩猩</td><td></td><td class="fill"></td></tr>
+      <tr><td>靜悄悄</td><td></td><td class="fill"></td></tr>
+      <tr><td>星星</td><td></td><td class="fill"></td></tr>
+      <tr><td>一串串</td><td></td><td class="fill"></td></tr>
+      <tr><td>輕輕</td><td></td><td class="fill"></td></tr>
+    </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">猩猩 ✗（詞素不成詞，「猩」不能單獨使用）<br>靜悄悄 ✓<br>星星 ✗（與單字「星」意思相同，沒有強調作用）<br>一串串 ✗（疊詞前加了「一」，只是單數和複數之別）<br>輕輕 ✓</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>二、反復</h3>
+  <div class="compare-like">
+    <div class="example-box amber">
+      <div class="example-label">判斷方法</div>
+      <div class="example-text">重複的詞句之間只隔着標點，是<b>連續反復</b>；中間隔着其他語句，是<b>間隔反復</b>。</div>
+    </div>
+  </div>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">判斷以下句子運用了連續反復還是間隔反復，並在反復的部分下面加橫線。
+    <div class="tbl"><table>
+      <tr><th>句子</th><th class="center" style="width:90px">連續／間隔</th></tr>
+      <tr><td>(1)「加油！加油！加油！」全場觀眾齊聲吶喊。</td><td></td></tr>
+      <tr><td>(2) 時間過得真快，轉眼又到了畢業的日子。時間過得真快，我們就要各奔前程了。</td><td></td></tr>
+      <tr><td>(3)「下雨了！下雨了！」弟弟拍着手叫起來。</td><td></td></tr>
+      <tr><td>(4)「媽媽，你在哪裏？」我在人群中大喊。過了一會兒，我又喊：「媽媽，你在哪裏？」</td><td></td></tr>
+    </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">(1) 連續，加油！　(2) 間隔，時間過得真快　(3) 連續，下雨了！　(4) 間隔，媽媽，你在哪裏？</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">試寫一個運用間隔反復的句子。<div class="wline"></div><div class="wline"></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">（自由作答）例：「我不會放棄。」他咬緊牙關說，「無論多困難，我也不會放棄。」</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>三、象聲詞</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">把象聲詞與它形容的聲音配對，把代表字母填在括號內。
+    <div class="tbl"><table>
+      <tr><th>象聲詞</th><th class="center">答案</th><th>聲音</th><th>象聲詞</th><th class="center">答案</th><th>聲音</th></tr>
+      <tr><td>轟隆</td><td class="center">（　）</td><td>A. 心跳聲</td><td>呼嚕呼嚕</td><td class="center">（　）</td><td>E. 雨聲</td></tr>
+      <tr><td>淅瀝</td><td class="center">（　）</td><td>B. 單車鈴聲</td><td>丁零零</td><td class="center">（　）</td><td>F. 敲擊樂器的聲音</td></tr>
+      <tr><td>怦怦</td><td class="center">（　）</td><td>C. 雷聲</td><td>嗚嗚</td><td class="center">（　）</td><td>G. 睡覺的聲音</td></tr>
+      <tr><td>竊竊私語</td><td class="center">（　）</td><td>D. 船隻汽笛聲</td><td>叮叮噹噹</td><td class="center">（　）</td><td>H. 細聲說話</td></tr>
+    </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">轟隆 C、淅瀝 E、怦怦 A、竊竊私語 H、呼嚕呼嚕 G、丁零零 B、嗚嗚 D、叮叮噹噹 F</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">在橫線上填寫適當的象聲詞。
+    <div>(1) 窗外的雨<span class="blank"></span>地下個不停。</div>
+    <div>(2) 輪到我上台演講時，我的心<span class="blank"></span>地跳個不停。</div>
+    <div>(3) 一聲<span class="blank"></span>的雷響，把熟睡的弟弟嚇醒了。</div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">(1) 淅淅瀝瀝／嘩啦嘩啦　(2) 怦怦　(3) 轟隆</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">運用象聲詞，可以增強句子的<span class="blank"></span>，突出<span class="blank s"></span>。<div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">節奏感；重點</div></div></div></div></div>
+</div>
+
+<!-- 戊部 -->
+<div class="section-header" id="s5">
+  <div class="sec-icon bg-pink">戊</div>
+  <div class="sec-title"><div class="sec-no">第五部分</div><h2>背誦：廿四孝及新舊詩比較表</h2></div>
+</div>
+
+<div class="alert amber">
+  <div class="alert-icon">📌</div>
+  <div>
+    <div class="alert-label">背誦方法</div>
+    <div class="alert-text">廿四孝名稱每天背八個，三天背完；老師提醒要「記成語名和人名」。比較表先背「古體詩」和「近體詩」兩欄，再背新詩兩欄。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>一、廿四孝：人物與故事名稱</h3>
+  <div class="tbl"><table>
+    <tr><th>人物</th><th>故事名稱</th><th>人物</th><th>故事名稱</th></tr>
+    <tr><td>郯子</td><td class="fill"></td><td>老萊子</td><td class="fill"></td></tr>
+    <tr><td>王祥</td><td class="fill"></td><td>漢文帝</td><td class="fill"></td></tr>
+    <tr><td>董永</td><td class="fill"></td><td>吳猛</td><td class="fill"></td></tr>
+    <tr><td>黃庭堅</td><td class="fill"></td><td>黃香</td><td class="fill"></td></tr>
+  </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">郯子：鹿乳奉親　王祥：臥冰求鯉　董永：賣身葬父　黃庭堅：滌親溺器<br>老萊子：戲彩娛親　漢文帝：親嘗湯藥　吳猛：恣蚊飽血　黃香：扇枕溫衾</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>二、廿四孝：24 個故事名稱</h3>
+  <p class="lead">在方格內填上欠缺的字。</p>
+  <div class="tbl"><table class="center">
+    <tr><th class="center">1–6</th><th class="center">7–12</th><th class="center">13–18</th><th class="center">19–24</th></tr>
+    <tr><td>孝感□天</td><td>鹿乳□親</td><td>為母□兒</td><td>扇枕□衾</td></tr>
+    <tr><td>親嘗湯□</td><td>行傭□母</td><td>□虎救親</td><td>湧泉□鯉</td></tr>
+    <tr><td>齧指□心</td><td>懷橘□親</td><td>棄官□母</td><td>聞雷□墓</td></tr>
+    <tr><td>單衣□母</td><td>乳姑□怠</td><td>嘗糞□心</td><td>刻木□親</td></tr>
+    <tr><td>為親□米</td><td>恣蚊□血</td><td>戲彩□親</td><td>哭竹□筍</td></tr>
+    <tr><td>賣身□父</td><td>臥冰□鯉</td><td>拾葚□親</td><td>滌親□器</td></tr>
+  </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer">1–6：動、藥、痛、順、負、葬<br>7–12：奉、供、遺、不、飽、求<br>13–18：埋、扼（學校工作紙掃描不清，或作「搤」，以原稿為準）、尋、憂、娛、供<br>19–24：溫、躍、泣、事、生、溺</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>三、新舊詩體制比較表</h3>
+  <p class="lead">不看書，默寫舊詩部分（古體詩、近體詩）。新詩部分（自由詩、格律詩）已填上答案，供參考，不用默寫。</p>
+  <div class="tbl"><table>
+    <tr><th rowspan="2" style="width:80px">項目</th><th colspan="2" class="center">舊詩（必背）</th><th colspan="2" class="center">新詩（附答案，供參考）</th></tr>
+    <tr><th>古體詩</th><th>近體詩</th><th>自由詩</th><th>格律詩</th></tr>
+    <tr><td>文字形式</td><td class="fill"></td><td class="fill"></td><td class="ref">白話</td><td class="ref">白話</td></tr>
+    <tr><td>句數字數</td><td class="fill"></td><td class="fill" style="height:4em"></td><td class="ref">不限</td><td class="ref">每詩有固定規限</td></tr>
+    <tr><td>平仄</td><td class="fill"></td><td class="fill"></td><td class="ref">不限</td><td class="ref">不限</td></tr>
+    <tr><td>用韻</td><td class="fill"></td><td class="fill"></td><td class="ref">不限</td><td class="ref">每詩有固定規限</td></tr>
+    <tr><td>對仗</td><td class="fill"></td><td class="fill" style="height:4em"></td><td class="ref">不限</td><td class="ref">不限</td></tr>
+    <tr><td>音節</td><td class="center">（不用填）</td><td class="center">（不用填）</td><td class="ref">不限</td><td class="ref">每詩有固定規限</td></tr>
+    <tr><td>分節</td><td class="fill"></td><td class="fill"></td><td class="ref">一般會分節</td><td class="ref">每詩有固定規限</td></tr>
+  </table></div><div class="ans"><button class="ans-btn" type="button">顯示答案</button><div class="answer"><div class="tbl"><table><tr><th>項目</th><th>古體詩</th><th>近體詩</th><th>自由詩</th><th>格律詩</th></tr><tr><td>文字形式</td><td>文言</td><td>文言</td><td>白話</td><td>白話</td></tr><tr><td>句數字數</td><td>不限</td><td>絕詩：全詩四句，每句五或七字；律詩：全詩八句，每句五或七字</td><td>不限</td><td>每詩有固定規限</td></tr><tr><td>平仄</td><td>沒有固定規限</td><td>平仄有固定規限</td><td>不限</td><td>不限</td></tr><tr><td>用韻</td><td>沒有固定規限</td><td>雙數句句末必須押韻</td><td>不限</td><td>每詩有固定規限</td></tr><tr><td>對仗</td><td>不限</td><td>絕詩：不限；律詩：頷聯、頸聯必須對偶</td><td>不限</td><td>不限</td></tr><tr><td>音節</td><td>—</td><td>—</td><td>不限</td><td>每詩有固定規限</td></tr><tr><td>分節</td><td>不分節</td><td>不分節</td><td>一般會分節</td><td>每詩有固定規限</td></tr></table></div></div></div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+<div class="fab"><button id="toggleAll" type="button">顯示全部答案</button><button id="printBtn" type="button">🖨 列印</button></div>
+<script>
+(function(){
+  document.querySelectorAll('.ans-btn').forEach(function(b){
+    b.addEventListener('click',function(){var a=b.parentElement;a.classList.toggle('show');b.textContent=a.classList.contains('show')?'隱藏答案':'顯示答案';});
+  });
+  var all=document.getElementById('toggleAll'),on=false;
+  all.addEventListener('click',function(){on=!on;document.querySelectorAll('.ans').forEach(function(a){a.classList.toggle('show',on);a.querySelector('.ans-btn').textContent=on?'隱藏答案':'顯示答案';});all.textContent=on?'隱藏全部答案':'顯示全部答案';});
+  document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+})();
+</script>
+</body>
+</html>
