@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>魯迅《一件小事》教學筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#C8D5D8; --hero-fg:18,32,37;
+  --purple:#6b5fb5; --purple-bg:#f0eefa;
+  --teal:#1f8a7a; --teal-bg:#e7f5f2;
+  --coral:#c8553d; --coral-bg:#fbeeea;
+  --amber:#b7791f; --amber-bg:#fdf5e6;
+  --pink:#b5487a; --pink-bg:#fbedf3;
+  --blue:#2f6fae; --blue-bg:#eaf2fb;
+  --green:#2e7d4f; --green-bg:#eaf6ee;
+  --red:#b83a3a; --red-bg:#fbecec;
+  --line:#c9c9c9;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#ececec;
+    --color-text-secondary:#b0b0b0;
+    --color-background-primary:#1e1f22;
+    --color-background-secondary:#141517;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple-bg:#26233a; --teal-bg:#17302c; --coral-bg:#3a221d; --amber-bg:#352a17;
+    --pink-bg:#36202b; --blue-bg:#1a2a3b; --green-bg:#18301f; --red-bg:#3a1c1c;
+    --purple:#a99ff0; --teal:#5fd0bd; --coral:#f08a72; --amber:#f0b95a; --pink:#ee8ab7;
+    --blue:#7fb3ea; --green:#79cf97; --red:#f08585; --line:#4a4a4a;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--color-background-secondary);color:var(--color-text-primary);font-size:14px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 48px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC',serif}
+
+/* Hero */
+.hero{background:var(--hero-bg);color:rgb(var(--hero-fg));border-radius:var(--border-radius-lg);padding:40px 32px;margin-bottom:20px;text-align:center}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-fg),0.3);color:rgba(var(--hero-fg),0.65);border-radius:999px;padding:3px 14px;font-size:12px;letter-spacing:2px;margin-bottom:14px}
+.hero h1{font-size:32px;font-weight:900;letter-spacing:2px;color:rgb(var(--hero-fg))}
+.hero .sub{font-size:14px;color:rgba(var(--hero-fg),0.7);margin-top:6px}
+.hero p{color:rgba(var(--hero-fg),0.5);font-size:13px;margin-top:10px;letter-spacing:1px}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 18px}
+.toc-title{grid-column:1/-1;font-weight:700;font-size:15px;margin-bottom:4px}
+.toc-item{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--color-text-primary);padding:4px 6px;border-radius:6px}
+.toc-item:hover{background:var(--color-background-secondary)}
+.toc-num{font-family:'Noto Serif TC',serif;color:var(--blue);font-weight:700;min-width:26px}
+
+/* Section */
+.section-header{display:flex;align-items:center;gap:12px;margin:36px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--color-border-tertiary)}
+.section-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--blue-bg);flex-shrink:0}
+.section-header h2{font-size:21px;font-weight:700;flex:1}
+.section-num{font-family:'Noto Serif TC',serif;font-size:13px;color:var(--color-text-secondary);letter-spacing:1px}
+
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
+.card h3{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.card h4{font-size:14px;font-weight:700;margin:12px 0 4px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--purple);flex-shrink:0}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}
+.card p{margin-bottom:6px}
+.card ul,.card ol{padding-left:22px;margin:4px 0 6px}
+.card li{margin-bottom:3px}
+.muted{color:var(--color-text-secondary);font-size:13px}
+.em{font-weight:700;color:var(--coral)}
+.hl{background:linear-gradient(transparent 60%,rgba(240,185,90,.45) 60%)}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:4px}
+.example-text{font-size:14px}
+
+/* Alert */
+.alert{display:flex;gap:12px;border-radius:var(--border-radius-md);padding:12px 14px;margin:10px 0;border:1px solid transparent}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert-text{font-size:13.5px}
+.alert.tip{background:var(--blue-bg);border-color:rgba(47,111,174,.25)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg);border-color:rgba(184,58,58,.25)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg);border-color:rgba(46,125,79,.25)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg);border-color:rgba(183,121,31,.25)}.alert.amber .alert-label{color:var(--amber)}
+
+/* Compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:14px 16px;border:1px solid var(--color-border-tertiary)}
+.compare-card.good{background:var(--green-bg);border-color:rgba(46,125,79,.3)}
+.compare-card.bad{background:var(--red-bg);border-color:rgba(184,58,58,.3)}
+.compare-title{font-weight:700;margin-bottom:6px;font-family:'Noto Serif TC',serif;font-size:15px}
+.compare-card ul{padding-left:18px}
+
+/* Flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:12px 0}
+.flow-step{flex:1;min-width:140px;background:var(--teal-bg);border:1px solid rgba(31,138,122,.25);border-radius:var(--border-radius-md);padding:10px 12px;font-size:13px}
+.flow-step b{display:block;color:var(--teal);font-size:13.5px;margin-bottom:2px}
+.flow-arrow{display:flex;align-items:center;color:var(--color-text-secondary);font-size:18px}
+
+/* Keyword */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-family:'Noto Serif TC',serif;font-weight:700;font-size:15px;color:var(--purple)}
+.kw-def{font-size:13px;color:var(--color-text-secondary)}
+
+/* Formula */
+.formula{background:#22313a;color:#eef3f5;border-radius:var(--border-radius-lg);padding:18px 20px;margin:12px 0;font-size:14.5px;line-height:1.9}
+.formula .f-label{font-size:12px;letter-spacing:2px;color:#9fc3cf;margin-bottom:4px}
+
+/* Text */
+.text-body{font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:2.05}
+.para{display:flex;gap:12px;margin-bottom:10px}
+.pnum{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-family:'Noto Sans TC',sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:5px}
+.layer-tag{font-family:'Noto Sans TC',sans-serif;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:6px;padding:2px 10px;display:inline-block;margin:8px 0 8px 38px}
+.anno{border-bottom:1.5px dotted var(--coral);cursor:help}
+sup.n{font-family:'Noto Sans TC',sans-serif;font-size:10px;color:var(--coral);font-weight:700}
+
+/* Table */
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px}
+th,td{border:1px solid var(--color-border-tertiary);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--color-background-secondary);font-weight:700}
+td.c,th.c{text-align:center}
+th,td.c{white-space:nowrap}
+
+/* Question box */
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px}
+.q{font-weight:500;margin-bottom:6px}
+.q .qn{display:inline-block;min-width:26px;font-weight:700;color:var(--amber)}
+.q .mark{font-size:12px;color:var(--color-text-secondary)}
+.line{border-bottom:1px solid var(--line);height:30px}
+.blank{display:inline-block;min-width:110px;border-bottom:1px solid var(--line);height:1.3em;vertical-align:bottom}
+.blank.s{min-width:60px}.blank.l{min-width:200px}
+.opts{display:flex;flex-wrap:wrap;gap:6px 22px;margin:4px 0 4px 26px}
+.circle{display:inline-block;width:22px;height:22px;border:1.5px solid var(--line);border-radius:50%;vertical-align:middle;margin-right:6px}
+.box{display:inline-block;width:18px;height:18px;border:1.5px solid var(--line);vertical-align:middle;margin-right:6px}
+.sub-q{margin:6px 0 4px 26px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:14px 18px;margin:10px 0;font-family:'Noto Serif TC',serif;font-size:14.5px;line-height:2}
+.excerpt .src{text-align:right;font-size:13px;color:var(--color-text-secondary)}
+.grid-60{display:grid;grid-template-columns:repeat(20,1fr);border-left:1px solid var(--line);border-top:1px solid var(--line);margin:8px 0}
+.grid-60 span{aspect-ratio:1/1;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* Answers */
+.ans{background:var(--green-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:6px 0 12px;font-size:13.5px}
+.ans b.k{color:var(--green)}
+.ans-h{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px;margin:16px 0 6px;color:var(--green)}
+
+.section-divider{height:1px}
+/* Toolbar & answer gate */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-btn{font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:500;border:1px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:8px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.tb-btn:hover{background:var(--color-background-secondary)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+.tb-btn.primary:hover{background:#244b57}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.ans-gate{margin:36px 0 14px;background:var(--color-background-primary);border:1.5px dashed var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:28px 20px;text-align:center}
+.gate-icon{font-size:26px}
+.gate-title{font-family:'Noto Serif TC',serif;font-weight:700;font-size:18px;margin:4px 0}
+.gate-text{color:var(--color-text-secondary);font-size:13px;margin-bottom:12px}
+@media print{
+  .toolbar,.ans-gate,#answers button{display:none !important}
+  body.print-student #answers{display:none !important}
+  body.print-teacher #answers{display:block !important}
+}
+
+
+@media (max-width:600px){
+  .compare-grid{grid-template-columns:1fr}
+  .hero{padding:30px 18px}.hero h1{font-size:26px}
+  .flow-arrow{transform:rotate(90deg);width:100%;justify-content:center}
+}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#1a1a1a}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">閱讀教學筆記</div>
+  <h1>魯迅《一件小事》</h1>
+  <div class="sub">中二　單元一　平凡中的不平凡</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>作者與寫作背景</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>課文原文及註釋</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>篇章結構</a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span>內容理解（逐層精讀）</a>
+  <a class="toc-item" href="#s5"><span class="toc-num">05</span>寫作技巧</a>
+  <a class="toc-item" href="#s6"><span class="toc-num">06</span>主旨與賞析</a>
+  <a class="toc-item" href="#s7"><span class="toc-num">07</span>課文練習</a>
+  <a class="toc-item" href="#s8"><span class="toc-num">08</span>語文運用：修辭．句子成分．文言虛詞</a>
+  <a class="toc-item" href="#s9"><span class="toc-num">09</span>文言延伸：《唾面自乾》</a>
+  <a class="toc-item" href="#s10"><span class="toc-num">10</span>參考答案</a>
+</nav>
+
+<!-- ================= 01 ================= -->
+<div class="section-header first" id="s1">
+  <div class="section-icon">✒️</div>
+  <h2>作者與寫作背景</h2>
+  <div class="section-num">CHAPTER 01</div>
+</div>
+
+<div class="card">
+  <h3><span class="dot"></span>作者檔案：魯迅（1881–1936）</h3>
+  <ul>
+    <li>原名周樹人，浙江 紹興人，中國現代著名文學家、思想家。</li>
+    <li>早年曾留學日本學醫，後來<span class="hl">棄醫從文</span>，希望藉文學喚醒國人。</li>
+    <li>擅長以雜文針砭時弊。著有小說集《吶喊》、《彷徨》，雜文集《二心集》、《華蓋集》等。《一件小事》收錄於小說集《吶喊》。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>寫作背景</h3>
+  <p>文中的事件發生於「民國六年」（即1917年）的北京。當時民國成立不久，各地軍閥割據，政局很不穩定，掌權的人只顧爭權奪利。文中所說「耳聞目睹的所謂國家大事」，就是指這些政治上的紛爭。</p>
+  <p>作者沒有正面寫這些「大事」，而是寫街頭一件車夫扶起老婦的「小事」，借此反省知識分子的自私冷漠，也從普通勞動者身上看到希望。</p>
+</div>
+
+<div class="alert amber">
+  <div class="alert-icon">📌</div>
+  <div><div class="alert-label">課前熱身</div>
+  <div class="alert-text">你試過因為某件事而耿耿於懷嗎？事情的經過是怎樣的？為甚麼這件事令你念念不忘？你從中吸取了甚麼教訓？讀課文時，留意「我」為甚麼一直忘不了一件小事。</div></div>
+</div>
+
+<!-- ================= 02 ================= -->
+<div class="section-header" id="s2">
+  <div class="section-icon">📜</div>
+  <h2>課文原文及註釋</h2>
+  <div class="section-num">CHAPTER 02</div>
+</div>
+
+<div class="card text-body">
+  <div style="text-align:center;font-size:20px;font-weight:900;margin-bottom:2px">一件小事</div>
+  <div style="text-align:center;font-size:14px;color:var(--color-text-secondary);margin-bottom:14px">魯迅</div>
+
+  <div class="layer-tag">第一層　開首（第1–2段）</div>
+  <div class="para"><span class="pnum">1</span><div>我從鄉下跑到京城<sup class="n">①</sup>裏，一轉眼已經六年了。其間<span class="anno">耳聞目睹</span><sup class="n">②</sup>的所謂國家大事，算起來也很不少；但在我心裏，都不留甚麼痕跡，<span class="anno">倘</span><sup class="n">③</sup>要我尋出這些事的影響來說，便只是增長了我的壞脾氣，──老實說，便是教我一天比一天的看不起人。</div></div>
+  <div class="para"><span class="pnum">2</span><div>但有一件小事，卻於我有意義，將我從壞脾氣裏拖開，使我至今忘記不得。</div></div>
+
+  <div class="layer-tag">第二層　一件小事的始末（第3–16段）</div>
+  <div class="para"><span class="pnum">3</span><div>這是民國六年的冬天，大北風颳得正猛，我因為<span class="anno">生計</span><sup class="n">④</sup>關係，不得不一早在路上走。一路幾乎遇不見人，好容易才僱定了一輛人力車<sup class="n">⑤</sup>，教他拉到S門<sup class="n">⑥</sup>去。不一會，北風小了，路上浮塵早已刮淨，剩下一條潔白的大道來，車夫也跑得更快。剛近S門，忽而車把上帶着一個人，慢慢地倒了。</div></div>
+  <div class="para"><span class="pnum">4</span><div>跌倒的是一個女人，花白頭髮，衣服都很破爛。<span class="anno">伊</span><sup class="n">⑦</sup>從馬路邊上突然向車前橫截過來；車夫已經讓開道，但伊的破棉背心沒有上扣，微風吹着，向外展開，所以終於<span class="anno">兜着</span><sup class="n">⑧</sup>車把。幸而車夫早有點停步，否則伊定要栽一個大<span class="anno">觔斗</span><sup class="n">⑨</sup>，跌到頭破血出了。</div></div>
+  <div class="para"><span class="pnum">5</span><div>伊伏在地上；車夫便也立住腳。我料定這老女人並沒有傷，又沒有別人看見，便很怪他多事，要自己惹出是非，也誤了我的路。</div></div>
+  <div class="para"><span class="pnum">6</span><div>我便對他說：「沒有甚麼的。走你的罷！」</div></div>
+  <div class="para"><span class="pnum">7</span><div>車夫毫不理會，──或者並沒有聽到，──卻放下車子，扶那老女人慢慢起來，攙着臂膊立定，問伊道：</div></div>
+  <div class="para"><span class="pnum">8</span><div>「你怎麼啦？」</div></div>
+  <div class="para"><span class="pnum">9</span><div>「我摔壞了。」</div></div>
+  <div class="para"><span class="pnum">10</span><div>我想，我眼見你慢慢倒地，怎麼會摔壞呢，<span class="anno">裝腔作勢</span><sup class="n">⑩</sup>罷了，這真可憎惡。車夫多事，也正是自討苦吃，現在你自己想法去。</div></div>
+  <div class="para"><span class="pnum">11</span><div>車夫聽了那老女人的話，卻毫不<span class="anno">躊躇</span><sup class="n">⑪</sup>，仍然攙着伊的臂膊，便一步一步的向前走。我有些詫異，忙看前面，是一所<span class="anno">巡警分駐所</span><sup class="n">⑫</sup>，大風之後，外面也不見人。這車夫扶着那老女人，便正是向那大門走去。</div></div>
+  <div class="para"><span class="pnum">12</span><div>我這時突然感到一種異樣的感覺，覺得他滿身灰塵的後影，剎時高大了，而且越走越大，須仰視才見。而且他對於我，漸漸的又幾乎變成一種<span class="anno">威壓</span><sup class="n">⑬</sup>，甚而至於要榨出皮袍下面藏着的「小」<sup class="n">⑭</sup>來。</div></div>
+  <div class="para"><span class="pnum">13</span><div>我的活力這時大約有些<span class="anno">凝滯</span><sup class="n">⑮</sup>了，坐着沒有動，也沒有想，直到看見分駐所裏走出一個巡警，才下了車。</div></div>
+  <div class="para"><span class="pnum">14</span><div>巡警走近我說：「你自己僱車罷，他不能拉你了。」</div></div>
+  <div class="para"><span class="pnum">15</span><div>我沒有思索的從外套袋裏抓出一大把<span class="anno">銅元</span><sup class="n">⑯</sup>，交給巡警，說：「請你給他……」</div></div>
+  <div class="para"><span class="pnum">16</span><div>風全住了，路上還很靜。我走着，一面想，幾乎怕敢想到我自己。以前的事姑且擱起，這一大把銅元又是甚麼意思？獎他麼？我還能裁判車夫麼？我不能回答自己。</div></div>
+
+  <div class="layer-tag">第三層　結尾（第17段）</div>
+  <div class="para"><span class="pnum">17</span><div>這事到了現在，還是時時記起。我因此也時時熬了苦痛，努力的要想到我自己。幾年來的<span class="anno">文治武力</span><sup class="n">⑰</sup>，在我早如幼小時候所讀過的「<span class="anno">子曰詩云</span>」<sup class="n">⑱</sup>一般，背不上半句了。獨有這一件小事，卻總是浮在我眼前，有時反更分明，教我慚愧，催我<span class="anno">自新</span><sup class="n">⑲</sup>，並且增長我的勇氣和希望。</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>詞語註釋</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">① 京城</div><div class="kw-def">首都，這裏指北京。</div></div>
+    <div class="kw"><div class="kw-word">② 耳聞目睹</div><div class="kw-def">親耳聽到，親眼看見。</div></div>
+    <div class="kw"><div class="kw-word">③ 倘</div><div class="kw-def">如果、假如。</div></div>
+    <div class="kw"><div class="kw-word">④ 生計</div><div class="kw-def">謀生的辦法，指生活。</div></div>
+    <div class="kw"><div class="kw-word">⑤ 人力車</div><div class="kw-def">由車夫拉動的兩輪載客車。</div></div>
+    <div class="kw"><div class="kw-word">⑥ S門</div><div class="kw-def">一般認為指北京的宣武門（舊稱順治門）。</div></div>
+    <div class="kw"><div class="kw-word">⑦ 伊</div><div class="kw-def">她。早期白話文常用「伊」指女性。</div></div>
+    <div class="kw"><div class="kw-word">⑧ 兜着</div><div class="kw-def">勾住、纏住。</div></div>
+    <div class="kw"><div class="kw-word">⑨ 觔斗</div><div class="kw-def">即「筋斗」、「跟斗」。</div></div>
+    <div class="kw"><div class="kw-word">⑩ 裝腔作勢</div><div class="kw-def">故意做作，裝出某種樣子。</div></div>
+    <div class="kw"><div class="kw-word">⑪ 躊躇</div><div class="kw-def">猶豫不決。</div></div>
+    <div class="kw"><div class="kw-word">⑫ 巡警分駐所</div><div class="kw-def">當時的警察駐所，類似今天的警署。</div></div>
+    <div class="kw"><div class="kw-word">⑬ 威壓</div><div class="kw-def">令人感到壓迫的力量。</div></div>
+    <div class="kw"><div class="kw-word">⑭ 皮袍下面藏着的「小」</div><div class="kw-def">「皮袍」暗示「我」知識分子的身份，「小」指「我」藏在體面外表下的自私與渺小。</div></div>
+    <div class="kw"><div class="kw-word">⑮ 凝滯</div><div class="kw-def">停頓，不流動。</div></div>
+    <div class="kw"><div class="kw-word">⑯ 銅元</div><div class="kw-def">清末民初通行的銅幣。</div></div>
+    <div class="kw"><div class="kw-word">⑰ 文治武力</div><div class="kw-def">政治與軍事上的種種作為，即所謂「國家大事」。</div></div>
+    <div class="kw"><div class="kw-word">⑱ 子曰詩云</div><div class="kw-def">泛指小時候背誦的儒家經書。</div></div>
+    <div class="kw"><div class="kw-word">⑲ 自新</div><div class="kw-def">改正錯誤，重新做人。</div></div>
+  </div>
+</div>
+
+<!-- ================= 03 ================= -->
+<div class="section-header" id="s3">
+  <div class="section-icon">🧭</div>
+  <h2>篇章結構</h2>
+  <div class="section-num">CHAPTER 03</div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>三個層次</h3>
+  <div class="flow">
+    <div class="flow-step"><b>第一層｜第1–2段</b>比較「所謂國家大事」與「一件小事」在「我」心裏留下的不同印象，點明「一件小事」的意義不同尋常。</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第二層｜第3–16段</b>具體敍述「一件小事」的經過，突出車夫和「我」對老婦摔倒一事的不同態度，着力描寫「我」的心理變化，表現「我」對車夫的敬仰和深刻的自我反省。</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第三層｜第17段</b>總括「一件小事」對「我」的影響，回應開首，點出它的意義所在。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>第二層細分：事件的起因、經過、結果</h3>
+  <table>
+    <tr><th style="width:18%">部分</th><th style="width:14%">段落</th><th>內容</th></tr>
+    <tr><td>起因</td><td>第3–4段</td><td>「我」所坐的人力車撞倒了一位老婦。</td></tr>
+    <tr><td>經過</td><td>第5–15段</td><td>車夫停下來扶起老婦，「我」卻認為老婦沒有受傷，並責怪車夫多事。當車夫攙扶老婦到巡警分駐所報案，「我」感到慚愧，並自覺渺小。</td></tr>
+    <tr><td>結果</td><td>第16段</td><td>「我」體會到自己的冷漠與自私，並因這件小事而自我反省。</td></tr>
+  </table>
+</div>
+
+<div class="formula">
+  <div class="f-label">結構一句記</div>
+  國家大事「不留痕跡」 ⟶ 一件小事「忘記不得」 ⟶ 車夫「高大」、「我」渺小 ⟶ 「教我慚愧，催我自新，增長勇氣和希望」
+</div>
+
+<!-- ================= 04 ================= -->
+<div class="section-header" id="s4">
+  <div class="section-icon">🔍</div>
+  <h2>內容理解（逐層精讀）</h2>
+  <div class="section-num">CHAPTER 04</div>
+</div>
+
+<div class="card">
+  <h3><span class="dot"></span>第一層：為何國家大事反而令「我」看不起人？</h3>
+  <p>「我」看到掌權者處理國家大事時只是為了爭權奪利，因此對人對事產生了一種<span class="em">輕視的態度</span>，壞脾氣也越來越大。</p>
+  <div class="example-box">
+    <div class="example-label">「我」對兩類事的觀感</div>
+    <div class="example-text">「所謂國家大事」雖然很多，卻「都不留甚麼痕跡」；反而「一件小事」令「我」「至今忘記不得」。</div>
+  </div>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">開首這樣寫有甚麼作用？</div>
+    <div class="alert-text">以「大事」對比「小事」，一來<b>引起懸念</b>，令讀者想知道是甚麼小事；二來<b>突顯小事對作者的意義和影響</b>。留意「所謂」二字帶有諷刺意味。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>第二層：一件小事的始末</h3>
+  <h4>① 老婦為甚麼會摔倒？</h4>
+  <div class="flow">
+    <div class="flow-step">老婦的破棉背心沒有扣好</div><div class="flow-arrow">→</div>
+    <div class="flow-step">路過時兜着人力車的車把</div><div class="flow-arrow">→</div>
+    <div class="flow-step">摔倒在地（幸而車夫早有點停步）</div>
+  </div>
+
+  <h4>② 「我」對車夫的看法如何轉變？</h4>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="compare-title">最初</div>認為車夫<b>多事</b>，是<b>自討苦吃</b>，還誤了自己的路。</div>
+    <div class="compare-card good"><div class="compare-title">後來</div>見車夫毫不躊躇地扶老婦到巡警分駐所，覺得車夫<b>品格高尚</b>，並為自己感到<b>慚愧</b>。</div>
+  </div>
+
+  <h4>③ 為何車夫「剎時高大了」、「須仰視才見」？</h4>
+  <p>車夫攙扶老婦報案，反映他品格高尚，令「我」覺得他的身形「高大了」；同時「我」為自己的冷漠感到卑下，所以「須仰視才見」車夫。這是「我」<span class="em">心理上的感受</span>，車夫並不是真的變高了。</p>
+  <div class="example-box coral">
+    <div class="example-label">句子精讀</div>
+    <div class="example-text">「甚而至於要榨出皮袍下面藏着的『小』來」──車夫越「大」，「我」就越「小」。「皮袍」代表「我」體面的身份，「小」是藏在皮袍下面的自私和渺小。</div>
+  </div>
+
+  <h4>④ 為何「我」託巡警把一大把銅元交給車夫？</h4>
+  <ul>
+    <li>表達對車夫的讚賞；</li>
+    <li>緩解自己因自私和冷漠而產生的內疚感。</li>
+  </ul>
+  <p>第16段「我」接連問自己：「這一大把銅元又是甚麼意思？獎他麼？我還能裁判車夫麼？」可見「我」開始明白，自己根本沒有資格去獎勵或裁判一個比自己高尚的人，反省也更深了一層。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>第三層：「努力的要想到我自己」</h3>
+  <p>這句的深層意義是：「我」不停地<span class="em">自我反省</span>，警惕自己不應自私，要有同情心。</p>
+  <p>結尾說幾年來的「文治武力」像「子曰詩云」一樣「背不上半句了」，與開首「都不留甚麼痕跡」互相呼應；而「一件小事」卻「教我慚愧，催我自新，並且增長我的勇氣和希望」。</p>
+</div>
+
+<!-- ================= 05 ================= -->
+<div class="section-header" id="s5">
+  <div class="section-icon">🛠️</div>
+  <h2>寫作技巧</h2>
+  <div class="section-num">CHAPTER 05</div>
+</div>
+
+<div class="card">
+  <h3><span class="dot"></span>技巧一：倒敍法</h3>
+  <p><b>定義：</b>把事件的結局或最突出的部分提前到文章開首，再按事情發展的順序記述。</p>
+  <p><b>好處：</b>突出文章的中心思想；製造懸念，吸引讀者。</p>
+  <table>
+    <tr><th style="width:16%">部分</th><th>內容</th><th>作用</th></tr>
+    <tr><td>開首</td><td>比較「國家大事」與「一件小事」，回憶「一件小事」的始末</td><td>點明「一件小事」的意義不同尋常</td></tr>
+    <tr><td>一件小事</td><td>事件的起因、經過、結果：老婦跌倒，車夫主動承擔，「我」卻獨善其身</td><td>帶出「我」的反省</td></tr>
+    <tr><td>結尾</td><td>作者常想起此事並感到慚愧，提醒自己要改過自新</td><td>回應開首，重申「一件小事」的意義及影響</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>技巧二：運用對比突出人物性格</h3>
+  <p><b>定義：</b>把兩個或以上有差異的人物放在一起作對照，比較他們的思想、行為和態度。<b>好處：</b>突出人物性格，揭示文章主題。</p>
+  <div class="compare-grid">
+    <div class="compare-card good">
+      <div class="compare-title">車夫</div>
+      <b>反應：</b>
+      <ul><li>立住腳，放下車子</li><li>扶老婦慢慢起來</li><li>毫不躊躇地攙着她到巡警分駐所報案</li></ul>
+      <b>性格：</b>正直無私、勇於負責、關心照顧他人
+    </div>
+    <div class="compare-card bad">
+      <div class="compare-title">「我」</div>
+      <b>反應：</b>
+      <ul><li>料定老婦沒有受傷，是裝腔作勢</li><li>認為車夫多事，自討苦吃</li><li>責怪車夫誤了自己的路</li></ul>
+      <b>性格：</b>自私、不負責任、缺乏同情心、獨善其身
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>技巧三：記敍的詳略剪裁</h3>
+  <p>作者會按<b>中心思想</b>、<b>記敍六要素</b>和<b>塑造人物性格</b>的需要決定詳略：與這些因素關係越密切的內容，寫得越詳細。</p>
+  <table>
+    <tr><th>部分</th><th class="c">詳／略</th><th>原因</th></tr>
+    <tr><td>「我」從鄉下跑到京城的原因</td><td class="c">略寫</td><td rowspan="3">與主題關係不大，只為「一件小事」的發生作鋪墊</td></tr>
+    <tr><td>「我」僱人力車的經過</td><td class="c">略寫</td></tr>
+    <tr><td>老婦被人力車撞倒的經過</td><td class="c">略寫</td></tr>
+    <tr><td>「我」和車夫在老婦被撞倒後的反應</td><td class="c"><b class="em">詳寫</b></td><td>襯托車夫的高尚品格，突出「我」的反省</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>技巧四：記敍人稱</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">第一人稱</div><div class="kw-def">以當事人「我」的身份和角度敍述事件。</div></div>
+    <div class="kw"><div class="kw-word">第三人稱</div><div class="kw-def">以旁觀者的身份和角度敍述事件或別人的經歷。</div></div>
+  </div>
+  <p>本文運用<span class="em">第一人稱</span>，能給讀者真實又親切的感覺，也便於作者直接抒發感情，寫「我」內心的掙扎和反省時特別自然。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>技巧五：以小見大</h3>
+  <p><b>定義：</b>通過描寫生活細節，在小事中帶出大道理。</p>
+  <p><b>好處：</b>突出中心思想；描寫小事較親切，讀者容易接受；為讀者提供廣闊的想像空間。</p>
+  <div class="example-box pink">
+    <div class="example-label">本文的「小」與「大」</div>
+    <div class="example-text">「小」：車夫扶起被撞倒的老婦。<br>「大」：比國家大事更重要的個人人格反思；諷刺當時知識分子自私冷漠、對人民生活不聞不問；並從普通勞動者身上看到國家民族的希望。</div>
+  </div>
+</div>
+
+<!-- ================= 06 ================= -->
+<div class="section-header" id="s6">
+  <div class="section-icon">💎</div>
+  <h2>主旨與賞析</h2>
+  <div class="section-num">CHAPTER 06</div>
+</div>
+
+<div class="formula">
+  <div class="f-label">篇章主旨</div>
+  本文記述「我」與車夫對老婦被撞倒一事的不同反應，刻畫車夫正直無私的態度，讓自傲的「我」作出深切的反省。
+</div>
+
+<div class="card">
+  <h3><span class="dot"></span>課文賞析四問</h3>
+  <h4>1. 中心思想是甚麼？</h4>
+  <p>記述車夫以他人的利益安危為先的正義行為，寫車夫與「我」截然不同的反應。「我」藉反省自己的冷漠無情，增長了改過自新的勇氣；又因看到連車夫也有高尚的情操，對國家民族抱有希望。</p>
+  <h4>2. 怎樣以小見大？</h4>
+  <p>作者身處動盪不安、世道不公的社會，希望以文學作品喚醒國人。他不寫國家大事，而選取一件街頭小事，藉「我」對摔倒老婦不屑一顧的表現，諷刺當時知識分子自私冷漠。</p>
+  <h4>3. 怎樣有條理地記敍事件？</h4>
+  <ul>
+    <li>運用倒敍法，開首營造懸念；</li>
+    <li>清楚交代記敍六要素：時間、地點、人物、起因、經過、結果；</li>
+    <li>以第一人稱「我」敍事，予人真實之感。</li>
+  </ul>
+  <h4>4. 怎樣表現人物性格？</h4>
+  <p>通過對比：車夫<b>關心照顧、主動承擔、正直無私</b>；「我」<b>懷疑和不耐煩、獨善其身、自私自利</b>。</p>
+</div>
+
+<div class="alert success">
+  <div class="alert-icon">✅</div>
+  <div><div class="alert-label">重點總結：本課的五個寫作技巧</div>
+  <div class="alert-text">倒敍法　｜　對比突出人物性格　｜　詳略剪裁　｜　第一人稱　｜　以小見大</div></div>
+</div>
+
+<div class="alert warn">
+  <div class="alert-icon">⚠️</div>
+  <div><div class="alert-label">常見陷阱</div>
+  <div class="alert-text">答「車夫為何高大」時，不要只寫「因為車夫幫助老婦」。必須同時答出兩方面：車夫<b>品格高尚</b>（所以高大），以及「我」<b>自覺卑下</b>（所以要仰視）。</div></div>
+</div>
+
+<!-- ================= 07 ================= -->
+<div class="section-header" id="s7">
+  <div class="section-icon">✏️</div>
+  <h2>課文練習</h2>
+  <div class="section-num">CHAPTER 07</div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>甲．課文結構填充</h3><p class="muted">根據課文內容，在橫線上填上適當的答案。</p></div>
+
+<div class="qbox">
+  <div class="q">【難忘的小事】</div>
+  <p>敍述「我」到京城已有六年，其間耳聞目睹了不少 <span class="blank"></span>（1），但都不在心中留有痕跡，反而增長了「我」的壞脾氣，令「我」<span class="blank l"></span>（2）。只有一件小事令「我」至今難忘，甚至 <span class="blank l"></span>（3）。此部分運用 <span class="blank s"></span>（4）法，帶出改變了「我」的 <span class="blank"></span>（5）。</p>
+  <div class="q" style="margin-top:8px">【一件小事】</div>
+  <p>民國六年的冬天，「我」僱了一輛人力車，着車夫拉去 <span class="blank s"></span>（6）。人力車走着的時候，<span class="blank l"></span>（7），把她拖跌在地，幸而車夫 <span class="blank"></span>（8）。「我」認為老婦人並沒有受傷，便催促車夫 <span class="blank s"></span>（9）。但車夫沒有理會「我」的要求，還 <span class="blank"></span>（10）。老婦人聲稱摔傷了，「我」卻認為她是在裝腔作勢，心裏責怪車夫 <span class="blank s"></span>（11）。車夫卻 <span class="blank l"></span>（12）。「我」覺得車夫 <span class="blank l"></span>（13），幾乎變成了一種威壓，突出了「我」的「小」來。「我」不假思索地 <span class="blank"></span>（14），託巡警交給車夫。車夫的 <span class="blank"></span>（15），令「我」反思自己的 <span class="blank s"></span>（16）與 <span class="blank s"></span>（17）。</p>
+  <div class="q" style="margin-top:8px">【事件的影響】</div>
+  <p>這件小事經常浮現在「我」的眼前，教「我」<span class="blank s"></span>（18），催「我」<span class="blank s"></span>（19），並且增長「我」的 <span class="blank"></span>（20）。一件小事改變了「我」的 <span class="blank s"></span>（21）。</p>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>乙．篇章探究</h3></div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">1.</span>本文共有17段，按內容大意可歸納為三個層次，試寫出每層次所包含的段落，並概述每層次的內容大意。</div>
+  <table class="nw">
+    <tr><th>層次</th><th>結構</th><th>段落及內容大意</th></tr>
+    <tr><td class="c">一</td><td class="c">開首</td><td>(1) 第 1 至 <span class="blank s"></span> 段：<br>(2) 比較「所謂國家大事」與「一件小事」在「我」心裏留下的不同印象，點明 <span class="blank l"></span>。</td></tr>
+    <tr><td class="c" rowspan="3">二</td><td class="c">起因</td><td>(3) 第 <span class="blank s"></span> 至 <span class="blank s"></span> 段：<br>(4) 「我」所坐的人力車 <span class="blank l"></span>。</td></tr>
+    <tr><td class="c">經過</td><td>(5) 第 <span class="blank s"></span> 至 <span class="blank s"></span> 段：<br>(6) 敍述車夫停下來扶起老婦，「我」卻覺得 <span class="blank"></span>，並 <span class="blank"></span>。當車夫 <span class="blank l"></span>，「我」感到慚愧，並自覺渺小。</td></tr>
+    <tr><td class="c">結果</td><td>(7) 第 <span class="blank s"></span> 段：<br>(8) 「我」體會到自己的 <span class="blank"></span>，並因這件小事而 <span class="blank"></span>。</td></tr>
+    <tr><td class="c">三</td><td>結尾</td><td>第17段：<br>(9) 總括「一件小事」對「我」的影響，回應 <span class="blank s"></span>，點出它的意義所在。</td></tr>
+  </table>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">2.</span>本文運用了哪一種記敍人稱？運用這種人稱寫作有甚麼好處？</div>
+  <div class="line"></div><div class="line"></div>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">3.</span>為甚麼作者說「我」對文治武力等「所謂國家大事」都「背不上半句了」，反而記掛這「一件小事」？「所謂國家大事」和「一件小事」，哪件對於「我」才是真正的大事？為甚麼？</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">4.</span>本文作者是怎樣安排故事的情節？根據本文內容，回答以下問題。</div>
+  <div class="sub-q">(1) 按記述的次序排列以下各項，在圓圈內寫上數字1–6（1為最先，6為最後）。</div>
+  <table>
+    <tr><td class="c" style="width:48px"><span class="circle"></span></td><td>有一件難以忘懷的小事，把「我」從壞脾氣中拖開，並令「我」反省。</td></tr>
+    <tr><td class="c"><span class="circle"></span></td><td>車夫扶老婦走進巡警分駐所。</td></tr>
+    <tr><td class="c"><span class="circle"></span></td><td>一天「我」坐人力車時，一位老婦突然向車前橫截過來。</td></tr>
+    <tr><td class="c"><span class="circle"></span></td><td>老婦的破棉背心因為兜着車把而摔倒。</td></tr>
+    <tr><td class="c"><span class="circle"></span></td><td>「我」一邊在街道上走，一邊感到慚愧。</td></tr>
+    <tr><td class="c"><span class="circle"></span></td><td>車夫扶起老婦，「我」怪責車夫多事。</td></tr>
+  </table>
+  <div class="sub-q">(2) 承上題，由此可見本文運用了哪種記敍方法？運用這種方法有甚麼好處？</div>
+  <div class="line"></div><div class="line"></div>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">5.</span>根據本文的內容鋪排，回答以下問題。</div>
+  <div class="sub-q">(1) 作者在文中詳寫和略寫了哪些部分？在適當的圓圈內塗黑。</div>
+  <table>
+    <tr><th>部分</th><th class="c">詳寫</th><th class="c">略寫</th></tr>
+    <tr><td>「我」從鄉下跑到京城的原因</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>「我」僱人力車的經過</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>老婦被人力車撞倒的經過</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>「我」和車夫在老婦被撞倒後的反應</td><td class="c">○</td><td class="c">○</td></tr>
+  </table>
+  <div class="sub-q">(2) 承上題，作者的詳略鋪排是否有助突出主題？試加以說明。</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">6.</span>根據本文內容，分析車夫和「我」在老婦被撞倒後的反應，並指出兩人的性格特點。</div>
+  <table>
+    <tr><th style="width:14%">人物</th><th>反應</th><th style="width:34%">性格特點</th></tr>
+    <tr><td>車夫</td><td>(1)<div class="line"></div><div class="line"></div></td><td>(2)<div class="line"></div></td></tr>
+    <tr><td>「我」</td><td>(3)<div class="line"></div><div class="line"></div></td><td>(4)<div class="line"></div></td></tr>
+  </table>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">7.</span>為甚麼這件小事能「催我自新，並且增長我的勇氣和希望」（第17段）？</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>丙．進階思考</h3></div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">1.</span>「我」經過這件小事後，常「努力的要想到我自己」（第17段），你對於「我」的為人有甚麼評價？<span class="mark">（字數不多於60，標點符號計算在內）</span></div>
+  <div class="grid-60"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">2.</span>有人指魯迅創作小說善於「發掘意涵深刻的生活片段來諷刺社會現實」，試以本文為例加以說明。</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>丁．比較閱讀</h3><p class="muted">閱讀以下引文，然後回答問題。</p>
+  <div class="excerpt">
+    <div style="text-align:center;font-weight:700">東京某晚的事（節錄）</div>
+    <div class="src">豐子愷</div>
+    <p>　　❶ 我在東京某晚遇見一件很小的事，然而這件事我永遠不能忘記，並且常常使我憧憬。</p>
+    <p>　　❷ 有一個夏夜，初黃昏時分，我們同住的四五個中國人相約去散步，大家帶着愉快的心情出門，徜徉徘徊，態度十分安閒。一面閒談，一面踱步，踱到了十字路口的時候，忽然橫路裏轉出一個傴僂的老太婆來。她兩手搬着一塊大東西，大概是鋪在地上的席子，或者是紙窗的架子吧，鞠躬似地轉出大路來。她和我們同走一條大路，因為走得慢，跟在我們後面。</p>
+    <p>　　❸ 我走在最先。忽然聽得後面起了一種與我們的閒談調子不同的日本語聲音，意思卻聽不清楚。我回頭看時，原來是老太婆在向我們隊裏最後的某君講甚麼話。我只看見某君對那老太婆一看，立刻回轉頭來。似乎趨避後面的甚麼東西，大家向前擠挨一陣。不久，我方才探問剛才所發生的事情。</p>
+    <p>　　❹ 原來這老太婆搬那塊大東西搬得很吃力，想我們中間哪一個幫她搬一會。某君大概是因為帶了輕鬆愉快的心情出來散步，實在不願意替她搬運重物。然而在她近旁徜徉，看她吃苦，心裏大概又覺得過意不去，所以趨避似地快跑幾步，務使吃苦的人不在自己的眼前。</p>
+    <p>　　❺ 我們已離開那老太婆十來丈路，然而大家的腳步還是有些緊，不像初出門時那麼從容安閒。雖然不說話，但各人一致的腳步，分明表示大家都有這樣的感覺。</p>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">1.</span>引文中，「我們」一行人在遇上老太婆前後的步調有甚麼不同？為甚麼有這個轉變？</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">2.</span>引文末段「大家都有這樣的感覺」與《一件小事》中「我」突然感到一種「異樣的感覺」（第12段）是否相似？試加以說明。</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>戊．課文賞析填充</h3></div>
+<div class="qbox">
+  <p>《一件小事》通過記述「我」和車夫在 <span class="blank l"></span>（1）一事上，分別採取 <span class="blank"></span>（2）和 <span class="blank"></span>（3）的態度，藉此諷刺知識分子的 <span class="blank"></span>（4）。</p>
+  <p>作者於文章首段和末段反復強調 <span class="blank l"></span>（5）與「一件小事」對「我」的影響，使文章 <span class="blank"></span>（6），結構完整嚴密，突出了「一件小事」對「我」的重要。</p>
+  <p>此外，作者亦運用了對比手法，以老婦摔倒時「我」的 <span class="blank"></span>（7），對比車夫的關心照顧，從而襯托出「我」自私自利的為人，並突出車夫 <span class="blank"></span>（8）的高尚品格。</p>
+</div>
+
+<!-- ================= 08 ================= -->
+<div class="section-header" id="s8">
+  <div class="section-icon">🧩</div>
+  <h2>語文運用：修辭．句子成分．文言虛詞</h2>
+  <div class="section-num">CHAPTER 08</div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>修辭一：借代</h3>
+  <p><b>定義：</b>不直接說出事物的名稱，而借用與它密切相關的事物來代替。</p>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">巾幗 → 女人</div><div class="kw-def">以古代婦女的頭巾髮飾代替女性。</div></div>
+    <div class="kw"><div class="kw-word">鬚眉 → 男人</div><div class="kw-def">以男子的鬍鬚眉毛代替男性。</div></div>
+    <div class="kw"><div class="kw-word">干戈 → 戰爭</div><div class="kw-def">以兵器代替戰爭。</div></div>
+    <div class="kw"><div class="kw-word">桃李 → 學生</div><div class="kw-def">「桃李滿天下」指學生遍佈各地。</div></div>
+    <div class="kw"><div class="kw-word">桑梓 → 家鄉</div><div class="kw-def">古人在住宅旁種桑樹和梓樹。</div></div>
+    <div class="kw"><div class="kw-word">絲竹 → 樂器</div><div class="kw-def">以樂器的製作材料代替樂器。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>修辭二：層遞</h3>
+  <p><b>定義：</b>把三個或以上內容相關的語句，按事物的大小、輕重、深淺、遠近、先後等次序，一層一層地排列。</p>
+  <div class="example-box teal">
+    <div class="example-label">例句</div>
+    <div class="example-text">書是我青春期的戀人，中年的知己，暮年的伴侶。（柯靈）──按人生階段由早至晚遞進。<br>身可辱，家可破，國不可亡。（陳之藩）──由個人到家庭到國家，範圍逐步擴大。</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card good"><div class="compare-title">層遞 ✓</div>各項之間有<b>程度、範圍或次序上的遞進</b>，前後次序不能隨意調換。</div>
+    <div class="compare-card bad"><div class="compare-title">排比 ✗（不是層遞）</div>各項只是<b>平列</b>，沒有高低深淺之分。例如「我們寫的廢話，說的謊話，吹的大話」。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>句子成分：主語、謂語、賓語</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">主語</div><div class="kw-def">句子陳述的對象，回答「誰」或「甚麼」。</div></div>
+    <div class="kw"><div class="kw-word">謂語</div><div class="kw-def">陳述主語怎樣、做甚麼，多由動詞充當。</div></div>
+    <div class="kw"><div class="kw-word">賓語</div><div class="kw-def">謂語動作所支配的對象，放在動詞之後。</div></div>
+  </div>
+  <div class="example-box">
+    <div class="example-label">課文例句分析</div>
+    <div class="example-text">我（主語）沒有思索的從外套袋裏<b>抓出</b>（謂語）一大把<u>銅元</u>（賓語）。</div>
+  </div>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧：先「抽主幹」</div>
+    <div class="alert-text">先刪去修飾成分（「的」字前的定語、「地」字前的狀語、表示時間地點的介詞短語），剩下的「誰＋做＋甚麼」就是主、謂、賓。例如「廣告果然取得了巨大的成效」→「廣告取得成效」。</div></div>
+  </div>
+  <div class="alert warn">
+    <div class="alert-icon">⚠️</div>
+    <div><div class="alert-label">常見陷阱</div>
+    <div class="alert-text">介詞後面的詞語不是賓語。「少男少女們<b>從</b>我的身邊走過」中，「我」是介詞「從」的對象，句子根本沒有賓語。同理，「看見了但丁的紀念碑」的賓語是「紀念碑」，不是「但丁」。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>文言虛詞：安、雖、耶、耳</h3>
+  <table>
+    <tr><th style="width:10%">虛詞</th><th style="width:16%">詞性</th><th style="width:22%">解釋</th><th>例句</th></tr>
+    <tr><td rowspan="2" class="c serif"><b>安</b></td><td>副詞</td><td>怎麼、豈（反問）</td><td>爾<b>安</b>敢輕吾射！（歐陽修《賣油翁》）</td></tr>
+    <tr><td>代詞</td><td>哪裏（疑問處所）</td><td>沛公<b>安</b>在？（《史記》）</td></tr>
+    <tr><td rowspan="2" class="c serif"><b>雖</b></td><td rowspan="2">連詞</td><td>雖然（事情已發生）</td><td><b>雖</b>與之俱學，弗若之矣。（《孟子》）</td></tr>
+    <tr><td>即使（假設）</td><td><b>雖</b>殺臣，不能絕也。（《墨子》）</td></tr>
+    <tr><td class="c serif"><b>耶</b></td><td>語氣助詞</td><td>嗎、呢（疑問）</td><td>先生又非卧龍<b>耶</b>？（《三國演義》）</td></tr>
+    <tr><td class="c serif"><b>耳</b></td><td>語氣助詞</td><td>罷了、呢、了、啊</td><td>君乃在夢中<b>耳</b>。（《楊修之死》）</td></tr>
+  </table>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">判斷「雖」的技巧</div>
+    <div class="alert-text">看事情是否已經發生：已發生的事實 → 「雖然」；假設未發生的情況 → 「即使」。</div></div>
+  </div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>語文運用練習</h3></div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">1.</span>以下詞語分別借代甚麼？從方格內選出適當的英文字母，寫在橫線上。</div>
+  <p style="margin-left:26px">A 巾幗　B 墨水　C 干戈　D 江山　E 鬚眉　F 白領</p>
+  <div class="opts">
+    <span>(1) 國家 <span class="blank s"></span></span><span>(2) 學識 <span class="blank s"></span></span><span>(3) 文職人員 <span class="blank s"></span></span>
+    <span>(4) 女人 <span class="blank s"></span></span><span>(5) 男人 <span class="blank s"></span></span><span>(6) 戰爭 <span class="blank s"></span></span>
+  </div>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">2.</span>指出下面句子中加點的詞語分別借代甚麼。<span class="mark">（12分）</span></div>
+  <table>
+    <tr><td>(1) 熱鬧的街上人聲鼎沸，還傳來陣陣的<b>絲竹</b>聲。</td><td style="width:26%"></td></tr>
+    <tr><td>(2) 峻峰和嘉偉情同<b>手足</b>，經常一起打籃球。</td><td></td></tr>
+    <tr><td>(3) 子晴與曾經的<b>同窗</b>因一件小事反目了。</td><td></td></tr>
+    <tr><td>(4) 張老師教了一輩子書，可謂<b>桃李</b>滿天下。</td><td></td></tr>
+    <tr><td>(5) 常年旅居海外的人，<b>桑梓</b>之情，越久越濃。</td><td></td></tr>
+    <tr><td>(6) 這幅明代水墨畫，得到不少<b>墨客</b>的推崇。</td><td></td></tr>
+  </table>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">3.</span>下面哪些句子運用了層遞法？在適當的方格內加✓。</div>
+  <table>
+    <tr><th>句子</th><th class="c" style="width:12%">層遞法</th></tr>
+    <tr><td>(1) 他們正用勞力建設自己的生活，實際也是在釀蜜──為自己，為別人，也為後世子孫釀造着生活的蜜。（楊朔《荔枝蜜》）</td><td class="c"><span class="box"></span></td></tr>
+    <tr><td>(2) 在這個白光裏，每一個顏色都刺目，每一個聲響都難聽，每一種氣味都混含着由地上蒸發出來的腥臭。（老舍《駱駝祥子》）</td><td class="c"><span class="box"></span></td></tr>
+    <tr><td>(3) 冬去春來，我園中六、七十棵茶花競相開發，嬌紅嫩白，熱鬧非凡。（白先勇《樹猶如此》）</td><td class="c"><span class="box"></span></td></tr>
+    <tr><td>(4) 書齋外面是陽台，陽台外面是海，是山，海是碧湛湛的一彎，山是青鬱鬱的連環。山外有山，最遠的翠微淡成一裊青煙，忽焉似有，再顧若無，那便是，大陸的莽莽蒼蒼了。（余光中《沙田山居》）</td><td class="c"><span class="box"></span></td></tr>
+  </table>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">4.</span>判斷下面句子是否運用了層遞法，在適當的圓圈內塗黑。<span class="mark">（7分）</span></div>
+  <table>
+    <tr><th>句子</th><th class="c" style="width:11%">層遞法</th><th class="c" style="width:11%">非層遞法</th></tr>
+    <tr><td>(1) 身可辱，家可破，國不可亡。（陳之藩《失根的蘭花》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(2) 我們寫的廢話，說的謊話，吹的大話，這是隨處可見的。（季羨林《沒有新意，不要寫文章》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(3) 籬外有四野的山，繞山的水，抱住水的岸，以及抱住岸的草。（張曉風《情懷》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(4) 好的招致好的，壞的傳染壞的，善的感染善的，惡的刺激惡的，世上萬事皆同此理。（馮驥才《公德》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(5) 書是我青春期的戀人，中年的知己，暮年的伴侶。（柯靈《書的抒懷》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(6) 在不知不覺之中，天真爛漫的孩子「漸漸」變成野心勃勃的青年；慷慨豪俠的青年「漸漸」變成冷酷的成人；血氣旺盛的成人「漸漸」變成頑固的老頭子。（豐子愷《漸》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(7) 雨是最尋常的，一下就是三兩天。可別惱。看，像牛毛，像花針，像細絲，密密地斜織着，人家屋頂上全籠着一層薄煙。（朱自清《春》）</td><td class="c">○</td><td class="c">○</td></tr>
+  </table>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">5.</span>把下面句子中的主語、謂語和賓語找出來。<span class="mark">（30分）</span></div>
+  <table>
+    <tr><th>句子</th><th class="c" style="width:14%">主語</th><th class="c" style="width:14%">謂語</th><th class="c" style="width:14%">賓語</th></tr>
+    <tr><td>(1) 我沒有思索的從外套袋裏抓出一大把銅元。（魯迅《一件小事》）</td><td></td><td></td><td></td></tr>
+    <tr><td>(2) 天文台已懸起十號風球。（吳瑞卿《〈綠袖子〉的回憶》）</td><td></td><td></td><td></td></tr>
+    <tr><td>(3) 切默季爾成了肯尼亞的偶像。（姜致遠《奔跑的母親》）</td><td></td><td></td><td></td></tr>
+    <tr><td>(4) 廣告果然取得了巨大的成效。（左拉《陪襯人》）</td><td></td><td></td><td></td></tr>
+    <tr><td>(5) 我們大院有塊平坦、寬敞的水泥空場。（肖復興《母親》）</td><td></td><td></td><td></td></tr>
+    <tr><td>(6) 我把自己成功的祕訣告訴了那位經理。（托德．西勒《展望全新的風景》）</td><td></td><td></td><td></td></tr>
+    <tr><td>(7) 這幅作品吸引了很多圍觀者。（顧術理《望生塔上的歌》）</td><td></td><td></td><td></td></tr>
+    <tr><td>(8) 我一路都遇到秋遊的日本師生。（劉心武《楓葉饅頭》）</td><td></td><td></td><td></td></tr>
+    <tr><td>(9) 走向孤獨的人難以接受憐憫和同情。（賈平凹《孤獨地走向未來》）</td><td></td><td></td><td></td></tr>
+    <tr><td>(10) 關山門的村民終於品嘗到濫伐森林的惡果。（吳崗《大山的報復》）</td><td></td><td></td><td></td></tr>
+  </table>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">6.</span>判斷以下各句句子成分的分析是否正確，在適當的圓圈內塗黑。<span class="mark">（5分）</span></div>
+  <table>
+    <tr><th>句子及分析</th><th class="c" style="width:10%">正確</th><th class="c" style="width:10%">錯誤</th></tr>
+    <tr><td>(1) 我們無時無刻不在腳踏實地地撰寫人生之書的每一個章節。<br><span class="muted">主語「我們」，謂語「撰寫」，賓語「章節」。</span></td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(2) 少男少女們從我的身邊走過。<br><span class="muted">主語「少男少女們」，謂語「走」，賓語「我」。</span></td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(3) 中午濃密的森林遮住了火辣辣的日頭。<br><span class="muted">主語「森林」，謂語「遮住」，賓語「日頭」。</span></td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(4) 我在十字教堂右側的廣場上看見了但丁的紀念碑。<br><span class="muted">主語「我」，謂語「看見」，賓語「但丁」。</span></td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(5) 我們已有一個生態保護區的構想。<br><span class="muted">主語「我們」，謂語「有」，賓語「生態保護區」。</span></td><td class="c">○</td><td class="c">○</td></tr>
+  </table>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">7.</span>文言虛詞練習。</div>
+  <div class="sub-q"><b>（一）安：</b>分辨句中「安」字的詞性，圈出正確答案。</div>
+  <div class="sub-q">(1) 雄兔腳撲朔，雌兔眼迷離；兩兔傍地走，<b>安</b>能辨我是雄雌？（《木蘭辭》）　A 副詞　B 代詞</div>
+  <div class="sub-q">(2) 爾<b>安</b>敢輕吾射！（歐陽修《賣油翁》）　A 副詞　B 代詞</div>
+  <div class="sub-q">(3) 項王曰：「沛公<b>安</b>在？」（司馬遷《史記．項羽本紀》）　A 副詞　B 代詞</div>
+  <div class="sub-q" style="margin-top:10px"><b>（二）雖：</b>寫出句中「雖」字的意思。</div>
+  <div class="sub-q">(1) <b>雖</b>與之俱學，弗若之矣。（《孟子．告子上》）<span class="blank"></span></div>
+  <div class="sub-q">(2) 今以鐘磬置水中，<b>雖</b>大風浪不能鳴也。（蘇軾《石鐘山記》）<span class="blank"></span></div>
+  <div class="sub-q">(3) <b>雖</b>殺臣，不能絕也。（《墨子．公輸》）<span class="blank"></span></div>
+  <div class="sub-q">(4) <b>雖</b>人有百手，手有百指，不能指其一端。（林嗣環《口技》）<span class="blank"></span></div>
+  <div class="sub-q" style="margin-top:10px"><b>（三）耶：</b>圈出括號內符合句意的虛詞。</div>
+  <div class="sub-q">(1) 臣死且不避，卮酒（ 安 ╱ 耶 ╱ 雖 ）足辭！（《史記．項羽本紀》）</div>
+  <div class="sub-q">(2) 先生又非卧龍（ 安 ╱ 耶 ╱ 雖 ）？（羅貫中《三國演義》）</div>
+  <div class="sub-q">(3) （ 安 ╱ 耶 ╱ 雖 ）我之死，有子存焉。（《列子．愚公移山》）</div>
+  <div class="sub-q" style="margin-top:10px"><b>（四）耳：</b>寫出句中「耳」字的意思。</div>
+  <div class="sub-q">(1) 丞相非在夢中，君乃在夢中<b>耳</b>。（羅貫中《楊修之死》）<span class="blank"></span></div>
+  <div class="sub-q">(2) 吾失我常與，我無所處。吾得斗升之水然活<b>耳</b>。（《莊子．涸轍之鮒》）<span class="blank"></span></div>
+  <div class="sub-q">(3) 諸將易得<b>耳</b>。至如信者，國士無雙。（《史記．淮陰侯列傳》）<span class="blank"></span></div>
+</div>
+
+<!-- ================= 09 ================= -->
+<div class="section-header" id="s9">
+  <div class="section-icon">🏮</div>
+  <h2>文言延伸：《唾面自乾》</h2>
+  <div class="section-num">CHAPTER 09</div>
+</div>
+
+<div class="alert amber">
+  <div class="alert-icon">📌</div>
+  <div><div class="alert-label">與課文的連結</div>
+  <div class="alert-text">《一件小事》用車夫與「我」的對比突出人物性格；《唾面自乾》同樣運用<b>對比</b>和<b>詳略</b>來記人。學生可以藉這篇文言短文，再練習一次這兩項技巧。</div></div>
+</div>
+
+<div class="card">
+  <div class="excerpt" style="margin:0">
+    <div style="text-align:center;font-weight:700;font-size:17px">唾面自乾</div>
+    <div class="src">司馬光《資治通鑑》</div>
+    <p>　　師德<sup class="n">①</sup>寬厚清慎，犯而不校<sup class="n">②</sup>。與李昭德俱入朝，師德體肥行緩，昭德屢待之不至，怒駡曰：「田舍夫<sup class="n">③</sup>！」師德徐笑曰：「師德不為田舍夫，誰當為之！」其弟除<sup class="n">④</sup>代州<sup class="n">⑤</sup>刺史，將行，師德謂曰：「吾備位<sup class="n">⑥</sup>宰相，汝復為州牧，榮寵過盛，人所疾也，將何以自免？」弟長跪<sup class="n">⑦</sup>曰：「自今雖有人唾某面，某拭之而已，庶<sup class="n">⑧</sup>不為兄憂。」師德愀然<sup class="n">⑨</sup>曰：「此所以為吾憂也！人唾汝面，怒汝也；汝拭之，乃逆其意，所以重其怒。夫唾，不拭自乾，當笑而受之。」</p>
+  </div>
+  <div class="keyword-grid" style="margin-top:12px">
+    <div class="kw"><div class="kw-word">① 師德</div><div class="kw-def">婁師德，唐代人，與李昭德同為宰相級別官員。</div></div>
+    <div class="kw"><div class="kw-word">② 犯而不校</div><div class="kw-def">校，計較。別人冒犯他，他從不計較。校，粵音「教」。</div></div>
+    <div class="kw"><div class="kw-word">③ 田舍夫</div><div class="kw-def">鄉巴佬。</div></div>
+    <div class="kw"><div class="kw-word">④ 除</div><div class="kw-def">任命。</div></div>
+    <div class="kw"><div class="kw-word">⑤ 代州</div><div class="kw-def">在今山西省。</div></div>
+    <div class="kw"><div class="kw-word">⑥ 備位</div><div class="kw-def">謙辭，充數做了某官職。</div></div>
+    <div class="kw"><div class="kw-word">⑦ 長跪</div><div class="kw-def">直身而跪。</div></div>
+    <div class="kw"><div class="kw-word">⑧ 庶</div><div class="kw-def">希望、但願。</div></div>
+    <div class="kw"><div class="kw-word">⑨ 愀然</div><div class="kw-def">神情嚴肅而不高興的樣子。愀，粵音「悄」。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot"></span>語譯</h3>
+  <p>婁師德為人寬厚，清廉謹慎，別人冒犯他從不計較。師德和李昭德一起上朝，師德身體肥胖走得慢，昭德多次等他卻遲遲不到，生氣地罵道：「鄉巴佬！」師德慢慢地笑着說：「師德我不做鄉巴佬，誰應當做鄉巴佬！」他弟弟被任命為代州刺史，即將赴任，師德對他說：「我充數做了宰相，你又做了州官，我們得到的榮耀和寵愛太多，人們會因此妒忌的，你將怎麼避免自己招禍呢？」弟弟直身而跪說：「從今以後，即使有人唾我的臉，我擦去唾沫就是了，希望不讓哥哥為此憂慮。」師德神情嚴肅而不高興地說：「這正是我所憂慮的！別人唾你的臉，是對你有怒氣；你擦掉唾沫，是違反了他的心意，會因此加重他的怒氣。唾沫，不擦它自己也會乾，應當笑着接受它。」</p>
+</div>
+
+<div class="qbox">
+  <div class="q"><span class="qn">1.</span>解釋以下句子中加點的字詞。<span class="mark">（8分）</span></div>
+  <div class="opts"><span>(1) 昭德<b>屢</b>待之不至：<span class="blank"></span></span><span>(2) 將<b>行</b>：<span class="blank"></span></span><span>(3) 乃<b>逆</b>其意：<span class="blank"></span></span><span>(4) 所以<b>重</b>其怒：<span class="blank"></span></span></div>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">2.</span>根據文意，把以下句子譯為白話文。<span class="mark">（6分）</span></div>
+  <div class="sub-q">(1) 人所疾也，將何以自免？</div><div class="line"></div>
+  <div class="sub-q">(2) 夫唾，不拭自乾，當笑而受之。</div><div class="line"></div>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">3.</span>根據本文內容，判斷以下陳述。<span class="mark">（6分）</span></div>
+  <table>
+    <tr><th>陳述</th><th class="c" style="width:9%">正確</th><th class="c" style="width:9%">錯誤</th><th class="c" style="width:11%">無從判斷</th></tr>
+    <tr><td>(1) 李昭德因婁師德性情寬厚，才會嘲笑他是鄉巴佬。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(2) 婁師德的弟弟擔任州牧時，有人朝他臉上吐唾沫，他只是擦去，也不計較。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr>
+  </table>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">4.</span>婁師德同意弟弟處理面上唾沫的方法嗎？為甚麼？<span class="mark">（4分）</span></div>
+  <div class="line"></div><div class="line"></div>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">5.</span>根據婁師德和李昭德上朝一事，指出二人性格上有甚麼差異。<span class="mark">（8分）</span></div>
+  <table>
+    <tr><th style="width:16%">人物</th><th>上朝時的表現</th><th style="width:26%">性格特徵</th></tr>
+    <tr><td>婁師德</td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+    <tr><td>李昭德</td><td><div class="line"></div></td><td><div class="line"></div></td></tr>
+  </table>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">6.</span>以下哪一句陳述最適合作為本文反映出的道理？<span class="mark">（3分）</span></div>
+  <div class="sub-q">○ A　做人要豁達，學會自我解嘲。</div>
+  <div class="sub-q">○ B　為官者要想避禍自保，必須拋棄尊嚴。</div>
+  <div class="sub-q">○ C　做人要具有寬厚忍讓、毫不計較的修養。</div>
+  <div class="sub-q">○ D　兄弟間相處，不應給對方添上麻煩。</div>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">7.</span>本文先後記述了婁師德的兩件事。試指出各事屬於詳寫或略寫，並說明作者這樣安排的用意和好處。<span class="mark">（12分）</span></div>
+  <table>
+    <tr><th>事件</th><th class="c" style="width:12%">詳寫</th><th class="c" style="width:12%">略寫</th></tr>
+    <tr><td>第一件事：與李昭德上朝</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>第二件事：與弟弟話別</td><td class="c">○</td><td class="c">○</td></tr>
+  </table>
+  <div class="sub-q">用意和好處：</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">8.</span>你是否認同婁師德在為人處世上的做法？談談你的看法。<span class="mark">（字數不多於70，標點符號計算在內）（5分）</span></div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">9.</span>根據本文與《楊修之死》，回答下面的問題。<span class="mark">（7分）</span></div>
+  <div class="sub-q">(1) 兩篇文章都用了哪兩種方法來記人？試加以說明。</div><div class="line"></div><div class="line"></div>
+  <div class="sub-q">(2) 婁師德和楊修在性格為人和官場上的行事方式有甚麼不同？</div><div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+<div class="qbox">
+  <div class="q"><span class="qn">10.</span>閱讀下面的引文，結合《唾面自乾》回答問題。<span class="mark">（16分）</span></div>
+  <div class="excerpt">　　鍾毓兄弟小時，值父晝寢，因共偷服藥酒。其父時覺，且託寐以觀之。毓拜而後飲，會飲而不拜。既而問毓何以拜，毓曰：「酒以成禮，不敢不拜。」又問會何以不拜，會曰：「偷本非禮，所以不拜。」<div class="src">劉義慶《世說新語》</div></div>
+  <div class="sub-q">(1) 鍾毓和鍾會偷喝藥酒時，各有甚麼舉止？理由分別是甚麼？反映二人怎樣的性格？（12分）</div>
+  <table>
+    <tr><th style="width:14%"></th><th>鍾毓</th><th>鍾會</th></tr>
+    <tr><td>舉止</td><td></td><td></td></tr>
+    <tr><td>理由</td><td></td><td></td></tr>
+    <tr><td>性格</td><td></td><td></td></tr>
+  </table>
+  <div class="sub-q">(2) 引文和《唾面自乾》在記人的方法上有甚麼相同之處？試加以說明。（4分）</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+</div>
+
+<!-- ================= 10 ================= -->
+<div id="ans-gate" class="ans-gate">
+  <div class="gate-icon">🔒</div>
+  <div class="gate-title">參考答案已隱藏</div>
+  <div class="gate-text">先完成練習，再核對答案。</div>
+  <button type="button" class="tb-btn primary" onclick="setAnswers(true)">顯示參考答案</button>
+</div>
+<div id="answers" hidden>
+<div class="section-header" id="s10">
+  <div class="section-icon">🔑</div>
+  <h2>參考答案</h2>
+  <div class="section-num">CHAPTER 10</div>
+</div>
+
+<div class="card">
+<div class="ans-h">第七章　甲．課文結構填充</div>
+<div class="ans">(1) 國家大事　(2) 一天比一天看不起人　(3) 改變了「我」的壞脾氣　(4) 倒敍　(5) 一件小事<br>
+(6) S門　(7) 車把勾着一個老婦人的棉背心　(8) 及時停步　(9) 離開　(10) 停下車扶起老婦人　(11) 多事　(12) 毫不躊躇地扶着她到巡警分駐所去　(13) 滿身灰塵的後影剎時高大了　(14) 抓出一把銅元　(15) 無私品格　(16) 冷漠　(17) 自私<br>
+(18) 慚愧　(19) 自新　(20) 勇氣和希望　(21) 性格</div>
+
+<div class="ans-h">第七章　乙．篇章探究</div>
+<div class="ans"><b class="k">1.</b> (1) 第1至2段　(2) 「一件小事」的意義不同尋常　(3) 第3至4段　(4) 撞倒了一位老婦　(5) 第5至15段　(6) 老婦沒有受傷；責怪車夫多事；攙扶老婦到巡警分駐所報案　(7) 第16段　(8) 冷漠與自私；自我反省　(9) 開首</div>
+<div class="ans"><b class="k">2.</b> 本文運用了第一人稱「我」。運用第一人稱寫作，能給讀者既真實又親切的感覺，便於作者直接抒發感情。</div>
+<div class="ans"><b class="k">3.</b> 因為「我」對那些爭權奪利的「所謂國家大事」感到不屑，反而這「一件小事」令「我」感受甚深。對「我」來說，「一件小事」才是真正的大事。因為「我」從這件小事中，看到勞苦大眾正直無私、勇於負責的高尚品德，而且這件小事教「我」反省自己，增長了「我」改過自新的勇氣，也使「我」感到國家還是有希望的。</div>
+<div class="ans"><b class="k">4.</b> (1) 次序：有一件難以忘懷的小事……（1）；車夫扶老婦走進巡警分駐所（5）；一位老婦突然向車前橫截過來（2）；老婦的破棉背心兜着車把而摔倒（3）；「我」一邊走一邊感到慚愧（6）；車夫扶起老婦，「我」怪責車夫多事（4）。<br>
+(2) 本文運用了倒敍法。好處是開首便營造懸念，吸引讀者追看是甚麼「小事」對「我」有這麼大的影響，同時交代了這件事對「我」的重要性。</div>
+<div class="ans"><b class="k">5.</b> (1) 「我」到京城的原因：略寫；僱人力車的經過：略寫；老婦被撞倒的經過：略寫；「我」和車夫的反應：詳寫。<br>
+(2) 是。作者詳寫「我」和車夫在老婦被撞倒後的不同反應，是為了襯托車夫的高尚品格，從而深刻描寫「我」受良心責備後的愧疚和反思，能突出本文借「一件小事」刻畫車夫高尚品格和「我」自我反省的主題。至於「我」到京城的原因、僱車經過和老婦被撞倒的經過，只為「一件小事」的發生作鋪墊，與主題關係不大，所以略寫。</div>
+<div class="ans"><b class="k">6.</b> (1) 立住腳，放下車子，扶老婦慢慢起來，並毫不躊躇地攙着她到巡警分駐所報案。　(2) 正直無私、勇於負責<br>
+(3) 料定老婦沒有受傷，只是裝腔作勢，可放着不管；責怪車夫多事，自討苦吃，誤了他的路。　(4) 自私、不負責任、缺乏同情心、獨善其身</div>
+<div class="ans"><b class="k">7.</b> 因為「我」從這件小事中看到車夫以他人的利益安危為先的正義行為，得知人性仍有可貴之處，令自私冷漠的「我」感到十分慚愧，使「我」改變自己的壞脾氣，增長改過自新的勇氣。而且「我」看到連車夫也有這樣高尚的品格，不禁對國家民族的前途有了盼望。</div>
+
+<div class="ans-h">第七章　丙．進階思考</div>
+<div class="ans"><b class="k">1.</b>（示例）我認為「我」雖然冷漠無情，但經過這件事後意識到自己的不是，更決心要改過自新，可見「我」是個能夠自我反省、知錯能改的人。<span class="muted">（學生自由作答，言之成理即可）</span></div>
+<div class="ans"><b class="k">2.</b> 在選材方面，作者沒有記述當時的國家大事，而是選取一件日常生活小事，記述車夫幫助被撞倒的老婦，內容深刻，發人深省，可見他善於「發掘意涵深刻的生活片段」。在寫作目的方面，作者身處動盪不安、世道不公的社會，認為應以文學作品喚醒國人。本文便藉「我」對摔倒的老婦不屑一顧的表現，諷刺當時的知識分子自私冷漠，缺乏同情心，對國家大事和人民生活不聞不問。</div>
+
+<div class="ans-h">第七章　丁．比較閱讀</div>
+<div class="ans"><b class="k">1.</b> 起初「我們」一行人踏着安閒愉快的腳步散步；後來因為同行的某君不願意幫助老太婆搬重物，大家覺得過意不去，心情不再愉快，步調變得有些緊，不再從容安閒。</div>
+<div class="ans"><b class="k">2.</b> 相似。《一件小事》中「我」看到車夫扶起老婦，驚訝於他勇於負責的品格，因而產生「異樣的感覺」，同時對自己感到慚愧。《東京某晚的事》中大家因為沒有幫助老太婆而過意不去，同樣反映他們為自己沒有伸出援手而感到慚愧。</div>
+
+<div class="ans-h">第七章　戊．課文賞析填充</div>
+<div class="ans">(1) 老婦被人力車撞倒　(2) 獨善其身　(3) 主動承擔　(4) 冷漠無情　(5) 「所謂國家大事」　(6) 首尾呼應　(7) 懷疑和不耐煩　(8) 正直無私</div>
+
+<div class="ans-h">第八章　語文運用練習</div>
+<div class="ans"><b class="k">1.</b> (1) D　(2) B　(3) F　(4) A　(5) E　(6) C</div>
+<div class="ans"><b class="k">2.</b> (1) 樂器　(2) 兄弟　(3) 同學　(4) 學生　(5) 家鄉　(6) 文人</div>
+<div class="ans"><b class="k">3.</b> 運用層遞法的是 (1) 和 (4)。(1) 由「自己」到「別人」再到「後世子孫」，範圍逐步擴大；(4) 由書齋到陽台、海、山，再到遠處的大陸，由近至遠推展。(2) 是排比；(3) 只是描寫茶花盛開，兩句都不是層遞。</div>
+<div class="ans"><b class="k">4.</b> 層遞法：(1)、(3)、(5)、(6)　非層遞法：(2)、(4)、(7)</div>
+<div class="ans"><b class="k">5.</b><br>
+(1) 我／抓出／銅元　(2) 天文台／懸起／風球　(3) 切默季爾／成了／偶像<br>
+(4) 廣告／取得／成效　(5) 大院／有／空場　(6) 我／告訴／經理<br>
+(7) 作品／吸引／圍觀者　(8) 我／遇到／師生　(9) 人／接受／憐憫和同情　(10) 村民／品嘗／惡果</div>
+<div class="ans"><b class="k">6.</b> (1) 正確　(2) 錯誤（句子沒有賓語，「我」是介詞「從」的對象）　(3) 正確　(4) 錯誤（賓語是「紀念碑」）　(5) 錯誤（賓語是「構想」）</div>
+<div class="ans"><b class="k">7.</b> 安：(1) A 副詞（怎能）　(2) A 副詞（怎敢）　(3) B 代詞（哪裏）<br>
+雖：(1) 雖然　(2) 即使　(3) 即使　(4) 即使<br>
+耶：(1) 安　(2) 耶　(3) 雖<br>
+耳：(1) 呢（亦可解作「罷了」）　(2) 了　(3) 啊</div>
+
+<div class="ans-h">第九章　《唾面自乾》</div>
+<div class="ans"><b class="k">1.</b> (1) 屢：多次　(2) 行：赴任　(3) 逆：違反　(4) 重：加重</div>
+<div class="ans"><b class="k">2.</b> (1) 人們會因此妒忌的，你將怎麼避免自己招禍呢？<br>(2) 唾液，不擦它自己也會乾，應當笑着接受它。<br>
+<span class="muted">要點：「疾」同「嫉」；「何以」是介詞賓語前置，解作「怎麼」；「夫」為發語詞不譯；「之」指代唾液。</span></div>
+<div class="ans"><b class="k">3.</b> (1) 錯誤：李昭德是因為等了婁師德很久對方仍未到，才生氣罵他，並非因為他寬厚。　(2) 錯誤：弟弟的話只是假設，並非真的發生過。</div>
+<div class="ans"><b class="k">4.</b> 不同意。（1分）因為他認為別人向自己吐口水，是因為對自己有怒氣（1分）；如果擦去唾沫，便違反了對方的心意（1分），反而加重對方的怒氣（1分）。所以應任由唾沫自乾，並笑着接受。</div>
+<div class="ans"><b class="k">5.</b> 婁師德：因行動遲緩被李昭德罵作鄉巴佬，卻笑着自嘲回應──寬厚忍讓。<br>李昭德：等婁師德良久對方仍未到達，便生氣地罵他是鄉巴佬──躁急無禮。</div>
+<div class="ans"><b class="k">6.</b> C。本文首句「寬厚清慎，犯而不校」是中心句，其後兩件事都是為了印證婁師德的為人。A 只是其中一件事的表現，B 和 D 都不是本文要說的道理。</div>
+<div class="ans"><b class="k">7.</b> 第一件事略寫；第二件事詳寫。<br>
+上朝一事只片面反映婁師德寬宏大量，未能帶出道理，故略寫。與弟弟話別一事道出他逆來順受的原因，進一步突出他胸襟廣闊、犯而不校的性格，並說明「唾面自乾」的道理，故詳寫。這樣安排既能深刻描繪人物形象，也能明確帶出做人要寬厚忍讓的道理。</div>
+<div class="ans"><b class="k">8.</b>（示例）認同。古人云：「和為貴，忍為高。」正因為婁師德寬厚忍讓，犯而不校，甚至唾面自乾，所以他在爾虞我詐的官場上不僅能避禍自保，而且位及宰相。<br>
+<span class="muted">評分：只表明立場而無論述，給1分；有立場但未引用文中例子，給3分；立場清晰、引例恰當、推論合理，給5分。</span></div>
+<div class="ans"><b class="k">9.</b> (1) 兩者都選取具體事例，並運用對比手法來記人，能表現人物的思想感情，突出人物性格。<br>
+(2) 婁師德為人寬厚忍讓，深知自己和弟弟「榮寵過盛，人所疾也」，因而凡事逆來順受，以免觸怒他人而招禍。楊修則恃才放曠，身為下屬卻鋒芒畢露，多次觸犯曹操的忌諱仍不知收斂，最終招致殺身之禍。</div>
+<div class="ans"><b class="k">10.</b> (1)<br>
+舉止──鍾毓：行禮後才喝酒；鍾會：沒有行禮便喝酒。<br>
+理由──鍾毓：酒是用來完成禮儀的，所以不敢不行禮；鍾會：偷酒喝本來就不合禮，所以不必行禮。<br>
+性格──鍾毓：拘守禮節；鍾會：聰慧機靈。<br>
+(2) 兩篇都運用對比來突出人物性格。引文對比鍾毓兄弟偷喝藥酒時的舉止和理由，突出二人不同的性格；《唾面自乾》對比婁師德與弟弟對「如何避免招禍」的不同做法，突出婁師德寬厚忍讓、犯而不校。</div>
+</div>
+
+<div style="text-align:center;margin-top:10px"><button type="button" class="tb-btn" onclick="setAnswers(false)">隱藏參考答案</button></div>
+</div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+    <button type="button" class="tb-btn" id="ans-toggle" onclick="setAnswers(document.getElementById('answers').hidden)">👁 顯示答案</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function setAnswers(show){
+  var a=document.getElementById('answers'),g=document.getElementById('ans-gate'),t=document.getElementById('ans-toggle');
+  a.hidden=!show; g.style.display=show?'none':'';
+  t.textContent=show?'🙈 隱藏答案':'👁 顯示答案';
+}
+function printVersion(v){
+  var a=document.getElementById('answers'),was=!a.hidden;
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  if(v==='teacher') a.hidden=false;
+  var done=function(){document.body.classList.remove('print-student','print-teacher');setAnswers(was);window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+document.querySelector('a[href="#s10"]').addEventListener('click',function(){setAnswers(true);});
+</script>
+</body>
+</html>
