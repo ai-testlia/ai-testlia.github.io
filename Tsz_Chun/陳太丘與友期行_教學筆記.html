@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>陳太丘與友期行｜文言教學筆記</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#f0edf8;
+  --teal:#2f8a7e;--teal-bg:#e7f4f1;
+  --coral:#c8604a;--coral-bg:#fbece8;
+  --amber:#b7791f;--amber-bg:#fdf3e1;
+  --pink:#b5527a;--pink-bg:#f9eaf0;
+  --blue:#3a6ea5;--blue-bg:#e8f0f8;
+  --green:#3f7d4a;--green-bg:#e9f4ea;
+  --red:#b4413b;--red-bg:#fbeaea;
+  --hero-bg:#D5D8C5;--hero-text:26,32,21;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#e8e8e6;--color-text-secondary:#a8a8a4;
+    --color-background-primary:#1f2120;--color-background-secondary:#151716;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#b0a3e6;--purple-bg:#2a2638;
+    --teal:#7cc9bd;--teal-bg:#1c2f2c;
+    --coral:#ec9a87;--coral-bg:#382420;
+    --amber:#e6b664;--amber-bg:#352b1a;
+    --pink:#e59ab9;--pink-bg:#36222b;
+    --blue:#8fb6e0;--blue-bg:#1d2a38;
+    --green:#8cc597;--green-bg:#1d2e20;
+    --red:#ec8f88;--red-bg:#3a2120;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC",sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+h1,h2,h3,.serif{font-family:"Noto Serif TC",serif}
+.hero{background:var(--hero-bg);color:rgb(var(--hero-text));border-radius:var(--border-radius-lg);padding:36px 28px;text-align:center;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-text),.3);color:rgba(var(--hero-text),.65);border-radius:999px;padding:2px 14px;font-size:12px;letter-spacing:2px}
+.hero h1{margin:12px 0 6px;font-size:30px;font-weight:900;letter-spacing:2px}
+.hero .sub{font-size:14px;color:rgba(var(--hero-text),.75)}
+.hero p{margin:10px 0 0;font-size:13px;color:rgba(var(--hero-text),.5)}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 16px}
+.toc-title{grid-column:1/-1;font-weight:700;margin-bottom:4px}
+.toc-item{color:var(--color-text-primary);text-decoration:none;padding:3px 0;font-size:14px}
+.toc-item:hover{color:var(--blue)}
+.toc-num{display:inline-block;width:28px;color:var(--color-text-secondary);font-size:12px}
+.toc-group{grid-column:1/-1;font-size:12px;color:var(--color-text-secondary);margin-top:6px;letter-spacing:1px}
+.section-header{display:flex;align-items:center;gap:12px;margin:36px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--color-border-tertiary)}
+.section-header .icon{font-size:24px}
+.section-header h2{margin:0;font-size:21px;flex:1}
+.section-header .chap{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary);white-space:nowrap}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
+.card h3{margin:0 0 8px;font-size:16px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--purple)}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.card p{margin:6px 0}
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-label{font-size:12px;font-weight:700;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-size:14px}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0;background:var(--blue-bg)}
+.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.alert-icon{font-size:18px;line-height:1.6}
+.alert-label{font-weight:700;font-size:13px}
+.alert-text{font-size:14px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:10px 14px;border:1px solid var(--color-border-tertiary)}
+.compare-card.bad{background:var(--red-bg)}.compare-card.good{background:var(--green-bg)}
+.compare-card .t{font-weight:700;margin-bottom:4px}
+.flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;margin:10px 0}
+.flow-step{flex:1;min-width:150px;background:var(--color-background-secondary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px;font-size:13.5px}
+.flow-step b{display:block;color:var(--teal);font-size:13px}
+.flow-arrow{align-self:center;color:var(--color-text-secondary);font-size:18px}
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:1px solid var(--color-border-tertiary)}
+.kw-word{font-family:"Noto Serif TC",serif;font-weight:700;color:var(--teal)}
+.kw-def{font-size:13.5px}
+.formula{background:#2e3528;color:#eef0e6;border-radius:var(--border-radius-lg);padding:16px 20px;margin:12px 0;font-family:"Noto Serif TC",serif;font-size:15px;line-height:1.9}
+.formula .fl{font-size:12px;letter-spacing:2px;opacity:.7;font-family:"Noto Sans TC",sans-serif}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 10px;vertical-align:top;text-align:left}
+th{background:var(--color-background-secondary);white-space:nowrap}
+td.c,th.c{white-space:nowrap;text-align:center}
+td.nw{white-space:nowrap}
+/* 課文 */
+.text-box{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 24px;margin-bottom:14px;font-family:"Noto Serif TC",serif;font-size:17px;line-height:2.3}
+.text-box .title{text-align:center;font-weight:900;font-size:20px;margin-bottom:2px}
+.text-box .author{text-align:center;font-size:13px;color:var(--color-text-secondary);font-family:"Noto Sans TC",sans-serif;margin-bottom:10px}
+.layer-tag{display:inline-block;font-family:"Noto Sans TC",sans-serif;font-size:12px;background:var(--teal-bg);color:var(--teal);border-radius:999px;padding:0 10px;margin:6px 0 2px;line-height:1.9}
+.text-box p{margin:0 0 6px;text-indent:2em}
+.pnum{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-family:"Noto Sans TC",sans-serif;margin-right:4px;text-indent:0;vertical-align:2px}
+sup.n{color:var(--coral);font-size:11px;font-family:"Noto Sans TC",sans-serif}
+.dotted{text-emphasis:filled dot;-webkit-text-emphasis:filled dot;text-emphasis-position:under right;-webkit-text-emphasis-position:under}
+/* 練習 */
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 18px;margin-bottom:12px}
+.qn{display:inline-block;font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12px;color:var(--color-text-secondary)}
+.qsub{font-size:13px;color:var(--color-text-secondary);margin:8px 0 2px;font-weight:700}
+.line{border-bottom:1px solid var(--color-text-secondary);height:30px;opacity:.5}
+.blank{display:inline-block;border-bottom:1px solid var(--color-text-primary);min-width:80px;height:1.1em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:48px}.blank.l{min-width:150px}
+.opt{display:inline-block;margin-right:14px;white-space:nowrap}
+.opts{margin:6px 0 0;padding-left:0;list-style:none}
+.opts li{margin:3px 0}
+.opts li b{display:inline-block;width:22px}
+.ansrow{margin-top:6px;font-size:13px;color:var(--color-text-secondary)}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0;font-size:14.5px;line-height:2}
+.excerpt p{margin:0 0 6px;text-indent:2em}
+.excerpt .src{text-align:right;font-size:12px;color:var(--color-text-secondary)}
+.excerpt .orig{font-family:"Noto Serif TC",serif;font-size:13.5px;color:var(--color-text-secondary);border-top:1px dashed var(--color-border-tertiary);margin-top:8px;padding-top:6px}
+.trans-ws{font-size:15px;line-height:2.5}
+.sdiag{display:grid;grid-template-columns:110px 1fr;gap:8px;margin:10px 0}
+.sdiag .lab{background:var(--teal);color:#fff;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;text-align:center}
+.sdiag .body{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:1px solid var(--color-border-tertiary)}
+.sdiag .top{grid-column:1/-1;text-align:center;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px;font-weight:700}
+/* 答案 */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans u{text-decoration:none;border-bottom:1.5px solid var(--green);padding:0 2px}
+/* 工具列 */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:1px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+@media (max-width:600px){.blank{min-width:56px}.blank.l{min-width:96px}table{font-size:13px}th,td{padding:6px 7px}th{white-space:normal}.compare-grid{grid-template-columns:1fr}.hero h1{font-size:25px}.sdiag{grid-template-columns:80px 1fr}.text-box{padding:16px;font-size:16px}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#1a1a1a}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.excerpt,table,.sdiag{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid;break-after:avoid}
+  .hero,.formula,.pnum,.sdiag .lab,.layer-tag{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<div class="hero-tag">文言教學筆記</div>
+<h1>陳太丘與友期行</h1>
+<div class="sub">中一　單元一　劉義慶《世說新語．方正》</div>
+<p>潘SIR中文教室編撰</p>
+</div>
+<nav class="toc">
+<div class="toc-title">目錄</div>
+<div class="toc-group">教學</div>
+<a class="toc-item" href="#s1"><span class="toc-num">01</span>作者與作品</a>
+<a class="toc-item" href="#s2"><span class="toc-num">02</span>課文原文及註釋</a>
+<a class="toc-item" href="#s3"><span class="toc-num">03</span>篇章結構</a>
+<a class="toc-item" href="#s4"><span class="toc-num">04</span>內容理解（逐部分精讀）</a>
+<a class="toc-item" href="#s5"><span class="toc-num">05</span>寫作手法</a>
+<a class="toc-item" href="#s6"><span class="toc-num">06</span>人物形象與主旨</a>
+<div class="toc-group">練習</div>
+<a class="toc-item" href="#s7"><span class="toc-num">07</span>文言字詞與語譯</a>
+<a class="toc-item" href="#s8"><span class="toc-num">08</span>篇章探究</a>
+<a class="toc-item" href="#s9"><span class="toc-num">09</span>進階思考與比較閱讀</a>
+<a class="toc-item" href="#s10"><span class="toc-num">10</span>課文總結</a>
+
+
+</nav>
+<!-- ============ 01 ============ -->
+<div class="section-header first" id="s1"><span class="icon">📜</span><h2>作者與作品</h2><span class="chap">CHAPTER 01</span></div>
+<div class="card">
+<h3><span class="dot teal"></span>作者：劉義慶</h3>
+<p>劉義慶是南朝劉宋人，宋武帝劉裕的堂姪，一生擔任過不少要職，但政績平平。他不熱衷政治，更不想捲入皇室的權力鬥爭。</p>
+<p>二十七歲那年，他升任尚書左僕射，地位相當於副宰相。當時劉氏宗室互相殘殺，他心裏十分害怕。《宋書．劉義慶傳》記載：「太白星犯右執法，義慶懼有災禍，乞求外鎮。」他借天象為由，請求離開京城，最後改任荊州刺史，遠離是非之地。</p>
+</div>
+<div class="card">
+<h3><span class="dot purple"></span>作品：《世說新語》</h3>
+<p>《世說新語》由劉義慶主持編撰，主要記述東漢末年至東晉末年約二百多年間文人名士的言行軼事，其中以東晉的故事佔多。全書按內容分為「德行」、「言語」、「政事」、「文學」、「方正」、「雅量」、「識鑑」等三十六類，共一千多則，每則長短不一。本課選自「方正」一類。</p>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word">寫人物言行</div><div class="kw-def">憑一兩句說話就令人物活起來。例如荀巨伯說「寧以我身代友人命」，有情有義的形象就出來了。</div></div>
+<div class="kw"><div class="kw-word">抓住細節</div><div class="kw-def">王藍田吃雞蛋，刺、擲、蹍、齧、吐，一連串動作寫出他越來越暴躁。</div></div>
+<div class="kw"><div class="kw-word">運用對比</div><div class="kw-def">管寧和華歆對金錢、對達官貴人的態度不同，兩人的品格高下立見。</div></div>
+</div>
+<p>書中不少故事後來成了成語和典故，例如「割蓆絕交」、「小時了了，大未必佳」、「望梅止渴」。明代胡應麟評此書：「讀其語言，晉人面目氣韻，恍惚生動，而簡約玄澹，真致不窮。」</p>
+</div>
+<div class="card">
+<h3><span class="dot coral"></span>故事人物：早慧的陳元方</h3>
+<p>陳元方（陳紀）是陳太丘（陳寔）的長子。《世說新語》還記了他另外兩件事：</p>
+<div class="example-box coral">
+<div class="example-label">《賓客詣陳太丘宿》</div>
+<div class="example-text">元方和弟弟季方負責煮飯，卻顧着偷聽父親和客人談話，把飯煮成了粥。父親問他們記得多少，兩兄弟竟能一字不漏地複述出來，可見他們記性好，而且聽得懂大人談論的國家大事。</div>
+</div>
+<div class="example-box coral">
+<div class="example-label">妙答袁紹</div>
+<div class="example-text">元方十一歲時拜見袁紹。袁紹說陳太丘的做法他當縣令時也做過，不知是誰學誰。元方答：周公和孔子不同時代，禮儀舉止卻一樣，周公沒有學孔子，孔子也沒有學周公。這個回答既維護了父親，又沒有得罪袁紹。</div>
+</div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">讀課文前先記住</div><div class="alert-text">本課的元方只有七歲。一個七歲小孩面對大人責罵父親，怎樣應對？這是全篇最值得看的地方。</div></div></div>
+</div>
+<!-- ============ 02 ============ -->
+<div class="section-header" id="s2"><span class="icon">📖</span><h2>課文原文及註釋</h2><span class="chap">CHAPTER 02</span></div>
+<div class="text-box">
+<div class="title">陳太丘與友期行</div>
+<div class="author">劉義慶《世說新語．方正》</div>
+<div class="layer-tag">第一部分　約定與失約</div>
+<p><span class="pnum">1</span>陳太丘<sup class="n">①</sup>與友期行<sup class="n">②</sup>，期日中<sup class="n">③</sup>。過中不至，太丘舍去<sup class="n">④</sup>，去後乃至<sup class="n">⑤</sup>。</p>
+<div class="layer-tag">第二部分　責罵與反駁</div>
+<p>元方<sup class="n">⑥</sup>時年七歲，門外戲<sup class="n">⑦</sup>。客問元方：「尊君<sup class="n">⑧</sup>在不<sup class="n">⑨</sup>？」答曰：「待君久不至，已去。」友人便怒曰：「非人哉<sup class="n">⑩</sup>！與人期行，相委而去<sup class="n">⑪</sup>。」元方曰：「君與家君<sup class="n">⑫</sup>期日中。日中不至，則是無信；對子罵父，則是無禮。」</p>
+<div class="layer-tag">第三部分　慚愧與不顧</div>
+<p>友人慚<sup class="n">⑬</sup>，下車引之<sup class="n">⑭</sup>。元方入門，不顧<sup class="n">⑮</sup>。</p>
+</div>
+<div class="card">
+<h3><span class="dot coral"></span>註釋</h3>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word">① 陳太丘</div><div class="kw-def">陳寔，字仲弓，東漢人，曾任太丘縣長，所以人稱「陳太丘」。</div></div>
+<div class="kw"><div class="kw-word">② 期行</div><div class="kw-def">期：約定。期行：相約同行。</div></div>
+<div class="kw"><div class="kw-word">③ 日中</div><div class="kw-def">中午時分。</div></div>
+<div class="kw"><div class="kw-word">④ 舍去</div><div class="kw-def">舍：同「捨」，捨棄。去：離開。</div></div>
+<div class="kw"><div class="kw-word">⑤ 乃至</div><div class="kw-def">乃：才。至：到來。</div></div>
+<div class="kw"><div class="kw-word">⑥ 元方</div><div class="kw-def">陳紀，字元方，陳太丘的長子。</div></div>
+<div class="kw"><div class="kw-word">⑦ 戲</div><div class="kw-def">玩耍。</div></div>
+<div class="kw"><div class="kw-word">⑧ 尊君</div><div class="kw-def">對別人父親的敬稱，即「令尊」。</div></div>
+<div class="kw"><div class="kw-word">⑨ 不</div><div class="kw-def">同「否」，用於句末表示疑問，可譯作「嗎」。</div></div>
+<div class="kw"><div class="kw-word">⑩ 非人哉</div><div class="kw-def">不是人啊。哉：語氣詞，表示感歎。</div></div>
+<div class="kw"><div class="kw-word">⑪ 相委而去</div><div class="kw-def">委：捨棄。捨棄別人就離開。</div></div>
+<div class="kw"><div class="kw-word">⑫ 家君</div><div class="kw-def">對別人謙稱自己的父親，即「家父」。</div></div>
+<div class="kw"><div class="kw-word">⑬ 慚</div><div class="kw-def">慚愧。</div></div>
+<div class="kw"><div class="kw-word">⑭ 引之</div><div class="kw-def">引：拉。之：他，指元方。</div></div>
+<div class="kw"><div class="kw-word">⑮ 不顧</div><div class="kw-def">顧：回頭看。不顧：沒有回頭看。</div></div>
+</div>
+</div>
+<!-- ============ 03 ============ -->
+<div class="section-header" id="s3"><span class="icon">🧭</span><h2>篇章結構</h2><span class="chap">CHAPTER 03</span></div>
+<div class="card">
+<h3><span class="dot teal"></span>三個部分</h3>
+<table>
+<tr><th class="c">部分</th><th class="c">起訖</th><th>內容</th></tr>
+<tr><td class="c">一</td><td>「陳太丘與友期行」至「去後乃至」</td><td>陳太丘和友人約好中午同行，友人過了中午還未到，陳太丘先走，友人之後才到。</td></tr>
+<tr><td class="c">二</td><td>「元方時年七歲」至「則是無禮」</td><td>友人問元方父親在不在，得知已走，便當着元方責罵陳太丘；元方指出友人無信、無禮。</td></tr>
+<tr><td class="c">三</td><td>「友人慚」至「元方入門，不顧」</td><td>友人感到慚愧，下車想拉元方的手；元方走入家門，頭也不回。</td></tr>
+</table>
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見錯誤</div><div class="alert-text">第二部分要到「則是無禮」才完。有同學在「相委而去」就切開，把元方的反駁歸入第三部分。元方反駁是對友人責罵的直接回應，兩者應放在同一部分；第三部分寫的是反駁之後雙方的反應。</div></div></div>
+</div>
+<div class="card">
+<h3><span class="dot purple"></span>事件發展</h3>
+<div class="flow">
+<div class="flow-step"><b>起因</b>約好中午同行，友人遲到，陳太丘先走</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>經過</b>友人當着元方罵陳太丘，元方反駁</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>結果</b>友人慚愧示好，元方入門不顧</div>
+</div>
+<p>全篇按事情發生的先後次序寫，屬<b>順敍法</b>。不足一百字，起因、經過、結果都交代清楚。</p>
+</div>
+<!-- ============ 04 ============ -->
+<div class="section-header" id="s4"><span class="icon">🔍</span><h2>內容理解（逐部分精讀）</h2><span class="chap">CHAPTER 04</span></div>
+<div class="card">
+<h3><span class="dot teal"></span>第一部分：誰先失約？</h3>
+<div class="example-box teal"><div class="example-label">原文</div><div class="example-text serif">期日中。過中不至，太丘舍去，去後乃至。</div></div>
+<p>開首交代得很清楚：約定的時間是「日中」。「過中不至」說明友人遲到；陳太丘等不到，才「舍去」。最後一句「去後乃至」的「乃」字是「才」，語氣上帶出友人來得太晚。</p>
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">重點</div><div class="alert-text">這件事是友人先失約。陳太丘先走，是因為過了約定時間。這一點是後面元方反駁的根據。</div></div></div>
+</div>
+<div class="card">
+<h3><span class="dot coral"></span>第二部分：友人怒罵，元方反駁</h3>
+<table>
+<tr><th class="c">說話的人</th><th>原文</th><th>可以看出甚麼</th></tr>
+<tr><td class="c">客</td><td class="serif">「尊君在不？」</td><td>用敬稱「尊君」，起初說話還算客氣。</td></tr>
+<tr><td class="c">元方</td><td class="serif">「待君久不至，已去。」</td><td>短短一句交代了兩件事：父親等過很久；是您沒有來。元方答得平實，卻已點出責任在誰。</td></tr>
+<tr><td class="c">友人</td><td class="serif">「非人哉！與人期行，相委而去。」</td><td>一開口就罵「不是人」，只怪對方丟下自己，完全不提自己遲到。</td></tr>
+<tr><td class="c">元方</td><td class="serif">「君與家君期日中。日中不至，則是無信；對子罵父，則是無禮。」</td><td>先擺出事實（約在中午），再分兩層指出友人的錯：失約是<b>無信</b>，當着兒子罵父親是<b>無禮</b>。</td></tr>
+</table>
+<div class="compare-grid">
+<div class="compare-card bad"><div class="t">友人的說話</div>情緒先行，用惡言罵人；只看到自己被丟下，看不到自己失約在先。</div>
+<div class="compare-card good"><div class="t">元方的說話</div>先講事實，再講道理；兩句句式整齊，「無信」「無禮」各對應友人的一個過錯。</div>
+</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">留意稱謂</div><div class="alert-text">元方稱友人為「君」（敬稱），稱自己父親為「家君」（謙稱）。他雖然在反駁，用詞仍然有禮。這和友人「對子罵父」正好相反，元方在禮貌上也勝了一籌。</div></div></div>
+</div>
+<div class="card">
+<h3><span class="dot purple"></span>第三部分：友人慚愧，元方不顧</h3>
+<div class="example-box"><div class="example-label">原文</div><div class="example-text serif">友人慚，下車引之。元方入門，不顧。</div></div>
+<p>「慚」字寫友人的心理：他聽完元方的話，知道自己理虧。「下車引之」是想拉元方的手，表示友好。</p>
+<p>元方的回應只有四個字「入門，不顧」，走入家門，連頭也不回。他用行動表明態度：看不起友人失信、無禮的行為。</p>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">討論：元方是否太不近人情？</div><div class="alert-text">有人認為友人已經知錯示好，元方應該給對方下台階；也有人認為元方年僅七歲，就能分清是非、不輕易接受道歉，正是本文要表現的「方正」。課本的看法偏向後者（愛恨分明）。兩種看法都可以討論，但答題時要以文本和課本立場為依據。</div></div></div>
+</div>
+<!-- ============ 05 ============ -->
+<div class="section-header" id="s5"><span class="icon">✍️</span><h2>寫作手法</h2><span class="chap">CHAPTER 05</span></div>
+<div class="card">
+<h3><span class="dot teal"></span>記敍方法：順敍法</h3>
+<p>按事情發生的先後次序記述事件。本文先寫陳太丘和友人相約、友人失約；接着寫友人對着元方責罵陳太丘，遭元方反駁；最後寫友人慚愧，元方返回家中。</p>
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">作用（答題用語）</div><div class="alert-text">按時間先後，清楚交代事件的起因、經過和結果，使文章條理清晰。</div></div></div>
+</div>
+<div class="card">
+<h3><span class="dot coral"></span>修辭：頂真</h3>
+<p>前一句結尾的詞語，用作下一句的開頭。</p>
+<div class="example-box coral"><div class="example-label">課文例子</div><div class="example-text serif">君與家君期<span class="dotted">日中</span>。<span class="dotted">日中</span>不至……</div></div>
+<p>元方把「日中」接連說了兩次：先說約定的時間是日中，緊接着說你日中沒有到。句子一環扣一環，突出約定時間，友人失信的事實也就無從抵賴。</p>
+</div>
+<div class="card">
+<h3><span class="dot purple"></span>人物描寫</h3>
+<table>
+<tr><th class="c">描寫方法</th><th>例子</th><th>作用</th></tr>
+<tr><td class="c">語言描寫</td><td class="serif">「尊君在不？」<br/>「待君久不至，已去。」<br/>「非人哉！與人期行，相委而去。」<br/>「君與家君期日中……則是無禮。」</td><td>通過對話寫出友人由客氣到暴躁，以及元方的冷靜、聰敏和明辨是非。</td></tr>
+<tr><td class="c">心理描寫</td><td class="serif">友人慚。</td><td>寫出友人被元方說中要害，自知理虧。</td></tr>
+<tr><td class="c">行動描寫</td><td class="serif">（友人）下車引之。<br/>元方入門，不顧。</td><td>友人想示好；元方不予理會，表明他鄙視失信無禮的行為。</td></tr>
+</table>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧</div><div class="alert-text">答「描寫方法」題要三步：說出方法 → 引原文 → 說出寫出人物甚麼特點或心情。只寫「運用了語言描寫」通常拿不到全分。</div></div></div>
+</div>
+<!-- ============ 06 ============ -->
+<div class="section-header" id="s6"><span class="icon">🎯</span><h2>人物形象與主旨</h2><span class="chap">CHAPTER 06</span></div>
+<div class="card">
+<h3><span class="dot teal"></span>人物形象</h3>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word">陳元方：聰明靈敏</div><div class="kw-def">七歲就能抓住「日中」這個關鍵，一句話指出對方兩個錯處。</div></div>
+<div class="kw"><div class="kw-word">陳元方：明辨是非</div><div class="kw-def">友人錯怪父親，他立即反駁，不因對方是大人而退讓。</div></div>
+<div class="kw"><div class="kw-word">陳元方：守信重禮</div><div class="kw-def">他重視「信」和「禮」，自己說話也守禮（稱「君」、「家君」）。</div></div>
+<div class="kw"><div class="kw-word">陳元方：愛恨分明</div><div class="kw-def">友人下車示好，他入門不顧，對失信無禮的行為不假辭色。</div></div>
+<div class="kw"><div class="kw-word">友人：失信無禮</div><div class="kw-def">自己遲到卻罵人，還當着孩子罵父親。</div></div>
+<div class="kw"><div class="kw-word">友人：知錯</div><div class="kw-def">被指出錯處後感到慚愧，想向元方示好。</div></div>
+</div>
+</div>
+<div class="card">
+<h3><span class="dot coral"></span>友人的情緒變化</h3>
+<div class="flow">
+<div class="flow-step"><b>怒</b>以為被陳太丘丟下，十分生氣</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><b>慚</b>聽了元方的反駁，知道自己無信無禮，感到羞愧</div>
+</div>
+</div>
+<div class="formula">
+<div class="fl">主旨．一句記</div>
+  本文通過記述陳太丘跟朋友相約而朋友失約的事情，刻畫陳元方聰明靈敏、明辨是非和守信重禮的形象，並帶出「守信」和「知禮」的重要。
+</div>
+<!-- ============ 07 ============ -->
+<div class="section-header" id="s7"><span class="icon">🖊️</span><h2>文言字詞與語譯</h2><span class="chap">CHAPTER 07</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button class="tb-btn ans-all" onclick="setAll(!allShown())" type="button">👁 全部顯示答案</button></div>
+<div class="card">
+<h3><span class="dot purple"></span>概念：單音節詞與複音節詞</h3>
+<p>文言文多用一個字表達一個意思（單音節詞），現代白話文則多用兩個字（複音節詞）。翻譯時，可以把單音節詞擴充成意思相同的複音節詞，例如「戲」→「玩耍」、「怒」→「憤怒」。</p>
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">擴充時要顧及上文下文。「戲」也可組成「戲弄」，但元方在門外是在玩，不是捉弄人，所以應譯作「玩耍」。</div></div></div>
+</div>
+<div class="card">
+<h3><span class="dot teal"></span>概念：「之」和「與」</h3>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word">之（代詞）</div><div class="kw-def">放在動詞後面，指代上文提及的人或事物，可譯作「他」、「它」。</div></div>
+<div class="kw"><div class="kw-word">與（介詞）</div><div class="kw-def">可解作「跟」、「和」，表示一起做某事的對象。</div></div>
+<div class="kw"><div class="kw-word">與（語氣詞）</div><div class="kw-def">放在句末時同「歟」，表示疑問，可譯作「嗎」。</div></div>
+</div>
+</div>
+<div class="qsub">甲．版邊問題（課本頁1.22）</div>
+<div class="qbox"><span class="qn">1.</span>為甚麼陳太丘的朋友到來時，見不到陳太丘？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>因為他過了約定的時間才到達，陳太丘已經離去了。</div></div></div>
+<div class="qbox"><span class="qn">2.</span>友人知道陳太丘離開後，他有甚麼反應？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>友人罵陳太丘不是人，和人約好，自己卻先走了，不守信用。</div></div></div>
+<div class="qsub">乙．古漢語知識（課本頁1.24）</div>
+<div class="qbox"><span class="qn">1.</span>以下句子中附着重號的字詞都是單音節詞。試指出它們的複音節詞是甚麼。（塗滿相應的圓圈）
+  <table>
+<tr><td class="nw serif">(1) 門外<span class="dotted">戲</span>。</td><td>戲：<span class="opt">○ 玩耍</span><span class="opt">○ 戲弄</span></td></tr>
+<tr><td class="nw serif">(2) 友人便<span class="dotted">怒</span>曰。</td><td>怒：<span class="opt">○ 責罵</span><span class="opt">○ 憤怒</span></td></tr>
+<tr><td class="nw serif">(3) 友人<span class="dotted">慚</span>。</td><td>慚：<span class="opt">○ 慚愧</span><span class="opt">○ 後悔</span></td></tr>
+</table>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>(1) 玩耍　(2) 憤怒　(3) 慚愧</div></div></div>
+<div class="qbox"><span class="qn">2.</span>試寫出以下句子中「之」字的意思。<br/><span class="serif">下車引<span class="dotted">之</span>。</span>　意思：<span class="blank l"></span><div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>他（指陳元方）</div></div></div>
+<div class="qbox"><span class="qn">3.</span>試選出以下句子中「與」字的意思。（塗滿相應的圓圈）
+  <table>
+<tr><td class="nw serif">(1) 陳太丘<span class="dotted">與</span>友期行。</td><td><span class="opt">○ 跟</span><span class="opt">○ 向</span><span class="opt">○ 嗎</span></td></tr>
+<tr><td class="nw serif">(2) 君<span class="dotted">與</span>家君期日中。</td><td><span class="opt">○ 跟</span><span class="opt">○ 向</span><span class="opt">○ 嗎</span></td></tr>
+</table>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>(1) 跟　(2) 跟</div></div></div>
+<div class="qsub">丙．詞句語譯（課本頁1.25）</div>
+<div class="qbox"><span class="qn">1.</span>指出以下句子中附着重號字詞的意思。（塗滿相應的圓圈）<span class="mark">（4分）</span>
+<table>
+<tr><td class="nw serif">(1) 過<span class="dotted">中</span>不至。</td><td>中：<span class="opt">○ 中間</span><span class="opt">○ 中午</span></td></tr>
+<tr><td class="nw serif">(2) <span class="dotted">待</span>君久不至。</td><td>待：<span class="opt">○ 等待</span><span class="opt">○ 對待</span></td></tr>
+</table>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（4分，每分題2分）(1) 中午　(2) 等待</div></div></div>
+<div class="qbox"><span class="qn">2.</span>根據文意，把以下句子語譯為白話文。<span class="mark">（5分）</span>
+<p class="serif" style="margin:8px 0 2px">(1) 日中不至，則是無信；對子罵父，則是無禮。</p>
+<p style="line-height:2.4">（您）到了中午時分<span class="blank l"></span>（1），就是沒有 <span class="opt">○ 信用</span><span class="opt">○ 信心</span>（2）；在小孩子面前<span class="blank"></span>（3）（他的）父親，就是沒有禮貌。</p>
+<p class="serif" style="margin:8px 0 2px">(2) 元方入門，不顧。</p>
+<p style="line-height:2.4">元方走入<span class="blank"></span>（4），沒有<span class="blank l"></span>（5）。</p>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（5分，每個答案1分）(1) 還沒有到來　(2) 信用　(3) 責罵　(4) 家門　(5) 回頭看他</div></div></div>
+<div class="qsub">丁．全篇語譯填充（語譯工作紙）</div>
+<div class="qbox"><span class="qn">1.</span>細閱課文，在橫線上填上適當的詞語，完成全篇語譯。
+  <div class="trans-ws">陳太丘跟朋友相約（一同）<span class="blank"></span>（1），相約（在）<span class="blank"></span>（2）（見面）。過了中午（朋友）沒有到來，陳太丘<span class="blank s"></span>（3）（朋友而）離去，（陳太丘）離去後（朋友）才來到。陳元方年僅七歲，（在）家門外<span class="blank s"></span>（4）。訪客問元方：「你的父親在嗎？」（元方）回答說：「（父親）<span class="blank s"></span>（5）您很久（，您）沒到，（他）已經離開。」朋友於是<span class="blank s"></span>（6）地說：「（你父親）<span class="blank"></span>（7）啊！和別人相約同行，（卻）捨棄別人就離開。」元方說：「您跟家父相約在中午時分。（您）到了中午時分沒有到來，就是<span class="blank"></span>（8）；在小孩子面前責罵（他的）父親，就是<span class="blank"></span>（9）。」朋友感到<span class="blank s"></span>（10），下車（去）拉元方的手（以表示友好）。元方走入家門，沒有<span class="blank"></span>（11）（他）。</div>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>(1) 行走　(2) 中午時分　(3) 捨棄　(4) 玩耍　(5) 等待　(6) 憤怒　(7) 不是人　(8) 沒有信用　(9) 沒有禮貌　(10) 慚愧　(11) 回頭看
+  <div style="margin-top:8px;font-size:13.5px"><b>全篇語譯：</b>陳太丘跟朋友相約（一同）行走，相約（在）中午時分（見面）。過了中午（朋友）沒有到來，陳太丘捨棄（朋友而）離去，（陳太丘）離去後（朋友）才來到。陳元方年僅七歲，（在）家門外玩耍。訪客問元方：「你的父親在嗎？」（元方）回答說：「（父親）等待您很久（，您）沒到，（他）已經離開。」朋友於是憤怒地說：「（你父親）不是人啊！和別人相約同行，（卻）捨棄別人就離開。」元方說：「您跟家父相約在中午時分。（您）到了中午時分沒有到來，就是沒有信用；在小孩子面前責罵（他的）父親，就是沒有禮貌。」朋友感到慚愧，下車（去）拉元方的手（以表示友好）。元方走入家門，沒有回頭看（他）。</div></div></div></div>
+<div class="qsub">戊．延伸練習：稱謂與字義（潘SIR補充）</div>
+<div class="qbox"><span class="qn">1.</span>課文中出現了幾個稱謂。試完成下表。
+  <table>
+<tr><th class="c">稱謂</th><th>說話的人</th><th>指誰</th><th class="c">敬稱／謙稱</th></tr>
+<tr><td class="c serif">尊君</td><td>客（友人）</td><td><span class="blank"></span>（1）</td><td class="c"><span class="blank s"></span>（2）</td></tr>
+<tr><td class="c serif">家君</td><td>元方</td><td><span class="blank"></span>（3）</td><td class="c"><span class="blank s"></span>（4）</td></tr>
+<tr><td class="c serif">君</td><td>元方</td><td><span class="blank"></span>（5）</td><td class="c"><span class="blank s"></span>（6）</td></tr>
+</table>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>(1) 陳太丘（元方的父親）　(2) 敬稱　(3) 陳太丘（元方自己的父親）　(4) 謙稱　(5) 友人（客）　(6) 敬稱</div></div></div>
+<div class="qbox"><span class="qn">2.</span>元方反駁友人時，仍稱對方為「君」。這反映元方說話有甚麼特點？又和友人的說話形成怎樣的對照？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（示例）元方即使在反駁對方，仍用敬稱「君」稱呼友人、用謙稱「家君」稱呼父親，可見他說話有分寸、守禮。友人卻當着兒子罵父親「非人哉」，出言無禮。兩相對照，更見元方指責友人「無禮」是有理有據的。<br/><span style="font-size:13px">評分原則：指出元方守禮（1分）；指出友人出言無禮（1分）；說明兩者對照的效果（1分）。言之成理即可。</span></div></div></div>
+<div class="qbox"><span class="qn">3.</span>選出以下句子中附着重號的字的意思。（塗滿相應的圓圈）
+  <table>
+<tr><td class="nw serif">(1) 太丘舍<span class="dotted">去</span>。</td><td><span class="opt">○ 前往</span><span class="opt">○ 離開</span></td></tr>
+<tr><td class="nw serif">(2) 元方入門，不<span class="dotted">顧</span>。</td><td><span class="opt">○ 回頭看</span><span class="opt">○ 照顧</span></td></tr>
+<tr><td class="nw serif">(3) 相<span class="dotted">委</span>而去。</td><td><span class="opt">○ 委託</span><span class="opt">○ 捨棄</span></td></tr>
+<tr><td class="nw serif">(4) 下車<span class="dotted">引</span>之。</td><td><span class="opt">○ 拉</span><span class="opt">○ 帶領</span></td></tr>
+</table>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>(1) 離開　(2) 回頭看　(3) 捨棄　(4) 拉</div></div></div>
+<!-- ============ 08 ============ -->
+<div class="section-header" id="s8"><span class="icon">🧩</span><h2>篇章探究</h2><span class="chap">CHAPTER 08</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button class="tb-btn ans-all" onclick="setAll(!allShown())" type="button">👁 全部顯示答案</button></div>
+<p style="color:var(--color-text-secondary);font-size:13px">課本頁1.25～1.26</p>
+<div class="qbox"><span class="qn">1.</span>本文按內容表述可分為三個部分，以下哪一個劃分方法是最合適的？<span class="mark">（3分）</span>
+<table>
+<tr><th class="c"></th><th class="c">第一部分</th><th class="c">第二部分</th><th class="c">第三部分</th></tr>
+<tr><td class="c">○ A</td><td>「陳太丘與友期行」至「去後乃至」</td><td>「元方時年七歲」至「相委而去」</td><td>「元方曰」至「元方入門，不顧」</td></tr>
+<tr><td class="c">○ B</td><td>「陳太丘與友期行」至「去後乃至」</td><td>「元方時年七歲」至「則是無禮」</td><td>「友人慚」至「元方入門，不顧」</td></tr>
+</table>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（3分）B</div></div></div>
+<div class="qbox"><span class="qn">2.</span>根據課文內容，寫出本文的記敍六要素。<span class="mark">（11分）</span>
+<table>
+<tr><th class="c">記敍六要素</th><th>內容</th></tr>
+<tr><td class="c">時間</td><td>某天的<span class="blank"></span>（1）</td></tr>
+<tr><td class="c">地點</td><td><span class="blank"></span>（2）家門外</td></tr>
+<tr><td class="c">人物</td><td><span class="blank"></span>（3）、<span class="blank s"></span>（4）和<span class="blank s"></span>（5）</td></tr>
+<tr><td class="c">事件起因</td><td>陳太丘相約友人，<span class="blank s"></span>（6）沒有依時出現，陳太丘便<span class="blank"></span>（7）。</td></tr>
+<tr><td class="c">事件經過</td><td>友人責罵陳太丘沒有<span class="blank l"></span>（8），<span class="blank s"></span>（9）作出反駁。</td></tr>
+<tr><td class="c">事件結果</td><td>友人感到<span class="blank s"></span>（10），想拉元方的手，但元方<span class="blank l"></span>（11）。</td></tr>
+</table>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（11分，每個答案1分）(1) 下午　(2) 陳太丘　(3) 陳太丘　(4) 元方　(5) 友人　(6) 友人　(7) 先離去　(8) 等待自己就離去　(9) 元方　(10) 慚愧　(11) 沒有理會他</div></div></div>
+<div class="qbox"><span class="qn">3.</span>陳元方怎樣反駁友人對父親的指責？他為甚麼這樣說？<span class="mark">（4分）</span>
+<p style="line-height:2.4">陳元方說友人「無信」和「無禮」。原因是友人沒有按<span class="blank l"></span>（1）到來，就是<span class="blank"></span>（2）；友人在小孩面前責罵<span class="blank"></span>（3），就是<span class="blank"></span>（4）。</p>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（4分，每個答案1分）(1) 約定的時間　(2) 不講信用　(3) 他的父親　(4) 沒有禮貌</div></div></div>
+<div class="qbox"><span class="qn">4.</span>根據文章的描述，友人的情緒出現甚麼變化？<span class="mark">（5分）</span>
+<p style="line-height:2.4">從文中「<span class="blank s"></span>」（1）字和「<span class="blank s"></span>」（2）字（摘錄原文文字）可見，友人起初知道陳太丘沒有等自己先離開，感到 <span class="opt">○ 無奈</span><span class="opt">○ 生氣</span><span class="opt">○ 失望</span>（3）。他後來聽到陳元方的反駁，知道自己<span class="blank l"></span>（4），於是感到 <span class="opt">○ 難過</span><span class="opt">○ 後悔</span><span class="opt">○ 羞愧</span>（5）。</p>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（5分，每個答案1分）(1) 怒　(2) 慚　(3) 生氣　(4) 沒有信用和禮貌　(5) 羞愧</div></div></div>
+<div class="qbox"><span class="qn">5.</span>到最後，陳元方為甚麼頭也不回便進入家門？<span class="mark">（2分）</span>
+<ul class="opts">
+<li><b>A</b>因為他害怕友人會罵他。</li>
+<li><b>B</b>因為友人的說話令他感到慚愧。</li>
+<li><b>C</b>因為他想用行動來表示看不起友人的失信和無禮行為。</li>
+<li><b>D</b>因為他怕父親回來時看見他在街上玩耍。</li>
+</ul>
+<div class="ansrow">A ○　　B ○　　C ○　　D ○</div>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（2分）C<br/><span style="font-size:13px">友人聽到元方反駁後感到慚愧，並「下車引之」，想拉元方的手表示友好，可見友人沒有打算責罵元方，故A不正確。「友人慚」，感到慚愧的是友人，不是元方，故B不正確。課文沒有提及元方怕父親看見他在街上玩耍，故D不正確。元方指友人「無信」和「無禮」，然後不理友人示好，入門「不顧」，可見他鄙視友人失信和無禮的行為，故C正確。</span></div></div></div>
+<div class="qbox"><span class="qn">6.</span>本文的主旨是甚麼？<span class="mark">（3分）</span>
+<ol style="list-style:none;padding-left:0;margin:6px 0">
+<li>① 慨歎社會風氣敗壞，不重視「守信」和「知禮」。</li>
+<li>② 反映了陳元方的聰敏和明辨是非。</li>
+<li>③ 帶出世人應重視「守信」和「知禮」。</li>
+<li>④ 諷刺那些不講信用的人。</li>
+</ol>
+<ul class="opts">
+<li><b>A</b>①②</li><li><b>B</b>②③</li><li><b>C</b>③④</li><li><b>D</b>①④</li>
+</ul>
+<div class="ansrow">A ○　　B ○　　C ○　　D ○</div>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（3分）B<br/><span style="font-size:13px">元方當時只有七歲，面對友人責罵父親，不但不害怕，還義正詞嚴地指出對方沒有信用和禮貌，令友人慚愧，反映他聰敏、明辨是非（②）。元方因看不起友人「無信」、「無禮」而頭也不回地入門，帶出守信知禮的重要（③）。故答案是B。</span></div></div></div>
+<div class="qbox"><span class="qn">7.</span>根據本文情節的安排，作者運用了甚麼記敍方法？運用這種方法有甚麼好處？<span class="mark">（3分）</span>
+<p style="line-height:2.4">作者運用了 <span class="opt">○ 順敍法</span><span class="opt">○ 倒敍法</span>（1）（塗滿相應的圓圈），運用這種方法的好處是可按<span class="blank l"></span>（2）的先後，清楚交代事件的<span class="blank l"></span>（3）。</p>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（3分，每個答案1分）(1) 順敍法　(2) 時間／事件發生　(3) 來龍去脈</div></div></div>
+<!-- ============ 09 ============ -->
+<div class="section-header" id="s9"><span class="icon">💭</span><h2>進階思考與比較閱讀</h2><span class="chap">CHAPTER 09</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button class="tb-btn ans-all" onclick="setAll(!allShown())" type="button">👁 全部顯示答案</button></div>
+<div class="qsub">甲．進階思考（課本頁1.27）</div>
+<div class="qbox"><span class="qn">1.</span>從陳元方對友人的反應，能看到他的為人。試完成以下表格。（塗滿相應的圓圈）<span class="mark">（4分）</span>
+<table>
+<tr><th>對友人的反應</th><th class="c">為人</th></tr>
+<tr><td>友人錯怪父親，陳元方立即 <span class="opt">○ 轉身離開</span>╱<span class="opt">○ 反駁對方</span>（1）。</td><td class="c">明辨是非</td></tr>
+<tr><td>友人下車向陳元方表示友好，但陳元方沒有理會，轉身走入家門。</td><td><span class="opt">○ 冷漠無情</span><br/><span class="opt">○ 害羞怕生</span><br/><span class="opt">○ 愛恨分明</span>（2）</td></tr>
+</table>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（4分）(1) 反駁對方（2分）　(2) 愛恨分明（2分）</div></div></div>
+<div class="qbox"><span class="qn">2.</span>友人知道陳太丘沒有等他到來便離去後，十分生氣。如果你是友人，你也會有同樣的反應嗎？為甚麼？<span class="mark">（3分）</span>
+<div class="alert amber" style="margin:6px 0"><div class="alert-icon">📌</div><div><div class="alert-label">提示</div><div class="alert-text">在這次事件中，誰先做錯了？</div></div></div>
+<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（3分，示例）<br/>我會生氣，因為他既然和我約定了，便要遵守約定（1分）；他可以在我到達後指責我，令我明白自己的過錯（1分），但不應該不理會我而離去（1分）。<br/>／我不會生氣，因為我遲到，沒有遵守約定（1分），理虧的是自己（1分），我沒有資格去怪責對方（1分），所以我會接受他的做法。<br/><span style="font-size:13px">答案僅供參考，學生言之成理即可。</span></div></div></div>
+<div class="qsub">乙．比較閱讀（課本頁1.27～1.28）</div>
+<div class="card">
+<h3><span class="dot amber"></span>閱讀以下引文，然後回答問題。</h3>
+<div class="excerpt">
+<p>東漢時，郭伋出任并州牧。他到任後巡視各地，來到西河郡美稷縣，有幾百個小孩各自騎着竹馬，在路旁迎接他。郭伋問他們：「你們為甚麼老遠走來？」小孩答道：「聽說大人到來，我們很高興，所以來迎接您。」郭伋向他們道謝。</p>
+<p>郭伋辦完公事，小孩們又陪他走到城外送別，問道：「大人哪一天回來？」郭伋吩咐隨行的官員計算好日子，告訴了小孩。</p>
+<p>後來郭伋巡視完畢，回程時比約定的日子早了一天到達美稷。他想到和小孩的約定，不願失信於他們，於是在郊外的涼亭住了一晚，待到約定的日子才入城。</p>
+<div class="src">改寫自《後漢書．郭伋傳》</div>
+<div class="orig">原文：始至行部，到西河美稷，有童兒數百，各騎竹馬，道次迎拜。伋問：「兒曹何自遠來？」對曰：「聞使君到，喜，故來奉迎。」伋辭謝之。及事訖，諸兒復送至郭外，問：「使君何日當還？」伋謂別駕從事，計日告之。行部既還，先期一日，伋為違信於諸兒，遂止於野亭，須期乃入。</div>
+</div>
+</div>
+<div class="qbox"><span class="qn">1.</span>郭伋為甚麼要在郊外的涼亭睡一晚？<span class="mark">（2分）</span>
+<ul class="opts">
+<li><b>A</b>因為他曾在這裏跟小孩道別。</li>
+<li><b>B</b>因為他答應了小孩子要在清早入城。</li>
+<li><b>C</b>因為城門已關閉，不能入城。</li>
+<li><b>D</b>因為他想在和小孩子約定的那一天才入城。</li>
+</ul>
+<div class="ansrow">A ○　　B ○　　C ○　　D ○</div>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（2分）D<br/><span style="font-size:13px">引文只提到小孩送別郭伋時陪他走到城外，沒有提到涼亭，故A錯誤。郭伋只是派人告訴小孩回來的日子，沒有提到在甚麼時分回到美稷，故B錯誤。郭伋本來可以提早一天回到美稷，他不入城和城門是否關閉沒有關係，故C錯誤。引文結尾提到郭伋想到和小孩的約定，待到約定的日子才入城，故答案是D。</span></div></div></div>
+<div class="qbox"><span class="qn">2.</span>《陳太丘與友期行》中的友人和引文中的郭伋，分別怎樣對待與別人的約定？誰的做法值得讚揚？為甚麼？（塗滿相應的圓圈或填上正確答案）<span class="mark">（6分）</span>
+<table>
+<tr><th class="c"></th><th>做法</th><th>是否值得讚揚</th></tr>
+<tr><td class="c">友人</td><td><span class="opt">○ 按照</span>／<span class="opt">○ 不按照</span>（1）約定的時間出現。</td><td><span class="opt">○ 值得</span>／<span class="opt">○ 不值得</span>（2）讚揚，因為<span class="blank l"></span>（3）。</td></tr>
+<tr><td class="c">郭伋</td><td>為了<span class="blank l"></span>（4），寧願在郊外露宿等待。</td><td><span class="opt">○ 值得</span>／<span class="opt">○ 不值得</span>（5）讚揚，因為<span class="blank l"></span>（6）。</td></tr>
+</table>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>（6分，每個答案1分）<br/>友人：(1) 不按照　(2) 不值得　(3) 他不遵守約定，是不講信用的表現<br/>郭伋：(4) 遵守約定的日子　(5) 值得　(6) 他遵守約定，表示他講信用和尊重別人</div></div></div>
+<!-- ============ 10 ============ -->
+<div class="section-header" id="s10"><span class="icon">🗂️</span><h2>課文總結</h2><span class="chap">CHAPTER 10</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button class="tb-btn ans-all" onclick="setAll(!allShown())" type="button">👁 全部顯示答案</button></div>
+<p style="color:var(--color-text-secondary);font-size:13px">課本頁1.29；結構圖與「課文結構工作紙」相同，合併為一題。</p>
+<div class="qbox"><span class="qn">1.</span>主旨：
+  <p style="line-height:2.4">本文通過記述陳太丘跟朋友相約而朋友<span class="blank s"></span>（1）的事情，刻畫陳元方聰明靈敏、<span class="blank"></span>（2）和<span class="blank"></span>（3）的形象，並帶出<span class="blank"></span>（4）和<span class="blank"></span>（5）的重要。</p>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>(1) 失約　(2) 明辨是非　(3) 守信重禮　(4)「守信」　(5)「知禮」</div></div></div>
+<div class="qbox"><span class="qn">2.</span>完成課文結構圖。
+  <div class="sdiag">
+<div class="top">陳太丘和友人的約定　｜　陳太丘和友人相約一同出行。</div>
+<div class="lab">事件起因</div>
+<div class="body"><span class="blank"></span>（1）沒有按相約的時間出現，<span class="blank"></span>（2）先行離去。<br/>友人十分生氣，在<span class="blank s"></span>（3）面前責罵<span class="blank"></span>（4）。</div>
+<div class="lab">事件經過</div>
+<div class="body"><span class="blank s"></span>（5）作出反駁，指出友人「<span class="blank s"></span>」（6）和「<span class="blank s"></span>」（7）。<br/>友人感到<span class="blank s"></span>（8），下車拉着元方的手表示<span class="blank s"></span>（9）。</div>
+<div class="lab">事件結果</div>
+<div class="body">元方<span class="blank l"></span>（10），沒有理會。</div>
+</div>
+<p style="font-size:13px;color:var(--color-text-secondary)">運用順敍法：按事情發生的先後次序記述事件。</p>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>(1) 友人　(2) 陳太丘　(3) 元方　(4) 陳太丘　(5) 元方　(6) 無信　(7) 無禮　(8) 慚愧　(9) 友好　(10) 轉身走入家門</div></div></div>
+<div class="qbox"><span class="qn">3.</span>寫作手法：運用順敍法
+  <p style="line-height:2.4">‧本文按事情發生的先後次序交代事件，先寫<span class="blank"></span>（1）和<span class="blank s"></span>（2）相約同行，但<span class="blank s"></span>（3）失約，接着寫友人對着元方責罵<span class="blank"></span>（4），遭元方反駁，最後寫友人表示<span class="blank s"></span>（5），而元方則<span class="blank"></span>（6）。</p>
+<p style="line-height:2.4">‧運用順敍法的好處是按時間順序，清楚交代事件的起因、<span class="blank s"></span>（7）和<span class="blank s"></span>（8），使文章條理清晰。</p>
+<div class="ans-wrap"><button class="ans-btn" onclick="toggleAns(this)" type="button">👁 顯示答案</button><div class="ans" hidden=""><span class="ans-tag">參考答案</span>(1) 陳太丘　(2) 友人　(3) 友人　(4) 陳太丘　(5) 慚愧　(6) 返回家中　(7) 經過　(8) 結果</div></div></div>
+<!-- ============ 答案 ============ -->
+
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+<div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+<span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br/>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br/>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
