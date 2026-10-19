@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>句子成分、擴句與縮句</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --purple:#6b5ba8;--purple-bg:#efecf8;
+  --teal:#2f8a80;--teal-bg:#e4f3f1;
+  --coral:#c8603f;--coral-bg:#fbebe5;
+  --amber:#b07a12;--amber-bg:#fbf2df;
+  --pink:#b44a78;--pink-bg:#f9e8f0;
+  --blue:#3b6fb0;--blue-bg:#e6eef9;
+  --green:#3c8a4f;--green-bg:#e6f3e8;
+  --red:#c0413b;--red-bg:#fbe8e7;
+  --subj:#c0413b;--pred:#3b6fb0;--obj:#3c8a4f;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececea;
+    --color-text-secondary:#a8a8a4;
+    --color-background-primary:#22221f;
+    --color-background-secondary:#181816;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a99be0;--purple-bg:#2c2840;
+    --teal:#6cc7bb;--teal-bg:#1d3532;
+    --coral:#e9906f;--coral-bg:#3d2620;
+    --amber:#e2b04f;--amber-bg:#3a2f18;
+    --pink:#e58ab0;--pink-bg:#3b2330;
+    --blue:#82aee8;--blue-bg:#1f2b3d;
+    --green:#7cc48d;--green-bg:#1e3323;
+    --red:#ec8580;--red-bg:#3c2120;
+    --subj:#ec8580;--pred:#82aee8;--obj:#7cc48d;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3{font-family:'Noto Serif TC',serif}
+
+.hero{background:#DDD3C2;color:#2A2114;border-radius:var(--border-radius-lg);padding:32px 26px;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(42,33,20,0.3);color:rgba(42,33,20,0.65);border-radius:999px;padding:2px 12px;font-size:12px;letter-spacing:2px;margin-bottom:12px}
+.hero h1{margin:0 0 6px;font-size:28px;line-height:1.4;color:#2A2114}
+.hero .sub{font-size:14px;color:rgba(42,33,20,0.7);margin-bottom:10px}
+.hero p{margin:0;font-size:13px;color:rgba(42,33,20,0.5)}
+
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px}
+.toc-title{font-weight:700;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:block;color:var(--color-text-primary);text-decoration:none;padding:4px 0;border-bottom:1px dashed var(--color-border-tertiary)}
+.toc-item:last-child{border-bottom:none}
+.toc-num{display:inline-block;width:32px;color:var(--purple);font-weight:700}
+
+.section-header{display:flex;align-items:center;gap:12px;margin:34px 0 14px}
+.section-header .icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--purple-bg);flex-shrink:0}
+.section-header h2{margin:0;font-size:21px;line-height:1.3}
+.section-header .ch{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary)}
+
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
+.card h3{margin:0 0 8px;font-size:16px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.card p{margin:6px 0}
+
+.example-box{background:var(--purple-bg);border-left:4px solid var(--purple);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{background:var(--teal-bg);border-color:var(--teal)}
+.example-box.coral{background:var(--coral-bg);border-color:var(--coral)}
+.example-box.amber{background:var(--amber-bg);border-color:var(--amber)}
+.example-box.pink{background:var(--pink-bg);border-color:var(--pink)}
+.example-label{font-size:12px;font-weight:700;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-family:'Noto Serif TC',serif;font-size:16px;line-height:2}
+
+.s{color:var(--subj);border-bottom:2px solid var(--subj);font-weight:700}
+.v{color:var(--pred);border-bottom:2px solid var(--pred);font-weight:700}
+.o{color:var(--obj);border-bottom:2px solid var(--obj);font-weight:700}
+.add{background:var(--amber-bg);color:var(--amber);border-radius:4px;padding:0 3px}
+.del{text-decoration:line-through;color:var(--color-text-secondary);opacity:.7}
+
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert-icon{font-size:18px;line-height:1.6}
+.alert-label{font-weight:700;font-size:13px}
+.alert-text{font-size:14px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:10px 14px;font-size:14px}
+.compare-card.bad{background:var(--red-bg);border:1px solid var(--red)}
+.compare-card.good{background:var(--green-bg);border:1px solid var(--green)}
+.compare-card .t{font-weight:700;margin-bottom:4px}
+.compare-card.bad .t{color:var(--red)}.compare-card.good .t{color:var(--green)}
+
+.flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;margin:10px 0}
+.flow-step{flex:1 1 120px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;text-align:center}
+.flow-step b{display:block;color:var(--purple);font-size:13px}
+.flow-arrow{display:flex;align-items:center;color:var(--color-text-secondary);font-weight:700}
+
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;border-top:3px solid var(--purple)}
+.kw.red{border-color:var(--subj)}.kw.blue{border-color:var(--pred)}.kw.green{border-color:var(--obj)}.kw.amber{border-color:var(--amber)}.kw.teal{border-color:var(--teal)}
+.kw-word{font-weight:700;font-size:15px;font-family:'Noto Serif TC',serif}
+.kw-def{font-size:13.5px;color:var(--color-text-secondary)}
+
+.formula{background:#2f3a40;color:#f3efe6;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:2}
+.formula .ft{font-size:12px;letter-spacing:2px;opacity:.7;margin-bottom:4px}
+
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px;background:var(--color-background-primary)}
+th,td{border:0.5px solid var(--color-border-tertiary);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--color-background-secondary);font-weight:700}
+.c{white-space:nowrap;text-align:center}
+
+.ex-head{margin-top:26px;padding:8px 14px;background:var(--amber-bg);border-radius:var(--border-radius-md);color:var(--amber)}
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary)}
+.line{border-bottom:1px solid var(--color-text-secondary);height:30px;opacity:.5}
+.blank{display:inline-block;border-bottom:1px solid var(--color-text-primary);min-width:60px;margin:0 3px}
+.blank.s{min-width:36px;border-bottom:1px solid var(--color-text-primary);color:inherit;font-weight:400}
+.blank.l{min-width:120px}
+.sent{font-family:'Noto Serif TC',serif;font-size:15.5px;margin:6px 0 2px}
+
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border:none}
+
+@media (max-width:560px){
+  .compare-grid{grid-template-columns:1fr}
+  .hero h1{font-size:23px}
+  .flow-arrow{transform:rotate(90deg);width:100%;justify-content:center}
+}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula,.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">語法教學筆記</div>
+  <h1>找骨幹、加血肉：句子成分、擴句與縮句</h1>
+  <div class="sub">小學三年級　句子結構　3.1–3.3</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>句子成分：主語、謂語、賓語（附練習一）</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>擴句：為句子加上血肉（附練習二）</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>縮句：找回句子的骨幹（附練習三）</a>
+</nav>
+
+<!-- ===== 01 ===== -->
+<div class="section-header first" id="s1">
+  <div class="icon">🧩</div>
+  <div><div class="ch">CHAPTER 01</div><h2>句子成分：主語、謂語、賓語</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>一個完整的句子有甚麼？</h3>
+  <p>一個完整的句子，最少要說清楚「誰」和「做甚麼」。很多句子還會交代「做甚麼東西」。這三部分就是句子的骨幹。</p>
+  <div class="keyword-grid">
+    <div class="kw red"><div class="kw-word" style="color:var(--subj)">主語</div><div class="kw-def">句子說的是「誰」或「甚麼」。</div></div>
+    <div class="kw blue"><div class="kw-word" style="color:var(--pred)">謂語</div><div class="kw-def">主語「做甚麼」或「怎麼樣」。</div></div>
+    <div class="kw green"><div class="kw-word" style="color:var(--obj)">賓語</div><div class="kw-def">動作的對象，即「做甚麼東西」。</div></div>
+  </div>
+  <div class="example-box">
+    <div class="example-label">示例</div>
+    <div class="example-text"><span class="s">小明</span><span class="v">踢</span><span class="o">足球</span>。<br><span class="s">妹妹</span><span class="v">畫</span><span class="o">小貓</span>。</div>
+  </div>
+  <p style="font-size:13px;color:var(--color-text-secondary)">本筆記以紅色表示主語，藍色表示謂語，綠色表示賓語。上課時可請學生用三種顏色筆畫底線。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>用三個問題找成分</h3>
+  <div class="flow">
+    <div class="flow-step"><b>先問「誰？」</b>找出主語</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>再問「做甚麼？」</b>找出謂語</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>後問「做甚麼東西？」</b>找出賓語</div>
+  </div>
+  <div class="example-box teal">
+    <div class="example-label">一起試試：媽媽煮晚飯。</div>
+    <div class="example-text">誰？<span class="s">媽媽</span>　做甚麼？<span class="v">煮</span>　煮甚麼？<span class="o">晚飯</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>要留意的地方</h3>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">不是每句都有賓語</div><div class="alert-text">有些動作沒有對象，句子只有主語和謂語也是完整的。例如：<span class="s">弟弟</span><span class="v">笑了</span>。<span class="s">小鳥</span><span class="v">飛走了</span>。</div></div>
+  </div>
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div><div class="alert-label">謂語也可以說「怎麼樣」</div><div class="alert-text">謂語不一定是動作，也可以是樣子或感受。例如：<span class="s">天空</span><span class="v">很藍</span>。<span class="s">我</span><span class="v">很開心</span>。</div></div>
+  </div>
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div><div class="alert-label">主語不一定是人</div><div class="alert-text">動物、物件、天氣都可以做主語。例如：<span class="s">大風</span><span class="v">吹走了</span><span class="o">樹葉</span>。</div></div>
+  </div>
+</div>
+
+<div class="qsub ex-head">練習一：句子成分</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>找出下列句子的主語、謂語和賓語，填在表內。沒有賓語的，請寫「沒有」。<span class="mark">（10分）</span>
+  <table>
+    <tr><th>句子</th><th class="c">主語</th><th class="c">謂語</th><th class="c">賓語</th></tr>
+    <tr><td>（1）媽媽煮晚飯。</td><td></td><td></td><td></td></tr>
+    <tr><td>（2）小狗追蝴蝶。</td><td></td><td></td><td></td></tr>
+    <tr><td>（3）哥哥看圖書。</td><td></td><td></td><td></td></tr>
+    <tr><td>（4）爸爸修理單車。</td><td></td><td></td><td></td></tr>
+    <tr><td>（5）太陽升起來了。</td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每句2分）<br>（1）媽媽／煮／晚飯　（2）小狗／追／蝴蝶　（3）哥哥／看／圖書　（4）爸爸／修理／單車　（5）太陽／升起來了／沒有<br><span style="font-size:13px">第（5）句「升起來」沒有對象，所以沒有賓語。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>下列句子完整嗎？完整的加 ○，不完整的加 ✗，並說出缺了甚麼。<span class="mark">（8分）</span>
+  <table>
+    <tr><th>句子</th><th class="c">○／✗</th><th>缺了甚麼？</th></tr>
+    <tr><td>（1）在公園裏玩耍。</td><td></td><td></td></tr>
+    <tr><td>（2）妹妹畫了一幅畫。</td><td></td><td></td></tr>
+    <tr><td>（3）我的新書包。</td><td></td><td></td></tr>
+    <tr><td>（4）同學們打掃課室。</td><td></td><td></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每句2分）<br>（1）✗，缺主語（不知道誰在玩耍）　（2）○　（3）✗，缺謂語（沒有說書包怎麼樣）　（4）○</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">3.</span>在橫線上補上缺少的部分，使句子完整。<span class="mark">（6分）</span>
+  <div class="sent">（1）<span class="blank l"></span>在台上唱歌。（補主語）</div>
+  <div class="sent">（2）老師<span class="blank l"></span>黑板。（補謂語）</div>
+  <div class="sent">（3）弟弟吃<span class="blank l"></span>。（補賓語）</div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每句2分，示例）<br>（1）姐姐　（2）擦／抹　（3）蘋果<br><span style="font-size:13px">學生自由作答，合乎句意即可。第（2）句須填動作，並能與「黑板」配搭。</span></div>
+  </div>
+</div>
+
+
+<!-- ===== 02 ===== -->
+<div class="section-header" id="s2">
+  <div class="icon" style="background:var(--amber-bg)">➕</div>
+  <div><div class="ch">CHAPTER 02</div><h2>擴句：為句子加上血肉</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>甚麼是擴句？</h3>
+  <p>擴句就是在句子的骨幹上加入詞語，讓句子更具體、更生動。骨幹和原意都不變，只是內容多了。</p>
+  <p>擴句時，可以問自己以下四個問題：</p>
+  <div class="keyword-grid">
+    <div class="kw amber"><div class="kw-word">甚麼樣的？</div><div class="kw-def">形容人或物，放在主語或賓語前面，多用「的」。例：<b>可愛的</b>小貓</div></div>
+    <div class="kw amber"><div class="kw-word">甚麼時候？</div><div class="kw-def">說出時間。例：<b>今天早上</b>、<b>放學後</b></div></div>
+    <div class="kw amber"><div class="kw-word">在哪裏？</div><div class="kw-def">說出地點。例：<b>在操場上</b>、<b>在廚房裏</b></div></div>
+    <div class="kw amber"><div class="kw-word">怎樣地？</div><div class="kw-def">形容動作，放在謂語前面，多用「地」。例：<b>開心地</b>跑</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>一步一步擴句</h3>
+  <div class="example-box">
+    <div class="example-label">骨幹</div>
+    <div class="example-text"><span class="s">小明</span><span class="v">踢</span><span class="o">足球</span>。</div>
+  </div>
+  <div class="example-box amber">
+    <div class="example-label">加「在哪裏」</div>
+    <div class="example-text"><span class="s">小明</span><span class="add">在操場上</span><span class="v">踢</span><span class="o">足球</span>。</div>
+  </div>
+  <div class="example-box amber">
+    <div class="example-label">再加「怎樣地」</div>
+    <div class="example-text"><span class="s">小明</span>在操場上<span class="add">開心地</span><span class="v">踢</span><span class="o">足球</span>。</div>
+  </div>
+  <div class="example-box amber">
+    <div class="example-label">再加「甚麼時候」和「甚麼樣的」</div>
+    <div class="example-text"><span class="add">放學後，</span><span class="s">小明</span>在操場上開心地<span class="v">踢</span>着<span class="add">一個新的</span><span class="o">足球</span>。</div>
+  </div>
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div><div class="alert-label">常見次序</div><div class="alert-text">甚麼時候 → 誰 → 在哪裏 → 怎樣地 → 做甚麼 → 甚麼樣的 → 東西</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>「的」和「地」不要混淆</h3>
+  <table>
+    <tr><th class="c">字</th><th>後面接</th><th>例子</th></tr>
+    <tr><td class="c"><b>的</b></td><td>人或物（名詞）</td><td>美麗<b>的</b>花朵、高高<b>的</b>大樹</td></tr>
+    <tr><td class="c"><b>地</b></td><td>動作（動詞）</td><td>慢慢<b>地</b>走、認真<b>地</b>做功課</td></tr>
+  </table>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="t">✗ 不通順</div>小明在開心地操場上踢足球。<br><span style="font-size:13px">「開心地」形容動作，不能插進地點裏面。</span></div>
+    <div class="compare-card good"><div class="t">✓ 通順</div>小明在操場上開心地踢足球。<br><span style="font-size:13px">「開心地」緊貼在「踢」前面。</span></div>
+  </div>
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div><div class="alert-label">擴句不可改變原意</div><div class="alert-text">「小明踢足球」不能擴成「小明的哥哥踢足球」，因為踢足球的人已經變了。</div></div>
+  </div>
+</div>
+
+<div class="qsub ex-head">練習二：擴句</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>按括號內的提示，擴寫「小鳥唱歌。」<span class="mark">（6分）</span>
+  <div class="sent">（1）加「甚麼樣的」：</div><div class="line"></div>
+  <div class="sent">（2）加「在哪裏」：</div><div class="line"></div>
+  <div class="sent">（3）加「怎樣地」：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每句2分，示例）<br>（1）可愛的小鳥唱歌。　（2）小鳥在樹上唱歌。　（3）小鳥快樂地唱歌。<br><span style="font-size:13px">學生自由作答，言之成理即可；第（1）句須用「的」，第（3）句須用「地」。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>在橫線上填「的」或「地」。<span class="mark">（5分）</span>
+  <div class="sent">（1）美麗<span class="blank s"></span>花朵　（2）認真<span class="blank s"></span>做功課　（3）高高<span class="blank s"></span>大樹</div>
+  <div class="sent">（4）慢慢<span class="blank s"></span>走路　（5）弟弟<span class="blank s"></span>玩具</div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每格1分）<br>（1）的　（2）地　（3）的　（4）地　（5）的<br><span style="font-size:13px">後面是人或物用「的」，後面是動作用「地」。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">3.</span>把下列詞語排成一個通順的句子。<span class="mark">（3分）</span>
+  <div class="sent">在操場上　／　同學們　／　開心地　／　放學後　／　打籃球</div>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）放學後，同學們在操場上開心地打籃球。<br><span style="font-size:13px">次序：甚麼時候 → 誰 → 在哪裏 → 怎樣地 → 做甚麼。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">4.</span>把「姐姐跳舞。」擴寫成不少於十五字的句子，最少加入三種提示。<span class="mark">（6分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）星期六晚上，漂亮的姐姐在舞台上優美地跳舞。<br><span style="font-size:13px">評分原則：骨幹「姐姐跳舞」不變（2分）；加入三種提示，每種1分（3分）；句子通順、「的」「地」用得正確（1分）。</span></div>
+  </div>
+</div>
+
+
+<!-- ===== 03 ===== -->
+<div class="section-header" id="s3">
+  <div class="icon" style="background:var(--teal-bg)">✂️</div>
+  <div><div class="ch">CHAPTER 03</div><h2>縮句：找回句子的骨幹</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>甚麼是縮句？</h3>
+  <p>縮句和擴句剛好相反：把長句中形容、修飾的部分刪去，只留下主語、謂語和賓語。縮句後，一句話的主要意思會更清楚。</p>
+  <div class="flow">
+    <div class="flow-step"><b>第一步</b>找出主語（誰）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第二步</b>找出謂語（做甚麼）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第三步</b>找出賓語（甚麼東西）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第四步</b>刪去其餘部分</div>
+  </div>
+  <div class="example-box teal">
+    <div class="example-label">示例</div>
+    <div class="example-text"><span class="del">可愛的</span><span class="s">小貓</span><span class="del">在草地上快樂地</span><span class="v">玩</span><span class="del">着一個紅色的</span><span class="o">皮球</span>。<br>→ <span class="s">小貓</span><span class="v">玩</span><span class="o">皮球</span>。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot red"></span>縮句要守的規則</h3>
+  <div class="keyword-grid">
+    <div class="kw teal"><div class="kw-word">只刪不改</div><div class="kw-def">留下的字詞要和原句一樣，不可換字。</div></div>
+    <div class="kw teal"><div class="kw-word">不加字詞</div><div class="kw-def">原句沒有的字，縮句也不可以有。</div></div>
+    <div class="kw teal"><div class="kw-word">否定詞要留</div><div class="kw-def">「不」、「沒有」等字一刪，意思就會相反。</div></div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="t">✗ 意思相反了</div>弟弟不喜歡吃苦澀的藥。<br>→ 弟弟喜歡吃藥。</div>
+    <div class="compare-card good"><div class="t">✓ 保留否定詞</div>弟弟不喜歡吃苦澀的藥。<br>→ 弟弟不喜歡吃藥。</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="t">✗ 刪錯了骨幹</div>媽媽在廚房裏忙碌地準備晚餐。<br>→ 媽媽忙碌。</div>
+    <div class="compare-card good"><div class="t">✓ 留下主謂賓</div>媽媽在廚房裏忙碌地準備晚餐。<br>→ 媽媽準備晚餐。</div>
+  </div>
+</div>
+
+<div class="formula">
+  <div class="ft">一句記</div>
+  找骨幹：問「誰、做甚麼、甚麼東西」。<br>
+  擴句：加「甚麼樣的、甚麼時候、在哪裏、怎樣地」。<br>
+  縮句：刪修飾，留骨幹，否定詞不能刪。
+</div>
+
+<div class="qsub ex-head">練習三：縮句</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>把下列句子縮成只有主語、謂語和賓語的短句。<span class="mark">（8分）</span>
+  <div class="sent">（1）勤勞的農夫在田裏辛苦地種稻米。</div><div class="line"></div>
+  <div class="sent">（2）一隻白色的兔子在草地上快樂地跳來跳去。</div><div class="line"></div>
+  <div class="sent">（3）我們班的同學都沒有忘記老師的教導。</div><div class="line"></div>
+  <div class="sent">（4）天上的星星一閃一閃地發出耀眼的光芒。</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每句2分）<br>（1）農夫種稻米。　（2）兔子跳來跳去。　（3）同學沒有忘記教導。　（4）星星發出光芒。<br><span style="font-size:13px">第（2）句「跳來跳去」沒有賓語；第（3）句必須保留「沒有」，否則意思相反。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>下列縮句正確嗎？正確的加 ○；錯誤的加 ✗，並寫出正確的縮句。<span class="mark">（6分）</span>
+  <table>
+    <tr><th>原句</th><th>縮句</th><th class="c">○／✗</th><th>改正</th></tr>
+    <tr><td>（1）美麗的蝴蝶在花叢中飛舞。</td><td>蝴蝶飛舞。</td><td></td><td></td></tr>
+    <tr><td>（2）小華今天沒有帶雨傘。</td><td>小華帶雨傘。</td><td></td><td></td></tr>
+    <tr><td>（3）爺爺在公園裏悠閒地下象棋。</td><td>爺爺悠閒。</td><td></td><td></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每句2分）<br>（1）○　（2）✗，小華沒有帶雨傘。（刪了否定詞，意思相反）　（3）✗，爺爺下象棋。（「悠閒」只是形容動作，不是骨幹）</div>
+  </div>
+</div>
+
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
