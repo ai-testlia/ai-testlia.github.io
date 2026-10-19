@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>句子結構九十題練習</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --purple:#6b5ba8;--purple-bg:#efecf8;
+  --teal:#2f8a80;--teal-bg:#e4f3f1;
+  --coral:#c8603f;--coral-bg:#fbebe5;
+  --amber:#b07a12;--amber-bg:#fbf2df;
+  --pink:#b44a78;--pink-bg:#f9e8f0;
+  --blue:#3b6fb0;--blue-bg:#e6eef9;
+  --green:#3c8a4f;--green-bg:#e6f3e8;
+  --red:#c0413b;--red-bg:#fbe8e7;
+  --subj:#c0413b;--pred:#3b6fb0;--obj:#3c8a4f;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececea;
+    --color-text-secondary:#a8a8a4;
+    --color-background-primary:#22221f;
+    --color-background-secondary:#181816;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a99be0;--purple-bg:#2c2840;
+    --teal:#6cc7bb;--teal-bg:#1d3532;
+    --coral:#e9906f;--coral-bg:#3d2620;
+    --amber:#e2b04f;--amber-bg:#3a2f18;
+    --pink:#e58ab0;--pink-bg:#3b2330;
+    --blue:#82aee8;--blue-bg:#1f2b3d;
+    --green:#7cc48d;--green-bg:#1e3323;
+    --red:#ec8580;--red-bg:#3c2120;
+    --subj:#ec8580;--pred:#82aee8;--obj:#7cc48d;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3{font-family:'Noto Serif TC',serif}
+
+.hero{background:#DDD3C2;color:#2A2114;border-radius:var(--border-radius-lg);padding:32px 26px;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(42,33,20,0.3);color:rgba(42,33,20,0.65);border-radius:999px;padding:2px 12px;font-size:12px;letter-spacing:2px;margin-bottom:12px}
+.hero h1{margin:0 0 6px;font-size:28px;line-height:1.4;color:#2A2114}
+.hero .sub{font-size:14px;color:rgba(42,33,20,0.7);margin-bottom:10px}
+.hero p{margin:0;font-size:13px;color:rgba(42,33,20,0.5)}
+
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px}
+.toc-title{font-weight:700;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:block;color:var(--color-text-primary);text-decoration:none;padding:4px 0;border-bottom:1px dashed var(--color-border-tertiary)}
+.toc-item:last-child{border-bottom:none}
+.toc-num{display:inline-block;width:32px;color:var(--purple);font-weight:700}
+
+.section-header{display:flex;align-items:center;gap:12px;margin:34px 0 14px}
+.section-header .icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--purple-bg);flex-shrink:0}
+.section-header h2{margin:0;font-size:21px;line-height:1.3}
+.section-header .ch{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary)}
+
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
+.card h3{margin:0 0 8px;font-size:16px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.card p{margin:6px 0}
+
+.example-box{background:var(--purple-bg);border-left:4px solid var(--purple);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{background:var(--teal-bg);border-color:var(--teal)}
+.example-box.coral{background:var(--coral-bg);border-color:var(--coral)}
+.example-box.amber{background:var(--amber-bg);border-color:var(--amber)}
+.example-box.pink{background:var(--pink-bg);border-color:var(--pink)}
+.example-label{font-size:12px;font-weight:700;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-family:'Noto Serif TC',serif;font-size:16px;line-height:2}
+
+.s{color:var(--subj);border-bottom:2px solid var(--subj);font-weight:700}
+.v{color:var(--pred);border-bottom:2px solid var(--pred);font-weight:700}
+.o{color:var(--obj);border-bottom:2px solid var(--obj);font-weight:700}
+.add{background:var(--amber-bg);color:var(--amber);border-radius:4px;padding:0 3px}
+.del{text-decoration:line-through;color:var(--color-text-secondary);opacity:.7}
+
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert-icon{font-size:18px;line-height:1.6}
+.alert-label{font-weight:700;font-size:13px}
+.alert-text{font-size:14px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:10px 14px;font-size:14px}
+.compare-card.bad{background:var(--red-bg);border:1px solid var(--red)}
+.compare-card.good{background:var(--green-bg);border:1px solid var(--green)}
+.compare-card .t{font-weight:700;margin-bottom:4px}
+.compare-card.bad .t{color:var(--red)}.compare-card.good .t{color:var(--green)}
+
+.flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;margin:10px 0}
+.flow-step{flex:1 1 120px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;text-align:center}
+.flow-step b{display:block;color:var(--purple);font-size:13px}
+.flow-arrow{display:flex;align-items:center;color:var(--color-text-secondary);font-weight:700}
+
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;border-top:3px solid var(--purple)}
+.kw.red{border-color:var(--subj)}.kw.blue{border-color:var(--pred)}.kw.green{border-color:var(--obj)}.kw.amber{border-color:var(--amber)}.kw.teal{border-color:var(--teal)}
+.kw-word{font-weight:700;font-size:15px;font-family:'Noto Serif TC',serif}
+.kw-def{font-size:13.5px;color:var(--color-text-secondary)}
+
+.formula{background:#2f3a40;color:#f3efe6;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:2}
+.formula .ft{font-size:12px;letter-spacing:2px;opacity:.7;margin-bottom:4px}
+
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px;background:var(--color-background-primary)}
+th,td{border:0.5px solid var(--color-border-tertiary);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--color-background-secondary);font-weight:700}
+.c{white-space:nowrap;text-align:center}
+
+.ex-head{margin-top:26px;padding:8px 14px;background:var(--amber-bg);border-radius:var(--border-radius-md);color:var(--amber)}
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary)}
+.line{border-bottom:1px solid var(--color-text-secondary);height:30px;opacity:.5}
+.blank{display:inline-block;border-bottom:1px solid var(--color-text-primary);min-width:60px;margin:0 3px}
+.blank.s{min-width:36px;border-bottom:1px solid var(--color-text-primary);color:inherit;font-weight:400}
+.blank.l{min-width:120px}
+.sent{font-family:'Noto Serif TC',serif;font-size:15.5px;margin:6px 0 2px}
+
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border:none}
+
+@media (max-width:560px){
+  .compare-grid{grid-template-columns:1fr}
+  .hero h1{font-size:23px}
+  .flow-arrow{transform:rotate(90deg);width:100%;justify-content:center}
+}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula,.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.opts{display:flex;flex-wrap:wrap;gap:4px 22px;margin:6px 0 2px;font-size:15px}
+.judge{display:inline-block;width:40px;height:26px;border:1px solid var(--color-text-secondary);border-radius:6px;vertical-align:middle;margin-left:6px}
+.recap{font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+  <div class="hero-tag">語法練習筆記</div>
+  <h1>句子成分、擴句與縮句練習</h1>
+  <div class="sub">小學三年級　句子結構　3.1–3.3　共90題</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>練習一：句子成分（30題）</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>練習二：擴句（30題）</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>練習三：縮句（30題）</a>
+</nav>
+
+<div class="section-header first" id="s1">
+  <div class="icon" style="background:var(--purple-bg)">🧩</div>
+  <div><div class="ch">CHAPTER 01</div><h2>練習一：句子成分（30題）</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="alert tip recap"><div class="alert-icon">💡</div><div><div class="alert-label">溫習重點</div><div class="alert-text">先問「誰？」找主語，再問「做甚麼？」或「怎麼樣？」找謂語，後問「做甚麼東西？」找賓語。有些句子沒有賓語。</div></div></div>
+<div class="qsub">甲部　找出句子的主語、謂語和賓語（沒有賓語的，寫「沒有」）</div>
+<div class="qbox"><span class="qn">1.</span><span class="sent">爸爸看報紙。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>爸爸／看／報紙</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">2.</span><span class="sent">姐姐彈鋼琴。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>姐姐／彈／鋼琴</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">3.</span><span class="sent">小貓喝牛奶。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>小貓／喝／牛奶</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">4.</span><span class="sent">老師批改作業。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>老師／批改／作業</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">5.</span><span class="sent">弟弟哭了。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>弟弟／哭了／沒有<br><span style="font-size:13px">「哭」沒有動作對象，所以沒有賓語。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">6.</span><span class="sent">同學們參觀博物館。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>同學們／參觀／博物館</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">7.</span><span class="sent">公公種花。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>公公／種／花</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">8.</span><span class="sent">雨停了。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>雨／停了／沒有<br><span style="font-size:13px">「停」沒有動作對象，所以沒有賓語。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">9.</span><span class="sent">小華寫日記。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>小華／寫／日記</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">10.</span><span class="sent">消防員救小狗。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>消防員／救／小狗</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">11.</span><span class="sent">我們打羽毛球。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>我們／打／羽毛球</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">12.</span><span class="sent">花開了。</span><span class="mark">（1分）</span>
+  <div class="sent">主語：<span class="blank"></span>　謂語：<span class="blank"></span>　賓語：<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>花／開了／沒有<br><span style="font-size:13px">「開」沒有動作對象，所以沒有賓語。</span></div>
+  </div>
+</div>
+<div class="qsub">乙部　句子完整嗎？完整的寫 ○；不完整的寫 ✗，並寫出缺了甚麼</div>
+<div class="qbox"><span class="qn">13.</span><span class="sent">在圖書館裏看書。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">缺了：<span class="blank l"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，缺主語</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">14.</span><span class="sent">哥哥洗碗。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">缺了：<span class="blank l"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>○</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">15.</span><span class="sent">一隻可愛的小狗。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">缺了：<span class="blank l"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，缺謂語</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">16.</span><span class="sent">叔叔修理。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">缺了：<span class="blank l"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，缺賓語（不知道修理甚麼）</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">17.</span><span class="sent">太陽下山了。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">缺了：<span class="blank l"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>○</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">18.</span><span class="sent">很喜歡吃雪糕。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">缺了：<span class="blank l"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，缺主語</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">19.</span><span class="sent">我們的校長。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">缺了：<span class="blank l"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，缺謂語</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">20.</span><span class="sent">小鳥在樹上唱歌。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">缺了：<span class="blank l"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>○</div>
+  </div>
+</div>
+<div class="qsub">丙部　在橫線上補上缺少的部分（括號內為所缺成分）</div>
+<div class="qbox"><span class="qn">21.</span><span class="sent"><span class="blank l"></span>在河裏游來游去。（主語）</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>魚兒（示例）<br><span style="font-size:13px">合乎句意即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">22.</span><span class="sent">妹妹<span class="blank l"></span>故事書。（謂語）</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>看／讀（示例）<br><span style="font-size:13px">合乎句意即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">23.</span><span class="sent">叔叔駕駛<span class="blank l"></span>。（賓語）</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>巴士（示例）<br><span style="font-size:13px">合乎句意即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">24.</span><span class="sent"><span class="blank l"></span>在操場上踢足球。（主語）</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>哥哥（示例）<br><span style="font-size:13px">合乎句意即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">25.</span><span class="sent">農夫<span class="blank l"></span>稻米。（謂語）</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>種（示例）<br><span style="font-size:13px">合乎句意即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">26.</span><span class="sent">媽媽煮<span class="blank l"></span>。（賓語）</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>晚飯（示例）<br><span style="font-size:13px">合乎句意即可。</span></div>
+  </div>
+</div>
+<div class="qsub">丁部　選擇題</div>
+<div class="qbox"><span class="qn">27.</span>「天空很藍。」這句的謂語是：<span class="mark">（1分）</span>
+  <div class="opts"><span>A. 天空</span><span>B. 很藍</span><span>C. 藍</span><span>D. 天</span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>B<br><span style="font-size:13px">謂語也可以說「怎麼樣」。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">28.</span>「大風吹倒了大樹。」這句的主語是：<span class="mark">（1分）</span>
+  <div class="opts"><span>A. 大風</span><span>B. 吹倒了</span><span>C. 大樹</span><span>D. 風和樹</span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>A<br><span style="font-size:13px">主語不一定是人。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">29.</span>下列哪一句沒有賓語？<span class="mark">（1分）</span>
+  <div class="opts"><span>A. 我吃蘋果。</span><span>B. 他畫圖畫。</span><span>C. 媽媽煮飯。</span><span>D. 弟弟笑了。</span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>D</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">30.</span>下列哪一句是完整的句子？<span class="mark">（1分）</span>
+  <div class="opts"><span>A. 在操場上。</span><span>B. 我的書包。</span><span>C. 同學們唱歌。</span><span>D. 很快地跑。</span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>C</div>
+  </div>
+</div>
+<div class="section-header" id="s2">
+  <div class="icon" style="background:var(--amber-bg)">➕</div>
+  <div><div class="ch">CHAPTER 02</div><h2>練習二：擴句（30題）</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="alert tip recap"><div class="alert-icon">💡</div><div><div class="alert-label">溫習重點</div><div class="alert-text">擴句可以加「甚麼樣的」（用「的」，放在人或物前面）、「甚麼時候」、「在哪裏」、「怎樣地」（用「地」，放在動作前面）。擴句後，骨幹和原意不能改變。</div></div></div>
+<div class="qsub">甲部　按提示擴寫句子</div>
+<div class="qbox"><span class="qn">31.</span>「小狗跑。」加「甚麼樣的」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>可愛的小狗跑。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">32.</span>「妹妹畫畫。」加「在哪裏」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>妹妹在房間裏畫畫。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">33.</span>「爺爺散步。」加「甚麼時候」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>爺爺每天早上散步。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">34.</span>「同學們唱歌。」加「怎樣地」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>同學們高興地唱歌。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">35.</span>「媽媽買蘋果。」加「甚麼樣的（加在「蘋果」前）」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>媽媽買新鮮的蘋果。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">36.</span>「哥哥游泳。」加「在哪裏」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>哥哥在泳池裏游泳。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">37.</span>「老師講故事。」加「怎樣地」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>老師生動地講故事。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">38.</span>「我們去旅行。」加「甚麼時候」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>我們暑假去旅行。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">39.</span>「小鳥飛。」加「甚麼樣的、在哪裏」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>美麗的小鳥在天空中飛。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">40.</span>「弟弟吃飯。」加「甚麼時候、怎樣地」：<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>弟弟晚上大口大口地吃飯。（示例）<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+<div class="qsub">乙部　在橫線上填「的」或「地」</div>
+<div class="qbox"><span class="qn">41.</span><span class="sent">紅紅<span class="blank s"></span>蘋果</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>的<br><span style="font-size:13px">後面是人或物用「的」，後面是動作用「地」。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">42.</span><span class="sent">輕輕<span class="blank s"></span>關門</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>地<br><span style="font-size:13px">後面是人或物用「的」，後面是動作用「地」。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">43.</span><span class="sent">開心<span class="blank s"></span>笑</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>地<br><span style="font-size:13px">後面是人或物用「的」，後面是動作用「地」。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">44.</span><span class="sent">漂亮<span class="blank s"></span>裙子</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>的<br><span style="font-size:13px">後面是人或物用「的」，後面是動作用「地」。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">45.</span><span class="sent">認真<span class="blank s"></span>聽講</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>地<br><span style="font-size:13px">後面是人或物用「的」，後面是動作用「地」。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">46.</span><span class="sent">爸爸<span class="blank s"></span>汽車</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>的<br><span style="font-size:13px">後面是人或物用「的」，後面是動作用「地」。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">47.</span><span class="sent">大聲<span class="blank s"></span>朗讀</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>地<br><span style="font-size:13px">後面是人或物用「的」，後面是動作用「地」。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">48.</span><span class="sent">藍藍<span class="blank s"></span>天空</span><span class="mark">（1分）</span>
+  
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>的<br><span style="font-size:13px">後面是人或物用「的」，後面是動作用「地」。</span></div>
+  </div>
+</div>
+<div class="qsub">丙部　把詞語排成通順的句子</div>
+<div class="qbox"><span class="qn">49.</span><span class="sent">在公園裏　／　小朋友　／　快樂地　／　放風箏</span><span class="mark">（2分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>小朋友在公園裏快樂地放風箏。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">50.</span><span class="sent">每天　／　公公　／　在花園裏　／　澆花</span><span class="mark">（2分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>公公每天在花園裏澆花。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">51.</span><span class="sent">認真地　／　學生們　／　在課室裏　／　做功課</span><span class="mark">（2分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>學生們在課室裏認真地做功課。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">52.</span><span class="sent">昨天晚上　／　媽媽　／　在廚房裏　／　煮了　／　一頓豐富的晚餐</span><span class="mark">（2分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>昨天晚上，媽媽在廚房裏煮了一頓豐富的晚餐。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">53.</span><span class="sent">黑色的　／　一隻　／　小貓　／　在沙發上　／　睡覺</span><span class="mark">（2分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>一隻黑色的小貓在沙發上睡覺。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">54.</span><span class="sent">放學後　／　我們　／　在操場上　／　興奮地　／　踢足球</span><span class="mark">（2分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>放學後，我們在操場上興奮地踢足球。</div>
+  </div>
+</div>
+<div class="qsub">丁部　擴句正確嗎？正確的寫 ○；錯誤的寫 ✗，並說明原因</div>
+<div class="qbox"><span class="qn">55.</span><span class="sent">姐姐跳舞。 → 姐姐的同學跳舞。</span><span class="judge"></span><span class="mark">（2分）</span>
+  <div class="sent">原因：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，跳舞的人變了，意思也跟着變了。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">56.</span><span class="sent">小明讀書。 → 小明在圖書館裏安靜地讀書。</span><span class="judge"></span><span class="mark">（2分）</span>
+  <div class="sent">原因：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>○</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">57.</span><span class="sent">弟弟玩積木。 → 弟弟在開心地房間裏玩積木。</span><span class="judge"></span><span class="mark">（2分）</span>
+  <div class="sent">原因：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，詞序錯誤，應為「弟弟在房間裏開心地玩積木」。</div>
+  </div>
+</div>
+<div class="qsub">戊部　把句子擴寫成不少於十五字，最少加入三種提示</div>
+<div class="qbox"><span class="qn">58.</span>「農夫種菜。」<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>每天清晨，勤勞的農夫在田裏辛勤地種菜。（示例）<br><span style="font-size:13px">評分原則：骨幹不變（1分）；加入三種提示，每種1分（3分）；句子通順，「的」「地」正確（1分）。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">59.</span>「妹妹看書。」<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>星期六下午，可愛的妹妹在客廳裏安靜地看書。（示例）<br><span style="font-size:13px">評分原則：骨幹不變（1分）；加入三種提示，每種1分（3分）；句子通順，「的」「地」正確（1分）。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">60.</span>「消防員救人。」<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>昨天晚上，勇敢的消防員在大火中迅速地救人。（示例）<br><span style="font-size:13px">評分原則：骨幹不變（1分）；加入三種提示，每種1分（3分）；句子通順，「的」「地」正確（1分）。</span></div>
+  </div>
+</div>
+<div class="section-header" id="s3">
+  <div class="icon" style="background:var(--teal-bg)">✂️</div>
+  <div><div class="ch">CHAPTER 03</div><h2>練習三：縮句（30題）</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="alert tip recap"><div class="alert-icon">💡</div><div><div class="alert-label">溫習重點</div><div class="alert-text">縮句只留主語、謂語和賓語，原句的字詞不可改，也不可加；「不」、「沒有」等否定詞必須保留。</div></div></div>
+<div class="qsub">甲部　把句子縮成只有主語、謂語和賓語的短句</div>
+<div class="qbox"><span class="qn">61.</span><span class="sent">可愛的小狗在草地上追皮球。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>小狗追皮球。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">62.</span><span class="sent">勤勞的媽媽每天早上做早餐。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>媽媽做早餐。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">63.</span><span class="sent">高大的哥哥在操場上打籃球。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>哥哥打籃球。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">64.</span><span class="sent">慈祥的老師耐心地教導學生。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>老師教導學生。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">65.</span><span class="sent">一群小朋友在公園裏快樂地放風箏。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>小朋友放風箏。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">66.</span><span class="sent">我的好朋友每天寫一篇有趣的日記。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>朋友寫日記。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">67.</span><span class="sent">天上的白雲慢慢地飄過。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>白雲飄過。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">68.</span><span class="sent">那隻黑色的小貓在沙發上舒服地睡覺。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>小貓睡覺。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">69.</span><span class="sent">公公每天在花園裏澆花。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>公公澆花。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">70.</span><span class="sent">調皮的弟弟常常弄亂媽媽的房間。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>弟弟弄亂房間。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">71.</span><span class="sent">小明今天沒有完成數學功課。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>小明沒有完成功課。<br><span style="font-size:13px">必須保留否定詞，否則意思相反。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">72.</span><span class="sent">我們班的同學都不喜歡浪費食物。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>同學不喜歡浪費食物。<br><span style="font-size:13px">必須保留否定詞，否則意思相反。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">73.</span><span class="sent">美麗的蝴蝶在花叢中飛來飛去。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>蝴蝶飛來飛去。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">74.</span><span class="sent">爸爸在書房裏專心地看報紙。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>爸爸看報紙。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">75.</span><span class="sent">河裏的小魚快樂地游來游去。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>小魚游來游去。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">76.</span><span class="sent">熱心的叔叔幫助迷路的小朋友。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>叔叔幫助小朋友。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">77.</span><span class="sent">姐姐在房間裏輕輕地唱一首動聽的歌。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>姐姐唱歌。</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">78.</span><span class="sent">一位年老的婆婆在公園裏慢慢地散步。</span><span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>婆婆散步。</div>
+  </div>
+</div>
+<div class="qsub">乙部　縮句正確嗎？正確的寫 ○；錯誤的寫 ✗，並寫出正確的縮句</div>
+<div class="qbox"><span class="qn">79.</span><span class="sent">可愛的熊貓在竹林裏吃竹子。 → 熊貓吃竹子。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">改正：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>○</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">80.</span><span class="sent">哥哥今天不想吃早餐。 → 哥哥想吃早餐。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">改正：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，哥哥不想吃早餐。（不能刪去否定詞）</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">81.</span><span class="sent">媽媽在廚房裏忙碌地洗碗。 → 媽媽忙碌。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">改正：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，媽媽洗碗。（「忙碌」只是形容動作）</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">82.</span><span class="sent">小鳥在樹上快樂地唱歌。 → 小鳥唱歌。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">改正：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>○</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">83.</span><span class="sent">勇敢的消防員迅速地撲滅大火。 → 消防員撲滅。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">改正：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，消防員撲滅大火。（缺了賓語）</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">84.</span><span class="sent">校長在禮堂上親切地和同學說話。 → 校長說話。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">改正：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>○</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">85.</span><span class="sent">妹妹今天沒有帶水壺。 → 妹妹帶水壺。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">改正：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，妹妹沒有帶水壺。（不能刪去否定詞）</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">86.</span><span class="sent">淘氣的猴子在樹上摘香蕉。 → 樹上摘香蕉。</span><span class="judge"></span><span class="mark">（1分）</span>
+  <div class="sent">改正：</div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>✗，猴子摘香蕉。（刪去了主語）</div>
+  </div>
+</div>
+<div class="qsub">丙部　選擇題</div>
+<div class="qbox"><span class="qn">87.</span>「穿着校服的學生們在操場上整齊地排隊。」的縮句是：<span class="mark">（1分）</span>
+  <div class="opts"><span>A. 學生們排隊。</span><span>B. 學生們在操場上排隊。</span><span>C. 學生們整齊地排隊。</span><span>D. 操場上排隊。</span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>A</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">88.</span>縮句時，「弟弟從來不吃難吃的青椒。」中哪一個詞必須保留？<span class="mark">（1分）</span>
+  <div class="opts"><span>A. 從來</span><span>B. 難吃的</span><span>C. 不</span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>C<br><span style="font-size:13px">「不」是否定詞，刪去後意思相反。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">89.</span>下列哪一個縮句是錯誤的？<span class="mark">（1分）</span>
+  <div class="opts"><span>A. 小狗在草地上跑。→ 小狗跑。</span><span>B. 爸爸沒有吸煙。→ 爸爸吸煙。</span><span>C. 老師在課室裏講課。→ 老師講課。</span><span>D. 小鳥在天空中飛翔。→ 小鳥飛翔。</span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>B<br><span style="font-size:13px">刪去了否定詞「沒有」。</span></div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">90.</span>「一隻白色的天鵝在湖面上優雅地游泳。」縮句後是：<span class="mark">（1分）</span>
+  <div class="opts"><span>A. 天鵝在湖面上游泳。</span><span>B. 白色的天鵝游泳。</span><span>C. 天鵝游泳。</span><span>D. 天鵝優雅地游泳。</span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>C</div>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
