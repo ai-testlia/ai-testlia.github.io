@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGCSE 中文閱讀與寫作模擬練習 | 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#C8D5D8;
+  --hero-text:#122025;
+  --purple:#7c5cbf;--purple-bg:#f5f0fa;
+  --teal:#2a9d8f;--teal-bg:#e6f5f3;
+  --coral:#e76f51;--coral-bg:#fdece7;
+  --amber:#e0a030;--amber-bg:#fff6e5;
+  --pink:#d6537a;--pink-bg:#fdeaf1;
+  --blue:#5b8bc4;--blue-bg:#eaf3fc;
+  --green:#2f9e6c;--green-bg:#eafaf0;
+  --red:#c0392b;--red-bg:#fdeaea;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#eee;
+    --color-text-secondary:#aaa;
+    --color-background-primary:#1c1c1e;
+    --color-background-secondary:#242426;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple-bg:#2a2335;--teal-bg:#1d2e2c;--coral-bg:#35241f;--amber-bg:#33291a;
+    --pink-bg:#33202a;--blue-bg:#1d2833;--green-bg:#1c2e25;--red-bg:#352020;
+  }
+  .alert,.example-box,.compare-card{color:var(--color-text-primary) !important;}
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;background:var(--color-background-secondary);color:var(--color-text-primary);line-height:1.8;}
+h1,h2,h3,h4{font-family:"Noto Serif TC",serif;}
+.wrap{max-width:920px;margin:0 auto;padding:24px 16px 100px;}
+
+.hero{background:var(--hero-bg);color:var(--hero-text);border-radius:var(--border-radius-lg);padding:38px 28px;margin-bottom:26px;text-align:center;}
+.hero-tag{display:inline-block;border:1px solid rgba(18,32,37,0.3);color:rgba(18,32,37,0.65);border-radius:20px;padding:4px 16px;font-size:13px;letter-spacing:1px;margin-bottom:14px;}
+.hero h1{font-size:26px;font-weight:900;margin:0 0 6px;line-height:1.5;}
+.hero .sub{font-size:14px;color:rgba(18,32,37,0.7);margin-bottom:4px;}
+.hero p{margin:0;font-size:14px;color:rgba(18,32,37,0.5);}
+
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px;}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:10px;}
+.toc-item{display:block;padding:6px 0;font-size:14px;color:var(--color-text-primary);text-decoration:none;border-bottom:0.5px dashed var(--color-border-tertiary);}
+.toc-item:last-child{border-bottom:none;}
+.toc-num{color:var(--color-text-secondary);margin-right:8px;}
+
+.section-header{display:flex;align-items:center;gap:12px;margin:34px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--hero-bg);}
+.section-header .icon{font-size:24px;}
+.section-header h2{font-size:19px;margin:0;flex:1;}
+.section-header .chno{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-primary);padding:3px 10px;border-radius:12px;white-space:nowrap;}
+
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;}
+.subsection-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:8px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.dot.blue{background:var(--blue);} .dot.teal{background:var(--teal);} .dot.coral{background:var(--coral);}
+.dot.amber{background:var(--amber);} .dot.pink{background:var(--pink);} .dot.purple{background:var(--purple);}
+.card p{font-size:14px;margin:0 0 6px;}
+
+.passage{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:5px solid var(--hero-bg);border-radius:var(--border-radius-lg);padding:20px 24px;margin-bottom:18px;font-family:"Noto Serif TC",serif;}
+.passage .p-title{font-weight:700;font-size:17px;margin-bottom:12px;text-align:center;}
+.passage p{font-size:15px;line-height:2;margin:0 0 10px;display:flex;gap:10px;}
+.pnum{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--hero-bg);color:var(--hero-text);font-family:"Noto Sans TC",sans-serif;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;margin-top:6px;}
+.passage-label{display:inline-block;background:var(--hero-bg);color:var(--hero-text);font-size:12px;font-weight:700;border-radius:6px;padding:3px 10px;margin-bottom:10px;}
+
+.example-box{border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0;background:var(--purple-bg);border-left:4px solid var(--purple);}
+.example-box.teal{background:var(--teal-bg);border-left-color:var(--teal);}
+.example-box.amber{background:var(--amber-bg);border-left-color:var(--amber);}
+.example-label{font-size:12px;font-weight:700;opacity:.75;margin-bottom:4px;}
+.example-text{font-size:14px;line-height:1.8;}
+
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:12px 14px;margin:10px 0;align-items:flex-start;}
+.alert-icon{font-size:18px;flex-shrink:0;}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px;}
+.alert-text{font-size:13.5px;line-height:1.7;}
+.alert.tip{background:var(--blue-bg);color:#1c3d5a;} .alert.tip .alert-label{color:#2a6bab;}
+.alert.warn{background:var(--red-bg);color:#5a1c1c;} .alert.warn .alert-label{color:var(--red);}
+.alert.amber{background:var(--amber-bg);color:#5a3d10;} .alert.amber .alert-label{color:#c98a1a;}
+
+.formula{background:#1f2a30;color:#eef4f5;border-radius:var(--border-radius-lg);padding:18px 22px;margin:14px 0;font-size:14px;line-height:2;}
+.formula b{color:#9fd3cf;}
+
+.viewpoint-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.viewpoint-bubble{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 16px;font-size:14px;text-align:center;border:1px solid var(--color-border-tertiary);}
+.viewpoint-bubble .vp-tag{font-size:11px;color:var(--color-text-secondary);display:block;margin-top:6px;}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.compare-card{border-radius:var(--border-radius-md);padding:14px 16px;font-size:13.5px;line-height:1.75;}
+.compare-card .cc-label{font-weight:700;font-size:13px;margin-bottom:6px;display:block;}
+.compare-card.good{background:var(--green-bg);} .compare-card.good .cc-label{color:var(--green);}
+.compare-card.bad{background:var(--red-bg);} .compare-card.bad .cc-label{color:var(--red);}
+
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;}
+.flow-step{background:var(--hero-bg);color:var(--hero-text);border-radius:20px;padding:8px 16px;font-size:13px;}
+.flow-arrow{font-size:16px;color:var(--color-text-secondary);}
+
+table.level-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;}
+.level-table th,.level-table td{border:0.5px solid var(--color-border-tertiary);padding:8px 10px;text-align:left;vertical-align:top;}
+.level-table th{background:var(--color-background-secondary);font-weight:700;}
+.level-table .c{white-space:nowrap;}
+
+.qsub{font-weight:700;font-size:14.5px;margin:6px 0 10px;color:var(--color-text-secondary);}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px;}
+.qn{font-weight:700;margin-right:6px;}
+.mark{font-size:12.5px;color:var(--color-text-secondary);margin-left:4px;white-space:nowrap;}
+.line{border-bottom:1px solid var(--color-border-tertiary);height:30px;}
+.box{display:inline-block;width:14px;height:14px;border:1.5px solid var(--color-text-secondary);border-radius:3px;vertical-align:-2px;margin:0 4px 0 2px;}
+.opts{margin:8px 0 4px;}
+.opts span{margin-right:20px;white-space:nowrap;}
+.formhead{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;font-size:14px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:12px;}
+
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .note{font-size:13px;color:var(--color-text-secondary);}
+.ans .model{font-family:"Noto Serif TC",serif;line-height:2;}
+
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:8px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-primary);box-shadow:0 3px 12px rgba(0,0,0,.18)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;font-weight:700}
+.ans-bar .tb-btn{box-shadow:none;border:1px solid var(--green);color:var(--green);padding:4px 14px;font-size:12.5px;background:transparent}
+
+@media (max-width:600px){
+  .viewpoint-grid,.compare-grid,.formhead{grid-template-columns:1fr;}
+  .hero h1{font-size:21px;}
+  .passage{padding:16px 16px;}
+}
+
+@media print{
+  @page{margin:12mm 10mm;}
+  body{background:white;}
+  .wrap{max-width:100%;padding:0;}
+  .toc{display:none;}
+  a{color:inherit;text-decoration:none;}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid;}
+  .section-header{page-break-before:always;page-break-after:avoid;}
+  .section-header.first{page-break-before:auto;}
+  .hero{page-break-after:avoid;}
+  .qsub{page-break-after:avoid;}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .toolbar,.ans-bar,.ans-btn{display:none !important;}
+  .ans-wrap{margin-top:6px;}
+  body.print-student .ans-wrap{display:none !important;}
+  body.print-teacher .ans{display:block !important;}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀與寫作模擬練習</div>
+    <h1>IGCSE 中文閱讀與寫作模擬卷</h1>
+    <div class="sub">Chinese as a Second Language 0523 Paper 1　練習一、二、四、五</div>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">目錄</div>
+    <a class="toc-item" href="#s1"><span class="toc-num">01</span>考生須知</a>
+    <a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：填空式閱讀理解——〈風箏匠人宋嘉禾〉</a>
+    <a class="toc-item" href="#s3"><span class="toc-num">03</span>練習二：問答式閱讀理解——〈數碼排毒〉</a>
+    <a class="toc-item" href="#s4"><span class="toc-num">04</span>練習四：引導式寫作——電子郵件</a>
+    <a class="toc-item" href="#s5"><span class="toc-num">05</span>練習五：引導式寫作——校刊文章（表明立場）</a>
+  </nav>
+
+  <!-- ============ 01 考生須知 ============ -->
+  <div class="section-header first" id="s1">
+    <div class="icon">📋</div>
+    <h2>考生須知</h2>
+    <div class="chno">CHAPTER 01</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot blue"></span>本卷結構</div>
+    <p>本模擬卷按 IGCSE 0523 Paper 1 的題型擬定，略去練習三（人物配對題），保留其餘四個練習，全卷共 50 分。建議作答時間為 1 小時 30 分鐘。</p>
+    <div class="formula">
+      <b>練習一</b>　填空式閱讀理解（第1–8題）── 8 分　建議 12 分鐘<br>
+      <b>練習二</b>　問答式閱讀理解（第9–18題）── 12 分　建議 20 分鐘<br>
+      <b>練習四</b>　引導式寫作：電子郵件，100–120字（第19題）── 8 分　建議 18 分鐘<br>
+      <b>練習五</b>　引導式寫作：校刊文章，250–300字（第20題）── 22 分　建議 40 分鐘<br>
+      合計：8 + 12 + 8 + 22 = <b>50 分</b>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot teal"></span>作答提示</div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">閱讀部分</div>
+        <div class="alert-text">用詞與參考答案不同但意思相同，亦可得分。題目寫明「兩項」的，每項各佔一分。問感受或態度的題目，須用自己的詞語概括，照抄原文句子不一定得分。</div>
+      </div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">寫作部分</div>
+        <div class="alert-text">必須回應題目列出的全部要點，並注意文體格式及字數。練習五必須表明立場。寫作部分會評核錯別字及語句通順程度。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 02 練習一 ============ -->
+  <div class="section-header" id="s2">
+    <div class="icon">📖</div>
+    <h2>練習一：填空式閱讀理解</h2>
+    <div class="chno">CHAPTER 02　8分</div>
+  </div>
+  <div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+  <div class="card">
+    <p>閱讀以下短文，然後代宋嘉禾填寫《中華文化節參展人士登記表》。答案只須寫關鍵詞語，毋須寫完整句子。</p>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文</div>
+    <div class="p-title">風箏匠人宋嘉禾</div>
+    <p><span class="pnum">1</span><span>宋嘉禾一九九五年生於山東濰坊，濰坊向來有「風箏之都」的美譽。他的祖父是當地有名的風箏師傅，嘉禾自小在祖父的作坊裏長大，看着竹條、絹布和顏料變成一隻隻栩栩如生的燕子和蝴蝶。中學畢業後，他考入北京一所理工大學，主修航空工程，畢業後在一家飛機零件公司擔任工程師。</span></p>
+    <p><span class="pnum">2</span><span>三年前祖父病逝，作坊無人打理，嘉禾毅然辭職回鄉。他發現傳統風箏雖然精美，但體積大、不便攜帶，年輕人購買的意慾不高。於是他運用大學所學的空氣動力學知識，重新計算骨架的受力位置，研發出可以拆開、收進筆盒大小布袋裏的「口袋風箏」。這款風箏在去年的全國文化創意設計大賽中奪得金獎，訂單隨即大增。</span></p>
+    <p><span class="pnum">3</span><span>除了售賣成品，嘉禾每逢週末都在作坊開辦親子工作坊，由紮骨架、糊絹面到繪圖上色，讓參加者親手完成一隻屬於自己的風箏。他說：「買回去的風箏，放過一次可能就收起來了；自己做的，孩子會記住一輩子。」</span></p>
+    <p><span class="pnum">4</span><span>今年，倫敦一個華人社區中心邀請嘉禾參加十月舉行的「中華文化節」。負責網店業務的妹妹原本也想同行，但因要處理年底的訂單，最終未能出發。嘉禾打算在文化節上設立攤位，這次不售賣任何產品，只示範紮作技藝及帶領工作坊，希望讓海外華人子弟認識家鄉的手藝。他計劃日後把常用的紮作技法拍成短片，上載到網上，讓更多人可以在家學習。</span></p>
+  </div>
+
+  <div class="qsub">《中華文化節參展人士登記表》</div>
+  <div class="formhead"><div>姓名：宋嘉禾</div><div>活動：中華文化節（倫敦）</div></div>
+
+  <div class="qbox"><span class="qn">1.</span>出生地點：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）山東濰坊<br><span class="note">接受：濰坊。不接受：只寫「山東」（不夠具體）。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">2.</span>大學主修科目：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）航空工程<br><span class="note">不接受：「理工」「空氣動力學」。理工大學是學校類別，空氣動力學是他後來運用的知識，兩者都不是題目所問的主修科目。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">3.</span>回鄉前的職業：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）（飛機零件公司）工程師<br><span class="note">不接受：「風箏師傅」（那是祖父的職業）。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">4.</span>代表作品：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）口袋風箏<br><span class="note">接受：可拆開收納的風箏。不接受：「燕子和蝴蝶風箏」（那是他童年在作坊所見，並非他的作品）。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">5.</span>曾獲獎項：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）全國文化創意設計大賽金獎<br><span class="note">須同時寫出比賽名稱及獎項；只寫「金獎」不給分。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">6.</span>同行家屬：<span class="mark">［1］</span>
+    <div class="opts"><span><span class="box"></span>有</span><span><span class="box"></span>沒有</span></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）沒有 ✓<br><span class="note">妹妹「原本也想同行」，但「最終未能出發」。只讀前半句就會錯選「有」。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">7.</span>攤位活動類型（可剔選多於一項，須全對才得分）：<span class="mark">［1］</span>
+    <div class="opts"><span><span class="box"></span>產品售賣</span><span><span class="box"></span>技藝示範</span><span><span class="box"></span>工作坊</span></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）技藝示範 ✓　工作坊 ✓<br><span class="note">第4段寫明「這次不售賣任何產品」。第3段雖提到「售賣成品」，但那是他平日在作坊的業務。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">8.</span>未來計劃：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）把（常用的）紮作技法拍成短片，上載到網上<br><span class="note">只寫「拍短片」不給分，須寫出短片的內容（紮作技法）或用途（上載網上讓人學習）。</span></div>
+    </div>
+  </div>
+
+  <!-- ============ 03 練習二 ============ -->
+  <div class="section-header" id="s3">
+    <div class="icon">📖</div>
+    <h2>練習二：問答式閱讀理解</h2>
+    <div class="chno">CHAPTER 03　12分</div>
+  </div>
+  <div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+  <div class="card">
+    <p>閱讀以下短文，然後回答問題。</p>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文</div>
+    <div class="p-title">數碼排毒</div>
+    <p><span class="pnum">1</span><span>智能手機普及以來，人們的生活幾乎離不開屏幕。有調查發現，城市成年人平均每天看屏幕超過七小時，近四成人醒來後五分鐘內便會查看手機。於是，「數碼排毒」這個概念應運而生，意思是在一段時間內主動遠離電子產品，讓身心休息。</span></p>
+    <p><span class="pnum">2</span><span>起初，數碼排毒只是少數科技業人士的個人嘗試。軟件工程師馬克連續加班數月，開始失眠和頭痛，於是把手機鎖進抽屜，到山區露營一星期。他回憶說，頭兩天總覺得口袋在震動，伸手去摸卻甚麼也沒有；到了第五天，他竟然能夠一口氣讀完一本小說，這是他多年來未曾做到的。</span></p>
+    <p><span class="pnum">3</span><span>如今，數碼排毒已發展成一門生意。蘇格蘭高地一家度假營規定住客入住時把手機交給職員，放進寫上名字的木盒，退房時才可取回。營內沒有無線網絡，取而代之的是木工、遠足和集體烹飪。營主坦言，開業前最擔心客人受不了而提早離開，沒想到首年入住率已達九成，其中不少是帶同子女的家庭。</span></p>
+    <p><span class="pnum">4</span><span>不過，並非人人看好這種做法。社會學者陳立言指出，短暫逃離只是治標不治本，人們一回到城市，很快便會故態復萌。他認為更有效的方法是改變日常使用習慣，例如關閉非必要的通知、在睡房以外的地方為手機充電，以及吃飯時把手機反放在桌上。</span></p>
+    <p><span class="pnum">5</span><span>科技公司亦開始回應。部分手機系統新增了「屏幕使用時間」功能，用戶可以為社交軟件設定每天的使用上限，時間一到，程式便會自動鎖上。有評論卻認為，科技公司一方面設計令人沉迷的程式，另一方面又推出限制使用的功能，未免自相矛盾。</span></p>
+    <p><span class="pnum">6</span><span>學校方面，北歐一所中學推行「無手機午膳」計劃，學生午飯時須把手機放在課室的儲物櫃內。一個學期後，老師發現學生在午膳時的交談明顯增多，到操場運動的人數也增加了一倍。校長說，最大的收穫是學生重新學會了看着對方的眼睛說話。</span></p>
+  </div>
+
+  <div class="qbox"><span class="qn">9.</span>根據第1段，甚麼是「數碼排毒」？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）在一段時間內主動遠離電子產品（讓身心休息）<br><span class="note">不接受：只寫「不用手機」。原文重點是「一段時間」及「主動」，並且包括所有電子產品。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">10.</span>馬克為甚麼會嘗試數碼排毒？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）連續加班數月後，出現失眠和頭痛（等健康問題）<br><span class="note">接受：寫出「失眠」或「頭痛」其中一項。只寫「加班」不給分，因為令他決定排毒的是加班後出現的身體問題。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">11.</span>露營到了第五天，馬克有甚麼轉變？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）恢復專注力，能夠一口氣讀完一本小說<br><span class="note">不接受：「覺得口袋在震動」。這是頭兩天的情況，題目問的是第五天，須留意時間標記。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">12.</span>度假營用甚麼方法確保住客遠離手機？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）規定住客入住時把手機交給職員保管，退房時才可取回<br><span class="note">「沒有無線網絡」可作補充，但單寫此項不給分，因為沒有網絡仍可使用手機，並非令住客遠離手機的主要方法。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">13.</span>度假營的生意結果與營主開業前的預期有甚麼不同？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）營主原本擔心客人受不了而提早離開，結果首年入住率已達九成<br><span class="note">須寫出預期與結果的對比；只寫「入住率九成」亦可接受，但只寫「擔心客人受不了」不給分。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">14.</span>陳立言對「短暫逃離」式的數碼排毒持甚麼態度？<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）有保留／懷疑／不看好／不認同<br><span class="note">不接受：照抄「治標不治本」「故態復萌」。這兩個詞是他的理由，不是態度。題目問態度，須用一個概括性的詞語作答。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">15.</span>陳立言建議人們在日常生活中可以怎樣做？列舉兩項。<span class="mark">［2］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，任答兩項，每項1分）<br>①關閉非必要的通知；②在睡房以外的地方為手機充電；③吃飯時把手機反放在桌上<br><span class="note">不接受：「改變日常使用習慣」。這是總括句，不是具體做法。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">16.</span>「屏幕使用時間」功能是怎樣運作的？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）用戶為社交軟件設定每天的使用上限，時間一到程式便自動鎖上<br><span class="note">須同時寫出「設定上限」及「自動鎖上」兩部分，才算完整說明運作方式。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">17.</span>為甚麼有評論認為科技公司「自相矛盾」？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）科技公司一方面設計令人沉迷的程式，另一方面又推出限制使用的功能<br><span class="note">須寫出矛盾的兩面；只寫其中一面不給分。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">18.</span>「無手機午膳」計劃為學生帶來哪兩項轉變？<span class="mark">［2］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）<br>①午膳時的交談明顯增多；②到操場運動的人數增加（一倍）<br><span class="note">接受：「學會看着對方的眼睛說話」可代替第①項（兩者同屬溝通方面，不可重複計分）。不接受：「把手機放在儲物櫃」，這是計劃的做法，不是結果。</span></div>
+    </div>
+  </div>
+
+  <!-- ============ 04 練習四 ============ -->
+  <div class="section-header" id="s4">
+    <div class="icon">✍️</div>
+    <h2>練習四：引導式寫作——電子郵件</h2>
+    <div class="chno">CHAPTER 04　8分</div>
+  </div>
+  <div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+  <div class="qbox"><span class="qn">19.</span>你的學校最近舉辦了一次「無手機一日挑戰」，你也有參加。寫一封電子郵件給你的筆友，談談這次經歷。<span class="mark">［8］</span>
+    <p style="margin:10px 0 4px;">在電子郵件中，你必須：</p>
+    <p style="margin:0;">① 介紹這次挑戰的規則；<br>② 描述當天最難熬的一刻；<br>③ 說明這次經歷對你有甚麼影響。</p>
+    <p style="margin:8px 0 0;font-size:13px;color:var(--color-text-secondary);">字數：100–120個漢字。滿分8分：內容3分，語言5分。</p>
+    <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">示範範文</span>（連稱呼及署名約120字，潘SIR示範，非官方範文）<br>
+        <div class="model">親愛的小敏：<br>你好！上星期五，學校舉辦了「無手機一日挑戰」。參加者早上要把手機交給班主任，放學才可取回，也不能用電腦上網。最難熬的是午飯時間，平日我總邊吃邊看短片，那天卻不知做甚麼，只好呆坐着。後來同學提議玩紙牌，大家竟笑得很開心。我這才發現，放下手機也能過得充實。<br>祝好！<br>志明</div>
+        <span class="ans-tag">要點對照</span><br>
+        ①規則：早上交手機給班主任、放學取回、不能用電腦上網<br>
+        ②最難熬的一刻：午飯時間不知做甚麼（有對比平日習慣，描寫具體）<br>
+        ③影響：發現放下手機也能過得充實<br>
+        <span class="note">評分提示：三個要點缺一，內容分便不能取得滿分。電郵須有稱呼、問候及署名。語言分看句式變化，例如本文用了「平日……那天卻……」「後來……竟然……」，全篇只用「我……我……」的簡單句，語言分會較低。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot purple"></span>審題及寫作提示</div>
+    <div class="flow">
+      <div class="flow-step">稱呼＋問候</div><div class="flow-arrow">→</div>
+      <div class="flow-step">①挑戰規則（約30字）</div><div class="flow-arrow">→</div>
+      <div class="flow-step">②最難熬的一刻（約40字）</div><div class="flow-arrow">→</div>
+      <div class="flow-step">③影響（約25字）</div><div class="flow-arrow">→</div>
+      <div class="flow-step">祝福＋署名</div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見失分</div>
+        <div class="alert-text">要點②問的是「最難熬的一刻」，只寫「整天都很難受」不夠具體，應寫出一個時間點及當時的情況。開首不宜花大量字數寒暄，第一句便應帶出事件。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 05 練習五 ============ -->
+  <div class="section-header" id="s5">
+    <div class="icon">✍️</div>
+    <h2>練習五：引導式寫作——校刊文章</h2>
+    <div class="chno">CHAPTER 05　22分</div>
+  </div>
+  <div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+  <div class="qbox"><span class="qn">20.</span>你的學校計劃在下學年取消紙本課本，全面改用平板電腦上課。有同學支持，有同學反對。寫一篇文章在校刊上發表，談談你的看法。<span class="mark">［22］</span>
+    <p style="margin:10px 0 4px;">以下是一些同學的觀點，你可以參考，也可以提出自己的意見，但必須表示傾向性。</p>
+    <div class="viewpoint-grid">
+      <div class="viewpoint-bubble">平板電腦輕便，不用每天背沉重的書包。<span class="vp-tag">（同學觀點）</span></div>
+      <div class="viewpoint-bubble">長時間看屏幕會損害視力，上課也容易分心。<span class="vp-tag">（同學觀點）</span></div>
+    </div>
+    <p style="margin:8px 0 0;font-size:13px;color:var(--color-text-secondary);">字數：250–300個漢字。滿分22分：內容10分，語言12分。</p>
+    <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">示範範文</span>（約298字，立場：反對全面取消紙本課本，潘SIR示範，非官方範文）<br>
+        <div class="model" style="text-align:center;font-weight:700;">紙本課本不應急於退場</div>
+        <div class="model">　　學校計劃下學年全面改用平板電腦上課，同學議論紛紛。有人認為平板輕便，不用背沉重的書包；也有人擔心看屏幕會損害視力，上課容易分心。我認為學校不應全面取消紙本課本。<br>
+        　　首先，學習需要專注。平板電腦連接網絡，遊戲和社交軟件近在咫尺，同學很容易一邊上課一邊偷看訊息，學習效果反而下降。其次，紙本課本方便做筆記，同學可在書頁上圈點，寫下老師的講解，溫習時一目了然。再者，長期對着屏幕，視力受損亦不容忽視。<br>
+        　　誠然，書包過重確是不少同學的煩惱，電子課本也能提供影片等資源。不過，與其全面取消紙本，不如雙軌並行：課堂以紙本為主，影片和練習則放到學習平台。這樣既能減輕書包重量，又能保留紙本的好處。<br>
+        　　總而言之，平板電腦可以輔助學習，卻未必適合完全取代課本。希望學校作出決定前，多聽取同學的意見。</div>
+        <span class="ans-tag">評分要點對照</span><br>
+        ✓ 標題切合立場；首段已清楚表態，全文貫徹<br>
+        ✓ 三項理由（專注、筆記、視力），並以「首先、其次、再者」分層<br>
+        ✓ 第三段先讓步（承認書包重、資源多），再提出折衷建議，回應了另一方觀點<br>
+        ✓ 結尾重申立場，並呼應校刊讀者（學校及同學）<br>
+        ✓ 運用「誠然……不過……」「與其……不如……」「既……又……」等複句，以及「近在咫尺」「一目了然」「不容忽視」等詞語，有助取得語言分
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot purple"></span>審題及寫作提示</div>
+    <div class="flow">
+      <div class="flow-step">帶出議題</div><div class="flow-arrow">→</div>
+      <div class="flow-step">表明立場</div><div class="flow-arrow">→</div>
+      <div class="flow-step">理由一</div><div class="flow-arrow">→</div>
+      <div class="flow-step">理由二</div><div class="flow-arrow">→</div>
+      <div class="flow-step">讓步＋反駁或折衷</div><div class="flow-arrow">→</div>
+      <div class="flow-step">總結重申</div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">兩個參考觀點的用法</div>
+        <div class="alert-text">兩個觀點一正一反。支持哪一方，就把那一方的觀點發展成自己的論據，另一方的觀點放在讓步段回應。這樣兩個觀點都用得上，也能顯示你考慮過不同意見。</div>
+      </div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">文體提示</div>
+        <div class="alert-text">校刊文章要有標題，讀者是全校師生，語氣應正式但不必像書信那樣寫稱謂和署名。文中可以直接向「同學」或「學校」提出建議。</div>
+      </div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card bad"><span class="cc-label">✗ 立場模糊</span>「平板電腦有好處，也有壞處，兩者各有道理，學校應該好好考慮。」<br>只分析利弊，沒有作出判斷，不符合「必須表示傾向性」的要求，內容分會受影響。</div>
+      <div class="compare-card good"><span class="cc-label">✓ 立場清晰</span>「我認為學校不應全面取消紙本課本。」<br>首段用一句話表明立場，其後各段的理由都支持這個立場。範文最後雖然提出折衷方案，但仍以保留紙本為前提，立場沒有改變。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot coral"></span>評分準則（按官方等級描述撮要）</div>
+    <table class="level-table">
+      <tr><th class="c">內容（10分）</th><th>描述</th></tr>
+      <tr><td class="c">8–10分</td><td>緊扣題目，立場清晰，論點發展充分，文體及語氣始終恰當，段落組織連貫。</td></tr>
+      <tr><td class="c">5–7分</td><td>緊扣題目，立場清楚，論點有一定發展，組織良好，分段大致恰當。</td></tr>
+      <tr><td class="c">3–4分</td><td>大致完成任務，立場不夠鮮明或論點發展不足，文體偶有不一致。</td></tr>
+      <tr><td class="c">1–2分</td><td>只能有限地回應題目，論點零散，組織欠連貫，分段不足。</td></tr>
+    </table>
+    <table class="level-table">
+      <tr><th class="c">語言（12分）</th><th>描述</th></tr>
+      <tr><td class="c">10–12分</td><td>句式多樣，包括複雜句式及較少見的詞彙，準確度高。</td></tr>
+      <tr><td class="c">7–9分</td><td>恰當運用一系列句式及詞彙，大致準確，嘗試較難的語言時或略見生硬。</td></tr>
+      <tr><td class="c">4–6分</td><td>主要運用簡單句式，嘗試較難的語言時出現錯誤，但意思大致清楚。</td></tr>
+      <tr><td class="c">1–3分</td><td>只能運用簡單句式，錯誤較多，意思常不清楚。</td></tr>
+    </table>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
