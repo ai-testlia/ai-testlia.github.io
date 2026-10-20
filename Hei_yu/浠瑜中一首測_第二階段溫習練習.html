@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>中一第一次測驗 第二階段溫習練習</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#D5D8C5; --hero-fg:26,32,21;
+  --purple:#6b5fb5; --purple-bg:#efedfa;
+  --teal:#2f8a7e; --teal-bg:#e3f3f0;
+  --coral:#c4573e; --coral-bg:#fbebe6;
+  --amber:#b37a12; --amber-bg:#fbf1dc;
+  --pink:#b44d7c; --pink-bg:#f9e8f0;
+  --blue:#3a6fb0; --blue-bg:#e6eef9;
+  --red:#b8382f; --red-bg:#fbe7e5;
+  --green:#3c8a4f; --green-bg:#e5f3e8;
+  --line:#b9bcae;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececea; --color-text-secondary:#a9a9a4;
+    --color-background-primary:#1f211d; --color-background-secondary:#151714;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --hero-bg:#3a3e30; --hero-fg:226,232,212;
+    --purple:#a99ff0; --purple-bg:#2a2740; --teal:#7fd0c3; --teal-bg:#1c3330;
+    --coral:#f0a08c; --coral-bg:#3a241e; --amber:#eac06a; --amber-bg:#372c16;
+    --pink:#ec9cc0; --pink-bg:#3a2230; --blue:#9cbcea; --blue-bg:#1d2a3c;
+    --red:#f09a92; --red-bg:#3b1f1d; --green:#8fd3a0; --green-bg:#1c3322; --line:#5b5e52;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:28px 16px 90px}
+h1,h2,h3{font-family:"Noto Serif TC",serif;margin:0}
+p{margin:0 0 8px}
+
+.hero{background:var(--hero-bg);border-radius:var(--border-radius-lg);padding:34px 30px 28px;margin-bottom:20px}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:.12em;padding:3px 12px;border-radius:999px;border:1px solid rgba(var(--hero-fg),.3);color:rgba(var(--hero-fg),.65);margin-bottom:12px}
+.hero h1{font-size:clamp(24px,4.5vw,32px);font-weight:900;color:rgb(var(--hero-fg));line-height:1.35}
+.hero .sub{margin:8px 0 0;color:rgba(var(--hero-fg),.75);font-size:14px}
+.hero p.by{margin:14px 0 0;color:rgba(var(--hero-fg),.5);font-size:13px}
+
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:20px}
+.toc-group{grid-column:1/-1;font-size:12px;letter-spacing:.1em;color:var(--color-text-secondary);margin-top:4px}
+.toc-item{display:flex;gap:10px;align-items:center;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px;text-decoration:none;color:var(--color-text-primary)}
+.toc-item:hover{border-color:var(--teal)}
+.toc-num{font-family:"Noto Serif TC",serif;font-weight:900;font-size:18px;color:var(--teal);min-width:22px}
+.toc-text{font-size:13px;line-height:1.4}
+.toc-text small{display:block;color:var(--color-text-secondary);font-size:11.5px}
+
+.section-header{display:flex;align-items:center;gap:14px;margin:34px 0 14px}
+.sec-icon{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-weight:900;font-size:21px;color:#fff;flex-shrink:0}
+.sec-title h2{font-size:21px;line-height:1.3}
+.sec-title .sec-no{font-size:12px;letter-spacing:.1em;color:var(--color-text-secondary)}
+.bg-purple{background:var(--purple)} .bg-teal{background:var(--teal)} .bg-coral{background:var(--coral)} .bg-amber{background:var(--amber)} .bg-pink{background:var(--pink)} .bg-blue{background:var(--blue)}
+
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
+.card h3{font-size:16px;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot.purple{background:var(--purple)} .dot.teal{background:var(--teal)} .dot.coral{background:var(--coral)} .dot.amber{background:var(--amber)} .dot.pink{background:var(--pink)} .dot.blue{background:var(--blue)}
+.card .lead{color:var(--color-text-secondary)}
+.card ul{margin:4px 0 8px;padding-left:20px}
+.card li{margin-bottom:3px}
+mark{background:var(--amber-bg);color:inherit;padding:0 2px;border-radius:3px}
+
+.poem{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 16px;font-family:"Noto Serif TC",serif;font-size:15.5px;line-height:2;letter-spacing:.05em}
+
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.kw{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px 14px;background:var(--color-background-secondary)}
+.kw-word{font-family:"Noto Serif TC",serif;font-weight:700;font-size:16px;margin-bottom:4px}
+.kw-word small{font-family:"Noto Sans TC",sans-serif;font-weight:400;font-size:12px;color:var(--color-text-secondary);margin-left:6px}
+.kw-def{font-size:13.5px;line-height:1.75}
+
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0}
+.flow-step{background:var(--teal-bg);color:var(--teal);font-weight:700;border-radius:999px;padding:5px 14px;font-size:13.5px}
+.flow-arrow{color:var(--color-text-secondary)}
+
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-size:14px}
+
+.formula{background:#2b2f26;color:#eef0e6;border-radius:var(--border-radius-md);padding:14px 18px;margin:10px 0;font-size:14px;line-height:1.9}
+.formula b{color:#d8e6a6}
+
+.alert{display:flex;gap:12px;border-radius:var(--border-radius-md);padding:12px 14px;margin:10px 0}
+.alert-icon{font-size:18px;line-height:1.4}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert-text{font-size:13.5px;line-height:1.75}
+.alert.tip{background:var(--blue-bg)} .alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)} .alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)} .alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)} .alert.amber .alert-label{color:var(--amber)}
+
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:0.5px solid var(--color-border-tertiary);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--color-background-secondary);font-weight:700;font-size:13px}
+td.fill{height:2.4em;min-width:5em}
+.center{text-align:center}
+
+.qbox{padding:10px 0;border-top:1px dashed var(--color-border-tertiary)}
+.card > .qbox:first-of-type{border-top:0}
+.q{display:flex;gap:10px}
+.qn{font-weight:700;color:var(--teal);min-width:22px;font-variant-numeric:tabular-nums}
+.qt{flex:1;min-width:0}
+.blank{display:inline-block;min-width:5.5em;border-bottom:1.5px solid var(--line);margin:0 3px;height:1.3em;vertical-align:bottom}
+.blank.s{min-width:3em} .blank.l{min-width:10em}
+.wline{border-bottom:1.5px solid var(--line);height:2.1em}
+.choices{display:flex;flex-wrap:wrap;gap:4px 22px;margin-top:4px}
+
+/* 答案 */
+.ans-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin-bottom:14px;font-size:13px;color:var(--green)}
+.ans-bar button,.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);color:var(--green);background:var(--color-background-primary);border-radius:999px;padding:2px 12px;cursor:pointer}
+.ans-btn:hover,.ans-bar button:hover{background:var(--green-bg)}
+.ans{margin-top:8px}
+.answer{display:none;margin-top:6px;background:var(--green-bg);border-left:3px solid var(--green);border-radius:0 6px 6px 0;padding:8px 12px;font-size:13.5px;line-height:1.8}
+.answer .tbl{margin:4px 0 0}
+.ans.show .answer{display:block}
+button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+/* 工具列 */
+.toolbar{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.tb-btn{font:inherit;font-size:13px;font-weight:500;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:8px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn:hover{background:var(--color-background-secondary)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e;font-weight:700}
+.tb-btn.primary:hover{background:#244b57}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+
+.section-divider{height:1px}
+@media (max-width:520px){.hero{padding:26px 20px 22px}.card{padding:16px}}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  body.print-student .answer{display:none !important}
+  body.print-teacher .answer{display:block !important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">測驗溫習筆記</div>
+  <h1>中一第一次測驗　第二階段溫習練習</h1>
+  <div class="sub">《文學集粹》詩歌　閱讀策略及記敘知識　文化知識｜黃浠瑜（中一丁）</div>
+  <p class="by">潘SIR中文教室編撰</p>
+</div>
+
+<div class="toc">
+  <a class="toc-item" href="#t1"><span class="toc-num">一</span><span class="toc-text">詩歌知識<small>文學集粹 P.1–2</small></span></a>
+  <a class="toc-item" href="#e1"><span class="toc-num">甲</span><span class="toc-text">練習：詩歌知識<small>填充・判斷</small></span></a>
+  <a class="toc-item" href="#t2"><span class="toc-num">二</span><span class="toc-text">七首詩重點<small>王維・李白・杜甫</small></span></a>
+  <a class="toc-item" href="#e2"><span class="toc-num">乙</span><span class="toc-text">練習：七首詩<small>默寫・配對・問答</small></span></a>
+  <a class="toc-item" href="#t3"><span class="toc-num">三</span><span class="toc-text">閱讀策略及記敘知識<small>閱讀策略・白話文閱讀</small></span></a>
+  <a class="toc-item" href="#e3"><span class="toc-num">丙</span><span class="toc-text">練習：閱讀策略及記敘知識<small>判斷・排序・改寫</small></span></a>
+  <a class="toc-item" href="#t4"><span class="toc-num">四</span><span class="toc-text">文化知識<small>孝道・五倫・廿四孝</small></span></a>
+  <a class="toc-item" href="#e4"><span class="toc-num">丁</span><span class="toc-text">練習：文化知識<small>填充・配對</small></span></a>
+</div>
+
+<!-- ===== 第一章 ===== -->
+<div class="section-header first" id="t1">
+  <div class="sec-icon bg-teal">一</div>
+  <div class="sec-title"><div class="sec-no">第一章　重點整理</div><h2>詩歌知識（《文學集粹》P.1–2）</h2></div>
+</div>
+
+<div class="alert warn">
+  <div class="alert-icon">⚠</div>
+  <div>
+    <div class="alert-label">考核範圍</div>
+    <div class="alert-text">老師註明 P.1「只考標示部分」，下面以黃色標出。P.2 新舊詩體制比較表的舊詩部分必須背熟（第一階段已默寫）。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>詩歌的由來</h3>
+  <ul>
+    <li><b>詩與歌：</b><mark>能配樂的韻文叫做「歌」，不能配樂的韻文叫做「詩」。</mark>韻文即句子整齊、有節奏的文字。</li>
+    <li><b>《詩經》：</b>我國第一部詩歌總集，<mark>原稱《詩》或《詩三百》</mark>，漢代以後才稱《詩經》。從音樂角度分為〈風〉〈雅〉〈頌〉三類，〈風〉大多是民間詩歌。</li>
+    <li><b>樂府：</b><mark>漢代產生的「樂府」</mark>，最初是漢武帝設立的音樂機關；到了魏晉六朝，樂府所唱的詩歌就簡稱為「樂府」。</li>
+    <li><b>古體詩與近體詩：</b><mark>魏晉南北朝以前產生的詩歌，可謂古體詩；而隋唐以後產生的詩歌，則是近體詩。</mark>近體詩是律詩和絕詩的通稱，講究韻律。</li>
+  </ul>
+  <div class="flow"><span class="flow-step">《詩經》</span><span class="flow-arrow">→</span><span class="flow-step">漢樂府</span><span class="flow-arrow">→</span><span class="flow-step">古體詩（魏晉南北朝以前）</span><span class="flow-arrow">→</span><span class="flow-step">近體詩（隋唐以後）</span><span class="flow-arrow">→</span><span class="flow-step">新詩（二十世紀初）</span></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>近體詩的規則及新詩流派</h3>
+  <div class="keyword-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+    <div class="kw"><div class="kw-word">絕詩<small>近體詩</small></div><div class="kw-def">全詩四句，每句五字或七字。</div></div>
+    <div class="kw"><div class="kw-word">律詩<small>近體詩</small></div><div class="kw-def">全詩八句，每句五字或七字；頷聯（第三、四句）和頸聯（第五、六句）必須對偶。</div></div>
+    <div class="kw"><div class="kw-word">平仄與押韻</div><div class="kw-def">平仄即聲調。近體詩平仄有固定規限，雙數句（第二、四、六、八句）句末必須押韻。</div></div>
+    <div class="kw"><div class="kw-word">格律詩<small>新詩</small></div><div class="kw-def"><mark>講求「音樂美」、「繪畫美」和「建築美」</mark>，分行、分節、音節和押韻要有一定規律。</div></div>
+  </div>
+</div>
+
+<!-- ===== 練習甲 ===== -->
+<div class="section-header" id="e1">
+  <div class="sec-icon bg-teal">甲</div>
+  <div class="sec-title"><div class="sec-no">第一章　練習</div><h2>詩歌知識</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，做完才看。</span><button type="button" class="all-btn">全部顯示答案</button></div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>一、填充</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">古代能配樂的韻文叫做「<span class="blank s"></span>」，不能配樂的韻文叫做「<span class="blank s"></span>」。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">歌；詩</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">《詩經》原稱《<span class="blank s"></span>》或《<span class="blank"></span>》，從音樂角度分為〈<span class="blank s"></span>〉〈<span class="blank s"></span>〉〈<span class="blank s"></span>〉三類。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">詩；詩三百；風、雅、頌</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">「樂府」最初是<span class="blank s"></span>代設立的音樂機關；到了<span class="blank"></span>，樂府所唱的詩歌就簡稱為「樂府」。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">漢；魏晉六朝</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">4.</span><div class="qt"><span class="blank"></span>以前產生的詩歌，可謂古體詩；而<span class="blank s"></span>以後產生的詩歌，則是近體詩，也就是<span class="blank s"></span>和<span class="blank s"></span>的通稱。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">魏晉南北朝；隋唐；律詩、絕詩</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">5.</span><div class="qt">格律詩講求「<span class="blank s"></span>美」、「<span class="blank s"></span>美」和「<span class="blank s"></span>美」。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">音樂；繪畫；建築</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>二、判斷</h3>
+  <p class="lead">正確的加 ✓，錯誤的加 ✗。</p>
+  <div class="qbox"><div class="q"><span class="qn"></span><div class="qt">
+    <div class="tbl"><table>
+      <tr><th>句子</th><th class="center" style="width:70px">✓ / ✗</th></tr>
+      <tr><td>(1) 絕詩全詩八句，每句五字或七字。</td><td></td></tr>
+      <tr><td>(2) 律詩的頷聯和頸聯必須對偶。</td><td></td></tr>
+      <tr><td>(3) 古體詩的平仄有固定規限。</td><td></td></tr>
+      <tr><td>(4) 近體詩雙數句的句末必須押韻。</td><td></td></tr>
+      <tr><td>(5) 頷聯是律詩的第三、四句。</td><td></td></tr>
+      <tr><td>(6) 新詩以文言寫成，一般會分節。</td><td></td></tr>
+    </table></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">(1) ✗（絕詩全詩四句）　(2) ✓　(3) ✗（古體詩沒有固定規限）　(4) ✓　(5) ✓　(6) ✗（新詩以白話寫成）</div></div></div></div></div>
+</div>
+
+<!-- ===== 第二章 ===== -->
+<div class="section-header" id="t2">
+  <div class="sec-icon bg-coral">二</div>
+  <div class="sec-title"><div class="sec-no">第二章　重點整理</div><h2>七首詩重點</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>三位詩人</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">王維<small>字摩詰</small></div><div class="kw-def">官至尚書右丞，人稱「王右丞」；精研佛理，世稱「詩佛」。山水田園詩派代表人物，蘇軾稱讚他「詩中有畫，畫中有詩」。</div></div>
+    <div class="kw"><div class="kw-word">李白<small>字太白，號青蓮居士</small></div><div class="kw-def">被尊為「詩仙」。詩風豪邁飄逸，熱情奔放而富想像，充滿浪漫色彩，杜甫稱他「筆落驚風雨，詩成泣鬼神」。</div></div>
+    <div class="kw"><div class="kw-word">杜甫<small>字子美</small></div><div class="kw-def">憂國憂民，被尊為「詩聖」；詩作反映唐代由盛轉衰的歷史，故被稱為「詩史」。嚴於詩律，多寫近體詩。</div></div>
+  </div>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div>
+      <div class="alert-label">比較李白與杜甫</div>
+      <div class="alert-text">二人同生於盛唐，代表唐詩的最高成就。李白的詩源於《楚辭》，充滿浪漫色彩，多寫古體；杜甫的詩源於《詩經》和漢樂府，充滿寫實精神，多寫近體。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>七首詩一覽</h3>
+  <div class="tbl"><table>
+    <tr><th style="width:150px">詩題</th><th style="width:56px">詩人</th><th style="width:70px">類別</th><th>重點</th></tr>
+    <tr><td>22.《九月九日憶山東兄弟》</td><td>王維</td><td>思鄉</td><td>十七歲獨居長安時所作。九月九日即重陽節，有登高望遠、團聚的習俗。「每逢佳節倍思親」寫出思鄉的真實心情；後兩句設想家鄉兄弟插茱萸時，會發現少了自己一人。</td></tr>
+    <tr><td>23.《竹里館》</td><td>王維</td><td>山水田園</td><td>景物由幽篁、深林、明月構成，人物由獨坐、彈琴、長嘯構成，合成一幅「清幽絕俗」的田園生活畫圖。</td></tr>
+    <tr><td>24.《望廬山瀑布》</td><td>李白</td><td>寫景</td><td>歌頌廬山瀑布。「飛流直下三千尺」是誇張的說法，表現詩人胸襟開闊、氣勢豪放，抒發熱愛河山的感情。</td></tr>
+    <tr><td>25.《贈汪倫》</td><td>李白</td><td>送別</td><td>「忽聞」二字刻畫詩人的驚喜。後兩句說潭水再深也比不上汪倫的情誼，把友情寫得至深至純。</td></tr>
+    <tr><td>26.《黃鶴樓送孟浩然之廣陵》</td><td>李白</td><td>送別</td><td>沒有一般送別詩的憂愁，而是明朗輕快。末兩句情景交融：帆影消失，只見江水，詩人久久佇立，表達對友人的深情。</td></tr>
+    <tr><td>29.《月夜》</td><td>杜甫</td><td>思念家人</td><td>被叛軍拘禁於長安時所作，借看月抒離情。全詩由一系列幻想畫面構成。</td></tr>
+    <tr><td>30.《絕句》</td><td>杜甫</td><td>寫景</td><td>晚年居成都草堂時所作，景物清新優美。「門泊東吳萬里船」透露詩人對國事民生的關注；以「絕句」為題，相當於「無題」。</td></tr>
+  </table></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>原文</h3>
+  <div class="keyword-grid">
+    <div class="poem">22. 獨在異鄉為異客，每逢佳節倍思親。<br>遙知兄弟登高處，遍插茱萸少一人。</div>
+    <div class="poem">23. 獨坐幽篁裏，彈琴復長嘯。<br>深林人不知，明月來相照。</div>
+    <div class="poem">24. 日照香爐生紫煙，遙看瀑布掛前川。<br>飛流直下三千尺，疑是銀河落九天。</div>
+    <div class="poem">25. 李白乘舟將欲行，忽聞岸上踏歌聲。<br>桃花潭水深千尺，不及汪倫送我情。</div>
+    <div class="poem">26. 故人西辭黃鶴樓，煙花三月下揚州。<br>孤帆遠影碧空盡，惟見長江天際流。</div>
+    <div class="poem">29. 今夜鄜州月，閨中只獨看。遙憐小兒女，未解憶長安。<br>香霧雲鬟濕，清輝玉臂寒。何時倚虛幌，雙照淚痕乾？</div>
+    <div class="poem">30. 兩個黃鸝鳴翠柳，一行白鷺上青天。<br>窗含西嶺千秋雪，門泊東吳萬里船。</div>
+  </div>
+</div>
+
+<!-- ===== 練習乙 ===== -->
+<div class="section-header" id="e2">
+  <div class="sec-icon bg-coral">乙</div>
+  <div class="sec-title"><div class="sec-no">第二章　練習</div><h2>七首詩</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，做完才看。</span><button type="button" class="all-btn">全部顯示答案</button></div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>一、默寫</h3>
+  <p class="lead">寫出下一句。</p>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">獨在異鄉為異客，<span class="blank l"></span>。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">每逢佳節倍思親</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">深林人不知，<span class="blank l"></span>。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">明月來相照</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">飛流直下三千尺，<span class="blank l"></span>。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">疑是銀河落九天</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">4.</span><div class="qt">桃花潭水深千尺，<span class="blank l"></span>。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">不及汪倫送我情</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">5.</span><div class="qt">孤帆遠影碧空盡，<span class="blank l"></span>。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">惟見長江天際流</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">6.</span><div class="qt">兩個黃鸝鳴翠柳，<span class="blank l"></span>。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">一行白鷺上青天</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>二、詩人及詩歌類別</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">寫出每首詩的詩人，並從方框中選出詩歌的類別，把代表字母填在表內。（類別可重複選用）
+    <div class="example-box coral"><div class="example-text">A. 思鄉　B. 送別　C. 寫景　D. 思念家人</div></div>
+    <div class="tbl"><table>
+      <tr><th>詩題</th><th style="width:90px">詩人</th><th class="center" style="width:70px">類別</th></tr>
+      <tr><td>《九月九日憶山東兄弟》</td><td></td><td></td></tr>
+      <tr><td>《望廬山瀑布》</td><td></td><td></td></tr>
+      <tr><td>《贈汪倫》</td><td></td><td></td></tr>
+      <tr><td>《黃鶴樓送孟浩然之廣陵》</td><td></td><td></td></tr>
+      <tr><td>《月夜》</td><td></td><td></td></tr>
+      <tr><td>《絕句》（兩個黃鸝鳴翠柳）</td><td></td><td></td></tr>
+    </table></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">王維 A；李白 C；李白 B；李白 B；杜甫 D；杜甫 C</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">王維官至尚書右丞，人稱「<span class="blank"></span>」；他精研佛理，世稱「<span class="blank s"></span>」。蘇軾稱讚他的作品「<span class="blank"></span>，<span class="blank"></span>」。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">王右丞；詩佛；詩中有畫，畫中有詩</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">李白號<span class="blank"></span>，被尊為「<span class="blank s"></span>」；杜甫被尊為「<span class="blank s"></span>」，他的詩又被稱為「<span class="blank s"></span>」。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">青蓮居士；詩仙；詩聖；詩史</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>三、理解問答</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">《九月九日憶山東兄弟》的「九月九日」是甚麼節日？這個節日有甚麼習俗？
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">重陽節；有登高望遠、團聚的習俗（詩中亦寫到插茱萸）。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">《九月九日憶山東兄弟》後兩句怎樣表達思鄉之情？
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">詩人筆鋒一轉，設想留在家鄉的兄弟登高、分插茱萸時，一定會發現今年比往年少了一個人，從兄弟牽掛自己的角度寫出思鄉之情。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">《竹里館》中的景物和人物，分別由哪三個詞組構成？
+    <div>景物：<span class="blank"></span>、<span class="blank"></span>、<span class="blank"></span></div>
+    <div>人物：<span class="blank"></span>、<span class="blank"></span>、<span class="blank"></span></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">景物：幽篁、深林、明月<br>人物：獨坐、彈琴、長嘯</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">4.</span><div class="qt">「飛流直下三千尺」運用了甚麼修辭手法？表現了詩人怎樣的胸襟？
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">誇張（三千尺是誇張的說法，形容山很高、瀑布飛瀉而下）；表現詩人胸襟開闊、氣勢豪放。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">5.</span><div class="qt">《贈汪倫》中「忽聞」二字刻畫了詩人怎樣的心情？後兩句怎樣寫汪倫的情誼？
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">驚喜。後兩句不說情誼像千尺潭水一樣深，而是更進一步說潭水無論多深，都比不上汪倫送別的深情。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">6.</span><div class="qt">《黃鶴樓送孟浩然之廣陵》和一般送別詩有甚麼不同？末兩句表達了甚麼感情？
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">這首詩沒有一般送別詩的憂愁苦悶，而是明朗輕快、春意盎然。末兩句寫詩人目送孤帆遠去，直至帆影消失，只見長江流向天邊，表達對友人的無限依戀和深情。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">7.</span><div class="qt">《月夜》全詩由甚麼構成？詩人為甚麼要這樣寫？試寫出兩個原因。
+    <div class="wline"></div><div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">全詩由一系列幻想畫面構成，如妻子獨自看月、夫妻一起看月。原因：一是兵荒馬亂，家中真實情況不得而知；二是思念深切，不得不借幻想來自我安慰。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">8.</span><div class="qt">《絕句》中「門泊東吳萬里船」透露了詩人甚麼關注？為甚麼？
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">透露詩人對國事民生的關注。因為連年戰亂，交通阻隔，現在遠在東吳的船也能到達成都，可見路途已比較安全。</div></div></div></div></div>
+</div>
+
+<!-- ===== 第三章 ===== -->
+<div class="section-header" id="t3">
+  <div class="sec-icon bg-purple">三</div>
+  <div class="sec-title"><div class="sec-no">第三章　重點整理</div><h2>閱讀策略及記敘知識</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>閱讀文章五大步驟（《閱讀策略》P.1）</h3>
+  <div class="flow"><span class="flow-step">1 審題</span><span class="flow-arrow">→</span><span class="flow-step">2 看文章題目</span><span class="flow-arrow">→</span><span class="flow-step">3 閱讀全文，寫段旨</span><span class="flow-arrow">→</span><span class="flow-step">4 劃關鍵詞，思考段意、主旨</span><span class="flow-arrow">→</span><span class="flow-step">5 回答問題</span></div>
+  <p>大部分問答題都可以圍繞文章的段意、主旨思考答案。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>閱讀策略（《閱讀策略》P.1–3）</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">從文意脈絡推斷詞意</div><div class="kw-def">從上文下理找線索。例如「車子在崎嶇的山路上走，異常顛簸，將我的五臟六腑也倒轉過來」，由「崎嶇」「五臟六腑也倒轉」推斷「顛簸」是上下震盪。</div></div>
+    <div class="kw"><div class="kw-word">推斷詞句的比喻</div><div class="kw-def">由表面意義的特徵聯想引申義。例如「我總不相信有人甘心作人家的犬馬」，「犬馬」比喻奴僕。</div></div>
+    <div class="kw"><div class="kw-word">句義綜合法</div><div class="kw-def">劃去次要和重複的句子；用一個詞語代替一系列例子；選出主旨句或自擬主旨句。</div></div>
+    <div class="kw"><div class="kw-word">撰寫提要策略</div><div class="kw-def">刪除（不相關的句意）、概類（同類句意）、建構（建出新句子）、綜合（重要句意綜合成新句子）。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>記敘手法（白話文閱讀 P.9）</h3>
+  <div class="tbl"><table>
+    <tr><th style="width:80px">手法</th><th>定義</th><th>兩種寫法</th></tr>
+    <tr><td>順敘法</td><td>按人物成長或事件發展的自然順序，從頭到尾依次交代。</td><td>① 按事件發生的時間先後；② 按空間轉換的順序。</td></tr>
+    <tr><td>倒敘法</td><td>把事件的結局或某個情節提前說出，再交代事件的過程或成因。</td><td>① 先寫眼前事物，引起回憶；② 因果倒置，先寫結局，再寫原因和經過。</td></tr>
+  </table></div>
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div>
+      <div class="alert-label">老師提示</div>
+      <div class="alert-text">插敘法本學期不考，下學期必考。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>起承轉合（白話文閱讀 P.15）</h3>
+  <div class="flow"><span class="flow-step">起：開頭，領起全文</span><span class="flow-arrow">→</span><span class="flow-step">承：承接發展</span><span class="flow-arrow">→</span><span class="flow-step">轉：轉換角度或出現變化</span><span class="flow-arrow">→</span><span class="flow-step">合：收結</span></div>
+  <div class="example-box teal">
+    <div class="example-label">以《歪兒》為例</div>
+    <div class="example-text">起：作者和同伴玩「踢罐電報」，欺負歪兒。承：歪兒被作弄得痛哭，被媽媽帶回家。轉：歪兒把長鐵罐借給大家，作者感到內疚。合：歪兒回到大家中間，遊戲時大家暗中幫助他。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>敘事觀點（白話文閱讀 P.16）</h3>
+  <div class="tbl"><table>
+    <tr><th style="width:80px">人稱</th><th>寫法</th><th>好處</th></tr>
+    <tr><td>第一人稱</td><td>以「我」的所見所聞、所思所想為主線。</td><td>便於直接表達思想感情，容易使讀者投入，產生真實感。</td></tr>
+    <tr><td>第三人稱</td><td>作者以旁觀者角度敘述，不參與事件之中。</td><td>不受時空限制，能比較自由廣闊地反映故事。</td></tr>
+  </table></div>
+  <div class="example-box amber">
+    <div class="example-label">人稱轉換的要點</div>
+    <div class="example-text">名詞和代詞都要改。例如：「剛才媽媽已催促我上床睡覺。」改為第三人稱：「剛才他的媽媽已催促他上床睡覺。」</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>記敘文段意及主旨（《閱讀策略》P.11）</h3>
+  <div class="formula">
+    段意：本段記敘<b>……（事件重點）</b>的經過／原因，藉此抒發／帶出<b>……（情感／道理）</b>。<br>
+    主旨：本文通過記述<b>……</b>，交代<b>……</b>，反映<b>……</b>。
+  </div>
+  <p>記敘文六要素：何時、何地、何人、何事、何因、何果。但不是每篇記敘文都齊備六個要素。</p>
+</div>
+
+<!-- ===== 練習丙 ===== -->
+<div class="section-header" id="e3">
+  <div class="sec-icon bg-purple">丙</div>
+  <div class="sec-title"><div class="sec-no">第三章　練習</div><h2>閱讀策略及記敘知識</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，做完才看。</span><button type="button" class="all-btn">全部顯示答案</button></div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>一、閱讀文章五大步驟</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">把以下步驟按正確次序排列，在括號內填上 1 至 5。
+    <div class="tbl"><table>
+      <tr><th class="center" style="width:70px">次序</th><th>步驟</th></tr>
+      <tr><td class="center">（　）</td><td>回答問題前，再看清楚題目的提問重點</td></tr>
+      <tr><td class="center">（　）</td><td>審題，劃下題目關鍵字詞</td></tr>
+      <tr><td class="center">（　）</td><td>劃下關鍵詞句，思考段意及主旨</td></tr>
+      <tr><td class="center">（　）</td><td>看文章題目，初步掌握中心</td></tr>
+      <tr><td class="center">（　）</td><td>閱讀全篇文章，寫出段旨</td></tr>
+    </table></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">由上至下：5、1、4、2、3</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>二、記敘手法</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">判斷以下段落運用了順敘法還是倒敘法，並寫出是哪一種寫法。
+    <div class="tbl"><table>
+      <tr><th>段落</th><th style="width:110px">順敘／倒敘</th><th style="width:150px">寫法</th></tr>
+      <tr><td>(1) 早上七時，我起床梳洗；八時到達學校；下午放學後，便到圖書館溫習。</td><td></td><td></td></tr>
+      <tr><td>(2) 看着書桌上那張發黃的合照，我不禁想起十年前那個夏天……</td><td></td><td></td></tr>
+      <tr><td>(3) 這次比賽，我們班終於奪得冠軍。回想三個月前，大家每天放學都留下來練習……</td><td></td><td></td></tr>
+      <tr><td>(4) 走進公園，最先看見的是噴水池；沿小路往前走，是一片花圃；再往裏走，便是兒童遊樂場。</td><td></td><td></td></tr>
+    </table></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">(1) 順敘，按時間先後　(2) 倒敘，先寫眼前事物引起回憶　(3) 倒敘，先寫結果，再寫原因和經過　(4) 順敘，按空間轉換</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>三、起承轉合</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">以下四句組成一個小故事，但次序亂了。試判斷每句屬於起、承、轉、合哪一部分。
+    <div class="tbl"><table>
+      <tr><th>句子</th><th class="center" style="width:90px">起／承／轉／合</th></tr>
+      <tr><td>A. 哥哥看見妹妹傷心的樣子，後悔自己只會取笑她，於是每天陪她到公園練習。</td><td></td></tr>
+      <tr><td>B. 妹妹剛學騎單車，經常摔倒，哥哥總在一旁取笑她。</td><td></td></tr>
+      <tr><td>C. 一星期後，妹妹終於學會了，兄妹二人一起騎着單車在公園裏兜風。</td><td></td></tr>
+      <tr><td>D. 有一次，妹妹摔傷了膝蓋，哭着說再也不學了。</td><td></td></tr>
+    </table></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">A 轉；B 起；C 合；D 承</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">試參照《閱讀策略》P.11 的語句，為上題的故事寫一句主旨。
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">（自由作答）例：本文通過記述哥哥由取笑妹妹到陪伴她學騎單車的經過，帶出兄弟姊妹應該互相關心、鼓勵，而不是取笑對方的道理。</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>四、敘事觀點</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">把以下句子改為第三人稱敘述（以「小芳」為主角）。<br>「放學後，我急急跑回家，因為媽媽答應今天教我做蛋糕。」
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">放學後，小芳急急跑回家，因為她的媽媽答應今天教她做蛋糕。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">把以下句子改為第一人稱敘述（以「志明」為「我」）。<br>「志明把成績表交給爸爸，爸爸看了很久，才拍拍志明的肩膀說：『下次努力吧。』」
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">我把成績表交給爸爸，爸爸看了很久，才拍拍我的肩膀說：「下次努力吧。」</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">用第一人稱敘述有甚麼好處？
+    <div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">便於作者直接表達自己的思想感情，就像一個親歷其境的人說故事，容易使讀者投入，產生真實感。</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>五、推斷詞意及比喻</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">「聽到哥哥考試不及格的消息，媽媽眉頭深鎖，坐在沙發上一言不發。」<br>「眉頭深鎖」是甚麼意思？你從哪些詞語推斷出來？
+    <div class="wline"></div><div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">形容憂愁、擔心的樣子。可從「考試不及格的消息」「一言不發」推斷。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">「新同學性格內向，大家花了很多時間，才打破了他和同學之間的那堵牆。」<br>句中「那堵牆」比喻甚麼？
+    <div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">比喻新同學和同學之間的隔膜（距離）。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">記敘文的六要素是：何時、<span class="blank s"></span>、<span class="blank s"></span>、何事、<span class="blank s"></span>、<span class="blank s"></span>。每篇記敘文是否都齊備這六個要素？
+    <div class="wline"></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">何地、何人、何因、何果。不是，必須視乎該篇文章內容的構思而定。</div></div></div></div></div>
+</div>
+
+<!-- ===== 第四章 ===== -->
+<div class="section-header" id="t4">
+  <div class="sec-icon bg-pink">四</div>
+  <div class="sec-title"><div class="sec-no">第四章　重點整理</div><h2>文化知識</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>孝道（白話文閱讀 P.30）</h3>
+  <ul>
+    <li><b>儒家重孝：</b>《孝經》：「夫孝，德之本也，教之所由生也。」孟子：「親親，仁也。」</li>
+    <li><b>忠孝與孝悌：</b>孔子：「君子之事親孝，故忠可移於君；事兄悌，故順可移於長。」</li>
+    <li><b>孝順與孝敬：</b>孝順是遵從父母的指導；孝敬分兩方面——物質上為父母提供衣食住行等基本奉養，精神上恭敬、關心、敬愛父母。</li>
+    <li><b>《二十四孝》：</b>相傳由元代郭居敬編輯，選錄二十四位孝子的故事，每個故事配一首詩。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>五倫（白話文閱讀 P.30–31）</h3>
+  <div class="tbl"><table>
+    <tr><th style="width:70px">五倫</th><th style="width:90px">德目</th><th>重點</th><th>相關篇章（舉例）</th></tr>
+    <tr><td>君臣</td><td>忠愛</td><td>為政者愛護人民，人民忠於統治者。</td><td>《平民總統孫中山》</td></tr>
+    <tr><td>父子</td><td>父慈子孝</td><td>父母慈愛子女，子女孝順父母。</td><td>《背影》、《慈烏夜啼》</td></tr>
+    <tr><td>夫婦</td><td>敬愛</td><td>相敬如賓，和睦相處。</td><td>《行行重行行》、《迢迢牽牛星》</td></tr>
+    <tr><td>兄弟</td><td>兄友弟恭</td><td>互相恭敬、友愛。</td><td>—</td></tr>
+    <tr><td>朋友</td><td>誠信</td><td>彼此忠信、誠實。</td><td>《歪兒》、《送友人》</td></tr>
+  </table></div>
+</div>
+
+<!-- ===== 練習丁 ===== -->
+<div class="section-header" id="e4">
+  <div class="sec-icon bg-pink">丁</div>
+  <div class="sec-title"><div class="sec-no">第四章　練習</div><h2>文化知識</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，做完才看。</span><button type="button" class="all-btn">全部顯示答案</button></div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>一、孝道</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">《孝經》：「夫孝，<span class="blank"></span>，教之所由生也。」
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">德之本也</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">孟子：「<span class="blank s"></span>，仁也。」
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">親親</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">3.</span><div class="qt">孔子：「君子之事親孝，故忠可移於<span class="blank s"></span>；事兄悌，故順可移於<span class="blank s"></span>。」
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">君；長</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">4.</span><div class="qt">孝敬可以分為兩方面：物質上，<span class="blank l"></span>；精神上，<span class="blank l"></span>。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">子女為父母提供衣食住行等基本奉養；子女和父母相處時，秉持恭敬的心意，關心、敬愛父母。</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">5.</span><div class="qt">《二十四孝》相傳由<span class="blank s"></span>代的<span class="blank"></span>編輯。
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">元；郭居敬</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>二、五倫</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">寫出五倫的德目。
+    <div class="tbl"><table>
+      <tr><th>君臣</th><th>父子</th><th>夫婦</th><th>兄弟</th><th>朋友</th></tr>
+      <tr><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
+    </table></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">忠愛；父慈子孝；敬愛；兄友弟恭；誠信</div></div></div></div></div>
+  <div class="qbox"><div class="q"><span class="qn">2.</span><div class="qt">以下篇章寫的是五倫中的哪一倫？
+    <div class="tbl"><table>
+      <tr><th>篇章</th><th style="width:120px">五倫</th></tr>
+      <tr><td>《歪兒》</td><td></td></tr>
+      <tr><td>《迢迢牽牛星》</td><td></td></tr>
+      <tr><td>《背影》</td><td></td></tr>
+      <tr><td>《平民總統孫中山》</td><td></td></tr>
+    </table></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">朋友；夫婦；父子；君臣</div></div></div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>三、廿四孝故事</h3>
+  <div class="qbox"><div class="q"><span class="qn">1.</span><div class="qt">根據故事內容，寫出故事名稱及主角。
+    <div class="tbl"><table>
+      <tr><th>故事內容</th><th style="width:110px">故事名稱</th><th style="width:80px">主角</th></tr>
+      <tr><td>(1) 父母患眼疾，要飲鹿乳治病，他便披上鹿皮，混入鹿群取乳。</td><td></td><td></td></tr>
+      <tr><td>(2) 寒冬時繼母想吃鮮魚，他脫衣臥在冰上，冰塊溶解，躍出兩尾鯉魚。</td><td></td><td></td></tr>
+      <tr><td>(3) 年過七十，仍常穿彩衣扮成小孩，逗父母開心。</td><td></td><td></td></tr>
+      <tr><td>(4) 夏天為父親扇涼枕席，冬天用身體為父親溫暖被褥。</td><td></td><td></td></tr>
+      <tr><td>(5) 家貧沒有蚊帳，夏夜坐在父母床前，任由蚊子叮咬而不驅趕。</td><td></td><td></td></tr>
+      <tr><td>(6) 母親病了多年，母親要吃的湯藥，他一定親口嘗過才讓母親服用。</td><td></td><td></td></tr>
+      <tr><td>(7) 雖然地位顯赫，仍每晚親自為母親清洗便桶。</td><td></td><td></td></tr>
+      <tr><td>(8) 為了籌措父親的喪葬費用，把自己賣給富戶做奴僕。</td><td></td><td></td></tr>
+    </table></div>
+    <div class="ans"><button class="ans-btn" type="button">👁 顯示答案</button><div class="answer">(1) 鹿乳奉親，郯子　(2) 臥冰求鯉，王祥　(3) 戲彩娛親，老萊子　(4) 扇枕溫衾，黃香<br>(5) 恣蚊飽血，吳猛　(6) 親嘗湯藥，漢文帝　(7) 滌親溺器，黃庭堅　(8) 賣身葬父，董永</div></div></div></div></div>
+</div>
+
+<div class="alert amber">
+  <div class="alert-icon">📌</div>
+  <div>
+    <div class="alert-label">模擬測驗</div>
+    <div class="alert-text">完成本練習後，10 月 22 日做《歪兒》課文試題（K10133_exes_03），10 月 23 日做兩首古詩課文試題（K10430_exes_03、_04），限時完成後再對答案。</div>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+    <button type="button" class="tb-btn" id="tb-all">👁 全部顯示答案</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+(function(){
+  var allOn=false;
+  function setOne(a,on){a.classList.toggle('show',on);a.querySelector('.ans-btn').textContent=on?'🙈 隱藏答案':'👁 顯示答案';}
+  function setAll(on){
+    allOn=on;
+    document.querySelectorAll('.ans').forEach(function(a){setOne(a,on);});
+    document.querySelectorAll('.all-btn').forEach(function(b){b.textContent=on?'全部隱藏答案':'全部顯示答案';});
+    document.getElementById('tb-all').textContent=on?'🙈 全部隱藏答案':'👁 全部顯示答案';
+  }
+  document.querySelectorAll('.ans-btn').forEach(function(b){
+    b.addEventListener('click',function(){var a=b.parentElement;setOne(a,!a.classList.contains('show'));});
+  });
+  document.querySelectorAll('.all-btn').forEach(function(b){b.addEventListener('click',function(){setAll(!allOn);});});
+  document.getElementById('tb-all').addEventListener('click',function(){setAll(!allOn);});
+  window.printVersion=function(v){
+    document.body.classList.remove('print-student','print-teacher');
+    document.body.classList.add('print-'+v);
+    var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+    window.addEventListener('afterprint',done);
+    window.print();
+  };
+})();
+</script>
+</body>
+</html>
