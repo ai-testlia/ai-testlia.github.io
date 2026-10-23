@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小六成語精讀　單元一、二</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5b95;--purple-bg:#f0edf7;
+  --teal:#2e8b83;--teal-bg:#e6f4f2;
+  --coral:#d0654f;--coral-bg:#fcede9;
+  --amber:#c4861b;--amber-bg:#fbf3e2;
+  --pink:#c2557f;--pink-bg:#fbebf1;
+  --blue:#3d6fa8;--blue-bg:#e8f0f9;
+  --green:#3c8d4f;--green-bg:#e8f4eb;
+  --red:#c0392b;--red-bg:#fbeaea;
+  --hero-bg:#E3D8C4;--hero-ink:42,34,20;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ece9e4;--color-text-secondary:#b3aea6;
+    --color-background-primary:#22211f;--color-background-secondary:#171615;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a99bd6;--purple-bg:#2b2638;
+    --teal:#6cc5bb;--teal-bg:#1c302d;
+    --coral:#ec917e;--coral-bg:#3a2520;
+    --amber:#e5b157;--amber-bg:#352b18;
+    --pink:#e88aae;--pink-bg:#38222b;
+    --blue:#86b1e3;--blue-bg:#1d2836;
+    --green:#7dc98e;--green-bg:#1d3022;
+    --red:#ee8577;--red-bg:#3a1f1c;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC",sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 80px}
+h1,h2,.id-word,.story-p,.example-text,.combo-t,.qbox{font-family:"Noto Serif TC",serif}
+.hero{background:var(--hero-bg);color:rgb(var(--hero-ink));border-radius:var(--border-radius-lg);padding:34px 30px;margin-bottom:18px}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-ink),.3);color:rgba(var(--hero-ink),.65);border-radius:999px;padding:2px 14px;font-size:12.5px;letter-spacing:2px}
+.hero h1{font-size:30px;margin:12px 0 4px;font-weight:900;color:rgb(var(--hero-ink))}
+.hero .sub{font-size:15px;color:rgba(var(--hero-ink),.75)}
+.hero p{margin:10px 0 0;font-size:13px;color:rgba(var(--hero-ink),.5)}
+.toc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:22px}
+.toc-title{font-weight:700;margin-bottom:6px}
+.toc-item{display:block;color:var(--color-text-primary);text-decoration:none;padding:4px 0;border-bottom:.5px dashed var(--color-border-tertiary)}
+.toc-item:last-child{border-bottom:0}
+.toc-num{display:inline-block;width:34px;color:var(--purple);font-weight:700}
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--color-border-tertiary)}
+.section-header.first{margin-top:10px}
+.sh-icon{width:44px;height:44px;border-radius:12px;background:var(--purple-bg);display:flex;align-items:center;justify-content:center;font-size:22px;flex:none}
+.sh-num{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary)}
+.section-header h2{margin:0;font-size:21px}
+.card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:14px}
+.card-title{font-weight:700;font-size:16px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.card p{margin:6px 0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--purple)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}
+.tbl{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+.tbl th,.tbl td{border:.5px solid var(--color-border-tertiary);padding:6px 10px;text-align:left;vertical-align:top}
+.tbl th{background:var(--color-background-secondary)}
+.tbl .c,.c{white-space:nowrap}
+.tbl.narrow{width:auto;min-width:300px}
+.tbl.narrow td.c,.tbl.narrow th.c{text-align:center}
+.tbl.narrow td:first-child{text-align:left}
+/* 成語卡 */
+.idiom{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-left:5px solid var(--purple);border-radius:var(--border-radius-lg);padding:14px 18px;margin-bottom:14px}
+.idiom.teal{border-left-color:var(--teal)}
+.id-head{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin-bottom:8px}
+.id-num{width:28px;height:28px;border-radius:50%;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:none}
+.idiom.teal .id-num{background:var(--teal)}
+.id-word{font-size:22px;font-weight:900;letter-spacing:4px}
+.id-py{color:var(--color-text-secondary);font-size:14px;font-style:italic}
+.yue{font-size:12px;background:var(--amber-bg);color:var(--amber);border-radius:6px;padding:1px 8px;white-space:nowrap}
+.id-tags{display:flex;gap:6px;margin-left:auto}
+.pill{font-size:12px;border-radius:999px;padding:1px 10px;white-space:nowrap;font-weight:500}
+.pill.good{background:var(--green-bg);color:var(--green)}
+.pill.bad{background:var(--red-bg);color:var(--red)}
+.pill.hist{background:var(--amber-bg);color:var(--amber)}
+.id-tbl{width:100%;border-collapse:collapse}
+.id-tbl th{width:52px;white-space:nowrap;text-align:left;vertical-align:top;color:var(--purple);font-weight:700;padding:3px 8px 3px 0}
+.idiom.teal .id-tbl th{color:var(--teal)}
+.id-tbl td{padding:3px 0}
+.exl{margin:0;padding-left:20px}
+.hl{color:var(--blue);font-weight:700}
+.hl2{color:var(--pink);font-weight:700}
+.exlab{font-size:12px;color:var(--coral);margin-left:4px}
+.ciw{display:inline-block;font-size:11px;background:var(--teal);color:#fff;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;margin-right:3px;vertical-align:1px}
+.combo{background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 12px;margin-top:10px}
+.combo-h{font-size:12.5px;font-weight:700;color:var(--green)}
+.combo-t{font-size:14px}
+/* alert */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin-top:10px}
+.alert-icon{flex:none}
+.alert-label{font-weight:700;font-size:13px}
+.alert-text{font-size:14px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.example-box{background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin-top:10px}
+.example-box.coral{background:var(--coral-bg)}
+.example-label{font-size:12px;font-weight:700;color:var(--coral)}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compare-card{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 14px;background:var(--color-background-secondary)}
+.cc-h{font-weight:700;color:var(--coral)}
+.compare-card:nth-child(2) .cc-h{color:var(--blue)}
+.story{border-left:5px solid var(--purple)}
+.story.teal{border-left-color:var(--teal)}.story.coral{border-left-color:var(--coral)}.story.pink{border-left-color:var(--pink)}.story.blue{border-left-color:var(--blue)}
+.story-t{font-weight:500;color:var(--color-text-secondary);font-size:14px}
+.story-p{font-size:15px;line-height:1.95}
+.src-note{font-size:12px;color:var(--color-text-secondary);text-align:right}
+.formula{background:#2f3b45;color:#f3efe6;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0}
+.f-label{font-size:12px;letter-spacing:2px;color:#e5c88f;margin-bottom:4px}
+.f-text{font-family:"Noto Serif TC",serif;font-size:15px;line-height:2}
+.formula b{color:#ffd98a}
+/* 練習 */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber)}
+.qbox{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:12px 16px;margin-bottom:10px;font-size:15px;line-height:2}
+.qn{font-weight:700;margin-right:6px;font-family:"Noto Sans TC",sans-serif}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);font-family:"Noto Sans TC",sans-serif}
+.opts{display:grid;grid-template-columns:repeat(4,1fr);gap:4px 12px;margin-top:4px}
+.opt b{font-family:"Noto Sans TC",sans-serif}
+.choice{font-size:14px;color:var(--color-text-secondary)}
+.blank{display:inline-block;width:90px;border-bottom:1.5px solid var(--color-text-primary);margin:0 4px;vertical-align:-4px}
+.blank.l{width:120px}
+.line{border-bottom:1px solid var(--color-border-tertiary);height:30px}
+.bank{display:flex;flex-wrap:wrap;gap:6px 8px;background:var(--amber-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:12px}
+.bank span{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:6px;padding:2px 10px;font-family:"Noto Serif TC",serif}
+.sm{font-size:13px;color:var(--color-text-secondary)}
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;font-family:"Noto Sans TC",sans-serif;line-height:1.8}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+.ans-bar .tb-btn{box-shadow:none;padding:4px 12px;font-size:12.5px}
+@media (max-width:640px){
+  .opts{grid-template-columns:repeat(2,1fr)}
+  .compare-grid{grid-template-columns:1fr}
+  .id-tags{margin-left:0}
+  .hero h1{font-size:24px}
+}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.idiom{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section-divider,.qsub,.bank{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+  <div class="hero-tag">成語教學筆記</div>
+  <h1>小六成語精讀：單元一、二</h1>
+  <div class="sub">小六　單元一　人多熱鬧與聲勢浩大　｜　單元二　思念、羞愧、憤怒與害怕</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>單元一：人多熱鬧與聲勢浩大</a><a class="toc-item" href="#s2"><span class="toc-num">02</span>單元二：思念、羞愧、憤怒與害怕</a><a class="toc-item" href="#s3"><span class="toc-num">03</span>成語故事</a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習一：近義與反義</a><a class="toc-item" href="#s5"><span class="toc-num">05</span>練習二：褒貶與辨析</a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：供詞填充</a><a class="toc-item" href="#s7"><span class="toc-num">07</span>練習四：成語連用與故事</a></nav>
+<div class="section-header first" id="s1"><div class="sh-icon">👥</div><div><div class="sh-num">CHAPTER 01</div><h2>單元一：人多熱鬧與聲勢浩大</h2></div></div><div class="card"><div class="card-title"><span class="dot purple"></span>本單元成語分類</div><p>本單元的十二個成語可分為三類。先記類別，再記各自的意思，就不易混淆。</p><table class="tbl"><tr><th class="c">類別</th><th>成語</th></tr><tr><td class="c"><span class="dot purple"></span><b>人多、接連而來</b></td><td>接踵而至、絡繹不絕、摩肩接踵、熙來攘往</td></tr><tr><td class="c"><span class="dot teal"></span><b>聲勢浩大、場面壯觀</b></td><td>蔚為奇觀、翻江倒海、如火如荼、千軍萬馬、勢如破竹</td></tr><tr><td class="c"><span class="dot coral"></span><b>冷清、掃興</b></td><td>大煞風景、門可羅雀、一哄而散</td></tr></table></div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">1</span><span class="id-word">接踵而至</span><span class="yue">粵音　踵（總）</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>踵，後腳跟。後面的人的腳尖緊接前面的人的腳跟。形容很多人接連來到，或事物接連出現。</td></tr><tr><th>近義</th><td>接二連三、絡繹不絕</td></tr><tr><th>反義</th><td>斷斷續續</td></tr><tr><th>例句</th><td><ol class="exl"><li>隨着夏日到來，海灘上的遊客<b class="hl">接踵而至</b>，享受陽光與海灘。</li><li>每逢新年，朋友的祝福短信便會<b class="hl">接踵而至</b>。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　接踵而至＋絡繹不絕</div><div class="combo-t">這家新開的百貨公司提供了大量折扣，客人<b class="hl2">絡繹不絕</b>，<b class="hl">接踵而至</b>。</div></div>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">2</span><span class="id-word">絡繹不絕</span><span class="yue">粵音　繹（亦）</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>絡繹，連續不斷的樣子。形容人或車馬等眾多，連續不斷。</td></tr><tr><th>近義</th><td>川流不息、紛至沓來</td></tr><tr><th>反義</th><td>三三兩兩、門可羅雀</td></tr><tr><th>例句</th><td><ol class="exl"><li>這家新開的咖啡店十分受歡迎，客人<b class="hl">絡繹不絕</b>。</li><li>一到平安夜，人們便<b class="hl">絡繹不絕</b>地來到維港兩岸欣賞聖誕燈飾。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　絡繹不絕＋川流不息</div><div class="combo-t">這條道路上的汽車<b class="hl2">川流不息</b>，<b class="hl">絡繹不絕</b>，十分繁忙。</div></div><div class="alert tip"><div class="alert-icon">🔍</div><div><div class="alert-label">成語辨析</div><div class="alert-text">「絡繹不絕」和近義成語「川流不息」常用於人、馬、車、船的來往，但「川流不息」也可以用於其他事物。另外，「絡繹不絕」可用於雙向的來往；近義成語「紛至沓來」則只用於單向的到來。</div></div></div>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">3</span><span class="id-word">蔚為奇觀</span><span class="yue">粵音　蔚（餵）</span><span class="id-tags"><span class="pill good">褒義</span></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>蔚，盛多的樣子。形容奇特不平凡的景象。</td></tr><tr><th>例句</th><td><ol class="exl"><li>長城蜿蜒起伏，如同一條巨龍橫亙在山巒之間，真是<b class="hl">蔚為奇觀</b>。</li><li>熱氣球集體在天空中緩緩升起，<b class="hl">蔚為奇觀</b>。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　蔚為奇觀＋形形色色</div><div class="combo-t">冬天到了，濕地上匯集了從世界各地而來的候鳥，<b class="hl2">形形色色</b>，<b class="hl">蔚為奇觀</b>。</div></div>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">4</span><span class="id-word">摩肩接踵</span><span class="yue">粵音　踵（總）</span><span class="id-tags"><span class="pill hist">文化歷史</span></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>肩挨肩，腳碰腳。形容人多擁擠。</td></tr><tr><th>近義</th><td>人山人海、熙熙攘攘</td></tr><tr><th>反義</th><td>人跡罕至、杳無人煙</td></tr><tr><th>例句</th><td><ol class="exl"><li>在上班的高峰時間，港鐵車廂內<b class="hl">摩肩接踵</b>。</li><li>年宵市場人山人海，攤位前<b class="hl">摩肩接踵</b>，熱鬧非凡。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　摩肩接踵＋水泄不通</div><div class="combo-t">這條小巷有很多知名餐廳，行人<b class="hl">摩肩接踵</b>，<b class="hl2">水泄不通</b>。</div></div>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">5</span><span class="id-word">翻江倒海</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>形容水勢浩大，也可以比喻為力量或聲勢巨大。</td></tr><tr><th>近義</th><td>洶湧澎湃、排山倒海</td></tr><tr><th>反義</th><td>風平浪靜</td></tr><tr><th>例句</th><td><ol class="exl"><li>洪水<b class="hl">翻江倒海</b>地湧上岸，淹沒了大片土地。<span class="exlab">【寫水勢】</span></li><li>在觀眾席上，主場球迷以<b class="hl">翻江倒海</b>的氣勢為球隊打氣，吶喊聲震耳欲聾。<span class="exlab">【寫聲勢】</span></li></ol></td></tr></table>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">6</span><span class="id-word">熙來攘往</span><span class="yue">粵音　攘（陽）</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>形容人來人往，非常熱鬧。</td></tr><tr><th>近義</th><td>人來人往、摩肩接踵</td></tr><tr><th>反義</th><td>杳無人跡</td></tr><tr><th>例句</th><td><ol class="exl"><li>早晨的港鐵站裏，上班族<b class="hl">熙來攘往</b>，每個人都匆匆忙忙。</li><li>農曆新年的花市總是<b class="hl">熙來攘往</b>，擠滿了選購年花的人。</li></ol></td></tr></table>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">7</span><span class="id-word">如火如荼</span><span class="yue">粵音　荼（途）</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>荼，茅草開的白花。像火一樣紅，像荼一樣白。原本形容軍隊氣勢雄壯盛大，後來形容事物氣勢磅礡，或場面熱烈。</td></tr><tr><th>近義</th><td>鋪天蓋地、如火燎原；<span class="ciw">詞</span>熱烈</td></tr><tr><th>反義</th><td>一潭死水</td></tr><tr><th>例句</th><td><ol class="exl"><li>公園的花朵<b class="hl">如火如荼</b>地綻放，形成了一片花海。<span class="exlab">【寫花開】</span></li><li>學校的藝術節<b class="hl">如火如荼</b>地舉行，不同年級的同學都積極地參與各種表演和展覽。<span class="exlab">【寫活動】</span></li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　如火如荼＋方興未艾</div><div class="combo-t">人工智能的發展<b class="hl">如火如荼</b>，<b class="hl2">方興未艾</b>，越來越多公司加入研發有關技術。</div></div>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">8</span><span class="id-word">千軍萬馬</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>形容兵馬眾多或聲勢浩大。</td></tr><tr><th>近義</th><td>投鞭斷流</td></tr><tr><th>反義</th><td>單槍匹馬</td></tr><tr><th>例句</th><td><ol class="exl"><li>在歷史長河中，不少英雄帶領着<b class="hl">千軍萬馬</b>，鑄就不朽的傳說。<span class="exlab">【寫兵馬眾多】</span></li><li>岸邊波濤洶湧，浪潮有如<b class="hl">千軍萬馬</b>奔騰而來，不斷拍打着礁石。<span class="exlab">【寫場面】</span></li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　千軍萬馬＋勢不可擋</div><div class="combo-t">號角聲一響，所有馬拉松選手立即奔馳而出，猶如<b class="hl">千軍萬馬</b>，<b class="hl2">勢不可擋</b>。</div></div>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">9</span><span class="id-word">大煞風景</span><span class="id-tags"><span class="pill bad">貶義</span></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>指有損景物美觀，比喻原有的興致被破壞，出現令人不快的局面。</td></tr><tr><th>近義</th><td>興致索然</td></tr><tr><th>例句</th><td><ol class="exl"><li>在古典音樂會中，忽然響起一陣手機鈴聲，真是<b class="hl">大煞風景</b>！</li><li>美麗的海灘上滿佈遊人棄置的垃圾，顯得格外<b class="hl">大煞風景</b>。</li></ol></td></tr></table>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">10</span><span class="id-word">門可羅雀</span><span class="id-tags"><span class="pill hist">文化歷史</span></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>門前可以張網捕雀。形容門庭冷落，賓客稀少。</td></tr><tr><th>近義</th><td>門庭冷落；<span class="ciw">詞</span>冷清</td></tr><tr><th>反義</th><td>門庭若市、高朋滿座</td></tr><tr><th>例句</th><td><ol class="exl"><li>這家新開的餐廳初期<b class="hl">門可羅雀</b>，待口碑傳開後才越來越多人光顧。</li><li>展覽會的最後一天，參觀的人數稀少，真是<b class="hl">門可羅雀</b>。</li></ol></td></tr></table>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">11</span><span class="id-word">一哄而散</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>哄，喧鬧。形容聚集的人在一片喧鬧聲中一下子散去。</td></tr><tr><th>反義</th><td>蜂擁而至</td></tr><tr><th>例句</th><td><ol class="exl"><li>無牌小販見執法人員來了，立刻<b class="hl">一哄而散</b>，留下空蕩蕩的街道。</li><li>當老師走進教室時，學生馬上<b class="hl">一哄而散</b>，回到座位上。</li></ol></td></tr></table>
+</div><div class="idiom purple">
+  <div class="id-head"><span class="id-num">12</span><span class="id-word">勢如破竹</span><span class="id-tags"><span class="pill good">褒義</span><span class="pill hist">文化歷史</span></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>情勢像劈竹子那樣順利。比喻事情的進度順利，沒有阻礙。</td></tr><tr><th>近義</th><td>迎刃而解、勢不可擋</td></tr><tr><th>反義</th><td>節節敗退、寸步難行</td></tr><tr><th>例句</th><td><ol class="exl"><li>他在比賽中<b class="hl">勢如破竹</b>，連續擊敗對手，最終奪冠。</li><li>這部電影的票房表現<b class="hl">勢如破竹</b>，打破了多項紀錄。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　勢如破竹＋長驅直入</div><div class="combo-t">這位年輕棋手的表現，真是<b class="hl">勢如破竹</b>，<b class="hl2">長驅直入</b>對手的陣地，一舉成名。</div></div>
+</div><div class="card"><div class="card-title"><span class="dot amber"></span>辨一辨：四個「人多」成語</div>
+<p>這四個成語都寫人多，但側重點不同。做填充題時，先看句子寫的是哪一方面。</p>
+<table class="tbl"><tr><th class="c">成語</th><th>重點</th><th>句子線索</th></tr>
+<tr><td class="c"><b>接踵而至</b></td><td>一個接一個地來到；也可用於<b>事物</b></td><td>訊息、問題、好消息接連出現</td></tr>
+<tr><td class="c"><b>絡繹不絕</b></td><td>人、車、馬、船連續不斷</td><td>客人、遊客、車輛一直來</td></tr>
+<tr><td class="c"><b>摩肩接踵</b></td><td>人多得<b>擁擠</b></td><td>擠迫、寸步難移、水泄不通</td></tr>
+<tr><td class="c"><b>熙來攘往</b></td><td>人來人往，<b>熱鬧</b></td><td>來來往往、匆匆忙忙</td></tr></table>
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">「絡繹不絕」一般只用於人、車、馬、船。寫「電話絡繹不絕」「問題絡繹不絕」並不恰當，事物接連出現應用「接踵而至」。</div></div></div>
+</div><div class="section-header" id="s2"><div class="sh-icon">💭</div><div><div class="sh-num">CHAPTER 02</div><h2>單元二：思念、羞愧、憤怒與害怕</h2></div></div><div class="card"><div class="card-title"><span class="dot purple"></span>本單元成語分類</div><p>本單元的十二個成語都寫心情，按情緒可分為四類。</p><table class="tbl"><tr><th class="c">類別</th><th>成語</th></tr><tr><td class="c"><span class="dot pink"></span><b>思念</b></td><td>念念不忘、一日三秋、牽腸掛肚</td></tr><tr><td class="c"><span class="dot teal"></span><b>良心與羞愧</b></td><td>問心無愧、無地自容、自慚形穢</td></tr><tr><td class="c"><span class="dot coral"></span><b>憤怒</b></td><td>氣急敗壞、勃然大怒、七竅生煙</td></tr><tr><td class="c"><span class="dot blue"></span><b>害怕</b></td><td>提心吊膽、人心惶惶、戰戰兢兢</td></tr></table></div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">1</span><span class="id-word">念念不忘</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>時時刻刻記在心上，牢記不忘。</td></tr><tr><th>近義</th><td>刻骨銘心、記憶猶新</td></tr><tr><th>反義</th><td>置之腦後</td></tr><tr><th>例句</th><td><ol class="exl"><li>外婆對童年時光<b class="hl">念念不忘</b>，常常回憶起那段無憂無慮的日子。</li><li>雖然已經過了很多年，但我仍然對第一次去旅行<b class="hl">念念不忘</b>，因為充滿了美好的回憶。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　念念不忘＋一往情深</div><div class="combo-t">人魚公主自從見過王子後，就對他<b class="hl">念念不忘</b>，<b class="hl2">一往情深</b>，因此決心到陸地尋找王子。</div></div><div class="alert tip"><div class="alert-icon">🔍</div><div><div class="alert-label">成語辨析</div><div class="alert-text">「念念不忘」強調牢記不忘，近義成語「刻骨銘心」則強調記憶很深刻。</div></div></div>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">2</span><span class="id-word">一日三秋</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>三秋，三個秋天，可指三個季度或三年，即一段很長的時間。一天沒有見面，就像隔了一段很長的時間一樣，形容思念心切。</td></tr><tr><th>近義</th><td>望穿秋水</td></tr><tr><th>例句</th><td><ol class="exl"><li>好朋友才剛出國留學，我對她的思念已如<b class="hl">一日三秋</b>。</li><li>媽媽到外地探望朋友，我每天盼望她回來，有<b class="hl">一日三秋</b>的感覺。</li></ol></td></tr></table>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">3</span><span class="id-word">牽腸掛肚</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>形容時時惦念，放心不下。</td></tr><tr><th>近義</th><td>朝思暮想、念念不忘；<span class="ciw">詞</span>惦記</td></tr><tr><th>反義</th><td>漠不關心、置之腦後</td></tr><tr><th>例句</th><td><ol class="exl"><li>當孩子生病時，她心中<b class="hl">牽腸掛肚</b>，徹夜未眠。</li><li>每當夜深人靜，我總是<b class="hl">牽腸掛肚</b>地想念遠方的家人。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　牽腸掛肚＋憂心忡忡</div><div class="combo-t">爸爸到外地出差一星期，媽媽每天<b class="hl">牽腸掛肚</b>，<b class="hl2">憂心忡忡</b>。</div></div>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">4</span><span class="id-word">問心無愧</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>憑着良心自我反省，也不感到慚愧不安。</td></tr><tr><th>近義</th><td>俯仰無愧、心安理得</td></tr><tr><th>反義</th><td>問心有愧、無地自容</td></tr><tr><th>例句</th><td><ol class="exl"><li>在這件事上，我<b class="hl">問心無愧</b>，他要質疑我的動機，我也沒辦法。</li><li>做任何決定，只要<b class="hl">問心無愧</b>，就不會有遺憾。</li></ol></td></tr></table>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">5</span><span class="id-word">無地自容</span><span class="id-tags"><span class="pill bad">貶義</span><span class="pill hist">文化歷史</span></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>沒有地方讓自己容身。形容羞愧或惶恐到了極點。</td></tr><tr><th>近義</th><td><span class="ciw">詞</span>羞愧</td></tr><tr><th>反義</th><td>問心無愧、理直氣壯</td></tr><tr><th>例句</th><td><ol class="exl"><li>他犯上這種低級錯誤，讓他感到<b class="hl">無地自容</b>，只想找個地洞鑽進去。</li><li>面對主管嚴厲的批評，雅婷感到<b class="hl">無地自容</b>，決心改正錯誤。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　無地自容＋自慚形穢</div><div class="combo-t">被小孩子當眾指責亂拋垃圾，缺乏公德心，令我感到<b class="hl2">自慚形穢</b>，<b class="hl">無地自容</b>。</div></div>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">6</span><span class="id-word">自慚形穢</span><span class="yue">粵音　穢（餵）</span><span class="id-tags"><span class="pill bad">貶義</span></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>形穢，形態醜陋。指因容貌儀態不如別人而感覺羞愧，後泛指自愧不如別人。</td></tr><tr><th>近義</th><td>相形見絀、自愧不如</td></tr><tr><th>反義</th><td>妄自尊大、自命不凡</td></tr><tr><th>例句</th><td><ol class="exl"><li>子軒的鋼琴技術那麼出色，我在他面前演奏，真是<b class="hl">自慚形穢</b>。</li><li>每當我看到義工無私的奉獻和努力，我就會覺得<b class="hl">自慚形穢</b>，想要成為更好的人。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　自慚形穢＋相形見絀</div><div class="combo-t">我的成績與他相比，真是<b class="hl2">相形見絀</b>，<b class="hl">自慚形穢</b>。</div></div>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">7</span><span class="id-word">氣急敗壞</span><span class="id-tags"><span class="pill bad">貶義</span></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>上氣不接下氣，狼狽不堪。形容十分慌張或惱怒的樣子。</td></tr><tr><th>近義</th><td>惱羞成怒、暴跳如雷；<span class="ciw">詞</span>惱怒</td></tr><tr><th>反義</th><td>平心靜氣、心平氣和</td></tr><tr><th>例句</th><td><ol class="exl"><li>哥哥發現自己的手機不見了，<b class="hl">氣急敗壞</b>地翻遍了整個房間。</li><li>電腦突然當機，先前的工作還沒有儲存，我不禁<b class="hl">氣急敗壞</b>，差點哭了出來。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　氣急敗壞＋暴跳如雷</div><div class="combo-t">聽到弟弟還在為自己所犯的錯而狡辯，媽媽不禁<b class="hl2">暴跳如雷</b>，<b class="hl">氣急敗壞</b>地斥責他一番。</div></div><div class="alert tip"><div class="alert-icon">🔍</div><div><div class="alert-label">成語辨析</div><div class="alert-text">「氣急敗壞」直接陳述慌張和惱怒的神情，多用於神態和動作；近義成語「暴跳如雷」則運用了比喻去形容暴躁和憤怒的狀態。</div></div></div>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">8</span><span class="id-word">勃然大怒</span><span class="yue">粵音　勃（撥）</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>勃然，發怒的樣子。指突然間憤怒之極，大發脾氣。</td></tr><tr><th>近義</th><td>大發雷霆、怒氣沖天；<span class="ciw">詞</span>暴怒</td></tr><tr><th>反義</th><td>心平氣和、平心靜氣</td></tr><tr><th>例句</th><td><ol class="exl"><li>聽到弟弟在測驗中作弊一事，爸爸<b class="hl">勃然大怒</b>，馬上嚴肅地訓示弟弟。</li><li>這位畫家發現自己的作品被抄襲，<b class="hl">勃然大怒</b>，決定採取法律行動維護自己的權益。</li></ol></td></tr></table>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">9</span><span class="id-word">七竅生煙</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>七竅，指兩眼、兩耳、兩鼻孔和口。眼耳鼻口都冒出煙來，形容十分着急或氣憤。</td></tr><tr><th>近義</th><td>怒髮衝冠、怒火中燒</td></tr><tr><th>反義</th><td>心平氣和</td></tr><tr><th>例句</th><td><ol class="exl"><li>當她聽到朋友的背叛後，頓時<b class="hl">七竅生煙</b>，無法平靜下來。</li><li>冠宇性格嚴苛，對很多事情也感到不滿，動不動就<b class="hl">七竅生煙</b>。</li></ol></td></tr></table>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">10</span><span class="id-word">提心吊膽</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>形容十分擔心害怕。</td></tr><tr><th>近義</th><td>膽戰心驚、忐忑不安</td></tr><tr><th>反義</th><td>處之泰然、心安理得</td></tr><tr><th>例句</th><td><ol class="exl"><li>哥哥把我拉進遊樂園的鬼屋裏，我找不到退路，只好<b class="hl">提心吊膽</b>地跟在他後面。</li><li>他<b class="hl">提心吊膽</b>地走在懸崖邊的小路上，深怕一不小心就會滑落下去。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　提心吊膽＋如臨深淵</div><div class="combo-t">暴雨突如其來，在山頂的登山者<b class="hl">提心吊膽</b>，<b class="hl2">如臨深淵</b>，決定趕快下山，以免發生危險。</div></div>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">11</span><span class="id-word">人心惶惶</span><span class="id-tags"><span class="pill bad">貶義</span></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>形容眾人心神惶恐不安。</td></tr><tr><th>近義</th><td>人人自危、惶恐不安；<span class="ciw">詞</span>驚惶</td></tr><tr><th>反義</th><td>鎮定自若、泰然自若</td></tr><tr><th>例句</th><td><ol class="exl"><li>地震過後，居民<b class="hl">人心惶惶</b>，擔心餘震的到來。</li><li>自從傳出有狼出沒的消息後，村民<b class="hl">人心惶惶</b>，不敢在晚上單獨外出。</li></ol></td></tr></table><div class="alert tip"><div class="alert-icon">🔍</div><div><div class="alert-label">成語辨析</div><div class="alert-text">「人心惶惶」只適用於描述眾多的人，不適用於個人；近義成語「惶恐不安」則既適用於群體，也適用於個人。另外，「人心惶惶」形容驚惶不安的樣子，語意較輕；近義成語「人人自危」則偏重指每個人都感到危險，語意較重。</div></div></div>
+</div><div class="idiom teal">
+  <div class="id-head"><span class="id-num">12</span><span class="id-word">戰戰兢兢</span><span class="yue">粵音　兢（經）</span><span class="id-tags"></span></div>
+  <table class="id-tbl"><tr><th>釋義</th><td>形容因害怕而謹慎小心的樣子。</td></tr><tr><th>近義</th><td>小心翼翼、步步為營</td></tr><tr><th>反義</th><td>輕舉妄動、鎮定自若</td></tr><tr><th>例句</th><td><ol class="exl"><li>在轉校的第一天，我<b class="hl">戰戰兢兢</b>地站在教室介紹自己。</li><li>小貓<b class="hl">戰戰兢兢</b>地接近新玩具，似乎對這未知的物件感到既好奇又害怕。</li></ol></td></tr></table><div class="combo"><div class="combo-h">成語連用　戰戰兢兢＋小心翼翼</div><div class="combo-t">他的工作容不下一絲錯誤，只能<b class="hl">戰戰兢兢</b>，<b class="hl2">小心翼翼</b>地完成。</div></div>
+</div><div class="card"><div class="card-title"><span class="dot amber"></span>辨一辨：「憤怒」與「害怕」</div>
+<div class="compare-grid">
+<div class="compare-card"><div class="cc-h">寫憤怒</div>
+<p><b>勃然大怒</b>：突然大發脾氣。<br><b>七竅生煙</b>：用誇張手法寫十分氣憤或着急。<br><b>氣急敗壞</b>：慌張又惱怒，多寫<b>神態和動作</b>，例如「氣急敗壞地翻遍房間」。</p></div>
+<div class="compare-card"><div class="cc-h">寫害怕</div>
+<p><b>提心吊膽</b>：十分擔心害怕，可寫一個人，也可寫眾人。<br><b>戰戰兢兢</b>：因害怕而<b>小心謹慎</b>，常寫動作。<br><b>人心惶惶</b>：只用於<b>眾人</b>，不可寫一個人。</p></div>
+</div>
+<div class="example-box coral"><div class="example-label">錯例</div><div class="example-text">✗ 弟弟一個人在家，心裏人心惶惶。　→　✓ 弟弟一個人在家，心裏惶恐不安。</div></div>
+</div><div class="section-header" id="s3"><div class="sh-icon">📜</div><div><div class="sh-num">CHAPTER 03</div><h2>成語故事</h2></div></div><div class="card story purple"><div class="card-title"><span class="dot purple"></span>摩肩接踵<span class="story-t">　晏嬰出使楚國</span></div><p class="story-p">晏嬰代表齊國出使楚國，但楚國卻想故意羞辱晏嬰。當晏嬰來到楚國大門時，門衞故意不開大門，要他走旁邊的小門，以取笑他身材矮小。到了面見楚王，楚王又故意問晏嬰：「齊國難道沒人了嗎？竟派你做使臣。」晏嬰反駁說：「齊國人口眾多，人們一起張開袖子就能遮天，揮灑汗水就是下雨，街上行人<b class="hl">摩肩接踵</b>，怎麼會沒人呢？」楚王又問：「既然這樣，為甚麼要派你來？」晏嬰回答：「齊國任命使臣都是看該國國君是否賢德，有才德的使臣就會被派到有賢君的國家，沒有才德的使臣就會被派到不賢的國家。齊國裏就屬我最不賢，所以被派來楚國。」晏嬰暗諷楚王不是賢君，反擊楚國給他的羞辱。</p></div><div class="card story teal"><div class="card-title"><span class="dot teal"></span>勢如破竹<span class="story-t">　杜預滅吳</span></div><p class="story-p">杜預是西晉時期的一位大將。當蜀漢被滅後，只剩下孫吳守在江東，杜預被晉武帝派去征服孫吳。那時，杜預的軍隊攻勢迅猛，短短幾天就佔領了吳國許多城池。正當杜預想乘勝追擊時，卻遭官員反對，建議因應雨季和疫病等因素暫停進攻。可是杜預仍決定乘勝追擊，他比喻說：「我國的軍隊現在士氣旺盛，攻打孫吳就像劈竹子，一旦劈開了前面幾節，後面的也會很容易劈開。」於是晉軍繼續進攻，果不其然節節順利，最終迅速地滅了吳國。</p></div><div class="card story coral"><div class="card-title"><span class="dot coral"></span>門可羅雀<span class="story-t">　翟公的門前</span></div><p class="story-p">西漢時，翟公擔任廷尉，每天都有很多賓客帶着禮物上門拜訪。後來翟公被罷官，賓客便不再上門，門前冷清得可以張網捕雀。不久翟公官復原職，那些賓客又想來拜訪。翟公在門上寫了幾句話，意思是：一個人經歷過貧富、貴賤的變化，才看得出朋友的交情是真是假。「<b class="hl">門可羅雀</b>」便用來形容門庭冷落、賓客稀少。</p><div class="src-note">（課本以四格漫畫呈現，故事文字由潘SIR中文教室整理）</div></div><div class="card story pink"><div class="card-title"><span class="dot pink"></span>自慚形穢<span class="story-t">　珠玉在側</span></div><p class="story-p">在晉代，有一位名叫衞玠的俊俏男子，他的美貌讓所有見過他的人都稱他為「玉人」，吸引了眾多人慕名而來，只為一睹他的風采。衞玠的舅舅驃騎將軍王濟，雖然也相當英俊，但與衞玠相比也覺得自己遜色許多。王濟常常感歎說：「珠玉在旁，令我覺得自己形態醜陋。」「<b class="hl">自慚形穢</b>」這個成語便由此而來。</p></div><div class="card story blue"><div class="card-title"><span class="dot blue"></span>無地自容<span class="story-t">　信陵君救趙之後</span></div><p class="story-p">戰國時，秦國攻打趙國，趙國向魏國求救，請魏國公子信陵君勸魏王出兵。信陵君設法調動魏國軍隊，擊退秦軍，救了趙國。趙王十分感激，打算把五座城池送給他，信陵君因此有點驕傲。他的門客勸告他：「別自滿！你對趙國有功，對魏國卻是欺騙國君。」信陵君聽後立即自責，慚愧得好像沒有地方可以容身。</p><div class="src-note">（課本以四格漫畫呈現，故事文字由潘SIR中文教室整理）</div></div><div class="formula"><div class="f-label">一句記</div>
+<div class="f-text">晏嬰說齊國街上<b>摩肩接踵</b>；杜預攻吳<b>勢如破竹</b>；<br>翟公失勢<b>門可羅雀</b>；王濟見衞玠<b>自慚形穢</b>；信陵君被勸<b>無地自容</b>。</div></div><div class="section-header" id="s4"><div class="sh-icon">🔁</div><div><div class="sh-num">CHAPTER 04</div><h2>練習一：近義與反義</h2></div></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div><div class="qsub">選出正確答案。</div><div class="qbox"><span class="qn">1.</span>「絡繹不絕」的<b>反義</b>成語是：<div class="opts"><span class="opt"><b>A.</b> 川流不息</span><span class="opt"><b>B.</b> 紛至沓來</span><span class="opt"><b>C.</b> 門可羅雀</span><span class="opt"><b>D.</b> 熙來攘往</span></div><div class="choice">答案：（　　）</div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>C　門可羅雀<br><span class="sm">「門可羅雀」指門庭冷落，與連續不斷的「絡繹不絕」相反；其餘三個都是近義。</span></div></div></div><div class="qbox"><span class="qn">2.</span>「勢如破竹」的<b>近義</b>成語是：<div class="opts"><span class="opt"><b>A.</b> 節節敗退</span><span class="opt"><b>B.</b> 迎刃而解</span><span class="opt"><b>C.</b> 寸步難行</span><span class="opt"><b>D.</b> 千軍萬馬</span></div><div class="choice">答案：（　　）</div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>B　迎刃而解<br><span class="sm">「迎刃而解」指事情順利解決，與「勢如破竹」意思相近；A、C是反義。</span></div></div></div><div class="qbox"><span class="qn">3.</span>「牽腸掛肚」的<b>反義</b>成語是：<div class="opts"><span class="opt"><b>A.</b> 朝思暮想</span><span class="opt"><b>B.</b> 念念不忘</span><span class="opt"><b>C.</b> 漠不關心</span><span class="opt"><b>D.</b> 一日三秋</span></div><div class="choice">答案：（　　）</div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>C　漠不關心<br><span class="sm">「牽腸掛肚」是時時惦念，「漠不關心」是毫不關心，兩者相反。</span></div></div></div><div class="qbox"><span class="qn">4.</span>「提心吊膽」的<b>近義</b>成語是：<div class="opts"><span class="opt"><b>A.</b> 膽戰心驚</span><span class="opt"><b>B.</b> 處之泰然</span><span class="opt"><b>C.</b> 心安理得</span><span class="opt"><b>D.</b> 鎮定自若</span></div><div class="choice">答案：（　　）</div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>A　膽戰心驚<br><span class="sm">「膽戰心驚」同樣形容十分害怕；其餘三個都形容心情安定。</span></div></div></div><div class="qbox"><span class="qn">5.</span>「勃然大怒」的<b>反義</b>成語是：<div class="opts"><span class="opt"><b>A.</b> 怒髮衝冠</span><span class="opt"><b>B.</b> 大發雷霆</span><span class="opt"><b>C.</b> 七竅生煙</span><span class="opt"><b>D.</b> 心平氣和</span></div><div class="choice">答案：（　　）</div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>D　心平氣和<br><span class="sm">「心平氣和」指心情平靜，與大發脾氣相反。</span></div></div></div><div class="qbox"><span class="qn">6.</span>「自慚形穢」的<b>反義</b>成語是：<div class="opts"><span class="opt"><b>A.</b> 相形見絀</span><span class="opt"><b>B.</b> 妄自尊大</span><span class="opt"><b>C.</b> 自愧不如</span><span class="opt"><b>D.</b> 無地自容</span></div><div class="choice">答案：（　　）</div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>B　妄自尊大<br><span class="sm">「自慚形穢」是自愧不如人，「妄自尊大」是過分抬高自己，兩者相反。</span></div></div></div><div class="qbox"><span class="qn">7.</span>「如火如荼」的<b>反義</b>成語是：<div class="opts"><span class="opt"><b>A.</b> 一潭死水</span><span class="opt"><b>B.</b> 鋪天蓋地</span><span class="opt"><b>C.</b> 如火燎原</span><span class="opt"><b>D.</b> 熱火朝天</span></div><div class="choice">答案：（　　）</div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>A　一潭死水<br><span class="sm">「一潭死水」比喻毫無生氣，與場面熱烈的「如火如荼」相反。</span></div></div></div><div class="qbox"><span class="qn">8.</span>「一哄而散」的<b>反義</b>成語是：<div class="opts"><span class="opt"><b>A.</b> 三三兩兩</span><span class="opt"><b>B.</b> 蜂擁而至</span><span class="opt"><b>C.</b> 門可羅雀</span><span class="opt"><b>D.</b> 杳無人跡</span></div><div class="choice">答案：（　　）</div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>B　蜂擁而至<br><span class="sm">「一哄而散」是一下子散去，「蜂擁而至」是一下子湧來，方向相反。</span></div></div></div><div class="section-header" id="s5"><div class="sh-icon">⚖</div><div><div class="sh-num">CHAPTER 05</div><h2>練習二：褒貶與辨析</h2></div></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div><div class="qsub">甲、褒貶分類</div><div class="qbox"><span class="qn">9.</span>下列成語屬褒義還是貶義？請把適當的圓圈塗黑。<table class="tbl narrow"><tr><th class="c">成語</th><th class="c">褒義</th><th class="c">貶義</th></tr><tr><td class="c">蔚為奇觀</td><td class="c">○</td><td class="c">○</td></tr><tr><td class="c">大煞風景</td><td class="c">○</td><td class="c">○</td></tr><tr><td class="c">勢如破竹</td><td class="c">○</td><td class="c">○</td></tr><tr><td class="c">無地自容</td><td class="c">○</td><td class="c">○</td></tr><tr><td class="c">自慚形穢</td><td class="c">○</td><td class="c">○</td></tr><tr><td class="c">氣急敗壞</td><td class="c">○</td><td class="c">○</td></tr><tr><td class="c">人心惶惶</td><td class="c">○</td><td class="c">○</td></tr></table><span class="mark">（3.5分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>褒義：蔚為奇觀、勢如破竹<br>貶義：大煞風景、無地自容、自慚形穢、氣急敗壞、人心惶惶<br><span class="sm">（每個0.5分）</span></div></div></div><div class="qsub">乙、圈出較恰當的成語</div><div class="qbox"><span class="qn">10.</span>維港上的渡輪來回穿梭，（絡繹不絕／紛至沓來）。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>絡繹不絕<br><span class="sm">渡輪來來回回，屬雙向往來；「紛至沓來」只用於單向的到來。</span></div></div></div><div class="qbox"><span class="qn">11.</span>地震過後，小美一個人在帳篷裏（人心惶惶／惶恐不安），整晚睡不着。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>惶恐不安<br><span class="sm">句子只寫小美一個人；「人心惶惶」只適用於眾人。</span></div></div></div><div class="qbox"><span class="qn">12.</span>那次失去至親的傷痛深深刻在心底，令我（念念不忘／刻骨銘心）。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>刻骨銘心<br><span class="sm">句子強調記憶深刻，宜用「刻骨銘心」；「念念不忘」強調時刻記着。</span></div></div></div><div class="qbox"><span class="qn">13.</span>商場重開首日推出大減價，市民（一哄而散／蜂擁而至），把貨品一掃而空。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>蜂擁而至<br><span class="sm">句子寫大批市民湧來搶購；「一哄而散」是一下子散去，意思相反。</span></div></div></div><div class="qsub">丙、判斷成語運用是否恰當，不恰當的請改正。</div><div class="qbox"><span class="qn">14.</span>這家餐廳的食物十分美味，所以每晚都<u>門可羅雀</u>。<div class="choice">恰當 ○　不恰當 ○　改正：<span class="blank"></span></div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>不恰當，改為「門庭若市」或「高朋滿座」。<br><span class="sm">食物美味應該吸引很多客人，「門可羅雀」卻指賓客稀少，前後矛盾。</span></div></div></div><div class="qbox"><span class="qn">15.</span>每逢新年，朋友的祝福短信便會<u>接踵而至</u>。<div class="choice">恰當 ○　不恰當 ○　改正：<span class="blank"></span></div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>恰當。<br><span class="sm">「接踵而至」可用於事物接連出現。</span></div></div></div><div class="qbox"><span class="qn">16.</span>比賽結果一公布，查詢電話便<u>絡繹不絕</u>，職員忙個不停。<div class="choice">恰當 ○　不恰當 ○　改正：<span class="blank"></span></div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>不恰當，改為「接踵而至」。<br><span class="sm">「絡繹不絕」一般只用於人、車、馬、船的往來，電話屬事物。</span></div></div></div><div class="qbox"><span class="qn">17.</span>他在比賽中<u>勢如破竹</u>，結果在第一輪便落敗。<div class="choice">恰當 ○　不恰當 ○　改正：<span class="blank"></span></div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>不恰當，改為「節節敗退」（或刪去「結果在第一輪便落敗」）。<br><span class="sm">「勢如破竹」指進展順利，與「第一輪便落敗」矛盾。</span></div></div></div><div class="qbox"><span class="qn">18.</span>我已盡力照顧好小狗，所以感到<u>無地自容</u>。<div class="choice">恰當 ○　不恰當 ○　改正：<span class="blank"></span></div><span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>不恰當，改為「問心無愧」。<br><span class="sm">盡了力便不必感到羞愧，「無地自容」與前文因果不合。</span></div></div></div><div class="section-header" id="s6"><div class="sh-icon">✏</div><div><div class="sh-num">CHAPTER 06</div><h2>練習三：供詞填充</h2></div></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div><div class="qsub">甲、單元一成語（每個成語只用一次）</div><div class="bank"><span>接踵而至</span><span>絡繹不絕</span><span>蔚為奇觀</span><span>摩肩接踵</span><span>翻江倒海</span><span>熙來攘往</span><span>如火如荼</span><span>千軍萬馬</span><span>大煞風景</span><span>門可羅雀</span><span>一哄而散</span><span>勢如破竹</span></div><div class="qbox"><span class="qn">19.</span>颱風襲港期間，巨浪以<span class="blank l"></span>之勢衝上海堤，沿岸低窪地區全被海水淹沒。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>翻江倒海<br><span class="sm">寫水勢浩大。</span></div></div></div><div class="qbox"><span class="qn">20.</span>這家小店開業初期<span class="blank l"></span>，一整天也沒有幾位顧客。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>門可羅雀<br><span class="sm">「沒有幾位顧客」即賓客稀少。</span></div></div></div><div class="qbox"><span class="qn">21.</span>校隊今季<span class="blank l"></span>，連贏十場，順利打入決賽。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>勢如破竹<br><span class="sm">「連贏十場」顯示進展順利。</span></div></div></div><div class="qbox"><span class="qn">22.</span>我們正在山頂欣賞日落，旁邊的遊客卻大聲播放音樂，真是<span class="blank l"></span>。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>大煞風景<br><span class="sm">興致被破壞。</span></div></div></div><div class="qbox"><span class="qn">23.</span>上課鐘聲一響，圍在小賣部前的同學便<span class="blank l"></span>，紛紛跑回課室。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>一哄而散<br><span class="sm">聚集的人一下子散去。</span></div></div></div><div class="qbox"><span class="qn">24.</span>周末的旺角行人專用區擠滿了人，行人<span class="blank l"></span>，寸步難移。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>摩肩接踵<br><span class="sm">「擠滿」「寸步難移」寫擁擠。</span></div></div></div><div class="qbox"><span class="qn">25.</span>數以萬計的螢火蟲在夜空中閃爍，形成一條發光的河流，<span class="blank l"></span>。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>蔚為奇觀<br><span class="sm">奇特不平凡的景象。</span></div></div></div><div class="qbox"><span class="qn">26.</span>比賽結果一公布，祝賀的訊息便<span class="blank l"></span>，他忙得連飯也來不及吃。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>接踵而至<br><span class="sm">訊息屬事物，接連出現。</span></div></div></div><div class="qbox"><span class="qn">27.</span>全港中小學的閱讀推廣活動正<span class="blank l"></span>地展開，各區圖書館都擠滿了參加者。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>如火如荼<br><span class="sm">寫活動場面熱烈。</span></div></div></div><div class="qbox"><span class="qn">28.</span>草原上數千匹野馬同時狂奔，蹄聲隆隆，猶如<span class="blank l"></span>衝鋒陷陣。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>千軍萬馬<br><span class="sm">句子把野馬比作衝鋒的大軍，寫聲勢浩大。</span></div></div></div><div class="qbox"><span class="qn">29.</span>每天早上，中環的天橋上<span class="blank l"></span>，上班族匆匆忙忙地趕路。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>熙來攘往<br><span class="sm">人來人往，非常熱鬧。</span></div></div></div><div class="qbox"><span class="qn">30.</span>天后誕當日，前往廟宇上香的善信<span class="blank l"></span>，由早到晚都沒有停過。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>絡繹不絕<br><span class="sm">「沒有停過」指人連續不斷地來。</span></div></div></div><div class="qsub">乙、單元二成語（每個成語只用一次）</div><div class="bank"><span>念念不忘</span><span>一日三秋</span><span>牽腸掛肚</span><span>問心無愧</span><span>無地自容</span><span>自慚形穢</span><span>氣急敗壞</span><span>勃然大怒</span><span>七竅生煙</span><span>提心吊膽</span><span>人心惶惶</span><span>戰戰兢兢</span></div><div class="qbox"><span class="qn">31.</span>哥哥到英國升學才一個星期，妹妹已覺得<span class="blank l"></span>，天天問他甚麼時候回來。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>一日三秋<br><span class="sm">分開不久已覺漫長，形容思念心切。</span></div></div></div><div class="qbox"><span class="qn">32.</span>外公年輕時離開家鄉，七十年來對故鄉的一草一木仍<span class="blank l"></span>。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>念念不忘<br><span class="sm">牢記在心，從不忘記。</span></div></div></div><div class="qbox"><span class="qn">33.</span>弟弟第一次獨自參加宿營，媽媽整晚<span class="blank l"></span>，不時查看手機有沒有他的消息。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>牽腸掛肚<br><span class="sm">時時惦念，放心不下。</span></div></div></div><div class="qbox"><span class="qn">34.</span>我已盡了全力照顧小狗，雖然牠仍然病倒了，我也<span class="blank l"></span>。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>問心無愧<br><span class="sm">盡了力，憑良心反省也不慚愧。</span></div></div></div><div class="qbox"><span class="qn">35.</span>他在全班面前說謊，被老師當場揭穿，羞愧得<span class="blank l"></span>。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>無地自容<br><span class="sm">羞愧到極點。</span></div></div></div><div class="qbox"><span class="qn">36.</span>看到表妹三歲已能背誦十多首唐詩，連一首也背不全的我不禁<span class="blank l"></span>。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>自慚形穢<br><span class="sm">自愧不如別人。</span></div></div></div><div class="qbox"><span class="qn">37.</span>小明發現剛寫好的功課被弟弟撕爛了，<span class="blank l"></span>地四處找弟弟算帳。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>氣急敗壞<br><span class="sm">慌張惱怒，修飾動作「四處找」。</span></div></div></div><div class="qbox"><span class="qn">38.</span>校長得知有學生故意破壞校園設施，<span class="blank l"></span>，立即召開緊急會議。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>勃然大怒<br><span class="sm">突然間憤怒之極。</span></div></div></div><div class="qbox"><span class="qn">39.</span>他排了三小時隊，輪到他時門票剛好售罄，氣得<span class="blank l"></span>。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>七竅生煙<br><span class="sm">句中「氣得」後面要寫氣憤的程度。</span></div></div></div><div class="qbox"><span class="qn">40.</span>獨自走過漆黑的後巷時，她<span class="blank l"></span>，總覺得有人在背後跟着。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>提心吊膽<br><span class="sm">十分擔心害怕。</span></div></div></div><div class="qbox"><span class="qn">41.</span>傳染病在城中迅速蔓延，市民<span class="blank l"></span>，紛紛搶購口罩和糧食。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>人心惶惶<br><span class="sm">主語是「市民」，指眾人惶恐不安。</span></div></div></div><div class="qbox"><span class="qn">42.</span>新來的實習生第一次為董事會作匯報，<span class="blank l"></span>，生怕說錯一個字。<span class="mark">（1分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>戰戰兢兢<br><span class="sm">因害怕而謹慎小心。</span></div></div></div><div class="section-header" id="s7"><div class="sh-icon">🧩</div><div><div class="sh-num">CHAPTER 07</div><h2>練習四：成語連用與故事</h2></div></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div><div class="qsub">甲、成語連用：用指定的兩個成語寫一個句子。</div><div class="qbox"><span class="qn">43.</span>摩肩接踵＋水泄不通<div class="line"></div><div class="line"></div><span class="mark">（2分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）年宵市場最後一晚，花墟道上行人摩肩接踵，水泄不通。<br><span class="sm">兩個成語都要用得合乎句意，句子通順即可。</span></div></div></div><div class="qbox"><span class="qn">44.</span>千軍萬馬＋勢不可擋<div class="line"></div><div class="line"></div><span class="mark">（2分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）比賽開始的哨子一響，數百名單車手同時衝出，猶如千軍萬馬，勢不可擋。<br><span class="sm">學生自由作答，言之成理即可。</span></div></div></div><div class="qbox"><span class="qn">45.</span>牽腸掛肚＋憂心忡忡<div class="line"></div><div class="line"></div><span class="mark">（2分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）颱風襲港那晚，爸爸仍在外工作，全家人牽腸掛肚，憂心忡忡。<br><span class="sm">學生自由作答，言之成理即可。</span></div></div></div><div class="qbox"><span class="qn">46.</span>提心吊膽＋如臨深淵<div class="line"></div><div class="line"></div><span class="mark">（2分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）第一次走上離地數十米的玻璃橋，我提心吊膽，如臨深淵，每一步都走得很慢。<br><span class="sm">學生自由作答，言之成理即可。</span></div></div></div><div class="qsub">乙、成語故事</div><div class="qbox"><span class="qn">47.</span>晏嬰怎樣用「摩肩接踵」反駁楚王「齊國難道沒人了嗎」的問題？<div class="line"></div><div class="line"></div><div class="line"></div><span class="mark">（2分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>晏嬰說齊國人口眾多，人們一起張開袖子就能遮天，揮灑汗水就像下雨，街上行人摩肩接踵，用誇張的說法證明齊國並非沒有人。</div></div></div><div class="qbox"><span class="qn">48.</span>杜預用甚麼比喻說服其他官員繼續進攻吳國？這比喻說明了甚麼？<div class="line"></div><div class="line"></div><div class="line"></div><span class="mark">（2分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>杜預把攻打孫吳比喻為劈竹子，劈開了前面幾節，後面的就很容易劈開。這說明晉軍士氣旺盛，只要乘勝追擊，戰事便會一路順利。</div></div></div><div class="qbox"><span class="qn">49.</span>信陵君救趙後為甚麼會「無地自容」？<div class="line"></div><div class="line"></div><div class="line"></div><span class="mark">（2分）</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>因為門客提醒他：他雖然對趙國有功，但對魏國卻是欺騙國君。信陵君明白自己不應自滿，感到十分慚愧，好像沒有地方可以容身。</div></div></div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
