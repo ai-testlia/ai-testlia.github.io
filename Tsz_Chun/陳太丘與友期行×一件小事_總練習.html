@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《陳太丘與友期行》×《一件小事》總練習</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#f0edf8;
+  --teal:#2f8a7e;--teal-bg:#e7f4f1;
+  --coral:#c8604a;--coral-bg:#fbece8;
+  --amber:#b7791f;--amber-bg:#fdf3e1;
+  --pink:#b5527a;--pink-bg:#f9eaf0;
+  --blue:#3a6ea5;--blue-bg:#e8f0f8;
+  --green:#3f7d4a;--green-bg:#e9f4ea;
+  --red:#b4413b;--red-bg:#fbeaea;
+  --hero-bg:#D3CFC3;--hero-text:36,32,24;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#e8e8e6;--color-text-secondary:#a8a8a4;
+    --color-background-primary:#1f2120;--color-background-secondary:#151716;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#b0a3e6;--purple-bg:#2a2638;
+    --teal:#7cc9bd;--teal-bg:#1c2f2c;
+    --coral:#ec9a87;--coral-bg:#382420;
+    --amber:#e6b664;--amber-bg:#352b1a;
+    --pink:#e59ab9;--pink-bg:#36222b;
+    --blue:#8fb6e0;--blue-bg:#1d2a38;
+    --green:#8cc597;--green-bg:#1d2e20;
+    --red:#ec8f88;--red-bg:#3a2120;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC",sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+h1,h2,h3,.serif{font-family:"Noto Serif TC",serif}
+.hero{background:var(--hero-bg);color:rgb(var(--hero-text));border-radius:var(--border-radius-lg);padding:36px 28px;text-align:center;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-text),.3);color:rgba(var(--hero-text),.65);border-radius:999px;padding:2px 14px;font-size:12px;letter-spacing:2px}
+.hero h1{margin:12px 0 6px;font-size:30px;font-weight:900;letter-spacing:2px}
+.hero .sub{font-size:14px;color:rgba(var(--hero-text),.75)}
+.hero p{margin:10px 0 0;font-size:13px;color:rgba(var(--hero-text),.5)}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 16px}
+.toc-title{grid-column:1/-1;font-weight:700;margin-bottom:4px}
+.toc-item{color:var(--color-text-primary);text-decoration:none;padding:3px 0;font-size:14px}
+.toc-item:hover{color:var(--blue)}
+.toc-num{display:inline-block;width:28px;color:var(--color-text-secondary);font-size:12px}
+.toc-group{grid-column:1/-1;font-size:12px;color:var(--color-text-secondary);margin-top:6px;letter-spacing:1px}
+.section-header{display:flex;align-items:center;gap:12px;margin:36px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--color-border-tertiary)}
+.section-header .icon{font-size:24px}
+.section-header h2{margin:0;font-size:21px;flex:1}
+.section-header .chap{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary);white-space:nowrap}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
+.card h3{margin:0 0 8px;font-size:16px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--purple)}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.card p{margin:6px 0}
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-label{font-size:12px;font-weight:700;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-size:14px}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0;background:var(--blue-bg)}
+.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.alert-icon{font-size:18px;line-height:1.6}
+.alert-label{font-weight:700;font-size:13px}
+.alert-text{font-size:14px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:10px 14px;border:1px solid var(--color-border-tertiary)}
+.compare-card.bad{background:var(--red-bg)}.compare-card.good{background:var(--green-bg)}
+.compare-card .t{font-weight:700;margin-bottom:4px}
+.flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;margin:10px 0}
+.flow-step{flex:1;min-width:150px;background:var(--color-background-secondary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px;font-size:13.5px}
+.flow-step b{display:block;color:var(--teal);font-size:13px}
+.flow-arrow{align-self:center;color:var(--color-text-secondary);font-size:18px}
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:1px solid var(--color-border-tertiary)}
+.kw-word{font-family:"Noto Serif TC",serif;font-weight:700;color:var(--teal)}
+.kw-def{font-size:13.5px}
+.formula{background:#2e3528;color:#eef0e6;border-radius:var(--border-radius-lg);padding:16px 20px;margin:12px 0;font-family:"Noto Serif TC",serif;font-size:15px;line-height:1.9}
+.formula .fl{font-size:12px;letter-spacing:2px;opacity:.7;font-family:"Noto Sans TC",sans-serif}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 10px;vertical-align:top;text-align:left}
+th{background:var(--color-background-secondary);white-space:nowrap}
+td.c,th.c{white-space:nowrap;text-align:center}
+td.nw{white-space:nowrap}
+/* 課文 */
+.text-box{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 24px;margin-bottom:14px;font-family:"Noto Serif TC",serif;font-size:17px;line-height:2.3}
+.text-box .title{text-align:center;font-weight:900;font-size:20px;margin-bottom:2px}
+.text-box .author{text-align:center;font-size:13px;color:var(--color-text-secondary);font-family:"Noto Sans TC",sans-serif;margin-bottom:10px}
+.layer-tag{display:inline-block;font-family:"Noto Sans TC",sans-serif;font-size:12px;background:var(--teal-bg);color:var(--teal);border-radius:999px;padding:0 10px;margin:6px 0 2px;line-height:1.9}
+.text-box p{margin:0 0 6px;text-indent:2em}
+.pnum{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-family:"Noto Sans TC",sans-serif;margin-right:4px;text-indent:0;vertical-align:2px}
+sup.n{color:var(--coral);font-size:11px;font-family:"Noto Sans TC",sans-serif}
+.dotted{text-emphasis:filled dot;-webkit-text-emphasis:filled dot;text-emphasis-position:under right;-webkit-text-emphasis-position:under}
+/* 練習 */
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 18px;margin-bottom:12px}
+.qn{display:inline-block;font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12px;color:var(--color-text-secondary)}
+.qsub{font-size:13px;color:var(--color-text-secondary);margin:8px 0 2px;font-weight:700}
+.line{border-bottom:1px solid var(--color-text-secondary);height:30px;opacity:.5}
+.blank{display:inline-block;border-bottom:1px solid var(--color-text-primary);min-width:80px;height:1.1em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:48px}.blank.l{min-width:150px}
+.opt{display:inline-block;margin-right:14px;white-space:nowrap}
+.opts{margin:6px 0 0;padding-left:0;list-style:none}
+.opts li{margin:3px 0}
+.opts li b{display:inline-block;width:22px}
+.ansrow{margin-top:6px;font-size:13px;color:var(--color-text-secondary)}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0;font-size:14.5px;line-height:2}
+.excerpt p{margin:0 0 6px;text-indent:2em}
+.excerpt .src{text-align:right;font-size:12px;color:var(--color-text-secondary)}
+.excerpt .orig{font-family:"Noto Serif TC",serif;font-size:13.5px;color:var(--color-text-secondary);border-top:1px dashed var(--color-border-tertiary);margin-top:8px;padding-top:6px}
+.trans-ws{font-size:15px;line-height:2.5}
+.sdiag{display:grid;grid-template-columns:110px 1fr;gap:8px;margin:10px 0}
+.sdiag .lab{background:var(--teal);color:#fff;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;text-align:center}
+.sdiag .body{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:1px solid var(--color-border-tertiary)}
+.sdiag .top{grid-column:1/-1;text-align:center;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px;font-weight:700}
+/* 答案 */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans u{text-decoration:none;border-bottom:1.5px solid var(--green);padding:0 2px}
+/* 工具列 */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:1px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+@media (max-width:600px){.blank{min-width:56px}.blank.l{min-width:96px}table{font-size:13px}th,td{padding:6px 7px}th{white-space:normal}.compare-grid{grid-template-columns:1fr}.hero h1{font-size:25px}.sdiag{grid-template-columns:80px 1fr}.text-box{padding:16px;font-size:16px}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#1a1a1a}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.excerpt,table,.sdiag{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid;break-after:avoid}
+  .hero,.formula,.pnum,.sdiag .lab,.layer-tag{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+.paper-info{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px 16px;font-size:14px}
+.paper-info .f{border-bottom:1px solid var(--color-text-secondary);padding:4px 0;opacity:.85}
+.grid100{display:grid;grid-template-columns:repeat(20,1fr);border-top:1px solid var(--color-border-tertiary);border-left:1px solid var(--color-border-tertiary);margin:8px 0;max-width:640px}
+.grid100 span{aspect-ratio:1;border-right:1px solid var(--color-border-tertiary);border-bottom:1px solid var(--color-border-tertiary)}
+.grid100 span:nth-child(20n){border-right-color:rgba(0,0,0,.25)}
+.rub{font-size:13px;color:var(--color-text-secondary);margin-top:4px}
+.text-box.small{font-size:15.5px;line-height:2.1}
+.text-box.small p{margin:0 0 4px}
+@media (max-width:600px){td.c,th.c{white-space:normal}td .blank.l{min-width:64px}td .blank{min-width:44px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+  <div class="hero-tag">綜合練習</div>
+  <h1>《陳太丘與友期行》×《一件小事》總練習</h1>
+  <div class="sub">中一至中二　文言與白話閱讀　全卷70分</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <div class="toc-group">溫習</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>溫習重點：兩篇課文對照</a>
+  <div class="toc-group">練習</div>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>甲部　《陳太丘與友期行》（25分）</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>乙部　《一件小事》（25分）</a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span>丙部　語文運用及寫作（20分）</a>
+</nav>
+<div class="card">
+  <h3><span class="dot amber"></span>作答須知</h3>
+  <div class="paper-info"><div class="f">姓名：</div><div class="f">班別：　　　（　　）</div><div class="f">日期：</div><div class="f">得分：　　　／70</div></div>
+  <p style="margin-top:10px">建議作答時間45分鐘。全卷分甲、乙、丙三部，全部題目均須作答。題目所說的段號，以本卷所載課文為準。</p>
+</div>
+<div class="section-header first" id="s1"><span class="icon">🗂️</span><h2>溫習重點：兩篇課文對照</h2><span class="chap">CHAPTER 01</span></div>
+<div class="card">
+  <h3><span class="dot teal"></span>一表看兩篇</h3>
+  <table>
+    <tr><th class="c">項目</th><th>《陳太丘與友期行》</th><th>《一件小事》</th></tr>
+    <tr><td class="c">作者／出處</td><td>劉義慶《世說新語．方正》（南朝宋）</td><td>魯迅，收錄於小說集《吶喊》（民國）</td></tr>
+    <tr><td class="c">語體</td><td>文言</td><td>白話</td></tr>
+    <tr><td class="c">記敍方法</td><td>順敍：按約定、失約、責罵、反駁、慚愧的先後寫</td><td>倒敍：先寫小事令「我」忘記不得，再回憶事件始末</td></tr>
+    <tr><td class="c">人稱</td><td>第三人稱</td><td>第一人稱「我」</td></tr>
+    <tr><td class="c">對比人物</td><td>元方（守信知禮）↔ 友人（失信無禮）</td><td>車夫（正直無私、勇於承擔）↔「我」（自私冷漠）</td></tr>
+    <tr><td class="c">主要描寫</td><td>語言、行動、心理（「慚」）</td><td>心理描寫最多，配合行動、肖像、環境描寫</td></tr>
+    <tr><td class="c">「慚愧」</td><td>友人慚，下車引之</td><td>教我慚愧，催我自新</td></tr>
+    <tr><td class="c">主旨</td><td>刻畫元方聰明靈敏、明辨是非、守信重禮，帶出「守信」和「知禮」的重要</td><td>寫車夫與「我」的不同反應，刻畫車夫正直無私，引出「我」深切的自我反省</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot coral"></span>兩篇的共通點</h3>
+  <p>兩篇都寫一件生活小事，都把兩個人物放在一起對照；而且令犯錯的人醒覺的，都是身份比他「低」的人：一個是七歲小孩，一個是拉車的勞動者。犯錯的人最後都感到慚愧。</p>
+  <div class="flow">
+    <div class="flow-step"><b>事件</b>失約／車撞老婦</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>對照</b>元方↔友人；車夫↔「我」</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>醒覺</b>友人慚；「我」慚愧</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>道理</b>守信知禮；承擔責任、自我反省</div>
+  </div>
+</div>
+<div class="section-header" id="s2"><span class="icon">📜</span><h2>甲部　《陳太丘與友期行》（25分）</h2><span class="chap">CHAPTER 02</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="text-box small">
+  <div class="title">陳太丘與友期行</div><div class="author">劉義慶《世說新語．方正》</div>
+  <p>陳太丘與友期行，期日中。過中不至，太丘舍去，去後乃至。元方時年七歲，門外戲。客問元方：「尊君在不？」答曰：「待君久不至，已去。」友人便怒曰：「非人哉！與人期行，相委而去。」元方曰：「君與家君期日中。日中不至，則是無信；對子罵父，則是無禮。」友人慚，下車引之。元方入門，不顧。</p>
+</div>
+<div class="qbox"><span class="qn">1.</span>解釋以下句子中加點的字詞。<span class="mark">（6分）</span><table><tr><td class="nw serif">(1) 陳太丘與友<span class="dotted">期</span>行。</td><td>期：<span class="blank l"></span></td></tr><tr><td class="nw serif">(2) 去後<span class="dotted">乃</span>至。</td><td>乃：<span class="blank l"></span></td></tr><tr><td class="nw serif">(3) <span class="dotted">尊君</span>在不？</td><td>尊君：<span class="blank l"></span></td></tr><tr><td class="nw serif">(4) 尊君在<span class="dotted">不</span>？</td><td>不：<span class="blank l"></span></td></tr><tr><td class="nw serif">(5) 友人<span class="dotted">慚</span>。</td><td>慚：<span class="blank l"></span></td></tr><tr><td class="nw serif">(6) 下車<span class="dotted">引</span>之。</td><td>引：<span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，每題1分）(1) 約定　(2) 才　(3) 對別人父親的敬稱，即「令尊」　(4) 同「否」，可譯作「嗎」　(5) 慚愧　(6) 拉</div></div></div>
+<div class="qbox"><span class="qn">2.</span>把以下句子譯為白話文。<span class="mark">（4分）</span><p class="serif" style="margin:8px 0 0">(1) 待君久不至，已去。</p><div class="line"></div><div class="line"></div><p class="serif" style="margin:8px 0 0">(2) 與人期行，相委而去。</p><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每題2分）<br>(1)（父親）等待您很久，您沒有到來，（他）已經離開了。<br>(2) 和別人相約同行，卻捨棄別人就離開了。<br><span class="rub">評分原則：關鍵字詞（待、久、至／期、委、去）譯錯一處扣1分。</span></div></div></div>
+<div class="qbox"><span class="qn">3.</span>元方反駁友人時，第一句先說「君與家君期日中」。他這樣說的目的是甚麼？<span class="mark">（2分）</span><ul class="opts"><li><b>A</b>提醒友人以後赴約一定要準時到達</li><li><b>B</b>先說明事實，指出失約的是友人</li><li><b>C</b>稱讚父親一向遵守約定的時間</li><li><b>D</b>拖延時間，等父親回家主持公道</li></ul><div class="ansrow">A ○　　B ○　　C ○　　D ○</div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><span class="rub">元方先重提約定的時間是「日中」，接着說「日中不至」，事實擺在眼前，失約的是友人而不是陳太丘，後面指責友人「無信」才有根據。文中沒有寫元方提醒友人日後要準時、稱讚父親或等父親回家，故A、C、D不正確。</span></div></div></div>
+<div class="qbox"><span class="qn">4.</span>根據文意，判斷以下陳述。<span class="mark">（4分）</span><table><tr><th>陳述</th><th class="c">正確</th><th class="c">錯誤</th><th class="c">無從判斷</th></tr><tr><td>(1) 陳太丘與友人約定在中午時分見面。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>(2) 友人到達時，陳太丘剛剛離開。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>(3) 友人一見元方，便開口責罵陳太丘。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>(4) 陳太丘回家後稱讚元方。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每題1分）(1) 正確　(2) 無從判斷　(3) 錯誤　(4) 無從判斷<br><span class="rub">(2) 文中只說「去後乃至」，沒有交代陳太丘離開多久友人才到。(3) 友人先客氣地問「尊君在不」，得知陳太丘已走才發怒。(4) 文中沒有寫陳太丘回家後的事。</span></div></div></div>
+<div class="qbox"><span class="qn">5.</span>元方回答客人時說「待君久不至，已去」。句中哪一個字最能說明陳太丘並不是無故離開？試加解釋。<span class="mark">（2分）</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「久」字（1分）。陳太丘已經等了友人很長時間，友人一直沒有到，他才離開，責任在友人遲到（1分）。</div></div></div>
+<div class="qbox"><span class="qn">6.</span>「友人慚，下車引之。」這兩句分別運用了甚麼描寫方法？從中可見友人是一個怎樣的人？<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）「慚」是心理描寫，寫友人自知理虧而感到慚愧（1分）；「下車引之」是行動描寫，寫他想拉元方的手表示友好（1分）。可見友人雖然失信無禮，但被指出錯處後懂得羞愧，尚算知錯（1分）。</div></div></div>
+<div class="qbox"><span class="qn">7.</span>有人認為元方最後「入門，不顧」，對一個已經示好的長輩太不客氣。你同意嗎？試結合課文內容，說明你的看法。<span class="mark">（4分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，示例）<br>不同意。友人失約在先，又當着元方的面罵他父親「非人哉」，既無信又無禮。元方「入門，不顧」，是用行動表明自己不認同這種行為，正見他愛恨分明、明辨是非，不能算不客氣。<br>／同意。友人已經「慚」，又「下車引之」，表示知錯。元方年紀雖小，也可以接受對方的好意，給長輩一個下台階，這樣更合乎禮。<br><span class="rub">評分原則：立場清晰（1分）；引用課文內容作理據（2分）；說明合理（1分）。學生言之成理即可。</span></div></div></div>
+<div class="section-header" id="s3"><span class="icon">🚲</span><h2>乙部　《一件小事》（25分）</h2><span class="chap">CHAPTER 03</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="text-box small"><div class="title">一件小事</div><div class="author">魯迅</div><p><span class="pnum">1</span>我從鄉下跑到京城裏，一轉眼已經六年了。其間耳聞目睹的所謂國家大事，算起來也很不少；但在我心裏，都不留甚麼痕跡，倘要我尋出這些事的影響來說，便只是增長了我的壞脾氣，──老實說，便是教我一天比一天的看不起人。</p><p><span class="pnum">2</span>但有一件小事，卻於我有意義，將我從壞脾氣裏拖開，使我至今忘記不得。</p><p><span class="pnum">3</span>這是民國六年的冬天，大北風颳得正猛，我因為生計關係，不得不一早在路上走。一路幾乎遇不見人，好容易才僱定了一輛人力車，教他拉到S門去。不一會，北風小了，路上浮塵早已刮淨，剩下一條潔白的大道來，車夫也跑得更快。剛近S門，忽而車把上帶着一個人，慢慢地倒了。</p><p><span class="pnum">4</span>跌倒的是一個女人，花白頭髮，衣服都很破爛。伊從馬路邊上突然向車前橫截過來；車夫已經讓開道，但伊的破棉背心沒有上扣，微風吹着，向外展開，所以終於兜着車把。幸而車夫早有點停步，否則伊定要栽一個大觔斗，跌到頭破血出了。</p><p><span class="pnum">5</span>伊伏在地上；車夫便也立住腳。我料定這老女人並沒有傷，又沒有別人看見，便很怪他多事，要自己惹出是非，也誤了我的路。</p><p><span class="pnum">6</span>我便對他說：「沒有甚麼的。走你的罷！」</p><p><span class="pnum">7</span>車夫毫不理會，──或者並沒有聽到，──卻放下車子，扶那老女人慢慢起來，攙着臂膊立定，問伊道：</p><p><span class="pnum">8</span>「你怎麼啦？」</p><p><span class="pnum">9</span>「我摔壞了。」</p><p><span class="pnum">10</span>我想，我眼見你慢慢倒地，怎麼會摔壞呢，裝腔作勢罷了，這真可憎惡。車夫多事，也正是自討苦吃，現在你自己想法去。</p><p><span class="pnum">11</span>車夫聽了那老女人的話，卻毫不躊躇，仍然攙着伊的臂膊，便一步一步的向前走。我有些詫異，忙看前面，是一所巡警分駐所，大風之後，外面也不見人。這車夫扶着那老女人，便正是向那大門走去。</p><p><span class="pnum">12</span>我這時突然感到一種異樣的感覺，覺得他滿身灰塵的後影，剎時高大了，而且越走越大，須仰視才見。而且他對於我，漸漸的又幾乎變成一種威壓，甚而至於要榨出皮袍下面藏着的「小」來。</p><p><span class="pnum">13</span>我的活力這時大約有些凝滯了，坐着沒有動，也沒有想，直到看見分駐所裏走出一個巡警，才下了車。</p><p><span class="pnum">14</span>巡警走近我說：「你自己僱車罷，他不能拉你了。」</p><p><span class="pnum">15</span>我沒有思索的從外套袋裏抓出一大把銅元，交給巡警，說：「請你給他……」</p><p><span class="pnum">16</span>風全住了，路上還很靜。我走着，一面想，幾乎怕敢想到我自己。以前的事姑且擱起，這一大把銅元又是甚麼意思？獎他麼？我還能裁判車夫麼？我不能回答自己。</p><p><span class="pnum">17</span>這事到了現在，還是時時記起。我因此也時時熬了苦痛，努力的要想到我自己。幾年來的文治武力，在我早如幼小時候所讀過的「子曰詩云」一般，背不上半句了。獨有這一件小事，卻總是浮在我眼前，有時反更分明，教我慚愧，催我自新，並且增長我的勇氣和希望。</p></div>
+<div class="qbox"><span class="qn">1.</span>第5段寫「我料定這老女人並沒有傷，又沒有別人看見」。「又沒有別人看見」一句反映「我」怎樣的想法？<span class="mark">（2分）</span><ul class="opts"><li><b>A</b>擔心旁人誤會是車夫撞倒了老婦</li><li><b>B</b>認為無人目擊，不必理會此事</li><li><b>C</b>希望會有路人上前幫助老婦</li><li><b>D</b>懷疑老婦故意攔車騙取金錢</li></ul><div class="ansrow">A ○　　B ○　　C ○　　D ○</div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><span class="rub">「我」先認定老婦沒有受傷，再想到沒有人看見，於是「很怪他多事，要自己惹出是非」，可見「我」覺得既然沒人目擊，就不必理會。A、C與文意相反；「我」懷疑老婦裝腔作勢是第10段的事，而且文中沒有說她騙錢，故D不正確。</span></div></div></div>
+<div class="qbox"><span class="qn">2.</span>第10段中，「我」認為老婦「裝腔作勢」。「我」為甚麼這樣想？這反映「我」怎樣的性格？<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）因為「我」眼見老婦「慢慢倒地」，認定她不可能摔傷（1分）。這反映「我」多疑、冷漠，缺乏同情心（2分）。</div></div></div>
+<div class="qbox"><span class="qn">3.</span>第12段說車夫的後影「剎時高大了」，又說他「要榨出皮袍下面藏着的『小』來」。試分別說明這裏的「大」和「小」指甚麼。<span class="mark">（4分）</span><p style="line-height:2.4">「大」：<span class="blank l"></span>（1）</p><p style="line-height:2.4">「小」：<span class="blank l"></span>（2）</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項2分）(1) 車夫正直無私、勇於承擔責任的高尚品格，令「我」心生敬佩。(2)「我」藏在體面身份（「皮袍」）下面的自私、冷漠和渺小。</div></div></div>
+<div class="qbox"><span class="qn">4.</span>第15段寫「我沒有思索的」抓出一大把銅元交給巡警。「沒有思索」反映「我」當時怎樣的心理？<span class="mark">（2分）</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「我」被車夫的行為深深觸動，一時之間想用錢表示讚賞，同時想藉此減輕自己的內疚（答出任何一點得1分，兩點得2分）。</div></div></div>
+<div class="qbox"><span class="qn">5.</span>第16段「這一大把銅元又是甚麼意思？獎他麼？我還能裁判車夫麼？我不能回答自己。」這幾句反映「我」怎樣的心情？<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）「我」反問自己給銅元的用意，發覺自己根本沒有資格去獎勵或裁判品格比自己高尚的車夫（2分）；反映「我」感到慚愧，反省進一步加深（1分）。</div></div></div>
+<div class="qbox"><span class="qn">6.</span>結尾（第17段）與開首（第1、2段）互相呼應。試完成下表。<span class="mark">（4分）</span><table><tr><th>開首</th><th>結尾</th></tr><tr><td>所謂國家大事「都不留甚麼痕跡」</td><td><span class="blank l"></span>（1）</td></tr><tr><td><span class="blank l"></span>（2）</td><td>「獨有這一件小事，卻總是浮在我眼前」</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項2分）(1) 幾年來的文治武力「背不上半句了」　(2)「但有一件小事……使我至今忘記不得」<br><span class="rub">摘錄原文須準確；意思正確但字詞有誤者，每項扣1分。</span></div></div></div>
+<div class="qbox"><span class="qn">7.</span>根據文意，判斷以下陳述。<span class="mark">（4分）</span><table><tr><th>陳述</th><th class="c">正確</th><th class="c">錯誤</th><th class="c">無從判斷</th></tr><tr><td>(1) 「我」因為生計關係，不得不一早出門。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>(2) 老婦被人力車帶倒後，跌得頭破血出。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>(3) 車夫扶老婦離開前，曾回頭向「我」解釋。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>(4) 車夫最後收到了「我」的銅元。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每題1分）(1) 正確　(2) 錯誤　(3) 錯誤　(4) 無從判斷<br><span class="rub">(2)「幸而車夫早有點停步，否則伊定要……跌到頭破血出了」，可見老婦沒有頭破血出。(3)「車夫毫不理會」。(4)「我」只把銅元交給巡警，文中沒有交代車夫有否收到。</span></div></div></div>
+<div class="qbox"><span class="qn">8.</span>車夫在全文只說了一句「你怎麼啦？」，作者主要寫他的行動。作者這樣寫車夫，有甚麼效果？<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）車夫不多說話，只是「放下車子」、「扶那老女人慢慢起來」、「毫不躊躇」地攙着她走向巡警分駐所，以行動表現他果斷、負責的品格（2分）；又與「我」大量的心理活動和推卸責任的想法形成對比，更突出車夫的高尚（1分）。</div></div></div>
+<div class="section-header" id="s4"><span class="icon">✍️</span><h2>丙部　語文運用及寫作（20分）</h2><span class="chap">CHAPTER 04</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="qbox"><span class="qn">1.</span>指出以下句子主要運用了哪一種描寫方法。（可選：語言描寫、行動描寫、心理描寫、肖像描寫、環境描寫）<span class="mark">（6分）</span><table><tr><th>句子</th><th class="c">描寫方法</th></tr><tr><td>(1) 跌倒的是一個女人，花白頭髮，衣服都很破爛。<br><span class="rub">《一件小事》</span></td><td><span class="blank "></span></td></tr><tr><td>(2) 大北風颳得正猛，我因為生計關係，不得不一早在路上走。<br><span class="rub">《一件小事》</span></td><td><span class="blank "></span></td></tr><tr><td>(3) 元方入門，不顧。<br><span class="rub">《陳太丘與友期行》</span></td><td><span class="blank "></span></td></tr><tr><td>(4) 友人便怒曰：「非人哉！與人期行，相委而去。」<br><span class="rub">《陳太丘與友期行》</span></td><td><span class="blank "></span></td></tr><tr><td>(5) 我想，我眼見你慢慢倒地，怎麼會摔壞呢，裝腔作勢罷了，這真可憎惡。<br><span class="rub">《一件小事》</span></td><td><span class="blank "></span></td></tr><tr><td>(6) 車夫……卻放下車子，扶那老女人慢慢起來，攙着臂膊立定。<br><span class="rub">《一件小事》</span></td><td><span class="blank "></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，每題1分）(1) 肖像描寫　(2) 環境描寫　(3) 行動描寫　(4) 語言描寫　(5) 心理描寫　(6) 行動描寫</div></div></div>
+<div class="qbox"><span class="qn">2.</span>兩篇課文都有一些今天較少用的稱謂。試在橫線上寫出它們在現代書面語中對應的說法。<span class="mark">（4分）</span><table><tr><th class="c">稱謂</th><th>出處及意思</th><th>現代書面語</th></tr><tr><td class="c serif">尊君</td><td>《陳太丘與友期行》：稱對方的父親</td><td><span class="blank "></span>（1）</td></tr><tr><td class="c serif">家君</td><td>《陳太丘與友期行》：向別人稱自己的父親</td><td><span class="blank "></span>（2）</td></tr><tr><td class="c serif">君</td><td>《陳太丘與友期行》：稱對方</td><td><span class="blank "></span>（3）</td></tr><tr><td class="c serif">伊</td><td>《一件小事》：指那位老婦</td><td><span class="blank "></span>（4）</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）(1) 令尊　(2) 家父　(3) 您　(4) 她</div></div></div>
+<div class="qbox"><span class="qn">3.</span>細讀《陳太丘與友期行》。試以友人「我」的身份，寫出「我」聽完元方的反駁後，到「下車引之」之前的內心感受。（80至100字，須運用心理描寫，標點符號計算在內）<span class="mark">（10分）</span><div class="grid100"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（10分，示例）<br>這孩子說得一點不錯。約好中午，是我自己來遲了，還當着他的面罵他父親不是人。我一個大人，竟比不上一個七歲小孩懂道理，臉上一陣發熱。我越想越不好意思，只想快些補救，便跳下車，伸手去拉他，盼他別再生我的氣。<br><span class="rub">評分原則：內容5分（寫出由怒轉慚的變化2分；寫出自知失信、無禮2分；交代下車示好的動機1分）；表達3分（心理描寫具體，用第一人稱，語句通順）；字數及標點2分（字數不符或標點錯誤多，酌量扣分）。</span></div></div></div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
