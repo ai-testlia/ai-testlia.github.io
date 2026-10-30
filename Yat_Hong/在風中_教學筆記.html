@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《在風中》教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5bb5;--purple-bg:#efecfa;
+  --teal:#1f8a80;--teal-bg:#e3f4f2;
+  --coral:#d0613f;--coral-bg:#fcebe5;
+  --amber:#c27b0e;--amber-bg:#fdf3e1;
+  --pink:#c2457a;--pink-bg:#fbe8f0;
+  --blue:#2f6db5;--blue-bg:#e6effa;
+  --green:#2e8b4e;--green-bg:#e5f5ea;
+  --red:#c23b3b;--red-bg:#fbe7e7;
+  --hero-bg:#C8D5D8;--hero-fg:18,32,37;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ebebeb;--color-text-secondary:#aaa;
+    --color-background-primary:#1f2123;--color-background-secondary:#141516;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a99cf0;--purple-bg:#2a2640;
+    --teal:#5cc9bd;--teal-bg:#17302d;
+    --coral:#f0906f;--coral-bg:#3a2219;
+    --amber:#f0b44a;--amber-bg:#352a14;
+    --pink:#ee86b2;--pink-bg:#3a1f2b;
+    --blue:#7fb0f0;--blue-bg:#1b2a3d;
+    --green:#6fcf8d;--green-bg:#18301f;
+    --red:#f08080;--red-bg:#3a1c1c;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC',serif}
+.hero{background:var(--hero-bg);color:rgb(var(--hero-fg));border-radius:var(--border-radius-lg);padding:36px 28px;text-align:center;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-fg),.3);color:rgba(var(--hero-fg),.65);border-radius:999px;padding:2px 14px;font-size:12px;letter-spacing:2px}
+.hero h1{font-size:32px;margin:12px 0 4px;color:rgb(var(--hero-fg))}
+.hero .sub{font-size:14px;color:rgba(var(--hero-fg),.75)}
+.hero p{margin:10px 0 0;font-size:13px;color:rgba(var(--hero-fg),.5);letter-spacing:1px}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px}
+.toc-title{font-weight:700;margin-bottom:8px}
+.toc-item{display:block;color:var(--color-text-primary);text-decoration:none;padding:4px 0;border-bottom:1px dashed var(--color-border-tertiary)}
+.toc-item:last-child{border-bottom:none}
+.toc-num{display:inline-block;width:34px;color:var(--teal);font-weight:700}
+.section-header{display:flex;align-items:center;gap:12px;margin:36px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--color-border-tertiary)}
+.section-header.first{margin-top:8px}
+.sh-icon{font-size:24px}
+.sh-title{font-family:'Noto Serif TC',serif;font-size:21px;font-weight:700}
+.sh-ch{margin-left:auto;font-size:11px;letter-spacing:2px;color:var(--color-text-secondary)}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px}
+.card h3{margin:0 0 10px;font-size:17px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--purple)}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}
+.example-box{background:var(--purple-bg);border-left:4px solid var(--purple);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{background:var(--teal-bg);border-color:var(--teal)}.example-box.coral{background:var(--coral-bg);border-color:var(--coral)}.example-box.amber{background:var(--amber-bg);border-color:var(--amber)}.example-box.pink{background:var(--pink-bg);border-color:var(--pink)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary)}
+.example-text{font-family:'Noto Serif TC',serif;font-size:14.5px}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert.tip{background:var(--blue-bg)}.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.alert-icon{font-size:18px}
+.alert-label{font-weight:700;font-size:13px}
+.alert-text{font-size:13.5px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:13.5px}
+.compare-card.bad{background:var(--coral-bg);border-top:3px solid var(--coral)}
+.compare-card.good{background:var(--teal-bg);border-top:3px solid var(--teal)}
+.compare-card b{display:block;margin-bottom:4px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0}
+.flow-step{background:var(--teal-bg);border-radius:var(--border-radius-md);padding:6px 10px;font-size:13px;text-align:center}
+.flow-step b{display:block;color:var(--teal)}
+.flow-arrow{color:var(--color-text-secondary)}
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px}
+.kw-word{font-family:'Noto Serif TC',serif;font-weight:700;color:var(--purple)}
+.kw-def{font-size:13px;color:var(--color-text-secondary)}
+.formula{background:#2f3e45;color:#f2f5f6;border-radius:var(--border-radius-md);padding:14px 18px;margin:12px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.9}
+.formula .fl{display:block;font-size:11px;letter-spacing:2px;opacity:.7;font-family:'Noto Sans TC',sans-serif}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--color-background-secondary);white-space:nowrap}
+td.c,th.c{white-space:nowrap;text-align:center}
+.qsub{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px;margin:20px 0 10px;color:var(--coral)}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:14px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{color:var(--color-text-secondary);font-size:12.5px;margin-left:4px}
+.tagk{font-size:11.5px;color:var(--teal);margin-left:4px}
+.sq{margin:8px 0 4px 16px}
+.line{border-bottom:1px solid var(--color-text-secondary);height:30px;opacity:.5}
+.blank{display:inline-block;border-bottom:1px solid var(--color-text-secondary);min-width:90px;height:1.2em;vertical-align:bottom}
+.blank.s{min-width:56px}.blank.l{min-width:170px}
+.opts{margin:6px 0 0 16px}
+.opts div{margin:2px 0}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:14px}
+.excerpt .t{text-align:center;font-weight:700;margin-bottom:4px}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary)}
+.box{display:inline-block;width:14px;height:14px;border:1px solid var(--color-text-secondary);vertical-align:-2px;margin-right:2px}
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .note{font-size:13px;color:var(--color-text-secondary)}
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+@media (max-width:600px){.compare-grid{grid-template-columns:1fr}.hero h1{font-size:26px}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">閱讀教學筆記</div>
+  <h1>《在風中》　也斯</h1>
+  <div class="sub">中二　單元三　今昔香港──景物描寫（二）</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>學習重點與篇章結構</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>寫作技巧：描寫景物的方法</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>練習一：段意、主旨與課文概覽</a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：描寫方法</a>
+  <a class="toc-item" href="#s5"><span class="toc-num">05</span>練習三：內容理解與思想感情</a>
+  <a class="toc-item" href="#s6"><span class="toc-num">06</span>練習四：修辭與感官描寫</a>
+  <a class="toc-item" href="#s7"><span class="toc-num">07</span>練習五：進階思考與比較閱讀</a>
+</nav>
+
+<!-- ============ CHAPTER 01 ============ -->
+<div class="section-header first" id="s1"><span class="sh-icon">🧭</span><span class="sh-title">學習重點與篇章結構</span><span class="sh-ch">CHAPTER 01</span></div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>學習重點</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">直接描寫／間接描寫</div><div class="kw-def">正面寫景物本身，或借其他人和事物的反應側面烘托。</div></div>
+    <div class="kw"><div class="kw-word">步移法</div><div class="kw-def">觀察點隨作者腳步移動，沿途所見依次寫出。</div></div>
+    <div class="kw"><div class="kw-word">定點描寫法</div><div class="kw-def">站在固定位置，按一定次序（如由近至遠）寫出所見。</div></div>
+    <div class="kw"><div class="kw-word">印證式閱讀法</div><div class="kw-def">閱讀時把文章內容與自己的經驗、所學知識互相印證。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>文章脈絡：一次颱風天的外出</h3>
+  <p>全文按時間和行程寫。作者在颱風襲港期間和朋友外出，由樓下走到碼頭，之後進咖啡店，離開時風已差不多過去，市面漸漸恢復。</p>
+  <table>
+    <tr><th class="c">部分</th><th class="c">段落</th><th>內容</th></tr>
+    <tr><td class="c">樓下</td><td class="c">1–2</td><td>直接寫風勢強勁；再借朋友的經歷（瓦煲飛起、雨傘折斷）側寫風力。</td></tr>
+    <tr><td class="c">街上</td><td class="c">3–12</td><td>沿簷下、大廈內、橫街、海邊空地、馬路、公園、碼頭等地走過，寫行人、招牌、垃圾、樹木、海浪。</td></tr>
+    <tr><td class="c">颱風後</td><td class="c">14</td><td>離開咖啡店時風已差不多過去，人們逐漸走到街上。</td></tr>
+  </table>
+  <div class="example-label" style="margin-top:8px">行程路線</div>
+  <div class="flow">
+    <div class="flow-step"><b>1</b>簷下</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>2</b>大廈內</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>3</b>橫街</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>4</b>海邊空地</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>5</b>馬路上</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>6</b>公園</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>7</b>碼頭</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>8</b>碼頭附近</div>
+  </div>
+  <div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">提醒</div><div class="alert-text">作者和朋友從橫街轉出來，過了馬路到達空地，然後再轉出馬路，所以「海邊空地」和「馬路上」的次序可以對調。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>主旨</h3>
+  <div class="formula"><span class="fl">主旨</span>本文記述作者在一次颱風襲港期間外出的經過，描寫街上一片凌亂、垃圾滿地、店鋪招牌岌岌可危、樹木折斷、海上翻起巨浪，以及路人冒着風雨前進、舉步維艱等景象，藉此表現颱風的強大威力。</div>
+</div>
+
+<!-- ============ CHAPTER 02 ============ -->
+<div class="section-header" id="s2"><span class="sh-icon">✍️</span><span class="sh-title">寫作技巧：描寫景物的方法</span><span class="sh-ch">CHAPTER 02</span></div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>直接描寫與間接描寫</h3>
+  <p>作者寫颱風時兩種方法都有用：正面寫風的聲音和動作，也寫風吹過後人和物的變化。</p>
+  <div class="compare-grid">
+    <div class="compare-card good"><b>直接描寫（正面）</b>直接寫描寫對象本身。<br>「整條街上沒有人，只有風，風喧嘩，風振動，風拍打你的臉，叫你措手不及。」（第1段）</div>
+    <div class="compare-card good" style="background:var(--purple-bg);border-color:var(--purple)"><b>間接描寫（側面）</b>通過其他人或事物的反應、受到的影響來烘托。<br>「有人的腳步踉蹌，一個人轉進大廈的鐵閘內暫避……」（第4段）</div>
+  </div>
+  <table>
+    <tr><th class="c">借助的對象</th><th>文中例子</th></tr>
+    <tr><td class="c">朋友的經歷</td><td>瓦煲給風吹起，雨傘給風吹折（第2段）</td></tr>
+    <tr><td class="c">行人</td><td>腳步踉蹌、轉進鐵閘暫避、探頭又縮回、扮成被風吹回、走出路中心跳舞又退回（第4、7段）</td></tr>
+    <tr><td class="c">垃圾和招牌</td><td>滿地垃圾；招牌搖搖欲墜，有的晃動，有的被摧毀、半吊在空中（第6、8段）</td></tr>
+    <tr><td class="c">樹</td><td>樹葉吹落街上，樹枝連葉被吹斷（第9段）</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧：答「間接描寫的好處」</div><div class="alert-text">指出作者寫了哪些人和物的反應 → 這些反應顯出風的影響力和破壞力 → 比單說「風很大」更具體，更能突出描寫對象的特點。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>步移法與定點描寫法</h3>
+  <div class="compare-grid">
+    <div class="compare-card good"><b>步移法（第3–12段）</b>觀察點跟着作者的腳步移動，經過簷下、大廈內、橫街……碼頭附近，沿途所見依次寫出。<br>好處：讀者像跟着作者一起走，感受沿途颱風的威力，身歷其境；景象寫得有條理，印象更深。</div>
+    <div class="compare-card good" style="background:var(--purple-bg);border-color:var(--purple)"><b>定點描寫法（第10–12段）</b>作者站在碼頭，按近觀、遠觀的次序寫出景物。<br>近觀：停開的公共汽車、翻騰的海浪、綁在鐵欄上的竹器、折斷的樹。<br>遠觀：向同一方向洶湧滾動的海浪、逆着風浪開動的大輪船。</div>
+  </div>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">兩者分別在於觀察點有沒有移動。全篇主要用步移法，到了碼頭才站定用定點描寫法。答題時先看清題目問哪幾段。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>修辭手法</h3>
+  <table>
+    <tr><th class="c">修辭</th><th>例句</th><th>效果</th></tr>
+    <tr><td class="c">擬人</td><td>風拍打你的臉（第1段）</td><td>寫出風一下一下大力吹往臉上，生動，讓人從切身感受了解風的威力。</td></tr>
+    <tr><td class="c">排比</td><td>風喧嘩，風振動，風拍打你的臉（第1段）</td><td>一連串動作加強風咄咄逼人的氣勢。</td></tr>
+    <tr><td class="c">比喻</td><td>雨……像尖尖的針刺</td><td>形象地寫出雨乘着風勢打到臉上的力度和刺痛感。</td></tr>
+    <tr><td class="c">頂真</td><td>像尖尖的針刺，刺到臉上</td><td>前句末字「刺」用作後句首字，語氣連貫。</td></tr>
+    <tr><td class="c">設問</td><td>走嗎？走的。（第3段）</td><td>自問自答，突出作者在颱風下行動上的猶疑，使文章有起伏，吸引讀者注意。</td></tr>
+    <tr><td class="c">擬人</td><td>樹在風中折了腰……它也是有生命的（第12段）</td><td>把樹當作有生命的人來寫，流露惋惜之情。</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>多感官描寫與思想感情</h3>
+  <p>作者除了寫眼見的景物，也寫聽到的（風呼呼地颳過）、皮膚感受到的（雨像針刺刺到臉上）和嘗到的（濺上來的水沫是鹹的），讓讀者從不同感官體會颱風的威力。</p>
+  <div class="example-box amber">
+    <div class="example-label">兩處寫樹，感情不同</div>
+    <div class="example-text">「但其他在樹上的，仍然搖動，掙扎，自有它們的生命。」（第9段）→ 讚美樹木面對逆境的頑強生命力<br>「……折口的地方露出裏面鮮明的淺棕色和白色的樹液的泡沫。它也是有生命的。」（第12段）→ 對樹枝被吹斷感到惋惜</div>
+  </div>
+</div>
+
+<!-- ============ CHAPTER 03 ============ -->
+<div class="section-header" id="s3"><span class="sh-icon">📝</span><span class="sh-title">練習一：段意、主旨與課文概覽</span><span class="sh-ch">CHAPTER 03</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>試概括《在風中》的段落大意。<span class="mark">（7分）</span><span class="tagk">【整合】</span>
+  <table>
+    <tr><th class="c">段落</th><th>段意</th></tr>
+    <tr><td class="c">1</td><td>寫作者在颱風時走到樓下，感受到（1）<span class="blank l"></span>。</td></tr>
+    <tr><td class="c">2</td><td>通過作者朋友複述（2）<span class="blank l"></span>的景象和（3）<span class="blank"></span>的遭遇，間接描寫（4）<span class="blank"></span>。</td></tr>
+    <tr><td class="c">3–4</td><td>描寫街上風勢猛烈，並通過描寫（5）<span class="blank"></span>的情況，側面反映風力的強勁。</td></tr>
+    <tr><td class="c">5–8</td><td>記述作者和朋友嘗試從（6）<span class="blank l"></span>，描述他們在（7）<span class="blank l"></span>所見的混亂情境。</td></tr>
+    <tr><td class="c">9</td><td>寫公園裏（8）<span class="blank"></span>被吹落在街上，有些（9）<span class="blank"></span>被吹下。</td></tr>
+    <tr><td class="c">10–11</td><td>記作者和朋友走到碼頭，看見洶湧的海面上，（10）<span class="blank"></span>正與（11）<span class="blank s"></span>搏鬥，漁民的維生工具都（12）<span class="blank"></span>。</td></tr>
+    <tr><td class="c">12–13</td><td>描寫颱風過後，作者和朋友看到碼頭附近（13）<span class="blank"></span>和（14）<span class="blank"></span>。</td></tr>
+    <tr><td class="c">14</td><td>寫颱風過後（15）<span class="blank l"></span>。</td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>（1）風勢的強勁　（2）「瓦煲」飛舞　（3）雨傘折斷　（4）風的威力　（5）人們狼狽　（6）鐵門轉入橫街　（7）橫街、海濱和路上　（8）樹木的葉子　（9）樹枝帶着葉子　（10）大輪船　（11）大風　（12）綁在鐵欄上　（13）折斷的樹　（14）凌亂（不堪）的大街　（15）市面的活動恢復過來</div></div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>試歸納《在風中》的主旨。<span class="mark">（4分）</span><span class="tagk">【引申】</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>本文記述作者在一次颱風襲港期間外出的經過，（1分）描寫街上一片凌亂、垃圾滿地、店鋪招牌岌岌可危、樹木折斷、海上翻起巨浪，（1分）以及路人冒着風雨前進，舉步維艱等景象，（1分）藉此表現颱風的強大威力。（1分）</div></div>
+</div>
+
+<div class="qbox"><span class="qn">3.</span>試根據《在風中》的內容完成以下課文概覽表。
+  <table>
+    <tr><th class="c">地點</th><th>景象</th></tr>
+    <tr><td class="c">樓下<br>（第1、2段）</td><td>街上沒有人，只有強風在（1）<span class="blank"></span>，像（2）<span class="blank l"></span>。朋友看見（3）<span class="blank s"></span>被吹到空中，而他的傘也（4）<span class="blank s"></span>。</td></tr>
+    <tr><td class="c">簷下</td><td>風十分（5）<span class="blank s"></span>，雨（6）<span class="blank s"></span>。風像（7）<span class="blank s"></span>，刺到（8）<span class="blank l"></span>。</td></tr>
+    <tr><td class="c">大廈內</td><td>與風正面相對，有人（9）<span class="blank"></span>，有人（10）<span class="blank l"></span>。</td></tr>
+    <tr><td class="c">橫街</td><td>滿地（11）<span class="blank s"></span>。頭上是（12）<span class="blank l"></span>，上面間中（13）<span class="blank l"></span>。</td></tr>
+    <tr><td class="c">海邊空地</td><td>（14）<span class="blank l"></span></td></tr>
+    <tr><td class="c">馬路上</td><td>（15）<span class="blank l"></span></td></tr>
+    <tr><td class="c">公園</td><td>（16）<span class="blank l"></span></td></tr>
+    <tr><td class="c">碼頭</td><td>公共汽車（17）<span class="blank"></span>。碼頭的鐵欄外，（18）<span class="blank l"></span>。碼頭的鐵欄上（19）<span class="blank l"></span>。</td></tr>
+    <tr><td class="c">碼頭附近</td><td>一株樹在風中折斷了。</td></tr>
+    <tr><td class="c">颱風後<br>（第14段）</td><td>作者和朋友離開咖啡店時，風已差不多過去，人們逐漸走到街上。</td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>（1）喧嘩振動　（2）拍打着作者的臉　（3）瓦煲　（4）折斷了　（5）兇猛　（6）不算大　（7）針刺　（8）人的臉上和耳朵裏　（9）腳步踉蹌　（10）轉進鐵閘內暫避　（11）垃圾　（12）岌岌可危的招牌　（13）掉下碎磚和玻璃片　（14）風呼呼地颳過　（15）招牌在風中晃動，地上散滿破碎的白色膠片　（16）樹葉落到街道上，樹枝被風撕下　（17）獃在那兒　（18）海浪洶湧滾動，大輪船在海上逆着風浪開動　（19）綁着漁民用的竹簍和籮子</div></div>
+</div>
+
+<!-- ============ CHAPTER 04 ============ -->
+<div class="section-header" id="s4"><span class="sh-icon">🔍</span><span class="sh-title">練習二：描寫方法</span><span class="sh-ch">CHAPTER 04</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">直接描寫與間接描寫</div>
+
+<div class="qbox"><span class="qn">4.</span>作者在第1、2段中主要運用哪些描寫方法刻畫颱風的強勁？試略加說明，完成下表。<span class="mark">（6分）</span><span class="tagk">【整合】</span>
+  <table>
+    <tr><th class="c" style="width:12%">段落</th><th class="c" style="width:22%">描寫方法</th><th>說明</th></tr>
+    <tr><td class="c">第1段</td><td>（1）<span class="blank"></span></td><td>（2）<div class="line"></div><div class="line"></div></td></tr>
+    <tr><td class="c">第2段</td><td>（3）<span class="blank"></span></td><td>（4）<div class="line"></div><div class="line"></div></td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>（1）直接描寫（1分）<br>（2）作者寫樓下風勢強勁，風喧嘩、振動，拍打人的臉，（1分）直接描繪出颱風的強勁。（1分）<br>（3）間接描寫（1分）<br>（4）作者寫朋友看見瓦煲給風吹起，而他的傘也給風吹折，（1分）通過風對事物的破壞，間接描繪颱風的強勁。（1分）</div></div>
+</div>
+
+<div class="qbox"><span class="qn">5.</span>以下摘錄自《在風中》一文的句子，屬於直接描寫，還是間接描寫？描寫了甚麼景象？試完成下表。<span class="mark">（8分）</span><span class="tagk">【整合】</span>
+  <table>
+    <tr><th style="width:42%">句子</th><th class="c" style="width:20%">描寫手法</th><th>描寫的景象</th></tr>
+    <tr style="height:64px"><td>整條街上沒有人，只有風，風喧嘩，風振動，風拍打你的臉，叫你措手不及。（第1段）</td><td>（1）</td><td>（2）</td></tr>
+    <tr><td>有人的腳步踉蹌，一個人轉進大廈的鐵閘內暫避，其他人跟着進去。（第4段）</td><td>（3）</td><td>（4）</td></tr>
+    <tr><td>前面一大片空地，風呼呼地颳過。（第6段）</td><td>（5）</td><td>（6）</td></tr>
+    <tr><td>一列垃圾桶橫卧在地上，在飄飛的紙屑和破碎招牌間。（第13段）</td><td>（7）</td><td>（8）</td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>（1）直接描寫　（2）描寫在颱風下，風勢強烈。<br>（3）間接描寫　（4）描寫行人站不穩，側面表現風勢強勁。<br>（5）直接描寫　（6）描寫空地也吹着強風。<br>（7）間接描寫　（8）描寫颱風過後街上滿目瘡痍的景象，側面表現風勢強勁。</div></div>
+</div>
+
+<div class="qbox"><span class="qn">6.</span>試根據第4至9段的內容回答以下問題。
+  <div class="sq">(1) 作者通過甚麼事物來間接描寫颱風的威力？試略加說明，完成下表。<span class="mark">（8分）</span><span class="tagk">【整合】</span></div>
+  <table>
+    <tr><th class="c" style="width:14%">段落</th><th class="c" style="width:20%">事物</th><th>說明</th></tr>
+    <tr><td class="c">第4及第7段</td><td class="c">行人</td><td>（1）<div class="line"></div><div class="line"></div></td></tr>
+    <tr><td class="c">第6及第8段</td><td>街道上的垃圾和招牌</td><td>（2）<div class="line"></div><div class="line"></div></td></tr>
+    <tr><td class="c">第9段</td><td>（3）<span class="blank s"></span></td><td>（4）<div class="line"></div></td></tr>
+  </table>
+  <div class="sq">(2) 作者運用間接描寫的方法來寫颱風有甚麼好處？<span class="mark">（2分）</span><span class="tagk">【評價】</span></div>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1)（1）作者寫行人冒着強風前進，有人腳步踉蹌；（1分）有人轉進大廈鐵閘內暫避；有人探頭又縮回大廈鐵閘內；（1分）有人剛走出來，又扮成被風吹回的樣子；（1分）有人走出路中心跳舞，因風大而退回來。（1分）<br>（2）作者寫強風吹得滿地都是垃圾，（1分）大廈外牆的招牌給吹得搖搖欲墜，有的在風中晃動，有的已被摧毀，有的半吊在空中，白色膠片散了一地。（1分）<br>（3）樹（1分）　（4）作者寫樹葉被吹落到街道上和樹木連枝帶葉給強風吹斷。（1分）<br>(2) 作者運用間接描寫的方法，刻畫颱風時街上的事物、環境氣氛和人們的反應。（1分）通過描寫颱風的影響力和破壞力來表現風勢，比起單單形容颱風強勁更具體，更能突出描寫對象。（1分）<br><span class="note">作答提示：根據風的特點，思考可以反映風勢的方法，再想想作者運用間接描寫的原因。</span></div></div>
+</div>
+
+<div class="qbox"><span class="qn">7.</span>《在風中》第6段，作者寫垃圾、招牌、碎磚和玻璃片，是想突出：<span class="mark">（1分）</span><span class="tagk">【整合】</span>
+  <div class="opts"><div>① 風的破壞力很強。</div><div>② 不應走到街上來。</div><div>③ 街上幾乎沒有人。</div><div>④ 颱風的威力強大。</div>
+  <div>A　只有①、②　　B　只有①、④　　C　只有②、④　　D　只有③、④</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>B</div></div>
+</div>
+
+<div class="qsub">步移法</div>
+
+<div class="qbox"><span class="qn">8.</span>試根據作者和朋友颱風時在街上的行程回答以下問題。<span class="tagk">【整合】</span>
+  <div class="sq">(1) 他們到過甚麼地方？試依次寫出來。<span class="mark">（3分）</span></div>
+  <div class="sq">簷下 → 大廈內 → ①<span class="blank"></span> → ②<span class="blank"></span> → ③<span class="blank"></span> → ④<span class="blank"></span> → ⑤<span class="blank"></span> → 碼頭附近</div>
+  <div class="sq">(2) 承上題，作者按照沿路經過的地方，將觀察到的景物依次描寫出來，這是甚麼描寫方法？（答案須是三個字）<span class="mark">（1分）</span><br><span class="blank"></span></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) ① 橫街　② 海邊空地　③ 馬路上　④ 公園　⑤ 碼頭<br><span class="note">作者和朋友從橫街轉出來過了馬路到達空地，然後再轉出馬路，因此②和③也可以對調。</span><br>(2) 步移法</div></div>
+</div>
+
+<div class="qbox"><span class="qn">9.</span>試回答以下有關步移法的問題。
+  <div class="sq">(1) 《在風中》一文中，作者怎樣運用步移法？試舉例加以說明。<span class="mark">（4分）</span><span class="tagk">【整合】</span></div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="sq">(2) 承上題，作者運用步移法來描寫颱風下的景象有甚麼好處？<span class="mark">（3分）</span><span class="tagk">【評價】</span></div>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 作者在颱風時外出，經過簷下、大廈內、橫街、海邊空地、馬路上、公園、碼頭和碼頭附近，並將沿途經過的景物依次描寫出來，（2分）例如作者走到簷下時，描寫風十分兇猛，雨不算大，卻像針刺，刺到人的臉上和耳朵裏。（1分）又例如當他走到大廈內，描寫與風正面相對，有人腳步踉蹌，有人轉進鐵閘內暫避，將颱風的強勁都描繪出來。（1分）<br>(2) 運用步移法可使讀者有如跟隨作者的腳步，一起在颱風下的街上走過，一起感受沿途上颱風的威力，（1分）使讀者仿如身歷其境，也可讓讀者較有條理地了解颱風下的景象，使印象更深刻。（2分）</div></div>
+</div>
+
+<div class="qsub">定點描寫法</div>
+
+<div class="qbox"><span class="qn">10.</span>試根據第10至12段的內容回答以下問題。<span class="tagk">【整合】</span>
+  <div class="sq">(1) 作者在甚麼位置觀察景物？<span class="mark">（1分）</span>　<span class="blank"></span></div>
+  <div class="sq">(2) 作者在上述位置，從近觀和遠觀的距離看見甚麼景象？試把代表答案的英文字母填在表格內。<span class="mark">（3分）</span></div>
+  <div class="opts"><div>A　海浪翻騰不息，忽然掀起巨浪。</div><div>B　海浪向着同一個方向洶湧滾動。</div><div>C　大輪船在海上逆着風浪開動。</div><div>D　漁民用的竹器都綁在鐵欄上。</div><div>E　停開的公共汽車獃在那兒。</div><div>F　一株樹在風中折斷了，折口還露出樹液。</div></div>
+  <table><tr><th class="c">近觀</th><th class="c">遠觀</th></tr><tr><td style="height:40px"></td><td></td></tr></table>
+  <div class="sq">(3) 承上題，在固定觀察地點觀察景象，並將景物按一定的順序描寫出來，這是甚麼描寫方法？（答案須是五個字）<span class="mark">（1分）</span><br><span class="blank l"></span></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 碼頭<br>(2) 近觀：A、D、E、F　遠觀：B、C<br>(3) 定點描寫法</div></div>
+</div>
+
+<div class="qbox"><span class="qn">11.</span>《在風中》一文中，作者怎樣運用定點描寫法？試舉例加以說明。<span class="mark">（4分）</span><span class="tagk">【整合】</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>作者走到碼頭時，在碼頭觀察，並把觀察到的景物按近觀和遠觀的順序描寫出來。（2分）例如他從碼頭近看時，看見停開的公共汽車獃在那兒；海浪翻騰不息，忽然掀起巨浪；漁民用的竹器都綁在鐵欄上；一株樹在風中折斷了，折口還露出樹液。（1分）又例如他從碼頭遠觀，看見海浪向着同一個方向洶湧滾動；大輪船在海上逆着風浪開動。（1分）</div></div>
+</div>
+
+<!-- ============ CHAPTER 05 ============ -->
+<div class="section-header" id="s5"><span class="sh-icon">💭</span><span class="sh-title">練習三：內容理解與思想感情</span><span class="sh-ch">CHAPTER 05</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">12.</span>作者描寫被風吹斷的樹時，有以下敍述，當中流露的感情有甚麼不同？試完成下表。<span class="mark">（4分）</span><span class="tagk">【引申】</span>
+  <table>
+    <tr><th style="width:50%">文中的句子</th><th>流露的感情</th></tr>
+    <tr><td>(1) 但其他在樹上的，仍然搖動，掙扎，自有它們的生命。（第9段）</td><td><div class="line"></div><div class="line"></div></td></tr>
+    <tr><td>(2) 當我們走近，可以看見折口的地方露出裏面鮮明的淺棕色和白色的樹液的泡沫。它也是有生命的。（第12段）</td><td><div class="line"></div><div class="line"></div></td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 作者寫仍在樹上的枝葉不斷搖動，像在掙扎求存，（1分）藉此讚美樹木面對逆境時表現出頑強的生命力。（1分）<br>(2) 作者看見樹木遭颱風吹折，折口露出鮮明的樹液，像有生命一樣，（1分）表現作者對樹枝被吹斷感到惋惜。（1分）<br><span class="note">補充：碼頭附近的樹平日已飽受空氣污染，遇上颱風又給強風擊倒折了腰，折口處露出樹液，奄奄一息，作者對它的遭遇感到惋惜。</span></div></div>
+</div>
+
+<div class="qbox"><span class="qn">13.</span>試根據本文內容判斷以下陳述，選出正確答案；每題限選一個答案。<span class="mark">（2分）</span><span class="tagk">【整合】</span>
+  <table>
+    <tr><th>陳述</th><th class="c">正確</th><th class="c">錯誤</th><th class="c">無從判斷</th></tr>
+    <tr><td>(1) 作者和朋友進入橫街時差點被掉下來的物件打中。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(2) 作者和朋友一直在室外觀察，直至風力減弱。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 正確　(2) 錯誤<br><span class="note">(1) 第6段說「當我們剛走過，上面就掉下一些碎磚和玻璃片」，因此答案為正確。<br>(2) 在風力減弱之前，作者和朋友曾經走進咖啡店用餐，因此答案為錯誤。</span></div></div>
+</div>
+
+<div class="qbox"><span class="qn">14.</span>試根據《在風中》第10、11段回答下列問題。
+  <div class="sq">(1) 作者提及看到哪些交通工具？<span class="mark">（1分）</span><span class="tagk">【整合】</span></div>
+  <div class="opts"><div>① 公共汽車　② 大輪船　③ 私家車　④ 小漁船</div><div>A　只有①、②　　B　只有①、③　　C　只有②、④　　D　只有③、④</div></div>
+  <div class="sq">(2) 作者為甚麼提及交通工具？<span class="mark">（2分）</span><span class="tagk">【引申】</span></div>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) A<br>(2) 作者想藉着描寫在颱風下各類交通工具的行駛都受到影響，對市民出行構成不便，不能上班，以顯示颱風對民生有很大影響。（2分）</div></div>
+</div>
+
+<div class="qbox"><span class="qn">15.</span>《在風中》一文中，作者在碼頭觀察時說「近岸處，往日的小漁船都不見了。鐵欄的網上留下漁民往日兜售海鮮的竹簍和籮子。」（第11段）為甚麼會出現這樣的景象？這些景象意味着甚麼？<span class="mark">（2分）</span><span class="tagk">【引申】</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>那是因為颱風來到，海浪洶湧滾動，漁民為了安全，要避風，不能出海捕魚。（1分）這些景象意味着颱風令漁民生計停頓。（1分）</div></div>
+</div>
+
+<!-- ============ CHAPTER 06 ============ -->
+<div class="section-header" id="s6"><span class="sh-icon">🎨</span><span class="sh-title">練習四：修辭與感官描寫</span><span class="sh-ch">CHAPTER 06</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">16.</span>試根據引文回答以下問題。
+  <div class="excerpt">風喧嘩，風振動，風拍打你的臉，叫你措手不及。<div class="src">（第1段）</div></div>
+  <div class="sq">(1) 以上引文運用了哪兩種修辭手法描寫風的動態？<span class="mark">（1分）</span><span class="tagk">【整合】</span></div>
+  <div class="opts"><div>① 比喻　② 擬人　③ 排比　④ 層遞</div><div>A　只有①、②　　B　只有①、④　　C　只有②、③　　D　只有③、④</div></div>
+  <div class="sq">(2) 試說明作者在文中運用這兩種修辭手法的效果。<span class="mark">（4分）</span><span class="tagk">【評價】</span></div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) C<br>(2) 擬人：作者運用擬人法寫風拍打人的臉，傳神地表現風一下一下大力吹往人臉上的情境，（1分）令文章更生動，讓人容易通過切身的感受，了解風的威力。（1分）<br>排比：運用排比法寫「風喧嘩、風振動、風拍打你的臉」這一連串的動作，（1分）加強了風咄咄逼人的氣勢，使讀者彷彿感受到風的威力。（1分）</div></div>
+</div>
+
+<div class="qbox"><span class="qn">17.</span>試根據引文回答以下問題。
+  <div class="excerpt">風是兇猛的，雨卻不算很大，像尖尖的針刺，刺到臉上，刺進人的耳朵去。<div class="src">（第2段）</div></div>
+  <div class="sq">(1) 作者以甚麼來比喻雨？<span class="mark">（1分）</span><span class="tagk">【整合】</span>　<span class="blank l"></span></div>
+  <div class="sq">(2) 這裏運用比喻法有甚麼好處？<span class="mark">（3分）</span><span class="tagk">【評價】</span></div>
+  <div class="line"></div><div class="line"></div>
+  <div class="sq">(3) 引文中除了比喻法外，還運用了哪一種修辭技巧？<span class="mark">（1分）</span><span class="tagk">【整合】</span></div>
+  <div class="opts"><div>A　誇飾　　B　層遞　　C　排比　　D　頂真</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 尖尖的針刺<br>(2) 可以形象化和生動地呈現雨水打到人臉上的動態，（1分）而且雨水乘着強勁的風勢，加強了拍打到人臉上的力度，像針刺一樣，（1分）具體地呈現了雨拍打到人臉上的感覺。（1分）<br>(3) D</div></div>
+</div>
+
+<div class="qbox"><span class="qn">18.</span>試根據引文回答以下問題。
+  <div class="excerpt">‧「走嗎？走的。」（第3段）<br>‧「怎麼辦？我們記起花園後面有一道門，可以通往橫街的。」（第5段）</div>
+  <div class="sq">(1) 以上兩句引文都運用了甚麼修辭技巧？（答案須是兩個字）<span class="mark">（1分）</span><span class="tagk">【整合】</span>　<span class="blank"></span></div>
+  <div class="sq">(2) 承上題，運用這種修辭技巧有甚麼好處？<span class="mark">（3分）</span><span class="tagk">【評價】</span></div>
+  <div class="sq">作者先假設（1）<span class="blank s"></span>，令讀者產生（2）<span class="blank s"></span>；再自己說出（3）<span class="blank s"></span>，能夠突出（4）<span class="blank l"></span>，使文章有起伏變化，也能夠吸引讀者（5）<span class="blank s"></span>和加深（6）<span class="blank s"></span>。</div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 設問<br>(2)（1）問題　（2）疑惑　（3）答案　（4）颱風下作者在行動上的猶疑　（5）注意　（6）印象</div></div>
+</div>
+
+<div class="qbox"><span class="qn">19.</span>試根據引文回答問題。
+  <div class="excerpt">而在那邊，我們看見，碼頭附近種着的一株樹在風中折了腰，頂上的樹葉都垂到地面上來。「多可憐的樹，平時已經在這裏呼吸汽車的碳氣，現在還給風吹斷了。」有人說。當我們走近，可以看見折口的地方露出裏面鮮明的淺棕色和白色的樹液的泡沫。它也是有生命的。<div class="src">（第12段）</div></div>
+  在引文中，作者運用了甚麼修辭手法？<span class="mark">（1分）</span><span class="tagk">【整合】</span>
+  <div class="opts"><div>A　比喻　　B　誇飾　　C　擬人　　D　擬物</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>C</div></div>
+</div>
+
+<div class="qbox"><span class="qn">20.</span>以下是摘錄自《在風中》一文的句子，句中作者通過哪些感官去觀察和感受描寫對象？試在適當的位置加✓。（可✓多於一項）<span class="mark">（5分）</span><span class="tagk">【整合】</span>
+  <table>
+    <tr><th>句子</th><th class="c">視覺</th><th class="c">聽覺</th><th class="c">嗅覺</th><th class="c">味覺</th><th class="c">觸覺</th></tr>
+    <tr><td>(1) 風是兇猛的，雨卻不算很大，像尖尖的針刺，刺到臉上，刺進人的耳朵去。</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>(2) 前面一大片空地，風呼呼地颳過。（第6段）</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>(3) 我們轉出馬路，在對面，店鋪的招牌在風中晃動。（第8段）</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>(4) 海浪翻騰不息，忽然掀起巨浪，有人說濺上來的水沫是鹹的。（第10段）</td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 觸覺　(2) 聽覺　(3) 視覺　(4) 視覺、味覺</div></div>
+</div>
+
+<!-- ============ CHAPTER 07 ============ -->
+<div class="section-header" id="s7"><span class="sh-icon">🌀</span><span class="sh-title">練習五：進階思考與比較閱讀</span><span class="sh-ch">CHAPTER 07</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">21.</span>試閱讀以下一則新聞報道，然後回答問題。
+  <div class="excerpt"><div class="t">十號風球下的眾生相</div>❶【本報訊】昨天天文台發出長達十小時的十號颶風信號。在超強颱風吹襲下，本港普遍地區都出現強風暴雨。至今當局共接獲約1500宗塌樹報告，多處有高空墜物和建築物受損，有大廈的玻璃窗或玻璃幕牆遭損毀，新界約有四百戶電力供應中斷。<br>❷風暴期間，有衝浪愛好者不懼強風，在西貢大浪灣衝浪；也有觀浪愛好者在烏溪沙碼頭觀浪期間險被海水圍困，由市民代為報警求助。康文署表示多個泳灘仍然懸掛紅旗，呼籲市民遠離岸邊，以及停止水上活動。<br>❸記者在尖沙咀訪問了一位外地遊客，他坦言遇上颱風襲港並不感到掃興，反而因為能感受颱風的威力而有點興奮。</div>
+  <div class="sq">(1) 相比一般市民慣常在颱風下的舉動，報道中的衝浪者和遊客的行為有甚麼特別之處？<span class="mark">（2分）</span><span class="tagk">【整合】</span></div>
+  <div class="line"></div><div class="line"></div>
+  <div class="sq">(2) 綜合課文與這篇報道，你對冒着十號風球出行的行為有甚麼評價？試加以說明。<span class="mark">（4分）</span><span class="tagk">【評價】</span></div>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 一般市民在颱風下通常會趕着回家，避免逗留在室外，但衝浪者卻會把握這種難得的機會，在風勢強勁的海面上乘風破浪，（1分）而一些海外遊客則因為平時沒有機會親身體會颱風，所以反而有新鮮感，甚至覺得興奮。（1分）<br>(2)（示例，學生可自由作答，言之成理即可）我認為不應該在十號風球時冒險出行。（1分）在十號風球下，街上充滿危機，走在街上隨時有機會被強風吹倒的物件擊中，需要求助於救護人員。（1分）救護人員要因罔顧自身安全的求助者，在惡劣天氣下冒着受傷的危險堅守使命。（1分）冒着十號風球出行，是對自己的安全置之不理，亦不顧及救護人員的安全的行為。（1分）<br><span class="note">評分原則：表明立場1分，理由及說明3分。</span></div></div>
+</div>
+
+<div class="qbox"><span class="qn">22.</span>在中一時，你學習過另一篇描寫風的文章《風雪中的北平》，試閱讀以下段落，然後回答問題。<span class="tagk">【整合】</span>
+  <div class="excerpt"><div class="t">風雪中的北平（節錄）</div>風真大，我這時又逆着風向走，走上了三步，倒退了兩步，這可沒有法了。忽然想着嚴陵灘上那些背着縴，逆水行舟的縴夫，我便往前斜着身子，學他們的走法，一步一步的和風拚命。這樣，果然好了些。但是一路上棋子般大的泥塊，夾着粉末似的細沙，被風捲起來，儘往我臉上打。眼睛裏、鼻子裏、耳裏、嘴裏，甚至牙齒縫兒裏，滿是沙；不必說，臉上着了風帶着的泥塊，又是疼，又是冷，愈冷就愈疼。<div class="src">金兆梓</div></div>
+  <div class="sq">(1) 試比較上文和《在風中》第1至4段的內容，並完成下表。<span class="mark">（4分）</span></div>
+  <table>
+    <tr><th class="c" style="width:18%">比較項目</th><th style="width:41%">《風雪中的北平》</th><th>《在風中》</th></tr>
+    <tr><td class="c">風的動態</td><td>①<div class="line"></div></td><td>②<div class="line"></div></td></tr>
+    <tr><td class="c">行人遇風時的反應</td><td>③<div class="line"></div></td><td>④<div class="line"></div></td></tr>
+  </table>
+  <div class="sq">(2) 以下哪些是對上文和《在風中》第1至4段的正確描述？<span class="mark">（1分）</span></div>
+  <div class="opts"><div>① 兩者均運用了直接描寫來反映風勢強勁。</div><div>② 兩者均運用了間接描寫來反映風勢強勁。</div><div>③ 兩者均通過不同感官的感受來寫風。</div><div>④ 兩者均運用比喻來寫風。</div>
+  <div>A　只有①、②、③　　B　只有①、②、④　　C　只有①、③、④　　D　只有②、③、④</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) ① 街上棋子般大的泥塊，夾着粉末似的細沙被風捲起，打得人又冷又疼。② 風拍打人的臉。③ 作者模仿縴夫，往前斜着身子，一步一步向前走。④ 有人腳步踉蹌、有人連忙縮回、有人扮成被風吹回去的樣子。（每項1分）<br>(2) A</div></div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
