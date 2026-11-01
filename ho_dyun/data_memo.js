@@ -1,6 +1,11 @@
 // Automatically generated memo data
 const studentMemo = [
   {
+    "type": "溫習目標",
+    "content": "溫習第 7、8 課詞語（家長反映未熟）",
+    "due": "2026-11-06"
+  },
+  {
     "type": "功課",
     "content": "成語造句- ho_dyun/成語教學與填充練習（小五）中的全部成語",
     "due": "2026-07-27"
