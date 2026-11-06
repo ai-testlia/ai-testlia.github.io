@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>詞語填充練習（小五）｜第七、八課</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#fff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --hero-bg:#b5451b;--accent:#b5451b;--accent-bg:#fbeee8;
+  --green:#2f7d4f;--green-bg:#e9f5ee;
+}
+@media (prefers-color-scheme:dark){
+  :root{--color-text-primary:#f0f0ec;--color-text-secondary:#b9b9b3;
+  --color-background-primary:#1c1c1a;--color-background-secondary:#262622;
+  --color-border-tertiary:rgba(255,255,255,0.12);
+  --accent:#e0794f;--accent-bg:#3a2419;--green:#6cc18f;--green-bg:#1f3227;}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Noto Sans TC',sans-serif;background:var(--color-background-secondary);color:var(--color-text-primary);line-height:1.8}
+.wrap{max-width:900px;margin:0 auto;padding:24px 20px 80px}
+.hero{background:var(--hero-bg);border-radius:var(--border-radius-lg);padding:40px 32px;text-align:center;margin-bottom:24px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero-tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:2px;padding:5px 16px;border:1.4px solid rgba(255,255,255,0.45);color:rgba(255,255,255,0.85);border-radius:999px;margin-bottom:14px}
+.hero h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:30px;color:#fff;margin:6px 0 8px;letter-spacing:1px}
+.hero .sub{color:rgba(255,255,255,0.8);font-size:14px;margin-bottom:4px}
+.hero p{color:rgba(255,255,255,0.65);font-size:14px;margin:0;font-weight:500}
+.section-header{display:flex;align-items:center;gap:10px;margin:36px 0 16px;padding-bottom:10px;border-bottom:2.5px solid var(--accent)}
+.section-header.first{margin-top:8px}
+.section-header h2{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;margin:0}
+.section-header .ch{margin-left:auto;font-size:11.5px;letter-spacing:1.5px;color:var(--color-text-secondary)}
+.card{background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 24px;margin-bottom:20px}
+.instr{font-size:14.5px;font-weight:500;margin:0 0 14px;padding:8px 14px;background:var(--accent-bg);border-left:4px solid var(--accent);border-radius:var(--border-radius-md)}
+.q{display:flex;gap:8px;padding:11px 0;border-top:1px dashed var(--color-border-tertiary);font-size:15px;line-height:2.2}
+.q:first-of-type{border-top:none}
+.qn{font-weight:700;color:var(--accent);min-width:2em;text-align:right;flex-shrink:0}
+.blank{display:inline-block;min-width:6.5em;border-bottom:1.5px solid var(--color-text-primary);margin:0 4px;height:1.3em;vertical-align:-2px}
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.qbody{flex:1}.ans-wrap{margin-top:4px;line-height:1.8}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:6px 14px;margin:6px 0 0;font-size:14.5px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:8px}
+.agrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 16px;font-size:14.5px}
+.a{white-space:nowrap}
+.an{display:inline-block;min-width:2em;color:var(--green);font-weight:700}
+.alt{font-size:12.5px;margin-left:4px;color:var(--color-text-secondary);white-space:normal}
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:8px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;font-weight:500;border:1px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:8px 16px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,0.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border:none}
+@media (max-width:640px){.agrid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:24px}.card{padding:16px}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  a{color:inherit;text-decoration:none}
+  .q,.ans{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .toolbar,.ans-bar,.ans-btn{display:none!important}
+  body.print-student .ans-wrap{display:none!important}
+  body.print-teacher .ans{display:block!important}
+  .ans,.instr{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card{border:none;padding:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">詞語練習</div>
+  <h1>詞語填充練習（小五）</h1>
+  <div class="sub">第七、八課詞語　共 33 題</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="section-header first"><h2>填充題</h2><span class="ch">CHAPTER 01</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="card">
+  <div class="instr">請根據句子意思，在空格內填上適當的詞語。</div>
+<div class="q"><span class="qn">1.</span><div class="qbody"><span class="qt">當司儀宣布由一向默默付出的清潔姨姨獲頒「最佳校園服務獎」時，台下的同學事先沒有商量，卻<span class="blank"></span>地站起來，報以熱烈的掌聲。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>不約而同</b></div></div></div></div>
+<div class="q"><span class="qn">2.</span><div class="qbody"><span class="qt">這位運動員曾經三次因傷缺席奧運，但憑着<span class="blank"></span>的意志，他在三十歲那年終於站上了領獎台。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>百折不回</b><span class="alt">（亦可接受：百折不撓（第一課））</span></div></div></div></div>
+<div class="q"><span class="qn">3.</span><div class="qbody"><span class="qt">黃昏時分，夕陽把維多利亞港的海面染成一片橙紅，海上的漁船在粼粼波光中緩緩移動，<span class="blank"></span>一幅會流動的油畫。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>宛如</b><span class="alt">（亦可接受：猶如、彷彿）</span></div></div></div></div>
+<div class="q"><span class="qn">4.</span><div class="qbody"><span class="qt">自從參加了社區的長者探訪活動，表妹對老人家的看法有了很大的<span class="blank"></span>，她不再覺得他們嘮叨，反而很喜歡聽他們講述昔日的故事。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>改變</b></div></div></div></div>
+<div class="q"><span class="qn">5.</span><div class="qbody"><span class="qt">這位老師傅七十多歲仍堅持用人手雕刻木器，正是這份對傳統手藝的<span class="blank"></span>，令他即使收入微薄，數十年來也從未想過轉行。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>執着</b><span class="alt">（亦可接受：堅持）</span></div></div></div></div>
+<div class="q"><span class="qn">6.</span><div class="qbody"><span class="qt">秋收時節，田野裏一株株<span class="blank"></span>低垂着頭，飽滿的麥粒把莖稈壓得微微彎曲，彷彿在向辛勤耕作的農夫鞠躬道謝。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>麥穗</b></div></div></div></div>
+<div class="q"><span class="qn">7.</span><div class="qbody"><span class="qt">我反覆計算這道數學題，仍然得不到正確答案，直至哥哥指出我把單位弄錯了，我才<span class="blank"></span>，原來問題出在這麼簡單的地方。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>恍然大悟</b></div></div></div></div>
+<div class="q"><span class="qn">8.</span><div class="qbody"><span class="qt">這對雙胞胎姊妹雖然長得一模一樣，性格卻<span class="blank"></span>不同：姊姊喜歡安安靜靜地閱讀，妹妹則整天在球場上奔跑。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>迥然</b></div></div></div></div>
+<div class="q"><span class="qn">9.</span><div class="qbody"><span class="qt">陳伯伯在街市買了一大包米和幾斤水果，挽着<span class="blank"></span>的膠袋一步一步走上五樓，額上滲出了豆大的汗珠，我連忙上前幫他分擔。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>沉甸甸</b></div></div></div></div>
+<div class="q"><span class="qn">10.</span><div class="qbody"><span class="qt">在討論「小學生應否擁有智能電話」的班會上，正反雙方各自提出了不同的<span class="blank"></span>，並引用大量例子支持自己的立場。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>觀點</b></div></div></div></div>
+<div class="q"><span class="qn">11.</span><div class="qbody"><span class="qt">颱風過後，山區的道路被塌下的泥石完全堵塞，直升機成了把食物和藥物送進村落的<span class="blank"></span>方法。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>惟一</b><span class="alt">（亦作「唯一」）</span></div></div></div></div>
+<div class="q"><span class="qn">12.</span><div class="qbody"><span class="qt">升中試成績未如理想，哥哥曾經一度意志消沉，終日躲在房間玩電子遊戲，幸好在家人開解下，他明白不應因一次失敗而<span class="blank"></span>，重新振作起來。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>自暴自棄</b></div></div></div></div>
+<div class="q"><span class="qn">13.</span><div class="qbody"><span class="qt">這家位於深水埗小巷的老字號腸粉店雖然沒有華麗的裝潢，但自從被電視美食節目介紹後，不少外國遊客都<span class="blank"></span>而來，令店外每天都排起長長的人龍。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>慕名</b></div></div></div></div>
+<div class="q"><span class="qn">14.</span><div class="qbody"><span class="qt">小美第一次參加朗誦比賽，站上台時雙腿不停發抖，但想起老師的鼓勵，她沒有<span class="blank"></span>，反而深深吸一口氣，把整篇作品流暢地朗誦出來。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>退縮</b></div></div></div></div>
+<div class="q"><span class="qn">15.</span><div class="qbody"><span class="qt">畢業禮上，班主任沒有說甚麼客套話，只是<span class="blank"></span>地叮囑我們：「升上中學後，無論遇到甚麼困難，都不要忘記今天的初心。」</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>語重心長</b></div></div></div></div>
+<div class="q"><span class="qn">16.</span><div class="qbody"><span class="qt">這篇作文的內容已經十分充實，只要把結尾部分<span class="blank"></span>修改一下，加強首尾呼應，便是一篇佳作了。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>稍微</b><span class="alt">（亦可接受：略為）</span></div></div></div></div>
+<div class="q"><span class="qn">17.</span><div class="qbody"><span class="qt">中秋節晚上，公園裏掛滿了各式各樣的花燈，其中一盞巨型鯉魚燈在燈光映照下顯得<span class="blank"></span>的，引得小朋友紛紛圍着它拍照。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>金燦燦</b></div></div></div></div>
+<div class="q"><span class="qn">18.</span><div class="qbody"><span class="qt">外婆翻看數十年前的舊相片，看着照片中仍是一片農田的屯門，不禁<span class="blank"></span>香港這些年來的變化實在太大了。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>感歎</b><span class="alt">（亦可接受：感慨）</span></div></div></div></div>
+<div class="q"><span class="qn">19.</span><div class="qbody"><span class="qt">爺爺常說「沒有<span class="blank"></span>，不成方圓」，所以家中無論大人小孩，吃飯時都要等長輩起筷，才可以開始用餐。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>規矩</b></div></div></div></div>
+<div class="q"><span class="qn">20.</span><div class="qbody"><span class="qt">那次我一時衝動，說了傷害好友的話，回家後認真地<span class="blank"></span>，終於明白是自己不懂得體諒別人，第二天便主動向她道歉。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>反省</b></div></div></div></div>
+<div class="q"><span class="qn">21.</span><div class="qbody"><span class="qt">參加慈善步行籌款那天烈日當空，對年過七旬的公公來說，這段十公里的路程顯得格外<span class="blank"></span>，但他始終咬緊牙關，堅持走到終點。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>漫長</b></div></div></div></div>
+<div class="q"><span class="qn">22.</span><div class="qbody"><span class="qt">這次辯論比賽，對手只靠幾句響亮的口號便贏得評判青睞，隊長覺得結果並不公平，心裏十分<span class="blank"></span>；但他仍然大方地走上前，和對方隊員握手道賀。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>不忿</b><span class="alt">（亦可接受：不服）</span></div></div></div></div>
+<div class="q"><span class="qn">23.</span><div class="qbody"><span class="qt">網上流傳的減肥偏方大多未經證實，我們不應<span class="blank"></span>相信，否則不但達不到效果，更可能損害自己的健康。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>盲目</b><span class="alt">（亦可接受：輕易）</span></div></div></div></div>
+<div class="q"><span class="qn">24.</span><div class="qbody"><span class="qt">我們沿着郊野公園的山徑走了兩個多小時，雙腿早已痠軟無力，直至看見小路<span class="blank"></span>那座涼亭，大家才終於鬆了一口氣。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>盡頭</b></div></div></div></div>
+<div class="q"><span class="qn">25.</span><div class="qbody"><span class="qt">《龜兔賽跑》這個故事給我們的<span class="blank"></span>是：天資再好的人，如果驕傲自滿、不肯努力，最終也會被腳踏實地的人超越。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>啟示</b><span class="alt">（亦可接受：教訓）</span></div></div></div></div>
+<div class="q"><span class="qn">26.</span><div class="qbody"><span class="qt">中學派位表格明天便要交回，表姐手中拿着兩間心儀學校的資料，一間離家近，一間校風好，她<span class="blank"></span>了整個晚上，仍然拿不定主意。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>躊躇</b><span class="alt">（亦可接受：猶豫）</span></div></div></div></div>
+<div class="q"><span class="qn">27.</span><div class="qbody"><span class="qt">有些人明知吸煙危害健康，卻總以為疾病不會降臨到自己身上，直至病倒才後悔莫及，這實在是十分<span class="blank"></span>的事。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>可悲</b><span class="alt">（亦可接受：可惜）</span></div></div></div></div>
+<div class="q"><span class="qn">28.</span><div class="qbody"><span class="qt">面對同學的威迫利誘，要他一起在測驗中作弊，志明始終沒有<span class="blank"></span>，還鼓起勇氣把事情告訴了老師。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>屈服</b></div></div></div></div>
+<div class="q"><span class="qn">29.</span><div class="qbody"><span class="qt">由於弟弟貪睡，賴在床上不肯起來，我們一家趕到碼頭時，渡輪剛剛開走，結果<span class="blank"></span>了在海上觀賞日出的最佳時機。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>錯過</b></div></div></div></div>
+<div class="q"><span class="qn">30.</span><div class="qbody"><span class="qt">原本計劃好的露營活動，因為一連下了一星期的大雨又要延期，弟弟托着腮對着玻璃窗，長長地<span class="blank"></span>了一聲。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>歎氣</b></div></div></div></div>
+<div class="q"><span class="qn">31.</span><div class="qbody"><span class="qt">搬家前，媽媽要求我們只帶走真正需要的物品，我雖然萬分不捨，最後也只好<span class="blank"></span>那堆陪伴了我多年、卻早已殘舊不堪的玩具。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>捨棄</b><span class="alt">（亦可接受：丟棄）</span></div></div></div></div>
+<div class="q"><span class="qn">32.</span><div class="qbody"><span class="qt">搭建帳篷時，表哥不看說明書，只憑力氣硬把支架插進泥土，結果折斷了兩根鋁條；爸爸告訴他，做事要先動腦筋，單靠<span class="blank"></span>只會事倍功半。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>蠻幹</b></div></div></div></div>
+<div class="q"><span class="qn">33.</span><div class="qbody"><span class="qt">這次交流團讓同學親身到科技企業參觀，與工程師面對面交流，是擴闊眼界的難得<span class="blank"></span>，大家都應該好好把握。</span><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">答案</span><b>良機</b><span class="alt">（亦可接受：機會）</span></div></div></div></div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');a.hidden=!show;b.textContent=show?'🙈 隱藏答案':'👁 顯示答案';b.classList.toggle('on',show);}
+function allShown(){return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});}
+function syncAll(){var s=allShown();document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});}
+function toggleAns(btn){var w=btn.parentNode;showOne(w,w.querySelector('.ans').hidden);syncAll();}
+function setAll(show){document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);});syncAll();}
+function printVersion(v){document.body.classList.remove('print-student','print-teacher');document.body.classList.add('print-'+v);var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};window.addEventListener('afterprint',done);window.print();}
+</script>
+</body>
+</html>
