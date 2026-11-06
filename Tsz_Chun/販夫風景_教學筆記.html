@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>販夫風景_教學筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --purple:#6b5bb5;--purple-bg:#efecfa;
+  --teal:#1f8a80;--teal-bg:#e3f4f1;
+  --coral:#d0614a;--coral-bg:#fbebe6;
+  --amber:#b7791f;--amber-bg:#fdf3e1;
+  --pink:#c2527f;--pink-bg:#fbe8f0;
+  --blue:#2f6fb0;--blue-bg:#e6f0fa;
+  --green:#2e8b57;--green-bg:#e5f4ec;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --orange:#e08a2c;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#ececec;
+    --color-text-secondary:#aaa;
+    --color-background-primary:#1e1f22;
+    --color-background-secondary:#141517;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a99cf0;--purple-bg:#2a2640;
+    --teal:#5cc8bc;--teal-bg:#1b3330;
+    --coral:#f0917c;--coral-bg:#3a2520;
+    --amber:#e8b45c;--amber-bg:#352a17;
+    --pink:#ec8db3;--pink-bg:#3a2230;
+    --blue:#7fb1e6;--blue-bg:#1c2a3a;
+    --green:#6fcf97;--green-bg:#1b3326;
+    --red:#ef8a7e;--red-bg:#3a1f1c;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC',serif}
+/* hero 閱讀：霧藍灰 */
+.hero{background:#C8D5D8;color:#122025;border-radius:var(--border-radius-lg);padding:36px 32px 28px;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(18,32,37,0.3);color:rgba(18,32,37,0.65);border-radius:999px;padding:2px 14px;font-size:12px;letter-spacing:2px}
+.hero h1{margin:12px 0 4px;font-size:32px;font-weight:900;color:#122025}
+.hero .sub{font-size:15px;color:rgba(18,32,37,0.75)}
+.hero p{margin:14px 0 0;font-size:13px;color:rgba(18,32,37,0.5)}
+/* toc */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}
+.toc-title{grid-column:1/-1;font-weight:700;font-size:15px;margin-bottom:6px}
+.toc-item{display:flex;gap:10px;color:var(--color-text-primary);text-decoration:none;padding:4px 0;border-bottom:1px dashed var(--color-border-tertiary)}
+.toc-item:hover{color:var(--blue)}
+.toc-num{color:var(--blue);font-weight:700;min-width:22px}
+.toc-sep{grid-column:1/-1;font-size:12px;color:var(--color-text-secondary);margin-top:8px;letter-spacing:2px}
+/* section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:36px 0 16px;padding:14px 18px;background:var(--color-background-primary);border-radius:var(--border-radius-lg);border-left:6px solid #2f5f6e}
+.section-header.first{margin-top:8px}
+.sh-icon{font-size:26px}
+.sh-title{font-family:'Noto Serif TC',serif;font-size:21px;font-weight:700}
+.sh-ch{margin-left:auto;font-size:11px;letter-spacing:2px;color:var(--color-text-secondary)}
+/* card */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:14px}
+.card h3{margin:0 0 10px;font-size:17px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--blue);flex:none}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.card p{margin:6px 0}
+.card ul{margin:6px 0;padding-left:22px}
+.hl{background:linear-gradient(transparent 60%,rgba(255,200,80,.45) 60%)}
+.q{color:var(--coral);font-family:'Noto Serif TC',serif}
+/* example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-family:'Noto Serif TC',serif;font-size:15px}
+/* alert */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert.tip{background:var(--blue-bg)}.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.alert-icon{font-size:18px}
+.alert-label{font-weight:700;font-size:13px}
+.alert.tip .alert-label{color:var(--blue)}.alert.warn .alert-label{color:var(--red)}.alert.success .alert-label{color:var(--green)}.alert.amber .alert-label{color:var(--amber)}
+.alert-text{font-size:14px}
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;border:1px solid var(--color-border-tertiary)}
+.compare-card.bad{background:var(--red-bg)}.compare-card.good{background:var(--green-bg)}
+.compare-card h4{margin:0 0 6px;font-size:15px}
+/* flow */
+.flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;margin:12px 0}
+.flow-step{flex:1;min-width:130px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:10px 12px;font-size:13px}
+.flow-step b{display:block;color:var(--teal);font-size:14px}
+.flow-arrow{align-self:center;color:var(--color-text-secondary);font-size:18px}
+/* keyword */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px}
+.kw-word{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px;color:var(--purple)}
+.kw-def{font-size:13px;color:var(--color-text-secondary)}
+/* formula */
+.formula{background:#2f3e46;color:#f1f1ee;border-radius:var(--border-radius-lg);padding:18px 22px;margin:12px 0;font-family:'Noto Serif TC',serif;font-size:16px;line-height:2}
+.formula .fl{font-family:'Noto Sans TC',sans-serif;font-size:12px;letter-spacing:2px;color:#b9c9cf;display:block;margin-bottom:4px}
+.formula b{color:#ffd88a}
+/* table */
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 10px;vertical-align:top;text-align:left}
+th{background:var(--color-background-secondary);font-weight:700;white-space:nowrap}
+td.c,th.c{white-space:nowrap;text-align:center}
+/* exercise */
+.qsub{font-family:'Noto Serif TC',serif;font-size:17px;font-weight:700;margin:22px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--orange);display:inline-block}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--orange);border-radius:var(--border-radius-md);padding:14px 18px;margin-bottom:12px}
+.qn{font-weight:700;color:var(--orange);margin-right:4px}
+.mark{color:var(--color-text-secondary);font-size:12.5px}
+.line{border-bottom:1px solid #999;height:30px}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:80px;height:1.2em;vertical-align:baseline;margin:0 3px}
+.blank.s{min-width:46px}.blank.l{min-width:150px}
+.opts{margin:6px 0 0 4px}
+.opts span{margin-right:16px;white-space:nowrap}
+.wordbank{display:flex;flex-wrap:wrap;gap:8px 18px;border:1.5px solid var(--color-text-primary);border-radius:10px;padding:6px 16px;margin:8px 0;font-family:'Noto Serif TC',serif}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px}
+.excerpt .src{display:block;text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.dotmark{text-emphasis:filled dot;-webkit-text-emphasis:filled dot;text-emphasis-position:under;-webkit-text-emphasis-position:under}
+.hint{font-size:13px;color:var(--color-text-secondary);background:var(--amber-bg);border-radius:6px;padding:4px 10px;margin:6px 0}
+/* structure map */
+.smap{display:grid;grid-template-columns:120px 1fr;gap:8px 12px;align-items:stretch}
+.smap .sk{background:#2f5f6e;color:#fff;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;font-weight:700;font-family:'Noto Serif TC',serif}
+.smap .sv{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;line-height:2.1}
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans small,.ans .note{font-size:13px;color:var(--color-text-secondary)}
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:8px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:none;border-radius:999px;padding:8px 16px;background:var(--color-background-primary);color:var(--color-text-primary);box-shadow:0 2px 8px rgba(0,0,0,.18);cursor:pointer;white-space:nowrap}
+.tb-btn.primary{background:#2f5f6e;color:#fff}
+.ans-bar .tb-btn{box-shadow:none;border:1px solid var(--green);color:var(--green);padding:4px 14px;font-size:12.5px}
+@media (max-width:640px){.toc{grid-template-columns:1fr}.compare-grid{grid-template-columns:1fr}.smap{grid-template-columns:1fr}.hero h1{font-size:26px}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.keep{page-break-inside:avoid;break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">閱讀教學筆記</div>
+  <h1>鍾曉陽《販夫風景》</h1>
+  <div class="sub">中一　單元二　人物小傳（導讀）</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <div class="toc-sep">教學篇</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>作者與背景</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>篇章結構</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>內容理解：五位小販</a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span>寫作技巧</a>
+  <a class="toc-item" href="#s5"><span class="toc-num">05</span>主旨與賞析</a>
+  <div class="toc-sep">練習篇</div>
+  <a class="toc-item" href="#s6"><span class="toc-num">06</span>課文結構圖</a>
+  <a class="toc-item" href="#s7"><span class="toc-num">07</span>版邊問題</a>
+  <a class="toc-item" href="#s8"><span class="toc-num">08</span>篇章探究</a>
+  <a class="toc-item" href="#s9"><span class="toc-num">09</span>進階思考及比較閱讀</a>
+  <a class="toc-item" href="#s10"><span class="toc-num">10</span>語文運用：語法</a>
+  <a class="toc-item" href="#s11"><span class="toc-num">11</span>語文運用：修辭</a>
+  <a class="toc-item" href="#s12"><span class="toc-num">12</span>語文運用：文言知識</a>
+</nav>
+
+<!-- ============ CHAPTER 01 ============ -->
+<div class="section-header first" id="s1"><span class="sh-icon">✍️</span><span class="sh-title">作者與背景</span><span class="sh-ch">CHAPTER 01</span></div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>作者：鍾曉陽</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">生平</div><div class="kw-def">1962年出生，廣東梅縣人，在廣州出生，在香港長大。</div></div>
+    <div class="kw"><div class="kw-word">學歷及工作</div><div class="kw-def">中學畢業後到美國密西根大學修讀電影，曾任翻譯、電影編劇等工作。</div></div>
+    <div class="kw"><div class="kw-word">寫作經歷</div><div class="kw-def">中學時期開始寫作，多次獲得「青年文學獎」。</div></div>
+    <div class="kw"><div class="kw-word">主要著作</div><div class="kw-def">詩集《槁木死灰集》、散文集《春在綠蕪中》、小說《停車暫借問》《遺恨》等。</div></div>
+  </div>
+  <div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">文筆特色</div><div class="alert-text">鍾曉陽的文筆<span class="hl">細膩典雅</span>。讀《販夫風景》時，留意她怎樣用很細小的動作、顏色、聲音，把一個平凡的小販寫得活靈活現。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>寫作背景：香港的街頭小販</h3>
+  <p>本文寫的是上世紀六、七十年代香港街頭常見的流動小販，這類攤檔今天已很少見。</p>
+  <table>
+    <tr><th class="c">類別</th><th>說明</th></tr>
+    <tr><td class="c">持牌小販</td><td>分為<b>固定攤位小販</b>和<b>流動小販</b>，牌照由食物環境衞生署發出。固定攤位多數擦鞋、賣熟食小食、報紙、理髮；流動小販牌照主要分報紙、冰凍甜點、流動車三類。</td></tr>
+    <tr><td class="c">無牌小販</td><td>屬違法經營。</td></tr>
+  </table>
+  <div class="flow">
+    <div class="flow-step"><b>20世紀初</b>香港已有小販。</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>五、六十年代</b>大批內地人來港，不少人沒有學歷和技能，當小販謀生。</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>七十年代初</b>股災、石油危機打擊經濟，工廠倒閉，失業的人紛紛做小販。</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>七十年代起</b>政府停發新牌；1975年在旺角通菜街設第一個小販認可區（即今日的「女人街」）。</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>今天</b>政府嚴格規管，又以特惠金鼓勵交回牌照，流動小販已很少見。</div>
+  </div>
+  <div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">讀文提醒</div><div class="alert-text">文中的豆腐花、腸粉、雪糕車、棉花糖、糖炒栗子，都是那個年代香港街頭的平民小吃。作者除了寫食物，也寫賣食物的人。</div></div></div>
+</div>
+
+<!-- ============ CHAPTER 02 ============ -->
+<div class="section-header" id="s2"><span class="sh-icon">🧭</span><span class="sh-title">篇章結構</span><span class="sh-ch">CHAPTER 02</span></div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>全文九段，按小販分四部分</h3>
+  <table>
+    <tr><th class="c">部分</th><th class="c">段落</th><th class="c">小販</th><th>內容大意</th></tr>
+    <tr><td class="c">一</td><td class="c">第1–3段</td><td class="c">賣豆腐花和腸粉的夫婦</td><td>描寫一對賣豆腐花等食物的夫婦在<b>外形</b>和<b>性格</b>上的不同，以及作者對<b>豆腐花</b>的聯想。</td></tr>
+    <tr><td class="c">二</td><td class="c">第4–5段</td><td class="c">賣雪糕的小販</td><td>描寫流動雪糕車的<b>顏色和聲音</b>，以及小孩子<b>吃冰淇淋的歡樂和狼狽</b>情景。</td></tr>
+    <tr><td class="c">三</td><td class="c">第6段</td><td class="c">賣棉花糖的小販</td><td>描寫賣棉花糖小販的<b>外形</b>和他<b>製作棉花糖</b>的過程，並刻畫<b>小孩子吃棉花糖</b>的情形。</td></tr>
+    <tr><td class="c">四</td><td class="c">第7–9段</td><td class="c">賣糖炒栗子的小伙子</td><td>描寫賣糖炒栗子的小販的<b>外形</b>，並交代作者<b>特別喜歡光顧這個攤檔</b>的原因。</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧</div><div class="alert-text">本文沒有貫穿全文的事件，作者<span class="hl">每部分寫一位（或一對）小販</span>，分段的依據就是「寫哪一個小販」。寫內容大意時，記住每部分都有「人」（外形、性格）和「物」（食物、車子）兩方面。</div></div></div>
+</div>
+
+<!-- ============ CHAPTER 03 ============ -->
+<div class="section-header" id="s3"><span class="sh-icon">🔍</span><span class="sh-title">內容理解：五位小販</span><span class="sh-ch">CHAPTER 03</span></div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>第一部分（第1–3段）賣豆腐花和腸粉的夫婦</h3>
+  <p>作者把這對夫婦放在一起寫，重點是<b>對比</b>：</p>
+  <div class="compare-grid">
+    <div class="compare-card bad"><h4>男小販</h4>
+      <p><b>外貌：</b>身材瘦小，皮膚黝黑，雙腿乾巴巴，戴窄邊草帽，穿短褲；走路像鴨子。</p>
+      <p><b>說話：</b>聲如洪鐘，大聲叫賣；看見妻子多給醬油便罵「要死了你，給那麼多……」</p>
+      <p><b>行為：</b>一把奪走妻子手上的醬油壺。</p>
+      <p><b>性格：</b>勤力、吝嗇、兇惡</p></div>
+    <div class="compare-card good"><h4>女小販</h4>
+      <p><b>外貌：</b>身型胖胖圓圓，不言不笑。</p>
+      <p><b>行為：</b>客人要多點醬油，她提着醬油壺「噓噓地澆」；被罵時惟惟諾諾或不作聲，平靜得像甚麼事都沒發生。</p>
+      <p><b>性格：</b>順從、慷慨</p></div>
+  </div>
+  <ul>
+    <li>兩人一瘦一胖、一兇一和，並立在一起像<b>「點錯鴛鴦譜」</b>，作者覺得十分<b>滑稽</b>。</li>
+    <li>丈夫常罵，妻子甘願承受，樣子不覺得委屈，所以作者說他們<b>「一個願打，一個願挨」</b>，覺得「真好玩」。</li>
+    <li>豆腐花盛在碗裏<b>暖烘烘</b>的，作者聯想到<b>一朵開心的雲</b>。不過她怕小販的碗髒，每次自備碗又麻煩，所以不常買。</li>
+    <li>作者認為這對夫婦一直在那裏擺賣，是因為他們<b>已經習慣了</b>。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3><span class="dot green"></span>第二部分（第4–5段）賣雪糕的小販</h3>
+  <ul>
+    <li><b>雪糕車：</b>綠色車身，播放清脆玲瓏的童話音樂，聲音細細碎碎。作者把車子比作<b>上發條的玩具</b>，把音樂比作<b>流浪小孩的歌唱</b>。</li>
+    <li><b>小孩子：</b>圍着雪糕車，買到冰淇淋便高高興興離開；冰淇淋融化「猛淌」，一滴沿臂彎溜下，他們伸長舌頭去舔，吃相<b>狼狽而可愛</b>。</li>
+    <li><b>小販：</b>雪糕車好像一個「做完善事的賣藝人」，對着小孩子<b>慈藹萬分</b>地笑。性格慈祥、可親。</li>
+  </ul>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">留意寫法</div><div class="alert-text">這部分寫小販本人的筆墨不多，反而借雪糕車（擬人）和小孩子的反應去寫。小孩子越開心，越見得雪糕小販帶給人的快樂。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>第三部分（第6段）賣棉花糖的小販</h3>
+  <ul>
+    <li><b>外貌：</b>滿頭白髮，蓄平頭，頭髮短直，作者用「一髭髭短樁子在腦勺上砌梅花樁」來形容；臉孔看起來像四十多歲。</li>
+    <li><b>行為：</b>常跟賣冰淇淋的小販搭訕，又喜歡逗小孩子，引得他們咯咯地笑。性格<b>隨和、友善</b>。</li>
+    <li><b>聯想：</b>作者覺得他像<b>童話裏的善心老藝人</b>——在街頭做木偶戲給小孩子看的那種人。</li>
+    <li><b>棉花糖：</b>粉紅色，像<b>天上的雲霞</b>；吃起來黏黏的，糖液留在齒縫間。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>第四部分（第7–9段）賣糖炒栗子的小伙子</h3>
+  <ul>
+    <li><b>外貌：</b>年輕小伙子，大北風中<b>赤着肩膊</b>，只穿單衣。</li>
+    <li><b>行為：</b>工作時不跟人搭訕，不言不笑；客人<b>要多少就給多少</b>。</li>
+    <li><b>性格：</b>沉默、老實、有商業道德。</li>
+    <li><b>栗子：</b>熱辣辣、香熾熾；外殼閃蠟蠟，在鑊裏炒到殼兒爆裂，露出金黃色果肉。作者聯想到<b>跳脫的冬陽</b>和<b>黃金</b>。因為栗子熱，所以「冬天在栗子香中竟也不冷了」。</li>
+    <li><b>作者的態度：</b>稱讚他有<b>人間情味</b>和<b>商業道德</b>；就算外面有上等貨，作者都回來買他的栗子。</li>
+  </ul>
+  <div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">重點</div><div class="alert-text">五位小販之中，作者對栗子小販的稱讚最直接，可見她<span class="hl">最喜歡這一位</span>。</div></div></div>
+</div>
+
+<!-- ============ CHAPTER 04 ============ -->
+<div class="section-header" id="s4"><span class="sh-icon">🖋️</span><span class="sh-title">寫作技巧</span><span class="sh-ch">CHAPTER 04</span></div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>一、人物描寫：肖像、語言、行動</h3>
+  <table>
+    <tr><th class="c">手法</th><th>例子</th><th class="c">突出的性格</th></tr>
+    <tr><td class="c">肖像描寫</td><td class="serif">「而雪糕車是做完善事的賣藝人，慈藹萬分地瞧他們笑。」（第5段）</td><td class="c">慈祥、可親</td></tr>
+    <tr><td class="c">語言描寫</td><td class="serif">「要死了你，給那麼多……」（第3段）</td><td class="c">吝嗇、兇惡</td></tr>
+    <tr><td class="c">行動描寫</td><td class="serif">「她提着醬油壺噓噓地澆。」（第3段）</td><td class="c">慷慨</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">答題格式</div><div class="alert-text">分析人物描寫題，用「手法＋引文＋性格」三步：作者運用<b>（甚麼描寫）</b>，寫出<b>（引文）</b>，表現了他<b>（甚麼性格）</b>。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>二、對比</h3>
+  <p>第一部分把夫婦放在一起，外形一瘦一胖，性格一兇一和，對比之下兩人的特點更鮮明，也寫出了「點錯鴛鴦譜」的滑稽感。全文來看，男小販的斤斤計較，又和女小販的慷慨、栗子小販的老實形成對比。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>三、多感官描寫食物，再加聯想</h3>
+  <table>
+    <tr><th class="c">食物</th><th>感官描寫</th><th class="c">聯想</th></tr>
+    <tr><td class="c">豆腐花</td><td>觸覺：暖烘烘</td><td class="c">雲</td></tr>
+    <tr><td class="c">冰淇淋</td><td>視覺：猛淌；觸覺：一滴沿臂彎溜</td><td class="c">—</td></tr>
+    <tr><td class="c">棉花糖</td><td>視覺：粉紅色；觸覺：黏黏的；味覺：糖液留在齒縫間</td><td class="c">雲霞</td></tr>
+    <tr><td class="c">栗子</td><td>觸覺：熱辣辣；嗅覺：香熾熾；視覺：閃蠟蠟、殼兒爆裂，露出果肉</td><td class="c">跳脫的冬陽、黃金</td></tr>
+  </table>
+  <p>同一種食物用上幾種感官去寫，讀者較容易想像它的溫度、氣味和樣子。再加上聯想，例如把栗子想成冬陽，普通的小吃也寫得有畫面。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>四、比喻、疊字令文字生動</h3>
+  <div class="example-box pink"><div class="example-label">比喻：聲音</div><div class="example-text">小販的吆喝聲如洪鐘，又如一條線直衝七重天 → 聲音響亮、高昂<br>雪糕車的音樂像流浪小孩的歌唱 → 清脆玲瓏、細細碎碎</div></div>
+  <div class="example-box amber"><div class="example-label">借喻（只出現喻體）</div><div class="example-text">一鏟鏟盡是跳跳脫脫的冬陽 → 以「冬陽」代替栗子<br>一髭髭短樁子在腦勺上砌梅花樁 → 以「短樁子」代替短直的頭髮</div></div>
+  <div class="example-box teal"><div class="example-label">疊字</div><div class="example-text">乾巴巴　胖胖圓圓　暖烘烘　熱辣辣　香熾熾　閃蠟蠟　跳跳脫脫　細細碎碎</div></div>
+  <p>疊字讀起來有節奏，又加強了形態、溫度、氣味的感覺。（比喻和疊字的詳細講解見第11章。）</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>五、以粵語入文，增加本土色彩</h3>
+  <p>作者用了「豆腐花」「做開」「拉」等粵語詞彙。這些詞香港讀者一看就親切，令文章帶有<b>本土色彩</b>，讀來更有趣味和感染力。</p>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">作家可以有意識地用粵語入文製造效果，但同學在考試作文中仍應以規範書面語為主，不要整篇用口語。</div></div></div>
+</div>
+
+<!-- ============ CHAPTER 05 ============ -->
+<div class="section-header" id="s5"><span class="sh-icon">💎</span><span class="sh-title">主旨與賞析</span><span class="sh-ch">CHAPTER 05</span></div>
+
+<div class="formula"><span class="fl">主旨</span>本文描寫了各種<b>街頭小販的形象及工作情況</b>，反映<b>香港的街頭飲食文化特色</b>，表達了作者對這些小販的<b>欣賞和喜歡之情</b>。</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>作者的感情從哪裏看出來？</h3>
+  <ul>
+    <li>形容賣腸粉的夫婦「真好玩，一個願打，一個願挨」，可見她用幽默、包容的眼光看這對夫婦。</li>
+    <li>把賣棉花糖的小販比作「善心老藝人」，欣賞他給小孩子帶來歡樂。</li>
+    <li>直接稱讚賣栗子的小販老實、有商業道德，喜愛之情最明顯。</li>
+  </ul>
+  <p>連兇巴巴的男小販，作者也只覺得「好玩」，沒有寫出厭惡。</p>
+</div>
+
+<div class="formula"><span class="fl">一句記</span>全文按小販分四部分：<b>寫人</b>用肖像、語言、行動；<b>寫食物</b>用多感官加聯想；表達作者對街頭小販的<b>欣賞和喜歡</b>。</div>
+
+<!-- ============ CHAPTER 06 ============ -->
+<div class="section-header" id="s6"><span class="sh-icon">🗺️</span><span class="sh-title">課文結構圖</span><span class="sh-ch">CHAPTER 06</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>根據課文內容，完成以下結構圖。<span class="mark">（每空1分）</span>
+  <div class="smap" style="margin-top:10px">
+    <div class="sk">賣豆腐花和腸粉的夫婦</div>
+    <div class="sv">形象：男的瘦瘦小小，膚色<span class="blank"></span>，聲如<span class="blank"></span>，走路像<span class="blank"></span>。女的<span class="blank s"></span>。男的<span class="blank"></span>，女的和順和<span class="blank"></span>。<br>
+    作者對豆腐花的聯想：盛在碗內的<span class="blank"></span>像<span class="blank s"></span>。<br>
+    作者對二人的感受：兩人並立似<span class="blank l"></span>，十分<span class="blank"></span>。</div>
+    <div class="sk">賣雪糕的小販</div>
+    <div class="sv">特點：<span class="blank s"></span>的車身，發出的音樂<span class="blank l"></span>。<br>
+    作者的聯想：車子像<span class="blank l"></span>、<span class="blank l"></span>和<span class="blank"></span>。</div>
+    <div class="sk">賣棉花糖的小販</div>
+    <div class="sv">形象：頭髮<span class="blank s"></span>，蓄<span class="blank s"></span>。<br>
+    作者的聯想：他像<span class="blank l"></span>。<span class="blank s"></span>的棉花糖是<span class="blank l"></span>。</div>
+    <div class="sk">賣糖炒栗子的小販</div>
+    <div class="sv">形象：<span class="blank s"></span>肩膊，大北風中也<span class="blank"></span>。<br>
+    作者的感受：為人<span class="blank"></span>，有<span class="blank"></span>和<span class="blank"></span>。</div>
+  </div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>
+  <b>夫婦：</b>黝黑／洪鐘／鴨子／胖／兇惡／慷慨；豆腐花／雲；點錯鴛鴦譜／滑稽<br>
+  <b>雪糕：</b>綠色／清脆玲瓏；上發條的玩具／流浪小孩的歌唱／賣藝人<br>
+  <b>棉花糖：</b>盡白／平頭；童話裏的善心老藝人；粉紅色／天上的雲霞<br>
+  <b>栗子：</b>赤着／只穿單衣；老實／人間情味／商業道德</div></div>
+</div>
+
+<!-- ============ CHAPTER 07 ============ -->
+<div class="section-header" id="s7"><span class="sh-icon">📝</span><span class="sh-title">版邊問題</span><span class="sh-ch">CHAPTER 07</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>作者既說一碗豆腐花給她的感覺像「一朵開心的雲」，為甚麼卻「不常買」？
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>因為作者怕小販的碗髒，又覺得每次買都要自備碗太麻煩，所以不常買。</div></div>
+</div>
+<div class="qbox"><span class="qn">2.</span>作者認為賣腸粉的夫婦繼續在那裏擺賣的原因是甚麼？
+  <div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>因為他們已經習慣了在那裏擺賣。</div></div>
+</div>
+<div class="qbox"><span class="qn">3.</span>為甚麼作者說賣腸粉的夫婦「一個願打，一個願挨」？
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>因為男小販常常責罵妻子，但妻子甘願承受，只是惟惟諾諾地回應或默不作聲，樣子並不覺得委屈。</div></div>
+</div>
+<div class="qbox"><span class="qn">4.</span>小孩子吃冰淇淋時的樣子是怎樣的？
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>冰淇淋猛淌，又滴落在小孩子的臂彎，他們伸長舌頭去舔冰淇淋和臂彎，吃相狼狽而可愛。</div></div>
+</div>
+<div class="qbox"><span class="qn">5.</span>為甚麼賣棉花糖的小販會令作者想起童話裏的善心老藝人？
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>因為他喜歡逗小孩子笑，就像童話裏那位在街頭做木偶戲給小孩子看的老藝人般善心。</div></div>
+</div>
+<div class="qbox"><span class="qn">6.</span>為甚麼作者說「冬天在栗子香中竟也不冷了」？
+  <div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>因為炒栗子「熱辣辣、香熾熾」，讓作者感覺温暖。</div></div>
+</div>
+<div class="qbox"><span class="qn">7.</span>為甚麼作者喜歡光顧賣糖炒栗子的年輕人？
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>因為客人要多少他就給多少，為人老實，而且栗子品質良好。作者認為他富有人情味和商業道德，所以時常光顧。</div></div>
+</div>
+<div class="qbox"><span class="qn">8.</span>根據第7至9段，文中所描寫的栗子有甚麼特點？
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>栗子「熱辣辣、香熾熾」；品質良好；外殼「閃蠟蠟」，在鑊鍋裏炒時，外殼爆烈，露出金黃色的果肉。</div></div>
+</div>
+
+<!-- ============ CHAPTER 08 ============ -->
+<div class="section-header" id="s8"><span class="sh-icon">🔎</span><span class="sh-title">篇章探究</span><span class="sh-ch">CHAPTER 08</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>本文共有9段，按作者描述的小販可分為四個部分，試寫出各部分所包含的段落和內容大意。<span class="mark">（14分）</span>
+  <table>
+    <tr><th class="c">部分</th><th class="c">段落</th><th>內容大意</th></tr>
+    <tr><td class="c">一：賣豆腐花<br>和腸粉的夫婦</td><td class="c">第1至<span class="blank s"></span>段</td><td>描寫一對賣豆腐花等食物的夫婦在<span class="blank"></span>和<span class="blank"></span>上的不同，以及作者對<span class="blank"></span>的聯想。</td></tr>
+    <tr><td class="c">二：賣雪糕<br>的小販</td><td class="c">第<span class="blank s"></span>至<span class="blank s"></span>段</td><td>描寫流動雪糕車的<span class="blank l"></span>，以及小孩子<span class="blank l"></span>情景。</td></tr>
+    <tr><td class="c">三：賣棉花糖<br>的小販</td><td class="c">第<span class="blank s"></span>段</td><td>描寫賣棉花糖小販的<span class="blank"></span>和他<span class="blank"></span>的過程，並刻畫<span class="blank l"></span>。</td></tr>
+    <tr><td class="c">四：賣糖炒栗<br>子的小伙子</td><td class="c">第<span class="blank s"></span>至9段</td><td>描寫<span class="blank l"></span>，並交代作者<span class="blank l"></span>的原因。</td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>（每個答案1分）<br>
+  一：第1至<b>3</b>段；<b>外形</b>、<b>性格</b>；<b>豆腐花</b><br>
+  二：第<b>4</b>至<b>5</b>段；<b>顏色和聲音</b>；<b>吃冰淇淋的歡樂和狼狽</b><br>
+  三：第<b>6</b>段；<b>外形</b>；<b>製作棉花糖</b>；<b>小孩子吃棉花糖的情形</b><br>
+  四：第<b>7</b>至9段；<b>賣糖炒栗子的小販的外形</b>；<b>特別喜歡光顧這個攤檔</b><br>
+  <small>（四個段落答案各1分）</small></div></div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>本文描寫了五位小販，試寫出他們的外貌、說話和行為特徵，並分析他們的性格。<span class="mark">（27分，每個答案1分）</span>
+  <table>
+    <tr><th class="c">小販</th><th>特徵</th><th class="c">性格</th></tr>
+    <tr><td class="c">賣豆腐花和腸粉<br>的男小販<br>（第1和3段）</td>
+      <td>外貌：身材瘦小，皮膚<span class="blank"></span>，雙腿<span class="blank"></span>，戴着<span class="blank"></span>，穿着<span class="blank s"></span>。<br>
+      說話：<span class="blank s"></span>叫賣豆腐花；看見妻子多給客人醬油時，責罵她：「<span class="blank l"></span>」。<br>
+      行為：<span class="blank s"></span>妻子的醬油，阻止她多給客人醬油。</td>
+      <td class="c">○ 勤力　○ 沉默<br>○ 吝嗇　○ 兇惡<br><small>（可選多於一個）</small></td></tr>
+    <tr><td class="c">賣豆腐花和腸粉<br>的女小販<br>（第3段）</td>
+      <td>外貌：身型<span class="blank"></span>，不言不笑，被丈夫責罵時表現平靜。<br>
+      行為：被丈夫責罵時<span class="blank"></span>地回應或不作聲；會<span class="blank s"></span>客人分量作料。</td>
+      <td class="c">○ 聰明　○ 順從<br>○ 慷慨　○ 老實<br><small>（可選多於一個）</small></td></tr>
+    <tr><td class="c">賣雪糕的小販<br>（第4和5段）</td><td>外貌：對着小孩子<span class="blank"></span>地笑。</td><td class="c">慈祥、可親</td></tr>
+    <tr><td class="c">賣棉花糖的小販<br>（第6段）</td>
+      <td>外貌：滿頭<span class="blank s"></span>，蓄平頭，頭髮<span class="blank s"></span>，臉孔看起來像<span class="blank"></span>。<br>
+      行為：常跟賣冰淇淋的小販<span class="blank s"></span>，又喜歡<span class="blank"></span>。</td>
+      <td class="c">隨和、<span class="blank s"></span></td></tr>
+    <tr><td class="c">賣糖炒栗子的小販<br>（第8段）</td>
+      <td>外貌：一個年輕小伙子，在大北風中<span class="blank"></span>，穿着<span class="blank s"></span>。<br>
+      行為：工作時不<span class="blank"></span>，也不言不笑；客人要<span class="blank l"></span>。</td>
+      <td class="c"><span class="blank l"></span></td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>
+  <b>男小販：</b>黝黑／乾巴巴／窄邊草帽／短褲；大聲；「要死了你，給那麼多」；奪走。性格：<b>勤力、吝嗇、兇惡</b><br>
+  <b>女小販：</b>胖胖圓圓；惟惟諾諾；多給。性格：<b>順從、慷慨</b><br>
+  <b>雪糕小販：</b>慈藹<br>
+  <b>棉花糖小販：</b>白髮／短直／四十多歲；搭訕／逗小孩子。性格：隨和、<b>友善</b><br>
+  <b>栗子小販：</b>赤着肩膊／單衣；跟別人搭訕／多少栗子就給多少。性格：<b>沉默、有商業道德、老實</b></div></div>
+</div>
+
+<div class="qbox"><span class="qn">3.</span>根據第5和6段，回答以下問題。<span class="mark">（4分）</span><br>
+  (1) 在作者眼中，那些小孩子的性格是怎樣的？<span class="mark">（2分）</span>
+  <div class="opts"><span>○ 乖巧順從</span><span>○ 調皮搗蛋</span><span>○ 天真爛漫</span><span>○ 機智聰穎</span></div>
+  (2) 賣雪糕和賣棉花糖的小販，給小孩子帶來甚麼樂趣？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>(1) ● 天真爛漫<br><small>作者描寫小孩子圍攏着雪糕車，買了冰淇淋後便高高興興地離去，又狼狽地趕忙舔吃正在融化的冰淇淋，表現出小孩子貪吃、容易滿足及天真的形象。</small><br>
+  (2) 兩位小販售賣的雪糕和棉花糖能讓小孩子高興，使他們吃得津津有味。（1分）而且，賣棉花糖的小販還會逗小孩子，引得他們咯咯地笑。（1分）</div></div>
+</div>
+
+<div class="qbox"><span class="qn">4.</span>從賣腸粉夫婦和賣糖炒栗子年輕人的反應可見，他們做生意的表現有甚麼不同？<span class="mark">（5分）</span><br>
+  賣腸粉的男小販：責罵妻子給太多醬油予顧客，表現<span class="blank"></span>。<sup>（1）</sup><br>
+  賣腸粉的女小販：因應客人<span class="blank"></span><sup>（2）</sup>給予醬油分量，表現<span class="blank"></span>。<sup>（3）</sup><br>
+  賣糖炒栗子的年輕人：給予顧客<span class="blank l"></span><sup>（4）</sup>，表現<span class="blank"></span>。<sup>（5）</sup>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>（每個答案1分）(1) 斤斤計較　(2) 需要　(3) 慷慨　(4) 所要求的栗子數量　(5) 老實</div></div>
+</div>
+
+<div class="qbox"><span class="qn">5.</span>作者用甚麼來比喻小販的吆喝聲和流動雪糕車的音樂聲？這突顯了兩者的甚麼特點？<span class="mark">（5分）</span>
+  <table>
+    <tr><th></th><th>比喻</th><th>特點</th></tr>
+    <tr><td class="c">小販的吆喝聲</td><td>如洪鐘，又如<span class="blank l"></span>。</td><td>小販聲音<span class="blank s"></span>和<span class="blank s"></span>。</td></tr>
+    <tr><td class="c">流動雪糕車的音樂聲</td><td>像<span class="blank l"></span>。</td><td>雪糕車播放着<span class="blank l"></span>，聲音細細碎碎。</td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>（每個答案1分）<br>吆喝聲：一條線直衝七重天；響亮、高昂<br>音樂聲：流浪小孩的歌唱；清脆玲瓏的童話音樂</div></div>
+</div>
+
+<div class="qbox"><span class="qn">6.</span>本文描寫了多種街頭小吃，作者從不同感官描寫食物的甚麼特點？又從食物聯想到甚麼事物？<span class="mark">（10分，每個答案1分）</span>
+  <table>
+    <tr><th class="c">食物</th><th>感官描寫</th><th class="c">聯想</th></tr>
+    <tr><td class="c">豆腐花</td><td>觸覺：<span class="blank"></span></td><td>雲</td></tr>
+    <tr><td class="c">冰淇淋</td><td>視覺：<span class="blank"></span>　觸覺：<span class="blank l"></span></td><td>—</td></tr>
+    <tr><td class="c">棉花糖</td><td>視覺：粉紅色　觸覺：<span class="blank"></span>　味覺：<span class="blank l"></span></td><td><span class="blank"></span></td></tr>
+    <tr><td class="c">栗子</td><td>觸覺：熱辣辣　嗅覺：<span class="blank"></span><br>視覺：<span class="blank l"></span></td><td><span class="blank l"></span></td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>豆腐花：暖烘烘<br>冰淇淋：猛淌；一滴沿臂彎溜<br>棉花糖：黏黏的；糖液留在齒縫間；聯想：雲霞<br>栗子：香熾熾；閃蠟蠟、殼兒爆裂，露出果肉；聯想：跳脫的冬陽、黃金</div></div>
+</div>
+
+<div class="qbox"><span class="qn">7.</span>綜合全文，作者對街頭小販表達了甚麼感情？<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>香港在1960、70年代，街頭有不少流動小販，作者細寫這些平常所見的街頭小販的工作情景，形容賣腸粉的夫婦「真好玩，一個願打，一個願挨」（1分），賣棉花糖的小販是「善心老藝人」（1分），還稱讚賣栗子的小販老實和有商業道德（1分），反映作者對這些小販懷着欣賞和喜歡之情。（1分）</div></div>
+</div>
+
+<!-- ============ CHAPTER 09 ============ -->
+<div class="section-header" id="s9"><span class="sh-icon">💭</span><span class="sh-title">進階思考及比較閱讀</span><span class="sh-ch">CHAPTER 09</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="keep"><div class="qsub">進階思考</div>
+<div class="qbox"><span class="qn">1.</span>本文所描寫的小販中，你認為作者最喜歡哪一個？為甚麼？<span class="mark">（3分）</span>
+  <div class="hint">提示：作者怎樣描寫五位小販？哪些描述能反映作者對這位小販的稱讚和喜歡？</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>賣糖炒栗子的小販。作者稱讚他老實、有人情味和商業道德，情感表達直接而濃厚（1分）；又表示他賣的栗子最好，就算外面有上等貨，她都回來買（1分），這都反映出作者特別喜歡他。（1分）<br><small>（答案僅供參考，學生言之成理即可）</small></div></div>
+</div></div>
+<div class="qbox"><span class="qn">2.</span>作者在文中描寫的小販大都充滿人情味，你在生活中遇過令人感到温暖的平凡人物嗎？他／她有哪些值得欣賞之處？<span class="mark">（4分）</span>
+  <div class="hint">提示：這位人物做了甚麼事，讓你感到温暖？事件反映了他／她怎樣的待人態度？</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案（示例）</span>有一次我在月台等候火車，看見旁邊的女職員跟一位老婦搭訕，着她出入要多留神；待火車來到又扶她上車，替她找座位。我很欣賞女職員能主動關心和幫助別人，讓別人感受到温暖。<br><small>（學生自由作答，言之成理即可。評分原則：清楚交代人物做了甚麼事；指出事件反映的待人態度；說明自己欣賞之處。）</small></div></div>
+</div>
+
+<div class="keep"><div class="qsub">比較閱讀</div>
+<div class="qbox"><span class="qn">3.</span>根據講讀《差不多先生傳》和本文的引文，回答所附問題。
+  <div class="excerpt"><b>甲</b>　他也會寫，也會算，只是總不會精細；十字常常寫成千字，千字常常寫成十字。掌櫃的生氣了，常常罵他，他只是笑嘻嘻地賠小心道：「千字比十字只多一小撇，不是差不多嗎？」<span class="src">胡適《差不多先生傳》</span></div>
+  <div class="excerpt"><b>乙</b>　一回買腸粉，說要多點醬油，她提着醬油壺噓噓地澆，男的一把奪過來，開口便罵：「要死了你，給那麼多……」女的不則聲，亦不委屈，平靜得甚麼事都沒有發生。<span class="src">鍾曉陽《販夫風景》第3段</span></div>
+  (1) 差不多先生和女小販被責罵的原因分別是甚麼？<span class="mark">（2分）</span><br>
+  差不多先生：<div class="line"></div>
+  女小販：<div class="line"></div>
+  (2) 承上題，二人被責罵時的表情有甚麼不同？這反映他們怎樣的性格？<span class="mark">（4分）</span>
+  <table>
+    <tr><th></th><th class="c">差不多先生</th><th class="c">女小販</th></tr>
+    <tr><td class="c">表情</td><td></td><td class="c">平靜</td></tr>
+    <tr><td class="c">性格</td><td class="c">不負責任</td><td></td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>(1) 差不多先生：在記賬時常常寫錯千字和十字，所以被掌櫃責罵（1分）<br>女小販：因為多給顧客醬油而被丈夫責罵（1分）<br>(2) 差不多先生的表情：笑嘻嘻（2分）；女小販的性格：順從（2分）</div></div>
+</div></div>
+
+<!-- ============ CHAPTER 10 ============ -->
+<div class="section-header" id="s10"><span class="sh-icon">🔤</span><span class="sh-title">語文運用：語法</span><span class="sh-ch">CHAPTER 10</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>概念：擬聲詞、數詞、量詞</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">擬聲詞</div><div class="kw-def">模仿人或事物發出的聲音的詞，例如：嘩啦嘩啦（雨聲）、淙淙（流水）、喃喃（低聲說話）、哈哈（笑聲）。</div></div>
+    <div class="kw"><div class="kw-word">數詞</div><div class="kw-def">表示數目或次序的詞。<b>基數</b>：一、三、兩、許多、九成；<b>序數</b>：第一、第二。</div></div>
+    <div class="kw"><div class="kw-word">量詞</div><div class="kw-def">表示人、事物或動作單位的詞，常放在數詞後面：一<b>位</b>同學、兩<b>杯</b>汽水、走了一<b>遍</b>。</div></div>
+  </div>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">「兩」「許多」「九成」也是數詞，不要只圈「一、二、三」這類數字。量詞要配合名詞：大炮用「門」，戰艦用「艘」，碉堡用「座」，晚餐用「頓」，電影用「部」。</div></div></div>
+</div>
+
+<div class="keep"><div class="qsub">擬聲詞</div>
+<div class="qbox"><span class="qn">1.</span>根據下面句子的意思，把適當的擬聲詞寫在橫線上。
+  <div class="wordbank"><span>哈哈</span><span>淙淙</span><span>喃喃</span><span>劈里啪啦</span><span>嘩啦嘩啦</span></div>
+  (1) 雨水<span class="blank"></span>地下個不停，大家整天困在家裏，不能出去玩。<br>
+  (2) 爸爸表情十足地演繹故事內容，把我們逗得<span class="blank"></span>大笑。<br>
+  (3) 剛走進車廂的中年男人神色凝重，口中<span class="blank"></span>自語，不知說些甚麼。<br>
+  (4) 溪水<span class="blank"></span>流着，像在唱着悅耳動聽的歌。
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 嘩啦嘩啦　(2) 哈哈　(3) 喃喃　(4) 淙淙</div></div>
+</div></div>
+<div class="qbox"><span class="qn">2.</span>試運用提供的詞語，摹擬人物或事物發出的聲音，各造一個句子。<br>
+  (1) 呼呼<div class="line"></div>
+  (2) 撲通<div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案（示例）</span>(1) 經過一天辛勞的工作後，爸爸一回到家便倒在沙發上呼呼地睡着了。<br>(2) 青蛙撲通一聲跳進水中，轉眼就不見了蹤影。<br><small>（答案僅供參考，學生言之成理即可）</small></div></div>
+</div>
+
+<div class="keep"><div class="qsub">數詞</div>
+<div class="qbox"><span class="qn">3.</span>找出下面句子中的數詞，把答案圈出來。<br>
+  (1) 我從鄉下跑到京城裏，一轉眼已經六年了。（魯迅《一件小事》）<br>
+  (2) 三天之後，雨過天青，我們走出屋外。（羅啟銳《薄荷傷口》）<br>
+  (3) 兩人並立簡直點錯鴛鴦譜似的滑稽。（鍾曉陽《販夫風景》）<br>
+  (4) 許多年後我才知道，他曾在背後默默地幫助我。<br>
+  (5) 早晨是一天的開始，你每天起牀後第一件事是做甚麼？<br>
+  (6) 衞生局的一項調查顯示，有九成的受訪者表示他們很重視個人衞生問題。
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 六　(2) 三　(3) 兩　(4) 許多　(5) 一（一天）、第一　(6) 一（一項）、九成<br><small>（「一轉眼」的「一」表示「剛剛、一下子」，出版社答案不圈。）</small></div></div>
+</div></div>
+
+<div class="keep"><div class="qsub">量詞</div>
+<div class="qbox"><span class="qn">4.</span>根據下面句子的意思，把適當的量詞寫在橫線上。
+  <div class="wordbank"><span>雙</span><span>艘</span><span>頓</span><span>遍</span><span>袋</span><span>位</span><span>部</span><span>杯</span><span>座</span><span>門</span><span>輛</span><span>張</span></div>
+  (1) 上週末，有一<span class="blank s"></span>同學打電話來約我看電影。我們買了兩<span class="blank s"></span>汽水和一<span class="blank s"></span>爆谷進場，觀賞了一<span class="blank s"></span>有趣的電影，然後吃了一<span class="blank s"></span>美味的晚餐才回家。<br>
+  (2) 眼前有兩<span class="blank s"></span>臨海而建的碉堡，各設有兩<span class="blank s"></span>大炮，用作抵禦敵人，而碉堡旁的碼頭則停泊了幾<span class="blank s"></span>戰艦。我們環繞着碉堡走了一<span class="blank s"></span>，還在那裏拍了一些照片。
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 位、杯、袋、部、頓<br>(2) 座、門、艘、遍</div></div>
+</div></div>
+
+<!-- ============ CHAPTER 11 ============ -->
+<div class="section-header" id="s11"><span class="sh-icon">🎨</span><span class="sh-title">語文運用：修辭</span><span class="sh-ch">CHAPTER 11</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>概念一：疊字</h3>
+  <p>把同一個字重疊使用，例如「漸漸」「軟綿綿」「白白淨淨」。疊字可以加強語氣，使描寫更具體，讀起來也有節奏感。</p>
+  <div class="example-box teal"><div class="example-label">課文例子</div><div class="example-text">栗子熱辣辣、香熾熾，外殼閃蠟蠟。</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>概念二：比喻的三種類型</h3>
+  <p>比喻有三個部分：<b>本體</b>（被比喻的事物）、<b>喻體</b>（用來比喻的事物）、<b>喻詞／繫詞</b>（連接兩者的詞）。</p>
+  <table>
+    <tr><th class="c">類型</th><th class="c">本體</th><th class="c">喻詞／繫詞</th><th class="c">喻體</th><th>例子</th></tr>
+    <tr><td class="c">明喻</td><td class="c">✓</td><td class="c">像、如、好像、彷彿</td><td class="c">✓</td><td>霞光……簡直就<b>像</b>一片片霍霍燃燒着的火焰。</td></tr>
+    <tr><td class="c">暗喻</td><td class="c">✓</td><td class="c">是、成了、變成</td><td class="c">✓</td><td>街燈<b>是</b>城市的守護者。</td></tr>
+    <tr><td class="c">借喻</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td><td>一鏟鏟盡是跳跳脫脫的<b>冬陽</b>。（冬陽＝栗子）</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">改寫技巧</div><div class="alert-text"><b>借喻→明喻</b>：把本體補回來，加「像」。<b>明喻→借喻</b>：刪去本體和喻詞，只留喻體。<b>借喻→暗喻</b>：補回本體，用「是」連接。</div></div></div>
+</div>
+
+<div class="keep"><div class="qsub">疊字</div>
+<div class="qbox"><span class="qn">1.</span>根據下面句子的意思，把適當的疊字寫在橫線上。
+  <div class="wordbank"><span>微微</span><span>漸漸</span><span>笑瞇瞇</span><span>沉甸甸</span><span>一個個</span><span>軟綿綿</span><span>白白淨淨</span></div>
+  (1) 這個蛋糕口感<span class="blank"></span>，讓人一口接一口吃個不停。<br>
+  (2) 他吃力地提着<span class="blank"></span>的行李上了汽車，我站在路邊看着他在車上的背影<span class="blank"></span>遠去。<br>
+  (3) 老人從褲袋裏掏出數枚硬幣，<span class="blank"></span>地認真點算着。店員對老人微微一笑，等待着他把零錢點清。<br>
+  (4) 妹妹長着一張娃娃臉，她皮膚<span class="blank"></span>，還有一雙<span class="blank"></span>的眼睛，十分可愛。
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) 軟綿綿　(2) 沉甸甸、漸漸　(3) 一個個　(4) 白白淨淨、笑瞇瞇</div></div>
+</div></div>
+
+<div class="keep"><div class="qsub">比喻</div>
+<div class="qbox"><span class="qn">2.</span>找出下面句子中的本體、喻體，以及喻詞或繫詞，如沒有出現，以「╱」表示；並寫出句子運用了哪種比喻手法。
+  <table>
+    <tr><th>句子</th><th class="c">本體</th><th class="c">喻體</th><th class="c">喻詞╱繫詞</th><th class="c">比喻手法</th></tr>
+    <tr><td>(1) 老遠就聽到炒栗子聲，一鏟鏟盡是跳跳脫脫的冬陽。（鍾曉陽《販夫風景》）</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>(2) 那映照在浪峯上的霞光，又紅又亮，簡直就像一片片霍霍燃燒着的火焰。（峻青《海濱仲夏夜》）</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>(3) 街燈是城市的守護者，給夜歸的人照亮回家的路。</td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span>(1) ╱；冬陽；╱；借喻<br>(2) 霞光；火焰；像；明喻<br>(3) 街燈；守護者；是；暗喻</div></div>
+</div></div>
+<div class="qbox"><span class="qn">3.</span>根據括號內的指引，改寫下面的比喻句。<br>
+  (1) 他頭髮盡白了，蓄平頭，一髭髭短樁子在腦勺上砌梅花樁。（鍾曉陽《販夫風景》）（把借喻句改寫成明喻句）<div class="line"></div><div class="line"></div>
+  (2) 我們站在草原上，清風如輕紗撫過臉頰，留下絲絲涼意。（把明喻句改寫成借喻句）<div class="line"></div>
+  (3) 哥哥畢業後便出外闖蕩，這匹脫韁野馬不知甚麼時候才肯安定下來。（把借喻句改寫成暗喻句）<div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案（示例）</span>(1) 他頭髮盡白了，蓄平頭，一根根短髮像梅花樁一樣直豎在腦勺上。<br>(2) 我們站在草原上，讓輕紗撫過臉頰，留下絲絲涼意。<br>(3) 哥哥是一匹脫韁野馬，畢業後便出外闖蕩，不知甚麼時候才肯安定下來。<br><small>（答案僅供參考，學生言之成理即可）</small></div></div>
+</div>
+
+<!-- ============ CHAPTER 12 ============ -->
+<div class="section-header" id="s12"><span class="sh-icon">📜</span><span class="sh-title">語文運用：文言知識</span><span class="sh-ch">CHAPTER 12</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>概念一：「以」的常見意思</h3>
+  <table>
+    <tr><th class="c">詞性</th><th class="c">意思</th><th>例子</th></tr>
+    <tr><td class="c" rowspan="4">介詞</td><td class="c">用、憑、拿、把</td><td>常<b>以</b>雞卵白和沐（經常<b>把</b>雞蛋白混和水洗頭髮）</td></tr>
+    <tr><td class="c">因為</td><td>劉公幹<b>以</b>失敬罹罪（<b>因為</b>不敬而受罰）</td></tr>
+    <tr><td class="c">在</td><td>夫物<b>以</b>春生夏長（植物<b>在</b>春天發芽）</td></tr>
+    <tr><td class="c">因此（以故）</td><td>鼠<b>以</b>故益暴（老鼠<b>因此</b>更加放肆）——表示結果</td></tr>
+    <tr><td class="c" rowspan="2">連詞</td><td class="c">為了、來</td><td>東臨碣石，<b>以</b>觀滄海（<b>為了</b>觀賞東海）——表示目的</td></tr>
+    <tr><td class="c">而</td><td>樂<b>以</b>忘憂（快樂<b>而</b>忘記憂慮）——表示並列或遞進</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>概念二：「也」表示的語氣</h3>
+  <table>
+    <tr><th class="c">語氣</th><th>例子</th><th>語譯</th></tr>
+    <tr><td class="c">判斷</td><td>浙江之潮，天下之偉觀<b>也</b>。</td><td>錢塘江的漲潮，<b>是</b>天下雄偉的景觀。</td></tr>
+    <tr><td class="c">疑問</td><td>舜何人<b>也</b>？</td><td>舜是怎樣的人<b>呢</b>？</td></tr>
+    <tr><td class="c">感歎</td><td>真吾主<b>也</b>！</td><td>（他）真是我的君主<b>啊</b>！</td></tr>
+    <tr><td class="c">祈使</td><td>故願王之熟計之<b>也</b>！</td><td>所以希望大王仔細謀劃<b>吧</b>！</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">判斷方法</div><div class="alert-text">看句子前面的詞：有「何」「孰」等疑問詞→疑問；有「真」「哉」等讚歎→感歎；有「願」「請」等請求→祈使；「甲，乙也」的結構→判斷。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot green"></span>概念三：人稱代詞</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">第一人稱</div><div class="kw-def">吾、余、予、我 → 我</div></div>
+    <div class="kw"><div class="kw-word">第二人稱</div><div class="kw-def">爾、汝、若、子 → 你</div></div>
+    <div class="kw"><div class="kw-word">第三人稱</div><div class="kw-def">之、其、彼 → 他／它；其＝他的／它的</div></div>
+  </div>
+  <div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">提醒</div><div class="alert-text">「之」「其」指代誰，要回到上文去找。例如「王戎有好李，賣之」，「之」指上文的李子。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>概念四：判斷句</h3>
+  <p>判斷句用來說明「甲是乙」。文言文很少用「是」，常見的標誌有：</p>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">甲，乙也</div><div class="kw-def">夫秦，虎狼之國也。</div></div>
+    <div class="kw"><div class="kw-word">甲者，乙也</div><div class="kw-def">句中用「者」停頓，句末用「也」。</div></div>
+    <div class="kw"><div class="kw-word">乃／為／即／是</div><div class="kw-def">放在甲乙之間，意思是「就是、是」。</div></div>
+  </div>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">句子有「為」「即」字不一定是判斷句，要看意思。「拾薪為燭」的「為」解作「作為」，是動作，不是判斷。最穩妥的方法是試譯成白話：譯出來是「甲是乙」才算判斷句。</div></div></div>
+</div>
+
+<div class="keep"><div class="qsub">「以」</div>
+<div class="qbox"><span class="qn">1.</span>找出下面句子中「以」字的用法，並解釋它們的意思。<br>
+  (1) 貓既飽且安，率不捕鼠，甚者與鼠遊戲，鼠<span class="dotmark">以</span>故益暴。（樂鈞《耳食錄．世無良貓》）
+  <div class="opts"><span>○ 表示目的</span><span>○ 表示結果</span>　意思：<span class="blank"></span></div>
+  (2) 東臨碣石，<span class="dotmark">以</span>觀滄海。（曹操《觀滄海》）
+  <div class="opts"><span>○ 表示目的</span><span>○ 表示並列或遞進關係</span>　意思：<span class="blank"></span></div>
+  (3) 其（指孔子）為人也，發憤忘食，樂<span class="dotmark">以</span>忘憂。（《論語．述而》）
+  <div class="opts"><span>○ 表示結果</span><span>○ 表示並列或遞進關係</span>　意思：<span class="blank"></span></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>(1) ● 表示結果；因此<br><small>語譯：貓又飽足又安逸，大都不捕捉老鼠，甚至和老鼠玩樂，老鼠因此更加放肆。</small><br>(2) ● 表示目的；為了<br><small>語譯：（往）東行來到碣石山，為了觀賞東海。</small><br>(3) ● 表示並列或遞進關係；而<br><small>語譯：他這個人，發憤用功（而）忘記吃飯，（內心）快樂而忘記憂慮。</small></div></div>
+</div></div>
+<div class="qbox"><span class="qn">2.</span>解釋下面句子中「以」字的意思。
+  <table>
+    <tr><th>句子</th><th class="c">意思</th></tr>
+    <tr><td>(1) 騫（張騫）<span class="dotmark">以</span>郎（郎官）應募，使（出使）月氏。（《漢書．張騫傳》）</td><td style="width:110px"></td></tr>
+    <tr><td>(2) 梁世（梁朝）有人，常<span class="dotmark">以</span>雞卵白和（混和水裏）沐（洗頭髮），云使髮光。（《顏氏家訓．歸心》）</td><td></td></tr>
+    <tr><td>(3) 劉公幹<span class="dotmark">以</span>失敬（對甄皇后不敬）罹罪。（劉義慶《世說新語．劉公幹失敬》）</td><td></td></tr>
+    <tr><td>(4) 夫物<span class="dotmark">以</span>春生夏長，秋而熟老。（王充《論衡．偶會》）</td><td></td></tr>
+    <tr><td>(5) 其（指孟子）母引刀裂其織，<span class="dotmark">以</span>此誡之。（韓嬰《韓詩外傳．孟母戒子》）</td><td></td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>(1) 用／憑 <small>張騫用郎官（的身份）應召，出使月氏。</small><br>(2) 把／拿／用 <small>梁朝（時）有（一個）人，經常把雞蛋白混和（水裏）洗（頭髮），說可使頭髮亮澤。</small><br>(3) 因為 <small>劉公幹（劉楨）因為（對甄皇后）不敬（而）遭受懲罰。</small><br>(4) 在 <small>植物在春天發芽夏天生長，秋天就成熟老去。</small><br>(5) 用 <small>孟子的母親拿刀割斷她織的布，用這種方法告戒孟子（讀書不能半途而廢）。</small></div></div>
+</div>
+
+<div class="keep"><div class="qsub">「也」</div>
+<div class="qbox"><span class="qn">3.</span>判斷下面句子中「也」字所表示的語氣。<br>
+  (1) 顏淵曰：「舜何人<span class="dotmark">也</span>？」（《孟子．滕文公上》）<div class="opts"><span>○ 判斷</span><span>○ 疑問</span><span>○ 感歎</span></div>
+  (2) 嘉出，亦喜曰：「真吾主<span class="dotmark">也</span>！」（《三國志．郭嘉傳》）<div class="opts"><span>○ 祈使</span><span>○ 感歎</span><span>○ 判斷</span></div>
+  (3) 今趙且伐燕，燕趙久相支（相持），以弊（疲困）大眾，臣恐強秦之為漁夫也。故願王之熟（仔細）計之<span class="dotmark">也</span>！（《戰國策．鷸蚌相爭》）<div class="opts"><span>○ 感歎</span><span>○ 判斷</span><span>○ 祈使</span></div>
+  (4) 浙江（錢塘江）之潮，天下之偉觀<span class="dotmark">也</span>。（周密《武林舊事．浙江之潮》）<div class="opts"><span>○ 感歎</span><span>○ 判斷</span><span>○ 祈使</span></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>(1) 疑問 <small>顏淵問：「舜是怎樣的人？」</small><br>(2) 感歎 <small>郭嘉退出，也欣喜（地）說：「（他）真是我（的）君主！」</small><br>(3) 祈使 <small>如今趙國將要攻打燕國，燕趙（兩國）長期相持，使老百姓疲困，臣恐怕強大的秦國會成為（那不勞而獲的）漁夫。所以希望大王仔細謀劃出兵的事！</small><br>(4) 判斷 <small>錢塘江的漲潮，是天下雄偉的景觀。</small></div></div>
+</div></div>
+
+<div class="keep"><div class="qsub">人稱代詞</div>
+<div class="qbox"><span class="qn">4.</span>判斷以下句子中附着重號的人稱代詞所指代的人或事物，並解釋它們的意思。<br>
+  (1) 王戎有好李，賣<span class="dotmark">之</span>，恐人得其種，恆鑽（挖出）其核。（劉義慶《世說新語．王戎賣李》）<div class="opts">指代：<span>○ 李子</span><span>○ 李核</span>　意思：<span class="blank s"></span></div>
+  (2) 闔廬病創將死，謂太子夫差曰：「<span class="dotmark">爾</span>忘勾踐殺爾父乎？」（司馬遷《史記．伍子胥列傳》）<div class="opts">指代：<span>○ 闔廬</span><span>○ 夫差</span>　意思：<span class="blank s"></span></div>
+  (3) 甲翁曰：「是山<span class="dotmark">余</span>亦未登，然老矣，恐力不勝。」（《二翁登泰山》）<div class="opts">指代：<span>○ 山</span><span>○ 甲翁</span>　意思：<span class="blank s"></span></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>(1) 李子；它 <small>王戎有良種李子，賣出它，擔心別人得到它的種子，常常挖出李子的核（再賣）。</small><br>(2) 夫差；你 <small>闔廬受傷快要死，對太子夫差說：「你忘記勾踐殺死你父親嗎？」</small><br>(3) 甲翁；我 <small>甲老翁說：「那座山我也未曾登上，然而（我）老了，恐怕力氣不夠。」</small></div></div>
+</div></div>
+
+<div class="keep"><div class="qsub">判斷句</div>
+<div class="qbox"><span class="qn">5.</span>辨別下面的句子是否判斷句。
+  <table>
+    <tr><th>句子</th><th class="c">是</th><th class="c">否</th></tr>
+    <tr><td>(1) 母鄭，守節自誓，親誨之學。（《宋史．歐陽修傳》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(2) 夫秦，虎狼之國也。（司馬遷《史記．蘇秦列傳》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(3) 家貧，拾薪為燭，誦習達旦不寐。（《岳飛之少年時代》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(4) 余幼時即嗜學。（宋濂《送東陽馬生序》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(5) 秦必大怒攻楚。（司馬遷《史記．張儀列傳》）</td><td class="c">○</td><td class="c">○</td></tr>
+    <tr><td>(6) 孔子過泰山側，有婦人哭於墓者而哀。（《禮記．苛政猛於虎》）</td><td class="c">○</td><td class="c">○</td></tr>
+  </table>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+  <div class="ans" hidden><span class="ans-tag">參考答案</span><br>
+  (1) 否 <small>母親鄭氏，堅守節操（並）下定決心，親自教導歐陽修學習。</small><br>
+  (2) 是 <small>秦國，（是像）餓虎貪狼的國家。</small><br>
+  (3) 否 <small>（由於）家境貧困，（岳飛便）拾取柴枝作為蠟燭（照明），讀書學習直到天亮不睡覺。</small><br>
+  (4) 否 <small>我年幼時就喜愛學習。</small><br>
+  (5) 否 <small>秦國必定非常憤怒（然後）攻打楚國。</small><br>
+  (6) 否 <small>孔子經過泰山旁邊，有（一位）婦人在墓前哭得很傷心。</small><br>
+  <span class="note">潘SIR按：出版社答案把(4)(5)列作「是」。但(4)的「即」解作「就」，(5)也沒有任何判斷標誌，兩句譯成白話都不是「甲是乙」的結構，故此處改為「否」。</span></div></div>
+</div></div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
