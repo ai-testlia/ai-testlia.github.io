@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《岳陽樓記》DSE 教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2a8a80;--teal-bg:#e3f3f1;
+  --coral:#d0654a;--coral-bg:#fbeae5;
+  --amber:#c48a1a;--amber-bg:#fbf1dc;
+  --pink:#c2557f;--pink-bg:#f9e8ef;
+  --blue:#3a6ea5;--blue-bg:#e6eef7;
+  --green:#3d8b4f;--green-bg:#e6f3e8;
+  --red:#c0392b;--red-bg:#fbe7e5;
+  --hero-bg:#D5D8C5;--hero-fg:26,32,21;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#ececec;
+    --color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f1f1f;
+    --color-background-secondary:#151515;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a99be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c302e;
+    --coral:#ee9078;--coral-bg:#3a2520;
+    --amber:#e3b456;--amber-bg:#352c19;
+    --pink:#e58aae;--pink-bg:#382430;
+    --blue:#7fa9d6;--blue-bg:#1d2a38;
+    --green:#74c487;--green-bg:#1c2f21;
+    --red:#ef8478;--red-bg:#3a201d;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC",sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 80px}
+h1,h2,h3,.serif{font-family:"Noto Serif TC",serif}
+.c{white-space:nowrap}
+
+/* hero */
+.hero{background:var(--hero-bg);border-radius:var(--border-radius-lg);padding:34px 28px;margin-bottom:20px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-fg),0.3);color:rgba(var(--hero-fg),0.65);border-radius:999px;padding:2px 14px;font-size:12.5px;letter-spacing:2px}
+.hero h1{color:rgb(var(--hero-fg));font-size:32px;margin:12px 0 4px}
+.hero .sub{color:rgba(var(--hero-fg),0.75);font-size:15px}
+.hero p{color:rgba(var(--hero-fg),0.5);margin:10px 0 0;font-size:13px}
+
+/* toc */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px 16px}
+.toc-title{grid-column:1/-1;font-weight:700;font-size:15px;margin-bottom:4px}
+.toc-item{color:var(--color-text-primary);text-decoration:none;padding:4px 0;font-size:14px}
+.toc-item:hover{color:var(--blue)}
+.toc-num{display:inline-block;width:30px;color:var(--teal);font-weight:700}
+
+/* section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:40px 0 16px}
+.section-header.first{margin-top:10px}
+.sh-icon{width:44px;height:44px;border-radius:12px;background:var(--teal-bg);display:flex;align-items:center;justify-content:center;font-size:22px;flex:none}
+.sh-text h2{margin:0;font-size:22px}
+.sh-text .ch{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary)}
+
+/* card */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
+.card h3{margin:0 0 8px;font-size:17px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--purple)}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.card p{margin:6px 0}
+
+/* example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-size:14px}
+
+/* alert */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert.tip{background:var(--blue-bg)}.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.alert-icon{font-size:18px;line-height:1.6}
+.alert-label{font-weight:700;font-size:13px}
+.alert.tip .alert-label{color:var(--blue)}.alert.warn .alert-label{color:var(--red)}.alert.success .alert-label{color:var(--green)}.alert.amber .alert-label{color:var(--amber)}
+.alert-text{font-size:14px}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px}
+.compare-card.bad{background:var(--coral-bg);border-top:4px solid var(--coral)}
+.compare-card.good{background:var(--teal-bg);border-top:4px solid var(--teal)}
+.compare-card h4{margin:0 0 6px;font-size:15px}
+@media (max-width:600px){.compare-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px}
+.flow-step b{display:block;color:var(--teal);font-size:13.5px}
+.flow-arrow{align-self:center;color:var(--color-text-secondary);font-size:18px}
+
+/* keyword */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px}
+.kw-word{font-family:"Noto Serif TC",serif;font-weight:700;color:var(--purple)}
+.kw-def{font-size:13px;color:var(--color-text-secondary)}
+
+/* formula */
+.formula{background:#2e3a2c;color:#f2f2ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:12px 0;font-family:"Noto Serif TC",serif;font-size:16px;text-align:center;line-height:1.9}
+.formula small{display:block;font-family:"Noto Sans TC",sans-serif;font-size:12px;opacity:.7;letter-spacing:2px}
+
+/* table */
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px;background:var(--color-background-primary)}
+th,td{border:0.5px solid var(--color-border-tertiary);padding:7px 10px;vertical-align:top;text-align:left}
+th{background:var(--color-background-secondary);white-space:nowrap;font-weight:700}
+
+/* text */
+.text-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:14px}
+.para{font-family:"Noto Serif TC",serif;font-size:16.5px;line-height:2.1;margin:10px 0;display:flex;gap:10px}
+.pnum{flex:none;width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;font-family:"Noto Sans TC",sans-serif;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:6px}
+.layer-tag{display:inline-block;background:var(--amber-bg);color:var(--amber);font-size:12px;font-weight:700;border-radius:999px;padding:1px 12px;margin-top:10px}
+sup.n{color:var(--coral);font-family:"Noto Sans TC",sans-serif;font-size:11px}
+.date{text-align:right;font-family:"Noto Serif TC",serif;color:var(--color-text-secondary)}
+
+/* practice */
+.qsub{font-family:"Noto Serif TC",serif;font-size:17px;font-weight:700;margin:20px 0 8px;padding-left:10px;border-left:4px solid var(--teal)}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{color:var(--color-text-secondary);font-size:13px;margin-left:4px}
+.line{border-bottom:1px solid var(--color-text-secondary);height:30px;opacity:.5}
+.blank{display:inline-block;border-bottom:1px solid var(--color-text-primary);min-width:90px;height:1.2em;vertical-align:bottom}
+.blank.s{min-width:50px}.blank.l{min-width:180px}
+.opts{margin:6px 0 6px 18px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0;font-family:"Noto Serif TC",serif;font-size:15.5px;line-height:2}
+.excerpt .src{text-align:right;font-family:"Noto Sans TC",sans-serif;font-size:12.5px;color:var(--color-text-secondary)}
+.notes{font-size:12.5px;color:var(--color-text-secondary)}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans ul{margin:4px 0;padding-left:20px}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:6px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border:none}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">文言教學筆記</div>
+  <h1>范仲淹《岳陽樓記》</h1>
+  <div class="sub">HKDSE 指定文言經典精編</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>作者與寫作背景</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>課文原文及註釋</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>篇章結構</a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span>內容理解（逐段精讀）</a>
+  <a class="toc-item" href="#s5"><span class="toc-num">05</span>寫作技巧</a>
+  <a class="toc-item" href="#s6"><span class="toc-num">06</span>主旨與賞析</a>
+  <a class="toc-item" href="#s7"><span class="toc-num">07</span>練習一：字詞解釋及語譯</a>
+  <a class="toc-item" href="#s8"><span class="toc-num">08</span>練習二：理解及分析</a>
+  <a class="toc-item" href="#s9"><span class="toc-num">09</span>練習三：比較閱讀</a>
+</nav>
+
+<!-- 01 -->
+<div class="section-header first" id="s1">
+  <div class="sh-icon">👤</div>
+  <div class="sh-text"><div class="ch">CHAPTER 01</div><h2>作者與寫作背景</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>范仲淹（989–1052）</h3>
+  <p>字希文，北宋政治家、文學家，諡號「文正」。他自幼家貧，勤學苦讀，中進士後歷任地方官及朝廷要職，曾鎮守西北邊防。</p>
+  <p>慶曆三年（1043），范仲淹出任參知政事，推行改革，史稱「慶曆新政」。改革觸動權貴利益，不久失敗，他亦被調離朝廷，出任地方官。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>寫作背景</h3>
+  <p>滕子京（名宗諒）是范仲淹的好友，慶曆四年（1044）被貶到巴陵郡（今湖南岳陽）。他到任後整頓政務，第二年重修岳陽樓，並請范仲淹寫記。</p>
+  <p>本文寫於慶曆六年（1046）九月，當時范仲淹同樣身處貶謫之中。相傳他並未親登岳陽樓，而是根據滕子京送來的圖畫寫成。</p>
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div><div class="alert-label">讀文前先記住</div><div class="alert-text">作者與滕子京同是被貶之人。文末寫「古仁人之心」，既是自勉，也有勸勉好友的用意。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>「記」這種文體</h3>
+  <p>「記」是古代記事、記物的文體，樓臺亭閣記一般會交代建造或重修的經過、描寫景物。本文只用很少篇幅寫樓，重點放在登樓者的感受，最後轉入議論，這是本文與一般樓臺記不同的地方。</p>
+</div>
+
+<!-- 02 -->
+<div class="section-header" id="s2">
+  <div class="sh-icon">📜</div>
+  <div class="sh-text"><div class="ch">CHAPTER 02</div><h2>課文原文及註釋</h2></div>
+</div>
+
+<div class="text-card">
+  <div class="layer-tag">第一部分　記事：重修岳陽樓的緣由（第1段）</div>
+  <div class="para"><span class="pnum">1</span><div>慶曆四年春，滕子京謫守<sup class="n">①</sup>巴陵郡。越明年<sup class="n">②</sup>，政通人和，百廢具興<sup class="n">③</sup>。乃重修岳陽樓，增其舊制<sup class="n">④</sup>，刻唐賢今人詩賦於其上；屬<sup class="n">⑤</sup>予作文以記之。</div></div>
+
+  <div class="layer-tag">第二部分　寫景抒情：覽物之情（第2–4段）</div>
+  <div class="para"><span class="pnum">2</span><div>予觀夫巴陵勝狀，在洞庭一湖。銜遠山，吞長江，浩浩湯湯<sup class="n">⑥</sup>，橫無際涯；朝暉夕陰<sup class="n">⑦</sup>，氣象萬千；此則岳陽樓之大觀也，前人之述備<sup class="n">⑧</sup>矣。然則北通巫峽，南極<sup class="n">⑨</sup>瀟湘，遷客騷人<sup class="n">⑩</sup>，多會於此，覽物之情，得無異乎？</div></div>
+  <div class="para"><span class="pnum">3</span><div>若夫霪雨霏霏<sup class="n">⑪</sup>，連月不開；陰風怒號，濁浪排空；日星隱曜，山岳潛形；商旅不行，檣傾楫摧<sup class="n">⑫</sup>；薄暮冥冥，虎嘯猿啼。登斯樓也，則有去國懷鄉<sup class="n">⑬</sup>，憂讒畏譏，滿目蕭然，感極而悲者矣。</div></div>
+  <div class="para"><span class="pnum">4</span><div>至若春和景明，波瀾不驚，上下天光，一碧萬頃；沙鷗翔集，錦鱗<sup class="n">⑭</sup>游泳；岸芷汀蘭<sup class="n">⑮</sup>，郁郁青青。而或長煙一空，皓月千里，浮光躍金，靜影沉璧<sup class="n">⑯</sup>；漁歌互答，此樂何極！登斯樓也，則有心曠神怡，寵辱偕忘<sup class="n">⑰</sup>，把酒臨風，其喜洋洋者矣。</div></div>
+
+  <div class="layer-tag">第三部分　議論：古仁人之心（第5段）</div>
+  <div class="para"><span class="pnum">5</span><div>嗟夫！予嘗求古仁人之心，或異二者之為。何哉？不以物喜，不以己悲；居廟堂<sup class="n">⑱</sup>之高，則憂其民；處江湖<sup class="n">⑲</sup>之遠，則憂其君。是進亦憂，退亦憂。然則何時而樂耶？其必曰：「先天下之憂而憂，後天下之樂而樂」歟！噫！微斯人，吾誰與歸<sup class="n">⑳</sup>？</div></div>
+  <div class="date">時六年九月十五日。</div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>註釋</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">① 謫守</div><div class="kw-def">被貶官出任太守。謫：降職遠調。</div></div>
+    <div class="kw"><div class="kw-word">② 越明年</div><div class="kw-def">到了第二年。越：及至。</div></div>
+    <div class="kw"><div class="kw-word">③ 百廢具興</div><div class="kw-def">各種荒廢的事業都興辦起來。具：通「俱」，全、都。</div></div>
+    <div class="kw"><div class="kw-word">④ 增其舊制</div><div class="kw-def">擴大它原來的規模。</div></div>
+    <div class="kw"><div class="kw-word">⑤ 屬</div><div class="kw-def">通「囑」，囑託。</div></div>
+    <div class="kw"><div class="kw-word">⑥ 浩浩湯湯</div><div class="kw-def">水勢浩大的樣子。湯湯，讀作「傷傷」。</div></div>
+    <div class="kw"><div class="kw-word">⑦ 朝暉夕陰</div><div class="kw-def">早上陽光明亮，傍晚天色陰暗。</div></div>
+    <div class="kw"><div class="kw-word">⑧ 備</div><div class="kw-def">詳盡、完備。</div></div>
+    <div class="kw"><div class="kw-word">⑨ 極</div><div class="kw-def">直達、到。</div></div>
+    <div class="kw"><div class="kw-word">⑩ 遷客騷人</div><div class="kw-def">被貶謫的官員和失意的文人。</div></div>
+    <div class="kw"><div class="kw-word">⑪ 霪雨霏霏</div><div class="kw-def">連綿不斷的雨下個不停。</div></div>
+    <div class="kw"><div class="kw-word">⑫ 檣傾楫摧</div><div class="kw-def">桅杆倒下，船槳折斷。</div></div>
+    <div class="kw"><div class="kw-word">⑬ 去國懷鄉</div><div class="kw-def">離開京城，懷念家鄉。國：國都。</div></div>
+    <div class="kw"><div class="kw-word">⑭ 錦鱗</div><div class="kw-def">色彩斑斕的魚。</div></div>
+    <div class="kw"><div class="kw-word">⑮ 岸芷汀蘭</div><div class="kw-def">岸上的白芷，小洲上的蘭草。</div></div>
+    <div class="kw"><div class="kw-word">⑯ 浮光躍金，靜影沉璧</div><div class="kw-def">水面月光閃動像跳躍的金子；月影倒映水中像沉在水底的玉璧。</div></div>
+    <div class="kw"><div class="kw-word">⑰ 寵辱偕忘</div><div class="kw-def">榮耀和屈辱都一併忘記。</div></div>
+    <div class="kw"><div class="kw-word">⑱ 廟堂</div><div class="kw-def">朝廷，指在朝做官。</div></div>
+    <div class="kw"><div class="kw-word">⑲ 江湖</div><div class="kw-def">遠離朝廷的地方，指被貶或退隱。</div></div>
+    <div class="kw"><div class="kw-word">⑳ 微斯人，吾誰與歸</div><div class="kw-def">如果沒有這種人，我同誰一道呢？微：如果沒有。</div></div>
+  </div>
+</div>
+
+<!-- 03 -->
+<div class="section-header" id="s3">
+  <div class="sh-icon">🧭</div>
+  <div class="sh-text"><div class="ch">CHAPTER 03</div><h2>篇章結構</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>全文脈絡</h3>
+  <div class="flow">
+    <div class="flow-step"><b>第1段　記事</b>交代重修岳陽樓及作記緣由</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第2段　過渡</b>略寫洞庭大觀，提出「覽物之情，得無異乎」</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第3–4段　寫景抒情</b>陰雨則悲，晴朗則喜</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第5段　議論</b>古仁人「不以物喜，不以己悲」，先憂後樂</div>
+  </div>
+  <table>
+    <tr><th>段落</th><th>內容</th><th>表達方式</th><th class="c">作用</th></tr>
+    <tr><td class="c">第1段</td><td>滕子京謫守巴陵，政績顯著，重修岳陽樓，囑作者寫記</td><td class="c">記敘</td><td>交代寫作緣由，暗贊滕子京</td></tr>
+    <tr><td class="c">第2段</td><td>洞庭湖壯闊景色；遷客騷人多聚於此</td><td class="c">描寫、記敘</td><td>以「前人之述備矣」略寫景色，以設問承上啟下</td></tr>
+    <tr><td class="c">第3段</td><td>陰雨景色及遷客騷人的悲</td><td class="c">描寫、抒情</td><td>寫「以物悲」</td></tr>
+    <tr><td class="c">第4段</td><td>春晴月夜景色及遷客騷人的喜</td><td class="c">描寫、抒情</td><td>寫「以物喜」，與第3段對比</td></tr>
+    <tr><td class="c">第5段</td><td>古仁人進退皆憂，先憂後樂</td><td class="c">議論、抒情</td><td>點明主旨，自勉並勸勉滕子京</td></tr>
+  </table>
+</div>
+
+<!-- 04 -->
+<div class="section-header" id="s4">
+  <div class="sh-icon">🔍</div>
+  <div class="sh-text"><div class="ch">CHAPTER 04</div><h2>內容理解（逐段精讀）</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>第1段：重修樓的緣由</h3>
+  <p>「謫守」二字點出滕子京是被貶之人。可是他到任只一年，便做到「政通人和，百廢具興」，然後才重修岳陽樓。先寫政績、後寫修樓，說明他把政事放在第一位，雖遭貶謫仍盡心為民。</p>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧</div><div class="alert-text">問滕子京形象時，可答兩點：有政治才幹（一年治好地方）；以民為先（先政事後遊觀）。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>第2段：由景轉情的樞紐</h3>
+  <p>「銜遠山，吞長江」用擬人手法寫洞庭湖的氣勢，「朝暉夕陰，氣象萬千」寫一天之內的變化。作者寫到這裏便以「前人之述備矣」收住，不再鋪寫景色。</p>
+  <p>接着用「然則」一轉：洞庭湖北通巫峽、南達瀟湘，被貶的官員和失意文人多經此地，他們看見景物，心情會否不同？這一問承接上文的景，開啟下文的情。</p>
+  <div class="example-box amber"><div class="example-label">承上啟下句</div><div class="example-text">「覽物之情，得無異乎？」</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>第3、4段：一悲一喜</h3>
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <h4>第3段　陰雨之悲</h4>
+      <p>霪雨連月，陰風怒號，濁浪排空；日星無光，商旅不行；傍晚昏暗，虎嘯猿啼。</p>
+      <p>登樓者：去國懷鄉，憂讒畏譏，感極而悲。</p>
+    </div>
+    <div class="compare-card good">
+      <h4>第4段　晴朗之喜</h4>
+      <p>春和景明，波瀾不驚，一碧萬頃；沙鷗翔集，錦鱗游泳；月夜浮光躍金，漁歌互答。</p>
+      <p>登樓者：心曠神怡，寵辱偕忘，其喜洋洋。</p>
+    </div>
+  </div>
+  <p>兩段結構相同：先寫景，再以「登斯樓也，則有……者矣」寫人的感受。不論悲或喜，遷客騷人的情緒都隨外物變化，也離不開個人的得失。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot green"></span>第5段：古仁人之心</h3>
+  <p>作者說古仁人跟上述兩種人不同：「不以物喜，不以己悲」，即不因外物好壞而喜，不因自己得失而悲。他們在朝做官就擔憂百姓，被貶在外就擔憂君主，所以「進亦憂，退亦憂」。</p>
+  <p>那麼何時才快樂？答案是「先天下之憂而憂，後天下之樂而樂」。最後「微斯人，吾誰與歸」表明作者願意追隨這種人。</p>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">「廟堂」對應「憂其民」，「江湖」對應「憂其君」，次序不要倒轉。「不以物喜」的「物」指外物、環境，「己」指個人際遇。</div></div></div>
+</div>
+
+<!-- 05 -->
+<div class="section-header" id="s5">
+  <div class="sh-icon">✒️</div>
+  <div class="sh-text"><div class="ch">CHAPTER 05</div><h2>寫作技巧</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>對比</h3>
+  <p>第3、4段在天色、湖面、聲音、人的心情各方面互相對照，陰雨的昏暗淒厲與晴朗的明媚歡快形成強烈反差。</p>
+  <div class="example-box"><div class="example-label">例</div><div class="example-text">「陰風怒號，濁浪排空」↔「波瀾不驚，上下天光」<br>「虎嘯猿啼」↔「漁歌互答」</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>借景抒情、情景交融</h3>
+  <p>陰沉的景色配上悲傷，明媚的景色配上喜悅，景物描寫為人物情感鋪墊。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>以賓襯主</h3>
+  <p>遷客騷人的悲喜是「賓」，古仁人的胸懷是「主」。作者先用兩段寫「以物喜、以己悲」的人，再寫「不以物喜，不以己悲」的古仁人，後者的境界便更加突出。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>駢散結合</h3>
+  <p>寫景多用四字句和對偶，例如「沙鷗翔集，錦鱗游泳」「浮光躍金，靜影沉璧」，節奏整齊、音韻鏗鏘；記事和議論則用散句，敘述自然。</p>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>卒章顯志</h3>
+  <p>文章到最後一段才提出古仁人「先天下之憂而憂，後天下之樂而樂」，點明全文主旨。</p>
+</div>
+
+<!-- 06 -->
+<div class="section-header" id="s6">
+  <div class="sh-icon">🎯</div>
+  <div class="sh-text"><div class="ch">CHAPTER 06</div><h2>主旨與賞析</h2></div>
+</div>
+
+<div class="formula">
+  <small>主旨一句記</small>
+  借重修岳陽樓寫遷客騷人覽物之悲喜，<br>帶出古仁人「不以物喜，不以己悲」、「先天下之憂而憂，後天下之樂而樂」的胸懷，<br>藉此自勉，並勸勉同遭貶謫的滕子京。
+</div>
+
+<div class="card">
+  <h3><span class="dot green"></span>賞析要點</h3>
+  <table>
+    <tr><th>角度</th><th>要點</th></tr>
+    <tr><td class="c">立意</td><td>由記樓轉為論志，把個人際遇提升到以天下為己任的層次。</td></tr>
+    <tr><td class="c">結構</td><td>記事 → 寫景抒情 → 議論，層層推進；第2段的設問是全文樞紐。</td></tr>
+    <tr><td class="c">情感</td><td>身處貶謫而不消沉，表現儒家積極入世的精神。</td></tr>
+    <tr><td class="c">語言</td><td>駢散結合，寫景句子對仗工整，議論句子簡潔有力。</td></tr>
+  </table>
+  <div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">重點</div><div class="alert-text">「不以物喜，不以己悲」講個人修養；「先天下之憂而憂，後天下之樂而樂」講對天下的責任。答主旨題時兩句都要提及。</div></div></div>
+</div>
+
+<!-- 07 -->
+<div class="section-header" id="s7">
+  <div class="sh-icon">✏️</div>
+  <div class="sh-text"><div class="ch">CHAPTER 07</div><h2>練習一：字詞解釋及語譯</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">甲部　字詞解釋（8分）</div>
+<div class="qbox"><span class="qn">1.</span>解釋下列文句中「」內的字。<span class="mark">（每題1分，共8分）</span>
+  <table>
+    <tr><th>題號</th><th>文句（段落）</th><th>解釋</th></tr>
+    <tr><td class="c">（1）</td><td>滕子京「謫」守巴陵郡（第1段）</td><td style="width:45%"></td></tr>
+    <tr><td class="c">（2）</td><td>「越」明年（第1段）</td><td></td></tr>
+    <tr><td class="c">（3）</td><td>百廢「具」興（第1段）</td><td></td></tr>
+    <tr><td class="c">（4）</td><td>「屬」予作文以記之（第1段）</td><td></td></tr>
+    <tr><td class="c">（5）</td><td>前人之述「備」矣（第2段）</td><td></td></tr>
+    <tr><td class="c">（6）</td><td>南「極」瀟湘（第2段）</td><td></td></tr>
+    <tr><td class="c">（7）</td><td>連月不「開」（第3段）</td><td></td></tr>
+    <tr><td class="c">（8）</td><td>「微」斯人（第5段）</td><td></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）<br>（1）被貶官　（2）到、及至　（3）通「俱」，全、都　（4）通「囑」，囑託<br>（5）詳盡、完備　（6）直達、到　（7）（天氣）放晴　（8）如果沒有</div>
+  </div>
+</div>
+
+<div class="qsub">乙部　語譯（6分）</div>
+<div class="qbox"><span class="qn">2.</span>把下列文句譯為白話文：增其舊制，刻唐賢今人詩賦於其上。（第1段）<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）擴大它原來的規模（1分），把唐代賢士和當代名人的詩賦刻在樓上。（1分）</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">3.</span>把下列文句譯為白話文：不以物喜，不以己悲。（第5段）<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）不因為外物的好壞而歡喜（1分），不因為自己的得失而悲傷。（1分）</div>
+  </div>
+</div>
+<div class="qbox"><span class="qn">4.</span>把下列文句譯為白話文：居廟堂之高，則憂其民；處江湖之遠，則憂其君。（第5段）<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）在朝廷做高官，就擔憂自己的百姓（1分）；被貶或退居在遠離朝廷的地方，就擔憂自己的君主。（1分）</div>
+  </div>
+</div>
+
+<!-- 08 -->
+<div class="section-header" id="s8">
+  <div class="sh-icon">📝</div>
+  <div class="sh-text"><div class="ch">CHAPTER 08</div><h2>練習二：理解及分析</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">丙部　理解及分析（26分）</div>
+
+<div class="qbox"><span class="qn">5.</span>第1段交代重修岳陽樓前，先寫「政通人和，百廢具興」。這樣安排有甚麼作用？反映滕子京是怎樣的人？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）作用：交代重修岳陽樓的背景，說明滕子京是在政事已經理順、百姓安樂之後，才重修樓閣。（1分）<br>形象：他雖被貶謫，仍勤政愛民，只用一年便把地方治理好，可見他有政治才幹（1分）；先政事後遊觀，可見他以民事為重，不因貶謫而消沉。（1分）</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">6.</span>作者在第2段指「前人之述備矣」。這句話對全文的寫作重點有甚麼影響？試加以說明。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）作者認為前人對岳陽樓壯觀景色的描寫已經很詳盡，故不再重複鋪寫景物（1分），而以「然則」一轉，把重點轉到遷客騷人「覽物之情」的差異上（1分），由此引出後文比較悲喜、提出古仁人懷抱的主旨，使文章由記樓轉為論志。（1分）</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">7.</span>以下哪些關於第2段的分析是正確的？<span class="mark">（2分）</span>
+  <div class="opts">
+    (1) 「銜遠山，吞長江」運用擬人手法，寫出洞庭湖的氣勢。<br>
+    (2) 「朝暉夕陰，氣象萬千」寫湖上一天之內的景色變化。<br>
+    (3) 「北通巫峽，南極瀟湘」說明洞庭湖交通便利，故商旅雲集。<br>
+    (4) 「前人之述備矣」表示作者不滿前人描寫粗略。
+  </div>
+  <div class="opts">A. (1)、(2)　　B. (1)、(3)　　C. (2)、(4)　　D. (1)、(2)、(4)</div>
+  <p>答案：<span class="blank s"></span></p>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）A<br><span style="font-size:13px">(3) 錯，後文指「遷客騷人，多會於此」，並非商旅；(4) 錯，作者是認同前人已寫得詳盡，並非不滿。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">8.</span>第3、4段的景物形成強烈對比。試用自己的文字完成下表。<span class="mark">（4分）</span>
+  <table>
+    <tr><th>比較項目</th><th>第3段（陰雨）</th><th>第4段（晴朗）</th></tr>
+    <tr><td class="c">天色</td><td style="height:56px"></td><td></td></tr>
+    <tr><td class="c">湖面</td><td style="height:56px"></td><td></td></tr>
+    <tr><td class="c">聲音</td><td style="height:56px"></td><td></td></tr>
+    <tr><td class="c">遷客騷人的感受</td><td style="height:56px"></td><td></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每行1分，兩欄皆對方給分）
+      <table>
+        <tr><th>比較項目</th><th>第3段（陰雨）</th><th>第4段（晴朗）</th></tr>
+        <tr><td class="c">天色</td><td>連續幾個月下雨，太陽星星都被遮蔽，傍晚一片昏暗</td><td>春光和暖，陽光明媚，夜裏皓月照千里</td></tr>
+        <tr><td class="c">湖面</td><td>陰風狂吹，渾濁的巨浪衝向天空</td><td>風平浪靜，湖水與天色相連，一片碧綠</td></tr>
+        <tr><td class="c">聲音</td><td>風聲怒吼，老虎咆哮、猿猴悲啼</td><td>漁夫你唱我和，歌聲歡樂</td></tr>
+        <tr><td class="c">遷客騷人的感受</td><td>想起離開京城、懷念故鄉，擔心被人中傷，悲傷至極</td><td>心胸開闊、精神愉快，忘記榮辱，喜氣洋洋</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">9.</span>第3、4段的遷客騷人或悲或喜。試指出他們悲喜的成因，並說明作者寫這兩段與第5段「古仁人」有甚麼關係。<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（5分）成因：遷客騷人的悲喜一方面受眼前景物影響，景色陰沉則悲、景色明媚則喜（1分）；另一方面來自個人遇合，因被貶謫而「去國懷鄉，憂讒畏譏」。（1分）<br>關係：這兩段是「賓」，古仁人是「主」（1分）；作者以遷客騷人悲喜皆由「物」與「己」而生，反襯古仁人「不以物喜，不以己悲」（1分），形成對比，突出古仁人不計個人得失、心繫天下。（1分）</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">10.</span>試解釋「先天下之憂而憂，後天下之樂而樂」的意思（2分），並指出它體現了古仁人怎樣的情懷。（2分）<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）意思：在天下人擔憂之前先擔憂（1分），在天下人都快樂之後才快樂。（1分）<br>情懷：古仁人把國家百姓的福祉放在個人苦樂之前，憂樂皆以天下為依歸（1分），體現以天下為己任、先公後私的儒家入世精神。（1分）</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">11.</span>有人認為本文題為「岳陽樓記」，但寫樓的篇幅極少，有離題之嫌。你同意嗎？試結合全文結構加以評論。<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（5分，示例）立場（1分）：不同意。理據（最多4分）：
+      <ul>
+        <li>第1段交代重修樓的緣由，已完成「記」體應有的交代；</li>
+        <li>第2段以「前人之述備矣」略寫樓景，再以「覽物之情」轉入人情，是全文樞紐；</li>
+        <li>第3、4段由登樓所見寫到登樓者之情，仍以岳陽樓為中心；</li>
+        <li>第5段由情入理，提出古仁人懷抱，並暗中勸勉滕子京。作者是借樓說理，岳陽樓是貫串全文的線索，所以並非離題。</li>
+      </ul>
+      <span style="font-size:13px">評分：理據能逐段結合結構分析，引文恰當，給4分；只籠統寫「借樓說理」而沒有分析，最多給2分。學生表示同意而理據充分，亦可酌情給分。</span></div>
+  </div>
+</div>
+
+<!-- 09 -->
+<div class="section-header" id="s9">
+  <div class="sh-icon">📚</div>
+  <div class="sh-text"><div class="ch">CHAPTER 09</div><h2>練習三：比較閱讀</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">丁部　比較閱讀（10分）</div>
+<p>細讀以下節錄文字，然後回答問題。</p>
+<div class="excerpt">
+  ❶ 自余為僇人，居是州，恆惴慄。其隙也，則施施而行，漫漫而遊。……覺而起，起而歸。以為凡是州之山有異態者，皆我有也，而未始知西山之怪特。<br>
+  ❷ ……悠悠乎與顥氣俱，而莫得其涯；洋洋乎與造物者遊，而不知其所窮。引觴滿酌，頹然就醉，不知日之入。蒼然暮色，自遠而至，至無所見，而猶不欲歸。心凝形釋，與萬化冥合。然後知吾嚮之未始遊，遊於是乎始。
+  <div class="src">——節錄自柳宗元《始得西山宴遊記》</div>
+</div>
+<p class="notes">註：僇人：受刑辱的人，指被貶謫。惴慄：恐懼不安。顥氣：天地間的潔白之氣。萬化：大自然萬物。</p>
+
+<div class="qbox"><span class="qn">12.</span>柳宗元被貶後「恆惴慄」，這種心境與《岳陽樓記》中哪一類人相近？試引《岳陽樓記》原文加以說明。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）與《岳陽樓記》的「遷客騷人」相近。（1分）兩者同為被貶之人，柳宗元時常恐懼不安，正如遷客騷人「去國懷鄉，憂讒畏譏」（1分），都因個人仕途失意而憂懼、心情沉重。（1分）</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">13.</span>柳宗元遊西山後達至「心凝形釋，與萬化冥合」的境界；范仲淹則提出「不以物喜，不以己悲」。試比較兩人面對仕途失意時的態度有何異同。<span class="mark">（7分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（7分）同（2分）：兩人都不再被個人得失和悲喜所困，心境上能超越貶謫帶來的苦悶。<br>異（4分）：
+      <ul>
+        <li>途徑：柳宗元是藉遊覽西山、融入自然，從山水中得到消解；范仲淹則是以自我修養和信念支撐，不依賴外物。（2分）</li>
+        <li>方向：柳宗元「與萬化冥合」，走向個人精神的解脫，帶道家物我兩忘的色彩；范仲淹則「進亦憂，退亦憂」，憂樂繫於天下，是積極入世的儒家態度。（2分）</li>
+      </ul>
+      表達（1分）：能引兩文原文作證，比較對應清晰。</div>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
