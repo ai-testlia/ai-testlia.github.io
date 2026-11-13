@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>清晨的公園｜寫作教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2c8577;--teal-bg:#e3f3f0;
+  --coral:#c4573f;--coral-bg:#fbebe6;
+  --amber:#b7791f;--amber-bg:#fdf3df;
+  --pink:#b44c7a;--pink-bg:#f9e8f0;
+  --blue:#2f6aa8;--blue-bg:#e6eff8;
+  --green:#3b8a4a;--green-bg:#e7f4e9;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero-bg:#E8D5C8;--hero-fg:46,26,18;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ece9e4;--color-text-secondary:#b0aba3;
+    --color-background-primary:#1f1e1c;--color-background-secondary:#151413;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#b0a3e6;--purple-bg:#2a2638;
+    --teal:#6cc8b7;--teal-bg:#1c302c;
+    --coral:#ee9a85;--coral-bg:#3a2520;
+    --amber:#e8b45c;--amber-bg:#372c19;
+    --pink:#e695ba;--pink-bg:#382331;
+    --blue:#86b5e6;--blue-bg:#1d2a38;
+    --green:#82c98f;--green-bg:#1d3121;
+    --red:#ee8a7e;--red-bg:#3a201d;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC',serif}
+.hero{background:var(--hero-bg);color:rgb(var(--hero-fg));border-radius:var(--border-radius-lg);padding:38px 30px 30px;margin-bottom:20px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-fg),0.3);color:rgba(var(--hero-fg),0.65);border-radius:999px;padding:2px 14px;font-size:12.5px;letter-spacing:2px}
+.hero h1{font-size:34px;margin:14px 0 6px;color:rgb(var(--hero-fg));font-weight:900;letter-spacing:2px}
+.hero .sub{font-size:15px;color:rgba(var(--hero-fg),0.75)}
+.hero p{margin:14px 0 0;font-size:13px;color:rgba(var(--hero-fg),0.5)}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px}
+.toc-title{font-weight:700;margin-bottom:6px;font-family:'Noto Serif TC',serif}
+.toc-item{display:block;color:var(--color-text-primary);text-decoration:none;padding:5px 0;border-bottom:0.5px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:none}
+.toc-item:hover{color:var(--coral)}
+.toc-num{display:inline-block;width:34px;color:var(--coral);font-weight:700;font-family:'Noto Serif TC',serif}
+.section-header{display:flex;align-items:center;gap:12px;margin:38px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--color-border-tertiary)}
+.section-header .icon{font-size:24px}
+.section-header h2{margin:0;font-size:22px;flex:1}
+.section-header .ch{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);border:1px solid var(--color-border-tertiary);border-radius:999px;padding:2px 10px;white-space:nowrap}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px;font-size:14px;line-height:1.8}
+.card h3{margin:0 0 8px;font-size:17px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0;background:var(--purple)}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}
+.card p{margin:6px 0}
+.card ul,.card ol{margin:6px 0;padding-left:22px}
+.example-box{background:var(--purple-bg);border-left:4px solid var(--purple);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{background:var(--teal-bg);border-color:var(--teal)}
+.example-box.coral{background:var(--coral-bg);border-color:var(--coral)}
+.example-box.amber{background:var(--amber-bg);border-color:var(--amber)}
+.example-box.pink{background:var(--pink-bg);border-color:var(--pink)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.9}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert.tip{background:var(--blue-bg)}.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.alert-icon{font-size:18px;line-height:1.6}
+.alert-label{font-weight:700;font-size:13px}
+.alert.tip .alert-label{color:var(--blue)}.alert.warn .alert-label{color:var(--red)}.alert.success .alert-label{color:var(--green)}.alert.amber .alert-label{color:var(--amber)}
+.alert-text{font-size:14px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:10px 14px;font-size:14px}
+.compare-card.bad{background:var(--red-bg);border-top:3px solid var(--red)}
+.compare-card.good{background:var(--green-bg);border-top:3px solid var(--green)}
+.compare-card .cl{font-weight:700;font-size:12.5px;margin-bottom:4px}
+.compare-card.bad .cl{color:var(--red)}.compare-card.good .cl{color:var(--green)}
+.flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;margin:10px 0}
+.flow-step{flex:1;min-width:120px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px;text-align:center}
+.flow-step b{display:block;color:var(--coral);font-size:14px}
+.flow-arrow{align-self:center;color:var(--color-text-secondary);font-weight:700}
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;color:var(--teal)}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+.formula{background:#3a2a24;color:#f6ede6;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;text-align:center}
+.formula .fl{font-size:12px;letter-spacing:3px;opacity:.7;font-family:'Noto Sans TC',sans-serif}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}
+th,td{border:0.5px solid var(--color-border-tertiary);padding:7px 10px;vertical-align:top;text-align:left}
+th{background:var(--color-background-secondary);font-weight:700;white-space:nowrap}
+td.c,th.c{white-space:nowrap;text-align:center}
+.essay{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:22px 26px;margin-bottom:14px}
+.essay h3{text-align:center;font-size:20px;margin:0 0 12px}
+.essay p{font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:2.05;text-indent:2em;margin:0 0 10px;position:relative}
+.pnum{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--coral);color:#fff;font-size:11px;font-family:'Noto Sans TC',sans-serif;margin-right:6px;text-indent:0;vertical-align:2px}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--coral);background:var(--coral-bg);border-radius:999px;padding:1px 12px;margin:8px 0 6px}
+.hl-sense{background:var(--teal-bg);border-bottom:2px solid var(--teal)}
+.hl-move{background:var(--amber-bg);border-bottom:2px solid var(--amber)}
+.hl-rhet{background:var(--pink-bg);border-bottom:2px solid var(--pink)}
+.hl-feel{background:var(--purple-bg);border-bottom:2px solid var(--purple)}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;margin:0 0 10px}
+.legend span{padding:0 6px;border-radius:4px}
+.qsub{font-weight:700;font-family:'Noto Serif TC',serif;font-size:16px;margin:22px 0 8px;color:var(--coral)}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary)}
+.line{border-bottom:1px solid var(--color-text-secondary);height:30px;opacity:.5}
+.blank{display:inline-block;border-bottom:1px solid var(--color-text-primary);min-width:110px;height:1.2em;vertical-align:bottom}
+.blank.s{min-width:60px}.blank.l{min-width:220px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0;font-family:'Noto Serif TC',serif;line-height:1.9}
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border:none}
+@media (max-width:600px){.compare-grid{grid-template-columns:1fr}.hero h1{font-size:28px}.essay{padding:18px 16px}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .hl-sense,.hl-move,.hl-rhet,.hl-feel{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">寫作教學筆記</div>
+  <h1>清晨的公園</h1>
+  <div class="sub">中二級　記敘描寫文　寫地方</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>審題與立意</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>選材：清晨的公園有甚麼可寫</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>描寫手法</a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span>結構與線索</a>
+  <a class="toc-item" href="#s5"><span class="toc-num">05</span>範文及賞析</a>
+  <a class="toc-item" href="#s6"><span class="toc-num">06</span>寫作練習</a>
+</nav>
+
+<!-- ===== CHAPTER 01 ===== -->
+<div class="section-header first" id="s1"><span class="icon">🔍</span><h2>審題與立意</h2><span class="ch">CHAPTER 01</span></div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>拆解題目</h3>
+  <table>
+    <tr><th class="c">關鍵詞</th><th>要求</th><th>寫作時要注意</th></tr>
+    <tr><td class="c">清晨</td><td>時間限定在天剛亮到早上七、八時左右</td><td>寫出清晨獨有的特點：天色由暗轉亮、空氣清涼、露水、晨運的人。不要寫到中午或黃昏。</td></tr>
+    <tr><td class="c">公園</td><td>地點限定在公園之內</td><td>景物（樹木、花草、池塘、小鳥）和人物（晨運人士）都要寫。不要大篇幅寫出門前、回家後的事。</td></tr>
+    <tr><td class="c">文體</td><td>記敘描寫文，以描寫為主</td><td>要有「我」在場的經歷作線索，但重心是描寫公園的景和人，最後帶出感受。</td></tr>
+  </table>
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div><div class="alert-label">常見陷阱</div>
+    <div class="alert-text">① 寫成「公園一日遊」，由早寫到晚，偏離「清晨」。② 只是逐樣列出景物，「有樹、有花、有池塘」，沒有細節和感受。③ 把重心放在記事（例如和朋友吵架），公園只是背景。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>立意：寫景之外，想帶出甚麼？</h3>
+  <p>描寫文除了寫景，還要讓讀者知道你對這個地方有甚麼感受。可以從以下方向入手：</p>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">清新寧靜</div><div class="kw-def">在繁忙的城市中，清晨的公園讓人放鬆下來。</div></div>
+    <div class="kw"><div class="kw-word">充滿生機</div><div class="kw-def">花草、小鳥、晨運的人，一起迎接新的一天。</div></div>
+    <div class="kw"><div class="kw-word">從容的生活態度</div><div class="kw-def">從打太極的長者身上，體會慢下來的意義。</div></div>
+    <div class="kw"><div class="kw-word">心情轉變</div><div class="kw-def">原本煩躁或緊張，在公園走了一圈後平靜下來。</div></div>
+  </div>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div>
+    <div class="alert-text">「心情轉變」較容易寫出層次：開首交代自己為何清早到公園（例如考試前睡不着），結尾寫心情有甚麼改變。全文有了感情線，就不會只是堆砌景物。</div></div>
+  </div>
+</div>
+
+<!-- ===== CHAPTER 02 ===== -->
+<div class="section-header" id="s2"><span class="icon">🌿</span><h2>選材：清晨的公園有甚麼可寫</h2><span class="ch">CHAPTER 02</span></div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>景物素材</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">天色</div><div class="kw-def">灰藍、魚肚白、泛紅、金黃；路燈熄滅；太陽從大廈後升起</div></div>
+    <div class="kw"><div class="kw-word">樹木</div><div class="kw-def">榕樹的氣根、樹葉上的露珠、樹影由模糊變清楚</div></div>
+    <div class="kw"><div class="kw-word">花草</div><div class="kw-def">草地濕漉漉、杜鵑花、牽牛花在早上開放</div></div>
+    <div class="kw"><div class="kw-word">池塘</div><div class="kw-def">水面平靜、錦鯉、漣漪、倒影、薄霧</div></div>
+    <div class="kw"><div class="kw-word">雀鳥</div><div class="kw-def">麻雀跳來跳去、白頭翁在枝頭叫、鴿子在地上啄食</div></div>
+    <div class="kw"><div class="kw-word">設施</div><div class="kw-def">濕了的長椅、緩跑徑、涼亭、健身器材</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>人物素材</h3>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">打太極的長者</div><div class="kw-def">動作緩慢、神情專注、跟着錄音機的音樂</div></div>
+    <div class="kw"><div class="kw-word">晨跑的人</div><div class="kw-def">腳步聲、呼吸聲、汗水、運動手錶</div></div>
+    <div class="kw"><div class="kw-word">清潔工人</div><div class="kw-def">掃落葉的「沙沙」聲、彎腰的背影</div></div>
+    <div class="kw"><div class="kw-word">遛狗的人</div><div class="kw-def">小狗搖尾、四處嗅聞</div></div>
+    <div class="kw"><div class="kw-word">耍扇舞的婆婆</div><div class="kw-def">鮮豔的扇子、整齊的隊形</div></div>
+    <div class="kw"><div class="kw-word">趕上學的學生</div><div class="kw-def">背着書包穿過公園，帶出城市開始忙碌</div></div>
+  </div>
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div><div class="alert-label">重點</div>
+    <div class="alert-text">素材不用全部寫。選三至四種景物、兩至三種人物，然後挑一樣寫得特別詳細（例如一位打太極的老伯），文章就有焦點。</div></div>
+  </div>
+</div>
+
+<!-- ===== CHAPTER 03 ===== -->
+<div class="section-header" id="s3"><span class="icon">🎨</span><h2>描寫手法</h2><span class="ch">CHAPTER 03</span></div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>一、多感官描寫</h3>
+  <p>只寫看到的東西，文章會比較單調。清晨的公園有鳥叫、有青草味、有露水，很適合加入聽覺、嗅覺和觸覺。</p>
+  <table>
+    <tr><th class="c">感官</th><th>例句</th></tr>
+    <tr><td class="c">視覺</td><td>天邊的雲由灰白慢慢染成淡淡的橙紅色。</td></tr>
+    <tr><td class="c">聽覺</td><td>樹叢裏的鳥叫聲此起彼落，夾雜着清潔工人「沙沙」的掃地聲。</td></tr>
+    <tr><td class="c">嗅覺</td><td>空氣中有一股青草和泥土混在一起的濕潤氣味。</td></tr>
+    <tr><td class="c">觸覺</td><td>我輕輕碰一碰葉子，冰涼的露珠便滾到指尖上。</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>二、動靜結合</h3>
+  <p>靜景是不動的事物（池塘、長椅、樹木），動景是會動的事物（游魚、飛鳥、晨運的人）。兩者交替出現，畫面就有變化。如果用一點聲音或動作去反襯四周的安靜，叫做<b>以動襯靜</b>。</p>
+  <div class="example-box amber">
+    <div class="example-label">以動襯靜示例</div>
+    <div class="example-text">池塘的水面平得像一塊鏡子。忽然，一條錦鯉擺一擺尾巴，水面盪開一圈圈漣漪，過了好一會才慢慢平復。四周靜極了。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>三、時間推移</h3>
+  <p>清晨短短一兩個小時，天色變化很明顯。寫出天色和光線的轉變，既能交代時間過去，也能把各段串起來。</p>
+  <div class="flow">
+    <div class="flow-step"><b>天未亮</b>灰藍天色、路燈未熄、四周寧靜</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>天漸亮</b>天邊泛白、鳥兒開始叫、晨運的人陸續到來</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>日出後</b>陽光灑落、露珠閃亮、城市聲音傳來</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>四、安排空間：移步換景或定點觀察</h3>
+  <p>描寫地方要讓讀者清楚「站在哪裏、看到甚麼」。兩種方法都可以用，也可以混合：</p>
+  <ul>
+    <li><b>移步換景</b>：跟着自己的腳步寫，例如由公園門口 → 小徑 → 池塘 → 空地。每到一處寫一個重點，並用「沿着小徑往前走」、「轉過涼亭」一類句子交代位置轉換。</li>
+    <li><b>定點觀察</b>：坐在一個位置，由近到遠、由上到下或由左到右描寫。適合寫一個畫面細緻的段落，例如坐在長椅上看池塘。</li>
+  </ul>
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div><div class="alert-label">提醒</div>
+    <div class="alert-text">全文用移步換景作骨幹，到了重點景物時停下來用定點觀察細寫，中二學生較容易掌握。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>五、點面結合寫人物</h3>
+  <p>「面」是整體場面，例如一群人打太極；「點」是其中一個人的特寫，寫他的外貌、動作和神態。先寫面，再寫點，人物描寫就不會只得一句「有很多人在晨運」。</p>
+  <div class="example-box coral">
+    <div class="example-label">點面結合示例</div>
+    <div class="example-text">（面）十多位公公婆婆排成幾行，跟着音樂打太極，動作整齊而緩慢。（點）站在最前面的是一位白髮老伯，他穿着白色唐裝，腰板挺得筆直，每推一掌，嘴角都帶着微笑。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot pink"></span>六、修辭點綴</h3>
+  <table>
+    <tr><th class="c">修辭</th><th>例句</th><th>效果</th></tr>
+    <tr><td class="c">比喻</td><td>露珠在陽光下一閃一閃，像撒滿了碎鑽。</td><td>寫出露珠閃亮的樣子</td></tr>
+    <tr><td class="c">擬人</td><td>太陽慢慢爬上了大廈的天台。</td><td>寫出日出的過程，畫面生動</td></tr>
+    <tr><td class="c">疊詞</td><td>涼涼的風、靜靜的池塘、慢慢的步伐</td><td>加強節奏感，語氣柔和</td></tr>
+    <tr><td class="c">擬聲</td><td>「啾啾」的鳥叫、「沙沙」的掃地聲</td><td>讀者好像聽到現場的聲音</td></tr>
+  </table>
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div><div class="alert-label">常見陷阱</div>
+    <div class="alert-text">修辭不是越多越好。每一句都用比喻，文章會變得累贅。一段用一至兩處，放在最想突出的景物上就夠了。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot green"></span>七、情景交融</h3>
+  <p>景物要配合心情。心情輕鬆時，景物可以寫得明亮；心情低落時，可以寫得灰暗。心情在文中改變，景物的寫法也要跟着改變。</p>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cl">只寫景，沒有情</div>公園裏有很多樹，樹上有雀鳥在叫。池塘裏有魚。我覺得很開心。</div>
+    <div class="compare-card good"><div class="cl">景物帶出心情</div>鳥叫聲一聲接一聲，好像在互相說早安。我深深吸了一口清涼的空氣，昨晚塞滿腦袋的公式，好像也被吹散了一點。</div>
+  </div>
+</div>
+
+<div class="formula">
+  <div class="fl">一句記</div>
+  看、聽、嗅、觸寫景物，動靜交替添變化；<br>天色轉亮交代時間，先面後點寫人物；<br>結尾寫出真感受，回應開首扣題目。
+</div>
+
+<!-- ===== CHAPTER 04 ===== -->
+<div class="section-header" id="s4"><span class="icon">🧭</span><h2>結構與線索</h2><span class="ch">CHAPTER 04</span></div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>明線和暗線</h3>
+  <p>這篇文章可以同時用兩條線索：<b>遊蹤（或時間）</b>作明線，串起不同景物；<b>心情變化</b>作暗線，帶出主題。</p>
+  <div class="flow">
+    <div class="flow-step"><b>開首</b>交代原因：為何清早到公園</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>發展</b>入園所見：天色、樹木、雀鳥</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>重點</b>人物場面：晨運的人、特寫一人</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>結尾</b>日出、離開、心情轉變</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>段落大綱參考</h3>
+  <table>
+    <tr><th class="c">段</th><th>內容</th><th>主要手法</th><th class="c">詳略</th></tr>
+    <tr><td class="c">1</td><td>考試前睡不着，清早到樓下公園走走</td><td>交代起因，埋下心情線</td><td class="c">略</td></tr>
+    <tr><td class="c">2</td><td>入園：天色灰藍、路燈未熄、空氣清涼</td><td>視覺、嗅覺、觸覺</td><td class="c">略</td></tr>
+    <tr><td class="c">3</td><td>小徑：榕樹、露珠、鳥叫</td><td>移步換景、擬人、擬聲</td><td class="c">詳</td></tr>
+    <tr><td class="c">4</td><td>池塘：水面、錦鯉、漣漪</td><td>定點觀察、以動襯靜</td><td class="c">詳</td></tr>
+    <tr><td class="c">5</td><td>空地：長者打太極，特寫白髮老伯</td><td>點面結合、動作神態描寫</td><td class="c">詳</td></tr>
+    <tr><td class="c">6</td><td>跑道上的晨跑者、遛狗的人</td><td>動景、擬聲</td><td class="c">略</td></tr>
+    <tr><td class="c">7</td><td>日出：陽光、露珠、花朵、城市聲音</td><td>時間推移、比喻</td><td class="c">詳</td></tr>
+    <tr><td class="c">8</td><td>離開公園，回望一眼，心情平靜下來</td><td>情景交融、點題</td><td class="c">略</td></tr>
+  </table>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div>
+    <div class="alert-text">詳寫的段落最好集中在中間。開首和結尾各三至五句已足夠，把篇幅留給描寫。</div></div>
+  </div>
+</div>
+
+<!-- ===== CHAPTER 05 ===== -->
+<div class="section-header" id="s5"><span class="icon">📖</span><h2>範文及賞析</h2><span class="ch">CHAPTER 05</span></div>
+
+<div class="legend">
+  <span class="hl-sense">感官描寫</span><span class="hl-move">位置／時間轉換</span><span class="hl-rhet">修辭</span><span class="hl-feel">抒發感受</span>
+</div>
+
+<div class="essay">
+  <h3>清晨的公園</h3>
+  <div class="layer-tag">開首　交代起因（第1段）</div>
+  <p><span class="pnum">1</span>鬧鐘還沒響，我已經醒了。明天就是期考，腦裏塞滿了公式和默書範圍，怎樣也睡不着。我索性披上外套，到樓下的公園走走。</p>
+  <div class="layer-tag">發展　入園所見（第2–4段）</div>
+  <p><span class="pnum">2</span>推開公園的鐵閘時，<span class="hl-move">天色還是灰藍的</span>，路燈一盞一盞亮着，<span class="hl-rhet">像還沒睡醒的眼睛</span>。<span class="hl-sense">空氣涼涼的，帶點青草的濕氣</span>，我深深吸了一口，<span class="hl-feel">胸口好像也清爽了一點</span>。</p>
+  <p><span class="pnum">3</span><span class="hl-move">沿着小徑往裏走</span>，兩旁的榕樹垂下長長的氣根，在微風中輕輕搖晃。葉子上掛滿露珠，<span class="hl-sense">我伸手一碰，冰涼的水珠便滾到指尖上</span>。樹叢裏傳來「啾啾」的鳥叫聲，起初只有一兩聲，不久便此起彼落，<span class="hl-rhet">好像在互相說早安</span>。</p>
+  <p><span class="pnum">4</span><span class="hl-move">走到池塘邊</span>，水面<span class="hl-rhet">平得像一塊鏡子</span>，倒映着天邊漸漸泛白的雲。忽然，一條錦鯉擺一擺尾巴，水面盪開一圈圈漣漪，鏡子裏的雲也跟着碎了，過了好一會才慢慢合攏。四周靜極了，<span class="hl-sense">只聽見遠處清潔工人「沙沙」的掃地聲</span>。</p>
+  <div class="layer-tag">重點　晨運人物（第5–6段）</div>
+  <p><span class="pnum">5</span><span class="hl-move">再往前走是一片空地</span>，這時已經熱鬧起來。十多位公公婆婆排成幾行，跟着錄音機的音樂打太極。他們的動作慢慢的，手掌推出去，又緩緩收回來，<span class="hl-rhet">像在空氣中畫圓圈</span>。站在最前面的是一位白髮老伯，他穿着白色唐裝，腰板挺得筆直。他每推一掌，嘴角都帶着微笑，額上的皺紋也好像舒展開來。<span class="hl-feel">我看着看着，不知不覺也跟着深呼吸</span>。</p>
+  <p><span class="pnum">6</span>旁邊的跑道上，一位穿運動服的姐姐跑過，腳步「噠噠」作響；一位叔叔拖着一隻金毛尋回犬，小狗搖着尾巴，這裏嗅嗅，那裏聞聞。</p>
+  <div class="layer-tag">高潮　日出（第7段）</div>
+  <p><span class="pnum">7</span><span class="hl-move">不知甚麼時候</span>，太陽<span class="hl-rhet">爬上了</span>對面大廈的天台。金黃色的陽光灑在草地上，露珠一閃一閃，<span class="hl-rhet">像撒滿了碎鑽</span>。花圃裏的杜鵑花沾了陽光，紅得更鮮豔了。<span class="hl-sense">公園門外開始傳來巴士的引擎聲和行人的腳步聲</span>，<span class="hl-rhet">城市要醒來了</span>。</p>
+  <div class="layer-tag">結尾　心情轉變（第8段）</div>
+  <p><span class="pnum">8</span>我看看手錶，七點正，是時候回家吃早餐了。走出公園時，我回頭望了一眼：老伯還在慢慢地推手，池塘的水還是那樣平靜。<span class="hl-feel">原來，在匆忙的城市裏，也有人願意把每一個清晨過得這樣從容。我摸摸口袋裏的筆記卡，心想：溫習也可以一步一步來，不必急。</span></p>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>賞析</h3>
+  <table>
+    <tr><th class="c">段</th><th>值得學習的地方</th></tr>
+    <tr><td class="c">1</td><td>開首直接交代「睡不着」的原因，為結尾的心情轉變埋下伏筆。全段只有三句。</td></tr>
+    <tr><td class="c">2</td><td>以「天色灰藍」「路燈亮着」點出時間是清晨，再加嗅覺和觸覺，開始寫出心情變化。</td></tr>
+    <tr><td class="c">3</td><td>「起初只有一兩聲，不久便此起彼落」寫出鳥叫聲的變化，暗示天色漸亮。</td></tr>
+    <tr><td class="c">4</td><td>以動襯靜：錦鯉一動，漣漪擴散，再寫「四周靜極了」，突出池塘的寧靜。「鏡子裏的雲也跟着碎了」把比喻延續下去，前後呼應。</td></tr>
+    <tr><td class="c">5</td><td>點面結合：先寫一群人打太極，再特寫老伯的衣着、姿勢和神態。最後一句寫「我」受感染，把人物和心情連起來。</td></tr>
+    <tr><td class="c">6</td><td>略寫，用兩個簡短畫面補充公園的熱鬧，接着就轉入日出，不在人物上停留太久。</td></tr>
+    <tr><td class="c">7</td><td>時間推移到日出，光線、顏色、聲音都改變；「城市要醒來了」暗示清晨即將結束。</td></tr>
+    <tr><td class="c">8</td><td>回望老伯和池塘，與第4、5段呼應；由「從容」聯想到自己溫習的態度，點出主題，也回應開首的緊張。</td></tr>
+  </table>
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div><div class="alert-label">重點</div>
+    <div class="alert-text">範文的感受不是在最後一段才突然出現，第2、5段已經有「胸口清爽了一點」「跟着深呼吸」等小句，心情是一步一步轉變的，比結尾才寫一句「我很開心」自然。</div></div>
+  </div>
+</div>
+
+<!-- ===== CHAPTER 06 ===== -->
+<div class="section-header" id="s6"><span class="icon">✏️</span><h2>寫作練習</h2><span class="ch">CHAPTER 06</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">甲　認識手法</div>
+
+<div class="qbox"><span class="qn">1.</span>以下句子主要運用了甚麼描寫手法或修辭？在橫線上填寫。<span class="mark">（4分）</span>
+  <div style="margin-top:8px">(a) 池塘靜得沒有一絲波紋，只有一片落葉輕輕飄下，在水面點出一個小圈。　<span class="blank"></span><br>
+  (b) 晨光像一層薄紗，輕輕蓋在草地上。　<span class="blank"></span><br>
+  (c) 空氣裏混着青草和泥土的氣味，濕濕的，涼涼的。　<span class="blank"></span><br>
+  (d) 先是幾位婆婆在跳扇舞，接着一位婆婆的紅扇子「啪」一聲打開，她笑得眼睛瞇成一條線。　<span class="blank"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>(a) 以動襯靜<br>(b) 比喻<br>(c) 嗅覺及觸覺描寫（多感官描寫）；亦用了疊詞<br>(d) 點面結合<br><span style="font-size:13px">(c) 答「多感官描寫」或「嗅覺描寫」均可給分。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>試把以下段落按「時間推移」的次序排列，在方格內填上 1–4。<span class="mark">（2分）</span>
+  <table>
+    <tr><th class="c">次序</th><th>句子</th></tr>
+    <tr><td class="c">□</td><td>陽光照在花圃上，杜鵑花紅得發亮。</td></tr>
+    <tr><td class="c">□</td><td>路燈還亮着，公園裏只有零星幾個人影。</td></tr>
+    <tr><td class="c">□</td><td>天邊泛起魚肚白，鳥兒開始叫起來。</td></tr>
+    <tr><td class="c">□</td><td>上班的人匆匆穿過公園，城市的聲音越來越響。</td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（全對2分，錯一項1分）由上至下：3、1、2、4<br><span style="font-size:13px">次序是天未亮（路燈）→ 天漸亮（魚肚白）→ 日出（陽光）→ 城市甦醒（上班的人）。</span></div>
+  </div>
+</div>
+
+<div class="qsub">乙　句子改寫</div>
+
+<div class="qbox"><span class="qn">3.</span>以下句子寫得平淡。試加入感官描寫或修辭，把每句改寫得生動具體（每句不少於25字）。<span class="mark">（6分）</span>
+  <div class="excerpt">(a) 公園裏有很多雀鳥。<br>(b) 早上的空氣很清新。<br>(c) 一位伯伯在跑步。</div>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每句2分；示例）<br>(a) 樹枝上站滿了麻雀，牠們跳來跳去，「吱吱喳喳」地叫個不停，好像在開早會。<br>(b) 我深深吸了一口氣，涼涼的空氣帶着青草的氣味，一直鑽進胸口，整個人都清醒過來。<br>(c) 一位穿着白背心的伯伯在緩跑徑上慢跑，雙手前後擺動，額上的汗珠在晨光下閃閃發亮。<br><span style="font-size:13px">評分原則：有具體細節（動作、顏色、聲音、氣味等）得1分；運用感官描寫或修辭恰當得1分。學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">4.</span>以「長椅」為靜景，自選一樣動景，寫一段運用「動靜結合」的文字（約50字）。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）<br>涼亭旁的木長椅還沾着夜裏的露水，靜靜地等待第一位客人。一隻麻雀飛下來，在椅背上跳了兩跳，歪着頭看看四周，又「撲」的一聲飛走了，長椅又回復寧靜。<br><span style="font-size:13px">評分原則：靜景描寫具體（1分）；動景描寫具體（1分）；動靜之間有呼應或對比（1分）；文句通順（1分）。</span></div>
+  </div>
+</div>
+
+<div class="qsub">丙　段落寫作</div>
+
+<div class="qbox"><span class="qn">5.</span>運用「點面結合」，寫一段描寫公園晨運人士的文字（約120字）。先寫整體場面，再特寫其中一人的外貌、動作和神態。<span class="mark">（8分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）<br>球場旁的空地上，二十多位婆婆排成整齊的方陣，手裏拿着紅色的大扇子，跟着音樂一開一合，好像一片片花瓣在晨光中綻放。隊伍中間有一位矮小的婆婆，頭髮已經全白，身上的粉紅色運動服卻特別鮮豔。她的動作比別人慢半拍，但每次打開扇子，總是很用力地「啪」一聲，然後抬起下巴，得意地笑，臉上的皺紋擠成了一朵菊花。<br><span style="font-size:13px">評分原則：面的描寫清楚（2分）；點的描寫包括外貌、動作、神態（4分）；點與面過渡自然（1分）；文句通順（1分）。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">6.</span>假設你以「失落的心情在清晨的公園中得到平復」為主題，試擬寫全文大綱，最少五段，並註明每段的主要手法及詳略。<span class="mark">（6分）</span>
+  <table>
+    <tr><th class="c">段</th><th>內容</th><th>主要手法</th><th class="c">詳略</th></tr>
+    <tr><td class="c">1</td><td></td><td></td><td class="c"></td></tr>
+    <tr><td class="c">2</td><td></td><td></td><td class="c"></td></tr>
+    <tr><td class="c">3</td><td></td><td></td><td class="c"></td></tr>
+    <tr><td class="c">4</td><td></td><td></td><td class="c"></td></tr>
+    <tr><td class="c">5</td><td></td><td></td><td class="c"></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）<br>
+    1　昨天校際比賽落敗，一早醒來心情低落，到公園散心｜交代起因｜略<br>
+    2　天色灰暗，公園冷清，景物顯得沉悶｜情景交融（以景襯情）｜略<br>
+    3　沿小徑走到池塘，看見錦鯉和漣漪，天色漸亮｜移步換景、以動襯靜｜詳<br>
+    4　看見一位老伯練太極，多次失去平衡仍笑着重來｜點面結合、動作神態描寫｜詳<br>
+    5　日出，陽光照亮公園，心情開朗起來，決定再努力｜時間推移、情景交融、點題｜詳／略皆可<br>
+    <span style="font-size:13px">評分原則：段落安排合理，有清楚的心情線（2分）；手法配合內容（2分）；詳略得當，重點段落在中間（2分）。學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+
+<div class="qsub">丁　全文寫作</div>
+
+<div class="qbox"><span class="qn">7.</span>試以〈清晨的公園〉為題，寫作一篇記敘描寫文，字數不少於500字。<span class="mark">（40分）</span>
+  <div class="alert amber" style="margin-top:8px">
+    <div class="alert-icon">📌</div>
+    <div><div class="alert-label">自我檢查</div>
+    <div class="alert-text">□ 時間限於清晨　□ 最少三種感官　□ 有動靜結合　□ 有一個人物特寫　□ 有明線（遊蹤／時間）和暗線（心情）　□ 結尾帶出感受</div></div>
+  </div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>學生自由作答，可參考第五章範文。<br><span style="font-size:13px">評分原則：內容（16分）：切題，景物和人物描寫具體，有清晨特色，感受真切。表達（12分）：多感官描寫、動靜結合、點面結合等手法運用恰當，用詞準確。結構（8分）：線索清楚，詳略得當，首尾呼應。標點字體（4分）。</span></div>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
