@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小六閱讀理解：題型與答題方法｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf7;
+  --teal:#2f7f7a;--teal-bg:#e6f3f1;
+  --coral:#c4614a;--coral-bg:#fbebe6;
+  --amber:#b7791f;--amber-bg:#fbf1df;
+  --pink:#b5527a;--pink-bg:#f8e8ef;
+  --blue:#2f5f8e;--blue-bg:#e7eef6;
+  --green:#3b7d4f;--green-bg:#e8f3eb;
+  --red:#b23b3b;--red-bg:#f8e6e6;
+  --hero-bg:#C8D5D8;--hero-text:#122025;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;
+    --color-text-secondary:#b0b0b0;
+    --color-background-primary:#1f2123;
+    --color-background-secondary:#151617;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#b3a6e6;--purple-bg:#2b2638;
+    --teal:#7cc7c0;--teal-bg:#1d2f2d;
+    --coral:#ec9a85;--coral-bg:#382420;
+    --amber:#e3b35e;--amber-bg:#352b1a;
+    --pink:#e59bbb;--pink-bg:#36222c;
+    --blue:#8db4dd;--blue-bg:#1d2836;
+    --green:#82c495;--green-bg:#1e2f23;
+    --red:#e58b8b;--red-bg:#382222;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+.hero{background:var(--hero-bg);color:var(--hero-text);border-radius:var(--border-radius-lg);padding:32px 28px;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(18,32,37,0.3);color:rgba(18,32,37,0.65);border-radius:999px;padding:2px 14px;font-size:12.5px;letter-spacing:2px;margin-bottom:12px}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:28px;margin:0 0 6px;color:var(--hero-text);line-height:1.4}
+.hero .sub{font-size:14px;color:rgba(18,32,37,0.75);margin-bottom:10px}
+.hero p{margin:0;font-size:13px;color:rgba(18,32,37,0.5);letter-spacing:1px}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px}
+.toc-title{font-weight:700;font-size:14px;margin-bottom:8px;color:var(--color-text-secondary);letter-spacing:2px}
+.toc-item{display:block;padding:6px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:0.5px dashed var(--color-border-tertiary)}
+.toc-item:last-child{border-bottom:none}
+.toc-num{display:inline-block;width:34px;color:var(--blue);font-weight:700}
+.toc-group{font-size:12px;color:var(--color-text-secondary);margin:10px 0 2px;letter-spacing:2px}
+.section-header{display:flex;align-items:center;gap:12px;margin:36px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--blue)}
+.section-header .icon{font-size:24px}
+.section-header h2{font-family:'Noto Serif TC',serif;font-size:21px;margin:0;flex:1}
+.section-header .ch{font-size:11.5px;letter-spacing:2px;color:var(--blue);font-weight:700;white-space:nowrap}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card p{margin:0 0 10px}
+.card-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;margin-bottom:10px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--purple);display:inline-block;flex:none}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 4px}
+table.t th,table.t td{border:0.5px solid var(--color-border-tertiary);padding:7px 10px;text-align:left;vertical-align:top}
+table.t th{background:var(--color-background-secondary);white-space:nowrap}
+table.t td.c{white-space:nowrap;font-weight:700}
+.example-box{background:var(--purple-bg);border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0}
+.example-box.teal{background:var(--teal-bg)}.example-box.coral{background:var(--coral-bg)}.example-box.amber{background:var(--amber-bg)}.example-box.pink{background:var(--pink-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--purple);margin-bottom:4px}
+.example-box.teal .example-label{color:var(--teal)}.example-box.coral .example-label{color:var(--coral)}.example-box.amber .example-label{color:var(--amber)}.example-box.pink .example-label{color:var(--pink)}
+.example-text{font-size:14px;line-height:1.9}
+.example-text .src{font-family:'Noto Serif TC',serif}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert.tip{background:var(--blue-bg)}.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px}
+.alert.tip .alert-label{color:var(--blue)}.alert.warn .alert-label{color:var(--red)}.alert.success .alert-label{color:var(--green)}.alert.amber .alert-label{color:var(--amber)}
+.alert-text{font-size:13.5px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:13.5px}
+.compare-card.bad{background:var(--red-bg);border-top:3px solid var(--red)}
+.compare-card.good{background:var(--green-bg);border-top:3px solid var(--green)}
+.compare-card .cc-label{font-weight:700;font-size:12.5px;margin-bottom:4px}
+.compare-card.bad .cc-label{color:var(--red)}.compare-card.good .cc-label{color:var(--green)}
+.flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:6px;margin:10px 0}
+.flow-step{flex:1;min-width:110px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px;text-align:center}
+.flow-step b{display:block;color:var(--teal);font-size:13.5px}
+.flow-arrow{display:flex;align-items:center;color:var(--color-text-secondary);font-weight:700}
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px}
+.kw-word{font-weight:700;color:var(--blue);font-size:14.5px}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+.formula{background:#2f4a52;color:#f2f2ee;border-radius:var(--border-radius-md);padding:14px 18px;margin:12px 0;font-size:15px;text-align:center;line-height:1.9}
+.formula b{color:#f6d28b}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.tag{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:999px;padding:1px 10px;font-size:13px}
+.passage{font-family:'Noto Serif TC',serif;font-size:16px;line-height:2.05}
+.passage p{margin:0 0 12px;text-indent:2em}
+.pnum{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-family:'Noto Sans TC',sans-serif;font-size:12px;font-weight:700;margin-right:6px;text-indent:0;vertical-align:2px}
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.qsub{font-weight:700;font-size:15px;margin:22px 0 10px;color:var(--blue)}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 18px;margin-bottom:14px;font-size:15px}
+.qn{font-weight:700;margin-right:6px;color:var(--amber)}
+.mark{color:var(--color-text-secondary);font-size:13px;margin-left:4px}
+.opts{margin:8px 0 0 1.8em;padding:0;list-style:none}
+.opts li{margin:3px 0}
+.opts.two{display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}
+.stmts{margin:8px 0 6px 1.8em}
+.stmts div{margin:2px 0}
+.choice{display:inline-block;margin-top:8px;font-size:14px}
+.choice .box{display:inline-block;width:34px;height:28px;border:1.2px solid var(--color-text-secondary);border-radius:4px;vertical-align:middle;margin-left:6px}
+.line{border-bottom:1px solid var(--color-text-secondary);height:34px;margin:0 0 2px}
+.line.short{width:45%}
+.blank{display:inline-block;border-bottom:1px solid var(--color-text-secondary);width:120px;margin:0 4px}
+.blank.s{width:70px}
+.fill-line{margin-top:10px;line-height:2.4}
+.qtable{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px}
+.qtable th,.qtable td{border:1px solid var(--color-border-tertiary);padding:10px 12px;vertical-align:top;line-height:2.1}
+.qtable th{background:var(--color-background-secondary);white-space:nowrap}
+.ctx{font-style:italic;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 14px;margin:8px 0;line-height:2.1}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .note{font-size:13px;color:var(--color-text-secondary)}
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:8px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+@media (max-width:600px){.opts.two,.compare-grid{grid-template-columns:1fr}.hero h1{font-size:23px}.flow-arrow{display:none}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#000}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .card.text{page-break-inside:auto}
+  .passage p{orphans:2;widows:2}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">閱讀教學筆記</div>
+  <h1>小六閱讀理解：題型與答題方法</h1>
+  <div class="sub">小六　呈分試／校內考試　篇章理解</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <div class="toc-group">教學</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>篇章理解考甚麼</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>先讀懂文章：記敘文與說明文</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>選擇題：答題步驟與常見陷阱</a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span>推斷題：人物感受與說話目的</a>
+  <a class="toc-item" href="#s5"><span class="toc-num">05</span>人物性格題</a>
+  <a class="toc-item" href="#s6"><span class="toc-num">06</span>詞語題：找詞與語境填詞</a>
+  <a class="toc-item" href="#s7"><span class="toc-num">07</span>原因題與開放題</a>
+  <div class="toc-group">練習</div>
+  <a class="toc-item" href="#s8"><span class="toc-num">08</span>練習一：記敘文〈那一次落選〉</a>
+  <a class="toc-item" href="#s9"><span class="toc-num">09</span>練習二：說明文〈泥土裏的小農夫〉</a>
+</nav>
+
+<!-- ============ CH01 ============ -->
+<div class="section-header first" id="s1">
+  <span class="icon">🗂</span><h2>篇章理解考甚麼</h2><span class="ch">CHAPTER 01</span>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot"></span>試卷結構</div>
+  <p>小六篇章理解一般有兩篇文章：一篇記敘文，一篇說明文（有時是議論文或實用文）。每篇約五至七題，先有選擇題，後有短答題和開放題，題目由淺入深。</p>
+  <p>記敘文的題目多考人物的感受、說話目的和性格；說明文的題目多考資料核對、說明方法和原因。</p>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot teal"></span>常見題型一覽</div>
+  <table class="t">
+    <tr><th>題型</th><th>常見問法</th><th>考核能力</th><th>答題重點</th></tr>
+    <tr><td class="c">資料核對</td><td>根據本文，以下哪一項是正確的？</td><td>找出文中寫明的資料</td><td>每個選項都回原文核對</td></tr>
+    <tr><td class="c">反向題</td><td>以下哪一項<u>不是</u>／<u>不正確</u>？</td><td>找出文中寫明的資料</td><td>先圈出「不」字</td></tr>
+    <tr><td class="c">組合選擇</td><td>(i) 至 (iv) 之中，哪些正確？</td><td>整合多處資料</td><td>先刪去肯定錯的一項</td></tr>
+    <tr><td class="c">段意／主旨</td><td>本段主要寫……／作者明白了甚麼？</td><td>概括</td><td>找中心句、結尾點題句</td></tr>
+    <tr><td class="c">感受／目的</td><td>作者有甚麼感受？他說這番話的目的是……</td><td>推斷</td><td>從言行、神態、比喻推斷</td></tr>
+    <tr><td class="c">人物性格</td><td>某人是一個怎樣的人？試加以說明。</td><td>評價</td><td>性格＋事例</td></tr>
+    <tr><td class="c">詞語題</td><td>哪個詞語有「……」的意思？／最適合填在橫線上？</td><td>詞義理解及運用</td><td>代入句子檢查</td></tr>
+    <tr><td class="c">原因題</td><td>為甚麼……？</td><td>整合因果</td><td>按先後寫出每個原因</td></tr>
+    <tr><td class="c">開放題</td><td>你贊成嗎？試加以說明。</td><td>評論</td><td>立場＋理由</td></tr>
+  </table>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div><div class="alert-text">留意分數。3分的短答題通常有三個要點，4分的性格題通常要寫兩項性格，每項配一個事例。</div></div>
+  </div>
+</div>
+
+<!-- ============ CH02 ============ -->
+<div class="section-header" id="s2">
+  <span class="icon">📖</span><h2>先讀懂文章：記敘文與說明文</h2><span class="ch">CHAPTER 02</span>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot coral"></span>讀記敘文：抓住「心情線」</div>
+  <p>記敘文多數寫一件令作者改變想法的事。閱讀時，在每段旁邊寫下作者當時的心情，感受題、性格題和主旨題都可以用上。</p>
+  <div class="flow">
+    <div class="flow-step"><b>起因</b>事情怎樣開始</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>經過</b>遇到甚麼困難</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>轉折</b>甚麼令想法改變</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>結果</b>最後怎樣做</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>感悟</b>明白了甚麼</div>
+  </div>
+  <div class="example-box coral">
+    <div class="example-label">示例：一篇寫學游泳的文章</div>
+    <div class="example-text">第一段：怕水，不肯下水（<b>害怕</b>）→ 第二段：喝了幾口水，想放棄（<b>沮喪</b>）→ 第三段：教練說自己小時候也怕水（<b>得到鼓勵</b>）→ 第四段：終於游完二十五米（<b>興奮、自豪</b>）→ 末段：明白只要不放棄，害怕的事也能做到（<b>感悟</b>）</div>
+  </div>
+  <div class="alert success">
+    <div class="alert-icon">✅</div>
+    <div><div class="alert-label">重點</div><div class="alert-text">記敘文的最後一段通常交代作者明白的道理，這就是文章的主旨。問「作者明白了甚麼」、「本文的主旨是甚麼」，先看末段。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot teal"></span>讀說明文：看結構和說明方法</div>
+  <p>說明文介紹一種事物或道理，常用「總、分、總」的結構：首段總說事物的特點，中間各段逐項說明，末段總結或提出建議。每段的第一句往往就是該段的重點。</p>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">舉例子</div><div class="kw-def">舉出具體事物說明。<br>例：香港有不少郊野公園，例如西貢東郊野公園、城門郊野公園。</div></div>
+    <div class="kw"><div class="kw-word">列數字</div><div class="kw-def">用數字說明，令內容準確。<br>例：大熊貓每天要花十多個小時進食。</div></div>
+    <div class="kw"><div class="kw-word">作比較</div><div class="kw-def">拿熟悉的事物比較，令讀者容易明白。<br>例：藍鯨的心臟大小跟一輛小型汽車差不多。</div></div>
+    <div class="kw"><div class="kw-word">打比方</div><div class="kw-def">用比喻說明特點，令內容生動。<br>例：駱駝能在沙漠長途跋涉，被稱為「沙漠之舟」。</div></div>
+    <div class="kw"><div class="kw-word">分類別</div><div class="kw-def">按性質把事物分成幾類。<br>例：茶葉按製法可分為綠茶、紅茶、烏龍茶等。</div></div>
+    <div class="kw"><div class="kw-word">下定義</div><div class="kw-def">用一句話說明事物是甚麼。<br>例：化石是保存在岩層中的古代生物遺體或遺跡。</div></div>
+  </div>
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div><div class="alert-label">常見陷阱</div><div class="alert-text">「作比較」和「打比方」容易混淆。作比較是兩樣東西真的拿來比（大小、多少）；打比方是用另一樣東西來形容，事物本身並不是那樣東西。駱駝不是船，所以「沙漠之舟」是打比方。</div></div>
+  </div>
+</div>
+
+<!-- ============ CH03 ============ -->
+<div class="section-header" id="s3">
+  <span class="icon">🔍</span><h2>選擇題：答題步驟與常見陷阱</h2><span class="ch">CHAPTER 03</span>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot blue"></span>答題步驟</div>
+  <div class="flow">
+    <div class="flow-step"><b>一、圈題目</b>圈出「不是」、「主要」、「第幾段」</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>二、找位置</b>回原文找出相關句子</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>三、逐項核對</b>在每個選項旁寫 ✓ 或 ✗</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>四、再檢查</b>答案是否回應題目要求</div>
+  </div>
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div><div class="alert-label">提醒</div><div class="alert-text">反向題最常失分。題目問「不正確」，學生找到一個正確的選項便選了。做題前先圈出「不」字，核對後選那個 ✗。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot coral"></span>常見陷阱</div>
+  <table class="t">
+    <tr><th>陷阱</th><th>原文</th><th>錯誤選項</th><th>錯在哪裏</th></tr>
+    <tr><td class="c">張冠李戴</td><td>貓頭鷹在晚上覓食，麻雀在日間覓食。</td><td>麻雀在晚上覓食。</td><td>把甲的資料說成乙的</td></tr>
+    <tr><td class="c">偷換程度</td><td>部分企鵝會在冬天遷往較溫暖的海域。</td><td>企鵝在冬天都會遷移。</td><td>「部分」變成「都」</td></tr>
+    <tr><td class="c">無中生有</td><td>這間圖書館逢星期一休息。</td><td>這間圖書館是全港最大的。</td><td>原文沒有提及</td></tr>
+    <tr><td class="c">以偏概全</td><td>（段意題）全段介紹熊貓的外形、食物和習性。</td><td>熊貓喜歡吃竹。</td><td>只是段中一個細節</td></tr>
+  </table>
+  <p>選項中出現「一定」、「全部」、「所有」、「從不」等字眼時，要特別小心，回原文看看是否寫得這樣絕對。</p>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot purple"></span>組合選擇題：用刪除法</div>
+  <p>組合題通常有四句敘述，選項是不同的組合。不必等四句都確定才作答：先找出肯定錯的一句，把含有它的選項刪去，通常只剩一兩個選項要比較。</p>
+  <div class="example-box">
+    <div class="example-label">示例</div>
+    <div class="example-text">如果肯定 (ii) 是錯的，選項「(i) 和 (ii)」、「(ii)、(iii) 和 (iv)」可以立即刪去，只需比較餘下兩個。</div>
+  </div>
+</div>
+
+<!-- ============ CH04 ============ -->
+<div class="section-header" id="s4">
+  <span class="icon">💭</span><h2>推斷題：人物感受與說話目的</h2><span class="ch">CHAPTER 04</span>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot pink"></span>從文中線索推斷感受</div>
+  <p>文章很少直接寫「我很慚愧」，感受要從以下地方推斷：</p>
+  <table class="t">
+    <tr><th>線索</th><th>原文例子</th><th>推斷感受</th></tr>
+    <tr><td class="c">動作神態</td><td>他低着頭，手指不停捏着衣角。</td><td>緊張、不安</td></tr>
+    <tr><td class="c">心理描寫</td><td>我心想：早知道就不該說那句話。</td><td>後悔</td></tr>
+    <tr><td class="c">比喻</td><td>我的心像壓着一塊大石。</td><td>沉重、擔憂</td></tr>
+    <tr><td class="c">前後對比</td><td>早上還在說笑，聽到消息後一句話也沒有說。</td><td>震驚、失落</td></tr>
+  </table>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">✗ 太籠統</div>作者感到不開心。</div>
+    <div class="compare-card good"><div class="cc-label">✓ 準確</div>作者感到慚愧，因為他想起自己曾經取笑對方。</div>
+  </div>
+  <p>答感受題要用準確的感受詞，最好再加一句原因。以下詞語要分清楚：</p>
+  <div class="tags">
+    <span class="tag">失望：期望落空</span><span class="tag">沮喪：灰心，提不起勁</span><span class="tag">慚愧：覺得自己做錯</span><span class="tag">後悔：希望當初沒有這樣做</span><span class="tag">委屈：被誤會、受了不公平對待</span><span class="tag">欣慰：擔心的事有好結果</span><span class="tag">感動：被別人的心意打動</span><span class="tag">妒忌：因別人比自己好而不快</span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot amber"></span>說話目的：看說話前後發生了甚麼</div>
+  <p>題目問「某人說這番話的目的」，要看說話時的情況，以及對方聽後有甚麼反應。常見的目的有：鼓勵、安慰、提醒、勸告、解釋、請求、責備。</p>
+  <div class="example-box amber">
+    <div class="example-label">示例</div>
+    <div class="example-text">籃球比賽只剩三分鐘，我們落後四分。隊長拍拍大家的肩膀說：「還有時間，守好後防，一球一球追回來。」大家聽後重新打起精神。<br><b>目的：</b>鼓勵隊友不要放棄。（依據：當時落後；隊友聽後「重新打起精神」）</div>
+  </div>
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div><div class="alert-label">常見陷阱</div><div class="alert-text">選項常把說話內容誇大，例如把「鼓勵」寫成「保證一定會贏」。人物沒有這樣說，就不能選。</div></div>
+  </div>
+</div>
+
+<!-- ============ CH05 ============ -->
+<div class="section-header" id="s5">
+  <span class="icon">🧑</span><h2>人物性格題</h2><span class="ch">CHAPTER 05</span>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot purple"></span>答題格式</div>
+  <div class="formula"><b>性格</b>（一個概括的詞語）＋ <b>事例</b>（文中他做了甚麼）＋ <b>連結</b>（這件事怎樣反映這個性格）</div>
+  <p>評分時，性格和事例通常各佔1分。4分題要答兩項性格，每項都配一個事例。</p>
+  <div class="example-box">
+    <div class="example-label">示例</div>
+    <div class="example-text"><span class="src">小明見同學在操場跌倒，先扶起他，再陪他到醫療室，又替他把書包拿回課室。</span><br>小明是一個<b>樂於助人</b>的人。他見同學跌倒，不但扶起對方，還陪他到醫療室。他也很<b>細心</b>，記得替同學把書包拿回課室。</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">✗ 只有性格</div>小明是一個樂於助人和細心的人。</div>
+    <div class="compare-card good"><div class="cc-label">✓ 性格＋事例</div>小明樂於助人，見同學跌倒便陪他到醫療室；他也很細心，記得替同學拿回書包。</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot teal"></span>性格詞庫</div>
+  <p><b>正面：</b></p>
+  <div class="tags"><span class="tag">樂於助人</span><span class="tag">細心</span><span class="tag">有責任感</span><span class="tag">堅毅</span><span class="tag">勇於認錯</span><span class="tag">懂得反省</span><span class="tag">謙虛</span><span class="tag">體貼</span><span class="tag">勤奮</span><span class="tag">寬宏大量</span></div>
+  <p><b>負面：</b></p>
+  <div class="tags"><span class="tag">驕傲</span><span class="tag">自私</span><span class="tag">急躁</span><span class="tag">粗心</span><span class="tag">小器</span><span class="tag">固執</span></div>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div><div class="alert-text">記敘文的主角常常前後有改變。可以寫「他起初……，後來……，是一個懂得反省的人」，把前後兩件事都用作事例。</div></div>
+  </div>
+</div>
+
+<!-- ============ CH06 ============ -->
+<div class="section-header" id="s6">
+  <span class="icon">🔤</span><h2>詞語題：找詞與語境填詞</h2><span class="ch">CHAPTER 06</span>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot blue"></span>類型一：給出意思，在文中找詞</div>
+  <div class="flow">
+    <div class="flow-step"><b>讀解釋</b>弄清意思，留意是形容人、事還是動作</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>找候選</b>在文中圈出意思相近的詞語</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>代入</b>把解釋放回原句，看是否通順</div>
+  </div>
+  <div class="example-box teal">
+    <div class="example-label">示例</div>
+    <div class="example-text"><span class="src">他做事一向一絲不苟，連一個標點也會檢查兩遍。</span><br>題目：哪一個詞語有「做事認真，連最細微的地方也不馬虎」的意思？<br>答案：一絲不苟（後半句「連一個標點也會檢查兩遍」正好說明這個意思）</div>
+  </div>
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div><div class="alert-label">提醒</div><div class="alert-text">答案要照抄原文的字，一字不改，寫錯別字不給分。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot coral"></span>類型二：語境填詞</div>
+  <p>題目給一個新句子，要從文中選詞填入。關鍵在於找出句子裏的提示語，看它在形容甚麼。</p>
+  <div class="example-box coral">
+    <div class="example-label">示例</div>
+    <div class="example-text">這間小店的蛋撻＿＿＿＿，每天未到中午便賣光。<br>候選：遠近馳名／津津有味<br>提示語「每天未到中午便賣光」說明很多人慕名而來，所以填<b>遠近馳名</b>。「津津有味」是形容人吃得很有滋味，不能用來形容蛋撻。</div>
+  </div>
+</div>
+
+<!-- ============ CH07 ============ -->
+<div class="section-header" id="s7">
+  <span class="icon">🧩</span><h2>原因題與開放題</h2><span class="ch">CHAPTER 07</span>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot green"></span>原因題：寫出完整的因果</div>
+  <p>原因題常常不止一個原因，而是一連串的因果。把每一步按先後寫出來，每步通常佔1分。</p>
+  <div class="example-box teal">
+    <div class="example-label">示例</div>
+    <div class="example-text"><span class="src">秋天日照時間縮短，樹葉製造的養分減少。樹木為了保存水分和養分，便讓葉子脫落。</span><br>題目：為甚麼樹木在秋天會落葉？（3分）<br>① 秋天日照時間縮短；② 樹葉製造的養分減少；③ 樹木要保存水分和養分，所以讓葉子脫落。</div>
+  </div>
+  <div class="alert warn">
+    <div class="alert-icon">⚠</div>
+    <div><div class="alert-label">常見陷阱</div><div class="alert-text">只寫最後一步（「因為要保存水分和養分」）只能得1分。3分題要數一數自己寫了幾個要點。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot amber"></span>開放題：立場＋理由</div>
+  <div class="formula">題目所問（如方法、建議）＋ <b>我贊成／不贊成</b> ＋ <b>因為……</b>（用自己的話說明）</div>
+  <p>開放題沒有標準答案，贊成或不贊成都可以得分，但理由要合理，而且要用自己的話說明，不能只抄原文。</p>
+  <div class="example-box amber">
+    <div class="example-label">示例題目</div>
+    <div class="example-text">文章末段提議學校在午膳時段關掉課室的冷氣，改用風扇。你贊成這個建議嗎？試加以說明。</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">✗ 抄原文，沒有解釋</div>我贊成，因為這樣可以節約能源。</div>
+    <div class="compare-card good"><div class="cc-label">✓ 有自己的說明</div>我贊成。午膳只有大約一小時，用風扇已經足夠，關掉冷氣可以減少用電，學校也能省下電費。</div>
+  </div>
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div><div class="alert-text">想不到理由時，可以從「對誰有好處／壞處」去想：對自己、對別人、對環境、對社會。</div></div>
+  </div>
+</div>
+
+<!-- ============ CH08 練習一 ============ -->
+<div class="section-header" id="s8">
+  <span class="icon">✏️</span><h2>練習一：記敘文〈那一次落選〉</h2><span class="ch">CHAPTER 08</span>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="card text">
+  <div class="card-title"><span class="dot coral"></span>細心閱讀下文，然後回答問題。</div>
+  <div class="passage">
+    <p><span class="pnum">1</span>放學鐘聲響起，陳老師把我和子晴叫到教員室門外。「這次校際朗誦比賽，學校只能派一位同學參加。我們考慮過後，決定派子晴。」老師說完，拍了拍我的肩膀：「你的聲線很好，只是背誦還不夠熟練，明年再試試吧。」</p>
+    <p><span class="pnum">2</span>我勉強點了點頭，喉嚨像被甚麼堵住了，一句話也說不出來。為了這次選拔，我每晚對着鏡子練習了一個月，連媽媽都說我睡覺時也在唸詩。我不明白，為甚麼被選中的偏偏不是我。</p>
+    <p><span class="pnum">3</span>接下來幾天，我故意避開子晴。小息時她走過來想和我說話，我便假裝在看書；她在班上分享練習心得，我把頭轉向窗外。我心裏想：反正你已經贏了，何必還要在我面前說這些？</p>
+    <p><span class="pnum">4</span>比賽前一天放學，我回課室拿遺留的水壺，經過後樓梯時，聽見有人在小聲唸詩。我探頭一看，原來是子晴。她一個人對着牆壁練習，唸到第二節便停了下來，雙手緊緊捏着講稿，聲音也在發抖。「我一定會忘詞的……」她低聲說，眼眶紅紅的。</p>
+    <p><span class="pnum">5</span>我站在樓梯口，忽然想起自己對着鏡子練習時，也曾經害怕得想放棄。原來她和我一樣緊張，只是我一直沒有留意。我深深吸了一口氣，走上前說：「我來做你的觀眾吧。忘了詞就看着我，我會用口形提你。」子晴愣了一愣，然後用力地點頭。</p>
+    <p><span class="pnum">6</span>那天，我們在樓梯間練習到黃昏。第二天比賽，我坐在觀眾席第一行。子晴唸到第二節時頓了一下，目光落在我身上，我輕輕做出口形，她便順利地唸下去。最後，她得到了優良獎狀。頒獎後，她跑過來緊緊握着我的手。</p>
+    <p><span class="pnum">7</span>那一刻，我一點也不覺得失落。如果那幾天我一直躲着子晴，就不會在後樓梯看見她，也不會有那個一起練習的黃昏。明年我還會再參加選拔，到時候不論選中的是誰，我都會坐在第一行替他打氣。</p>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">1.</span>以下哪一項<u>不是</u>作者落選後的表現？<span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A.　小息時假裝看書，避開子晴。</li>
+    <li>B.　子晴分享心得時把頭轉向窗外。</li>
+    <li>C.　向陳老師要求重新選拔。</li>
+    <li>D.　心裏覺得子晴不必在自己面前說心得。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span class="note">A、B、D 都在第三段出現；作者沒有要求老師重新選拔，屬「無中生有」。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>第一段中，陳老師說「你的聲線很好……明年再試試吧」，目的是<span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A.　說明落選原因並鼓勵作者。</li>
+    <li>B.　暗示作者明年必定會入選。</li>
+    <li>C.　責備作者練習時不夠用心。</li>
+    <li>D.　要求作者協助子晴練習。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）A<br><span class="note">「背誦還不夠熟練」是落選原因，「聲線很好」、「明年再試試」是鼓勵。B 把「再試試」誇大成「必定會入選」，屬「偷換程度」。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">3.</span>根據第二、五段，在表格內填寫作者的感受和表現。<span class="mark">（3分）</span>
+  <table class="qtable">
+    <tr><th>情境</th><th>作者的感受／表現</th></tr>
+    <tr><td style="width:40%">聽到老師決定派子晴參賽</td><td>感受：(i) <span class="blank"></span></td></tr>
+    <tr><td>在後樓梯看見子晴緊張得聲音發抖</td><td>感受：(ii) <span class="blank"></span><br>表現：(iii) <span class="blank" style="width:65%"></span></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每空1分）<br>(i) 失望／難過（依據：「喉嚨像被甚麼堵住了」）<br>(ii) 同情／體諒（依據：想起自己也曾害怕，明白她一樣緊張）<br>(iii) 主動提出做子晴的觀眾，在她忘詞時用口形提她</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">4.</span>從第四段可見，比賽前一天的子晴：<span class="mark">（2分）</span>
+  <div class="stmts">
+    <div>(i)　十分緊張。</div>
+    <div>(ii)　擔心自己會忘詞。</div>
+    <div>(iii)　不願意讓作者幫忙。</div>
+    <div>(iv)　獨自在後樓梯練習。</div>
+  </div>
+  <ul class="opts two">
+    <li>A.　(i) 和 (ii)。</li>
+    <li>B.　(ii) 和 (iii)。</li>
+    <li>C.　(i)、(ii) 和 (iv)。</li>
+    <li>D.　(i)、(iii) 和 (iv)。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span class="note">(iii) 錯誤：第五段子晴「用力地點頭」，接受了作者的幫忙。先刪去含 (iii) 的 B、D，再比較 A 和 C。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">5.</span>第二段「喉嚨像被甚麼堵住了」運用了甚麼修辭手法？這句表達了作者怎樣的心情？<span class="mark">（2分）</span>
+  <div class="fill-line">修辭手法：<span class="blank"></span></div>
+  <div class="fill-line">心情：<span class="blank" style="width:75%"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）<br>修辭手法：比喻（1分）<br>心情：作者十分失望、難過，難過得說不出話來。（1分）</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">6.</span>根據本文，作者是一個怎樣的人？試結合本文內容加以說明。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，示例）<br>
+      作者是一個懂得反省的人。他落選後起初故意避開子晴，後來想起自己也曾害怕，明白子晴一樣緊張，便主動和她和好。他也樂於助人，主動做子晴的觀眾，陪她練習到黃昏，比賽時又用口形提詞。<br>
+      <span class="note">評分原則：每項性格1分，配合事例再給1分，答兩項即可。其他可接受的性格：努力／勤奮（每晚對着鏡子練習了一個月）。只寫性格而沒有事例，每項只給1分。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">7.</span>文中哪一個詞語有「故意不和某人接觸」的意思？<span class="mark">（2分）</span>
+  <div class="line short"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）避開<br><span class="note">見第三段「我故意避開子晴」。錯別字不給分。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">8.</span>作者從這次經歷中明白了甚麼道理？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）<br>落選後不應因此避開朋友（1分）；不論誰被選中，都應該替對方打氣（1分）。<br><span class="note">末段沒有直接寫出道理，要從「如果那幾天我一直躲着子晴……」和「不論選中的是誰，我都會……替他打氣」概括出來。</span></div>
+  </div>
+</div>
+
+<!-- ============ CH09 練習二 ============ -->
+<div class="section-header" id="s9">
+  <span class="icon">✏️</span><h2>練習二：說明文〈泥土裏的小農夫〉</h2><span class="ch">CHAPTER 09</span>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="card text">
+  <div class="card-title"><span class="dot teal"></span>細心閱讀下文，然後回答問題。</div>
+  <div class="passage">
+    <p><span class="pnum">1</span>在花園的泥土下，住着一種毫不起眼的小動物，那就是蚯蚓。牠們沒有眼睛，也沒有腳，終日在黑暗的泥土裏鑽來鑽去，卻為植物做了不少事，所以有人稱牠們為「泥土裏的小農夫」。</p>
+    <p><span class="pnum">2</span>蚯蚓的身體又長又軟，由一節一節的環節組成。牠們沒有肺，要靠濕潤的皮膚吸收氧氣。因此，蚯蚓喜歡潮濕的環境；如果皮膚變得乾燥，牠們便無法呼吸。</p>
+    <p><span class="pnum">3</span>下大雨後，我們常常在路面看見蚯蚓。這是因為雨水灌滿了泥土的空隙，泥土裏的空氣減少，蚯蚓只好爬到地面呼吸。可是，太陽出來後，路面很快變乾，來不及回到泥土裏的蚯蚓便會被曬死。</p>
+    <p><span class="pnum">4</span>蚯蚓對植物的幫助主要有兩方面。第一，牠們在泥土中鑽洞，令泥土變得疏鬆，空氣和水分更容易滲入，植物的根部也更容易伸展。第二，蚯蚓以落葉和泥土中的有機物為食，排出的糞便含豐富養分，是天然的肥料。一條蚯蚓一天吃下的食物，可以多達跟牠自己的體重差不多。</p>
+    <p><span class="pnum">5</span>不少人以為把蚯蚓切成兩段，兩段都可以各自長成新的蚯蚓，其實這是誤解。蚯蚓的再生能力有限，大多數情況下只有帶頭部的一段有機會存活，另一段則會死去。</p>
+    <p><span class="pnum">6</span>近年，有些學校和家庭利用蚯蚓處理廚餘：把菜葉、果皮放進養有蚯蚓的箱子，讓蚯蚓把廚餘分解成肥料，再用來種花種菜。不過，養蚯蚓要保持泥土濕潤和通風，也不能放入肉類和油膩的食物，否則容易發臭，還會招來蟲鼠。這種方法能減少送往堆填區的廚餘，又能製造肥料，但也需要花時間照顧。</p>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">1.</span>本文第一段主要介紹蚯蚓<span class="mark">（2分）</span>
+  <ul class="opts two">
+    <li>A.　沒有眼睛，也沒有腳，外形特別。</li>
+    <li>B.　在黑暗的泥土裏生活。</li>
+    <li>C.　對植物有幫助，像個小農夫。</li>
+    <li>D.　是花園裏最常見的一種動物。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span class="note">A、B 只是段中的細節（以偏概全）；D 文中沒有提及（無中生有）。段末「為植物做了不少事……小農夫」才是重點。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>根據本文，以下哪一項<u>不正確</u>？<span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A.　蚯蚓靠皮膚吸收氧氣。</li>
+    <li>B.　蚯蚓喜歡乾燥的環境。</li>
+    <li>C.　蚯蚓的糞便可以作肥料。</li>
+    <li>D.　蚯蚓鑽洞能令泥土疏鬆。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><span class="note">第二段說蚯蚓喜歡潮濕的環境，皮膚乾燥便無法呼吸。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">3.</span>根據本文，以下哪一項是正確的？<span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A.　蚯蚓切成兩段後，兩段都能存活。</li>
+    <li>B.　養蚯蚓的箱子可以放入肉類。</li>
+    <li>C.　蚯蚓會吃落葉和泥土中的有機物。</li>
+    <li>D.　雨後爬到路面的蚯蚓都能安全返回泥土。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span class="note">A 是第五段指出的誤解；B 與第六段相反；D 的「都能」與第三段不符（偷換程度）。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">4.</span>以下句子各運用了甚麼說明方法？<span class="mark">（3分）</span>
+  <table class="qtable">
+    <tr><th>句子</th><th>說明方法</th></tr>
+    <tr><td>有人稱牠們為「泥土裏的小農夫」。</td><td style="width:30%">(i) <span class="blank s"></span></td></tr>
+    <tr><td>一條蚯蚓一天吃下的食物，可以多達跟牠自己的體重差不多。</td><td>(ii) <span class="blank s"></span></td></tr>
+    <tr><td>把菜葉、果皮放進養有蚯蚓的箱子。</td><td>(iii) <span class="blank s"></span></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每空1分）<br>(i) 打比方　(ii) 作比較　(iii) 舉例子<br><span class="note">(i) 蚯蚓不是真的農夫，是用農夫來形容牠對植物的幫助；(ii) 拿蚯蚓的食量和牠的體重比較；(iii) 舉出菜葉、果皮作為廚餘的例子。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">5.</span>為甚麼下大雨後，路面上常有死去的蚯蚓？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每個要點1分）<br>① 雨水灌滿泥土的空隙，泥土裏的空氣減少；<br>② 蚯蚓只好爬到地面呼吸；<br>③ 太陽出來後路面很快變乾，來不及回到泥土的蚯蚓便被曬死。</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">6.</span>第五段作者要糾正一個甚麼誤解？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）<br>很多人以為蚯蚓切成兩段，兩段都能長成新的蚯蚓（1分）；其實大多數情況下只有帶頭部的一段有機會存活（1分）。</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">7.</span>第六段提到用甚麼方法處理廚餘？你會在家中嘗試嗎？試加以說明。<span class="mark">（3分）</span>
+  <div class="fill-line">方法：<span class="blank" style="width:75%"></span></div>
+  <div class="fill-line">我 <span class="blank s"></span>（會／不會）在家中嘗試，因為 <span class="blank" style="width:40%"></span></div>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）<br>
+      方法：把菜葉、果皮放進養有蚯蚓的箱子，讓蚯蚓把廚餘分解成肥料。（1分）<br>
+      立場及理由（2分，學生自由作答，言之成理即可），示例：<br>
+      會：家中每天都有菜葉和果皮，交給蚯蚓處理可以減少丟棄的垃圾，製成的肥料又可以用來種盆栽。<br>
+      不會：家裏地方細小，箱子放在室內若處理不好會發臭，而且全家工作忙碌，未必有時間每天照顧蚯蚓。<br>
+      <span class="note">評分原則：只抄原文「能減少……又能製造肥料」而沒有結合自己的情況說明，立場及理由最多給1分。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">8.</span>文中哪一個詞語最適合填寫在下方句子的橫線上？<span class="mark">（2分）</span>
+  <div class="ctx">這間小店門面 <span class="blank"></span>，很多人經過也沒有留意，其實店裏的雲吞麪十分出名。</div>
+  <div class="line short"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）毫不起眼<br><span class="note">提示語是「很多人經過也沒有留意」，即外表平凡、不引人注意。錯別字不給分。</span></div>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>

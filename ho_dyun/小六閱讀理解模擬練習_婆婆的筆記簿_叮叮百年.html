@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小六閱讀理解模擬練習｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf7;
+  --teal:#2f7f7a;--teal-bg:#e6f3f1;
+  --coral:#c4614a;--coral-bg:#fbebe6;
+  --amber:#b7791f;--amber-bg:#fbf1df;
+  --pink:#b5527a;--pink-bg:#f8e8ef;
+  --blue:#2f5f8e;--blue-bg:#e7eef6;
+  --green:#3b7d4f;--green-bg:#e8f3eb;
+  --red:#b23b3b;--red-bg:#f8e6e6;
+  --hero-bg:#C8D5D8;--hero-text:#122025;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;
+    --color-text-secondary:#b0b0b0;
+    --color-background-primary:#1f2123;
+    --color-background-secondary:#151617;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#b3a6e6;--purple-bg:#2b2638;
+    --teal:#7cc7c0;--teal-bg:#1d2f2d;
+    --coral:#ec9a85;--coral-bg:#382420;
+    --amber:#e3b35e;--amber-bg:#352b1a;
+    --pink:#e59bbb;--pink-bg:#36222c;
+    --blue:#8db4dd;--blue-bg:#1d2836;
+    --green:#82c495;--green-bg:#1e2f23;
+    --red:#e58b8b;--red-bg:#382222;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+.hero{background:var(--hero-bg);color:var(--hero-text);border-radius:var(--border-radius-lg);padding:32px 28px;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(18,32,37,0.3);color:rgba(18,32,37,0.65);border-radius:999px;padding:2px 14px;font-size:12.5px;letter-spacing:2px;margin-bottom:12px}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:28px;margin:0 0 6px;color:var(--hero-text);line-height:1.4}
+.hero .sub{font-size:14px;color:rgba(18,32,37,0.75);margin-bottom:10px}
+.hero p{margin:0;font-size:13px;color:rgba(18,32,37,0.5);letter-spacing:1px}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px}
+.toc-title{font-weight:700;font-size:14px;margin-bottom:8px;color:var(--color-text-secondary);letter-spacing:2px}
+.toc-item{display:block;padding:6px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:0.5px dashed var(--color-border-tertiary)}
+.toc-item:last-child{border-bottom:none}
+.toc-num{display:inline-block;width:34px;color:var(--blue);font-weight:700}
+.info{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 20px;margin-bottom:24px;font-size:14px}
+.info table{width:100%;border-collapse:collapse;margin-top:8px}
+.info th,.info td{border:0.5px solid var(--color-border-tertiary);padding:6px 10px;text-align:left;white-space:nowrap}
+.info th{background:var(--color-background-secondary)}
+.section-header{display:flex;align-items:center;gap:12px;margin:36px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--blue)}
+.section-header .icon{font-size:24px}
+.section-header h2{font-family:'Noto Serif TC',serif;font-size:21px;margin:0;flex:1}
+.section-header .ch{font-size:11.5px;letter-spacing:2px;color:var(--blue);font-weight:700}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.card-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;margin-bottom:10px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--blue);display:inline-block}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.passage{font-family:'Noto Serif TC',serif;font-size:16px;line-height:2.05}
+.passage p{margin:0 0 12px;text-indent:2em;position:relative}
+.pnum{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-family:'Noto Sans TC',sans-serif;font-size:12px;font-weight:700;margin-right:6px;text-indent:0;vertical-align:2px}
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.qsub{font-weight:700;font-size:15px;margin:22px 0 10px;color:var(--blue)}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 18px;margin-bottom:14px;font-size:15px}
+.qn{font-weight:700;margin-right:6px;color:var(--amber)}
+.mark{color:var(--color-text-secondary);font-size:13px;margin-left:4px}
+.opts{margin:8px 0 0 1.8em;padding:0;list-style:none}
+.opts li{margin:3px 0}
+.opts.two{display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}
+.stmts{margin:8px 0 6px 1.8em}
+.stmts div{margin:2px 0}
+.choice{display:inline-block;margin-top:8px;font-size:14px}
+.choice .box{display:inline-block;width:34px;height:28px;border:1.2px solid var(--color-text-secondary);border-radius:4px;vertical-align:middle;margin-left:6px}
+.line{border-bottom:1px solid var(--color-text-secondary);height:34px;margin:0 0 2px}
+.line.short{width:45%}
+.blank{display:inline-block;border-bottom:1px solid var(--color-text-secondary);width:120px;margin:0 4px}
+.blank.l{width:200px}
+.blank.s{width:70px}
+.fill-line{margin-top:10px;line-height:2.4}
+.qtable{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px}
+.qtable th,.qtable td{border:1px solid var(--color-border-tertiary);padding:10px 12px;vertical-align:top;line-height:2.1}
+.qtable th{background:var(--color-background-secondary);white-space:nowrap}
+.qtable td.c{white-space:nowrap}
+.ctx{font-style:italic;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 14px;margin:8px 0;line-height:2.1}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .note{font-size:13px;color:var(--color-text-secondary)}
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:8px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+@media (max-width:600px){.opts.two{grid-template-columns:1fr}.hero h1{font-size:23px}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#000}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .qsub{page-break-after:avoid}
+  .card.text{page-break-inside:auto}
+  .passage p{orphans:2;widows:2}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">閱讀理解練習</div>
+  <h1>小六閱讀理解模擬練習</h1>
+  <div class="sub">篇章理解　第19至30題　〈婆婆的筆記簿〉、〈叮叮百年〉</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>篇章一：婆婆的筆記簿（第19至24題）</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>篇章二：叮叮百年（第25至30題）</a>
+</nav>
+
+<div class="info">
+  <b>細心閱讀下面兩篇文章，然後根據文章內容回答第19至第30題。（共29分）</b><br>
+  選擇題每題2分，請把最適當答案的英文字母填在方格內。其餘各題須用完整句子作答。
+  <table>
+    <tr><th>部分</th><th>文章</th><th>題號</th><th>分數</th></tr>
+    <tr><td>篇章理解（一）</td><td>〈婆婆的筆記簿〉</td><td>19至24</td><td>15分</td></tr>
+    <tr><td>篇章理解（二）</td><td>〈叮叮百年〉</td><td>25至30</td><td>14分</td></tr>
+  </table>
+</div>
+
+<!-- ============ 篇章一 ============ -->
+<div class="section-header first" id="s1">
+  <span class="icon">📖</span><h2>篇章一：婆婆的筆記簿</h2><span class="ch">CHAPTER 01</span>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="card text">
+  <div class="card-title"><span class="dot"></span>篇章一</div>
+  <div class="passage">
+    <p><span class="pnum">1</span>晚上九時，手機忽然響起，是李婆婆傳來的訊息：「小老師，我今天自己和孫女視像了！謝謝你！」看着這句話，我不禁想起兩個月前那個令我臉紅的下午。</p>
+    <p><span class="pnum">2</span>那時，學校和社區中心合辦「長者智能手機班」，邀請高年級學生擔任「小老師」，教長者使用手機。我本來不想報名，因為星期六下午是我和同學約好踢足球的時間。可是班主任說這是服務學習的必修項目，我只好硬着頭皮參加。</p>
+    <p><span class="pnum">3</span>第一堂，我負責教李婆婆。她戴着老花眼鏡，把手機拿得遠遠的，一個按鈕要找上半天。我教她怎樣開啟通訊程式，說了三遍，她還是按錯。我心裏不耐煩，索性搶過手機，「嘟嘟嘟」幾下替她完成，然後敷衍地說：「婆婆，就是這樣，很簡單的。」李婆婆尷尬地笑了笑，沒有再問。</p>
+    <p><span class="pnum">4</span>第二堂開始前，我看見李婆婆早已坐在課室裏，正埋頭翻着一本殘舊的筆記簿。我好奇地走近一看，只見簿上密密麻麻地寫滿字，還畫了手機畫面的圖樣，旁邊標着「綠色圓形＝打電話」、「先按右下角」。原來她回家後，憑記憶把我上次的步驟一筆一畫地抄下來。可是因為我上次只顧自己操作，她抄下的步驟有好幾處是錯的。</p>
+    <p><span class="pnum">5</span>「我的孫女去了英國讀書，」李婆婆輕輕撫着筆記簿說，「我想學會視像，每晚看看她。人老了，學得慢，麻煩你了。」聽到這裏，我的心像被針刺了一下。我想起自己第一次學踏單車時，爸爸扶着車尾，陪我在公園繞了一圈又一圈，從來沒有說過一句「很簡單」。</p>
+    <p><span class="pnum">6</span>那一堂，我把椅子搬到婆婆身旁，不再搶她的手機，而是讓她自己按。每完成一個步驟，我便請她在筆記簿上寫下來，再由我核對。她按錯了，我就陪她重新再來。兩個小時後，婆婆終於自己撥通了第一個視像通話，不過她打給的，只是坐在對面的我。我們隔着桌子對着屏幕揮手，兩個人都笑了起來。</p>
+    <p><span class="pnum">7</span>這次經歷讓我明白，教別人做事要放慢腳步，從對方的角度想一想。婆婆眼睛不好，手指也不靈活，我覺得簡單的事，對她來說一點也不簡單。以後再教別人，我會先讓對方自己動手，再在旁邊慢慢陪着。</p>
+  </div>
+</div>
+
+<div class="qsub">篇章理解（一）：共佔15分</div>
+
+<div class="qbox"><span class="qn">19.</span>以下哪一項<u>不是</u>作者在「長者智能手機班」中的經歷？<span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A.　教李婆婆開啟通訊程式。</li>
+    <li>B.　替李婆婆核對筆記。</li>
+    <li>C.　與李婆婆的孫女視像通話。</li>
+    <li>D.　搶過李婆婆的手機替她操作。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span class="note">和孫女視像的是李婆婆本人，而且是手機班以後的事；婆婆在課堂上撥通的視像通話，是打給作者的。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">20.</span>根據第二、三段，以下哪些描述能反映作者起初對手機班的態度？<span class="mark">（2分）</span>
+  <div class="stmts">
+    <div>(i)　因為要和同學踢足球，本來不想報名。</div>
+    <div>(ii)　擔心自己能力不足，不敢擔任小老師。</div>
+    <div>(iii)　因為服務學習是必修項目，只好勉強參加。</div>
+    <div>(iv)　見李婆婆多次按錯，便搶過手機替她完成。</div>
+  </div>
+  <ul class="opts two">
+    <li>A.　(i) 和 (ii)。</li>
+    <li>B.　(ii) 和 (iv)。</li>
+    <li>C.　(i)、(iii) 和 (iv)。</li>
+    <li>D.　(ii)、(iii) 和 (iv)。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span class="note">文中沒有提及作者擔心自己能力不足，所以 (ii) 不正確。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">21.</span>根據第五段，李婆婆說那番話的目的是<span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A.　責怪作者上一堂教得太馬虎。</li>
+    <li>B.　說明學習原因，請作者體諒。</li>
+    <li>C.　向作者炫耀孫女在英國讀書。</li>
+    <li>D.　請求作者替她和孫女視像。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><span class="note">婆婆說出想學視像的原因，再說「麻煩你了」，是客氣地請作者體諒她學得慢，並無責怪之意。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">22.</span>根據第五、六段，在表格內填寫作者的感受和表現。<span class="mark">（3分）</span>
+  <table class="qtable">
+    <tr><th>情境</th><th>作者的感受</th><th>作者的表現</th></tr>
+    <tr>
+      <td style="width:28%">聽到李婆婆說出學習視像的原因。</td>
+      <td class="c" style="width:24%">(i) <span class="blank s"></span></td>
+      <td>把椅子搬到婆婆身旁，不再搶她的手機，而是 (ii) <span class="blank"></span>，她按錯了就陪她重新再來。</td>
+    </tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）<br>(i) 慚愧／內疚（2分）<br>(ii) 讓她自己按（1分）<br><span class="note">感受可從「我的心像被針刺了一下」，以及作者想起爸爸耐心教自己踏單車推斷出來。答「難過」、「心痛」只給1分。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">23.</span>根據本文，李婆婆是一個怎樣的人？試結合本文內容加以說明。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，示例）<br>
+      李婆婆是一個勤奮好學的人。她回家後憑記憶把步驟抄在筆記簿上，還畫圖標示，第二堂又提早到課室溫習。她也很疼愛孫女，為了每晚看看在英國讀書的孫女，即使學得慢也要學會視像。<br>
+      <span class="note">評分原則：每答一項性格給1分，配合文中事例說明再給1分，答兩項即可。其他可接受的性格：謙虛有禮／懂得感恩（說「麻煩你了」；學會後特意傳訊息向作者道謝）。只寫性格而沒有事例，每項只給1分；事例照抄原文而沒有概括，可酌量扣分。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">24.</span>文中哪一個詞語有「勉強去做自己不願意做的事」的意思？<span class="mark">（2分）</span>
+  <div class="line short"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）硬着頭皮<br><span class="note">錯別字不給分。</span></div>
+  </div>
+</div>
+
+<!-- ============ 篇章二 ============ -->
+<div class="section-header" id="s2">
+  <span class="icon">🚋</span><h2>篇章二：叮叮百年</h2><span class="ch">CHAPTER 02</span>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="card text">
+  <div class="card-title"><span class="dot teal"></span>篇章二</div>
+  <div class="passage">
+    <p><span class="pnum">1</span>在香港島北岸的大街上，每天都有一輛輛雙層電車在高樓之間慢慢駛過，不時發出「叮叮」的鈴聲。電車在香港行走了一百多年，至今仍然載客，很多人把它看作香港的標誌。</p>
+    <p><span class="pnum">2</span>香港電車於一九零四年正式通車，是香港歷史最悠久的公共交通工具之一。最初的電車全部是單層的，後來為了應付日益增加的乘客，才逐步改為雙層設計。時至今日，香港電車是全球少數全數採用雙層電車行駛的電車系統。</p>
+    <p><span class="pnum">3</span>電車的運作原理並不複雜。車頂裝有集電裝置，連接架空電纜，把電力輸送到車上的摩打，帶動車輪沿着路軌前進。由於電車只能在固定的路軌上行駛，不能像巴士般隨意轉線，所以遇到前方有障礙物時，司機便會踩下腳下的踏板響鈴，提醒行人和車輛讓路。「叮叮」的鈴聲由此而來，久而久之，「叮叮」更成了電車的暱稱，在香港家喻戶曉。</p>
+    <p><span class="pnum">4</span>電車深受市民歡迎，原因有三。第一，車資相宜，而且不論路程長短，都只收同一價錢，對經常短途往返的市民來說十分划算。第二，電車站之間的距離很短，乘客上落十分方便。第三，電車以電力推動，行駛時不會在路面排放廢氣，有助減少路邊空氣污染，是名副其實的綠色交通工具。</p>
+    <p><span class="pnum">5</span>除了實用，不少香港人對電車也有感情。有人喜歡坐在上層車頭的位置，憑窗眺望街道兩旁的舊式唐樓和熙來攘往的人群；遊客也愛乘搭電車，一邊慢慢前進，一邊看看這個城市。近年，電車公司推出了觀光電車，又不時與藝術團體合作，在車身上畫上圖畫。</p>
+    <p><span class="pnum">6</span>然而，隨着香港島的道路愈來愈擠塞，有人批評電車速度緩慢，又佔用路面，令其他車輛無法暢順行駛。有見及此，有人建議在繁忙路段劃出電車專用線，讓電車與其他車輛各行其道，互不干擾。電車這位「百歲老人」應該讓路，還是應該有自己的路，各方至今仍未有定論。</p>
+  </div>
+</div>
+
+<div class="qsub">篇章理解（二）：共佔14分</div>
+
+<div class="qbox"><span class="qn">25.</span>本文第一段主要介紹電車<span class="mark">（2分）</span>
+  <ul class="opts two">
+    <li>A.　每天在高樓大廈之間行駛。</li>
+    <li>B.　行駛時會發出「叮叮」聲。</li>
+    <li>C.　歷史悠久，是香港的標誌。</li>
+    <li>D.　是香港島唯一的交通工具。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span class="note">A、B 只是首段的細節，C 是段末的重點；D 文中沒有提及。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">26.</span>根據本文，以下哪一項關於電車的資料<u>不正確</u>？<span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A.　以電力推動行駛。</li>
+    <li>B.　可以隨意轉線避開障礙物。</li>
+    <li>C.　不論路程長短，收費相同。</li>
+    <li>D.　行駛時不會在路面排放廢氣。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><span class="note">第三段說明電車「不能」像巴士般隨意轉線。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">27.</span>根據本文，以下哪一項是正確的？<span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A.　電車在一九零四年通車時已採用雙層設計。</li>
+    <li>B.　「叮叮」聲是由電車的摩打發出的。</li>
+    <li>C.　電車公司會與藝術團體合作裝飾車身。</li>
+    <li>D.　遊客乘搭電車主要是為了節省車資。</li>
+  </ul>
+  <div class="choice">答案：<span class="box"></span></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span class="note">A：最初的電車是單層的；B：鈴聲由司機踩踏板響鈴發出；D：遊客是為了慢慢看看這個城市。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">28.</span>為甚麼「叮叮」會成為電車的暱稱？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每個要點1分）<br>
+      ① 電車只能在固定路軌上行駛，不能隨意轉線避開障礙物；<br>
+      ② 所以司機要踩踏板響鈴，提醒行人和車輛讓路，鈴聲是「叮叮」聲；<br>
+      ③ 久而久之，市民便以「叮叮」稱呼電車。</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">29.</span>本文末段提出用甚麼方法解決電車與其他車輛爭路的問題？你贊成這個建議嗎？試加以說明。<span class="mark">（3分）</span>
+  <div class="fill-line">方法：<span class="blank l" style="width:70%"></span></div>
+  <div class="fill-line">我 <span class="blank s"></span>（贊成／不贊成），因為 <span class="blank l" style="width:45%"></span></div>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）<br>
+      方法：在繁忙路段劃出電車專用線。（1分）<br>
+      立場及理由（2分，學生自由作答，言之成理即可），示例：<br>
+      贊成：電車不再被其他車輛阻塞，其他車輛也不用跟在慢速的電車後面，兩者都更暢順；同時可以保留電車環保、方便市民的優點。<br>
+      不贊成：香港島的道路本來已經狹窄，劃出專用線後，其他車輛可用的路面更少，可能令擠塞更嚴重。<br>
+      <span class="note">評分原則：答「取消電車」或只抄「各行其道」，方法一項不給分。理由須用自己的話說明；只照抄原文「各行其道，互不干擾」而無解釋，立場及理由最多給1分。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">30.</span>文中哪一個詞語最適合填寫在下方句子的橫線上？<span class="mark">（2分）</span>
+  <div class="ctx">這首兒歌旋律簡單、歌詞易記，在香港可說是 <span class="blank"></span>，連幼稚園學生也會哼上幾句。</div>
+  <div class="line short"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）家喻戶曉<br><span class="note">答「名副其實」、「熙來攘往」不給分；錯別字不給分。</span></div>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
