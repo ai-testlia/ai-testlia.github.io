@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一字多音 — 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#D5D8C5;
+  --hero-text:#1A2015;
+  --accent:#6F7C52;
+  --accent-10: rgba(111,124,82,0.10);
+  --accent-15: rgba(111,124,82,0.15);
+  --accent-30: rgba(111,124,82,0.30);
+  --teal:#4C8C86; --teal-bg:rgba(76,140,134,0.10);
+  --coral:#C1685A; --coral-bg:rgba(193,104,90,0.10);
+  --amber:#B8863B; --amber-bg:rgba(184,134,59,0.10);
+  --pink:#B06A8F; --pink-bg:rgba(176,106,143,0.10);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#eceae4;
+    --color-text-secondary:#b6b3ab;
+    --color-background-primary:#1c1d18;
+    --color-background-secondary:#25261f;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--color-background-secondary); color:var(--color-text-primary);
+  font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
+  line-height:1.8; font-size:14px;
+}
+h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;}
+.wrap{max-width:880px; margin:0 auto; padding:28px 20px 80px;}
+
+/* Hero */
+.hero{
+  background:var(--hero-bg); color:var(--hero-text);
+  border-radius:var(--border-radius-lg);
+  padding:34px 30px; text-align:center; margin-bottom:20px;
+}
+.hero-tag{
+  display:inline-block; padding:4px 14px; border-radius:999px;
+  border:1px solid rgba(26,32,21,0.3); color:rgba(26,32,21,0.65);
+  font-size:12.5px; letter-spacing:1px; margin-bottom:12px;
+}
+.hero h1{font-size:30px; font-weight:900; margin:0 0 8px;}
+.hero p{margin:0; color:rgba(26,32,21,0.5); font-size:13px;}
+
+/* TOC */
+.toc{
+  background:var(--color-background-primary); border:1px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg); padding:16px 20px; margin-bottom:26px;
+  display:grid; grid-template-columns:repeat(2,1fr); gap:8px 20px;
+}
+.toc-item{font-size:13.5px; color:var(--color-text-secondary); display:flex; gap:8px;}
+.toc-item b{color:var(--accent); font-family:"Noto Serif TC",serif;}
+
+/* section header */
+.section-header{
+  display:flex; align-items:center; gap:10px; margin:34px 0 14px;
+  padding-bottom:8px; border-bottom:2px solid var(--accent-30);
+}
+.section-header .num{
+  width:26px; height:26px; border-radius:50%; background:var(--accent);
+  color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.section-header h2{font-size:19px; margin:0; color:var(--color-text-primary);}
+.section-divider{margin:26px 0; border:none; border-top:1px dashed var(--color-border-tertiary);}
+
+/* card */
+.card{
+  background:var(--color-background-primary); border:1px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg); padding:18px 20px; margin-bottom:14px;
+}
+.card h3{font-size:15px; margin:0 0 8px; display:flex; align-items:center; gap:8px;}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--accent); display:inline-block;}
+.dot.teal{background:var(--teal);} .dot.coral{background:var(--coral);} .dot.amber{background:var(--amber);} .dot.pink{background:var(--pink);}
+.card p{margin:6px 0;}
+
+/* example box */
+.example-box{
+  background:var(--accent-10); border-left:3px solid var(--accent);
+  border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding:10px 14px; margin:10px 0;
+}
+.example-box.teal{background:var(--teal-bg); border-color:var(--teal);}
+.example-box.coral{background:var(--coral-bg); border-color:var(--coral);}
+.example-box.amber{background:var(--amber-bg); border-color:var(--amber);}
+.example-label{font-size:11.5px; font-weight:700; color:var(--accent); margin-bottom:4px;}
+.example-box.teal .example-label{color:var(--teal);}
+.example-box.coral .example-label{color:var(--coral);}
+.example-box.amber .example-label{color:var(--amber);}
+.example-text{font-size:14px;}
+
+/* alert */
+.alert{display:flex; gap:10px; padding:12px 14px; border-radius:var(--border-radius-md); margin:12px 0; align-items:flex-start;}
+.alert.tip{background:rgba(76,140,134,0.10);} .alert.warn{background:rgba(193,104,90,0.10);}
+.alert-icon{font-size:16px;}
+.alert-label{font-weight:700; font-size:12.5px; margin-bottom:2px;}
+.alert.tip .alert-label{color:var(--teal);} .alert.warn .alert-label{color:var(--coral);}
+.alert-text{font-size:13.5px; color:var(--color-text-secondary);}
+
+/* tables */
+table{width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0;}
+th,td{border:1px solid var(--color-border-tertiary); padding:8px 10px; text-align:left; vertical-align:top;}
+th{background:var(--color-background-secondary); font-weight:700;}
+.blank{color:var(--color-text-secondary); opacity:0.5;}
+
+/* question item */
+.qitem{
+  border:1px solid var(--color-border-tertiary); border-radius:var(--border-radius-md);
+  padding:12px 16px; margin:10px 0; background:var(--color-background-primary);
+}
+.qprompt{font-size:14.5px; margin-bottom:2px;}
+.q-source{font-size:12.5px; color:var(--color-text-secondary);}
+.qgroup-title{font-size:13.5px; font-weight:700; color:var(--accent); margin:16px 0 4px;}
+
+/* answer toggle button */
+.answer-toggle{
+  margin-top:8px; display:inline-flex; align-items:center; gap:6px;
+  padding:5px 14px; border-radius:999px; border:1px solid var(--accent-30);
+  background:var(--accent-10); color:var(--accent); font-size:12.5px;
+  cursor:pointer; user-select:none; font-family:inherit;
+}
+.answer-toggle:hover{background:var(--accent-15);}
+.answer-content{
+  display:none; margin-top:10px; padding:12px 16px;
+  background:var(--color-background-secondary); border:1px dashed var(--accent-30);
+  border-radius:var(--border-radius-md); font-size:13.5px;
+}
+.answer-content.show{display:block;}
+.ans-label{font-size:11.5px; font-weight:700; color:var(--accent); margin-bottom:6px; letter-spacing:1px;}
+.marked-sentence{font-size:15px; line-height:2.2; margin:4px 0 8px;}
+.mark-keep{background:rgba(111,124,82,0.22); border-bottom:2px solid var(--accent); padding:0 2px; border-radius:3px; font-weight:700;}
+.mark-del{text-decoration:line-through; text-decoration-color:var(--coral); text-decoration-thickness:2px; color:var(--color-text-secondary); opacity:0.7;}
+
+/* floating control bar */
+.floating-bar{
+  position:fixed; bottom:22px; right:22px; display:flex; flex-direction:column; gap:10px; z-index:99;
+}
+.fab{
+  padding:11px 18px; border-radius:999px; border:none; cursor:pointer;
+  font-size:13px; font-weight:700; box-shadow:0 4px 14px rgba(0,0,0,0.18);
+  font-family:inherit; color:#fff;
+}
+.fab.primary{background:var(--accent);}
+.fab.secondary{background:var(--color-text-secondary);}
+
+/* footer */
+footer{margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;}
+
+/* print rules */
+@media print{
+  @page{ margin:12mm 10mm; }
+  body{ background:#fff; }
+  .wrap{ max-width:100%; padding:0; }
+  .toc{ display:none; }
+  a{ color:inherit; text-decoration:none; }
+  .card,.qitem,.example-box,.alert{ page-break-inside:avoid; }
+  .section-header{ page-break-before:always; page-break-after:avoid; }
+  .section-header:first-of-type{ page-break-before:auto; }
+  .hero{ page-break-after:avoid; }
+  .section-divider{ page-break-after:avoid; }
+  .floating-bar,.answer-toggle{ display:none !important; }
+  .answer-content, .answer-content.show{ display:none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>一字多音</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-item"><b>01</b>一字多音是甚麼</div>
+    <div class="toc-item"><b>02</b>熱身活動：重與乘</div>
+    <div class="toc-item"><b>03</b>一字多音現象的三個成因</div>
+    <div class="toc-item"><b>04</b>課堂練習</div>
+  </div>
+
+  <!-- 01 -->
+  <div class="section-header"><div class="num">1</div><h2>一字多音是甚麼</h2></div>
+  <div class="card">
+    <p>一字多音即多音字，指一個字有兩個或以上讀音。由於古人可用的字不多，因此一字多音的情況在文言文中相當普遍。</p>
+  </div>
+
+  <!-- 02 -->
+  <div class="section-header"><div class="num">2</div><h2>熱身活動：重與乘</h2></div>
+  <div class="card">
+    <h3><span class="dot"></span>先試試：以下帶點的「重」和「乘」字，在不同句子中讀音、詞性和意思有何不同？</h3>
+
+    <div class="qgroup-title">重</div>
+    <div class="qitem">
+      <div class="qprompt">商人重利輕別離，前月浮梁買茶去。 <span class="q-source">（白居易《琵琶行》）</span></div>
+      <div style="font-size:12.5px;color:var(--color-text-secondary);margin-top:2px;">提示：留意商人重視的是甚麼</div>
+      <button class="answer-toggle" onclick="toggleAnswer('ans-c1',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="ans-c1">
+        <div class="ans-label">答案</div>
+        <p>讀音：誦（zung6）｜詞性：動詞｜釋義：重視</p>
+      </div>
+    </div>
+    <div class="qitem">
+      <div class="qprompt">移船相近邀相見，添酒回燈重開宴。 <span class="q-source">（白居易《琵琶行》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('ans-c2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="ans-c2">
+        <div class="ans-label">答案</div>
+        <p>讀音：松（cung4）｜詞性：副詞｜釋義：重新</p>
+      </div>
+    </div>
+
+    <div class="qgroup-title">乘</div>
+    <div class="qitem">
+      <div class="qprompt">公與之乘，戰於長勺。 <span class="q-source">（《左傳‧莊公十年》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('ans-c3',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="ans-c3">
+        <div class="ans-label">答案</div>
+        <p>讀音：成（sing4）｜詞性：動詞｜釋義：乘坐</p>
+      </div>
+    </div>
+    <div class="qitem">
+      <div class="qprompt">繕甲兵，具卒乘。 <span class="q-source">（《左傳‧隱公十年》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('ans-c4',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="ans-c4">
+        <div class="ans-label">答案</div>
+        <p>讀音：盛（sing6）｜詞性：名詞｜釋義：兵車</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="section-header"><div class="num">3</div><h2>一字多音現象的三個成因</h2></div>
+
+  <div class="card">
+    <h3><span class="dot"></span>1　古音異讀</h3>
+    <p>古代的一些專有名詞，如人名、地名、官名、族名、器物名等，保留古音，與現今的讀音不同。</p>
+    <table>
+      <tr><th>類別</th><th>例字</th><th>讀音</th><th>釋義</th></tr>
+      <tr><td>人名</td><td>萬俟</td><td>麥期</td><td>複姓</td></tr>
+      <tr><td>地名</td><td>吐谷渾</td><td>突浴魂</td><td>古代國家名</td></tr>
+      <tr><td>官名</td><td>可汗</td><td>克寒</td><td>古代對鮮卑、突厥、回紇等邊疆民族君長的稱呼</td></tr>
+      <tr><td>族名</td><td>吐蕃</td><td>兔播</td><td>古代的邊疆民族</td></tr>
+      <tr><td>器物名</td><td>蘭若</td><td>蘭野</td><td>古代對寺院的稱呼</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot teal"></span>2　破音異讀</h3>
+    <p>又稱「讀破」，即改變字詞慣常的讀音，以表示不同的詞性或不同的意義。</p>
+    <div class="example-box teal">
+      <div class="example-label">例一：王</div>
+      <div class="example-text">充當名詞，表示「帝王」，讀「黃」：<br>先<b>王</b>有不忍人之心，斯有不忍人之政矣。（《孟子‧公孫丑上》）<br>充當動詞，表示「成就王業」，讀「旺」：<br>以力假仁者霸，霸必有大國；以德行仁者<b>王</b>，王不待大。（《孟子‧公孫丑上》）</div>
+    </div>
+    <div class="example-box teal">
+      <div class="example-label">例二：說</div>
+      <div class="example-text">表示「勸說」、「游說」，讀「歲」：<br>鯫生<b>說</b>我曰「……」。（司馬遷《史記‧項羽本紀》）<br>表示「說法」、「學說」，讀「雪」：<br>是<b>說</b>也，人常疑之。（蘇軾《石鐘山記》）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot amber"></span>3　通假異讀</h3>
+    <p>文言文中的通假字，要按本字的讀音去讀，於是增加了字的讀音。</p>
+    <div class="example-box amber">
+      <div class="example-label">例：歸</div>
+      <div class="example-text">本音「龜」，表示「返回」、「歸還」、「歸附」：<br>覺而起，起而<b>歸</b>。（柳宗元《始得西山宴遊記》）<br>假借為「饋」之後，表示贈送，讀「饋」：<br>陽貨欲見孔子，孔子不見。<b>歸</b>孔子豚。（《論語‧陽貨》）</div>
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">考試技巧</div><div class="alert-text">遇到不肯定讀音的字，先判斷詞性同上文下理，先分辨屬於古音異讀、破音異讀，定係通假異讀，再查字典確認讀音。</div></div>
+  </div>
+
+  <!-- 04 -->
+  <div class="section-header"><div class="num">4</div><h2>課堂練習</h2></div>
+
+  <div class="card">
+    <h3><span class="dot"></span>1　試找出以下帶點的古音異讀字的讀音（以同音字表示）</h3>
+
+    <div class="qgroup-title">人名</div>
+    <div class="qitem"><div class="qprompt">(1) 酈食其</div><button class="answer-toggle" onclick="toggleAnswer('q1-1',this)">顯示答案 ▾</button><div class="answer-content" id="q1-1"><p>讀音：二姬</p></div></div>
+    <div class="qitem"><div class="qprompt">(2) 趙衰</div><button class="answer-toggle" onclick="toggleAnswer('q1-2',this)">顯示答案 ▾</button><div class="answer-content" id="q1-2"><p>讀音：趙吹</p></div></div>
+    <div class="qitem"><div class="qprompt">(3) 葉公好龍</div><button class="answer-toggle" onclick="toggleAnswer('q1-3',this)">顯示答案 ▾</button><div class="answer-content" id="q1-3"><p>讀音：攝</p></div></div>
+
+    <div class="qgroup-title">地名</div>
+    <div class="qitem"><div class="qprompt">(4) 大宛</div><button class="answer-toggle" onclick="toggleAnswer('q1-4',this)">顯示答案 ▾</button><div class="answer-content" id="q1-4"><p>讀音：冤</p></div></div>
+    <div class="qitem"><div class="qprompt">(5) 身毒</div><button class="answer-toggle" onclick="toggleAnswer('q1-5',this)">顯示答案 ▾</button><div class="answer-content" id="q1-5"><p>讀音：捐篤</p></div></div>
+    <div class="qitem"><div class="qprompt">(6) 月氏</div><button class="answer-toggle" onclick="toggleAnswer('q1-6',this)">顯示答案 ▾</button><div class="answer-content" id="q1-6"><p>讀音：肉枝</p></div></div>
+
+    <div class="qgroup-title">官名</div>
+    <div class="qitem"><div class="qprompt">(7) 單于</div><button class="answer-toggle" onclick="toggleAnswer('q1-7',this)">顯示答案 ▾</button><div class="answer-content" id="q1-7"><p>讀音：蟬（留意「單」讀 sin4，並非 sim4）</p></div></div>
+    <div class="qitem"><div class="qprompt">(8) 僕射</div><button class="answer-toggle" onclick="toggleAnswer('q1-8',this)">顯示答案 ▾</button><div class="answer-content" id="q1-8"><p>讀音：夜</p></div></div>
+    <div class="qitem"><div class="qprompt">(9) 裨將</div><button class="answer-toggle" onclick="toggleAnswer('q1-9',this)">顯示答案 ▾</button><div class="answer-content" id="q1-9"><p>讀音：皮</p></div></div>
+
+    <div class="qgroup-title">器物</div>
+    <div class="qitem"><div class="qprompt">(10) 拓本</div><button class="answer-toggle" onclick="toggleAnswer('q1-10',this)">顯示答案 ▾</button><div class="answer-content" id="q1-10"><p>讀音：塔</p></div></div>
+    <div class="qitem"><div class="qprompt">(11) 女紅</div><button class="answer-toggle" onclick="toggleAnswer('q1-11',this)">顯示答案 ▾</button><div class="answer-content" id="q1-11"><p>讀音：工</p></div></div>
+    <div class="qitem"><div class="qprompt">(12) 稽首</div><button class="answer-toggle" onclick="toggleAnswer('q1-12',this)">顯示答案 ▾</button><div class="answer-content" id="q1-12"><p>讀音：啟</p></div></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot teal"></span>2　以下哪一項不屬於破音異讀？</h3>
+    <div class="qitem">
+      <div class="qprompt">
+        A ① 失時不雨，民且狼顧。（賈誼《論積貯疏》）　② 雨露之養，人事之不齊也。（《孟子‧告子上》）<br>
+        B ① 他人有心，予忖度之。（《孟子‧梁惠王上》）　② 度險下至山坳，暝色已合。（徐宏祖《遊黃山日記》）<br>
+        C ① 王之好樂甚，則齊國其庶幾乎？（《孟子‧梁惠王上》）　② 秦王使使者告趙王，欲與王為好會於西河外澠池。（司馬遷《史記‧廉頗藺相如列傳》）<br>
+        D ① 年長色衰，委身為賈人婦。（白居易《琵琶行序》）　② 從許子之道，則市賈不貳。（《孟子‧滕文公上》）
+      </div>
+      <button class="answer-toggle" onclick="toggleAnswer('q2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="q2">
+        <div class="ans-label">答案：D</div>
+        <p>A「雨」讀「遇」（動詞：下雨）／讀「語」（名詞：雨水）——破音異讀<br>
+        B「度」讀「鐸」（動詞：揣測）／讀「杜」（動詞：度過、越過）——破音異讀<br>
+        C「好」讀「耗」（動詞：喜愛）／讀 hou2（形容詞：友好的）——破音異讀<br>
+        D「賈」讀「古」（名詞：商人）／讀「價」（賈通「價」，即價格）——屬<b>通假異讀</b>，並非因詞性或意義轉變而改讀，故不屬於破音異讀。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot amber"></span>3　試寫出以下通假異讀字的意思或本字</h3>
+    <div class="qitem"><div class="qprompt">(1) 張良出，要項伯。 <span class="q-source">（司馬遷《史記‧項羽本紀》）</span></div><button class="answer-toggle" onclick="toggleAnswer('q3-1',this)">顯示答案 ▾</button><div class="answer-content" id="q3-1"><p>意思：邀請　｜　本字：邀</p></div></div>
+    <div class="qitem"><div class="qprompt">(2) 文王伐崇，武王伐紂，齊桓任戰而伯天下。 <span class="q-source">（《戰國策‧秦策》）</span></div><button class="answer-toggle" onclick="toggleAnswer('q3-2',this)">顯示答案 ▾</button><div class="answer-content" id="q3-2"><p>意思：稱霸　｜　本字：霸</p></div></div>
+    <div class="qitem"><div class="qprompt">(3) 扁鵲望桓侯而還走。 <span class="q-source">（《韓非子‧喻老》）</span></div><button class="answer-toggle" onclick="toggleAnswer('q3-3',this)">顯示答案 ▾</button><div class="answer-content" id="q3-3"><p>意思：掉轉／轉身　｜　本字：旋</p></div></div>
+    <div class="qitem"><div class="qprompt">(4) 兵法，百里而趣利者蹶上將。 <span class="q-source">（司馬遷《史記‧孫子吳起列傳》）</span></div><button class="answer-toggle" onclick="toggleAnswer('q3-4',this)">顯示答案 ▾</button><div class="answer-content" id="q3-4"><p>意思：朝着　｜　本字：趨</p></div></div>
+    <div class="qitem"><div class="qprompt">(5) 命子封（鄭國大夫）帥車二百乘以伐京。 <span class="q-source">（《左傳‧隱公元年》）</span></div><button class="answer-toggle" onclick="toggleAnswer('q3-5',this)">顯示答案 ▾</button><div class="answer-content" id="q3-5"><p>意思：率領　｜　本字：率</p></div></div>
+    <div class="qitem"><div class="qprompt">(6) 其為人也孝弟，而好犯上者，鮮矣。 <span class="q-source">（《論語‧學而》）</span></div><button class="answer-toggle" onclick="toggleAnswer('q3-6',this)">顯示答案 ▾</button><div class="answer-content" id="q3-6"><p>意思：友愛兄弟　｜　本字：悌</p></div></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot pink"></span>4　試寫出以下各句中帶點的字的粵音、詞性和意思，並判斷異讀類型</h3>
+
+    <div class="qgroup-title">(1) 費</div>
+    <div class="qitem">
+      <div class="qprompt">① 侍中、侍郎郭攸之、費禕、董允等，此皆良實。（諸葛亮《出師表》）<br>② 量我師舉之費，以爭諸侯之斃，則必可得而序利焉。（《墨子‧非攻下》）</div>
+      <button class="answer-toggle" onclick="toggleAnswer('q4-1',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="q4-1">
+        <p>① 粵音：臂　詞性：（人名用字）　釋義：姓氏「費禕」<br>② 粵音：肺　詞性：名詞　釋義：費用</p>
+        <p><b>異讀類型：古音異讀</b>（人名保留古音）</p>
+      </div>
+    </div>
+
+    <div class="qgroup-title">(2) 勝</div>
+    <div class="qitem">
+      <div class="qprompt">① 故不戰而強弱勝負已判矣。（蘇洵《六國論》）<br>② 臣不勝受恩感激。（諸葛亮《出師表》）</div>
+      <button class="answer-toggle" onclick="toggleAnswer('q4-2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="q4-2">
+        <p>① 粵音：性　詞性：形容詞　釋義：勝利<br>② 粵音：升　詞性：動詞　釋義：能承擔、能承受</p>
+        <p><b>異讀類型：破音異讀</b></p>
+      </div>
+    </div>
+
+    <div class="qgroup-title">(3) 信</div>
+    <div class="qitem">
+      <div class="qprompt">① 願陛下親之、信之，則漢室之隆，可計日而待也。（諸葛亮《出師表》）<br>② 狼欣然從之，信足先生。（馬中錫《中山狼傳》）</div>
+      <button class="answer-toggle" onclick="toggleAnswer('q4-3',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="q4-3">
+        <p>① 粵音：迅　詞性：動詞　釋義：相信<br>② 粵音：身　詞性：動詞　釋義：通「伸」，伸展</p>
+        <p><b>異讀類型：通假異讀</b></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。<br>
+      <span style="opacity:0.7;">內容參考自《讀寫能力精進練習（文言篇）》練習一，© 牛津大學出版社</span>
+    </div>
+  </footer>
+
+</div>
+
+<div class="floating-bar">
+  <button class="fab primary" onclick="toggleAllAnswers(this)">顯示全部答案</button>
+  <button class="fab secondary" onclick="window.print()">列印 / PDF</button>
+</div>
+
+<script>
+function toggleAnswer(id, btn){
+  const el = document.getElementById(id);
+  const showing = el.classList.toggle('show');
+  btn.textContent = showing ? '隱藏答案 ▴' : '顯示答案 ▾';
+}
+function toggleAllAnswers(btn){
+  const all = document.querySelectorAll('.answer-content');
+  const anyHidden = Array.from(all).some(el => !el.classList.contains('show'));
+  all.forEach(el => el.classList.toggle('show', anyHidden));
+  document.querySelectorAll('.answer-toggle').forEach(b => {
+    b.textContent = anyHidden ? '隱藏答案 ▴' : '顯示答案 ▾';
+  });
+  btn.textContent = anyHidden ? '隱藏全部答案' : '顯示全部答案';
+}
+</script>
+</body>
+</html>

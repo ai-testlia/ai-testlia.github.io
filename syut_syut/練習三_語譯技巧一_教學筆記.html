@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>語譯技巧(一) — 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary: rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#D5D8C5;
+  --hero-text:#1A2015;
+  --accent:#6F7C52;
+  --accent-10: rgba(111,124,82,0.10);
+  --accent-15: rgba(111,124,82,0.15);
+  --accent-30: rgba(111,124,82,0.30);
+  --teal:#4C8C86; --teal-bg:rgba(76,140,134,0.10);
+  --coral:#C1685A; --coral-bg:rgba(193,104,90,0.10);
+  --amber:#B8863B; --amber-bg:rgba(184,134,59,0.10);
+  --pink:#B06A8F; --pink-bg:rgba(176,106,143,0.10);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#eceae4;
+    --color-text-secondary:#b6b3ab;
+    --color-background-primary:#1c1d18;
+    --color-background-secondary:#25261f;
+    --color-border-tertiary: rgba(255,255,255,0.12);
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--color-background-secondary); color:var(--color-text-primary);
+  font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
+  line-height:1.8; font-size:14px;
+}
+h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;}
+.wrap{max-width:880px; margin:0 auto; padding:28px 20px 80px;}
+.hero{background:var(--hero-bg); color:var(--hero-text); border-radius:var(--border-radius-lg); padding:34px 30px; text-align:center; margin-bottom:20px;}
+.hero-tag{display:inline-block; padding:4px 14px; border-radius:999px; border:1px solid rgba(26,32,21,0.3); color:rgba(26,32,21,0.65); font-size:12.5px; letter-spacing:1px; margin-bottom:12px;}
+.hero h1{font-size:30px; font-weight:900; margin:0 0 8px;}
+.hero p{margin:0; color:rgba(26,32,21,0.5); font-size:13px;}
+.toc{background:var(--color-background-primary); border:1px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:16px 20px; margin-bottom:26px; display:grid; grid-template-columns:repeat(2,1fr); gap:8px 20px;}
+.toc-item{font-size:13.5px; color:var(--color-text-secondary); display:flex; gap:8px;}
+.toc-item b{color:var(--accent); font-family:"Noto Serif TC",serif;}
+.section-header{display:flex; align-items:center; gap:10px; margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--accent-30);}
+.section-header .num{width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.section-header h2{font-size:19px; margin:0; color:var(--color-text-primary);}
+.section-divider{margin:26px 0; border:none; border-top:1px dashed var(--color-border-tertiary);}
+.card{background:var(--color-background-primary); border:1px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:18px 20px; margin-bottom:14px;}
+.card h3{font-size:15px; margin:0 0 8px; display:flex; align-items:center; gap:8px;}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--accent); display:inline-block;}
+.dot.teal{background:var(--teal);} .dot.coral{background:var(--coral);} .dot.amber{background:var(--amber);} .dot.pink{background:var(--pink);}
+.card p{margin:6px 0;}
+.example-box{background:var(--accent-10); border-left:3px solid var(--accent); border-radius:0 var(--border-radius-md) var(--border-radius-md) 0; padding:10px 14px; margin:10px 0;}
+.example-box.teal{background:var(--teal-bg); border-color:var(--teal);}
+.example-box.coral{background:var(--coral-bg); border-color:var(--coral);}
+.example-box.amber{background:var(--amber-bg); border-color:var(--amber);}
+.example-label{font-size:11.5px; font-weight:700; color:var(--accent); margin-bottom:4px;}
+.example-box.teal .example-label{color:var(--teal);}
+.example-box.coral .example-label{color:var(--coral);}
+.example-box.amber .example-label{color:var(--amber);}
+.example-text{font-size:14px;}
+.alert{display:flex; gap:10px; padding:12px 14px; border-radius:var(--border-radius-md); margin:12px 0; align-items:flex-start;}
+.alert.tip{background:rgba(76,140,134,0.10);} .alert.warn{background:rgba(193,104,90,0.10);}
+.alert-icon{font-size:16px;}
+.alert-label{font-weight:700; font-size:12.5px; margin-bottom:2px;}
+.alert.tip .alert-label{color:var(--teal);} .alert.warn .alert-label{color:var(--coral);}
+.alert-text{font-size:13.5px; color:var(--color-text-secondary);}
+table{width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0;}
+th,td{border:1px solid var(--color-border-tertiary); padding:8px 10px; text-align:left; vertical-align:top;}
+th{background:var(--color-background-secondary); font-weight:700;}
+.qitem{border:1px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:12px 16px; margin:10px 0; background:var(--color-background-primary);}
+.qprompt{font-size:14.5px; margin-bottom:2px;}
+.q-source{font-size:12.5px; color:var(--color-text-secondary);}
+.qgroup-title{font-size:13.5px; font-weight:700; color:var(--accent); margin:16px 0 4px;}
+.answer-toggle{margin-top:8px; display:inline-flex; align-items:center; gap:6px; padding:5px 14px; border-radius:999px; border:1px solid var(--accent-30); background:var(--accent-10); color:var(--accent); font-size:12.5px; cursor:pointer; user-select:none; font-family:inherit;}
+.answer-toggle:hover{background:var(--accent-15);}
+.answer-content{display:none; margin-top:10px; padding:12px 16px; background:var(--color-background-secondary); border:1px dashed var(--accent-30); border-radius:var(--border-radius-md); font-size:13.5px;}
+.answer-content.show{display:block;}
+.ans-label{font-size:11.5px; font-weight:700; color:var(--accent); margin-bottom:6px; letter-spacing:1px;}
+.marked-sentence{font-size:15.5px; line-height:2.3; margin:4px 0 8px;}
+.mark-keep{background:rgba(111,124,82,0.22); border-bottom:2px solid var(--accent); padding:0 2px; border-radius:3px; font-weight:700;}
+.mark-del{text-decoration:line-through; text-decoration-color:var(--coral); text-decoration-thickness:2px; color:var(--color-text-secondary); opacity:0.75;}
+.mark-add{background:rgba(76,140,134,0.22); border-bottom:2px solid var(--teal); padding:0 2px; border-radius:3px; font-weight:700;}
+.floating-bar{position:fixed; bottom:22px; right:22px; display:flex; flex-direction:column; gap:10px; z-index:99;}
+.fab{padding:11px 18px; border-radius:999px; border:none; cursor:pointer; font-size:13px; font-weight:700; box-shadow:0 4px 14px rgba(0,0,0,0.18); font-family:inherit; color:#fff;}
+.fab.primary{background:var(--accent);}
+.fab.secondary{background:var(--color-text-secondary);}
+footer{margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;}
+@media print{
+  @page{ margin:12mm 10mm; }
+  body{ background:#fff; }
+  .wrap{ max-width:100%; padding:0; }
+  .toc{ display:none; }
+  a{ color:inherit; text-decoration:none; }
+  .card,.qitem,.example-box,.alert{ page-break-inside:avoid; }
+  .section-header{ page-break-before:always; page-break-after:avoid; }
+  .section-header:first-of-type{ page-break-before:auto; }
+  .hero{ page-break-after:avoid; }
+  .section-divider{ page-break-after:avoid; }
+  .floating-bar,.answer-toggle{ display:none !important; }
+  .answer-content, .answer-content.show{ display:none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">文言教學筆記</div>
+    <h1>語譯技巧(一)</h1>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-item"><b>01</b>文言語譯的基本原則</div>
+    <div class="toc-item"><b>02</b>保留法／刪除法／補充法</div>
+    <div class="toc-item"><b>03</b>課堂練習</div>
+  </div>
+
+  <div class="section-header"><div class="num">1</div><h2>文言語譯的基本原則</h2></div>
+  <div class="card">
+    <p>文言翻譯的方法可分為「直譯」和「意譯」兩種。「直譯」是指按照原文的語義和語序，逐字逐句對應翻譯成現代漢語；「意譯」即根據原文語句的意思來翻譯。翻譯文言文時，一般採用「直譯為主，意譯為輔」的方法，先把原文語句翻譯成對應的現代漢語，然後用「意譯」的方法調整句子不通順或語意不清楚的地方。</p>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div><div class="alert-label">考試技巧</div><div class="alert-text">語譯文言文有三個基本技巧：保留法、刪除法、補充法。三者可以配合使用，一句之中往往同時涉及不止一種技巧。</div></div>
+    </div>
+  </div>
+
+  <div class="section-header"><div class="num">2</div><h2>保留法／刪除法／補充法</h2></div>
+
+  <div class="card">
+    <h3><span class="dot"></span>1　保留法</h3>
+    <p>古今通用的詞，以及文中的人名、地名、國家名、官職名、國號、年號、帝號、朝代名、度量衡單位、專有名詞等，都無須翻譯，保留原文的寫法。</p>
+    <div class="example-box">
+      <div class="example-label">例一</div>
+      <div class="example-text">
+        <span class="marked-sentence"><span class="mark-keep">慶曆四年</span>春，<span class="mark-keep">滕子京</span>謫守<span class="mark-keep">巴陵郡</span>。</span>（范仲淹《岳陽樓記》）<br>
+        「慶曆」是年號，「四年」是年份，「滕子京」是人名，「巴陵郡」是地名。<br>
+        語譯：慶曆四年的春天，滕子京被貶謫到巴陵郡當長官。
+      </div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">例二</div>
+      <div class="example-text">
+        <span class="marked-sentence"><span class="mark-keep">侍中</span>、<span class="mark-keep">侍郎郭攸之</span>、<span class="mark-keep">費褘</span>、<span class="mark-keep">董允</span>等，此皆良實。</span>（諸葛亮《出師表》）<br>
+        「侍中」、「侍郎」是官職名，「郭攸之」、「費褘」、「董允」是人名。<br>
+        語譯：侍中、侍郎郭攸之、費褘、董允等，都是忠貞信實的。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot coral"></span>2　刪除法</h3>
+    <p>刪除是指把句子中沒有實質意思、或無助於理解文意的文言虛詞刪去，如句子中的發語詞，或用以補充音節的字詞等。</p>
+    <div class="example-box coral">
+      <div class="example-label">例一</div>
+      <div class="example-text">
+        <span class="marked-sentence"><span class="mark-del">夫</span>六國與秦皆諸侯，其勢弱於秦。</span>（蘇洵《六國論》）<br>
+        「夫」是句子的發語詞，可刪。<br>
+        語譯：六國跟秦國一樣是諸侯國，她們的勢力比秦國弱。
+      </div>
+    </div>
+    <div class="example-box coral">
+      <div class="example-label">例二</div>
+      <div class="example-text">
+        <span class="marked-sentence">師道之不存<span class="mark-del">也</span>久矣。</span>（韓愈《師說》）<br>
+        「也」字在句中是補充音節的虛詞，可不譯。<br>
+        語譯：從師問道的風氣已經不流傳很久了。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot teal"></span>3　補充法</h3>
+    <p>文言文語句精煉，往往會省略部分句子成分。翻譯時，將文言句子中省略了的主語、謂語、賓語、量詞等補回，便是補充法。</p>
+    <div class="example-box teal">
+      <div class="example-label">① 補充主語</div>
+      <div class="example-text">遂命僕過湘江，緣染溪，斫榛莽。（柳宗元《始得西山宴遊記》）省略了主語，翻譯時須補回誰叫僕人過湘江。<br>語譯：<span class="mark-add">我</span>於是命令僕人越過湘江，沿着染溪而行，砍去雜亂叢生的草木。</div>
+    </div>
+    <div class="example-box teal">
+      <div class="example-label">② 補充謂語</div>
+      <div class="example-text">至六七里，鳥起馬驚，疾逸道左，又六七里，乃止。（李朝威《柳毅傳》）「又」與「六七里」中間省略了謂語，根據前文「至六七里」推斷，這裏省略了謂語「至」。<br>語譯：走了六、七里，忽然有一羣鳥飛起來，馬匹受驚，飛快地向路邊跑去，又<span class="mark-add">跑了</span>六、七里，才停下來。</div>
+    </div>
+    <div class="example-box teal">
+      <div class="example-label">③ 補充賓語</div>
+      <div class="example-text">於是秦王不懌，為一擊缻。（司馬遷《史記‧廉頗藺相如列傳》）「為」後面省略了賓語，翻譯時須補回。<br>語譯：於是秦王不高興，為<span class="mark-add">他（藺相如）</span>敲了一下盆缻。</div>
+    </div>
+    <div class="example-box teal">
+      <div class="example-label">④ 補充量詞</div>
+      <div class="example-text">寒暑易節，始一反焉。（《列子‧湯問》）「一」字後面省略了量詞「次」。<br>語譯：寒暑季節變換，才往返一<span class="mark-add">次</span>。</div>
+    </div>
+  </div>
+
+  <div class="section-header"><div class="num">3</div><h2>課堂練習</h2></div>
+
+  <div class="card">
+    <h3><span class="dot"></span>1　翻譯以下各句時，哪些字詞需要保留原來的寫法？</h3>
+
+    <div class="qitem">
+      <div class="qprompt">(1) 廉頗為趙將伐齊，大破之，取陽晉，拜為上卿。 <span class="q-source">（司馬遷《史記‧廉頗藺相如列傳》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('r1',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="r1">
+        <span class="marked-sentence"><span class="mark-keep">廉頗</span>為<span class="mark-keep">趙</span>將伐<span class="mark-keep">齊</span>，大破之，取<span class="mark-keep">陽晉</span>，拜為<span class="mark-keep">上卿</span>。</span>
+        <p>需保留：廉頗（人名）、趙／齊（國名）、陽晉（地名）、上卿（官職名）</p>
+      </div>
+    </div>
+
+    <div class="qitem">
+      <div class="qprompt">(2) 昭王四十三年，秦攻韓汾陘，拔之，因城河上廣武。 <span class="q-source">（司馬遷《史記‧范雎蔡澤列傳》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('r2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="r2">
+        <span class="marked-sentence"><span class="mark-keep">昭王四十三年</span>，<span class="mark-keep">秦</span>攻<span class="mark-keep">韓汾陘</span>，拔之，因城河上<span class="mark-keep">廣武</span>。</span>
+        <p>需保留：昭王四十三年（年號／年份）、秦（國名）、韓汾陘（國名＋地名）、廣武（地名）</p>
+      </div>
+    </div>
+
+    <div class="qitem">
+      <div class="qprompt">(3) 今年九月二十八日，因坐法華西亭，望西山，始指異之。 <span class="q-source">（柳宗元《始得西山宴遊記》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('r3',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="r3">
+        <span class="marked-sentence"><span class="mark-keep">今年九月二十八日</span>，因坐<span class="mark-keep">法華西亭</span>，望<span class="mark-keep">西山</span>，始指異之。</span>
+        <p>需保留：今年九月二十八日（日期）、法華西亭（地名）、西山（地名）</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot coral"></span>2　翻譯以下各句時，哪些字詞需要刪除？</h3>
+
+    <div class="qitem">
+      <div class="qprompt">(1) 夫戰，勇氣也。一鼓作氣，再而衰，三而竭。 <span class="q-source">（《左傳‧莊公十年》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('d1',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="d1">
+        <span class="marked-sentence"><span class="mark-del">夫</span>戰，勇氣<span class="mark-del">也</span>。一鼓作氣，再而衰，三而竭。</span>
+        <p>需刪除：夫（發語詞）、也（句末語氣詞）</p>
+      </div>
+    </div>
+
+    <div class="qitem">
+      <div class="qprompt">(2) 吾嘗終日而思矣，不如須臾之所學也。 <span class="q-source">（蘇洵《勸學》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('d2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="d2">
+        <span class="marked-sentence">吾嘗終日<span class="mark-del">而</span>思矣，不如須臾<span class="mark-del">之</span>所學<span class="mark-del">也</span>。</span>
+        <p>需刪除：而（連接詞）、之（結構助詞）、也（句末語氣詞）</p>
+      </div>
+    </div>
+
+    <div class="qitem">
+      <div class="qprompt">(3) 無絲竹之亂耳，無案牘之勞形。 <span class="q-source">（劉禹錫《陋室銘》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('d3',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="d3">
+        <span class="marked-sentence">無絲竹<span class="mark-del">之</span>亂耳，無案牘<span class="mark-del">之</span>勞形。</span>
+        <p>需刪除：之（結構助詞，兩處）</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot teal"></span>3　以下各句省略了甚麼成分？試判斷代表字母，並補回省略的內容</h3>
+    <p style="font-size:12.5px;color:var(--color-text-secondary);">A 省略主語　B 省略謂語　C 省略賓語　D 省略量詞</p>
+
+    <div class="qitem"><div class="qprompt">(1) 以德行仁者王，王不待大，湯以七十里【　】，文王以百里【　】。 <span class="q-source">（《孟子‧公孫丑上》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('e1',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="e1"><p>（ B ）補回：稱王</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(2) 余捉蟋蟀，汝奮臂出其間；歲寒蟲僵，【　】同臨其穴。 <span class="q-source">（袁枚《祭妹文》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('e2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="e2"><p>（ A ）補回：我和你（余與汝）</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(3) 願陛下託臣以討賊興復【　】之效；不效，則治臣之罪，以告先帝之靈。 <span class="q-source">（諸葛亮《出師表》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('e3',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="e3"><p>（ C ）補回：漢室</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(4) 林盡水源，便得一【　】山，山有小口，髣髴若有光。 <span class="q-source">（陶潛《桃花源記》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('e4',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="e4"><p>（ D ）補回：座</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(5) 先帝不以臣卑鄙，猥自枉屈，三顧臣於草廬之中，諮臣以當世之事；【　】由是感激，遂許先帝以驅馳。 <span class="q-source">（諸葛亮《出師表》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('e5',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="e5"><p>（ A ）補回：我（臣）</p></div>
+    </div>
+    <div class="qitem"><div class="qprompt">(6) 句讀之不知，惑之不解，或師焉，或不【　】焉，小學而大遺，吾未見其明也。 <span class="q-source">（韓愈《師說》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('e6',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="e6"><p>（ B ）補回：請教老師（師）</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot pink"></span>4　試分析以下句子及段落應保留、刪除及補充哪些內容，然後語譯句子</h3>
+
+    <div class="qitem">
+      <div class="qprompt">(1) 齊人未嘗賂秦，終繼五國遷滅，何哉？與嬴而不助五國也。 <span class="q-source">（蘇洵《六國論》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('p1',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="p1">
+        <p>保留：齊、秦、五國</p>
+        <p>刪除：也</p>
+        <p>補充：【<span class="mark-add">齊</span>】與嬴而不助五國也</p>
+        <p><b>語譯：</b>齊國不曾賄賂秦國，但終究隨着五國滅亡，為甚麼呢？那是因為齊國親附秦國卻不幫助五國。</p>
+      </div>
+    </div>
+
+    <div class="qitem">
+      <div class="qprompt">(2) 元豐六年十月十二日，夜，解衣欲睡；月色入戶，欣然起行。念無與為樂者，遂至承天寺，尋張懷民。懷民亦未寢，相與步於中庭。庭下如積水空明（像積水那麼清澈透明），水中藻荇交橫，蓋竹柏影也。何夜無月，何處無竹柏？但少閑人如吾兩人者耳。 <span class="q-source">（蘇軾《記承天寺夜遊》）</span></div>
+      <button class="answer-toggle" onclick="toggleAnswer('p2',this)">顯示答案 ▾</button>
+      <div class="answer-content" id="p2">
+        <p>保留：元豐六年、十月、十二日、承天寺、懷民</p>
+        <p>刪除：也</p>
+        <p>補充：【<span class="mark-add">我</span>】解衣欲睡；【<span class="mark-add">我</span>】欣然起行；【<span class="mark-add">我</span>】遂至承天寺</p>
+        <p><b>語譯：</b>元豐六年十月十二日晚上，我解開衣服準備睡覺時，月光從窗戶灑入屋內，我高興地起牀出門散步。想到沒有人一同遊樂，於是我到承天寺，尋找張懷民。張懷民也未睡覺，我們便在庭院中散步。庭院中充滿了月光，就像積水那麼清澈透明，水中的水藻、荇菜交橫錯雜，原來是竹子和柏樹的影子。哪一個夜晚沒有月光？哪一個地方沒有竹子和柏樹？只是缺少像我們兩個這麼清閑的人罷了。</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。<br>
+      <span style="opacity:0.7;">內容參考自《讀寫能力精進練習（文言篇）》練習三，© 牛津大學出版社</span>
+    </div>
+  </footer>
+
+</div>
+
+<div class="floating-bar">
+  <button class="fab primary" onclick="toggleAllAnswers(this)">顯示全部答案</button>
+  <button class="fab secondary" onclick="window.print()">列印 / PDF</button>
+</div>
+
+<script>
+function toggleAnswer(id, btn){
+  const el = document.getElementById(id);
+  const showing = el.classList.toggle('show');
+  btn.textContent = showing ? '隱藏答案 ▴' : '顯示答案 ▾';
+}
+function toggleAllAnswers(btn){
+  const all = document.querySelectorAll('.answer-content');
+  const anyHidden = Array.from(all).some(el => !el.classList.contains('show'));
+  all.forEach(el => el.classList.toggle('show', anyHidden));
+  document.querySelectorAll('.answer-toggle').forEach(b => {
+    b.textContent = anyHidden ? '隱藏答案 ▴' : '顯示答案 ▾';
+  });
+  btn.textContent = anyHidden ? '隱藏全部答案' : '顯示全部答案';
+}
+</script>
+</body>
+</html>
