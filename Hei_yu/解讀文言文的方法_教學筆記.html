@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解讀文言文的方法｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#f0edf8;
+  --teal:#2a8a80;--teal-bg:#e6f4f2;
+  --coral:#d0634a;--coral-bg:#fbede9;
+  --amber:#c47f17;--amber-bg:#fdf3e2;
+  --pink:#c2527f;--pink-bg:#fbeaf1;
+  --blue:#3a6ea5;--blue-bg:#e9f0f8;
+  --green:#3f8a4f;--green-bg:#eaf5ec;
+  --red:#c0392b;--red-bg:#fbeaea;
+  --hero-bg:#D5D8C5;--hero-text:#1A2015;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;
+    --color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2120;
+    --color-background-secondary:#151716;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a99be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c2f2d;
+    --coral:#ef8c75;--coral-bg:#382420;
+    --amber:#e6a94a;--amber-bg:#352b1a;
+    --pink:#e88ab0;--pink-bg:#36222b;
+    --blue:#7fa9d8;--blue-bg:#1f2a37;
+    --green:#7cc78b;--green-bg:#1d3022;
+    --red:#ee8577;--red-bg:#3a2020;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC',serif}
+
+/* hero */
+.hero{background:var(--hero-bg);color:var(--hero-text);border-radius:var(--border-radius-lg);padding:34px 30px 26px;margin-bottom:22px}
+.hero-tag{display:inline-block;border:1px solid rgba(26,32,21,.3);color:rgba(26,32,21,.65);border-radius:999px;padding:2px 14px;font-size:12.5px;letter-spacing:2px;margin-bottom:12px}
+.hero h1{margin:0 0 6px;font-size:28px;line-height:1.45;color:var(--hero-text);font-weight:900}
+.hero .sub{font-size:14.5px;color:rgba(26,32,21,.75);margin-bottom:10px}
+.hero p{margin:0;font-size:13px;color:rgba(26,32,21,.5);letter-spacing:1px}
+
+/* toc */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:26px;display:grid;grid-template-columns:1fr 1fr;gap:2px 22px}
+.toc-title{grid-column:1/-1;font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px;margin-bottom:6px}
+.toc-item{display:flex;gap:10px;color:var(--color-text-primary);text-decoration:none;padding:4px 0;border-bottom:1px dashed var(--color-border-tertiary);font-size:14px}
+.toc-item:hover{color:var(--teal)}
+.toc-num{font-weight:700;color:var(--teal);min-width:22px}
+.toc-sep{grid-column:1/-1;font-size:12px;color:var(--color-text-secondary);margin:8px 0 2px;letter-spacing:2px}
+
+/* section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;background:var(--color-background-primary);border-radius:var(--border-radius-lg);border-left:6px solid #8a9474}
+.section-header.ex{border-left-color:var(--amber)}
+.sh-icon{font-size:26px}
+.sh-text h2{margin:0;font-size:21px}
+.sh-text .chap{font-size:11.5px;letter-spacing:3px;color:var(--color-text-secondary)}
+
+/* card */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
+.card h3{margin:0 0 10px;font-size:17px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.card p{margin:6px 0}
+.card ul,.card ol{margin:6px 0;padding-left:22px}
+
+/* original text */
+.yuanwen{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:16px 18px 10px;font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15}
+.yuanwen .para{display:flex;gap:10px;margin-bottom:8px}
+.pnum{flex:none;width:24px;height:24px;border-radius:50%;background:#8a9474;color:#fff;font-family:'Noto Sans TC',sans-serif;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:8px}
+.layer-tag{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-size:12px;background:var(--teal-bg);color:var(--teal);border-radius:4px;padding:1px 8px;margin:4px 0 2px 34px;letter-spacing:1px}
+sup.n{color:var(--coral);font-size:11px;font-family:'Noto Sans TC',sans-serif;margin-left:1px}
+.py{font-size:12px;color:var(--blue);font-family:'Noto Sans TC',sans-serif}
+.hl{color:var(--blue);font-weight:700}
+.ul{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(127,127,127,.6)}
+.src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif;margin-top:4px}
+
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border-top:3px solid var(--teal)}
+.kw.c2{border-top-color:var(--amber)}
+.kw-word{font-family:'Noto Serif TC',serif;font-weight:700;font-size:15px}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* example box */
+.example-box{border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0;background:var(--purple-bg);border-left:4px solid var(--purple)}
+.example-box.teal{background:var(--teal-bg);border-left-color:var(--teal)}
+.example-box.coral{background:var(--coral-bg);border-left-color:var(--coral)}
+.example-box.amber{background:var(--amber-bg);border-left-color:var(--amber)}
+.example-box.pink{background:var(--pink-bg);border-left-color:var(--pink)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;opacity:.85;margin-bottom:2px}
+.example-text{font-size:14px}
+
+/* alert */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert-icon{font-size:18px;line-height:1.6}
+.alert-label{font-weight:700;font-size:13px}
+.alert-text{font-size:14px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:10px 14px;font-size:14px}
+.compare-card.bad{background:var(--red-bg);border-top:3px solid var(--red)}
+.compare-card.good{background:var(--green-bg);border-top:3px solid var(--green)}
+.compare-card b.t{display:block;margin-bottom:4px}
+
+/* flow */
+.flow{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap;margin:10px 0}
+.flow-step{flex:1;min-width:130px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;font-size:13.5px}
+.flow-step b{display:block;color:var(--teal);font-size:13px}
+.flow-arrow{display:flex;align-items:center;color:var(--color-text-secondary);font-weight:700}
+
+/* formula */
+.formula{background:#2f3a2a;color:#eef0e4;border-radius:var(--border-radius-md);padding:14px 18px;margin:12px 0;font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9}
+.formula small{display:block;font-family:'Noto Sans TC',sans-serif;font-size:12px;letter-spacing:2px;opacity:.7}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+.tbl th,.tbl td{border:1px solid var(--color-border-tertiary);padding:7px 10px;vertical-align:top;text-align:left}
+.tbl th{background:var(--color-background-secondary);font-weight:700;white-space:nowrap}
+.tbl .c{white-space:nowrap;text-align:center}
+.tbl .nw{white-space:nowrap}
+
+/* details (語譯) */
+details.yi{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 14px;margin:10px 0}
+details.yi summary{cursor:pointer;font-weight:700;color:var(--teal);font-size:14px}
+details.yi p{margin:8px 0 4px}
+
+/* exercise */
+.qsub{font-family:'Noto Serif TC',serif;font-weight:700;font-size:17px;margin:20px 0 10px;padding-left:10px;border-left:4px solid var(--amber)}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:12px 16px;margin-bottom:12px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{font-size:12.5px;color:var(--color-text-secondary);margin-left:4px}
+.line{border-bottom:1px solid #9a9a9a;height:30px}
+.blank{display:inline-block;border-bottom:1px solid #9a9a9a;min-width:110px;height:1.2em;vertical-align:baseline;margin:0 3px}
+.blank.s{min-width:70px}.blank.l{min-width:190px}
+.opt{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
+.opt td{padding:4px 6px;vertical-align:top}
+.opt td.o{white-space:nowrap;width:1%}
+.mc{display:grid;grid-template-columns:1fr 1fr;gap:2px 20px;margin:6px 0 4px 18px}
+.trans{background:var(--blue-bg);border-radius:14px;padding:10px 16px;margin:8px 0;line-height:2.4}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;line-height:2.1}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans[hidden]{display:none}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+@media (max-width:640px){
+  .toc{grid-template-columns:1fr}
+  .compare-grid,.mc{grid-template-columns:1fr}
+  .hero h1{font-size:23px}
+  .yuanwen{font-size:16px}
+}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#1a1a1a}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  details.yi{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">文言教學筆記</div>
+  <h1>解讀文言文的方法</h1>
+  <div class="sub">讀懂大意　語譯句子　推斷字義　讀出態度　找出主旨</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>讀一篇文言文的四個步驟</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>語譯五字訣：留、換、補、刪、調</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>推斷字義的五種方法</a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span>讀出人物的態度和言外之意</a>
+  <a class="toc-item" href="#s5"><span class="toc-num">05</span>找出主旨的三個位置</a>
+  <a class="toc-item" href="#s6"><span class="toc-num">06</span>綜合練習：《曾子殺彘》</a>
+</nav>
+
+<div class="card">
+  <h3><span class="dot teal"></span>怎樣使用這份筆記</h3>
+  <p>第一至五章各講一種方法，例子取自三篇短文：《二年之期》（范式守約）、《四知金也》（楊震拒金）、《背信遭報》（公冶長失信）。每個例子都附上原句，未讀過原文也可以跟上。第六章是綜合練習，用一篇新的文章，把五章的方法逐一用一次。</p>
+  <div class="flow">
+    <div class="flow-step"><b>第一章</b>先掌握大意</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第二、三章</b>處理句子和字詞</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第四、五章</b>理解人物和主旨</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第六章</b>綜合運用</div>
+  </div>
+</div>
+
+<!-- ================= CH01 ================= -->
+<div class="section-header first" id="s1">
+  <div class="sh-icon">👣</div>
+  <div class="sh-text"><div class="chap">CHAPTER 01</div><h2>讀一篇文言文的四個步驟</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>先大意，後字詞</h3>
+  <p>拿到一篇陌生的文言文，不要一開始就逐字翻譯。逐字譯到一半，往往已經忘了故事在說甚麼。先掌握大意，再處理字詞，最後把句子讀順。</p>
+  <div class="flow">
+    <div class="flow-step"><b>① 通讀</b>讀兩遍，找出人物和事件：誰？做了甚麼？結果如何？</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>② 圈名</b>把人名、地名、官名圈出來，這些字不必翻譯</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>③ 對譯</b>逐字逐詞譯成白話，用「留、換、補、刪、調」（第二章）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>④ 順句</b>把譯句讀一遍，檢查是否通順、合乎上下文</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>步驟一：通讀抓大意</h3>
+  <p>第一遍不用每個字都懂，只要回答三個問題：</p>
+  <table class="tbl">
+    <tr><th>問題</th><th>《背信遭報》的答案</th></tr>
+    <tr><td class="nw">誰？</td><td>公冶長、一隻鴟（鷂鷹）、縣官</td></tr>
+    <tr><td class="nw">做了甚麼？</td><td>鴟兩次報信，公冶長第一次得獐後不分腸給鴟，第二次誤把死人當作死獐</td></tr>
+    <tr><td class="nw">結果如何？</td><td>公冶長被捉去見官，無話可說</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧</div><div class="alert-text">考試時先看一眼題目，再讀文章。題目問到的字詞和句子，讀的時候順手劃線，第二遍細讀時就知道重點在哪裏。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>步驟二：圈出專有名詞</h3>
+  <div class="example-box amber">
+    <div class="example-label">示範：《四知金也》</div>
+    <div class="example-text">「大將軍鄧騭聞其賢而辟之，舉茂才，四遷荊州刺史、東萊太守。」<br>
+    人名：<b>鄧騭</b>　地名：<b>荊州、東萊</b>　官名、科目名：<b>大將軍、茂才、刺史、太守</b><br>
+    圈完之後，要處理的字只剩「聞、其、賢、而、辟、之、舉、四遷」，句子就簡單得多。</div>
+  </div>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱：同一人有不同稱呼</div><div class="alert-text">古人有名有字，文中常交替使用。《二年之期》的「范式」「式」「巨卿」是同一人，「張劭」「劭」「元伯」又是同一人；《背信遭報》的「公冶長」「冶長」「長」也是同一人。通讀時先把稱呼對上號，否則容易以為多了幾個角色。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>步驟三、四：對譯和順句</h3>
+  <p>對譯時一個字一個字處理，具體做法見第二章。譯完一定要把整句讀一遍：句子不通，或者和上下文接不上，就回頭檢查哪個字譯錯了。</p>
+  <div class="compare-grid">
+    <div class="compare-card bad"><b class="t">只對譯，不順句</b>「當之郡，道經昌邑」→「正當這個郡，道路經過昌邑」<br><span style="font-size:13px">把「之」當成「這個」，句子讀不通。</span></div>
+    <div class="compare-card good"><b class="t">對譯後順句</b>「當之郡，道經昌邑」→「在前往東萊郡赴任時，途經昌邑」<br><span style="font-size:13px">「之」解作「往」，前後才接得上。</span></div>
+  </div>
+</div>
+
+<!-- ================= CH02 ================= -->
+<div class="section-header" id="s2">
+  <div class="sh-icon">✍️</div>
+  <div class="sh-text"><div class="chap">CHAPTER 02</div><h2>語譯五字訣：留、換、補、刪、調</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>五字訣一覽</h3>
+  <table class="tbl">
+    <tr><th>字訣</th><th>做法</th><th>例子</th></tr>
+    <tr><td class="c"><b>留</b></td><td>人名、地名、官名、朝代、年號等專有名詞照錄</td><td>范式、汝南、荊州刺史、東萊太守</td></tr>
+    <tr><td class="c"><b>換</b></td><td>單音詞換成雙音詞；古今意思不同的詞換成今義</td><td>友→朋友；還→回來；母→母親；乖→違背；怨→懷恨</td></tr>
+    <tr><td class="c"><b>補</b></td><td>補回省略的主語、謂語、賓語</td><td>（我）後二年當還；巨卿（是）信士</td></tr>
+    <tr><td class="c"><b>刪</b></td><td>刪去沒有實際意思、只表語氣或湊足音節的虛詞</td><td>見孺子<b>焉</b>；然其無意飼鴟以腸<b>也</b></td></tr>
+    <tr><td class="c"><b>調</b></td><td>倒裝句調回現代漢語語序</td><td>飼鴟以腸→以腸飼鴟；何為詐→為何詐</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>「補」：省略句</h3>
+  <p>文言文追求簡潔，前文提過、讀者能夠意會的成分，往往省去。語譯時要補回，句子才通順。</p>
+  <table class="tbl">
+    <tr><th>省略了甚麼</th><th>原句</th><th>補回後</th></tr>
+    <tr><td class="nw">主語</td><td>後二年當還，將過拜尊親（《二年之期》，范式說）</td><td>（<b>我</b>）後二年當還，（<b>我</b>）將過拜尊親</td></tr>
+    <tr><td class="nw">主語</td><td>性公廉，不受私謁（《四知金也》）</td><td>（<b>楊震</b>）性公廉，不受私謁</td></tr>
+    <tr><td class="nw">謂語</td><td>巨卿信士（《二年之期》）</td><td>巨卿（<b>是</b>）信士</td></tr>
+    <tr><td class="nw">賓語</td><td>元伯具以白母（《二年之期》）</td><td>元伯具以（<b>之</b>）白母：把這件事告訴母親</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">判斷句要補「是」</div><div class="alert-text">「巨卿信士」這類判斷句，「巨卿」和「信士」之間沒有「是」字。語譯時必須補上：巨卿<b>是</b>守信的人。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>「調」：倒裝句</h3>
+  <table class="tbl">
+    <tr><th>類型</th><th>原句</th><th>現代語序</th><th>語譯</th></tr>
+    <tr><td class="nw">介賓短語後置</td><td>飼鴟<b>以腸</b></td><td><b>以腸</b>飼鴟</td><td>把腸子餵給鴟鳥</td></tr>
+    <tr><td class="nw">疑問代詞賓語前置</td><td><b>何</b>為詐</td><td>為<b>何</b>詐</td><td>為甚麼欺騙</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>完整示範</h3>
+  <div class="example-box coral">
+    <div class="example-label">示範一：「巨卿信士，必不乖約。」</div>
+    <div class="example-text">
+      <b>留</b>：巨卿（人名）<br>
+      <b>補</b>：巨卿（是）信士──判斷句省略了「是」<br>
+      <b>換</b>：信士→守信用的人；必→一定；不→不會；乖→違背；約→約定<br>
+      <b>順句</b>：巨卿是守信用的人，一定不會違背約定。
+    </div>
+  </div>
+  <div class="example-box teal">
+    <div class="example-label">示範二：「然其無意飼鴟以腸也。」</div>
+    <div class="example-text">
+      <b>換</b>：然→但是；其→他；無意→沒有打算<br>
+      <b>調</b>：飼鴟以腸→以腸飼鴟（把腸子餵給鴟）<br>
+      <b>刪</b>：句末「也」只表語氣，不譯<br>
+      <b>順句</b>：但是他沒有打算把腸子餵給鴟鳥。
+    </div>
+  </div>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧</div><div class="alert-text">語譯題通常按關鍵字給分。「乖」「審」「遺」這類有特別意思的字一定要譯出來，不能含糊帶過。譯完後，看看每個關鍵字在譯句中能否找到對應的詞。</div></div></div>
+  <div class="formula"><small>一句記</small>名字照留，單字換雙，省略要補，虛詞可刪，倒裝要調。</div>
+</div>
+
+<!-- ================= CH03 ================= -->
+<div class="section-header" id="s3">
+  <div class="sh-icon">🔎</div>
+  <div class="sh-text"><div class="chap">CHAPTER 03</div><h2>推斷字義的五種方法</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>方法一：組詞法</h3>
+  <p>把單字擴成一個常見的雙音詞，再看哪個詞放回句中說得通。</p>
+  <div class="example-box amber"><div class="example-text">「望見數人圍一物而<b>嘩</b>」：嘩→<u>喧嘩</u><br>「眾遂<b>逮</b>長見邑宰」：逮→<u>逮捕</u><br>「宰<b>審</b>問」：審→<u>審問</u></div></div>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">組出來的詞要放回句子檢查。「乃共克期日」的「克」，組成「克服」就說不通；按上下文是二人訂下日期，「克」解作約定。</div></div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>方法二：部首法</h3>
+  <p>形聲字的部首往往提示意思的類別。</p>
+  <table class="tbl">
+    <tr><th>字</th><th>部首</th><th>推斷</th><th>原句中的意思</th></tr>
+    <tr><td class="c">鴟</td><td class="c">鳥</td><td>一種鳥</td><td>鷂鷹</td></tr>
+    <tr><td class="c">獐</td><td class="c">犬（犭）</td><td>一種獸</td><td>一種似鹿的小獸</td></tr>
+    <tr><td class="c">饌</td><td class="c">食</td><td>與飲食有關</td><td>「設饌」：準備酒菜</td></tr>
+    <tr><td class="c">醞</td><td class="c">酉（與酒有關）</td><td>與酒有關</td><td>「醞酒」：釀酒</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>方法三：詞性法</h3>
+  <p>看字在句中的位置。後面接着人或物，這個字多數作動詞用。</p>
+  <div class="example-box teal"><div class="example-text">「具以<b>白</b>母」：「白」後接「母」，是動詞，解作告訴，不是顏色。<br>「至夜<b>懷</b>金十斤」：「懷」後接「金」，是動詞，解作揣着，不是名詞「胸懷」。</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>方法四：上下文法</h3>
+  <p>前後句子會限制字義，選一個符合情節的解釋。</p>
+  <div class="example-box"><div class="example-text">「當<b>之</b>郡，道經昌邑」：下句說他「途經」昌邑，表示還在路上，所以「之」解作「去、往」，不是「到達」。<br>「鴟是以<b>怨</b>之」：鴟後來再來報信，令公冶長惹上大禍，可見這裏的「怨」程度很重，解作懷恨。</div></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>方法五：對稱法</h3>
+  <p>文言文常用結構相同的句子，對應位置的字，意思往往相同或相反。</p>
+  <div class="example-box"><div class="example-text">「故人<b>知</b>君，君不<b>知</b>故人」：前後兩個「知」位置對應，同解作「了解」。<br>「<b>子</b>食其肉，<b>我</b>食其腸」：「子」對「我」，可推知「子」是第二人稱「你」。</div></div>
+  <div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">留意讀音提示</div><div class="alert-text">課本在字旁注音，有時正是提示字義。「至夜懷金十斤以<b>遺</b>震」注「惠」，解作贈送；「以此<b>遺</b>之」注「惟」，解作留給。同一個字讀音不同，意思也不同。</div></div></div>
+  <div class="formula"><small>一句記</small>組詞、看部首、辨詞性、聯上下文、找對稱──幾種方法一起用，再代入句子檢查。</div>
+</div>
+
+<!-- ================= CH04 ================= -->
+<div class="section-header" id="s4">
+  <div class="sh-icon">🎭</div>
+  <div class="sh-text"><div class="chap">CHAPTER 04</div><h2>讀出人物的態度和言外之意</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot blue"></span>說話、動作、結果</h3>
+  <p>文言文很少直接寫人物的想法，要從<b>說話、動作、結果</b>三方面推敲。</p>
+  <table class="tbl">
+    <tr><th>線索</th><th>原文</th><th>讀出甚麼</th></tr>
+    <tr><td class="nw">說話的語氣</td><td>「爾何信之審邪？」（張劭的母親問兒子）</td><td>反問語氣，母親懷疑范式未必會來</td></tr>
+    <tr><td class="nw">說話的語氣</td><td>「何謂無知！」（楊震回答王密）</td><td>反問加感歎，楊震態度堅決，斷然拒絕</td></tr>
+    <tr><td class="nw">動作</td><td>「請設饌以候之」（張劭）</td><td>未見人就先備酒菜，表示他深信范式</td></tr>
+    <tr><td class="nw">動作</td><td>「密愧而出」（王密）</td><td>羞愧離開，等於承認自己做錯</td></tr>
+    <tr><td class="nw">結果</td><td>「冶長無言以對」（公冶長）</td><td>理虧，作者對他有貶意</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot coral"></span>問句不一定在發問</h3>
+  <p>文言文的「何……邪」「不亦……乎」等句式，很多時是反問，說話人心中已有答案。</p>
+  <table class="tbl">
+    <tr><th>原句</th><th>字面</th><th>真正意思</th></tr>
+    <tr><td>以此遺之，不亦厚乎！</td><td>把這個留給他們，不也很豐厚嗎？</td><td>清白的名聲已經十分豐厚（肯定）</td></tr>
+    <tr><td>爾何信之審邪？</td><td>你為甚麼這樣確信呢？</td><td>你不應該這樣確信（懷疑）</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧</div><div class="alert-text">題目問「這句話的意思是」或「說話人的態度」時，先判斷是不是反問，再把反問還原成肯定或否定的意思，最後在選項中找相符的一項。</div></div></div>
+</div>
+
+<!-- ================= CH05 ================= -->
+<div class="section-header" id="s5">
+  <div class="sh-icon">🎯</div>
+  <div class="sh-text"><div class="chap">CHAPTER 05</div><h2>找出主旨的三個位置</h2></div>
+</div>
+
+<div class="card">
+  <h3><span class="dot purple"></span>題目、結尾、褒貶</h3>
+  <div class="flow">
+    <div class="flow-step"><b>看題目</b>題目常點出全文重點，如「背信遭報」</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>看結尾</b>人物最後一句話或最後的下場，往往是作者想說的道理</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>看褒貶</b>人物得到好結果還是壞結果，可推知作者褒揚還是批評</div>
+  </div>
+  <table class="tbl">
+    <tr><th>篇章</th><th>結尾</th><th>褒貶</th><th>主旨</th></tr>
+    <tr><td class="nw">《二年之期》</td><td>巨卿果到，盡歡而別</td><td class="c">褒</td><td>稱讚范式守信，朋友之間以誠相待</td></tr>
+    <tr><td class="nw">《四知金也》</td><td>「以此遺之，不亦厚乎！」</td><td class="c">褒</td><td>稱讚楊震廉潔自守，以清白傳家</td></tr>
+    <tr><td class="nw">《背信遭報》</td><td>冶長無言以對</td><td class="c">貶</td><td>批評公冶長背信貪利，說明失信終會自食其果</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3><span class="dot green"></span>主旨句怎樣寫</h3>
+  <p>主旨題一般要寫出兩部分：<b>文章寫了甚麼</b>，以及<b>說明了甚麼道理</b>。</p>
+  <div class="example-box teal"><div class="example-label">格式</div><div class="example-text">本文借（人物）（做了甚麼／結果如何）的故事，說明（道理）。</div></div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><b class="t">只寫道理</b>做人要守信。<br><span style="font-size:13px">沒有扣連文章內容，通常只能得部分分數。</span></div>
+    <div class="compare-card good"><b class="t">內容＋道理</b>本文借公冶長背信貪利、最終被捕而無言以對的故事，說明做人必須守信，背信的人終會自食其果。</div>
+  </div>
+  <div class="formula"><small>一句記</small>主旨看題目、結尾、褒貶；作答寫齊「內容」和「道理」。</div>
+</div>
+
+<!-- ================= CH06 ================= -->
+<div class="section-header ex" id="s6">
+  <div class="sh-icon">✏️</div>
+  <div class="sh-text"><div class="chap">CHAPTER 06</div><h2>綜合練習：《曾子殺彘》</h2></div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="card">
+  <h3><span class="dot teal"></span>閱讀材料</h3>
+  <div class="yuanwen">
+    <div class="para"><div class="pnum">1</div><div><span class="ul">曾子</span><sup class="n">①</sup>之妻之市，其子隨之而泣。其母曰：「女<sup class="n">②</sup>還，顧<sup class="n">③</sup>反為女殺彘<span class="py">（自）</span><sup class="n">④</sup>。」</div></div>
+    <div class="para"><div class="pnum">2</div><div>妻適市來<sup class="n">⑤</sup>，<span class="ul">曾子</span>欲捕彘殺之。妻止之曰：「特與嬰兒<sup class="n">⑥</sup>戲耳。」<span class="ul">曾子</span>曰：「嬰兒非與戲也。嬰兒非有知也，待父母而學者也，聽父母之教。今子欺之，是教子欺也。母欺子，子而不信其母，非所以成教<sup class="n">⑦</sup>也。」遂烹彘也。</div></div>
+    <div class="src">（戰國．韓非《韓非子．外儲說左上》）</div>
+  </div>
+  <div class="keyword-grid">
+    <div class="kw"><div class="kw-word">① 曾子</div><div class="kw-def">曾參，孔子的學生。</div></div>
+    <div class="kw"><div class="kw-word">② 女</div><div class="kw-def">同「汝」，你。</div></div>
+    <div class="kw"><div class="kw-word">③ 顧</div><div class="kw-def">等一會兒。</div></div>
+    <div class="kw"><div class="kw-word">④ 彘</div><div class="kw-def">豬。</div></div>
+    <div class="kw"><div class="kw-word">⑤ 適市來</div><div class="kw-def">剛從市集回來。適，剛剛。</div></div>
+    <div class="kw"><div class="kw-word">⑥ 嬰兒</div><div class="kw-def">小孩子。</div></div>
+    <div class="kw"><div class="kw-word">⑦ 成教</div><div class="kw-def">把孩子教育成材。</div></div>
+  </div>
+  <div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">作答提示</div><div class="alert-text">先用第一章的方法通讀兩遍，弄清人物和事件，再做以下各題。每部分標明了對應的章節，做錯時可以回去重溫。</div></div></div>
+</div>
+
+<div class="qsub">一、通讀抓大意（第一章）</div>
+<div class="qbox"><span class="qn">1.</span>文中有哪些人物？試概述事件的起因和結果。<span class="mark">（3分）</span>
+  <p>（1）人物：<span class="blank l"></span></p>
+  <p style="margin-bottom:0">（2）起因：</p><div class="line"></div>
+  <p style="margin-bottom:0">（3）結果：</p><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（1）曾子、曾子的妻子、他們的兒子。（1分）<br>（2）妻子要去市集，兒子哭着要跟去，妻子哄兒子說，等她回來就殺豬給他吃。（1分）<br>（3）妻子回來後，曾子要捉豬來殺，妻子阻止，曾子說明不能欺騙孩子，最後把豬殺了煮來吃。（1分）</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>文中有幾個「子」字，意思並不相同。試寫出以下各「子」字的意思。<span class="mark">（4分）</span>
+  <table class="tbl">
+    <tr><th>句子</th><th>「子」的意思</th></tr>
+    <tr><td>（1）<b>曾子</b>之妻之市</td><td style="width:45%"></td></tr>
+    <tr><td>（2）其<b>子</b>隨之而泣</td><td></td></tr>
+    <tr><td>（3）今<b>子</b>欺之</td><td></td></tr>
+    <tr><td>（4）是教<b>子</b>欺也</td><td></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）（1）對男子的尊稱（曾子即曾參）　（2）兒子　（3）你（曾子對妻子說話）　（4）孩子<br><span style="font-size:13px">（3）要看說話對象：這句是曾子對妻子說的，「今子欺之」的「之」才是兒子，所以「子」是第二人稱「你」。第一章提過，通讀時要先把稱呼對上號。</span></div>
+  </div>
+</div>
+
+<div class="qsub">二、語譯（第二章）</div>
+<div class="qbox"><span class="qn">3.</span>把下列句子譯成語體文，並指出你用了五字訣中的哪些方法。<span class="mark">（4分）</span>
+  <p>女還，顧反為女殺彘。</p>
+  <div class="trans">你<span class="blank"></span>，等一會兒我<span class="blank"></span>，<span class="blank l"></span>。</div>
+  <p>用了的方法：<span class="blank l"></span></p>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>語譯（3分）：你回去吧，等一會兒我回來，給你殺豬吃。<br>方法（1分）：「換」──女→你、還→回去、反→回來、彘→豬；「補」──補回主語「我」。<br><span style="font-size:13px">「女」同「汝」；「反」同「返」。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">4.</span>把下列句子譯成語體文。<span class="mark">（3分）</span>
+  <p>今子欺之，是教子欺也。</p>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）現在你欺騙他，這就是教孩子欺騙別人。<br><span style="font-size:13px">評分：「子」譯作「你」1分；「是」譯作「這就是」1分；句子通順，補出「欺騙（別人）」1分。句末「也」不譯（刪）。</span></div>
+  </div>
+</div>
+
+<div class="qsub">三、推斷字義（第三章）</div>
+<div class="qbox"><span class="qn">5.</span>哪一項是粗體字在句中的意思？塗滿代表答案的圓圈。<span class="mark">（6分）</span>
+  <table class="opt">
+    <tr><td>（1）曾子之妻<b class="hl">之</b>市。</td><td class="o">○ A. 的</td><td class="o">○ B. 往</td><td class="o">○ C. 他</td></tr>
+    <tr><td>（2）其子隨之而<b class="hl">泣</b>。</td><td class="o">○ A. 哭</td><td class="o">○ B. 笑</td><td class="o">○ C. 叫</td></tr>
+    <tr><td>（3）顧<b class="hl">反</b>為女殺彘。</td><td class="o">○ A. 相反</td><td class="o">○ B. 反對</td><td class="o">○ C. 返回</td></tr>
+    <tr><td>（4）妻<b class="hl">止</b>之曰。</td><td class="o">○ A. 停止</td><td class="o">○ B. 阻止</td><td class="o">○ C. 只是</td></tr>
+    <tr><td>（5）<b class="hl">特</b>與嬰兒戲耳。</td><td class="o">○ A. 特別</td><td class="o">○ B. 只是</td><td class="o">○ C. 獨特</td></tr>
+    <tr><td>（6）遂<b class="hl">烹</b>彘也。</td><td class="o">○ A. 煮</td><td class="o">○ B. 賣</td><td class="o">○ C. 養</td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）（1）B　（2）A　（3）C　（4）B　（5）B　（6）A<br><span style="font-size:13px">（1）詞性法：「之」後接地方「市」，作動詞，解作往。（2）組詞法：泣→哭泣。（3）上下文法：母親先叫兒子「還」，再說等一會兒「反」，指她自己回來；「反」同「返」。（4）詞性法：「止」後接「之」（曾子），作動詞，解作阻止。（5）「特……耳」解作「只不過……罷了」。（6）部首法：見第6題。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">6.</span>第5題（6）的「烹」字，可以用哪一種方法推斷字義？試加以說明。<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>部首法（1分）。「烹」字下面的「灬」是「火」的變形，表示與火有關，可推知「烹」是用火煮（1分）。<br><span style="font-size:13px">亦可答組詞法：烹→烹煮、烹調，言之成理即可。</span></div>
+  </div>
+</div>
+
+<div class="qsub">四、讀出態度（第四章）</div>
+<div class="qbox"><span class="qn">7.</span>妻子說「特與嬰兒戲耳」，反映她怎樣看待自己對兒子說過的話？試從語氣加以說明。<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>她認為那只是哄孩子的玩笑話，不必當真（1分）。「特……耳」即「只不過……罷了」，語氣輕描淡寫，可見她沒有把對孩子的承諾放在心上（1分）。</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">8.</span>曾子說：「母欺子，子而不信其母，非所以成教也。」從這句話可見曾子怎樣看待父母的言行？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>曾子認為孩子會模仿父母，父母的言行就是孩子的榜樣（1分）。母親欺騙孩子，孩子以後便不再相信母親（1分），這樣就無法把孩子教育好，所以父母對孩子說過的話也必須做到（1分）。<br><span style="font-size:13px">依據：「嬰兒非有知也，待父母而學者也，聽父母之教。」</span></div>
+  </div>
+</div>
+
+<div class="qsub">五、找出主旨（第五章）</div>
+<div class="qbox"><span class="qn">9.</span>試用「本文借……的故事，說明……」的格式，寫出本文的主旨。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>本文借曾子堅持殺豬，兌現妻子哄孩子時許下的承諾的故事（1分），說明父母是孩子的榜樣，對孩子也要言而有信（1分），不可以欺騙孩子，否則會教壞孩子，令孩子不再信任父母（1分）。<br><span style="font-size:13px">評分原則：內容1分；道理2分。只寫「做人要守信」而沒有扣連故事內容，最多得1分。</span></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">10.</span>曾子殺彘和《二年之期》中范式如期赴約，兩人在守信方面有甚麼共通點？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>兩人都認真對待說出口的承諾（1分）。范式的約定只是兩年前的一句口頭承諾，曾子要兌現的也只是妻子哄孩子的一句話，看似可以不當真，二人仍然說到做到（1分）。<br><span style="font-size:13px">學生自由作答，言之成理即可。</span></div>
+  </div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div><!-- .wrap -->
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
