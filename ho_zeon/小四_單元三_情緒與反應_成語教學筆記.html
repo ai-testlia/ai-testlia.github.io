@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>情緒與反應：成語教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5b95;--purple-bg:#efecf6;
+  --teal:#2a7f7a;--teal-bg:#e6f3f2;
+  --coral:#c8553d;--coral-bg:#fbece8;
+  --amber:#b7791f;--amber-bg:#fbf3e3;
+  --pink:#b04a7a;--pink-bg:#f8e9f0;
+  --blue:#3a6ea5;--blue-bg:#e8f0f8;
+  --green:#3d8b5a;--green-bg:#e8f4ec;
+  --red:#b23a3a;--red-bg:#f8e6e6;
+  --hero-bg:#E3D9C6;--hero-text:42,34,20;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b0b0b0;
+    --color-background-primary:#1f1f1f;--color-background-secondary:#151515;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#b3a6dc;--purple-bg:#2a2638;
+    --teal:#6cc4bd;--teal-bg:#1c3130;
+    --coral:#ec9581;--coral-bg:#3a2520;
+    --amber:#e3b05c;--amber-bg:#3a2f1c;
+    --pink:#e294b8;--pink-bg:#3a2430;
+    --blue:#8db6e3;--blue-bg:#1d2a3a;
+    --green:#7fcb98;--green-bg:#1d3326;
+    --red:#ec8b8b;--red-bg:#3a2020;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC",sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+.hero{background:var(--hero-bg);color:rgb(var(--hero-text));border-radius:var(--border-radius-lg);padding:34px 30px;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-text),0.3);color:rgba(var(--hero-text),0.65);border-radius:999px;padding:2px 14px;font-size:12px;letter-spacing:2px}
+.hero h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:30px;margin:12px 0 4px;color:rgb(var(--hero-text))}
+.hero .sub{font-size:15px;color:rgba(var(--hero-text),0.75)}
+.hero p{margin:12px 0 0;font-size:13px;color:rgba(var(--hero-text),0.5)}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}
+.toc-title{grid-column:1/-1;font-weight:700;margin-bottom:6px}
+.toc-item{color:var(--color-text-primary);text-decoration:none;padding:3px 0;font-size:14px}
+.toc-item:hover{color:var(--teal)}
+.toc-num{display:inline-block;width:30px;color:var(--teal);font-weight:700;font-size:12px}
+.section-header{display:flex;align-items:center;gap:10px;margin:34px 0 14px;padding:12px 18px;border-radius:var(--border-radius-lg);background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:5px solid var(--teal)}
+.sh-icon{font-size:20px}
+.sh-title{font-family:"Noto Serif TC",serif;font-weight:700;font-size:20px;flex:1}
+.sh-num{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary)}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px}
+.card-title{font-weight:700;font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card p{margin:0 0 12px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.blue{background:var(--blue)}.dot.red{background:var(--red)}.dot.green{background:var(--green)}
+/* 概覽 */
+.emo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 14px}
+.emo-card{border-radius:var(--border-radius-md);padding:12px 14px}
+.emo-card.blue{background:var(--blue-bg)}.emo-card.red{background:var(--red-bg)}.emo-card.purple{background:var(--purple-bg)}.emo-card.amber{background:var(--amber-bg)}
+.emo-head{font-family:"Noto Serif TC",serif;font-weight:700;font-size:18px;margin-bottom:6px}
+.emo-icon{margin-right:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--color-background-primary);border-radius:999px;padding:1px 12px;font-family:"Noto Serif TC",serif;font-weight:700;font-size:15px}
+.chip.blue{color:var(--blue)}.chip.red{color:var(--red)}.chip.purple{color:var(--purple)}.chip.amber{color:var(--amber)}
+/* 成語卡 */
+.idiom{display:grid;grid-template-columns:150px 1fr;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden;margin-bottom:12px;page-break-inside:avoid}
+.idiom-word{display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:900;font-size:24px;letter-spacing:2px;padding:12px}
+.idiom.blue .idiom-word{background:var(--blue-bg);color:var(--blue)}
+.idiom.red .idiom-word{background:var(--red-bg);color:var(--red)}
+.idiom.purple .idiom-word{background:var(--purple-bg);color:var(--purple)}
+.idiom.amber .idiom-word{background:var(--amber-bg);color:var(--amber)}
+.idiom-body{padding:10px 14px}
+.irow{display:flex;gap:10px;padding:3px 0}
+.irow+.irow{border-top:1px dashed var(--color-border-tertiary)}
+.ilab{flex:0 0 auto;font-size:12px;font-weight:700;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:4px;padding:0 8px;height:22px;line-height:22px;margin-top:3px;white-space:nowrap}
+.irow.ex span:last-child{font-family:"Noto Serif TC",serif}
+.hl{font-weight:700}
+.hl.blue{color:var(--blue)}.hl.red{color:var(--red)}.hl.purple{color:var(--purple)}.hl.amber{color:var(--amber)}
+/* 元素 */
+.example-box{background:var(--purple-bg);border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0}
+.example-label{font-weight:700;font-size:13px;color:var(--purple);margin-bottom:4px}
+.example-text{font-family:"Noto Serif TC",serif}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:12px 14px;margin:12px 0}
+.alert-icon{font-size:18px;line-height:1.4}
+.alert-label{font-weight:700;font-size:13px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+.flow{display:flex;align-items:stretch;gap:6px;margin:12px 0;flex-wrap:wrap}
+.flow-step{flex:1;min-width:140px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:10px 12px;text-align:center;font-size:13px}
+.flow-step b{display:block;color:var(--teal);font-size:14px}
+.flow-arrow{display:flex;align-items:center;color:var(--teal);font-weight:700}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:10px 14px;font-family:"Noto Serif TC",serif}
+.compare-card small{font-family:"Noto Sans TC",sans-serif;color:var(--color-text-secondary);font-size:12.5px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.good{background:var(--green-bg)}
+.cc-label{font-family:"Noto Sans TC",sans-serif;font-weight:700;font-size:12.5px;margin-bottom:2px}
+.compare-card.bad .cc-label{color:var(--red)}.compare-card.good .cc-label{color:var(--green)}
+.formula{background:#2f3e46;color:#fff;border-radius:var(--border-radius-md);padding:14px 18px;text-align:center;margin-top:12px;font-family:"Noto Serif TC",serif;font-size:16px;font-weight:700}
+.f-label{font-family:"Noto Sans TC",sans-serif;font-size:11px;letter-spacing:3px;opacity:.7;font-weight:500;margin-bottom:4px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th,.tbl td{border:1px solid var(--color-border-tertiary);padding:6px 10px;vertical-align:middle}
+.tbl th{background:var(--color-background-secondary);text-align:left}
+.tbl .c{white-space:nowrap;text-align:center}
+.tbl td.c{font-family:"Noto Serif TC",serif;font-weight:700}
+/* 練習 */
+.qsub{font-weight:700}
+.wordbank{display:flex;flex-wrap:wrap;gap:8px;border:1.5px dashed var(--amber);border-radius:var(--border-radius-md);padding:12px;background:var(--amber-bg)}
+.bank-item{font-family:"Noto Serif TC",serif;font-weight:700;font-size:16px;background:var(--color-background-primary);border-radius:6px;padding:2px 12px}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:12px 16px;margin-bottom:12px;font-size:15px;line-height:2.1}
+.qn{font-weight:700;color:var(--amber);margin-right:6px}
+.mark{float:right;font-size:12px;color:var(--color-text-secondary)}
+.blank{display:inline-block;border-bottom:1.5px solid var(--color-text-primary);vertical-align:bottom;margin:0 4px}
+.blank.s{width:70px}.blank.l{width:120px}
+.line{border-bottom:1px solid var(--color-text-secondary);height:34px}
+.sw{font-family:"Noto Serif TC",serif;font-size:17px}
+.hint{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.miss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.miss-item{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;text-align:center}
+.miss-item .mn{display:block;text-align:left;font-weight:700;color:var(--amber);font-size:13px;line-height:1}
+.mchars{display:flex;justify-content:center;gap:4px;margin:6px 0 4px}
+.ch,.cb{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;font-family:"Noto Serif TC",serif;font-weight:700;font-size:22px}
+.cb{border:1.5px solid var(--color-text-primary);background:var(--color-background-primary);border-radius:3px}
+.mhint{display:block;font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.match{display:grid;grid-template-columns:1fr 110px 1.6fr;row-gap:10px;margin-top:10px;align-items:center}
+.m-l{display:flex;align-items:center;justify-content:flex-end;gap:8px;font-family:"Noto Serif TC",serif;font-weight:700;font-size:16px;white-space:nowrap}
+.m-l .mn{font-family:"Noto Sans TC",sans-serif;color:var(--amber);font-size:13px;margin-right:auto}
+.m-r{display:flex;align-items:center;gap:8px;font-size:14px;line-height:1.5}
+.mlab{font-weight:700;color:var(--teal);flex:0 0 auto}
+.mdot{flex:0 0 auto;width:11px;height:11px;border-radius:50%;background:var(--color-text-primary)}
+.ans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 14px;margin:4px 0}
+.note{font-size:13px;color:var(--color-text-secondary)}
+/* 答案 */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;line-height:1.8}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+/* 工具列 */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border:none}
+@media (max-width:640px){
+  .toc,.emo-grid,.compare-grid{grid-template-columns:1fr}
+  .idiom{grid-template-columns:1fr}
+  .miss-grid{grid-template-columns:repeat(2,1fr)}
+  .match{grid-template-columns:1fr 40px 1.4fr}
+  .ans-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#1a1a1a}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.idiom{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .hero,.formula,.emo-card,.idiom-word,.chip,.compare-card,.alert,.wordbank,.miss-item,.flow-step,.example-box{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-tag">成語教學筆記</div>
+    <h1>情緒與反應：十二個成語</h1>
+    <div class="sub">小四　單元三　情緒與反應</div>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+  <nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>單元概覽：情緒與反應</a><a class="toc-item" href="#s2"><span class="toc-num">02</span>失望</a><a class="toc-item" href="#s3"><span class="toc-num">03</span>憤怒</a><a class="toc-item" href="#s4"><span class="toc-num">04</span>憂愁</a><a class="toc-item" href="#s5"><span class="toc-num">05</span>歡喜</a><a class="toc-item" href="#s6"><span class="toc-num">06</span>辨析與運用</a><a class="toc-item" href="#s7"><span class="toc-num">07</span>練習一：填充</a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習二：缺字補全</a><a class="toc-item" href="#s9"><span class="toc-num">09</span>練習三：成語與意思連線</a><a class="toc-item" href="#s10"><span class="toc-num">10</span>練習四：造句</a></nav>
+<div class="section-header first" id="s1"><span class="sh-icon">🗺️</span><span class="sh-title">單元概覽：情緒與反應</span><span class="sh-num">CHAPTER 01</span></div>
+
+<div class="card">
+  <div class="card-title"><span class="dot teal"></span>本單元學甚麼</div>
+  <p>人遇到不同的事，會有不同的情緒，也會有不同的反應，例如生氣時大聲罵人，煩惱時不停歎氣，開心時跳起來。本單元的十二個成語，描寫失望、憤怒、憂愁、歡喜四種情緒。</p>
+  <div class="emo-grid"><div class="emo-card blue"><div class="emo-head">失望</div><div class="chips"><span class="chip blue">大失所望</span><span class="chip blue">心灰意冷</span><span class="chip blue">萬念俱灰</span></div></div><div class="emo-card red"><div class="emo-head">憤怒</div><div class="chips"><span class="chip red">大發雷霆</span><span class="chip red">憤憤不平</span><span class="chip red">怒火中燒</span></div></div><div class="emo-card purple"><div class="emo-head">憂愁</div><div class="chips"><span class="chip purple">唉聲歎氣</span><span class="chip purple">憂心如焚</span><span class="chip purple">杞人憂天</span></div></div><div class="emo-card amber"><div class="emo-head">歡喜</div><div class="chips"><span class="chip amber">喜出望外</span><span class="chip amber">手舞足蹈</span><span class="chip amber">樂而忘返</span></div></div></div>
+  <div class="flow">
+    <div class="flow-step"><b>遇到的事</b>發生了甚麼</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>產生的情緒</b>失望／憤怒／憂愁／歡喜</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>作出的反應</b>說話、動作、表情</div>
+  </div>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">學習方法</div><div class="alert-text">學每個成語時，先看「字詞」一欄，弄清楚關鍵字的意思，成語會較易記住，也較少寫錯字。</div></div></div>
+</div>
+<div class="section-header" id="s2"><span class="sh-icon">😞</span><span class="sh-title">失望</span><span class="sh-num">CHAPTER 02</span></div>
+
+<div class="card">
+  <div class="card-title"><span class="dot blue"></span>失望的三個成語</div>
+  <p>期望的事落空，心裏感到難過、提不起勁。三個成語的程度由輕到重：大失所望 → 心灰意冷 → 萬念俱灰。</p>
+  
+<div class="idiom blue">
+  <div class="idiom-word">大失所望</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>原本的希望完全落空，感到非常失望。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「所望」指所希望的事；「大失」指大大落空。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>同學們滿心期待今天的旅行，怎料早上突然下起大雨，活動要取消，大家都<b class="hl blue">大失所望</b>。</span></div>
+  </div>
+</div>
+<div class="idiom blue">
+  <div class="idiom-word">心灰意冷</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>灰心失望，意志消沉，失去了繼續努力的意願。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「灰」「冷」都形容熱情消失，提不起勁。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>小芬的畫作多次投稿都落選，她漸漸<b class="hl blue">心灰意冷</b>，連畫筆也收起來了。</span></div>
+  </div>
+</div>
+<div class="idiom blue">
+  <div class="idiom-word">萬念俱灰</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>所有的念頭和希望都破滅了，形容極度失望、灰心。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「萬念」指一切念頭、希望；「俱」解作全部、都；「灰」指化成灰燼。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>王叔叔失去了工作，又在意外中受了重傷，一時間<b class="hl blue">萬念俱灰</b>，幸好家人一直陪伴鼓勵，他才重新振作起來。</span></div>
+  </div>
+</div>
+  
+</div>
+<div class="section-header" id="s3"><span class="sh-icon">😠</span><span class="sh-title">憤怒</span><span class="sh-num">CHAPTER 03</span></div>
+
+<div class="card">
+  <div class="card-title"><span class="dot red"></span>憤怒的三個成語</div>
+  <p>遇到不合理或令人討厭的事而生氣。分辨時看兩點：怒氣有沒有發出來；生氣是不是因為不公平。</p>
+  
+<div class="idiom red">
+  <div class="idiom-word">大發雷霆</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>大發脾氣，高聲斥責別人。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「雷霆」指又急又響的雷，用來比喻發脾氣時聲勢很大。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>店員把客人點的菜送錯了三次，那位客人終於<b class="hl red">大發雷霆</b>，拍着桌子要見經理。</span></div>
+  </div>
+</div>
+<div class="idiom red">
+  <div class="idiom-word">憤憤不平</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>心中覺得不公平，因而氣憤、不服。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「憤憤」是很生氣的樣子；「不平」指不公平。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>比賽中對手明明犯規，裁判卻沒有判罰，我們全隊都<b class="hl red">憤憤不平</b>。</span></div>
+  </div>
+</div>
+<div class="idiom red">
+  <div class="idiom-word">怒火中燒</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>怒氣像火一樣在心中燃燒，形容非常憤怒。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「中」指心中。怒氣像火一樣在心裏燒。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>看見有人故意踢打流浪貓，我<b class="hl red">怒火中燒</b>，立即上前制止。</span></div>
+  </div>
+</div>
+  
+</div>
+<div class="section-header" id="s4"><span class="sh-icon">😟</span><span class="sh-title">憂愁</span><span class="sh-num">CHAPTER 04</span></div>
+
+<div class="card">
+  <div class="card-title"><span class="dot purple"></span>憂愁的三個成語</div>
+  <p>因為擔心或煩惱而心情沉重。留意「杞人憂天」是指擔心不必要的事，不能用在真正危險的情況。</p>
+  
+<div class="idiom purple">
+  <div class="idiom-word">唉聲歎氣</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>因為傷感、煩悶或苦惱而不停發出歎息的聲音。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「唉」是歎息時發出的聲音；「歎氣」指呼出長氣。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>弟弟對着堆積如山的功課<b class="hl purple">唉聲歎氣</b>，遲遲不肯動筆。</span></div>
+  </div>
+</div>
+<div class="idiom purple">
+  <div class="idiom-word">憂心如焚</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>心裏憂愁、焦急得像火燒一樣，形容非常擔心。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「焚」解作燒。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>妹妹深夜發高燒，媽媽<b class="hl purple">憂心如焚</b>，立即抱着她趕往醫院。</span></div>
+  </div>
+</div>
+<div class="idiom purple">
+  <div class="idiom-word">杞人憂天</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>比喻不必要或沒有根據的憂慮。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「杞」是古代的杞國。典故見下方。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>你已經溫習了很多遍，還擔心明天默書會得零分，真是<b class="hl purple">杞人憂天</b>。</span></div>
+  </div>
+</div>
+  
+<div class="example-box">
+  <div class="example-label">杞人憂天的故事（出自《列子》）</div>
+  <div class="example-text">古時杞國有一個人，整天擔心天會塌下來、地會陷下去，自己無處容身，擔心得吃不下飯，也睡不着覺。後來人們就用「杞人憂天」比喻不必要的擔憂。</div>
+</div>
+</div>
+<div class="section-header" id="s5"><span class="sh-icon">😄</span><span class="sh-title">歡喜</span><span class="sh-num">CHAPTER 05</span></div>
+
+<div class="card">
+  <div class="card-title"><span class="dot amber"></span>歡喜的三個成語</div>
+  <p>遇到好事而高興。喜出望外著重好事來得意外，手舞足蹈著重高興時的動作，樂而忘返著重不想離開。</p>
+  
+<div class="idiom amber">
+  <div class="idiom-word">喜出望外</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>遇到意想不到的好事，因而特別高興。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「望」指預料、期望；「出望外」即在預料之外。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>爸爸出差半年，今天突然提早回家，我們<b class="hl amber">喜出望外</b>，立刻衝上前抱住他。</span></div>
+  </div>
+</div>
+<div class="idiom amber">
+  <div class="idiom-word">手舞足蹈</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>雙手舞動，雙腳跳動，形容高興到了極點。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「舞」指揮動；「蹈」解作踏、跳。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>得知自己考到全班第一，小明高興得<b class="hl amber">手舞足蹈</b>。</span></div>
+  </div>
+</div>
+<div class="idiom amber">
+  <div class="idiom-word">樂而忘返</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>快樂得忘記回去，形容非常留戀某個地方或某件事。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「返」解作回去。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>郊野公園的風景太美了，我們在那裏<b class="hl amber">樂而忘返</b>，直到天黑才回家。</span></div>
+  </div>
+</div>
+  
+</div>
+<div class="section-header" id="s6"><span class="sh-icon">🔍</span><span class="sh-title">辨析與運用</span><span class="sh-num">CHAPTER 06</span></div>
+
+<div class="card">
+  <div class="card-title"><span class="dot coral"></span>同組成語怎樣分</div>
+  <table class="tbl">
+    <thead><tr><th class="c">情緒</th><th class="c">成語</th><th>分辨重點</th></tr></thead>
+    <tbody>
+      <tr><td class="c" rowspan="3">失望</td><td class="c">大失所望</td><td>某一件事的期望落空（程度較輕）</td></tr>
+      <tr><td class="c">心灰意冷</td><td>灰心到不想再努力，想放棄</td></tr>
+      <tr><td class="c">萬念俱灰</td><td>所有希望都破滅，程度最重</td></tr>
+      <tr><td class="c" rowspan="3">憤怒</td><td class="c">大發雷霆</td><td>怒氣<b>發出來</b>，大聲罵人</td></tr>
+      <tr><td class="c">怒火中燒</td><td>怒氣<b>在心裏</b>燒，未必發作</td></tr>
+      <tr><td class="c">憤憤不平</td><td>生氣的原因是<b>不公平</b></td></tr>
+      <tr><td class="c" rowspan="3">憂愁</td><td class="c">唉聲歎氣</td><td>重在歎氣的<b>聲音、樣子</b></td></tr>
+      <tr><td class="c">憂心如焚</td><td>非常焦急，擔心的事是<b>真實的</b></td></tr>
+      <tr><td class="c">杞人憂天</td><td>擔心的事<b>根本不必擔心</b></td></tr>
+      <tr><td class="c" rowspan="3">歡喜</td><td class="c">喜出望外</td><td>好事來得<b>出乎意料</b></td></tr>
+      <tr><td class="c">手舞足蹈</td><td>重在高興時<b>手腳的動作</b></td></tr>
+      <tr><td class="c">樂而忘返</td><td>玩得開心，<b>不想離開</b>某個地方或活動</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot red"></span>常見錯誤</div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">✗ 錯誤</div>他非常大失所望。</div>
+    <div class="compare-card good"><div class="cc-label">✓ 正確</div>他大失所望。<br><small>「大」已表示程度，不用再加「非常」「很」。</small></div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">✗ 錯誤</div>颱風正在吹襲，媽媽擔心出海的爸爸，真是杞人憂天。</div>
+    <div class="compare-card good"><div class="cc-label">✓ 正確</div>颱風正在吹襲，媽媽擔心出海的爸爸，憂心如焚。<br><small>危險是真實的，不可以說成「不必要的擔憂」。</small></div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">✗ 錯誤</div>聽到明天放假，同學們樂而忘返。</div>
+    <div class="compare-card good"><div class="cc-label">✓ 正確</div>聽到明天放假，同學們手舞足蹈。<br><small>「樂而忘返」要有一個令人不想離開的地方或活動。</small></div>
+  </div>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">易寫錯的字</div><div class="alert-text">萬念<b>俱</b>灰（不是「具」）、大發雷<b>霆</b>（不是「庭」）、憂心如<b>焚</b>、<b>杞</b>人憂天（不是「起」）、手舞足<b>蹈</b>（不是「滔」）、樂而忘<b>返</b>（不是「反」）、喜出<b>望</b>外（不是「往」）、<b>唉</b>聲<b>歎</b>氣</div></div></div>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot amber"></span>寫作運用：成語加反應</div>
+  <p>寫作時只寫「我很開心」「我很生氣」，讀者難以感受到你的心情。用準確的成語寫出情緒，再補上說話和動作，句子就具體得多。</p>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">平淡</div>我抽中了頭獎，我很開心。</div>
+    <div class="compare-card good"><div class="cc-label">生動</div>我竟然抽中了頭獎，真是喜出望外，高興得在客廳裏手舞足蹈。</div>
+  </div>
+  <div class="formula"><div class="f-label">一句記</div>遇到的事　＋　情緒成語　＋　說話／動作</div>
+</div>
+<div class="section-header" id="s7"><span class="sh-icon">✏️</span><span class="sh-title">練習一：填充</span><span class="sh-num">CHAPTER 07</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="card"><p class="qsub">從下面詞語中選出最適當的成語，填在橫線上。每個成語只可用一次。</p><div class="wordbank"><span class="bank-item">手舞足蹈</span><span class="bank-item">大失所望</span><span class="bank-item">憂心如焚</span><span class="bank-item">憤憤不平</span><span class="bank-item">樂而忘返</span><span class="bank-item">萬念俱灰</span><span class="bank-item">唉聲歎氣</span><span class="bank-item">大發雷霆</span><span class="bank-item">喜出望外</span><span class="bank-item">心灰意冷</span><span class="bank-item">杞人憂天</span><span class="bank-item">怒火中燒</span></div></div>
+<div class="qbox"><span class="qn">1.</span>小晴本來以為自己不會中獎，怎料竟抽中了頭獎，她<span class="blank l"></span>，連聲說：「真不敢相信！」
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>喜出望外</b><br><span class="note">「本來以為不會中獎」「竟抽中」：意料之外的好事。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">2.</span>戲院裏有人不停大聲講電話，志強<span class="blank l"></span>，但為了不影響其他觀眾，他還是強忍着，沒有發作。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>怒火中燒</b><br><span class="note">「強忍着，沒有發作」：怒氣藏在心裏，沒有發出來。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">3.</span>小樂以為生日禮物是他渴望已久的遊戲機，打開一看，卻只是一本字典，他不禁<span class="blank l"></span>。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>大失所望</b><br><span class="note">「以為……卻只是……」：一件事的期望落空。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">4.</span>颱風來襲，爸爸的漁船遲遲未回港，媽媽<span class="blank l"></span>，整夜守在電話旁等候消息。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>憂心如焚</b><br><span class="note">家人身處真正的危險，非常焦急擔心。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">5.</span>海洋公園太好玩了，我們由早上玩到黃昏，簡直<span class="blank l"></span>，直到閉園廣播響起，才依依不捨地離開。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>樂而忘返</b><br><span class="note">「依依不捨地離開」：快樂得不想回去。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">6.</span>明明是小強先動手推人，老師卻只罰了被推倒的小文，小文心裏<span class="blank l"></span>：「為甚麼受罰的是我？」
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>憤憤不平</b><br><span class="note">受到不公平的對待而氣憤、不服。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">7.</span>一場大火把李伯伯辛苦經營了四十年的小店燒成灰燼，他覺得自己失去了一切，人生再沒有任何希望，整個人<span class="blank l"></span>。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>萬念俱灰</b><br><span class="note">「失去了一切」「再沒有任何希望」：所有希望都破滅，程度最重。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">8.</span>晴朗的下午，妹妹竟擔心天上的雲會掉下來壓到她，不敢出門，媽媽笑她<span class="blank l"></span>。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>杞人憂天</b><br><span class="note">雲不會掉下來，這是不必要的擔憂。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">9.</span>弟弟打破了爸爸最心愛的花瓶，還說謊推卸責任，爸爸知道後<span class="blank l"></span>，大聲把他罵了一頓。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>大發雷霆</b><br><span class="note">「大聲把他罵了一頓」：怒氣發了出來，高聲斥責。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">10.</span>聽到校長宣布明天全校去旅行，同學們高興得<span class="blank l"></span>，在課室裏又跳又拍手。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>手舞足蹈</b><br><span class="note">「又跳又拍手」：高興得手腳都動起來。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">11.</span>陳明苦練了一年跳高，比賽時卻三次都跳不過，他<span class="blank l"></span>，對教練說不想再練了。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>心灰意冷</b><br><span class="note">「不想再練了」：失去繼續努力的意願。與第 7 題比較，這裏只是放棄一項活動，未至於失去一切希望。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">12.</span>姐姐拿着不及格的測驗卷，一整晚都在<span class="blank l"></span>：「唉，怎麼辦才好呢？」
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>唉聲歎氣</b><br><span class="note">「唉，怎麼辦才好呢」：苦惱得不停歎氣。</span></div>
+  </div></div>
+<div class="section-header" id="s8"><span class="sh-icon">🧩</span><span class="sh-title">練習二：缺字補全</span><span class="sh-num">CHAPTER 08</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="qbox"><span class="qn">1.</span>在方格內填上欠缺的字，使它成為本單元的成語。每個成語下方附有意思提示。<div class="miss-grid"><div class="miss-item"><span class="mn">1.</span><span class="mchars"><span class="ch">怒</span><span class="cb"></span><span class="ch">中</span><span class="cb"></span></span><span class="mhint">怒氣在心中燃燒</span></div><div class="miss-item"><span class="mn">2.</span><span class="mchars"><span class="ch">大</span><span class="cb"></span><span class="ch">所</span><span class="cb"></span></span><span class="mhint">希望完全落空</span></div><div class="miss-item"><span class="mn">3.</span><span class="mchars"><span class="ch">手</span><span class="cb"></span><span class="ch">足</span><span class="cb"></span></span><span class="mhint">高興得手腳舞動</span></div><div class="miss-item"><span class="mn">4.</span><span class="mchars"><span class="ch">萬</span><span class="ch">念</span><span class="cb"></span><span class="ch">灰</span></span><span class="mhint">所有希望都破滅</span></div><div class="miss-item"><span class="mn">5.</span><span class="mchars"><span class="ch">憂</span><span class="ch">心</span><span class="ch">如</span><span class="cb"></span></span><span class="mhint">焦急得像火燒</span></div><div class="miss-item"><span class="mn">6.</span><span class="mchars"><span class="ch">大</span><span class="ch">發</span><span class="ch">雷</span><span class="cb"></span></span><span class="mhint">大發脾氣，高聲斥責</span></div><div class="miss-item"><span class="mn">7.</span><span class="mchars"><span class="ch">喜</span><span class="ch">出</span><span class="cb"></span><span class="ch">外</span></span><span class="mhint">遇到意想不到的好事</span></div><div class="miss-item"><span class="mn">8.</span><span class="mchars"><span class="cb"></span><span class="cb"></span><span class="ch">不</span><span class="ch">平</span></span><span class="mhint">覺得不公平而氣憤</span></div><div class="miss-item"><span class="mn">9.</span><span class="mchars"><span class="cb"></span><span class="ch">人</span><span class="ch">憂</span><span class="cb"></span></span><span class="mhint">不必要的擔憂</span></div><div class="miss-item"><span class="mn">10.</span><span class="mchars"><span class="ch">心</span><span class="cb"></span><span class="ch">意</span><span class="cb"></span></span><span class="mhint">灰心，不想再努力</span></div><div class="miss-item"><span class="mn">11.</span><span class="mchars"><span class="ch">樂</span><span class="ch">而</span><span class="ch">忘</span><span class="cb"></span></span><span class="mhint">快樂得忘記回去</span></div><div class="miss-item"><span class="mn">12.</span><span class="mchars"><span class="cb"></span><span class="ch">聲</span><span class="cb"></span><span class="ch">氣</span></span><span class="mhint">苦惱得不停歎息</span></div></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><div class="ans-grid"><span>1. 怒<u>火</u>中<u>燒</u></span><span>2. 大<u>失</u>所<u>望</u></span><span>3. 手<u>舞</u>足<u>蹈</u></span><span>4. 萬念<u>俱</u>灰</span><span>5. 憂心如<u>焚</u></span><span>6. 大發雷<u>霆</u></span><span>7. 喜出<u>望</u>外</span><span>8. <u>憤</u><u>憤</u>不平</span><span>9. <u>杞</u>人憂<u>天</u></span><span>10. 心<u>灰</u>意<u>冷</u></span><span>11. 樂而忘<u>返</u></span><span>12. <u>唉</u>聲<u>歎</u>氣</span></div><span class="note">底線為所填的字。</span></div>
+  </div></div>
+<div class="section-header" id="s9"><span class="sh-icon">🔗</span><span class="sh-title">練習三：成語與意思連線</span><span class="sh-num">CHAPTER 09</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="qbox"><span class="qn">1.</span>把左邊的成語和右邊正確的意思用線連起來。<div class="match"><div class="m-l"><span class="mn">1.</span>憂心如焚<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">A</span>因為傷感或煩悶而不停歎氣</div><div class="m-l"><span class="mn">2.</span>手舞足蹈<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">B</span>遇到意想不到的好事而特別高興</div><div class="m-l"><span class="mn">3.</span>大失所望<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">C</span>心中覺得不公平，因而氣憤不服</div><div class="m-l"><span class="mn">4.</span>憤憤不平<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">D</span>所有念頭和希望都破滅，極度灰心</div><div class="m-l"><span class="mn">5.</span>杞人憂天<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">E</span>大發脾氣，高聲斥責別人</div><div class="m-l"><span class="mn">6.</span>心灰意冷<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">F</span>心裏憂愁焦急，像火燒一樣</div><div class="m-l"><span class="mn">7.</span>樂而忘返<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">G</span>快樂得忘記回去</div><div class="m-l"><span class="mn">8.</span>大發雷霆<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">H</span>原本的希望完全落空</div><div class="m-l"><span class="mn">9.</span>唉聲歎氣<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">I</span>擔心不必要或沒有根據的事</div><div class="m-l"><span class="mn">10.</span>喜出望外<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">J</span>怒氣像火一樣在心中燃燒</div><div class="m-l"><span class="mn">11.</span>萬念俱灰<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">K</span>灰心失望，不想再努力</div><div class="m-l"><span class="mn">12.</span>怒火中燒<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">L</span>雙手舞動，雙腳跳動</div></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><div class="ans-grid"><span>1. 憂心如焚 — F</span><span>2. 手舞足蹈 — L</span><span>3. 大失所望 — H</span><span>4. 憤憤不平 — C</span><span>5. 杞人憂天 — I</span><span>6. 心灰意冷 — K</span><span>7. 樂而忘返 — G</span><span>8. 大發雷霆 — E</span><span>9. 唉聲歎氣 — A</span><span>10. 喜出望外 — B</span><span>11. 萬念俱灰 — D</span><span>12. 怒火中燒 — J</span></div></div>
+  </div></div>
+<div class="section-header" id="s10"><span class="sh-icon">📝</span><span class="sh-title">練習四：造句</span><span class="sh-num">CHAPTER 10</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">造句提示</div><div class="alert-text">句子要寫出發生了甚麼事，讓人明白為甚麼會有這種情緒。不要只寫「我大失所望。」這類沒有情境的短句。</div></div></div>
+<div class="qbox"><span class="qn">1.</span><b class="sw">大失所望</b><div class="hint">提示：寫出原本期待甚麼，結果怎樣落空。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）哥哥一直期待聖誕假期去日本旅行，怎料爸爸臨時要加班，旅行取消了，哥哥<b>大失所望</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">2.</span><b class="sw">心灰意冷</b><div class="hint">提示：寫出多次努力仍然失敗，因而想放棄。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）我學了三個月游泳仍然學不會換氣，一度<b>心灰意冷</b>，想就此放棄。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">3.</span><b class="sw">萬念俱灰</b><div class="hint">提示：寫出很大的打擊，令人覺得一切希望都沒有了；可再寫後來怎樣振作。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）曾叔叔做生意失敗，連房子也要賣掉，他一度<b>萬念俱灰</b>，幸得家人不斷鼓勵，才重新振作起來。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">4.</span><b class="sw">大發雷霆</b><div class="hint">提示：寫出誰因為甚麼事大發脾氣，怎樣責罵。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）經理發現員工把重要文件弄丟了，在辦公室裏<b>大發雷霆</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">5.</span><b class="sw">憤憤不平</b><div class="hint">提示：寫出一件不公平的事。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）哥哥做了大部分家務，卻被說成懶惰，他<b>憤憤不平</b>地走回房間。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">6.</span><b class="sw">怒火中燒</b><div class="hint">提示：寫出令人非常生氣的行為。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）看見有人把垃圾隨手丟進海裏，我<b>怒火中燒</b>，忍不住上前勸止他。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">7.</span><b class="sw">唉聲歎氣</b><div class="hint">提示：寫出煩惱的原因和歎氣的樣子。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）窗外下了一整天雨，不能去公園踢足球，弟弟坐在窗前<b>唉聲歎氣</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">8.</span><b class="sw">憂心如焚</b><div class="hint">提示：寫出擔心誰或甚麼，為甚麼這樣焦急。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）小狗走失了一整天，表姐<b>憂心如焚</b>，四處張貼尋狗啟事。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">9.</span><b class="sw">杞人憂天</b><div class="hint">提示：寫出一件根本不必擔心的事。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）你已經把演講稿背得滾瓜爛熟，還擔心上台會忘記所有內容，實在是<b>杞人憂天</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">10.</span><b class="sw">喜出望外</b><div class="hint">提示：寫出意想不到的好消息或驚喜。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）老師告訴我，我的作文被選中刊登在校報上，我<b>喜出望外</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">11.</span><b class="sw">手舞足蹈</b><div class="hint">提示：寫出高興的原因和動作。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）支持的球隊在最後一分鐘入球，爸爸在電視機前高興得<b>手舞足蹈</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">12.</span><b class="sw">樂而忘返</b><div class="hint">提示：寫出一個令人流連的地方或活動。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）圖書館新開了一個漫畫閱讀區，我在那裏看了整個下午，<b>樂而忘返</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
