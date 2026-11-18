@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小二至小三中文總複習工作紙｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --purple:#7F77DD;--purple-bg:#EEEDFE;
+  --teal:#1D9E75;--teal-bg:#E1F5EE;
+  --coral:#D85A30;--coral-bg:#FAECE7;
+  --amber:#BA7517;--amber-bg:#FAEEDA;
+  --pink:#D4537E;--pink-bg:#FBEAF0;
+  --blue:#378ADD;--blue-bg:#E6F1FB;
+  --green:#4F8A1B;--green-bg:#EAF3DE;
+  --red:#E24B4A;--red-bg:#FCEBEB;
+  --hero-bg:#E6D8C3;--hero-text:43,32,18;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#ececea;
+    --color-text-secondary:#a9a9a5;
+    --color-background-primary:#1f1f1e;
+    --color-background-secondary:#161615;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple-bg:#2b2942;--teal-bg:#173229;--coral-bg:#3a2219;--amber-bg:#352a17;
+    --pink-bg:#3a1f2a;--blue-bg:#1a2a3b;--green-bg:#223018;--red-bg:#3b1e1e;
+    --green:#8CC152;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC",sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 80px}
+h1,h2,h3,.serif{font-family:"Noto Serif TC",serif}
+
+/* hero */
+.hero{background:var(--hero-bg);color:rgb(var(--hero-text));border-radius:var(--border-radius-lg);padding:34px 30px 26px;margin-bottom:18px}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-text),0.3);color:rgba(var(--hero-text),0.65);font-size:12.5px;letter-spacing:2px;padding:2px 12px;border-radius:999px;margin-bottom:10px}
+.hero h1{margin:0 0 6px;font-size:30px;line-height:1.35;color:rgb(var(--hero-text))}
+.hero .sub{font-size:14.5px;color:rgba(var(--hero-text),0.5);letter-spacing:1px}
+.hero p{margin:14px 0 0;font-size:13px;color:rgba(var(--hero-text),0.5)}
+
+/* info strip */
+.info{display:flex;gap:18px;flex-wrap:wrap;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 20px;margin-bottom:18px;font-size:14.5px}
+.info span{flex:1;min-width:150px;white-space:nowrap}
+.info i{display:inline-block;border-bottom:1px solid var(--color-text-secondary);width:110px;font-style:normal}
+
+/* toc */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:18px}
+.toc-title{font-weight:700;margin-bottom:6px;font-family:"Noto Serif TC",serif}
+.toc-item{display:block;color:var(--color-text-primary);text-decoration:none;padding:4px 0;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:none}
+.toc-num{display:inline-block;width:34px;color:var(--amber);font-weight:700}
+
+/* cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{margin:0 0 8px;font-size:16.5px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--purple)}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.blue{background:var(--blue)}
+
+/* section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:34px 0 14px;padding:14px 18px;background:var(--color-background-primary);border-radius:var(--border-radius-lg);border-left:6px solid var(--amber)}
+.section-header .icon{font-size:26px}
+.section-header h2{margin:0;font-size:21px}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary)}
+.section-header .score{margin-left:auto;font-size:13px;color:var(--color-text-secondary);white-space:nowrap}
+
+/* alerts */
+.alert{display:flex;gap:12px;border-radius:var(--border-radius-md);padding:12px 16px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+
+/* level badges */
+.lv{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1px;padding:0 9px;border-radius:999px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.lv.basic{background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal)}
+.lv.adv{background:var(--coral-bg);color:var(--coral);border:1px solid var(--coral)}
+
+/* exercise */
+.qsub{font-family:"Noto Serif TC",serif;font-weight:700;font-size:16px;margin:20px 0 8px;padding-left:10px;border-left:4px solid var(--amber)}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 18px;margin-bottom:12px;font-size:15px;line-height:2}
+.qn{font-weight:700;margin-right:6px;color:var(--amber)}
+.mark{float:right;font-size:13px;color:var(--color-text-secondary);white-space:nowrap;margin-left:8px}
+.qtext{margin-bottom:4px}
+.items{margin:6px 0 0;padding-left:0;list-style:none}
+.items li{margin:4px 0;padding-left:30px;text-indent:-30px}
+.items li .no{display:inline-block;width:30px;text-indent:0;color:var(--color-text-secondary)}
+.blank{display:inline-block;border-bottom:1.5px solid var(--color-text-primary);min-width:70px;margin:0 3px;vertical-align:-3px;height:1.4em}
+.blank.s{min-width:46px}.blank.l{min-width:150px}
+.line{border-bottom:1.5px solid var(--color-border-tertiary);height:34px;margin:2px 0}
+@media print{.line{border-bottom-color:#999}}
+.bank{display:flex;flex-wrap:wrap;gap:8px;background:var(--amber-bg);border:1px dashed var(--amber);border-radius:var(--border-radius-md);padding:8px 14px;margin:6px 0 8px;font-size:15px}
+.bank b{color:var(--amber);font-size:13px;margin-right:4px}
+.bank span{background:var(--color-background-primary);border-radius:6px;padding:0 10px}
+.opts{list-style:none;padding:0;margin:6px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}
+.opts li::before{content:"○ ";color:var(--color-text-secondary)}
+table.t{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+table.t th,table.t td{border:1px solid var(--color-border-tertiary);padding:6px 10px;text-align:center}
+table.t th{background:var(--color-background-secondary);white-space:nowrap}
+table.t td.c,table.t th.c{white-space:nowrap}
+table.t td.l{text-align:left}
+.big{font-family:"Noto Serif TC",serif;font-size:22px}
+
+/* excerpt */
+.excerpt{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 26px;margin-bottom:16px;font-family:"Noto Serif TC",serif;font-size:16px;line-height:2.1}
+.excerpt h3{text-align:center;margin:0 0 10px;font-size:19px}
+.excerpt p{margin:0 0 6px;text-indent:2em}
+.excerpt .pn{color:var(--amber);margin-right:4px;font-family:"Noto Sans TC",sans-serif}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:"Noto Sans TC",sans-serif;text-indent:0}
+
+/* writing grid */
+.grid{display:grid;grid-template-columns:repeat(20,1fr);border-top:1px solid #bbb;border-left:1px solid #bbb;margin:10px 0}
+.grid div{aspect-ratio:1/1;border-right:1px solid #bbb;border-bottom:1px solid #bbb}
+.grid div.ten{background:rgba(186,117,23,0.08)}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;line-height:1.8}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans small{font-size:13px;color:var(--color-text-secondary)}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:8px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13.5px;border:none;background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:8px 16px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff}
+.ans-bar .tb-btn{box-shadow:none;border:1px solid var(--green);color:var(--green);padding:3px 14px;font-size:12.5px}
+
+@media (max-width:600px){
+  .opts{grid-template-columns:1fr}
+  .hero h1{font-size:25px}
+  .section-header .score{display:none}
+}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;font-size:14px}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.excerpt{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .hero,.lv,.bank,.alert,.grid div.ten{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-student .teacher-only{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag">總複習工作紙</div>
+  <h1>小二至小三中文總複習</h1>
+  <div class="sub">字詞　句子　修辭　閱讀　寫作</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+
+<div class="info">
+  <span>姓名：<i>&nbsp;</i></span>
+  <span>日期：<i>&nbsp;</i></span>
+  <span>得分：<i>&nbsp;</i>／150</span>
+</div>
+
+<div class="card">
+  <h3><span class="dot amber"></span>作答須知</h3>
+  全卷共五部分，滿分150分，約需90分鐘，可以分兩至三次完成。<br>
+  標有<span class="lv basic">基礎</span>的題目考以前學過的內容，標有<span class="lv adv">進階</span>的題目會深一點。不會做的題目可以先跳過，做完其他題目再回來想。
+</div>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span>字詞運用（50分）</a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span>句子運用（50分）</a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span>認識修辭（15分）</a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span>閱讀理解（20分）</a>
+  <a class="toc-item" href="#s5"><span class="toc-num">05</span>段落寫作（15分）</a>
+  <a class="toc-item" href="#s6"><span class="toc-num">06</span>能力檢視表（老師填寫）</a>
+</nav>
+
+<!-- ============ 01 字詞 ============ -->
+<div class="section-header first" id="s1">
+  <div class="icon">🔤</div>
+  <div><div class="chap">CHAPTER 01</div><h2>字詞運用</h2></div>
+  <div class="score">共50分</div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">甲　認識部首</div>
+<div class="qbox"><span class="qn">1.</span>寫出下列各字的部首。<span class="lv basic">基礎</span><span class="mark">（6分）</span>
+  <table class="t">
+    <tr><th>字</th><td class="big">媽</td><td class="big">河</td><td class="big">想</td><td class="big">草</td><td class="big">跑</td><td class="big">樹</td></tr>
+    <tr><th>部首</th><td style="height:46px"></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每格1分）媽：女　河：氵（水）　想：心　草：艹（艸）　跑：足（⻊）　樹：木<br><small>寫部首的變形（氵、艹、⻊）或原字（水、艸、足）都給分。</small></div>
+  </div>
+</div>
+
+<div class="qsub">乙　筆畫數目</div>
+<div class="qbox"><span class="qn">2.</span>寫出下列各字的總筆畫數目。<span class="lv basic">基礎</span><span class="mark">（4分）</span>
+  <table class="t">
+    <tr><th>字</th><td class="big">手</td><td class="big">生</td><td class="big">米</td><td class="big">我</td></tr>
+    <tr><th>筆畫數目</th><td style="height:46px">＿＿畫</td><td>＿＿畫</td><td>＿＿畫</td><td>＿＿畫</td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每格1分）手：4畫　生：5畫　米：6畫　我：7畫</div>
+  </div>
+</div>
+
+<div class="qsub">丙　量詞</div>
+<div class="qbox"><span class="qn">3.</span>從詞語框中選出適當的量詞，填在橫線上。每個詞語只可用一次，有兩個詞語是多餘的。<span class="lv basic">基礎</span><span class="mark">（8分）</span>
+  <div class="bank"><b>詞語框</b><span>條</span><span>本</span><span>棵</span><span>件</span><span>座</span><span>把</span><span>枝</span><span>架</span><span>張</span><span>隻</span></div>
+  <ul class="items">
+    <li><span class="no">(1)</span>村前有一<span class="blank s"></span>小河。</li>
+    <li><span class="no">(2)</span>我在圖書館借了一<span class="blank s"></span>故事書。</li>
+    <li><span class="no">(3)</span>花園裏種了一<span class="blank s"></span>大樹。</li>
+    <li><span class="no">(4)</span>媽媽給我買了一<span class="blank s"></span>新衣服。</li>
+    <li><span class="no">(5)</span>河上有一<span class="blank s"></span>石橋。</li>
+    <li><span class="no">(6)</span>下雨了，我帶了一<span class="blank s"></span>雨傘。</li>
+    <li><span class="no">(7)</span>我用一<span class="blank s"></span>鉛筆寫字。</li>
+    <li><span class="no">(8)</span>天上有一<span class="blank s"></span>飛機。</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）(1) 條　(2) 本　(3) 棵　(4) 件　(5) 座　(6) 把　(7) 枝　(8) 架<br><small>「張」和「隻」是多餘的詞語。</small></div>
+  </div>
+</div>
+
+<div class="qsub">丁　近義詞和反義詞</div>
+<div class="qbox"><span class="qn">4.</span>寫出下列詞語的反義詞或近義詞。<span class="lv basic">基礎</span><span class="mark">（6分）</span>
+  <table class="t">
+    <tr><th class="c">反義詞</th><td>高興 ↔ <span class="blank"></span></td><td>熱鬧 ↔ <span class="blank"></span></td></tr>
+    <tr><th class="c">反義詞</th><td>前進 ↔ <span class="blank"></span></td><td>開始 ↔ <span class="blank"></span></td></tr>
+    <tr><th class="c">近義詞</th><td>美麗 ＝ <span class="blank"></span></td><td>立刻 ＝ <span class="blank"></span></td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每格1分）高興—傷心／難過　熱鬧—冷清　前進—後退　開始—結束　美麗—漂亮　立刻—馬上／立即<br><small>其他合理答案亦可給分，例如「高興—憂愁」。</small></div>
+  </div>
+</div>
+
+<div class="qsub">戊　動詞配搭</div>
+<div class="qbox"><span class="qn">5.</span>從詞語框中選出適當的動詞，填在橫線上。每個詞語只可用一次。<span class="lv basic">基礎</span><span class="mark">（5分）</span>
+  <div class="bank"><b>詞語框</b><span>放</span><span>踢</span><span>彈</span><span>穿</span><span>戴</span></div>
+  <ul class="items">
+    <li><span class="no">(1)</span>哥哥在操場上<span class="blank s"></span>足球。</li>
+    <li><span class="no">(2)</span>星期日，我們到公園<span class="blank s"></span>風箏。</li>
+    <li><span class="no">(3)</span>姐姐每天都會<span class="blank s"></span>鋼琴。</li>
+    <li><span class="no">(4)</span>天氣冷了，出門要<span class="blank s"></span>外套。</li>
+    <li><span class="no">(5)</span>太陽很猛烈，記得<span class="blank s"></span>帽子。</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）(1) 踢　(2) 放　(3) 彈　(4) 穿　(5) 戴<br><small>(4)(5) 留意「穿」和「戴」的分別：衣服、鞋子用「穿」；帽子、眼鏡用「戴」。</small></div>
+  </div>
+</div>
+
+<div class="qsub">己　選字（同音字、形近字）</div>
+<div class="qbox"><span class="qn">6.</span>圈出括號內正確的字。<span class="lv adv">進階</span><span class="mark">（8分）</span>
+  <ul class="items">
+    <li><span class="no">(1)</span>我們要（ 愛 ／ 受 ）護小動物。</li>
+    <li><span class="no">(2)</span>弟弟在公園裏（ 完 ／ 玩 ）耍。</li>
+    <li><span class="no">(3)</span>姐姐（ 再 ／ 在 ）課室裏看書。</li>
+    <li><span class="no">(4)</span>我聽不清楚，請你（ 再 ／ 在 ）說一次。</li>
+    <li><span class="no">(5)</span>這份功課我（ 已 ／ 己 ）經做好了。</li>
+    <li><span class="no">(6)</span>這是我（ 的 ／ 得 ）新書包。</li>
+    <li><span class="no">(7)</span>小明跑（ 的 ／ 得 ）很快。</li>
+    <li><span class="no">(8)</span>爺爺（ 帶 ／ 戴 ）着一副眼鏡看報紙。</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）(1) 愛　(2) 玩　(3) 在　(4) 再　(5) 已　(6) 的　(7) 得　(8) 戴<br><small>「在」表示地方，「再」表示又一次；「的」後面接東西（我的書包），「得」後面講做得怎樣（跑得很快）。</small></div>
+  </div>
+</div>
+
+<div class="qsub">庚　部首組字</div>
+<div class="qbox"><span class="qn">7.</span>在「青」字旁邊加上部首，組成新字，完成句子。可參考部首框。<span class="lv adv">進階</span><span class="mark">（5分）</span>
+  <div class="bank"><b>部首框</b><span>日</span><span>氵</span><span>目</span><span>言</span><span>忄</span></div>
+  <ul class="items">
+    <li><span class="no">(1)</span>今天天氣<span class="blank s"></span>朗，我們去郊遊。</li>
+    <li><span class="no">(2)</span>小溪的水很<span class="blank s"></span>澈，可以看見小魚。</li>
+    <li><span class="no">(3)</span>小貓的眼<span class="blank s"></span>又圓又亮。</li>
+    <li><span class="no">(4)</span><span class="blank s"></span>你幫我開門，好嗎？</li>
+    <li><span class="no">(5)</span>我和表姐的感<span class="blank s"></span>很好。</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）(1) 晴　(2) 清　(3) 睛　(4) 請　(5) 情<br><small>可順帶問學生：為甚麼「晴」用日字旁、「清」用三點水？看看他是否明白部首和字義的關係。</small></div>
+  </div>
+</div>
+
+<div class="qsub">辛　疊詞</div>
+<div class="qbox"><span class="qn">8.</span>根據要求完成疊詞。<span class="lv adv">進階</span><span class="mark">（8分）</span>
+  <div class="qtext">（一）從詞語框中選出適當的詞語，組成 ABB 式詞語。</div>
+  <div class="bank"><b>詞語框</b><span>油油</span><span>彤彤</span><span>晶晶</span><span>嘟嘟</span><span>悄悄</span></div>
+  <ul class="items">
+    <li><span class="no">(1)</span>綠<span class="blank s"></span>的草地</li>
+    <li><span class="no">(2)</span>紅<span class="blank s"></span>的蘋果</li>
+    <li><span class="no">(3)</span>亮<span class="blank s"></span>的星星</li>
+    <li><span class="no">(4)</span>胖<span class="blank s"></span>的小豬</li>
+    <li><span class="no">(5)</span>靜<span class="blank s"></span>的課室</li>
+  </ul>
+  <div class="qtext" style="margin-top:8px">（二）把下列詞語改寫成 AABB 式。</div>
+  <ul class="items">
+    <li><span class="no">(6)</span>高興 → <span class="blank l"></span></li>
+    <li><span class="no">(7)</span>乾淨 → <span class="blank l"></span></li>
+    <li><span class="no">(8)</span>整齊 → <span class="blank l"></span></li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）(1) 油油　(2) 彤彤　(3) 晶晶　(4) 嘟嘟　(5) 悄悄　(6) 高高興興　(7) 乾乾淨淨　(8) 整整齊齊</div>
+  </div>
+</div>
+
+<!-- ============ 02 句子 ============ -->
+<div class="section-header" id="s2">
+  <div class="icon">✏️</div>
+  <div><div class="chap">CHAPTER 02</div><h2>句子運用</h2></div>
+  <div class="score">共50分</div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">甲　標點符號（一）</div>
+<div class="qbox"><span class="qn">1.</span>在括號內填上適當的標點符號。<span class="lv basic">基礎</span><span class="mark">（5分）</span>
+  <ul class="items">
+    <li><span class="no">(1)</span>你今天吃了早餐嗎（　　）</li>
+    <li><span class="no">(2)</span>這朵花真漂亮啊（　　）</li>
+    <li><span class="no">(3)</span>外面下雨了（　　）我們只好留在家裏。</li>
+    <li><span class="no">(4)</span>媽媽，你在哪裏（　　）</li>
+    <li><span class="no">(5)</span>我的家在學校附近（　　）</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）(1) ？　(2) ！　(3) ，　(4) ？　(5) 。</div>
+  </div>
+</div>
+
+<div class="qsub">乙　標點符號（二）</div>
+<div class="qbox"><span class="qn">2.</span>在括號內填上適當的標點符號。<span class="lv adv">進階</span><span class="mark">（6分）</span>
+  <ul class="items">
+    <li><span class="no">(1)</span>我喜歡吃蘋果（　　）橙和香蕉。</li>
+    <li><span class="no">(2)</span>老師說（　　）「明天要帶美術用品。」</li>
+    <li><span class="no">(3)</span>弟弟問媽媽：（　　）我可以吃一塊餅乾嗎？（　　）</li>
+    <li><span class="no">(4)</span>我最喜歡看（　　）西遊記（　　）這本書。</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每格1分）(1) 、（頓號）　(2) ：（冒號）　(3) 「　」（引號）　(4) 《　》（書名號）<br><small>(1) 寫逗號不給分：並列的詞語之間要用頓號。</small></div>
+  </div>
+</div>
+
+<div class="qsub">丙　重組句子</div>
+<div class="qbox"><span class="qn">3.</span>把下列詞語重組成通順的句子，並加上標點符號。<span class="lv basic">基礎</span><span class="mark">（8分）</span>
+  <ul class="items"><li><span class="no">(1)</span>小貓　在　睡覺　沙發上</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(2)</span>上班　爸爸　坐巴士　每天　去</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(3)</span>一幅　妹妹　圖畫　畫了　美麗的</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(4)</span>嗎　喜歡　你　吃　蛋糕</li></ul>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題2分：次序正確1分，標點正確1分）<br>(1) 小貓在沙發上睡覺。<br>(2) 爸爸每天坐巴士去上班。（「每天爸爸坐巴士去上班。」亦可）<br>(3) 妹妹畫了一幅美麗的圖畫。<br>(4) 你喜歡吃蛋糕嗎？<br><small>(4) 用句號不給標點分。</small></div>
+  </div>
+</div>
+
+<div class="qsub">丁　照樣寫句子</div>
+<div class="qbox"><span class="qn">4.</span>依照例句的格式，各寫一個句子。<span class="lv basic">基礎</span><span class="mark">（6分）</span>
+  <ul class="items"><li><span class="no">(1)</span>例：哥哥在操場上打球。（誰＋在哪裏＋做甚麼）</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(2)</span>例：小狗跑得很快。（……得很……）</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(3)</span>例：這是一個又大又紅的蘋果。（又……又……）</li></ul>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題2分，學生自由作答，言之成理即可）<br>(1)（示例）媽媽在廚房裏煮飯。<br>(2)（示例）妹妹笑得很開心。<br>(3)（示例）我有一隻又白又胖的小兔子。<br><small>評分原則：格式正確1分；句子通順、標點正確1分。只改例句一兩個字（如「弟弟在操場上打球」）最多給1分。</small></div>
+  </div>
+</div>
+
+<div class="qsub">戊　關聯詞</div>
+<div class="qbox"><span class="qn">5.</span>從詞語框中選出適當的關聯詞，填在橫線上。每組只可用一次。<span class="lv adv">進階</span><span class="mark">（12分）</span>
+  <div class="bank"><b>詞語框</b><span>因為……所以……</span><span>雖然……但是……</span><span>如果……就……</span><span>一邊……一邊……</span><span>不但……而且……</span><span>先……然後……</span></div>
+  <ul class="items">
+    <li><span class="no">(1)</span><span class="blank"></span>天氣很冷，<span class="blank"></span>哥哥仍然去跑步。</li>
+    <li><span class="no">(2)</span><span class="blank"></span>你每天練習，你<span class="blank"></span>會進步。</li>
+    <li><span class="no">(3)</span>妹妹<span class="blank"></span>唱歌，<span class="blank"></span>跳舞。</li>
+    <li><span class="no">(4)</span><span class="blank"></span>弟弟生病了，<span class="blank"></span>今天沒有上學。</li>
+    <li><span class="no">(5)</span>姐姐<span class="blank"></span>會畫畫，<span class="blank"></span>會彈琴。</li>
+    <li><span class="no">(6)</span>我們要<span class="blank"></span>洗手，<span class="blank"></span>吃飯。</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每格1分）(1) 雖然／但是　(2) 如果／就　(3) 一邊／一邊　(4) 因為／所以　(5) 不但／而且　(6) 先／然後</div>
+  </div>
+</div>
+
+<div class="qsub">己　擴句和縮句</div>
+<div class="qbox"><span class="qn">6.</span>按要求改寫句子。<span class="lv adv">進階</span><span class="mark">（6分）</span>
+  <ul class="items"><li><span class="no">(1)</span>擴句：加入「怎樣的」和「在哪裏」。<span class="mark">（2分）</span><br>小鳥在唱歌。</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(2)</span>擴句：加入「甚麼時候」，並說說蘋果是怎樣的。<span class="mark">（2分）</span><br>弟弟吃蘋果。</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(3)</span>縮句：只保留「誰＋做甚麼」。<span class="mark">（1分）</span><br>穿着紅色裙子的妹妹在公園裏開心地放風箏。</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(4)</span>縮句：只保留「誰＋做甚麼」。<span class="mark">（1分）</span><br>那隻可愛的小白兔在草地上快樂地吃草。</li></ul>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><br>(1)（示例）可愛的小鳥在樹上快樂地唱歌。<br>(2)（示例）晚飯後，弟弟吃了一個又大又紅的蘋果。<br><small>(1)(2) 每加對一項給1分；句子不通順扣1分。</small><br>(3) 妹妹放風箏。　(4) 小白兔吃草。<br><small>(3)(4) 多留了修飾語不給分。</small></div>
+  </div>
+</div>
+
+<div class="qsub">庚　「把」字句和「被」字句</div>
+<div class="qbox"><span class="qn">7.</span>按括號內的要求改寫句子。<span class="lv adv">進階</span><span class="mark">（4分）</span>
+  <ul class="items"><li><span class="no">(1)</span>弟弟打破了花瓶。（改用「把」字）</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(2)</span>小狗吃光了餅乾。（改用「被」字）</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(3)</span>風吹走了我的帽子。（改用「被」字）</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(4)</span>姐姐收拾好書桌。（改用「把」字）</li></ul>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）<br>(1) 弟弟把花瓶打破了。<br>(2) 餅乾被小狗吃光了。<br>(3) 我的帽子被風吹走了。<br>(4) 姐姐把書桌收拾好。</div>
+  </div>
+</div>
+
+<div class="qsub">辛　改正錯句</div>
+<div class="qbox"><span class="qn">8.</span>下列每句都有一個錯處，把正確的句子寫在橫線上。<span class="lv adv">進階</span><span class="mark">（3分）</span>
+  <ul class="items"><li><span class="no">(1)</span>我昨天會去游泳。</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(2)</span>媽媽在街市買了三本蘋果。</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(3)</span>因為今天下大雨，但是我們沒有去公園。</li></ul>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）<br>(1) 我昨天去了游泳。（「我明天會去游泳。」亦可）<br>(2) 媽媽在街市買了三個蘋果。<br>(3) 因為今天下大雨，所以我們沒有去公園。<br><small>(3) 只刪去「因為」或「但是」其中一個，句子通順亦可給分。</small></div>
+  </div>
+</div>
+
+<!-- ============ 03 修辭 ============ -->
+<div class="section-header" id="s3">
+  <div class="icon">🌈</div>
+  <div><div class="chap">CHAPTER 03</div><h2>認識修辭</h2></div>
+  <div class="score">共15分</div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">甲　判斷修辭</div>
+<div class="qbox"><span class="qn">1.</span>下列句子用了比喻還是擬人？在適當的方格內加 ✓。<span class="lv adv">進階</span><span class="mark">（6分）</span>
+  <table class="t">
+    <tr><th>句子</th><th class="c">比喻</th><th class="c">擬人</th></tr>
+    <tr><td class="l">(1) 月亮像一隻小船。</td><td>□</td><td>□</td></tr>
+    <tr><td class="l">(2) 小草從泥土裏探出頭來。</td><td>□</td><td>□</td></tr>
+    <tr><td class="l">(3) 太陽公公笑瞇瞇地看着我們。</td><td>□</td><td>□</td></tr>
+    <tr><td class="l">(4) 弟弟的臉紅得像蘋果。</td><td>□</td><td>□</td></tr>
+    <tr><td class="l">(5) 天上的白雲像一群綿羊。</td><td>□</td><td>□</td></tr>
+    <tr><td class="l">(6) 小河唱着歌向前流去。</td><td>□</td><td>□</td></tr>
+  </table>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）(1) 比喻　(2) 擬人　(3) 擬人　(4) 比喻　(5) 比喻　(6) 擬人<br><small>比喻：把一樣東西說成「像」另一樣東西。擬人：讓東西像人一樣有動作、表情。</small></div>
+  </div>
+</div>
+
+<div class="qsub">乙　完成比喻句</div>
+<div class="qbox"><span class="qn">2.</span>在橫線上填寫適當的內容，完成比喻句。<span class="lv adv">進階</span><span class="mark">（3分）</span>
+  <ul class="items">
+    <li><span class="no">(1)</span>綠油油的草地像<span class="blank l"></span>。</li>
+    <li><span class="no">(2)</span>天上的星星像<span class="blank l"></span>。</li>
+    <li><span class="no">(3)</span>下雨了，雨點像<span class="blank l"></span>。</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分，言之成理即可）<br>(1)（示例）一張綠色的地毯　(2)（示例）一顆顆閃亮的鑽石　(3)（示例）一顆顆珍珠，從天上掉下來<br><small>兩樣東西要有相似的地方（顏色、形狀、樣子）才給分。</small></div>
+  </div>
+</div>
+
+<div class="qsub">丙　仿寫句子</div>
+<div class="qbox"><span class="qn">3.</span>按要求各寫一個句子。<span class="lv adv">進階</span><span class="mark">（6分）</span>
+  <ul class="items"><li><span class="no">(1)</span>比喻句（例：雲朵像一團團棉花糖。）</li></ul>
+  <div class="line"></div>
+  <ul class="items"><li><span class="no">(2)</span>擬人句（例：風兒輕輕地唱着歌。）</li></ul>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題3分，學生自由作答，言之成理即可）<br>(1)（示例）妹妹的眼睛像兩顆閃亮的星星。<br>(2)（示例）花兒在陽光下開心地跳舞。<br><small>評分原則：正確運用該修辭2分（比喻要有被比的東西和用來比的東西；擬人要寫出人的動作或感受）；句子完整、標點正確1分。抄例句或與第1、2題重複的句子不給分。</small></div>
+  </div>
+</div>
+
+<!-- ============ 04 閱讀 ============ -->
+<div class="section-header" id="s4">
+  <div class="icon">📖</div>
+  <div><div class="chap">CHAPTER 04</div><h2>閱讀理解</h2></div>
+  <div class="score">共20分</div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="excerpt">
+  <h3>一把藍色的雨傘</h3>
+  <p><span class="pn">❶</span>星期一早上，天空灰濛濛的。媽媽把一把新的藍色雨傘放進我的書包，說：「今天可能會下雨，記得帶傘回家。」</p>
+  <p><span class="pn">❷</span>放學的時候，外面果然下起大雨來。同學們一個個打開雨傘，高高興興地走了。我看見小明站在學校門口，望着雨水，皺着眉頭。原來他忘記帶傘了。</p>
+  <p><span class="pn">❸</span>我走到他身邊，問：「你要到哪裏去？我們一起走吧！」小明說他要到街口的巴士站坐車。於是，我們兩個人擠在一把雨傘下，慢慢地向巴士站走去。雨傘不夠大，我把傘向小明那邊移過去一點，我的右肩很快便濕透了。</p>
+  <p><span class="pn">❹</span>到了巴士站，小明對我說：「謝謝你！明天見！」我向他揮揮手，才自己走回家。</p>
+  <p><span class="pn">❺</span>回到家裏，媽媽看見我的校服濕了一大片，問我發生了甚麼事。我把事情告訴媽媽，心想她一定會責怪我。誰知道媽媽笑着摸摸我的頭，說：「你做得很好，懂得幫助朋友。」</p>
+  <p><span class="pn">❻</span>那天，我的肩膀雖然濕了，心裏卻暖暖的。</p>
+  <p class="src">潘SIR中文教室撰</p>
+</div>
+
+<div class="qbox"><span class="qn">1.</span>故事發生在星期幾？那天放學時天氣怎樣？<span class="lv basic">基礎</span><span class="mark">（2分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）星期一（1分）；下大雨（1分）。<br><small>只答「灰濛濛」不給天氣分，因為題目問放學時。</small></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">2.</span>小明為甚麼站在學校門口皺着眉頭？<span class="lv basic">基礎</span><span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A. 他在等媽媽來接他</li>
+    <li>B. 他忘記了帶雨傘</li>
+    <li>C. 他不想那麼早回家</li>
+    <li>D. 他和同學吵架了</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><small>第❷段：「原來他忘記帶傘了。」</small></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">3.</span>「我」和小明一起走到哪裏去？<span class="lv basic">基礎</span><span class="mark">（2分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）街口的巴士站。<br><small>只答「巴士站」亦給2分。</small></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">4.</span>為甚麼「我的右肩很快便濕透了」？<span class="lv adv">進階</span><span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）因為雨傘不夠大（1分），「我」把傘移向小明那邊（1分）。</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">5.</span>第❺段「責怪」的意思和下列哪一個詞語最接近？<span class="lv adv">進階</span><span class="mark">（2分）</span>
+  <ul class="opts">
+    <li>A. 稱讚</li>
+    <li>B. 責罵</li>
+    <li>C. 安慰</li>
+    <li>D. 擔心</li>
+  </ul>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">6.</span>「我」原本以為媽媽會怎樣？結果媽媽有甚麼反應？<span class="lv adv">進階</span><span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）「我」原本以為媽媽會責怪自己（1分）。結果媽媽笑着摸「我」的頭（1分），稱讚「我」懂得幫助朋友（1分）。</div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">7.</span>最後一句說「心裏卻暖暖的」，為甚麼「我」心裏會暖暖的？<span class="lv adv">進階</span><span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）因為「我」幫助了小明（1分），又得到媽媽稱讚（1分），所以感到開心、溫暖（1分）。<br><small>答「因為天氣很暖」或「因為穿了厚衣服」不給分，要明白「暖暖的」是指心情。</small></div>
+  </div>
+</div>
+
+<div class="qbox"><span class="qn">8.</span>你認為「我」是一個怎樣的孩子？試從文中舉出一件事說明。<span class="lv adv">進階</span><span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）樂於助人／關心朋友（2分）。例如「我」看見小明沒有帶傘，便和他一起撐傘，送他到巴士站，還把傘移向他那邊，自己的肩膀濕了也不介意（2分）。<br><small>性格答「善良」「有愛心」亦可；例子要和性格配合，只寫性格沒有例子最多給2分。</small></div>
+  </div>
+</div>
+
+<!-- ============ 05 寫作 ============ -->
+<div class="section-header" id="s5">
+  <div class="icon">🖊️</div>
+  <div><div class="chap">CHAPTER 05</div><h2>段落寫作</h2></div>
+  <div class="score">共15分</div>
+</div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>以「我的好朋友」為題，寫一段約80至100字的文字。<span class="lv basic">基礎</span><span class="lv adv">進階</span><span class="mark">（15分）</span>
+  <div class="alert tip" style="margin:8px 0">
+    <div class="alert-icon">💡</div>
+    <div><div class="alert-label">可以想一想</div><div class="alert-text">他／她叫甚麼名字？樣子是怎樣的？你們常常一起做甚麼？有沒有一件難忘的事？你為甚麼喜歡他／她？</div></div>
+  </div>
+  <div class="grid" data-cells="120"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）<br>我的好朋友叫小晴。她有一頭長長的頭髮，笑起來眼睛彎彎的，像兩道月牙。小息時，我們常常一起在操場上跳繩，放學後又會一起溫習。有一次，我忘了帶橡皮擦，小晴馬上把自己的借給我。她對人很好，常常幫助別人，所以我很喜歡她。<br><small>評分原則：內容5分（能回應提示，有具體事例）；組織4分（先介紹後敘事，句子次序清楚）；文句及標點4分（句子通順，標點正確）；錯別字2分（每兩個錯別字扣1分，扣完即止）。<br>診斷參考：只寫出簡單短句，內容只有名字和樣子，屬基礎程度；能寫出事例，並用上關聯詞或修辭，屬進階程度。</small></div>
+  </div>
+</div>
+
+<!-- ============ 06 檢視表 ============ -->
+<div class="section-header teacher-only" id="s6">
+  <div class="icon">📊</div>
+  <div><div class="chap">CHAPTER 06</div><h2>能力檢視表（老師填寫）</h2></div>
+</div>
+
+<div class="card teacher-only">
+  <h3><span class="dot teal"></span>各部分得分</h3>
+  <table class="t">
+    <tr><th>範疇</th><th class="c">基礎（小二程度）</th><th class="c">進階（小三程度）</th><th>觀察</th></tr>
+    <tr><td class="c">字詞運用</td><td>＿＿／29</td><td>＿＿／21</td><td></td></tr>
+    <tr><td class="c">句子運用</td><td>＿＿／19</td><td>＿＿／31</td><td></td></tr>
+    <tr><td class="c">認識修辭</td><td>—</td><td>＿＿／15</td><td></td></tr>
+    <tr><td class="c">閱讀理解</td><td>＿＿／6</td><td>＿＿／14</td><td></td></tr>
+    <tr><td class="c">段落寫作</td><td colspan="2">＿＿／15</td><td></td></tr>
+    <tr><th>合計</th><th>＿＿／54</th><th>＿＿／81</th><th>總分　＿＿／150</th></tr>
+  </table>
+  <div class="alert amber">
+    <div class="alert-icon">📌</div>
+    <div><div class="alert-label">判讀參考</div><div class="alert-text">基礎部分達八成（44分）或以上：小二內容已鞏固。<br>進階部分達六成（49分）或以上：大致達到小三程度，可針對較弱的範疇加強。<br>進階部分低於四成（33分）：宜先補回小二至小三的基本內容，再教新課題。</div></div>
+  </div>
+</div>
+
+<div class="card teacher-only">
+  <h3><span class="dot coral"></span>觀察記錄</h3>
+  強項：<div class="line"></div>
+  弱項：<div class="line"></div>
+  跟進建議：<div class="line"></div><div class="line"></div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+document.querySelectorAll('.grid').forEach(function(g){
+  var n=+g.getAttribute('data-cells')||100,h='';
+  for(var i=1;i<=n;i++){h+='<div'+(i%10===0?' class="ten"':'')+'></div>';}
+  g.innerHTML=h;
+});
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
