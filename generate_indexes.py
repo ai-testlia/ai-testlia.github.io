@@ -380,6 +380,68 @@ html_template = """<!DOCTYPE html>
     color: var(--color-text-secondary);
     font-size: 0.95rem;
   }}
+
+  /* ===== 新版分類 index（五格＋最近加入） ===== */
+  .recent-box {{
+    margin: 2rem 0 0.5rem;
+    padding: 1.4rem 1.6rem 1.6rem;
+    background: linear-gradient(135deg, rgba(0,122,135,0.06), rgba(197,160,89,0.10));
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brand-gold);
+    border-radius: var(--border-radius);
+  }}
+  .recent-box h2 {{
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+    color: var(--color-brand-green);
+  }}
+  .recent-list {{ display: flex; flex-direction: column; gap: 0.6rem; }}
+  .recent-item {{
+    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+  }}
+  .recent-item:hover {{ border-color: var(--color-brand-gold); transform: translateX(3px); }}
+  .recent-item .r-title {{ flex: 1; min-width: 12rem; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 1rem; }}
+  .recent-item .r-meta {{ font-size: 12px; color: var(--color-text-secondary); white-space: nowrap; }}
+  .section-count {{
+    margin-left: auto; font-size: 12px; color: var(--color-text-secondary);
+    border: 1px solid var(--color-border); border-radius: 20px; padding: 0.1rem 0.7rem;
+  }}
+  .note-card {{
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brand-gold);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }}
+  .note-card.is-ex {{ border-left-color: var(--color-brand-green); }}
+  .note-card:hover {{ transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--color-brand-gold); }}
+  .note-card h3 {{
+    margin: 0; font-family: 'Noto Serif TC', serif; font-size: 1.1rem; line-height: 1.45;
+    color: var(--color-brand-green);
+  }}
+  @media (prefers-color-scheme: dark) {{ .note-card h3, .recent-box h2 {{ color: var(--color-text-primary); }} }}
+  .note-card p {{ margin: 0; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.5; }}
+  .note-badges {{ display: flex; align-items: center; gap: 0.4rem; }}
+  .badge {{
+    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    padding: 0.1rem 0.6rem; border-radius: 20px; line-height: 1.6; white-space: nowrap;
+  }}
+  .badge-note {{ background: rgba(197,160,89,0.15); color: #8a6a2c; border: 1px solid rgba(197,160,89,0.45); }}
+  .badge-ex {{ background: rgba(0,122,135,0.10); color: var(--color-brand-green); border: 1px solid rgba(0,122,135,0.35); }}
+  .badge-new {{ background: #be3e54; color: #fff; border: 1px solid #be3e54; }}
+  .note-date {{ margin-left: auto; font-size: 11.5px; color: var(--color-text-secondary); }}
 </style>
 </head>
 <body>
@@ -580,6 +642,204 @@ icons = ["📚", "🧭", "🔥", "⚡", "⚖️"]
 
 SKIP_FILES = {"index.html", "data_grades.js", "data_memo.js"}
 
+# =====================================================================
+# 新版分類 index（2026-11 試行）：五格（閱讀、文言、寫作、語文基礎、測驗溫習）
+# ＋「筆記／練習」標籤＋最近加入＋「新」標記。只套用於 NEW_LAYOUT 入面嘅學生。
+# 分類次序：筆記 <meta name="pansir-category"> → NOTE_OVERRIDES → hero-tag／標題關鍵字
+# =====================================================================
+import re
+import subprocess
+from datetime import date, timedelta
+
+NEW_LAYOUT = {"Hei_yu"}
+
+CATEGORY_ORDER = ["閱讀", "文言", "寫作", "語文基礎", "測驗溫習"]
+CATEGORY_ICON = {"閱讀": "📖", "文言": "📜", "寫作": "✍️", "語文基礎": "🧩", "測驗溫習": "📝"}
+NEW_DAYS = 14      # 幾多日內加入算「新」
+RECENT_COUNT = 3   # 「最近加入」顯示幾多份
+
+# 自動分錯先喺度改：檔名 → {"category": ..., "type": "筆記"/"練習"}（全部學生通用）
+NOTE_OVERRIDES = {
+    "S1_02_語基與評估教學筆記.html": {"category": "語文基礎", "type": "筆記"},
+    "閱讀語基評估_筆記.html": {"category": "測驗溫習", "type": "練習"},
+}
+
+_CAT_RULES = [
+    ("測驗溫習", r"測驗|首測|考試|模擬|試卷|評估|總複習|闖關|IGCSE"),
+    ("文言", r"文言|範文|DSE_|一字多音|一詞多義|語譯|愛蓮說|桃花源|岳陽樓|廉頗|逍遙遊|出師表|師說|勸學|六國論|陳太丘"),
+    ("寫作", r"寫作|作文|批改|評改|評分報告|記敘文|記敍文|抒情文|實用文|看圖|圖片故事|立意"),
+    ("語文基礎", r"語文運用|語基|字詞|詞語|生詞|成語|句子|句意|修辭|比喻|借喻|借代|襯托|標點|語法|文白"),
+    ("閱讀", r"閱讀|導讀|講讀|段義|課文"),
+]
+_EX_WORDS = r"練習|工作紙|模擬|試卷|評估|測驗|闖關|總複習|quiz"
+_NOTE_WORDS = r"筆記|教學|導讀|講讀|攻略|精讀|補帖"
+
+
+def _read_head(path):
+    try:
+        with open(path, encoding="utf-8", errors="ignore") as fh:
+            return fh.read(60000)
+    except Exception:
+        return ""
+
+
+def _meta(html, name):
+    m = re.search(r'<meta\s+name="%s"\s+content="([^"]*)"' % re.escape(name), html)
+    return m.group(1).strip() if m else ""
+
+
+def _note_title(html, filename):
+    m = re.search(r"<title>(.*?)</title>", html, re.S)
+    t = m.group(1).strip() if m else clean_title(filename)
+    t = re.sub(r"\s*[｜|—–-]\s*潘SIR中文教室\s*$", "", t).strip()
+    return t or clean_title(filename)
+
+
+def _hero_tag(html):
+    m = re.search(r'class="hero-tag"[^>]*>([^<]*)<', html)
+    return m.group(1).strip() if m else ""
+
+
+_CN_NUM = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9, "十": 10}
+
+
+def _series_no(text):
+    m = re.search(r"(?:練習|第|卷|單元|\(|（)([一二三四五六七八九十]|\d+)", text)
+    if not m:
+        return 0
+    v = m.group(1)
+    return int(v) if v.isdigit() else _CN_NUM.get(v, 0)
+
+
+_added_dates = None
+
+
+def _git_added_dates():
+    """一次過讀 git log，攞每個檔第一次加入 repo 嘅日期。冇 git 就回傳空 dict。"""
+    global _added_dates
+    if _added_dates is not None:
+        return _added_dates
+    _added_dates = {}
+    try:
+        out = subprocess.run(
+            ["git", "-c", "core.quotepath=false", "log", "--no-renames", "--diff-filter=A",
+             "--name-only", "--format=@@%as"],
+            cwd=base_dir, capture_output=True, text=True, encoding="utf-8", timeout=60,
+        ).stdout
+        cur = None
+        for line in out.splitlines():
+            if line.startswith("@@"):
+                cur = line[2:]
+            elif line.strip() and cur:
+                _added_dates[line.strip()] = cur   # log 由新到舊，最後寫入嘅係最早日期
+    except Exception:
+        pass
+    return _added_dates
+
+
+def _classify(filename, html, title):
+    ov = NOTE_OVERRIDES.get(filename, {})
+    cat = _meta(html, "pansir-category") or ov.get("category")
+    typ = _meta(html, "pansir-type") or ov.get("type")
+    hero = _hero_tag(html)
+    if not typ:
+        is_ex = re.search(_EX_WORDS, title) and not re.search(_NOTE_WORDS, title)
+        typ = "練習" if is_ex else "筆記"
+    if not cat:
+        if typ == "練習" and re.search(_CAT_RULES[0][1], title + hero):
+            cat = "測驗溫習"
+        else:
+            for name, pat in _CAT_RULES[1:]:
+                if re.search(pat, hero):
+                    cat = name
+                    break
+            if not cat:
+                for name, pat in _CAT_RULES:
+                    if re.search(pat, title + " " + filename):
+                        cat = name
+                        break
+    if cat not in CATEGORY_ORDER:
+        cat = "閱讀"
+    return cat, typ
+
+
+def _fmt_date(d):
+    try:
+        y, m, dd = d.split("-")
+        return f"{int(m)}月{int(dd)}日"
+    except Exception:
+        return ""
+
+
+def _badges(n):
+    b = ('<span class="badge badge-ex">練習</span>' if n["type"] == "練習"
+         else '<span class="badge badge-note">筆記</span>')
+    if n["is_new"]:
+        b += '<span class="badge badge-new">新</span>'
+    return b
+
+
+def build_new_layout(folder_name, folder_path):
+    dates = _git_added_dates()
+    today = date.today()
+    notes = []
+    for f in os.listdir(folder_path):
+        if not f.endswith(".html") or f in SKIP_FILES:
+            continue
+        full = os.path.join(folder_path, f)
+        html = _read_head(full)
+        title = _note_title(html, f)
+        cat, typ = _classify(f, html, title)
+        added = dates.get(f"{folder_name}/{f}")
+        if not added:
+            added = datetime.fromtimestamp(os.path.getmtime(full)).strftime("%Y-%m-%d")
+        main, _, sub = title.partition("：")
+        is_new = False
+        try:
+            is_new = (today - date.fromisoformat(added)) <= timedelta(days=NEW_DAYS)
+        except Exception:
+            pass
+        notes.append({"file": f, "title": main.strip(), "desc": sub.strip(), "category": cat,
+                      "type": typ, "added": added, "is_new": is_new, "no": _series_no(f) or _series_no(title)})
+
+    if not notes:
+        return ""
+
+    # 新嘅排頭；同一日加入就按編號（練習一、二、三）
+    notes.sort(key=lambda n: (n["added"], -n["no"], n["title"]), reverse=True)
+
+    parts = []
+    if len(notes) > RECENT_COUNT:
+        parts.append('  <div class="recent-box">\n    <h2>🆕 最近加入</h2>\n    <div class="recent-list">\n')
+        for n in notes[:RECENT_COUNT]:
+            parts.append(
+                '      <a class="recent-item" href="%s">%s<span class="r-title">%s</span>'
+                '<span class="r-meta">%s・%s</span></a>\n'
+                % (n["file"], _badges(n), n["title"], n["category"], _fmt_date(n["added"])))
+        parts.append('    </div>\n  </div>\n')
+
+    for cat in CATEGORY_ORDER:
+        items = [n for n in notes if n["category"] == cat]
+        if not items:
+            continue
+        parts.append(
+            '  <div class="section-header">\n'
+            '    <div class="section-icon">%s</div>\n'
+            '    <h2>%s</h2>\n'
+            '    <span class="section-count">%d 份</span>\n'
+            '  </div>\n  <div class="nav-grid">\n' % (CATEGORY_ICON[cat], cat, len(items)))
+        for n in items:
+            cls = "note-card is-ex" if n["type"] == "練習" else "note-card"
+            desc = '\n      <p>%s</p>' % n["desc"] if n["desc"] else ""
+            parts.append(
+                '    <a href="%s" class="%s">\n'
+                '      <div class="note-badges">%s<span class="note-date">%s</span></div>\n'
+                '      <h3>%s</h3>%s\n    </a>\n'
+                % (n["file"], cls, _badges(n), _fmt_date(n["added"]), n["title"], desc))
+        parts.append('  </div>\n')
+    return "".join(parts)
+
+
 # Auto-register any student folder that isn't hardcoded above. This prevents
 # students added via tutor_erp from being silently skipped (they'd otherwise
 # get data_grades.js/data_memo.js written but no index.html at all).
@@ -651,6 +911,9 @@ for folder_name, data in folders.items():
             ]
 
     icon_idx = 0
+    if folder_name in NEW_LAYOUT and os.path.isdir(folder_path):
+        content_html = build_new_layout(folder_name, folder_path)
+        data["categories"] = {}
     for category, items in data["categories"].items():
         if not items:
             continue
