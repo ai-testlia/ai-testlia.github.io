@@ -189,6 +189,68 @@
     color: var(--color-text-secondary);
     font-size: 0.95rem;
   }
+
+  /* ===== 新版分類 index（五格＋最近加入） ===== */
+  .recent-box {
+    margin: 2rem 0 0.5rem;
+    padding: 1.4rem 1.6rem 1.6rem;
+    background: linear-gradient(135deg, rgba(0,122,135,0.06), rgba(197,160,89,0.10));
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brand-gold);
+    border-radius: var(--border-radius);
+  }
+  .recent-box h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+    color: var(--color-brand-green);
+  }
+  .recent-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .recent-item {
+    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+  }
+  .recent-item:hover { border-color: var(--color-brand-gold); transform: translateX(3px); }
+  .recent-item .r-title { flex: 1; min-width: 12rem; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 1rem; }
+  .recent-item .r-meta { font-size: 12px; color: var(--color-text-secondary); white-space: nowrap; }
+  .section-count {
+    margin-left: auto; font-size: 12px; color: var(--color-text-secondary);
+    border: 1px solid var(--color-border); border-radius: 20px; padding: 0.1rem 0.7rem;
+  }
+  .note-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brand-gold);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .note-card.is-ex { border-left-color: var(--color-brand-green); }
+  .note-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--color-brand-gold); }
+  .note-card h3 {
+    margin: 0; font-family: 'Noto Serif TC', serif; font-size: 1.1rem; line-height: 1.45;
+    color: var(--color-brand-green);
+  }
+  @media (prefers-color-scheme: dark) { .note-card h3, .recent-box h2 { color: var(--color-text-primary); } }
+  .note-card p { margin: 0; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.5; }
+  .note-badges { display: flex; align-items: center; gap: 0.4rem; }
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    padding: 0.1rem 0.6rem; border-radius: 20px; line-height: 1.6; white-space: nowrap;
+  }
+  .badge-note { background: rgba(197,160,89,0.15); color: #8a6a2c; border: 1px solid rgba(197,160,89,0.45); }
+  .badge-ex { background: rgba(0,122,135,0.10); color: var(--color-brand-green); border: 1px solid rgba(0,122,135,0.35); }
+  .badge-new { background: #be3e54; color: #fff; border: 1px solid #be3e54; }
+  .note-date { margin-left: auto; font-size: 11.5px; color: var(--color-text-secondary); }
 </style>
 </head>
 <body>
@@ -240,9 +302,9 @@
   <!-- 引入 Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- 引入學生專屬成績數據檔 -->
-  <script src="data_grades.js?v=20261117114827" onerror="console.log('未偵測到學生成績數據')"></script>
+  <script src="data_grades.js?v=20261119205424" onerror="console.log('未偵測到學生成績數據')"></script>
   <!-- 引入學生備忘數據檔 -->
-  <script src="data_memo.js?v=20261117114827" onerror="console.log('未偵測到備忘數據')"></script>
+  <script src="data_memo.js?v=20261119205424" onerror="console.log('未偵測到備忘數據')"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -383,57 +445,64 @@
       <p>文言文基礎與模擬練習（按此進入）</p>
     </a>
   </div>
-  <div class="section-header">
-    <div class="section-icon">📚</div>
-    <h2>閱讀與範文</h2>
-  </div>
-  <div class="nav-grid">
-    <a href="DSE 中文閱讀卷高分作戰藍圖.html" class="nav-card">
-      <div class="dot">1</div>
-      <h3>中文閱讀卷高分作戰藍圖</h3>
-      <p>DSE 閱讀策略</p>
-    </a>
-    <a href="《逍遙遊》DSE應試極致筆記_潘SIR中文教室.html" class="nav-card">
-      <div class="dot">2</div>
-      <h3>《逍遙遊》應試極致筆記</h3>
-      <p>DSE 範文精讀</p>
-    </a>
-    <a href="中六閱讀：〈廢墟與記憶的辯證〉分析.html" class="nav-card">
-      <div class="dot">3</div>
-      <h3>〈廢墟與記憶的辯證〉分析</h3>
-      <p>DSE 課外閱讀</p>
-    </a>
+  <div class="recent-box">
+    <h2>🆕 最近加入</h2>
+    <div class="recent-list">
+      <a class="recent-item" href="廉頗藺相如列傳_DSE教學筆記.html"><span class="badge badge-note">筆記</span><span class="badge badge-new">新</span><span class="r-title">《廉頗藺相如列傳》DSE 教學筆記</span><span class="r-meta">文言・11月17日</span></a>
+      <a class="recent-item" href="岳陽樓記_DSE教學筆記.html"><span class="badge badge-note">筆記</span><span class="badge badge-new">新</span><span class="r-title">《岳陽樓記》DSE 教學筆記</span><span class="r-meta">文言・11月12日</span></a>
+      <a class="recent-item" href="記敘文進階：細節的溫度與情感的留白.html"><span class="badge badge-note">筆記</span><span class="r-title">感官重構與情感昇華</span><span class="r-meta">寫作・6月2日</span></a>
+    </div>
   </div>
   <div class="section-header">
-    <div class="section-icon">🧭</div>
-    <h2>寫作進階技巧</h2>
+    <div class="section-icon">📖</div>
+    <h2>閱讀</h2>
+    <span class="section-count">2 份</span>
   </div>
   <div class="nav-grid">
-    <a href="抒情文進階：從「觸景生情」到「意象重構」.html" class="nav-card">
-      <div class="dot">1</div>
-      <h3>抒情文進階</h3>
-      <p>觸景生情與意象重構</p>
+    <a href="中六閱讀：〈廢墟與記憶的辯證〉分析.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">6月2日</span></div>
+      <h3>中六級中文科閱讀訓練</h3>
+      <p>〈廢墟與記憶的辯證〉</p>
     </a>
-    <a href="記敘文進階：細節的溫度與情感的留白.html" class="nav-card">
-      <div class="dot">2</div>
-      <h3>記敘文進階</h3>
-      <p>細節溫度與情感留白</p>
+    <a href="DSE 中文閱讀卷高分作戰藍圖.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">6月2日</span></div>
+      <h3>DSE 中文閱讀卷高分作戰藍圖</h3>
     </a>
   </div>
   <div class="section-header">
-    <div class="section-icon">🔥</div>
-    <h2>學習筆記</h2>
+    <div class="section-icon">📜</div>
+    <h2>文言</h2>
+    <span class="section-count">3 份</span>
   </div>
   <div class="nav-grid">
-    <a href="岳陽樓記_DSE教學筆記.html" class="nav-card">
-      <div class="dot">1</div>
-      <h3>岳陽樓記_DSE教學筆記</h3>
-      <p>學習筆記</p>
+    <a href="廉頗藺相如列傳_DSE教學筆記.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="badge badge-new">新</span><span class="note-date">11月17日</span></div>
+      <h3>《廉頗藺相如列傳》DSE 教學筆記</h3>
     </a>
-    <a href="廉頗藺相如列傳_DSE教學筆記.html" class="nav-card">
-      <div class="dot">2</div>
-      <h3>廉頗藺相如列傳_DSE教學筆記</h3>
-      <p>學習筆記</p>
+    <a href="岳陽樓記_DSE教學筆記.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="badge badge-new">新</span><span class="note-date">11月12日</span></div>
+      <h3>《岳陽樓記》DSE 教學筆記</h3>
+    </a>
+    <a href="《逍遙遊》DSE應試極致筆記_潘SIR中文教室.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">6月2日</span></div>
+      <h3>《逍遙遊》DSE 應試極致筆記</h3>
+    </a>
+  </div>
+  <div class="section-header">
+    <div class="section-icon">✍️</div>
+    <h2>寫作</h2>
+    <span class="section-count">2 份</span>
+  </div>
+  <div class="nav-grid">
+    <a href="記敘文進階：細節的溫度與情感的留白.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">6月2日</span></div>
+      <h3>感官重構與情感昇華</h3>
+      <p>記敘文進階教學</p>
+    </a>
+    <a href="抒情文進階：從「觸景生情」到「意象重構」.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">6月2日</span></div>
+      <h3>初中進階抒情文</h3>
+      <p>情感的深度刻劃與意象經營</p>
     </a>
   </div>
 

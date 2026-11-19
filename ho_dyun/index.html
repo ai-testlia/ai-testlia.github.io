@@ -189,6 +189,68 @@
     color: var(--color-text-secondary);
     font-size: 0.95rem;
   }
+
+  /* ===== 新版分類 index（五格＋最近加入） ===== */
+  .recent-box {
+    margin: 2rem 0 0.5rem;
+    padding: 1.4rem 1.6rem 1.6rem;
+    background: linear-gradient(135deg, rgba(0,122,135,0.06), rgba(197,160,89,0.10));
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brand-gold);
+    border-radius: var(--border-radius);
+  }
+  .recent-box h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+    color: var(--color-brand-green);
+  }
+  .recent-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .recent-item {
+    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+  }
+  .recent-item:hover { border-color: var(--color-brand-gold); transform: translateX(3px); }
+  .recent-item .r-title { flex: 1; min-width: 12rem; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 1rem; }
+  .recent-item .r-meta { font-size: 12px; color: var(--color-text-secondary); white-space: nowrap; }
+  .section-count {
+    margin-left: auto; font-size: 12px; color: var(--color-text-secondary);
+    border: 1px solid var(--color-border); border-radius: 20px; padding: 0.1rem 0.7rem;
+  }
+  .note-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brand-gold);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .note-card.is-ex { border-left-color: var(--color-brand-green); }
+  .note-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--color-brand-gold); }
+  .note-card h3 {
+    margin: 0; font-family: 'Noto Serif TC', serif; font-size: 1.1rem; line-height: 1.45;
+    color: var(--color-brand-green);
+  }
+  @media (prefers-color-scheme: dark) { .note-card h3, .recent-box h2 { color: var(--color-text-primary); } }
+  .note-card p { margin: 0; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.5; }
+  .note-badges { display: flex; align-items: center; gap: 0.4rem; }
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    padding: 0.1rem 0.6rem; border-radius: 20px; line-height: 1.6; white-space: nowrap;
+  }
+  .badge-note { background: rgba(197,160,89,0.15); color: #8a6a2c; border: 1px solid rgba(197,160,89,0.45); }
+  .badge-ex { background: rgba(0,122,135,0.10); color: var(--color-brand-green); border: 1px solid rgba(0,122,135,0.35); }
+  .badge-new { background: #be3e54; color: #fff; border: 1px solid #be3e54; }
+  .note-date { margin-left: auto; font-size: 11.5px; color: var(--color-text-secondary); }
 </style>
 </head>
 <body>
@@ -240,9 +302,9 @@
   <!-- 引入 Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- 引入學生專屬成績數據檔 -->
-  <script src="data_grades.js?v=20261113032532" onerror="console.log('未偵測到學生成績數據')"></script>
+  <script src="data_grades.js?v=20261119205424" onerror="console.log('未偵測到學生成績數據')"></script>
   <!-- 引入學生備忘數據檔 -->
-  <script src="data_memo.js?v=20261113032532" onerror="console.log('未偵測到備忘數據')"></script>
+  <script src="data_memo.js?v=20261119205424" onerror="console.log('未偵測到備忘數據')"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -371,102 +433,112 @@
     });
   </script>
 
+  <div class="recent-box">
+    <h2>🆕 最近加入</h2>
+    <div class="recent-list">
+      <a class="recent-item" href="小六閱讀理解模擬練習_婆婆的筆記簿_叮叮百年.html"><span class="badge badge-ex">練習</span><span class="badge badge-new">新</span><span class="r-title">小六閱讀理解模擬練習</span><span class="r-meta">測驗溫習・11月13日</span></a>
+      <a class="recent-item" href="小六閱讀理解教學筆記_題型與答題方法.html"><span class="badge badge-note">筆記</span><span class="badge badge-new">新</span><span class="r-title">小六閱讀理解</span><span class="r-meta">閱讀・11月13日</span></a>
+      <a class="recent-item" href="第七八課詞語填充練習二（小五）.html"><span class="badge badge-ex">練習</span><span class="badge badge-new">新</span><span class="r-title">詞語填充練習（小五）</span><span class="r-meta">語文基礎・11月12日</span></a>
+    </div>
+  </div>
   <div class="section-header">
-    <div class="section-icon">📚</div>
-    <h2>語文基礎與成語</h2>
+    <div class="section-icon">📖</div>
+    <h2>閱讀</h2>
+    <span class="section-count">3 份</span>
   </div>
   <div class="nav-grid">
-    <a href="句意辨析攻略（小六TSA強化篇）_潘SIR中文教室.html" class="nav-card">
-      <div class="dot">1</div>
-      <h3>句意辨析攻略</h3>
-      <p>小六TSA強化篇</p>
+    <a href="小六閱讀理解教學筆記_題型與答題方法.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="badge badge-new">新</span><span class="note-date">11月13日</span></div>
+      <h3>小六閱讀理解</h3>
+      <p>題型與答題方法</p>
     </a>
-    <a href="小五成語專題工作紙_成語運用_潘SIR中文教室.html" class="nav-card">
-      <div class="dot">2</div>
-      <h3>成語專題工作紙</h3>
-      <p>成語運用</p>
+    <a href="段義理解練習第三輯(三十題)筆記.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="note-date">9月21日</span></div>
+      <h3>段義理解練習．第三輯（三十題）</h3>
     </a>
-    <a href="小五成語專題練習_掌握語義與應用（五年級）_潘SIR中文教室.html" class="nav-card">
-      <div class="dot">3</div>
-      <h3>成語專題練習</h3>
-      <p>掌握語義與應用</p>
-    </a>
-    <a href="成語填充練習（小五）_潘SIR中文教室.html" class="nav-card">
-      <div class="dot">4</div>
-      <h3>成語填充練習</h3>
-      <p>小五程度</p>
-    </a>
-    <a href="成語教學與填充練習（小五）_潘SIR中文教室.html" class="nav-card">
-      <div class="dot">5</div>
-      <h3>成語教學與填充</h3>
-      <p>小五程度</p>
+    <a href="段義理解_主旨判斷全攻略.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">9月17日</span></div>
+      <h3>段義理解</h3>
+      <p>主旨判斷全攻略</p>
     </a>
   </div>
   <div class="section-header">
-    <div class="section-icon">🧭</div>
-    <h2>說話與寫作技巧</h2>
+    <div class="section-icon">✍️</div>
+    <h2>寫作</h2>
+    <span class="section-count">2 份</span>
   </div>
   <div class="nav-grid">
-    <a href="四格看圖說故事.html" class="nav-card">
-      <div class="dot">1</div>
-      <h3>四格看圖說故事</h3>
-      <p>看圖說話訓練</p>
+    <a href="圖片故事寫作七步成文法及全方位實戰_潘SIR中文教室.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">6月4日</span></div>
+      <h3>看圖寫作</h3>
+      <p>七步成文法</p>
     </a>
-    <a href="圖片故事寫作七步成文法及全方位實戰_潘SIR中文教室.html" class="nav-card">
-      <div class="dot">2</div>
-      <h3>圖片故事寫作</h3>
-      <p>七步成文法及全方位實戰</p>
+    <a href="四格看圖說故事.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">6月2日</span></div>
+      <h3>3分鐘應試奇蹟</h3>
+      <p>「四格看圖說故事」高分速成與實戰技巧筆記</p>
     </a>
   </div>
   <div class="section-header">
-    <div class="section-icon">🔥</div>
-    <h2>學習筆記</h2>
+    <div class="section-icon">🧩</div>
+    <h2>語文基礎</h2>
+    <span class="section-count">9 份</span>
   </div>
   <div class="nav-grid">
-    <a href="可端_上學期字詞解釋整理.html" class="nav-card">
-      <div class="dot">1</div>
-      <h3>可端_上學期字詞解釋整理</h3>
-      <p>學習筆記</p>
+    <a href="第七八課詞語填充練習二（小五）.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="badge badge-new">新</span><span class="note-date">11月12日</span></div>
+      <h3>詞語填充練習（小五）</h3>
+      <p>第七、八課（第二輯）</p>
     </a>
-    <a href="小六成語精讀_單元一二.html" class="nav-card">
-      <div class="dot">2</div>
-      <h3>小六成語精讀_單元一二</h3>
-      <p>學習筆記</p>
+    <a href="第七八課詞語填充練習（小五）.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="badge badge-new">新</span><span class="note-date">11月6日</span></div>
+      <h3>詞語填充練習（小五）</h3>
+      <p>第七、八課</p>
     </a>
-    <a href="小六閱讀理解教學筆記_題型與答題方法.html" class="nav-card">
-      <div class="dot">3</div>
-      <h3>小六閱讀理解教學筆記_題型與答題方法</h3>
-      <p>學習筆記</p>
+    <a href="小六成語精讀_單元一二.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">10月23日</span></div>
+      <h3>小六成語精讀　單元一、二</h3>
     </a>
-    <a href="小六閱讀理解模擬練習.html" class="nav-card">
-      <div class="dot">4</div>
+    <a href="可端_上學期字詞解釋整理.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">8月27日</span></div>
+      <h3>第一、四、五、七、八課</h3>
+      <p>字詞解釋筆記</p>
+    </a>
+    <a href="成語填充練習（小五）_潘SIR中文教室.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="note-date">6月2日</span></div>
+      <h3>成語填充練習（小五）</h3>
+    </a>
+    <a href="成語教學與填充練習（小五）_潘SIR中文教室.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="note-date">6月2日</span></div>
+      <h3>成語填充練習（小五）</h3>
+    </a>
+    <a href="句意辨析攻略（小六TSA強化篇）_潘SIR中文教室.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">6月2日</span></div>
+      <h3>句意辨析攻略（小六 TSA 強化篇）</h3>
+    </a>
+    <a href="小五成語專題工作紙_成語運用_潘SIR中文教室.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="note-date">6月2日</span></div>
+      <h3>五年級成語專題工作紙</h3>
+    </a>
+    <a href="小五成語專題練習_掌握語義與應用（五年級）_潘SIR中文教室.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="note-date">6月2日</span></div>
+      <h3>小學五年級</h3>
+      <p>成語專題工作紙</p>
+    </a>
+  </div>
+  <div class="section-header">
+    <div class="section-icon">📝</div>
+    <h2>測驗溫習</h2>
+    <span class="section-count">2 份</span>
+  </div>
+  <div class="nav-grid">
+    <a href="小六閱讀理解模擬練習_婆婆的筆記簿_叮叮百年.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="badge badge-new">新</span><span class="note-date">11月13日</span></div>
       <h3>小六閱讀理解模擬練習</h3>
-      <p>學習筆記</p>
     </a>
-    <a href="小六閱讀理解模擬練習_婆婆的筆記簿_叮叮百年.html" class="nav-card">
-      <div class="dot">5</div>
-      <h3>小六閱讀理解模擬練習_婆婆的筆記簿_叮叮百年</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="段義理解_主旨判斷全攻略.html" class="nav-card">
-      <div class="dot">6</div>
-      <h3>段義理解_主旨判斷全攻略</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="段義理解練習第三輯(三十題)筆記.html" class="nav-card">
-      <div class="dot">7</div>
-      <h3>段義理解練習第三輯(三十題)筆記</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="第七八課詞語填充練習二（小五）.html" class="nav-card">
-      <div class="dot">8</div>
-      <h3>第七八課詞語填充練習二（小五）</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="第七八課詞語填充練習（小五）.html" class="nav-card">
-      <div class="dot">9</div>
-      <h3>第七八課詞語填充練習（小五）</h3>
-      <p>學習筆記</p>
+    <a href="小六閱讀理解模擬練習.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="note-date">10月5日</span></div>
+      <h3>小六閱讀理解模擬練習（一）</h3>
     </a>
   </div>
 

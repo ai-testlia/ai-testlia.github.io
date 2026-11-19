@@ -651,10 +651,11 @@ import re
 import subprocess
 from datetime import date, timedelta
 
-NEW_LAYOUT = {"Hei_yu", "Himson", "Yat_Hong"}
+NEW_LAYOUT = {"Alson", "Anson", "Hei_yu", "Himson", "Timothy", "Tsz_Chun", "Yat_Hong", "ga_him",
+              "ho_dyun", "ho_jyut", "ho_zeon", "hok_wai", "ka_hin", "sam_laam", "syut_syut", "zeng_han"}
 
-CATEGORY_ORDER = ["閱讀", "文言", "寫作", "語文基礎", "測驗溫習"]
-CATEGORY_ICON = {"閱讀": "📖", "文言": "📜", "寫作": "✍️", "語文基礎": "🧩", "測驗溫習": "📝"}
+CATEGORY_ORDER = ["閱讀", "文言", "寫作", "語文基礎", "測驗溫習", "中史"]
+CATEGORY_ICON = {"閱讀": "📖", "文言": "📜", "寫作": "✍️", "語文基礎": "🧩", "測驗溫習": "📝", "中史": "🏛️"}
 NEW_DAYS = 14      # 幾多日內加入算「新」
 RECENT_COUNT = 3   # 「最近加入」顯示幾多份
 
@@ -671,7 +672,9 @@ _CAT_RULES = [
     ("語文基礎", r"語文運用|語基|字詞|詞語|生詞|成語|句子|句意|修辭|比喻|借喻|借代|襯托|標點|語法|文白"),
     ("閱讀", r"閱讀|導讀|講讀|段義|課文"),
 ]
-_RHETORIC = r"修辭|比喻|借喻|借代|襯托|擬人|誇張|排比|對偶"
+_RHETORIC = r"修辭|比喻|借喻|借代|襯托|擬人|誇張|排比|對偶|句意|句子|語文基礎|能力強化|成語|詞語|字詞"
+# 標題有文言篇名就入文言（行先過 hero-tag，因為課文筆記 hero-tag 多數寫「閱讀」）
+_CLASSICAL = r"文言|桃花源記|愛蓮說|為學一首|陳太丘|岳陽樓記|廉頗|逍遙遊|出師表|師說|勸學|六國論|始得西山|魚我所欲|論仁|岳飛之少年"
 # hero-tag 用嘅次序：寫作排喺文言前面（例如「文言/白話寫作教學筆記」應該入寫作）
 _HERO_RULES = [r for r in _CAT_RULES[1:] if r[0] == "寫作"] + [r for r in _CAT_RULES[1:] if r[0] != "寫作"]
 _EX_WORDS = r"練習|工作紙|模擬|試卷|評估|測驗|闖關|總複習|quiz"
@@ -695,6 +698,7 @@ def _note_title(html, filename):
     m = re.search(r"<title>(.*?)</title>", html, re.S)
     t = m.group(1).strip() if m else clean_title(filename)
     t = re.sub(r"\s*[｜|—–-]\s*潘SIR中文教室\s*$", "", t).strip()
+    t = re.sub(r"^\s*潘SIR中文教室\s*[｜|—–:：-]+\s*", "", t).strip()
     return t or clean_title(filename)
 
 
@@ -748,11 +752,15 @@ def _classify(filename, html, title):
     if not typ:
         is_ex = re.search(_EX_WORDS, title) and not re.search(_NOTE_WORDS, title)
         typ = "練習" if is_ex else "筆記"
+    if not cat and re.search(r"中國歷史|中史|歷史", title + " " + hero):
+        cat = "中史"
     if not cat and re.search(r"評估|模擬|測驗|試卷", hero) and "筆記" not in hero:
         cat, typ = "測驗溫習", (ov.get("type") or _meta(html, "pansir-type") or "練習")
     if not cat:
         if typ == "練習" and re.search(_CAT_RULES[0][1], title + hero):
             cat = "測驗溫習"
+        elif re.search(_CLASSICAL, title):
+            cat = "文言"
         elif re.search(_RHETORIC, title):
             cat = "語文基礎"
         else:
@@ -800,7 +808,7 @@ def build_new_layout(folder_name, folder_path):
         added = dates.get(f"{folder_name}/{f}")
         if not added:
             added = datetime.fromtimestamp(os.path.getmtime(full)).strftime("%Y-%m-%d")
-        parts_ = re.split(r"\s*(?:：|｜|——|──|\s—\s)\s*", title, maxsplit=1)
+        parts_ = re.split(r"\s*(?:：|｜|——|──|\s—\s|\s\|\s)\s*", title, maxsplit=1)
         main, sub = (parts_ + [""])[:2]
         # 「寫作教學筆記｜《題目》」：題目做主標題，筆記類別做副標題
         if sub and re.search(r"(筆記|教學)$", main.strip()) and not re.search(r"(筆記|教學)$", sub.strip()):
