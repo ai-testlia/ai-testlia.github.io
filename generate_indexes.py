@@ -651,7 +651,7 @@ import re
 import subprocess
 from datetime import date, timedelta
 
-NEW_LAYOUT = {"Hei_yu"}
+NEW_LAYOUT = {"Hei_yu", "Himson", "Yat_Hong"}
 
 CATEGORY_ORDER = ["閱讀", "文言", "寫作", "語文基礎", "測驗溫習"]
 CATEGORY_ICON = {"閱讀": "📖", "文言": "📜", "寫作": "✍️", "語文基礎": "🧩", "測驗溫習": "📝"}
@@ -671,6 +671,9 @@ _CAT_RULES = [
     ("語文基礎", r"語文運用|語基|字詞|詞語|生詞|成語|句子|句意|修辭|比喻|借喻|借代|襯托|標點|語法|文白"),
     ("閱讀", r"閱讀|導讀|講讀|段義|課文"),
 ]
+_RHETORIC = r"修辭|比喻|借喻|借代|襯托|擬人|誇張|排比|對偶"
+# hero-tag 用嘅次序：寫作排喺文言前面（例如「文言/白話寫作教學筆記」應該入寫作）
+_HERO_RULES = [r for r in _CAT_RULES[1:] if r[0] == "寫作"] + [r for r in _CAT_RULES[1:] if r[0] != "寫作"]
 _EX_WORDS = r"練習|工作紙|模擬|試卷|評估|測驗|闖關|總複習|quiz"
 _NOTE_WORDS = r"筆記|教學|導讀|講讀|攻略|精讀|補帖"
 
@@ -745,11 +748,15 @@ def _classify(filename, html, title):
     if not typ:
         is_ex = re.search(_EX_WORDS, title) and not re.search(_NOTE_WORDS, title)
         typ = "練習" if is_ex else "筆記"
+    if not cat and re.search(r"評估|模擬|測驗|試卷", hero) and "筆記" not in hero:
+        cat, typ = "測驗溫習", (ov.get("type") or _meta(html, "pansir-type") or "練習")
     if not cat:
         if typ == "練習" and re.search(_CAT_RULES[0][1], title + hero):
             cat = "測驗溫習"
+        elif re.search(_RHETORIC, title):
+            cat = "語文基礎"
         else:
-            for name, pat in _CAT_RULES[1:]:
+            for name, pat in _HERO_RULES:
                 if re.search(pat, hero):
                     cat = name
                     break
@@ -793,7 +800,11 @@ def build_new_layout(folder_name, folder_path):
         added = dates.get(f"{folder_name}/{f}")
         if not added:
             added = datetime.fromtimestamp(os.path.getmtime(full)).strftime("%Y-%m-%d")
-        main, _, sub = title.partition("：")
+        parts_ = re.split(r"\s*(?:：|｜|——|──|\s—\s)\s*", title, maxsplit=1)
+        main, sub = (parts_ + [""])[:2]
+        # 「寫作教學筆記｜《題目》」：題目做主標題，筆記類別做副標題
+        if sub and re.search(r"(筆記|教學)$", main.strip()) and not re.search(r"(筆記|教學)$", sub.strip()):
+            main, sub = sub, main
         is_new = False
         try:
             is_new = (today - date.fromisoformat(added)) <= timedelta(days=NEW_DAYS)

@@ -189,6 +189,68 @@
     color: var(--color-text-secondary);
     font-size: 0.95rem;
   }
+
+  /* ===== 新版分類 index（五格＋最近加入） ===== */
+  .recent-box {
+    margin: 2rem 0 0.5rem;
+    padding: 1.4rem 1.6rem 1.6rem;
+    background: linear-gradient(135deg, rgba(0,122,135,0.06), rgba(197,160,89,0.10));
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brand-gold);
+    border-radius: var(--border-radius);
+  }
+  .recent-box h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+    color: var(--color-brand-green);
+  }
+  .recent-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .recent-item {
+    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+  }
+  .recent-item:hover { border-color: var(--color-brand-gold); transform: translateX(3px); }
+  .recent-item .r-title { flex: 1; min-width: 12rem; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 1rem; }
+  .recent-item .r-meta { font-size: 12px; color: var(--color-text-secondary); white-space: nowrap; }
+  .section-count {
+    margin-left: auto; font-size: 12px; color: var(--color-text-secondary);
+    border: 1px solid var(--color-border); border-radius: 20px; padding: 0.1rem 0.7rem;
+  }
+  .note-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brand-gold);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .note-card.is-ex { border-left-color: var(--color-brand-green); }
+  .note-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--color-brand-gold); }
+  .note-card h3 {
+    margin: 0; font-family: 'Noto Serif TC', serif; font-size: 1.1rem; line-height: 1.45;
+    color: var(--color-brand-green);
+  }
+  @media (prefers-color-scheme: dark) { .note-card h3, .recent-box h2 { color: var(--color-text-primary); } }
+  .note-card p { margin: 0; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.5; }
+  .note-badges { display: flex; align-items: center; gap: 0.4rem; }
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    padding: 0.1rem 0.6rem; border-radius: 20px; line-height: 1.6; white-space: nowrap;
+  }
+  .badge-note { background: rgba(197,160,89,0.15); color: #8a6a2c; border: 1px solid rgba(197,160,89,0.45); }
+  .badge-ex { background: rgba(0,122,135,0.10); color: var(--color-brand-green); border: 1px solid rgba(0,122,135,0.35); }
+  .badge-new { background: #be3e54; color: #fff; border: 1px solid #be3e54; }
+  .note-date { margin-left: auto; font-size: 11.5px; color: var(--color-text-secondary); }
 </style>
 </head>
 <body>
@@ -240,9 +302,9 @@
   <!-- 引入 Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- 引入學生專屬成績數據檔 -->
-  <script src="data_grades.js?v=20261113131828" onerror="console.log('未偵測到學生成績數據')"></script>
+  <script src="data_grades.js?v=20261119203736" onerror="console.log('未偵測到學生成績數據')"></script>
   <!-- 引入學生備忘數據檔 -->
-  <script src="data_memo.js?v=20261113131828" onerror="console.log('未偵測到備忘數據')"></script>
+  <script src="data_memo.js?v=20261119203736" onerror="console.log('未偵測到備忘數據')"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -371,95 +433,112 @@
     });
   </script>
 
+  <div class="recent-box">
+    <h2>🆕 最近加入</h2>
+    <div class="recent-list">
+      <a class="recent-item" href="清晨的公園_寫作教學筆記.html"><span class="badge badge-note">筆記</span><span class="badge badge-new">新</span><span class="r-title">清晨的公園</span><span class="r-meta">寫作・11月13日</span></a>
+      <a class="recent-item" href="在風中_教學筆記.html"><span class="badge badge-note">筆記</span><span class="r-title">《在風中》教學筆記</span><span class="r-meta">閱讀・10月30日</span></a>
+      <a class="recent-item" href="春秧街_遮打花園_閱讀教學筆記.html"><span class="badge badge-note">筆記</span><span class="r-title">春秧街與遮打花園 閱讀教學筆記</span><span class="r-meta">閱讀・10月9日</span></a>
+    </div>
+  </div>
   <div class="section-header">
-    <div class="section-icon">📚</div>
-    <h2>學習筆記</h2>
+    <div class="section-icon">📖</div>
+    <h2>閱讀</h2>
+    <span class="section-count">3 份</span>
   </div>
   <div class="nav-grid">
-    <a href="《那件沒有送出去的禮物》.html" class="nav-card">
-      <div class="dot">1</div>
+    <a href="在風中_教學筆記.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">10月30日</span></div>
+      <h3>《在風中》教學筆記</h3>
+    </a>
+    <a href="春秧街_遮打花園_閱讀教學筆記.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">10月9日</span></div>
+      <h3>春秧街與遮打花園 閱讀教學筆記</h3>
+    </a>
+    <a href="閱讀理解分析教學_海燕與世說新語.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">8月29日</span></div>
+      <h3>《海燕》與《世說新語‧荀巨伯》精讀</h3>
+      <p>閱讀理解答題技巧筆記</p>
+    </a>
+  </div>
+  <div class="section-header">
+    <div class="section-icon">✍️</div>
+    <h2>寫作</h2>
+    <span class="section-count">12 份</span>
+  </div>
+  <div class="nav-grid">
+    <a href="清晨的公園_寫作教學筆記.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="badge badge-new">新</span><span class="note-date">11月13日</span></div>
+      <h3>清晨的公園</h3>
+      <p>寫作教學筆記</p>
+    </a>
+    <a href="寫作教學筆記︰喧鬧的傳統街市.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">9月25日</span></div>
+      <h3>喧鬧的傳統街市</h3>
+      <p>寫作教學筆記</p>
+    </a>
+    <a href="那一次我沒有伸出援手_立意建構筆記.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">9月11日</span></div>
+      <h3>《那一次，我沒有伸出援手》立意建構教學筆記</h3>
+    </a>
+    <a href="被誤會的滋味_寫作教學筆記.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">9月3日</span></div>
+      <h3>《被誤會的滋味》寫作教學筆記</h3>
+    </a>
+    <a href="記敘文寫作教學_沒有互聯網的一天.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">8月22日</span></div>
+      <h3>沒有互聯網的一天</h3>
+      <p>寫作教學筆記</p>
+    </a>
+    <a href="那件沒有送出去的禮物_立意與情節引導提問.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">7月28日</span></div>
+      <h3>《那件沒有送出去的禮物》立意與情節引導提問</h3>
+      <p>寫作構思筆記</p>
+    </a>
+    <a href="《那件沒有送出去的禮物》.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">7月28日</span></div>
       <h3>《那件沒有送出去的禮物》</h3>
-      <p>學習筆記</p>
+      <p>寫作教學筆記</p>
     </a>
-    <a href="初中中國語文能力評估_闖關版.html" class="nav-card">
-      <div class="dot">2</div>
-      <h3>初中中國語文能力評估_闖關版</h3>
-      <p>學習筆記</p>
+    <a href="褪色的舊車票_作文批改報告_逸康.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">7月24日</span></div>
+      <h3>《褪色的舊車票》作文批改報告</h3>
     </a>
-    <a href="初中中國語文閱讀理解模擬試卷.html" class="nav-card">
-      <div class="dot">3</div>
-      <h3>初中中國語文閱讀理解模擬試卷</h3>
-      <p>學習筆記</p>
+    <a href="寫作教學筆記_原來我沒有想像中勇敢.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">7月11日</span></div>
+      <h3>〈原來我沒有想像中勇敢〉</h3>
+      <p>寫作教學筆記</p>
     </a>
-    <a href="在風中_教學筆記.html" class="nav-card">
-      <div class="dot">4</div>
-      <h3>在風中_教學筆記</h3>
-      <p>學習筆記</p>
+    <a href="寫作教學_褪色的舊車票.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">7月10日</span></div>
+      <h3>車票與陪伴</h3>
+      <p>寫作教學筆記</p>
     </a>
-    <a href="寫作教學_褪色的舊車票.html" class="nav-card">
-      <div class="dot">5</div>
-      <h3>寫作教學_褪色的舊車票</h3>
-      <p>學習筆記</p>
+    <a href="記敘文進階：細節的溫度與情感的留白.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">7月10日</span></div>
+      <h3>感官重構與情感昇華</h3>
+      <p>記敘文進階教學</p>
     </a>
-    <a href="寫作教學筆記_原來我沒有想像中勇敢.html" class="nav-card">
-      <div class="dot">6</div>
-      <h3>寫作教學筆記_原來我沒有想像中勇敢</h3>
-      <p>學習筆記</p>
+    <a href="抒情文進階：從「觸景生情」到「意象重構」.html" class="note-card">
+      <div class="note-badges"><span class="badge badge-note">筆記</span><span class="note-date">7月10日</span></div>
+      <h3>初中進階抒情文</h3>
+      <p>情感的深度刻劃與意象經營</p>
     </a>
-    <a href="寫作教學筆記︰喧鬧的傳統街市.html" class="nav-card">
-      <div class="dot">7</div>
-      <h3>寫作教學筆記︰喧鬧的傳統街市</h3>
-      <p>學習筆記</p>
+  </div>
+  <div class="section-header">
+    <div class="section-icon">📝</div>
+    <h2>測驗溫習</h2>
+    <span class="section-count">2 份</span>
+  </div>
+  <div class="nav-grid">
+    <a href="初中中國語文閱讀理解模擬試卷.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="note-date">8月28日</span></div>
+      <h3>中國語文 試卷一</h3>
+      <p>閱讀能力考材</p>
     </a>
-    <a href="抒情文進階：從「觸景生情」到「意象重構」.html" class="nav-card">
-      <div class="dot">8</div>
-      <h3>抒情文進階：從「觸景生情」到「意象重構」</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="春秧街_遮打花園_閱讀教學筆記.html" class="nav-card">
-      <div class="dot">9</div>
-      <h3>春秧街_遮打花園_閱讀教學筆記</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="清晨的公園_寫作教學筆記.html" class="nav-card">
-      <div class="dot">10</div>
-      <h3>清晨的公園_寫作教學筆記</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="被誤會的滋味_寫作教學筆記.html" class="nav-card">
-      <div class="dot">11</div>
-      <h3>被誤會的滋味_寫作教學筆記</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="褪色的舊車票_作文批改報告_逸康.html" class="nav-card">
-      <div class="dot">12</div>
-      <h3>褪色的舊車票_作文批改報告_逸康</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="記敘文寫作教學_沒有互聯網的一天.html" class="nav-card">
-      <div class="dot">13</div>
-      <h3>記敘文寫作教學_沒有互聯網的一天</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="記敘文進階：細節的溫度與情感的留白.html" class="nav-card">
-      <div class="dot">14</div>
-      <h3>記敘文進階：細節的溫度與情感的留白</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="那一次我沒有伸出援手_立意建構筆記.html" class="nav-card">
-      <div class="dot">15</div>
-      <h3>那一次我沒有伸出援手_立意建構筆記</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="那件沒有送出去的禮物_立意與情節引導提問.html" class="nav-card">
-      <div class="dot">16</div>
-      <h3>那件沒有送出去的禮物_立意與情節引導提問</h3>
-      <p>學習筆記</p>
-    </a>
-    <a href="閱讀理解分析教學_海燕與世說新語.html" class="nav-card">
-      <div class="dot">17</div>
-      <h3>閱讀理解分析教學_海燕與世說新語</h3>
-      <p>學習筆記</p>
+    <a href="初中中國語文能力評估_闖關版.html" class="note-card is-ex">
+      <div class="note-badges"><span class="badge badge-ex">練習</span><span class="note-date">7月2日</span></div>
+      <h3>初中中國語文能力評估．心流筆記</h3>
     </a>
   </div>
 
