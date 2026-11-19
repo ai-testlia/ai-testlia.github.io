@@ -644,15 +644,16 @@ SKIP_FILES = {"index.html", "data_grades.js", "data_memo.js"}
 
 # =====================================================================
 # 新版分類 index（2026-11 試行）：五格（閱讀、文言、寫作、語文基礎、測驗溫習）
-# ＋「筆記／練習」標籤＋最近加入＋「新」標記。只套用於 NEW_LAYOUT 入面嘅學生。
+# ＋「筆記／練習」標籤＋最近加入＋「新」標記。套用於 LEGACY_LAYOUT 以外所有學生。
 # 分類次序：筆記 <meta name="pansir-category"> → NOTE_OVERRIDES → hero-tag／標題關鍵字
 # =====================================================================
 import re
 import subprocess
 from datetime import date, timedelta
 
-NEW_LAYOUT = {"Alson", "Anson", "Hei_yu", "Himson", "Timothy", "Tsz_Chun", "Yat_Hong", "ga_him",
-              "ho_dyun", "ho_jyut", "ho_zeon", "hok_wai", "ka_hin", "sam_laam", "syut_syut", "zeng_han"}
+# 所有學生 folder 預設用新版分類；只有共用目錄用舊版手寫分類。
+# 喺後台新加學生唔使改呢度。
+LEGACY_LAYOUT = {"DSE_HTML_Notes", "S6_HTML_Notes"}
 
 CATEGORY_ORDER = ["閱讀", "文言", "寫作", "語文基礎", "測驗溫習", "中史"]
 CATEGORY_ICON = {"閱讀": "📖", "文言": "📜", "寫作": "✍️", "語文基礎": "🧩", "測驗溫習": "📝", "中史": "🏛️"}
@@ -930,7 +931,7 @@ for folder_name, data in folders.items():
             ]
 
     icon_idx = 0
-    if folder_name in NEW_LAYOUT and os.path.isdir(folder_path):
+    if folder_name not in LEGACY_LAYOUT and os.path.isdir(folder_path):
         content_html = build_new_layout(folder_name, folder_path)
         data["categories"] = {}
     for category, items in data["categories"].items():
