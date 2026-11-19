@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文言小故事三篇｜文言教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#f0edf8;
+  --teal:#2a8a7f;--teal-bg:#e6f4f1;
+  --coral:#c8603f;--coral-bg:#fbeee8;
+  --amber:#b7791f;--amber-bg:#fdf3e1;
+  --pink:#b5527a;--pink-bg:#fbecf2;
+  --blue:#2f6fae;--blue-bg:#e8f1fa;
+  --green:#3b8a4f;--green-bg:#e9f5ec;
+  --red:#b83a3a;--red-bg:#fbeaea;
+  --hero-bg:#D5D8C5;--hero-text:#1A2015;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b3b3b3;
+    --color-background-primary:#1f1f1f;--color-background-secondary:#161616;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a99be0;--purple-bg:#2a2638;
+    --teal:#6cc7bb;--teal-bg:#1c302d;
+    --coral:#ec9a7e;--coral-bg:#38251e;
+    --amber:#e8b25c;--amber-bg:#352b1a;
+    --pink:#e58fb2;--pink-bg:#36222b;
+    --blue:#7fb2e5;--blue-bg:#1d2a38;
+    --green:#7cc78f;--green-bg:#1d3023;
+    --red:#ec8b8b;--red-bg:#3a2020;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC',serif}
+.hero{background:var(--hero-bg);color:var(--hero-text);border-radius:var(--border-radius-lg);padding:36px 28px;text-align:center;margin-bottom:20px;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero-tag{display:inline-block;border:1px solid rgba(26,32,21,.3);color:rgba(26,32,21,.65);border-radius:999px;padding:2px 14px;font-size:12.5px;letter-spacing:2px}
+.hero h1{font-size:34px;margin:12px 0 6px;color:var(--hero-text);letter-spacing:4px}
+.hero .sub{font-size:14px;color:rgba(26,32,21,.75)}
+.hero p{margin:10px 0 0;font-size:13px;color:rgba(26,32,21,.5);letter-spacing:1px}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:20px}
+.toc-title{font-weight:700;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-group{font-size:12px;color:var(--color-text-secondary);margin:8px 0 2px;letter-spacing:1px}
+.toc-item{display:block;color:var(--color-text-primary);text-decoration:none;padding:3px 0;border-bottom:1px dashed var(--color-border-tertiary)}
+.toc-item:hover{color:var(--blue)}
+.toc-num{display:inline-block;width:32px;color:var(--teal);font-weight:700}
+.section-header{display:flex;align-items:center;gap:12px;margin:34px 0 14px;padding:12px 16px;background:var(--color-background-primary);border-left:5px solid var(--teal);border-radius:var(--border-radius-md)}
+.section-header.ex{border-left-color:var(--coral)}
+.section-header .icon{font-size:22px}
+.section-header h2{margin:0;font-size:20px;flex:1}
+.section-header .ch{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary);white-space:nowrap}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin:0 0 14px}
+.card h3{margin:0 0 8px;font-size:16px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--purple);flex:none}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}
+.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.card p{margin:6px 0}
+.example-box{background:var(--purple-bg);border-left:4px solid var(--purple);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{background:var(--teal-bg);border-color:var(--teal)}
+.example-box.coral{background:var(--coral-bg);border-color:var(--coral)}
+.example-box.amber{background:var(--amber-bg);border-color:var(--amber)}
+.example-box.pink{background:var(--pink-bg);border-color:var(--pink)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-size:14.5px}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert.tip{background:var(--blue-bg)}.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px}
+.alert-text{font-size:13.5px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;border:1px solid var(--color-border-tertiary)}
+.compare-card.bad{background:var(--red-bg)}.compare-card.good{background:var(--green-bg)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 110px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px;text-align:center}
+.flow-step b{display:block;color:var(--teal);font-size:13.5px}
+.flow-arrow{align-self:center;color:var(--color-text-secondary);font-weight:700}
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px}
+.kw-word{font-family:'Noto Serif TC',serif;font-weight:700;color:var(--teal)}
+.kw-word .no{color:var(--color-text-secondary);font-weight:400;margin-right:4px}
+.kw-def{font-size:13px}
+.formula{background:#2d3a33;color:#f3f1e8;border-radius:var(--border-radius-lg);padding:14px 18px;margin:12px 0;font-size:15px;text-align:center;font-family:'Noto Serif TC',serif}
+.formula small{display:block;font-size:12px;opacity:.7;letter-spacing:2px;margin-bottom:2px;font-family:'Noto Sans TC',sans-serif}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--color-background-secondary);white-space:nowrap}
+td.c,th.c{white-space:nowrap;text-align:center}
+.orig{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin:0 0 14px;font-family:'Noto Serif TC',serif;font-size:18px;line-height:2.3}
+.orig .para{display:flex;gap:10px;margin:4px 0}
+.pnum{flex:none;width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;display:inline-flex;align-items:center;justify-content:center;margin-top:9px;font-family:'Noto Sans TC',sans-serif}
+.layer-tag{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-size:12px;background:var(--amber-bg);color:var(--amber);border-radius:999px;padding:0 10px;margin:10px 0 0;letter-spacing:1px}
+sup.n{color:var(--coral);font-size:11px;font-family:'Noto Sans TC',sans-serif}
+.src{text-align:right;font-size:13px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.sub-head{display:flex;align-items:center;gap:8px;font-family:'Noto Serif TC',serif;font-weight:700;font-size:17px;margin:22px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--color-border-tertiary)}
+.sub-head .icon{font-size:18px}
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--coral);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:12px 16px;margin:0 0 12px}
+.qn{font-weight:700;margin-right:4px}
+.mark{color:var(--color-text-secondary);font-size:12.5px;margin-left:4px;white-space:nowrap}
+.line{border-bottom:1px solid #999;height:30px}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:baseline}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+td .blank.l{min-width:60px;width:100%}
+.qbox td:nth-child(2){min-width:7em}
+.opts{list-style:none;padding:0;margin:6px 0 0}
+.opts li{padding:2px 0}
+.circle{display:inline-block;width:20px;height:20px;border:1px solid #888;border-radius:50%;vertical-align:middle}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px}
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:1px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:6px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+@media (max-width:600px){.compare-grid{grid-template-columns:1fr}.hero h1{font-size:28px}.orig{font-size:16.5px;padding:14px}}
+@media print {
+  @page { margin: 12mm 10mm; }
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0; }
+  .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  .card, .qbox, .example-box, .alert, .formula, .orig { page-break-inside: avoid; }
+  .section-header { page-break-before: always; page-break-after: avoid; }
+  .section-header.first { page-break-before: auto; }
+  .hero { page-break-after: avoid; }
+  .section-divider, .qsub, .sub-head { page-break-after: avoid; }
+  .formula { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .toolbar, .ans-bar, .ans-btn { display: none !important; }
+  .ans-wrap { margin-top: 6px; }
+  body.print-student .ans-wrap { display: none !important; }
+  body.print-teacher .ans { display: block !important; }
+  .ans { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+  <div class="hero-tag">文言教學筆記</div>
+  <h1>文言小故事三篇</h1>
+  <div class="sub">中一　文言閱讀理解　《曾子殺彘》《孟母戒子》《楊布打狗》</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+<nav class="toc"><div class="toc-title">目錄</div><div class="toc-group">導讀</div><a class="toc-item" href="#s0"><span class="toc-num">01</span>導讀：三篇文言小故事</a><div class="toc-group">《曾子殺彘》</div><a class="toc-item" href="#a1"><span class="toc-num">02</span>《曾子殺彘》出處及原文</a><a class="toc-item" href="#a3"><span class="toc-num">03</span>《曾子殺彘》結構及精讀</a><a class="toc-item" href="#a5"><span class="toc-num">04</span>《曾子殺彘》寫作技巧及主旨</a><a class="toc-item" href="#a7"><span class="toc-num">05</span>練習一：《曾子殺彘》</a><div class="toc-group">《孟母戒子》</div><a class="toc-item" href="#b1"><span class="toc-num">06</span>《孟母戒子》出處及原文</a><a class="toc-item" href="#b3"><span class="toc-num">07</span>《孟母戒子》結構及精讀</a><a class="toc-item" href="#b5"><span class="toc-num">08</span>《孟母戒子》寫作技巧及主旨</a><a class="toc-item" href="#b7"><span class="toc-num">09</span>練習二：《孟母戒子》</a><div class="toc-group">《楊布打狗》</div><a class="toc-item" href="#c1"><span class="toc-num">10</span>《楊布打狗》出處及原文</a><a class="toc-item" href="#c3"><span class="toc-num">11</span>《楊布打狗》結構及精讀</a><a class="toc-item" href="#c5"><span class="toc-num">12</span>《楊布打狗》寫作技巧及主旨</a><a class="toc-item" href="#c7"><span class="toc-num">13</span>練習三：《楊布打狗》</a><div class="toc-group">三篇綜合</div><a class="toc-item" href="#s11"><span class="toc-num">14</span>三篇比較及文言知識統整</a><a class="toc-item" href="#s15"><span class="toc-num">15</span>練習四：三篇綜合比較</a></nav>
+<div class="section-header first" id="s0"><span class="icon">🧭</span><h2>導讀：三篇文言小故事</h2><span class="ch">CHAPTER 01</span></div><div class="card"><h3><span class="dot teal"></span>三篇一覽</h3><table>
+<tr><th class="c">篇名</th><th class="c">出處</th><th class="c">字數</th><th>故事</th><th>道理</th></tr>
+<tr><td class="c">曾子殺彘</td><td class="c">《韓非子》</td><td class="c">99</td><td>曾妻隨口答應殺豬，曾子堅持兌現。</td><td>父母要以身作則，對孩子守信。</td></tr>
+<tr><td class="c">孟母戒子</td><td class="c">《韓詩外傳》</td><td class="c">61</td><td>孟子讀書分心，孟母割斷織布告誡他。</td><td>做事要專心，不可半途而廢。</td></tr>
+<tr><td class="c">楊布打狗</td><td class="c">《列子》</td><td class="c">63</td><td>楊布換了衣服，狗認不出他；他要打狗，被哥哥勸阻。</td><td>遇事先反省，不要只看表面、只怪別人。</td></tr>
+</table><p>三篇都很短，都借一件家庭小事說明做人的道理，適合初學文言的同學練習。每篇先讀教學部分，再做該篇練習；三篇讀完後，再看第十四章的三篇比較。</p></div><div class="card"><h3><span class="dot purple"></span>文言閱讀理解：答題四步</h3><div class="flow"><div class="flow-step"><b>一、通讀</b>先讀全文，弄清楚人物和事情</div><div class="flow-arrow">→</div><div class="flow-step"><b>二、查註</b>對照註釋，圈出關鍵字詞</div><div class="flow-arrow">→</div><div class="flow-step"><b>三、對譯</b>逐句譯成白話，補回省略的主語</div><div class="flow-arrow">→</div><div class="flow-step"><b>四、作答</b>找出原文根據，用自己的話回答</div></div><div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧</div><div class="alert-text">理解題的答案多數可以在原文找到根據。作答時先引原文，再用白話解釋。</div></div></div></div><div class="section-header" id="a1"><span class="icon">📜</span><h2>《曾子殺彘》出處及原文</h2><span class="ch">CHAPTER 02</span></div><div class="sub-head" id="a1h"><span class="icon">📜</span>出處與背景</div>
+<div class="card"><h3><span class="dot teal"></span>出處：《韓非子‧外儲說左上》</h3>
+<p>本文選自《韓非子‧外儲說左上》，題目為後人所加，又稱《曾子烹彘》。「儲說」的意思是把可以用來說明道理的故事收集起來，像儲存材料一樣，需要時拿出來用。</p>
+</div>
+<div class="card"><h3><span class="dot purple"></span>作者：韓非</h3>
+<p>韓非（約前280年－前233年），戰國末年韓國的公子，法家思想的集大成者，曾經跟隨荀子學習。他口吃，不善言辭，卻擅長寫文章。後人把他的著作編成《韓非子》。</p>
+<p>《韓非子》常用短小的寓言說理，不少成語都出自這本書，例如「守株待兔」、「自相矛盾」、「買櫝還珠」。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>故事主角：曾子</h3>
+<p>曾子，名參（粵音「森」），字子輿，春秋末年魯國人，孔子的學生，以孝順和重視品德修養見稱。《論語》記載他說「吾日三省吾身」，每天多次反省自己，其中一項就是「與朋友交而不信乎」——和朋友交往有沒有失信。</p>
+</div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">背景知識</div><div class="alert-text">「彘」就是豬。古時一般人家養豬，要養很久才能宰殺，一頭豬是家中重要的財產。所以曾子決定殺豬，代價不小。</div></div></div>
+<div class="sub-head" id="a2"><span class="icon">📖</span>原文及註釋</div>
+<div class="orig">
+<span class="layer-tag">第一層　起因：曾妻哄孩子</span>
+<div class="para"><span class="pnum">1</span><div>曾子之妻之市<sup class="n">①</sup>，其子隨之而泣。其母曰：「女<sup class="n">②</sup>還，顧反<sup class="n">③</sup>為女殺彘<sup class="n">④</sup>。」</div></div>
+<span class="layer-tag">第二層　經過：曾子捕豬，妻子阻止</span>
+<div class="para"><span class="pnum">2</span><div>妻適市來<sup class="n">⑤</sup>，曾子欲捕彘殺之。妻止之曰：「特<sup class="n">⑥</sup>與嬰兒戲<sup class="n">⑦</sup>耳<sup class="n">⑧</sup>。」</div></div>
+<span class="layer-tag">第三層　曾子說明道理</span>
+<div class="para"><span class="pnum">3</span><div>曾子曰：「嬰兒非與戲也<sup class="n">⑨</sup>。嬰兒非有知<sup class="n">⑩</sup>也，待<sup class="n">⑪</sup>父母而學者也，聽父母之教。今子<sup class="n">⑫</sup>欺之，是教子欺也。母欺子，子而<sup class="n">⑬</sup>不信其母，非所以成教<sup class="n">⑭</sup>也。」</div></div>
+<span class="layer-tag">第四層　結果：烹豬守信</span>
+<div class="para"><span class="pnum">4</span><div>遂<sup class="n">⑮</sup>烹<sup class="n">⑯</sup>彘也。</div></div>
+<div class="src">——《韓非子‧外儲說左上》</div>
+</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">說明</div><div class="alert-text">原文本來是一段。為方便講解，筆記按內容分成四層，並加上編號。</div></div></div>
+<div class="card"><h3><span class="dot coral"></span>註釋</h3><div class="keyword-grid"><div class="kw"><div class="kw-word"><span class="no">①</span>之市</div><div class="kw-def">到市集去。之，動詞，往、到。</div></div><div class="kw"><div class="kw-word"><span class="no">②</span>女</div><div class="kw-def">同「汝」，你。粵音「雨」。</div></div><div class="kw"><div class="kw-word"><span class="no">③</span>顧反</div><div class="kw-def">回來。反，同「返」。</div></div><div class="kw"><div class="kw-word"><span class="no">④</span>彘</div><div class="kw-def">豬。粵音「自」。</div></div><div class="kw"><div class="kw-word"><span class="no">⑤</span>適市來</div><div class="kw-def">從市集回來。適，往、到。</div></div><div class="kw"><div class="kw-word"><span class="no">⑥</span>特</div><div class="kw-def">只是、不過。</div></div><div class="kw"><div class="kw-word"><span class="no">⑦</span>戲</div><div class="kw-def">開玩笑。</div></div><div class="kw"><div class="kw-word"><span class="no">⑧</span>耳</div><div class="kw-def">語氣詞，罷了。</div></div><div class="kw"><div class="kw-word"><span class="no">⑨</span>非與戲也</div><div class="kw-def">不可以和他開玩笑。</div></div><div class="kw"><div class="kw-word"><span class="no">⑩</span>非有知</div><div class="kw-def">不懂事，沒有分辨是非的能力。知，同「智」。</div></div><div class="kw"><div class="kw-word"><span class="no">⑪</span>待</div><div class="kw-def">依靠、依賴。</div></div><div class="kw"><div class="kw-word"><span class="no">⑫</span>子</div><div class="kw-def">你，這裏指曾子的妻子。</div></div><div class="kw"><div class="kw-word"><span class="no">⑬</span>而</div><div class="kw-def">就、便。</div></div><div class="kw"><div class="kw-word"><span class="no">⑭</span>非所以成教</div><div class="kw-def">不是教好孩子的方法。所以，用來……的方法；成教，完成教育。</div></div><div class="kw"><div class="kw-word"><span class="no">⑮</span>遂</div><div class="kw-def">於是、就。</div></div><div class="kw"><div class="kw-word"><span class="no">⑯</span>烹</div><div class="kw-def">煮。</div></div></div></div>
+<div class="section-header" id="a3"><span class="icon">🔍</span><h2>《曾子殺彘》結構及精讀</h2><span class="ch">CHAPTER 03</span></div><div class="sub-head" id="a3h"><span class="icon">🧱</span>篇章結構</div>
+<div class="card"><h3><span class="dot teal"></span>全文脈絡</h3><div class="flow"><div class="flow-step"><b>起因</b>曾妻為了讓孩子回家，答應殺豬</div><div class="flow-arrow">→</div><div class="flow-step"><b>經過</b>曾子要捉豬，妻子說只是說笑</div><div class="flow-arrow">→</div><div class="flow-step"><b>說理</b>曾子解釋不可欺騙孩子</div><div class="flow-arrow">→</div><div class="flow-step"><b>結果</b>曾子把豬殺了煮熟</div></div><p>全文不足一百字，按事情發展的先後次序記敘，起因、經過、結果齊全。篇幅最長的是第三層曾子的話，這是全文的重心。</p></div>
+<div class="card"><h3><span class="dot purple"></span>層次表</h3><table>
+<tr><th class="c">層次</th><th>原文</th><th>內容</th></tr>
+<tr><td class="c">第一層</td><td>曾子之妻之市……顧反為女殺彘。</td><td>曾妻要去市集，孩子哭着跟隨，她隨口答應回來殺豬。</td></tr>
+<tr><td class="c">第二層</td><td>妻適市來……特與嬰兒戲耳。</td><td>妻子回家，曾子準備捉豬宰殺，妻子阻止，說只是和孩子說笑。</td></tr>
+<tr><td class="c">第三層</td><td>曾子曰……非所以成教也。</td><td>曾子指出孩子跟父母學習，欺騙孩子就是教孩子欺騙，也會令孩子不再信任母親。</td></tr>
+<tr><td class="c">第四層</td><td>遂烹彘也。</td><td>曾子殺豬，兌現妻子的承諾。</td></tr>
+</table></div>
+<div class="sub-head" id="a4"><span class="icon">🔍</span>內容理解（逐句精讀）</div>
+<div class="card"><h3><span class="dot teal"></span>逐句語譯</h3><table>
+<tr><th>原文</th><th>語譯</th></tr>
+<tr><td>曾子之妻之市，其子隨之而泣。</td><td>曾子的妻子要到市集去，她的兒子跟在她後面哭鬧。</td></tr>
+<tr><td>其母曰：「女還，顧反為女殺彘。」</td><td>孩子的母親說：「你先回家，我回來後殺豬給你吃。」</td></tr>
+<tr><td>妻適市來，曾子欲捕彘殺之。</td><td>妻子從市集回來，曾子就要捉豬來宰殺。</td></tr>
+<tr><td>妻止之曰：「特與嬰兒戲耳。」</td><td>妻子阻止他說：「我只不過是跟孩子開玩笑罷了。」</td></tr>
+<tr><td>曾子曰：「嬰兒非與戲也。</td><td>曾子說：「不可以跟孩子開玩笑。</td></tr>
+<tr><td>嬰兒非有知也，待父母而學者也，聽父母之教。</td><td>孩子不懂事，要依靠父母學習，聽從父母的教導。</td></tr>
+<tr><td>今子欺之，是教子欺也。</td><td>現在你欺騙他，就是教他欺騙別人。</td></tr>
+<tr><td>母欺子，子而不信其母，非所以成教也。」</td><td>母親欺騙孩子，孩子就不再相信母親，這不是教好孩子的方法。」</td></tr>
+<tr><td>遂烹彘也。</td><td>於是曾子把豬殺了煮來吃。</td></tr>
+</table></div>
+<div class="card"><h3><span class="dot amber"></span>第一層：一句隨口的承諾</h3>
+<p>「其子隨之而泣」寫孩子哭着要跟母親出門。曾妻為了脫身，隨口說回來殺豬給他吃。從後文「特與嬰兒戲耳」可知，她根本沒打算兌現。</p>
+<div class="example-box amber"><div class="example-label">細節</div><div class="example-text">「隨之而泣」四個字，就寫出了孩子纏着母親的樣子。</div></div></div>
+<div class="card"><h3><span class="dot coral"></span>第二層：兩種不同的反應</h3>
+<p>妻子一回家，曾子就要捉豬來殺；妻子卻認為這只是哄孩子的話，不必當真。兩人對同一句話的看法完全不同，衝突由此而來。</p>
+</div>
+<div class="card"><h3><span class="dot purple"></span>第三層：曾子的道理</h3><p>曾子的話由淺入深，可以分成三步：</p><div class="flow"><div class="flow-step"><b>孩子的特點</b>孩子不懂事，要靠父母學習</div><div class="flow-arrow">→</div><div class="flow-step"><b>欺騙的後果一</b>欺騙孩子＝教孩子欺騙</div><div class="flow-arrow">→</div><div class="flow-step"><b>欺騙的後果二</b>孩子不再信任母親，教育就會失敗</div></div><div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">答題提示</div><div class="alert-text">問「曾子為甚麼堅持殺豬」，要答出兩個後果：孩子會學壞（學會欺騙），孩子會不信任父母。只答「因為要守信用」不夠完整。</div></div></div></div>
+<div class="card"><h3><span class="dot green"></span>第四層：說到做到</h3>
+<p>最後只用「遂烹彘也」四字作結，沒有描寫妻子的反應，也沒有評論。曾子用行動證明，答應了孩子的事一定要做到。</p>
+</div>
+<div class="section-header" id="a5"><span class="icon">✒️</span><h2>《曾子殺彘》寫作技巧及主旨</h2><span class="ch">CHAPTER 04</span></div><div class="sub-head" id="a5h"><span class="icon">✒️</span>寫作技巧</div>
+<div class="card"><h3><span class="dot coral"></span>一、對比：兩種教子態度</h3><div class="compare-grid"><div class="compare-card bad"><div class="ct">曾子的妻子</div>把承諾當作哄孩子的手段，認為「特與嬰兒戲耳」，說過的話可以不算數。</div><div class="compare-card good"><div class="ct">曾子</div>認為對孩子也不可以說笑欺騙，寧願損失一頭豬，也要兌現承諾。</div></div><p>透過對比，突出曾子重視誠信、以身作則的態度。</p></div>
+<div class="card"><h3><span class="dot teal"></span>二、以言行刻畫人物</h3>
+<p>作者透過曾子的行動和說話表現他的性格：</p>
+<div class="example-box teal"><div class="example-label">行動描寫</div><div class="example-text">「曾子欲捕彘殺之」、「遂烹彘也」——說做就做，表現他言出必行。</div></div><div class="example-box pink"><div class="example-label">語言描寫</div><div class="example-text">「今子欺之，是教子欺也」——說理清楚，表現他明白事理，重視家庭教育。</div></div></div>
+<div class="card"><h3><span class="dot purple"></span>三、寓理於事</h3>
+<p>全文借一件家庭小事說明「父母要以身作則、對孩子守信」的道理。道理由曾子親口說出。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>四、語言簡潔</h3>
+<p>全文不足一百字，卻有人物、對話、衝突和結果。例如第四層只有「遂烹彘也」四字，就交代了事情的結局。</p>
+</div>
+<div class="sub-head" id="a6"><span class="icon">💎</span>主旨與賞析</div>
+<div class="formula"><small>主旨</small>父母教導子女，要以身作則，說到做到；<br>欺騙孩子，等於教孩子欺騙。</div>
+<div class="card"><h3><span class="dot teal"></span>賞析</h3>
+<p>曾妻說要殺豬，只是想讓孩子回家，很多家長也會這樣哄孩子。曾子卻看到這句話背後的影響：孩子年紀小，會模仿父母；父母說話不算數，孩子就學會說謊，也不再相信父母。</p>
+<p>一頭豬對當時的家庭來說並不便宜，曾子仍然把豬殺了，可見他把孩子的品格看得比財物重要。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>延伸：相關名句</h3><div class="keyword-grid"><div class="kw"><div class="kw-word">人而無信，不知其可也。</div><div class="kw-def">《論語‧為政》：做人不講信用，不知道他還能做甚麼。</div></div><div class="kw"><div class="kw-word">其身正，不令而行。</div><div class="kw-def">《論語‧子路》：自己行為端正，不用下命令，別人也會跟着做。</div></div><div class="kw"><div class="kw-word">一諾千金</div><div class="kw-def">形容說話算數，承諾極有分量。</div></div></div></div>
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">一句記</div><div class="alert-text">曾子殺彘＝言出必行＋以身作則。</div></div></div>
+<div class="section-header ex" id="a7"><span class="icon">✏️</span><h2>練習一：《曾子殺彘》</h2><span class="ch">CHAPTER 05</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div><div class="sub-head" id="a7h"><span class="icon">🔤</span>文言字詞</div>
+<div class="qbox"><span class="qn">1.</span>解釋下列文句中加點的字詞。<span class="mark">（6分）</span><table>
+<tr><th class="c">　</th><th>文句</th><th>解釋</th></tr>
+<tr><td class="c">(a)</td><td>曾子之妻<b><u>之</u></b>市</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(b)</td><td><b><u>顧反</u></b>為女殺彘</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(c)</td><td>為女殺<b><u>彘</u></b></td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(d)</td><td><b><u>特</u></b>與嬰兒戲耳</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(e)</td><td><b><u>待</u></b>父母而學者也</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(f)</td><td><b><u>遂</u></b>烹彘也</td><td><span class="blank l"></span></td></tr>
+</table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>(a) 往、到　(b) 回來　(c) 豬　(d) 只是、不過　(e) 依靠、依賴　(f) 於是、就</div></div></div>
+<div class="qbox"><span class="qn">2.</span>本文多次用「之」字。試解釋下列各句中「之」的意思。<span class="mark">（4分）</span><table>
+<tr><th class="c">　</th><th>文句</th><th>解釋</th></tr>
+<tr><td class="c">(a)</td><td>曾子<b><u>之</u></b>妻</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(b)</td><td>其子隨<b><u>之</u></b>而泣</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(c)</td><td>曾子欲捕彘殺<b><u>之</u></b></td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(d)</td><td>聽父母<b><u>之</u></b>教</td><td><span class="blank l"></span></td></tr>
+</table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>(a) 助詞，的<br>(b) 代詞，她，指曾子的妻子<br>(c) 代詞，牠，指豬<br>(d) 助詞，的</div></div></div>
+<div class="qbox"><span class="qn">3.</span>「女還，顧反為女殺彘」一句中，「女」和「反」都是通假字。試分別寫出它們的本字及意思。<span class="mark">（2分）</span><table>
+<tr><th class="c">通假字</th><th class="c">本字</th><th>意思</th></tr>
+<tr><td class="c">女</td><td class="c"><span class="blank s"></span></td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">反</td><td class="c"><span class="blank s"></span></td><td><span class="blank l"></span></td></tr>
+</table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分，本字及意思全對才給分）<br>女：本字「汝」，你。<br>反：本字「返」，回來。</div></div></div>
+<div class="sub-head" id="a8"><span class="icon">🔁</span>語譯</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">語譯要訣</div><div class="alert-text">先找出關鍵字詞（如「特」、「耳」、「是」），逐字對譯，再把句子理順，補回省略的主語。</div></div></div>
+<div class="qbox"><span class="qn">4.</span>試把以下文句譯為白話文。<div class="excerpt">特與嬰兒戲耳。</div><span class="mark">（2分）</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（我）只不過是跟孩子開玩笑罷了。<br><span style="font-size:13px">評分：「特」譯作只是／不過，「耳」譯作罷了，各佔1分。</span></div></div></div>
+<div class="qbox"><span class="qn">5.</span>試把以下文句譯為白話文。<div class="excerpt">今子欺之，是教子欺也。</div><span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）現在你欺騙他，就是教他欺騙別人。<br><span style="font-size:13px">評分：「子」譯作你（1分）；「之」譯作他，指孩子（1分）；「是」譯作這就是（1分）。</span></div></div></div>
+<div class="qbox"><span class="qn">6.</span>試把以下文句譯為白話文。<div class="excerpt">母欺子，子而不信其母，非所以成教也。</div><span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）母親欺騙孩子，孩子就不再相信他的母親，這不是教好孩子的方法。<br><span style="font-size:13px">評分：「而」譯作就（1分）；「非所以成教」譯作不是教好孩子的方法（2分）。</span></div></div></div>
+<div class="sub-head" id="a9"><span class="icon">🧠</span>閱讀理解</div>
+<div class="qbox"><span class="qn">7.</span>曾子的妻子為甚麼說回家後要殺豬？<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 豬已經養大，正好宰來吃</li><li><span class="circle"></span>　B. 想讓哭鬧的兒子回家</li><li><span class="circle"></span>　C. 曾子出門前吩咐她要殺豬</li><li><span class="circle"></span>　D. 她想獎勵兒子平日讀書勤力</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><span style="font-size:13px">「其子隨之而泣」，孩子哭着要跟去市集，母親為了讓他回家，才答應殺豬。文中沒有提及A、C、D。</span></div></div></div>
+<div class="qbox"><span class="qn">8.</span>曾子認為不可以欺騙孩子。以下哪一項<b><u>不是</u></b>他提出的理由？<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 孩子要依靠父母學習</li><li><span class="circle"></span>　B. 孩子會學會欺騙別人</li><li><span class="circle"></span>　C. 孩子會把事情告訴鄰居</li><li><span class="circle"></span>　D. 孩子不再相信自己母親</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span style="font-size:13px">A見「待父母而學者也」；B見「是教子欺也」；D見「子而不信其母」。文中沒有提到孩子會告訴鄰居。</span></div></div></div>
+<div class="qbox"><span class="qn">9.</span>根據文章內容，判斷以下陳述。<span class="mark">（4分）</span><table><tr><th>陳述</th><th class="c">正確</th><th class="c">錯誤</th><th class="c">無從判斷</th></tr><tr><td>（1）曾子的兒子想跟母親到市集去。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>（2）曾子的妻子回家後，主動把豬殺了。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>（3）曾子事後責罵了妻子。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>（4）曾子最後把豬煮了。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>（1）正確：「其子隨之而泣」。<br>（2）錯誤：殺豬的是曾子，妻子還加以阻止。<br>（3）無從判斷：文中只寫曾子說明道理，沒有寫他是否責罵妻子。<br>（4）正確：「遂烹彘也」。</div></div></div>
+<div class="qbox"><span class="qn">10.</span>曾子和妻子對「殺彘」一事的態度有甚麼不同？試加以說明。<span class="mark">（4分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）<br>妻子認為殺豬只是哄孩子的話，「特與嬰兒戲耳」，不必兌現，所以阻止曾子（2分）；曾子認為答應了孩子就要做到，否則孩子會學會欺騙，也不再信任父母，所以堅持把豬殺了（2分）。</div></div></div>
+<div class="qbox"><span class="qn">11.</span>試從文中找出一句描寫曾子<b>行動</b>的句子，並說明它表現了曾子怎樣的性格。<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）<br>句子：「曾子欲捕彘殺之」或「遂烹彘也」（1分）。<br>性格：言出必行、重視誠信（2分）。妻子一回家，曾子就要捉豬，可見他認為答應過的事必須做到。</div></div></div>
+<div class="qbox"><span class="qn">12.</span>以下哪一項最能概括本文的主旨？<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 養豬對家庭生活十分重要</li><li><span class="circle"></span>　B. 父母要守信，以身作則</li><li><span class="circle"></span>　C. 曾子的妻子不懂得管教孩子</li><li><span class="circle"></span>　D. 曾子處事果斷，從來不猶豫</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><span style="font-size:13px">曾子的話指出，欺騙孩子就是教孩子欺騙，故事重點在父母要守信、以身作則。C只是故事的一部分，不是主旨。</span></div></div></div>
+<div class="sub-head" id="a10"><span class="icon">🌱</span>延伸思考</div>
+<div class="qbox"><span class="qn">13.</span>有人認為曾子為了一句玩笑殺掉一頭豬，太過認真。你同意嗎？試結合生活經驗，說明你的看法。<span class="mark">（4分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）學生自由作答，言之成理即可。<br><span style="font-size:13px">評分原則：清楚表明立場（1分）；引用文中曾子的理由（1分）；結合生活經驗舉例（2分）。<br>（示例）不同意。曾子說得對，孩子會模仿父母。我小時候父母答應週末帶我去公園，結果爽約，之後他們再答應我甚麼，我都不太相信。一頭豬雖然貴重，但孩子對父母的信任更難挽回。</span></div></div></div>
+<div class="qbox"><span class="qn">14.</span>如果你是曾子的妻子，在「特與嬰兒戲耳」之後聽完曾子的話，你會怎樣回應？試用一兩句白話文寫出來，並說明理由。<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）學生自由作答，回應須切合故事情節。<br><span style="font-size:13px">（示例）「你說得對，是我考慮不周，以後答應孩子的事一定做到。」理由：曾子指出欺騙孩子會令孩子學壞，妻子明白道理後應接受意見。</span></div></div></div><div class="section-header" id="b1"><span class="icon">📜</span><h2>《孟母戒子》出處及原文</h2><span class="ch">CHAPTER 06</span></div><div class="sub-head" id="b1h"><span class="icon">📜</span>出處與背景</div>
+<div class="card"><h3><span class="dot teal"></span>出處：《韓詩外傳》卷九</h3>
+<p>本文節選自《韓詩外傳》卷九，題目為後人所加。《韓詩外傳》不是解釋《詩經》字句的書，每則先講一個故事，再引用《詩經》的句子作印證，藉故事評論社會風氣和做人道理。</p>
+</div>
+<div class="card"><h3><span class="dot purple"></span>作者：韓嬰</h3>
+<p>韓嬰，生卒年不詳，燕國人，西漢學者。漢初傳授《詩經》的有魯、齊、韓、毛四家，韓嬰是「韓詩」一派的創立者。漢文帝時任博士，景帝時任常山王的太傅。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>故事主角：孟子和孟母</h3>
+<p>孟子，名軻，戰國時代鄒國人，儒家代表人物，後世尊稱為「亞聖」。相傳孟子自幼喪父，由母親撫養成人。</p>
+<p>孟母教子的故事流傳很廣，例如「孟母三遷」：孟母為了讓兒子有好的學習環境，三次搬家。《三字經》也有「昔孟母，擇鄰處；子不學，斷機杼」的句子，「斷機杼」說的就是本文這類孟母割斷織布來教子的故事。</p>
+</div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">題目中的「戒」</div><div class="alert-text">題目寫「戒」，原文寫「誡」，兩字相通，都是告誡、警戒的意思。「孟母戒子」即孟母告誡兒子。</div></div></div>
+<div class="sub-head" id="b2"><span class="icon">📖</span>原文及註釋</div>
+<div class="orig">
+<span class="layer-tag">第一層　起因：孟子讀書中途停下</span>
+<div class="para"><span class="pnum">1</span><div>孟子少時，誦<sup class="n">①</sup>，其母方<sup class="n">②</sup>織，孟子輟然中止<sup class="n">③</sup>，乃復進<sup class="n">④</sup>，</div></div>
+<span class="layer-tag">第二層　經過：孟母發問，孟子回答</span>
+<div class="para"><span class="pnum">2</span><div>其母知其諠<sup class="n">⑤</sup>也，呼而問之曰：「何為<sup class="n">⑥</sup>中止？」對曰：「有所失<sup class="n">⑦</sup>，復得。」</div></div>
+<span class="layer-tag">第三層　高潮：孟母裂織告誡</span>
+<div class="para"><span class="pnum">3</span><div>其母引<sup class="n">⑧</sup>刀裂其織<sup class="n">⑨</sup>，以此誡<sup class="n">⑩</sup>之，</div></div>
+<span class="layer-tag">第四層　結果：孟子改過</span>
+<div class="para"><span class="pnum">4</span><div>自是以後<sup class="n">⑪</sup>，孟子不復<sup class="n">⑫</sup>諠矣。</div></div>
+<div class="src">——韓嬰《韓詩外傳》卷九</div>
+</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">說明</div><div class="alert-text">原文採用教育局「中國語文建議篇章」的版本及標點。原文本來是一段，為方便講解，筆記按內容分成四層。</div></div></div>
+<div class="card"><h3><span class="dot coral"></span>註釋</h3><div class="keyword-grid"><div class="kw"><div class="kw-word"><span class="no">①</span>誦</div><div class="kw-def">唸書。</div></div><div class="kw"><div class="kw-word"><span class="no">②</span>方</div><div class="kw-def">正在。</div></div><div class="kw"><div class="kw-word"><span class="no">③</span>輟然中止</div><div class="kw-def">突然停下來。輟，粵音「拙」。</div></div><div class="kw"><div class="kw-word"><span class="no">④</span>乃復進</div><div class="kw-def">然後又繼續讀下去。進，進行，指繼續讀書。</div></div><div class="kw"><div class="kw-word"><span class="no">⑤</span>諠</div><div class="kw-def">同「諼」，遺忘。粵音「圈」。</div></div><div class="kw"><div class="kw-word"><span class="no">⑥</span>何為</div><div class="kw-def">為甚麼。</div></div><div class="kw"><div class="kw-word"><span class="no">⑦</span>有所失</div><div class="kw-def">有些地方忘記了。失，忘記。</div></div><div class="kw"><div class="kw-word"><span class="no">⑧</span>引</div><div class="kw-def">拿起。</div></div><div class="kw"><div class="kw-word"><span class="no">⑨</span>裂其織</div><div class="kw-def">割斷她正在織的布。</div></div><div class="kw"><div class="kw-word"><span class="no">⑩</span>誡</div><div class="kw-def">告誡、警戒。</div></div><div class="kw"><div class="kw-word"><span class="no">⑪</span>自是以後</div><div class="kw-def">從此以後。是，這、此。</div></div><div class="kw"><div class="kw-word"><span class="no">⑫</span>不復</div><div class="kw-def">不再。</div></div></div></div>
+<div class="section-header" id="b3"><span class="icon">🔍</span><h2>《孟母戒子》結構及精讀</h2><span class="ch">CHAPTER 07</span></div><div class="sub-head" id="b3h"><span class="icon">🧱</span>篇章結構</div>
+<div class="card"><h3><span class="dot teal"></span>全文脈絡</h3><div class="flow"><div class="flow-step"><b>起因</b>孟子唸書突然停下</div><div class="flow-arrow">→</div><div class="flow-step"><b>經過</b>孟母問原因，孟子說忘記了</div><div class="flow-arrow">→</div><div class="flow-step"><b>高潮</b>孟母用刀割斷正在織的布</div><div class="flow-arrow">→</div><div class="flow-step"><b>結果</b>孟子從此不再遺忘</div></div><p>全文只有六十多字，按時間先後記敘。重點在第三層：孟母用一個動作告誡兒子，沒有說教。</p></div>
+<div class="card"><h3><span class="dot purple"></span>層次表</h3><table>
+<tr><th class="c">層次</th><th>原文</th><th>內容</th></tr>
+<tr><td class="c">第一層</td><td>孟子少時……乃復進，</td><td>孟子小時候唸書，母親在旁織布；孟子突然停下，過了一會兒又繼續。</td></tr>
+<tr><td class="c">第二層</td><td>其母知其諠也……復得。</td><td>孟母知道兒子忘記了內容，問他原因，孟子承認有地方忘記了，後來才想起。</td></tr>
+<tr><td class="c">第三層</td><td>其母引刀裂其織，以此誡之，</td><td>孟母拿刀割斷正在織的布，藉此告誡孟子。</td></tr>
+<tr><td class="c">第四層</td><td>自是以後，孟子不復諠矣。</td><td>孟子從此專心讀書，不再遺忘。</td></tr>
+</table></div>
+<div class="sub-head" id="b4"><span class="icon">🔍</span>內容理解（逐句精讀）</div>
+<div class="card"><h3><span class="dot teal"></span>逐句語譯</h3><table>
+<tr><th>原文</th><th>語譯</th></tr>
+<tr><td>孟子少時，誦，其母方織，</td><td>孟子小時候，有一次在唸書，他的母親正在織布。</td></tr>
+<tr><td>孟子輟然中止，乃復進，</td><td>孟子突然停了下來，過了一會兒才又繼續唸下去。</td></tr>
+<tr><td>其母知其諠也，呼而問之曰：「何為中止？」</td><td>母親知道他忘記了內容，把他叫來，問他：「為甚麼中途停下來？」</td></tr>
+<tr><td>對曰：「有所失，復得。」</td><td>孟子回答說：「有些地方忘記了，後來又想起來。」</td></tr>
+<tr><td>其母引刀裂其織，以此誡之，</td><td>母親拿起刀，割斷了正在織的布，用這件事告誡他。</td></tr>
+<tr><td>自是以後，孟子不復諠矣。</td><td>從此以後，孟子讀書不再遺忘了。</td></tr>
+</table></div>
+<div class="card"><h3><span class="dot amber"></span>第一、二層：孟母先問清楚</h3>
+<p>孟母一邊織布，一邊留意兒子唸書，聽到他停了又再唸，就知道他忘記了。她先「呼而問之」，讓孟子自己說出原因，沒有立即責罵。孟子也老實回答「有所失，復得」，沒有找藉口。</p>
+<div class="example-box amber"><div class="example-label">細節</div><div class="example-text">「方織」與後文「裂其織」前後呼應：孟母正在做的事，正好成為教子的工具。</div></div></div>
+<div class="card"><h3><span class="dot coral"></span>第三層：割斷布匹的用意</h3>
+<p>布是一根一根線織成的，花了很多工夫；一刀割斷，之前的工夫就白費了。讀書也一樣，要專心、不間斷，中途分心，就像把布割斷，學過的東西不能連貫。</p>
+<div class="compare-grid"><div class="compare-card bad"><div class="ct">織布</div>一線一線織成 → 中途割斷 → 整匹布作廢</div><div class="compare-card good"><div class="ct">讀書</div>一點一滴累積 → 中途分心 → 學問難以成就</div></div><div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">原文沒有寫出孟母說了甚麼，「以此誡之」只交代她用這個動作告誡兒子。答題時要從「織布」和「讀書」的相似之處推想用意，不要寫成孟母說了一番話。</div></div></div></div>
+<div class="card"><h3><span class="dot green"></span>第四層：效果</h3>
+<p>「自是以後，孟子不復諠矣」說明孟母的方法有效，孟子從此專心讀書。</p>
+</div>
+<div class="section-header" id="b5"><span class="icon">✒️</span><h2>《孟母戒子》寫作技巧及主旨</h2><span class="ch">CHAPTER 08</span></div><div class="sub-head" id="b5h"><span class="icon">✒️</span>寫作技巧</div>
+<div class="card"><h3><span class="dot teal"></span>一、以行動代替說教（借物喻理）</h3>
+<p>孟母用「裂其織」這個動作，把「讀書不可半途而廢」的道理變得具體。比起直接說教，這種方法令人印象更深。</p>
+<div class="formula"><small>借物喻理</small>割斷的布　↔　中斷的學業</div></div>
+<div class="card"><h3><span class="dot purple"></span>二、前後呼應</h3>
+<p>開首寫「其母方織」，看似交代背景，到第三層「引刀裂其織」才發揮作用；第二層寫孟子「諠」，結尾寫「不復諠矣」，首尾呼應，結構完整。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>三、語言簡潔，留白讓讀者思考</h3>
+<p>全文六十多字，孟母割布的用意沒有明說，要讀者自己推想。</p>
+</div>
+<div class="card"><h3><span class="dot pink"></span>四、以對話推動情節</h3>
+<p>一問一答只有兩句：「何為中止？」「有所失，復得。」問答之後，孟母就有了行動，情節緊湊。</p>
+</div>
+<div class="sub-head" id="b6"><span class="icon">💎</span>主旨與賞析</div>
+<div class="formula"><small>主旨</small>做任何事都要專心一致，<br>不可半途而廢。</div>
+<div class="card"><h3><span class="dot teal"></span>賞析</h3>
+<p>孟母的教法有兩點：第一，她先問清楚原因，才決定怎樣教，沒有一開口就責罵。第二，她用生活中的事物作比喻，孩子容易明白，也記得住。</p>
+<p>故事中的孟子也很真實：他會分心，會忘記，和一般小孩子一樣；但他明白道理後就能改正。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>延伸：相關成語及名句</h3><div class="keyword-grid"><div class="kw"><div class="kw-word">半途而廢</div><div class="kw-def">事情做到一半就停止，不能完成。</div></div><div class="kw"><div class="kw-word">前功盡廢</div><div class="kw-def">以前的努力全部白費。</div></div><div class="kw"><div class="kw-word">鍥而不捨</div><div class="kw-def">《荀子‧勸學》「鍥而不舍，金石可鏤」：堅持雕刻不停，連金石都能刻穿。</div></div></div></div>
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">一句記</div><div class="alert-text">孟母裂織＝讀書要專心，不可半途而廢。</div></div></div>
+<div class="section-header ex" id="b7"><span class="icon">✏️</span><h2>練習二：《孟母戒子》</h2><span class="ch">CHAPTER 09</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div><div class="sub-head" id="b7h"><span class="icon">🔤</span>文言字詞</div>
+<div class="qbox"><span class="qn">1.</span>解釋下列文句中加點的字詞。<span class="mark">（6分）</span><table>
+<tr><th class="c">　</th><th>文句</th><th>解釋</th></tr>
+<tr><td class="c">(a)</td><td>其母<b><u>方</u></b>織</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(b)</td><td>孟子<b><u>輟然</u></b>中止</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(c)</td><td>其母知其<b><u>諠</u></b>也</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(d)</td><td><b><u>何為</u></b>中止</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(e)</td><td>其母<b><u>引</u></b>刀裂其織</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(f)</td><td>以此<b><u>誡</u></b>之</td><td><span class="blank l"></span></td></tr>
+</table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>(a) 正在　(b) 突然（停下）　(c) 遺忘、忘記　(d) 為甚麼　(e) 拿起　(f) 告誡、警戒</div></div></div>
+<div class="qbox"><span class="qn">2.</span>試指出下列各句中「其」字所指的人物。<span class="mark">（3分）</span><table>
+<tr><th class="c">　</th><th>文句</th><th>「其」指誰？</th></tr>
+<tr><td class="c">(a)</td><td><b><u>其</u></b>母方織</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(b)</td><td>其母知<b><u>其</u></b>諠也</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(c)</td><td>其母引刀裂<b><u>其</u></b>織</td><td><span class="blank l"></span></td></tr>
+</table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>(a) 孟子（他的母親）<br>(b) 孟子（他忘記了）<br>(c) 孟母（她織的布）</div></div></div>
+<div class="qbox"><span class="qn">3.</span>以下哪一項中的「方」，與「其母<b><u>方</u></b>織」的「方」意思相同？<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 天下方亂</li><li><span class="circle"></span>　B. 方寸之地</li><li><span class="circle"></span>　C. 想方設法</li><li><span class="circle"></span>　D. 方正不阿</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）A<br><span style="font-size:13px">「其母方織」的「方」解作正在。「天下方亂」指天下正在動亂。B的「方」指面積，C指方法，D指正直。</span></div></div></div>
+<div class="sub-head" id="b8"><span class="icon">🔁</span>語譯</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">語譯要訣</div><div class="alert-text">「何為」是倒裝，即「為何」，譯作「為甚麼」；「不復」譯作「不再」，不要譯成「不回覆」。</div></div></div>
+<div class="qbox"><span class="qn">4.</span>試把以下文句譯為白話文。<div class="excerpt">其母知其諠也，呼而問之曰：「何為中止？」</div><span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）他的母親知道他忘記了，把他叫來問他說：「為甚麼中途停下來？」<br><span style="font-size:13px">評分：「諠」譯作忘記（1分）；「呼而問之」譯作把他叫來問他（1分）；「何為」譯作為甚麼（1分）。</span></div></div></div>
+<div class="qbox"><span class="qn">5.</span>試把以下文句譯為白話文。<div class="excerpt">自是以後，孟子不復諠矣。</div><span class="mark">（2分）</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）從此以後，孟子不再遺忘了。<br><span style="font-size:13px">評分：「自是以後」譯作從此以後（1分）；「不復諠」譯作不再遺忘（1分）。</span></div></div></div>
+<div class="sub-head" id="b9"><span class="icon">🧠</span>閱讀理解</div>
+<div class="qbox"><span class="qn">6.</span>孟子唸書時為甚麼突然停了下來？<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 他聽見母親在織布</li><li><span class="circle"></span>　B. 他讀累了想歇一歇</li><li><span class="circle"></span>　C. 他不明白文句意思</li><li><span class="circle"></span>　D. 他忘記了書中內容</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）D<br><span style="font-size:13px">孟子自己說「有所失，復得」，即忘記了一些內容，後來又想起。</span></div></div></div>
+<div class="qbox"><span class="qn">7.</span>根據文章內容，判斷以下陳述。<span class="mark">（4分）</span><table><tr><th>陳述</th><th class="c">正確</th><th class="c">錯誤</th><th class="c">無從判斷</th></tr><tr><td>（1）孟子唸書時，母親正在織布。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>（2）孟子承認自己偷懶，不想讀書。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>（3）孟母割布時大聲責罵孟子。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>（4）孟子後來讀書不再遺忘。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>（1）正確：「其母方織」。<br>（2）錯誤：孟子說的是「有所失，復得」，即忘記了，不是偷懶。<br>（3）無從判斷：文中只寫「以此誡之」，沒有寫孟母有沒有責罵。<br>（4）正確：「孟子不復諠矣」。</div></div></div>
+<div class="qbox"><span class="qn">8.</span>孟母「引刀裂其織」，想讓孟子明白甚麼道理？試結合織布和讀書的相似之處加以說明。<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）<br>布要一線一線織成，割斷了就前功盡廢（1分）；讀書也要日積月累、專心不斷，中途分心就學不好（1分）。孟母藉此告誡孟子讀書要專心，不可半途而廢（1分）。</div></div></div>
+<div class="qbox"><span class="qn">9.</span>孟母發現孟子讀書中途停下，沒有立即責罵，而是先問原因。你認為這樣做有甚麼好處？<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）言之成理即可。<br><span style="font-size:13px">（示例）先問原因，可以了解孩子的真實情況，不會冤枉他（1分）；孩子願意坦白說出問題（1分）；母親再對症下藥，教導更有效（1分）。</span></div></div></div>
+<div class="qbox"><span class="qn">10.</span>以下哪一項最能概括本文的主旨？<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 母親應以溫和態度教導子女</li><li><span class="circle"></span>　B. 讀書要專心，不可半途而廢</li><li><span class="circle"></span>　C. 織布和讀書同樣需要技巧</li><li><span class="circle"></span>　D. 孟子小時候已表現過人才智</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><span style="font-size:13px">孟母裂織告誡孟子，孟子從此「不復諠」，重點在讀書要專心不間斷。A只是故事中孟母的做法之一，不是全文主旨。</span></div></div></div>
+<div class="qbox"><span class="qn">11.</span>《三字經》有「子不學，斷機杼」一句，指孟母割斷織布來教子。本文中哪一句寫出了這個情節？試抄出原句。<span class="mark">（1分）</span><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）「其母引刀裂其織」。</div></div></div>
+<div class="sub-head" id="b10"><span class="icon">🌱</span>延伸思考</div>
+<div class="qbox"><span class="qn">12.</span>試舉出一次你在學習或興趣上「半途而廢」或「堅持到底」的經驗，並說說你從中學到甚麼。<span class="mark">（4分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）學生自由作答。<br><span style="font-size:13px">評分原則：經驗具體清楚（2分）；能扣連本文「專心、不可半途而廢」的道理（2分）。<br>（示例）我學鋼琴時，練到三級覺得太悶，停了半年，再學時很多樂曲都忘了，要重新練習。這和孟母割斷的布一樣，中途停下，之前的努力就浪費了。</span></div></div></div>
+<div class="qbox"><span class="qn">13.</span>如果你是孟母，除了割斷織布，還可以用甚麼生活例子告誡孟子讀書要專心？試舉一例並加以說明。<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）學生自由作答，例子須與「中途停止，前功盡廢」相似。<br><span style="font-size:13px">（示例）煮飯時中途熄火，米飯半生不熟，即使再開火也煮不好；讀書中途分心，學到的東西也不能連貫。</span></div></div></div><div class="section-header" id="c1"><span class="icon">📜</span><h2>《楊布打狗》出處及原文</h2><span class="ch">CHAPTER 10</span></div><div class="sub-head" id="c1h"><span class="icon">📜</span>出處與背景</div>
+<div class="card"><h3><span class="dot teal"></span>出處：《列子‧說符》</h3>
+<p>本文選自《列子‧說符》，題目為後人所加。同一個故事也見於《韓非子‧說林下》，文字略有不同。</p>
+</div>
+<div class="card"><h3><span class="dot purple"></span>《列子》與列禦寇</h3>
+<p>相傳《列子》是戰國時代列禦寇所著。列禦寇生平不詳，傳說是鄭國的隱士，思想和老子、莊子相近，屬道家。原本《列子》早已失傳，今天看到的八篇，一般認為是魏晉時人根據先秦舊書整理而成，內容有不少寓言、神話和民間故事。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>人物：楊朱、楊布</h3>
+<p>楊朱是戰國初期的思想家，主張「為我」、「貴己」，重視保全個人生命。故事中的楊布是他的弟弟。楊朱在故事中只說了幾句話，卻點出了全文的道理。</p>
+</div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">背景知識</div><div class="alert-text">古人的衣服多用絲、麻製成。「素」是沒有染色的白色絲織品，「緇」是黑色。白衣、黑衣的對比，是整個故事的關鍵。</div></div></div>
+<div class="sub-head" id="c2"><span class="icon">📖</span>原文及註釋</div>
+<div class="orig">
+<span class="layer-tag">第一層　起因：楊布換衣</span>
+<div class="para"><span class="pnum">1</span><div>楊朱<sup class="n">①</sup>之弟曰<sup class="n">②</sup>布。衣<sup class="n">③</sup>素衣<sup class="n">④</sup>而出，天雨<sup class="n">⑤</sup>解<sup class="n">⑥</sup>素衣，衣緇衣<sup class="n">⑦</sup>而反<sup class="n">⑧</sup>。</div></div>
+<span class="layer-tag">第二層　經過：狗吠主人，楊布發怒</span>
+<div class="para"><span class="pnum">2</span><div>其狗不知，迎<sup class="n">⑨</sup>而吠<sup class="n">⑩</sup>之。楊布怒，將<sup class="n">⑪</sup>撲<sup class="n">⑫</sup>之。</div></div>
+<span class="layer-tag">第三層　楊朱勸阻，說明道理</span>
+<div class="para"><span class="pnum">3</span><div>楊朱曰：「子<sup class="n">⑬</sup>無<sup class="n">⑭</sup>撲矣，子亦猶是<sup class="n">⑮</sup>也。嚮者<sup class="n">⑯</sup>使<sup class="n">⑰</sup>汝狗白而往，黑而來，豈<sup class="n">⑱</sup>能無怪哉？」</div></div>
+<div class="src">——《列子‧說符》</div>
+</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">說明</div><div class="alert-text">原文採用教育局《積累與感興》的版本及標點。原文本來是一段，為方便講解，筆記按內容分成三層。</div></div></div>
+<div class="card"><h3><span class="dot coral"></span>註釋</h3><div class="keyword-grid"><div class="kw"><div class="kw-word"><span class="no">①</span>楊朱</div><div class="kw-def">戰國時代思想家，主張「為我」。</div></div><div class="kw"><div class="kw-word"><span class="no">②</span>曰</div><div class="kw-def">名叫。</div></div><div class="kw"><div class="kw-word"><span class="no">③</span>衣</div><div class="kw-def">動詞，穿。粵音「意」。</div></div><div class="kw"><div class="kw-word"><span class="no">④</span>素衣</div><div class="kw-def">白色的衣服。</div></div><div class="kw"><div class="kw-word"><span class="no">⑤</span>天雨</div><div class="kw-def">天下雨。雨，動詞，下雨，粵音「預」。</div></div><div class="kw"><div class="kw-word"><span class="no">⑥</span>解</div><div class="kw-def">脫下。</div></div><div class="kw"><div class="kw-word"><span class="no">⑦</span>緇衣</div><div class="kw-def">黑色的衣服。緇，粵音「之」。</div></div><div class="kw"><div class="kw-word"><span class="no">⑧</span>反</div><div class="kw-def">同「返」，回家。</div></div><div class="kw"><div class="kw-word"><span class="no">⑨</span>迎</div><div class="kw-def">迎上前去。</div></div><div class="kw"><div class="kw-word"><span class="no">⑩</span>吠</div><div class="kw-def">狗叫。粵音「廢」。</div></div><div class="kw"><div class="kw-word"><span class="no">⑪</span>將</div><div class="kw-def">將要、打算。</div></div><div class="kw"><div class="kw-word"><span class="no">⑫</span>撲</div><div class="kw-def">打。</div></div><div class="kw"><div class="kw-word"><span class="no">⑬</span>子</div><div class="kw-def">你，指楊布。</div></div><div class="kw"><div class="kw-word"><span class="no">⑭</span>無</div><div class="kw-def">同「毋」，不要。</div></div><div class="kw"><div class="kw-word"><span class="no">⑮</span>猶是</div><div class="kw-def">像這樣，指像狗一樣。猶，好像；是，這。</div></div><div class="kw"><div class="kw-word"><span class="no">⑯</span>嚮者</div><div class="kw-def">剛才、先前。嚮，粵音「向」。</div></div><div class="kw"><div class="kw-word"><span class="no">⑰</span>使</div><div class="kw-def">假使、假如。</div></div><div class="kw"><div class="kw-word"><span class="no">⑱</span>豈</div><div class="kw-def">難道。</div></div></div></div>
+<div class="section-header" id="c3"><span class="icon">🔍</span><h2>《楊布打狗》結構及精讀</h2><span class="ch">CHAPTER 11</span></div><div class="sub-head" id="c3h"><span class="icon">🧱</span>篇章結構</div>
+<div class="card"><h3><span class="dot teal"></span>全文脈絡</h3><div class="flow"><div class="flow-step"><b>起因</b>楊布白衣出門，淋雨後換上黑衣回家</div><div class="flow-arrow">→</div><div class="flow-step"><b>經過</b>狗認不出他，向他吠叫；楊布發怒要打狗</div><div class="flow-arrow">→</div><div class="flow-step"><b>結果</b>楊朱勸阻，指出楊布也會犯同樣的錯</div></div><p>全文約六十字，前兩層記事，第三層由楊朱說出道理。道理放在故事最後，是寓言常見的寫法。</p></div>
+<div class="card"><h3><span class="dot purple"></span>層次表</h3><table>
+<tr><th class="c">層次</th><th>原文</th><th>內容</th></tr>
+<tr><td class="c">第一層</td><td>楊朱之弟曰布……衣緇衣而反。</td><td>楊布穿白衣出門，下雨後脫下白衣，換上黑衣回家。</td></tr>
+<tr><td class="c">第二層</td><td>其狗不知……將撲之。</td><td>家中的狗認不出他，迎上去吠叫，楊布大怒，要打狗。</td></tr>
+<tr><td class="c">第三層</td><td>楊朱曰……豈能無怪哉？</td><td>楊朱勸弟弟不要打狗，並反問：假如你的狗白色出去、黑色回來，你也會覺得奇怪吧？</td></tr>
+</table></div>
+<div class="sub-head" id="c4"><span class="icon">🔍</span>內容理解（逐句精讀）</div>
+<div class="card"><h3><span class="dot teal"></span>逐句語譯</h3><table>
+<tr><th>原文</th><th>語譯</th></tr>
+<tr><td>楊朱之弟曰布。</td><td>楊朱的弟弟名叫楊布。</td></tr>
+<tr><td>衣素衣而出，天雨解素衣，衣緇衣而反。</td><td>他穿着白色的衣服出門，天下雨了，他脫下白衣，換上黑色的衣服回家。</td></tr>
+<tr><td>其狗不知，迎而吠之。</td><td>他家的狗認不出他，迎上前向他吠叫。</td></tr>
+<tr><td>楊布怒，將撲之。</td><td>楊布很生氣，打算打那隻狗。</td></tr>
+<tr><td>楊朱曰：「子無撲矣，子亦猶是也。</td><td>楊朱說：「你不要打牠了，你也會像牠這樣的。</td></tr>
+<tr><td>嚮者使汝狗白而往，黑而來，豈能無怪哉？」</td><td>假如剛才你的狗白色出去，黑色回來，你難道不會覺得奇怪嗎？」</td></tr>
+</table></div>
+<div class="card"><h3><span class="dot amber"></span>第一層：衣服顏色改變</h3>
+<p>作者特別交代楊布「衣素衣而出」，又「衣緇衣而反」，一白一黑，為下文狗認不出主人埋下伏筆。</p>
+</div>
+<div class="card"><h3><span class="dot coral"></span>第二層：只怪別人</h3>
+<p>狗只看到一個穿黑衣的人走近，便吠叫起來。楊布沒有想想自己換了衣服，只覺得狗連主人也不認得，於是發怒要打牠。</p>
+<div class="example-box coral"><div class="example-label">細節</div><div class="example-text">「怒」、「將撲之」兩處，寫出楊布遇事不先想原因，只顧發脾氣。</div></div></div>
+<div class="card"><h3><span class="dot purple"></span>第三層：楊朱的反問</h3>
+<p>楊朱把情況倒轉過來：如果是狗白色出去、黑色回來，楊布也會認不出牠。所以狗和楊布犯的是同一個錯誤：只憑外表判斷。楊布責怪狗，自己卻也會這樣做。</p>
+<div class="compare-grid"><div class="compare-card bad"><div class="ct">狗看楊布</div>白衣出門 → 黑衣回來 → 認不出，吠叫</div><div class="compare-card good"><div class="ct">楊布看狗（假設）</div>白狗出去 → 黑狗回來 → 也會覺得奇怪</div></div><div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">「子亦猶是也」的「是」指狗（像狗一樣只看外表），不是指楊布打狗這件事。</div></div></div></div>
+<div class="section-header" id="c5"><span class="icon">✒️</span><h2>《楊布打狗》寫作技巧及主旨</h2><span class="ch">CHAPTER 12</span></div><div class="sub-head" id="c5h"><span class="icon">✒️</span>寫作技巧</div>
+<div class="card"><h3><span class="dot teal"></span>一、對照寫法：換位思考</h3>
+<p>前文寫狗看楊布，後文假設楊布看狗，兩者情況相同，形成對照。讀者一比較，就明白楊布打狗沒有道理。</p>
+<div class="formula"><small>對照</small>衣素衣而出，衣緇衣而反　↔　白而往，黑而來</div></div>
+<div class="card"><h3><span class="dot purple"></span>二、以反問句作結</h3>
+<p>「豈能無怪哉？」用反問語氣，意思是「一定會覺得奇怪」。反問比直接說出答案更有力，也讓楊布自己去想。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>三、幽默諷喻</h3>
+<p>人生氣要打狗，原是一件小事，作者借它諷刺遇事只怪別人、不反省自己的人，寫得輕鬆有趣。</p>
+</div>
+<div class="card"><h3><span class="dot pink"></span>四、詞類活用</h3><p>本文有幾個字由名詞活用作動詞，是中一常考的文言知識：</p><table>
+<tr><th class="c">字</th><th>本義（名詞）</th><th>文中用法（動詞）</th><th class="c">粵音</th></tr>
+<tr><td class="c">衣</td><td>衣服</td><td>「<b>衣</b>素衣而出」：穿</td><td class="c">意</td></tr>
+<tr><td class="c">雨</td><td>雨水</td><td>「天<b>雨</b>」：下雨</td><td class="c">預</td></tr>
+</table><div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">判斷方法</div><div class="alert-text">名詞後面緊接另一個名詞作賓語（如「衣素衣」），前面那個名詞多數活用作動詞。</div></div></div></div>
+<div class="sub-head" id="c6"><span class="icon">💎</span>主旨與賞析</div>
+<div class="formula"><small>主旨</small>看事物不能只看表面；<br>遇事要先反省自己，設身處地，不要只怪別人。</div>
+<div class="card"><h3><span class="dot teal"></span>賞析</h3>
+<p>狗認不出換了衣服的主人，是很自然的事。楊布不想原因就要打狗，就是犯了只看表面、只怪別人的毛病。楊朱一句「子亦猶是也」，指出楊布和狗犯了同一個錯。</p>
+<p>生活中也常有這樣的情況：同學換了髮型，我們一時認不出；朋友語氣不同，我們就以為對方生氣。遇到這些事，先想想自己有沒有誤會，才不會錯怪別人。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>延伸：相關成語</h3><div class="keyword-grid"><div class="kw"><div class="kw-word">楊布打狗</div><div class="kw-def">比喻只看表面現象，不明白事物的本質。</div></div><div class="kw"><div class="kw-word">以貌取人</div><div class="kw-def">只憑外貌判斷一個人。</div></div><div class="kw"><div class="kw-word">將心比心</div><div class="kw-def">用自己的心去體會別人的心，設身處地為人着想。</div></div></div></div>
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">一句記</div><div class="alert-text">楊布打狗＝只看外表會看錯；先反省自己，再責怪別人。</div></div></div>
+<div class="section-header ex" id="c7"><span class="icon">✏️</span><h2>練習三：《楊布打狗》</h2><span class="ch">CHAPTER 13</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div><div class="sub-head" id="c7h"><span class="icon">🔤</span>文言字詞</div>
+<div class="qbox"><span class="qn">1.</span>解釋下列文句中加點的字詞。<span class="mark">（6分）</span><table>
+<tr><th class="c">　</th><th>文句</th><th>解釋</th></tr>
+<tr><td class="c">(a)</td><td>楊朱之弟<b><u>曰</u></b>布</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(b)</td><td>天雨<b><u>解</u></b>素衣</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(c)</td><td>衣<b><u>緇衣</u></b>而反</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(d)</td><td>衣緇衣而<b><u>反</u></b></td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(e)</td><td>將<b><u>撲</u></b>之</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(f)</td><td><b><u>豈</u></b>能無怪哉</td><td><span class="blank l"></span></td></tr>
+</table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>(a) 名叫　(b) 脫下　(c) 黑色的衣服　(d) 同「返」，回家　(e) 打　(f) 難道</div></div></div>
+<div class="qbox"><span class="qn">2.</span>「<b><u>衣</u></b>素<b><u>衣</u></b>而出」一句有兩個「衣」字。試分別指出它們的詞性和意思。<span class="mark">（4分）</span><table>
+<tr><th class="c">　</th><th class="c">詞性</th><th>意思</th></tr>
+<tr><td class="c">第一個「衣」</td><td class="c"><span class="blank"></span></td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">第二個「衣」</td><td class="c"><span class="blank"></span></td><td><span class="blank l"></span></td></tr>
+</table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每格1分）<br>第一個「衣」：動詞，穿。<br>第二個「衣」：名詞，衣服。</div></div></div>
+<div class="qbox"><span class="qn">3.</span>「子<b><u>無</u></b>撲矣」中「無」的意思是：<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 沒有</li><li><span class="circle"></span>　B. 不要</li><li><span class="circle"></span>　C. 不必</li><li><span class="circle"></span>　D. 無論</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）B<br><span style="font-size:13px">「無」同「毋」，表示禁止，解作不要。楊朱勸楊布不要打狗。</span></div></div></div>
+<div class="sub-head" id="c8"><span class="icon">🔁</span>語譯</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">語譯要訣</div><div class="alert-text">「豈……哉」是反問句式，譯作「難道……嗎」；「使」放在句首時常解作「假如」。</div></div></div>
+<div class="qbox"><span class="qn">4.</span>試把以下文句譯為白話文。<div class="excerpt">其狗不知，迎而吠之。</div><span class="mark">（2分）</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）他的狗認不出他，迎上前向他吠叫。<br><span style="font-size:13px">評分：「不知」譯作認不出（1分）；「迎而吠之」譯作迎上前向他吠叫（1分）。</span></div></div></div>
+<div class="qbox"><span class="qn">5.</span>試把以下文句譯為白話文。<div class="excerpt">嚮者使汝狗白而往，黑而來，豈能無怪哉？</div><span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）假如剛才你的狗白色出去，黑色回來，你難道不會覺得奇怪嗎？<br><span style="font-size:13px">評分：「使」譯作假如（1分）；「白而往，黑而來」譯作白色出去、黑色回來（1分）；「豈能無怪哉」譯作難道不會覺得奇怪嗎（1分）。</span></div></div></div>
+<div class="sub-head" id="c9"><span class="icon">🧠</span>閱讀理解</div>
+<div class="qbox"><span class="qn">6.</span>楊布的狗為甚麼向他吠叫？<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 狗餓了，向主人討食</li><li><span class="circle"></span>　B. 楊布淋雨，身有怪味</li><li><span class="circle"></span>　C. 換了衣服，狗認不出</li><li><span class="circle"></span>　D. 狗以為楊布要打牠</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span style="font-size:13px">楊布白衣出門、黑衣回家，「其狗不知」，即狗認不出他。文中沒有提及A、B；D的情況發生在狗吠叫之後。</span></div></div></div>
+<div class="qbox"><span class="qn">7.</span>根據文章內容，判斷以下陳述。<span class="mark">（4分）</span><table><tr><th>陳述</th><th class="c">正確</th><th class="c">錯誤</th><th class="c">無從判斷</th></tr><tr><td>（1）楊布出門時穿着白色的衣服。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>（2）楊布最後打了那隻狗。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>（3）楊朱贊成楊布打狗。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr><tr><td>（4）楊布家的狗是白色的。</td><td class="c">○</td><td class="c">○</td><td class="c">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>（1）正確：「衣素衣而出」。<br>（2）無從判斷：文中只寫楊布「將撲之」，楊朱隨即勸阻，沒有寫楊布最後有沒有打狗。<br>（3）錯誤：楊朱說「子無撲矣」，勸他不要打。<br>（4）無從判斷：「使汝狗白而往」只是楊朱的假設，文中沒有交代狗的顏色。</div></div></div>
+<div class="qbox"><span class="qn">8.</span>楊朱說「子亦猶是也」。「是」指的是甚麼？楊朱想藉這句話說明甚麼？<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）<br>「是」指那隻狗（1分）。楊朱想說明，楊布和狗一樣，看到對方外表改變也會認不出、感到奇怪（1分），所以楊布不應責怪狗（1分）。</div></div></div>
+<div class="qbox"><span class="qn">9.</span>本文以反問句「豈能無怪哉？」作結。這樣寫有甚麼作用？<span class="mark">（3分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）<br>反問句的意思是「一定會覺得奇怪」（1分）。用反問比直接陳述語氣更強，更有說服力（1分），也引導楊布（以及讀者）自行反省，明白不應錯怪狗（1分）。</div></div></div>
+<div class="qbox"><span class="qn">10.</span>以下哪一項最能概括本文的主旨？<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 養狗要細心，了解牠的習性</li><li><span class="circle"></span>　B. 雨天出門，應帶備替換衣服</li><li><span class="circle"></span>　C. 遇事先反省，不要只怪別人</li><li><span class="circle"></span>　D. 兄長應該時常教導弟弟做人</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span style="font-size:13px">楊朱指出楊布和狗一樣只看外表，勸他不要打狗，故事要說明的是凡事應先反省自己、設身處地。</span></div></div></div>
+<div class="sub-head" id="c10"><span class="icon">🌱</span>延伸思考</div>
+<div class="qbox"><span class="qn">11.</span>試舉出一個生活例子，說明「只看表面而錯怪別人」的情況，並說說應該怎樣做才對。<span class="mark">（4分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）學生自由作答。<br><span style="font-size:13px">評分原則：例子具體，切合「只看表面、錯怪別人」（2分）；提出合理做法，如先了解原因、換位思考（2分）。<br>（示例）有一次我和同學打招呼，他沒有回應，我以為他不理我，後來才知道他沒戴眼鏡，看不清楚。以後遇到這種情況，應先問清楚原因，不要只憑表面就下判斷。</span></div></div></div>
+<div class="qbox"><span class="qn">12.</span>如果你是楊布，聽完哥哥的話後，你會怎樣做？試用一兩句白話文寫出你的回應和行動。<span class="mark">（2分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）學生自由作答，回應須表現明白道理。<br><span style="font-size:13px">（示例）「哥哥說得對，是我換了衣服，牠才認不出我。」然後蹲下來讓狗嗅一嗅，安撫牠。</span></div></div></div><div class="section-header" id="s11"><span class="icon">⚖️</span><h2>三篇比較及文言知識統整</h2><span class="ch">CHAPTER 14</span></div><div class="card"><h3><span class="dot teal"></span>相同之處</h3>
+<p>三篇都在一百字以內，都寫家人之間的一件小事，故事完結時道理也就清楚了。道理由故事中的人物說出或做出來，作者沒有另加評論。</p>
+</div><div class="card"><h3><span class="dot purple"></span>不同之處：道理怎樣表達</h3><table>
+<tr><th class="c">篇名</th><th class="c">教導者</th><th>教導方法</th><th>關鍵句</th></tr>
+<tr><td class="c">曾子殺彘</td><td class="c">曾子</td><td>先說明道理，再用行動證明</td><td>「今子欺之，是教子欺也。」<br>「遂烹彘也。」</td></tr>
+<tr><td class="c">孟母戒子</td><td class="c">孟母</td><td>不說教，借割斷織布作比喻</td><td>「其母引刀裂其織，以此誡之。」</td></tr>
+<tr><td class="c">楊布打狗</td><td class="c">楊朱</td><td>把情況倒轉過來，用反問引導對方反省</td><td>「豈能無怪哉？」</td></tr>
+</table></div><div class="card"><h3><span class="dot coral"></span>文言知識統整</h3><p><b>一、通假字</b></p><table>
+<tr><th class="c">通假字</th><th class="c">本字</th><th>意思</th><th>例句</th></tr>
+<tr><td class="c">女</td><td class="c">汝</td><td>你</td><td>女還，顧反為女殺彘（曾子殺彘）</td></tr>
+<tr><td class="c">反</td><td class="c">返</td><td>回來</td><td>顧反為女殺彘（曾子殺彘）；衣緇衣而反（楊布打狗）</td></tr>
+<tr><td class="c">知</td><td class="c">智</td><td>智慧、判斷能力</td><td>嬰兒非有知也（曾子殺彘）</td></tr>
+<tr><td class="c">諠</td><td class="c">諼</td><td>遺忘</td><td>其母知其諠也（孟母戒子）</td></tr>
+<tr><td class="c">無</td><td class="c">毋</td><td>不要</td><td>子無撲矣（楊布打狗）</td></tr>
+</table>
+<p><b>二、詞類活用（名詞作動詞）</b></p><table>
+<tr><th class="c">字</th><th>例句</th><th>意思</th></tr>
+<tr><td class="c">衣</td><td>衣素衣而出（楊布打狗）</td><td>穿</td></tr>
+<tr><td class="c">雨</td><td>天雨解素衣（楊布打狗）</td><td>下雨</td></tr>
+</table>
+<p><b>三、句末語氣詞</b></p><table>
+<tr><th class="c">字</th><th>例句</th><th>語氣／意思</th></tr>
+<tr><td class="c">耳</td><td>特與嬰兒戲耳（曾子殺彘）</td><td>罷了</td></tr>
+<tr><td class="c">也</td><td>是教子欺也（曾子殺彘）</td><td>表示判斷、肯定</td></tr>
+<tr><td class="c">矣</td><td>孟子不復諠矣（孟母戒子）</td><td>了</td></tr>
+<tr><td class="c">哉</td><td>豈能無怪哉（楊布打狗）</td><td>嗎，表示反問</td></tr>
+</table></div><div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">一句記</div><div class="alert-text">曾子以身作則，孟母借物說理，楊朱用反問引導對方反省。</div></div></div><div class="section-header ex" id="s15"><span class="icon">🧩</span><h2>練習四：三篇綜合比較</h2><span class="ch">CHAPTER 15</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div><div class="qbox"><span class="qn">1.</span>試比較下列兩句中「反」字的意思，並說明是否相同。<div class="excerpt">（甲）顧<b><u>反</u></b>為女殺彘。（《曾子殺彘》）<br>（乙）衣緇衣而<b><u>反</u></b>。（《楊布打狗》）</div><span class="mark">（2分）</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）相同（1分）。兩個「反」都同「返」，解作回來、回家（1分）。</div></div></div><div class="qbox"><span class="qn">2.</span>試解釋下列各句句末加點的語氣詞。<span class="mark">（3分）</span><table>
+<tr><th class="c">　</th><th>文句</th><th>意思</th></tr>
+<tr><td class="c">(a)</td><td>特與嬰兒戲<b><u>耳</u></b>。</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(b)</td><td>孟子不復諠<b><u>矣</u></b>。</td><td><span class="blank l"></span></td></tr>
+<tr><td class="c">(c)</td><td>豈能無怪<b><u>哉</u></b>？</td><td><span class="blank l"></span></td></tr>
+</table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（每項1分）<br>(a) 罷了　(b) 了　(c) 嗎（表示反問）</div></div></div><div class="qbox"><span class="qn">3.</span>以下哪一項是三篇文章共同的寫法？<span class="mark">（2分）</span><ul class="opts"><li><span class="circle"></span>　A. 都在結尾引用古詩作結</li><li><span class="circle"></span>　B. 都以描寫人物外貌為主</li><li><span class="circle"></span>　C. 都借生活小事說明道理</li><li><span class="circle"></span>　D. 都用對話開始講述故事</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）C<br><span style="font-size:13px">三篇都以家人之間的小事說明做人道理。三篇都以敘述開首，沒有引用古詩，也沒有着重描寫外貌。</span></div></div></div><div class="qbox"><span class="qn">4.</span>曾子和孟母都在教導孩子。試比較兩人教導孩子的方法有甚麼不同。<span class="mark">（4分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）<br>曾子用自己的行動作榜樣：答應了孩子就把豬殺掉，以身作則教孩子守信（2分）。孟母割斷正在織的布，借織布比喻讀書，沒有說教，讓孟子自己明白讀書不可半途而廢（2分）。</div></div></div><div class="qbox"><span class="qn">5.</span>曾子勸妻子、楊朱勸弟弟，都是指出家人的錯處。你認為哪一位的勸說方法較好？試引用原文，說明你的看法。<span class="mark">（4分）</span><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）學生自由作答，言之成理即可。<br><span style="font-size:13px">評分原則：表明立場（1分）；引用原文（1分）；說明理由（2分）。<br>（示例）楊朱的方法較好。他說「嚮者使汝狗白而往，黑而來，豈能無怪哉？」把情況倒轉過來，讓楊布自己想通，對方較容易接受；曾子則直接說出道理，雖然清楚，但語氣較像教訓。</span></div></div></div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
