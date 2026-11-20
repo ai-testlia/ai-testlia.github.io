@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="pansir-category" content="閱讀"><meta name="pansir-type" content="筆記">
+<title>看動作，猜心意 —— 閱讀理解情感題解讀教學（高中）｜潘SIR中文教室</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap');
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;--color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);--border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6d55d6;--purple-bg:#f1edfe;--teal:#0f8b8d;--teal-bg:#e3f4f4;--coral:#d9623b;--coral-bg:#fdeee8;
+  --amber:#b97f08;--amber-bg:#fdf4e0;--pink:#c84a7c;--pink-bg:#fbe9f1;--blue:#2f6fb5;--blue-bg:#e8f0fa;
+  --green:#2e8b57;--green-bg:#e6f4ec;--red:#c0392b;--red-bg:#fbeaea;
+  --hero-bg:#4F6072;--hero-text:241,234,223;
+}
+@media (prefers-color-scheme:dark){
+  :root{--color-text-primary:#ececec;--color-text-secondary:#aaa;--color-background-primary:#1e1f22;--color-background-secondary:#151618;
+  --color-border-tertiary:rgba(255,255,255,0.12);
+  --purple:#a796ff;--purple-bg:#2a2540;--teal:#4cc3c5;--teal-bg:#173133;--coral:#f08a64;--coral-bg:#3a241c;
+  --amber:#e8b44a;--amber-bg:#3a2f17;--pink:#f07aa8;--pink-bg:#3a1f2b;--blue:#79a9e6;--blue-bg:#1b2738;
+  --green:#5fc48c;--green-bg:#173024;--red:#ef7a6d;--red-bg:#3a1d1a;}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 80px}
+.hero{position:relative;overflow:hidden;background-color:var(--hero-bg);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 160'><g fill='%23F1EADF'><path fill-opacity='.07' d='M0 160V110q40-30 80-8t70-30q30-20 60 6t60-14q40-30 70 4t60 10v92z'/><path fill-opacity='.10' d='M120 160v-34q30-22 60-6t50-14q30-16 60 8t50 6t60-4v44z'/><g fill-opacity='.14'><rect x='300' y='58' width='10' height='48'/><path d='M290 62h30l-15-14zM292 76h26l-13-11zM293 90h24l-12-10zM294 104h22l-11-9z'/></g></g><g stroke='%23F1EADF' stroke-opacity='.12' stroke-width='1' fill='none'><path d='M40 148h60M140 142h90M260 150h80M90 156h50'/></g></svg>"),url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><path d='M6 6h44v44H14V14h28v28H22V22h12v12' fill='none' stroke='%23F1EADF' stroke-opacity='.045' stroke-width='1.2'/></svg>"),linear-gradient(135deg,rgba(255,255,255,.04),rgba(0,0,0,.12));background-repeat:no-repeat,repeat,no-repeat;background-position:right bottom,0 0,0 0;background-size:420px auto,56px 56px,100% 100%;color:rgb(var(--hero-text));border-radius:var(--border-radius-lg);padding:38px 30px 42px;margin-bottom:20px}.hero::after{content:'';position:absolute;left:30px;bottom:22px;width:56px;height:2px;background:#D9B07C;opacity:.8}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-text),.3);color:rgba(var(--hero-text),.65);border-radius:999px;padding:2px 14px;font-size:12px;letter-spacing:2px}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:30px;line-height:1.45;margin:12px 0 6px;color:rgb(var(--hero-text))}
+.hero .sub{font-size:14px;color:rgba(var(--hero-text),.5)}
+.hero p{margin:10px 0 0;font-size:13px;color:rgba(var(--hero-text),.5)}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px}
+.toc-title{font-weight:700;margin-bottom:6px}
+.toc-item{display:block;color:var(--color-text-primary);text-decoration:none;padding:3px 0}
+.toc-item:hover{color:var(--blue)}
+.toc-num{display:inline-block;width:32px;color:var(--blue);font-weight:700}
+.toc-sep{font-size:12px;color:var(--color-text-secondary);margin:8px 0 2px;letter-spacing:1px}
+.section-header{display:flex;align-items:center;gap:12px;margin:36px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--color-border-tertiary)}
+.sh-icon{font-size:24px}
+.sh-title{font-family:'Noto Serif TC',serif;font-size:21px;font-weight:700;flex:1}
+.sh-num{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary)}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:14px}
+.card h3{font-size:16px;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--purple)}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.card p{margin:6px 0}
+.example-box{background:var(--purple-bg);border-left:4px solid var(--purple);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{background:var(--teal-bg);border-color:var(--teal)}.example-box.coral{background:var(--coral-bg);border-color:var(--coral)}
+.example-box.amber{background:var(--amber-bg);border-color:var(--amber)}.example-box.pink{background:var(--pink-bg);border-color:var(--pink)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:2px}
+.example-text{font-family:'Noto Serif TC',serif;font-size:15px}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.alert-icon{font-size:18px}
+.alert-label{font-weight:700;font-size:13px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:10px 14px;font-size:13.5px}
+.compare-card.bad{background:var(--red-bg);border-top:3px solid var(--red)}
+.compare-card.good{background:var(--green-bg);border-top:3px solid var(--green)}
+.compare-card .cl{font-weight:700;margin-bottom:4px}
+.compare-card.bad .cl{color:var(--red)}.compare-card.good .cl{color:var(--green)}
+.flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:6px;margin:10px 0}
+.flow-step{flex:1;min-width:120px;background:var(--blue-bg);border-radius:var(--border-radius-md);padding:8px 12px;font-size:13.5px}
+.flow-step b{display:block;color:var(--blue)}
+.flow-arrow{display:flex;align-items:center;color:var(--color-text-secondary);font-weight:700}
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px}
+.kw-word{font-weight:700;color:var(--teal)}
+.kw-def{font-size:13px;color:var(--color-text-secondary)}
+.formula{background:#2f3e46;color:#f3f3f3;border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0;font-size:15px;text-align:center}
+.formula b{color:#ffd58a}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;background:var(--color-background-primary)}
+th,td{border:0.5px solid var(--color-border-tertiary);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--color-background-secondary);white-space:nowrap}
+td.c{white-space:nowrap}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0}
+.ck{border-radius:var(--border-radius-md);padding:6px 10px;font-size:13.5px}
+.ck.t{background:var(--blue-bg);border:1px solid var(--blue)}
+.ck.k{background:var(--amber-bg);border:1px dashed var(--amber)}
+.ck.r{background:var(--green-bg);border:1px solid var(--green);font-weight:700}
+.ca{color:var(--color-text-secondary);font-weight:700}
+.legend{font-size:12px;color:var(--color-text-secondary)}
+.legend span{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin:0 4px 0 10px}
+.hl-t{background:var(--blue-bg);padding:0 3px;border-radius:3px}
+.hl-k{background:var(--amber-bg);padding:0 3px;border-radius:3px}
+.scene{display:flex;justify-content:center;align-items:flex-end;gap:4px;margin:12px 0 4px;font-size:15px}
+.scene .p{text-align:center;padding:6px 12px;border-radius:var(--border-radius-md)}
+.scene .dry{background:var(--green-bg)}.scene .wet{background:var(--blue-bg)}
+.scene .umb{font-size:34px;line-height:1}
+.scene-cap{text-align:center;font-size:12.5px;color:var(--color-text-secondary)}
+.qsub{font-weight:700;margin:16px 0 8px;color:var(--coral)}
+.qbox{background:var(--color-background-primary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:12px 16px;margin-bottom:12px}
+.qn{font-weight:700;margin-right:4px}
+.mark{color:var(--color-text-secondary);font-size:12.5px;margin-left:4px}
+.line{border-bottom:1px solid #bbb;height:28px}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:bottom}
+.blank.s{min-width:60px}.blank.l{min-width:180px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;margin:6px 0}
+.excerpt{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 22px;margin:10px 0 16px;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt h4{text-align:center;margin:0 0 6px;font-size:17px}
+.excerpt p{margin:4px 0;text-indent:2em}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);text-indent:0}
+.bank{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.bank span{border:1px solid var(--teal);color:var(--teal);border-radius:999px;padding:1px 14px}
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border:none}
+@media (max-width:600px){.compare-grid,.opts{grid-template-columns:1fr}.hero h1{font-size:24px}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#1a1a1a}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.chain,.excerpt{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula,.ck,.example-box,.alert,.compare-card{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none!important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none!important}
+  body.print-teacher .ans{display:block!important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style></head>
+<body><div class="wrap">
+<div class="hero"><div class="hero-tag">閱讀教學筆記</div><h1>看動作，猜心意 ——<br>閱讀理解情感題解讀教學（高中）</h1><div class="sub">中四至中六　DSE閱讀　動作描寫的推論與作用</div><p>潘SIR中文教室編撰</p></div>
+<nav class="toc"><div class="toc-title">目錄</div><div class="toc-sep">教學</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>學習路線：四層讀法</a><a class="toc-item" href="#s2"><span class="toc-num">02</span>第一層：從動作讀出情況</a><a class="toc-item" href="#s3"><span class="toc-num">03</span>第二層：從動作讀出心理</a><a class="toc-item" href="#s4"><span class="toc-num">04</span>第三層：言行不一與表裏矛盾</a><a class="toc-item" href="#s5"><span class="toc-num">05</span>關鍵字放大鏡</a><a class="toc-item" href="#s6"><span class="toc-num">06</span>第四層：動作描寫的八種作用</a><a class="toc-item" href="#s7"><span class="toc-num">07</span>示範精讀：朱自清《背影》</a><a class="toc-item" href="#s8"><span class="toc-num">08</span>DSE 答題：逐步寫出高分答案</a><div class="toc-sep">練習</div><a class="toc-item" href="#s9"><span class="toc-num">09</span>練習一：讀出情況（第一層）</a><a class="toc-item" href="#s10"><span class="toc-num">10</span>練習二：讀出心理（第二層）</a><a class="toc-item" href="#s11"><span class="toc-num">11</span>練習三：言行不一與矛盾（第三層）</a><a class="toc-item" href="#s12"><span class="toc-num">12</span>練習四：關鍵字放大鏡</a><a class="toc-item" href="#s13"><span class="toc-num">13</span>練習五：辨識作用（第四層）</a><a class="toc-item" href="#s14"><span class="toc-num">14</span>練習六：篇章分析</a><a class="toc-item" href="#s15"><span class="toc-num">15</span>練習七：由閱讀到寫作</a></nav>
+<div class="section-header first" id="s1"><span class="sh-icon">🗺️</span><span class="sh-title">學習路線：四層讀法</span><span class="sh-num">CHAPTER 01</span></div>
+<div class="card">
+  <h3><span class="dot blue"></span>高中題目問到哪一層？</h3>
+  <p>讀動作描寫，可以分為四層。初小讀到第一、二層，高小讀到第三層，初中加入矛盾與變化，高中則要讀到第四層：分析作者<b>為甚麼這樣寫</b>，以及<b>這樣寫有甚麼作用</b>。</p>
+  <p>看不出動作反映甚麼心理，就無從分析寫法的作用，所以這份筆記仍由第一層讀起。</p>
+  <div class="flow">
+    <div class="flow-step"><b>第一層　情況</b>動作告訴我們發生了甚麼事</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第二層　心理</b>動作透露人物的情緒和想法</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第三層　矛盾</b>說的和做的不一樣，表面和內心不一樣</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>第四層　寫法</b>作者為何選這個動作？有甚麼作用？</div>
+  </div>
+</div>
+<div class="card">
+  <h3><span class="dot purple"></span>每個例子都用同一套拆解步驟</h3>
+  <table>
+    <tr><th>步驟</th><th>要做甚麼</th><th>問自己</th></tr>
+    <tr><td class="c">① 圈動作</td><td>把動詞和修飾動作的詞語圈出來</td><td>人物做了甚麼？怎樣做？做了多少次？</td></tr>
+    <tr><td class="c">② 看表面</td><td>先照字面說出動作</td><td>單看這個動作，平常是甚麼意思？</td></tr>
+    <tr><td class="c">③ 想深層</td><td>配合處境推想</td><td>人在甚麼情況下才會這樣做？</td></tr>
+    <tr><td class="c">④ 下結論</td><td>說出情況、心理或作用</td><td>所以這個動作反映了甚麼？</td></tr>
+  </table>
+  <div class="legend">推論鏈顏色：<span style="background:var(--blue-bg);border:1px solid var(--blue)"></span>原文<span style="background:var(--amber-bg);border:1px dashed var(--amber)"></span>自己推想<span style="background:var(--green-bg);border:1px solid var(--green)"></span>結論</div>
+</div>
+
+<div class="section-header" id="s2"><span class="sh-icon">🌧️</span><span class="sh-title">第一層：從動作讀出情況</span><span class="sh-num">CHAPTER 02</span></div>
+<div class="card">
+  <h3><span class="dot blue"></span>例一：倒在沙發上的人</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">他把公事包丟在門口，連鞋也沒換，便倒在沙發上。不一會兒，客廳響起了鼻鼾聲。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>「丟」在門口、「連鞋也沒換」、「倒」在沙發上、響起鼻鼾聲</td></tr>
+    <tr><td class="c">② 看表面</td><td>他一回家就躺下，很快睡着了。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>平時回家會放好公事包、換鞋。這些小事都顧不上，「倒」字又寫出他是整個人跌落沙發，不是慢慢坐下。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>他工作了一整天，累得筋疲力盡。</td></tr>
+  </table>
+  <div class="chain"><span class="ck t">連鞋也沒換</span><span class="ca">→</span><span class="ck k">平常的習慣都顧不上</span><span class="ca">→</span><span class="ck t">倒下便睡着</span><span class="ca">→</span><span class="ck r">極度疲累</span></div>
+</div>
+<div class="card">
+  <h3><span class="dot blue"></span>例二：提早收舖的店主</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">才四點多，店主便把鐵閘拉下一半，彎腰把門前的膠桶一個個搬進店內，又抬頭看了看天。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>「才」四點多、鐵閘拉下一半、把膠桶搬進店內、「抬頭看了看天」</td></tr>
+    <tr><td class="c">② 看表面</td><td>店主在收拾，準備關門。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>「才」表示時間還早，不是正常收舖時間。他一邊收拾一邊看天，可見他擔心的是天氣。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>天色轉壞，快要下大雨（或有風暴），店主趕在變天前提早收舖。</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">技巧</div><div class="alert-text">「才」、「已經」、「竟然」這類詞語，表示事情不尋常。先問「為甚麼不尋常」，答案通常就在那裏。</div></div></div>
+</div>
+<div class="card">
+  <h3><span class="dot blue"></span>例三：輕輕掩上的門</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">護士輕輕推開病房的門，看了看牀上的老人，又把門輕輕掩上。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>「輕輕」推開、看了看、「又」把門「輕輕」掩上</td></tr>
+    <tr><td class="c">② 看表面</td><td>護士開門看了一眼，沒有進去。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>兩次「輕輕」，表示她刻意不發出聲音；看了一眼就離開，表示不需要、也不想打擾。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>老人正在睡覺，護士不想吵醒他。這個動作也反映護士細心體貼。</td></tr>
+  </table>
+</div>
+
+<div class="section-header" id="s3"><span class="sh-icon">💭</span><span class="sh-title">第二層：從動作讀出心理</span><span class="sh-num">CHAPTER 03</span></div>
+<div class="card">
+  <h3><span class="dot pink"></span>例一：翻來翻去的手機</h3>
+  <div class="example-box pink"><div class="example-label">原文</div><div class="example-text">她把手機翻過來，屏幕朝下放在桌上。過了一會兒，又翻回來看一眼。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>翻過來、屏幕「朝下」、過了一會兒、「又」翻回來看一眼</td></tr>
+    <tr><td class="c">② 看表面</td><td>她把手機蓋上，後來又拿起來看。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>屏幕朝下，是叫自己不要看；忍不住又翻回來，是放不下。兩個動作方向相反。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>她在等某人的訊息，很在意，又想裝作不在意，心裏焦急不安。</td></tr>
+  </table>
+  <div class="chain"><span class="ck t">屏幕朝下</span><span class="ca">→</span><span class="ck k">想克制自己</span><span class="ca">＋</span><span class="ck t">又翻回來看</span><span class="ca">→</span><span class="ck k">克制不了</span><span class="ca">→</span><span class="ck r">在意又故作不在意，焦急不安</span></div>
+</div>
+<div class="card">
+  <h3><span class="dot pink"></span>例二：拉了兩次的領帶</h3>
+  <div class="example-box pink"><div class="example-label">原文</div><div class="example-text">面試官叫到他的名字。他站起來，把領帶拉直了，又拉直了一次。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>拉直領帶、「又」拉直了「一次」</td></tr>
+    <tr><td class="c">② 看表面</td><td>他整理儀容。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>領帶拉直一次就夠了，再拉一次是多餘的。多餘的動作，通常是因為心裏不安，要找點事讓雙手做。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>他十分緊張，很重視這次面試。</td></tr>
+  </table>
+  <div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">規律</div><div class="alert-text">「多餘的動作」和「重複的動作」常常透露緊張、不安或放不下。</div></div></div>
+</div>
+<div class="card">
+  <h3><span class="dot pink"></span>例三：排好的漫畫</h3>
+  <div class="example-box pink"><div class="example-label">原文</div><div class="example-text">吵架後的第二天，弟弟把我的漫畫放回我的書架，按冊數排得整整齊齊，然後一聲不響地走開了。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>放回書架、按冊數排得「整整齊齊」、「一聲不響」地走開</td></tr>
+    <tr><td class="c">② 看表面</td><td>弟弟把借去的漫畫還給我。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>吵架後才還，而且排得特別整齊，花了心思；卻「一聲不響」，沒有開口道歉。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>弟弟心存歉意，想和好，但不好意思開口，只好用行動表示。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot pink"></span>例四：收了又擺的碗筷</h3>
+  <div class="example-box pink"><div class="example-label">原文</div><div class="example-text">接到電話後，母親沒有哭，只是把桌上的碗筷收了又擺，擺了又收。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>「沒有哭」、碗筷「收了又擺，擺了又收」</td></tr>
+    <tr><td class="c">② 看表面</td><td>母親在收拾桌子，表現平靜。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>收了又擺、擺了又收，這個動作沒有目的，她其實不知道自己在做甚麼。不哭，不代表不傷心，而是悲痛太大，人反而失了神。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>母親受到極大打擊，悲痛得不知所措，只能用機械的動作支撐自己。</td></tr>
+  </table>
+  <div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">提醒</div><div class="alert-text">高中文章寫悲傷，常寫人物「不哭」、「很平靜」。這時要看人物的動作是否正常，不要只看表面。</div></div></div>
+</div>
+
+<div class="section-header" id="s4"><span class="sh-icon">🎭</span><span class="sh-title">第三層：言行不一與表裏矛盾</span><span class="sh-num">CHAPTER 04</span></div>
+<div class="card">
+  <h3><span class="dot coral"></span>例一：不冷的父親</h3>
+  <div class="example-box coral"><div class="example-label">原文</div><div class="example-text">父親說：「我不冷。」一邊把外套披在我身上，一邊悄悄地搓着雙手。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>說「我不冷」、把外套披在我身上、「悄悄地」搓着雙手</td></tr>
+    <tr><td class="c">② 看表面</td><td>父親說他不冷，所以把外套給我。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>搓手是因為冷。「悄悄地」表示他不想讓我看見。說話和動作互相矛盾，動作更可信。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>父親其實很冷，說不冷是怕我擔心、怕我不肯穿。他寧願自己受凍，也要照顧孩子。</td></tr>
+  </table>
+  <div class="chain"><span class="ck t">說「我不冷」</span><span class="ca">≠</span><span class="ck t">悄悄搓手</span><span class="ca">→</span><span class="ck k">其實很冷</span><span class="ca">→</span><span class="ck k">說謊是為了讓我安心</span><span class="ca">→</span><span class="ck r">深沉而不張揚的父愛</span></div>
+</div>
+<div class="card">
+  <h3><span class="dot coral"></span>例二：沒有關上的水龍頭</h3>
+  <div class="example-box coral"><div class="example-label">原文</div><div class="example-text">「你走吧，我一個人也過得很好。」祖母說完，轉身走進廚房。水龍頭開了很久，一直沒有關上。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>說「過得很好」、「轉身」走進廚房、水龍頭開了「很久」、「一直沒有關上」</td></tr>
+    <tr><td class="c">② 看表面</td><td>祖母叫我放心離開，然後去廚房洗東西。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>說完就轉身，是不讓我看見她的臉。水一直流，可能是用水聲掩蓋哭聲，也可能是她站在那裏出了神，忘了關。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>祖母嘴上叫我放心，心裏萬分不捨，躲進廚房偷偷難過。</td></tr>
+  </table>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">技巧</div><div class="alert-text">作者沒寫祖母哭，只寫水聲。這種「不寫人，寫聲音或物件」的寫法，高中十分常見，答題時要把背後的人物心理說出來。</div></div></div>
+</div>
+<div class="card">
+  <h3><span class="dot coral"></span>例三：回頭看的抽屜</h3>
+  <div class="example-box coral"><div class="example-label">原文</div><div class="example-text">「這種小比賽，輸了也沒所謂。」他把銀牌隨手丟進抽屜，離開房間前，卻回頭看了那抽屜一眼。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>說「沒所謂」、「隨手丟進」抽屜、「卻」回頭看了一眼</td></tr>
+    <tr><td class="c">② 看表面</td><td>他不在乎這次比賽。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>前面的話和「隨手丟」都裝作不在乎；「卻」一轉，回頭那一眼洩露了真心。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>他其實很在意，只拿到銀牌令他失望不甘，但他愛面子，不肯承認。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot coral"></span>例四：矛盾心情——握着鎖匙回頭看</h3>
+  <div class="example-box coral"><div class="example-label">原文</div><div class="example-text">搬家那天，我把新屋的鎖匙握在手心，卻一次又一次回頭看那條住了十年的舊街。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>鎖匙「握在手心」、「卻」、「一次又一次」回頭看</td></tr>
+    <tr><td class="c">② 看表面</td><td>我拿着新屋鎖匙，回頭看舊街。</td></tr>
+    <tr><td class="c">③ 想深層</td><td>握在手心表示珍重、期待；一次又一次回頭表示放不下。兩個動作指向不同方向。</td></tr>
+    <tr><td class="c">④ 下結論</td><td>「我」既期待新生活，又捨不得住了十年的地方。</td></tr>
+  </table>
+  <div class="formula">矛盾心情答題句式：既<b>……</b>，又<b>……</b>　／　表面<b>……</b>，其實<b>……</b></div>
+</div>
+
+<div class="section-header" id="s5"><span class="sh-icon">🔎</span><span class="sh-title">關鍵字放大鏡</span><span class="sh-num">CHAPTER 05</span></div>
+<div class="card">
+  <h3><span class="dot amber"></span>為甚麼要細看關鍵字？</h3>
+  <p>高中題目常問「試分析某詞的作用」，或者答案的分數藏在一兩個字上。同一個動作，改一個字，意思就不同。以下每類都把兩種寫法並排比較。</p>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>一、時間副詞：還、仍然、始終、一直、終於</h3>
+  <table>
+    <tr><th>寫法</th><th>句子</th><th>效果</th></tr>
+    <tr><td class="c">普通</td><td>外婆站在路口，向我們揮手。</td><td>只是一般送別。</td></tr>
+    <tr><td class="c">加「還」</td><td>車開了很遠，外婆<b>還</b>站在路口，向我們揮手。</td><td>車已遠去，她其實看不見我們，仍不肯離開，寫出深切的不捨。</td></tr>
+  </table>
+  <p>「始終沒有拆開」、「一直沒有關上」、「終於開口」同理：這些詞把動作拉長，或者說明之前等了很久，情感因而加重。</p>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>二、重複動作</h3>
+  <table>
+    <tr><th>寫法</th><th>句子</th><th>效果</th></tr>
+    <tr><td class="c">一次</td><td>外公用軟布抹了抹新收音機。</td><td>只是清潔。</td></tr>
+    <tr><td class="c">重複</td><td>外公用軟布輕輕抹着機身，<b>抹完一遍，又抹一遍</b>。</td><td>新機本來不髒，反覆抹拭，見其愛不釋手。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>三、動詞的選擇</h3>
+  <table>
+    <tr><th>動詞</th><th>句子</th><th>效果</th></tr>
+    <tr><td class="c">放</td><td>他把信放進抽屜。</td><td>中性，看不出情緒。</td></tr>
+    <tr><td class="c">塞</td><td>他把信<b>塞</b>進抽屜最底層。</td><td>匆忙、用力，像要把信藏起來，不想再看見，可能是逃避或難過。</td></tr>
+    <tr><td class="c">摸</td><td>她摸了摸舊照片。</td><td>一般的觸碰。</td></tr>
+    <tr><td class="c">摩挲</td><td>她用指頭<b>摩挲</b>着舊照片。</td><td>反覆輕撫，動作慢而溫柔，帶出懷念和珍惜。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>四、動作的輕重快慢</h3>
+  <table>
+    <tr><th>寫法</th><th>句子</th><th>效果</th></tr>
+    <tr><td class="c">輕、慢</td><td>她<b>輕輕</b>把門掩上。</td><td>小心、體貼，怕驚動別人。</td></tr>
+    <tr><td class="c">重、快</td><td>她<b>「砰」的一聲</b>把門關上。</td><td>憤怒、不耐煩。</td></tr>
+    <tr><td class="c">慢</td><td>他<b>慢慢</b>把試卷翻過來。</td><td>害怕看到結果，故意拖延。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>五、「沒有做」的動作</h3>
+  <p>人物<b>應該做卻沒有做</b>的事，往往比做了的事更有分量。</p>
+  <table>
+    <tr><th>句子</th><th>應該做的</th><th>透露了甚麼</th></tr>
+    <tr><td>她<b>沒有揮手</b>，只是站着。</td><td>送別時揮手</td><td>情緒太重，連揮手也做不到；不捨藏在沉默裏。</td></tr>
+    <tr><td>他接過通知書，<b>始終沒有拆開</b>。</td><td>拆開看結果</td><td>害怕失望，不敢面對。</td></tr>
+    <tr><td>母親<b>沒有哭</b>。</td><td>聽到噩耗會哭</td><td>悲痛到失神，或強忍情緒。</td></tr>
+  </table>
+  <div class="formula">一句記：留意<b>不尋常的字、多餘的動作、沒有做的事</b>。</div>
+</div>
+
+<div class="section-header" id="s6"><span class="sh-icon">🧰</span><span class="sh-title">第四層：動作描寫的八種作用</span><span class="sh-num">CHAPTER 06</span></div>
+<div class="card">
+  <h3><span class="dot purple"></span>分析作用的步驟</h3>
+  <p>到了第四層，前面的拆解照做，最後多加一步：想想這個動作對<b>人物、情節、氣氛、情感、全文</b>起了甚麼作用。</p>
+  <div class="flow">
+    <div class="flow-step"><b>① 圈動作</b>關鍵動詞及修飾語</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>② 表面</b>字面意思</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>③ 深層</b>人物心理或情況</div><div class="flow-arrow">→</div>
+    <div class="flow-step"><b>④ 作用</b>對人物／情節／主旨的效果</div>
+  </div>
+</div>
+<div class="card">
+  <h3><span class="dot purple"></span>作用一：刻畫人物形象</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">老陳修鞋時不看鞋底，只用指腹沿着鞋邊摸一圈，便說出裂口在哪裏。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>「不看」、用指腹「摸一圈」、便說出裂口</td></tr>
+    <tr><td class="c">② 表面</td><td>老陳用手摸鞋，找出破損位置。</td></tr>
+    <tr><td class="c">③ 深層</td><td>不用眼看，單憑手感就找到，要經過長年累月的練習。</td></tr>
+    <tr><td class="c">④ 作用</td><td>刻畫老陳手藝純熟、經驗豐富的鞋匠形象。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot purple"></span>作用二：揭示人物心理</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">她在門外站了很久，舉起手想敲門，又放下。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>站了「很久」、「舉起手」、「又放下」</td></tr>
+    <tr><td class="c">② 表面</td><td>她沒有敲門。</td></tr>
+    <tr><td class="c">③ 深層</td><td>想進去，又不敢進去，在兩個決定之間掙扎。</td></tr>
+    <tr><td class="c">④ 作用</td><td>不直寫內心，以動作揭示她猶豫、忐忑的心理，令讀者自行體會。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot purple"></span>作用三：含蓄抒情</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">父親離世後，母親每晚仍然盛兩碗飯，一碗放在他慣坐的位置上。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>「仍然」盛「兩碗」飯、放在他「慣坐」的位置</td></tr>
+    <tr><td class="c">② 表面</td><td>母親照舊為父親盛飯。</td></tr>
+    <tr><td class="c">③ 深層</td><td>父親已不在，盛飯是不肯接受事實，也是把他當作仍在身邊。</td></tr>
+    <tr><td class="c">④ 作用</td><td>全句沒有「思念」、「傷心」等字眼，借日常動作寄託母親對父親的深切思念，情感含蓄而深沉。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot purple"></span>作用四：推動情節、製造轉折</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">我正要把那封信撕掉，卻看見信封背面寫着一行小字。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>「正要」撕掉、「卻看見」</td></tr>
+    <tr><td class="c">② 表面</td><td>我本來想撕信，後來發現背面有字。</td></tr>
+    <tr><td class="c">③ 深層</td><td>撕信表示「我」對寫信人有怨氣；一行小字將改變「我」的決定。</td></tr>
+    <tr><td class="c">④ 作用</td><td>動作被打斷，製造轉折和懸念，推動情節發展，引起讀者追看小字寫了甚麼。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot purple"></span>作用五：營造氣氛</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">沒有人說話。父親一根接一根地抽煙，母親把同一張桌子抹了三次。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>「一根接一根」抽煙、「同一張」桌子抹了「三次」</td></tr>
+    <tr><td class="c">② 表面</td><td>父親抽煙，母親抹桌。</td></tr>
+    <tr><td class="c">③ 深層</td><td>兩人都在重複無意義的動作，各自壓着心事，不願開口。</td></tr>
+    <tr><td class="c">④ 作用</td><td>配合「沒有人說話」，營造家中沉重、壓抑的氣氛，暗示家裏發生了大事。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot purple"></span>作用六：伏筆與照應</h3>
+  <div class="example-box"><div class="example-label">開首</div><div class="example-text">每次我出門，祖母都要替我拉好衣領，說：「風大，別着涼。」</div></div>
+  <div class="example-box"><div class="example-label">結尾</div><div class="example-text">如今出門前，我總會站在鏡前，替自己拉好衣領。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>開首：祖母「替我拉好衣領」；結尾：我「替自己拉好衣領」</td></tr>
+    <tr><td class="c">② 表面</td><td>同一個動作，由祖母做變成我自己做。</td></tr>
+    <tr><td class="c">③ 深層</td><td>「如今」暗示祖母已不在；我保留這個習慣，是在懷念祖母。</td></tr>
+    <tr><td class="c">④ 作用</td><td>首尾照應，結構完整；同一動作前後對照，含蓄寫出祖母離去後的懷念，也表示祖母的關愛已成為「我」生活的一部分。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot purple"></span>作用七：對比襯托</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">哥哥接過獎狀，看也不看就塞進書包。我把那張嘉許狀套上膠套，每晚臨睡前拿出來看一次。</div></div>
+  <table>
+    <tr><td class="c">① 圈動作</td><td>哥哥：「看也不看」、「塞進」；我：「套上膠套」、「每晚」看一次</td></tr>
+    <tr><td class="c">② 表面</td><td>兩人對待獎狀的方式不同。</td></tr>
+    <tr><td class="c">③ 深層</td><td>哥哥常得獎，不覺珍貴；「我」難得受到嘉許，視如珍寶。</td></tr>
+    <tr><td class="c">④ 作用</td><td>以哥哥的隨便襯托「我」的珍惜，突出這張嘉許狀對「我」的重要，也暗示「我」平日較少得到肯定。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot purple"></span>作用八：突出主旨</h3>
+  <div class="example-box"><div class="example-label">說明</div><div class="example-text">如果一個動作在文中反覆出現，或者放在文章的高潮、結尾，它多半承載着全文的中心思想。</div></div>
+  <table>
+    <tr><td class="c">例子</td><td>一篇寫父女關係的文章，三次寫父親「把門口的燈留着」：女兒小時候晚歸、離家升學、多年後回家。</td></tr>
+    <tr><td class="c">分析</td><td>「留燈」貫串全文，成為線索；每次留燈都是等待女兒回家，象徵父親無論何時都在守候。</td></tr>
+    <tr><td class="c">作用</td><td>借反覆出現的動作突出全文主旨：父愛默默而長久。</td></tr>
+  </table>
+  <div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">重點</div><div class="alert-text">一段描寫往往同時有兩三種作用。答題時先寫最主要的一項，再補充其他，每項都要扣回原文。</div></div></div>
+</div>
+
+<div class="section-header" id="s7"><span class="sh-icon">🍊</span><span class="sh-title">示範精讀：朱自清《背影》</span><span class="sh-num">CHAPTER 07</span></div>
+<div class="excerpt">
+  <h4>背影（節錄）</h4>
+  <p>我看見他戴着黑布小帽，穿着黑布大馬褂，深青布棉袍，蹣跚地走到鐵道邊，慢慢探身下去，尚不大難。可是他穿過鐵道，要爬上那邊月台，就不容易了。他用兩手攀着上面，兩腳再向上縮；他肥胖的身子向左微傾，顯出努力的樣子。這時我看見他的背影，我的淚很快地流下來了。我趕緊拭乾了淚，怕他看見，也怕別人看見。</p>
+  <div class="src">朱自清《背影》</div>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>第一步：圈出所有動作</h3>
+  <p>父親：<span class="hl-t">蹣跚地走</span>、<span class="hl-t">慢慢探身下去</span>、<span class="hl-t">穿過鐵道</span>、<span class="hl-t">爬上</span>、<span class="hl-t">兩手攀着</span>、<span class="hl-t">兩腳再向上縮</span>、<span class="hl-t">身子向左微傾</span><br>
+  兒子：<span class="hl-t">看見</span>、<span class="hl-t">淚很快地流下來</span>、<span class="hl-t">趕緊拭乾了淚</span></p>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>第二步：逐個動作看表面和深層</h3>
+  <table>
+    <tr><th>動作／細節</th><th>表面</th><th>深層</th></tr>
+    <tr><td>黑布小帽、黑布大馬褂、深青布棉袍</td><td>父親的衣着</td><td>衣着厚重、色調灰暗，行動不便，也暗示家境不好、心情沉重</td></tr>
+    <tr><td>「蹣跚地」走、「慢慢」探身</td><td>走得慢</td><td>年紀大、身體笨重，連走路都不穩</td></tr>
+    <tr><td>「尚不大難」→「就不容易了」</td><td>下月台易，上月台難</td><td>先易後難，作者把讀者的注意力引向接下來的爬月台</td></tr>
+    <tr><td>「攀」、「縮」、「微傾」</td><td>爬月台的過程</td><td>一連串動詞，像慢鏡頭，把每一下用力都寫出來，見其吃力</td></tr>
+    <tr><td>「肥胖的身子」、「努力的樣子」</td><td>父親的身形</td><td>身體條件不適合攀爬，仍勉力去做，更見艱辛</td></tr>
+    <tr><td>「淚很快地流下來」</td><td>兒子哭了</td><td>看着父親為自己這樣辛苦，深受感動</td></tr>
+    <tr><td>「趕緊拭乾了淚」、「怕他看見」</td><td>兒子擦淚</td><td>兒子也不願表露感情，父子同樣含蓄</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>第三步：串成推論鏈</h3>
+  <div class="chain"><span class="ck t">年老體胖、行動蹣跚</span><span class="ca">→</span><span class="ck t">仍艱難地爬上月台</span><span class="ca">→</span><span class="ck k">只為替兒子買幾個橘子</span><span class="ca">→</span><span class="ck k">不顧自己辛苦</span><span class="ca">→</span><span class="ck r">父愛深沉；兒子感動落淚</span></div>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>第四步：想想作者為何不直接抒情</h3>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cl">直接抒情（改寫）</div>父親很愛我，為了替我買橘子，他不辭勞苦。我非常感動，忍不住哭了。</div>
+    <div class="compare-card good"><div class="cl">以動作寄情（原文）</div>他用兩手攀着上面，兩腳再向上縮；他肥胖的身子向左微傾，顯出努力的樣子。這時我看見他的背影，我的淚很快地流下來了。</div>
+  </div>
+  <table>
+    <tr><th>效果</th><th>說明</th></tr>
+    <tr><td class="c">真實可信</td><td>讀者親眼「看見」父親的吃力，比作者說「父親很愛我」更有說服力。</td></tr>
+    <tr><td class="c">含而不露</td><td>情感藏在動作裏，要讀者自己體會，讀後印象更深。</td></tr>
+    <tr><td class="c">形象鮮明</td><td>「背影」成為一個具體的畫面，讀者容易記住。</td></tr>
+    <tr><td class="c">切合人物</td><td>父子都不善言辭，連兒子流淚也要「趕緊拭乾」，用動作表達感情符合兩人關係。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot amber"></span>第五步：連繫主旨</h3>
+  <p>題目是「背影」。文中幾次寫到父親的背影，爬月台這一次寫得最詳細。作者借這個背影，寫出父親深沉、不張揚的愛，以及自己多年後的感念與愧疚。爬月台是全文情節的高潮，也最集中地表現了這份父愛。</p>
+</div>
+
+<div class="section-header" id="s8"><span class="sh-icon">📝</span><span class="sh-title">DSE 答題：逐步寫出高分答案</span><span class="sh-num">CHAPTER 08</span></div>
+<div class="card">
+  <h3><span class="dot green"></span>答題框架</h3>
+  <div class="formula"><b>手法</b>（點出動作描寫）＋ <b>引文</b>（關鍵動詞）＋ <b>分析</b>（表面→深層）＋ <b>效果</b>（人物／情感／主旨）</div>
+  <p>題目：作者詳細描寫父親爬月台的過程，有甚麼作用？（5分）</p>
+</div>
+<div class="card">
+  <h3><span class="dot green"></span>示範：由第一稿改到第四稿</h3>
+  <table>
+    <tr><th>稿</th><th>答案</th><th>評語</th></tr>
+    <tr><td class="c">第一稿</td><td>作者運用了動作描寫，令文章生動具體，突出了父愛。</td><td>只有手法和空泛效果，約 1 分。「生動具體」放在任何文章都適用。</td></tr>
+    <tr><td class="c">第二稿</td><td>作者運用動作描寫，以「攀」、「縮」、「微傾」等動詞寫父親爬月台，突出了父愛。</td><td>加了引文，但沒有說明動詞怎樣表現父愛，約 2 分。</td></tr>
+    <tr><td class="c">第三稿</td><td>……以「攀」、「縮」、「微傾」等動詞，寫出父親爬上月台的每一步。父親身體肥胖、行動蹣跚，動作十分吃力，仍堅持為兒子買橘子，可見他不顧自身辛苦，一心照顧兒子。</td><td>加了表面到深層的分析，約 3 至 4 分。</td></tr>
+    <tr><td class="c">第四稿</td><td>……作者不直接說父親如何愛他，而借動作讓讀者親眼看見父愛，情感含蓄而深厚；兒子隨即流淚，也呼應題目「背影」，突出全文對父愛的感念。</td><td>加上寫作效果及主旨，完整，5 分。</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3><span class="dot green"></span>第二個示範</h3>
+  <div class="example-box"><div class="example-label">原文</div><div class="example-text">接到電話後，母親沒有哭，只是把桌上的碗筷收了又擺，擺了又收。</div></div>
+  <p>題目：試分析這句動作描寫的作用。（4分）</p>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cl">✗ 只寫內容</div>母親很平靜，沒有哭，只是在收拾碗筷。<br><small>（被表面騙了，也沒有寫作用。）</small></div>
+    <div class="compare-card good"><div class="cl">✓ 四部分齊全</div>作者運用動作描寫揭示母親的心理。母親「沒有哭」，卻把碗筷「收了又擺，擺了又收」，重複而無目的的動作，反映她受到沉重打擊，悲痛得不知所措。作者不寫眼淚，只寫失神的動作，令母親的哀痛更含蓄深沉，比直寫痛哭更能觸動讀者。</div>
+  </div>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見失分</div><div class="alert-text">① 只寫「生動」、「具體」、「令人印象深刻」；② 引文太長，沒有圈出關鍵詞；③ 只分析內容，沒有交代寫作效果；④ 被「沒有哭」、「我不冷」這類表面說法誤導。</div></div></div>
+</div>
+
+<div class="section-header" id="s9"><span class="sh-icon">1️⃣</span><span class="sh-title">練習一：讀出情況（第一層）</span><span class="sh-num">CHAPTER 09</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<p>根據動作，推斷當時的情況。題目由淺入深。</p>
+<div class="qbox"><span class="qn">1.</span>她一進門就把雨傘撐開放在門邊，脫下濕透的鞋子，用毛巾不停擦頭髮。外面的天氣怎樣？<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）外面下着大雨。</div></div>
+</div>
+<div class="qbox"><span class="qn">2.</span>媽媽把冷氣調高了兩度，又從櫃裏拿出一張薄被，蓋在睡着的孩子身上。房間裏的情況怎樣？<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）房間的冷氣太冷了。</div></div>
+</div>
+<div class="qbox"><span class="qn">3.</span>司機把車停在路邊，下車繞着車子走了一圈，蹲下來看了看後輪，然後打開車尾箱，拿出千斤頂。車子發生了甚麼事？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）車子的後輪出了問題，可能是爆胎或漏氣（1分）；司機準備自己更換輪胎（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">4.</span>老師剛說完「現在開始」，課室裏只剩下翻紙和寫字的沙沙聲。課室裏正在進行甚麼？試指出一項線索。<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）正在進行測驗或考試（1分）。線索：老師說「現在開始」後，課室只有翻紙和寫字的聲音，沒有人說話（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">5.</span>圖書館裏，管理員把食指放在嘴唇前，皺着眉望向角落那張桌子。那張桌子的人剛才做了甚麼？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）那張桌子的人說話太大聲（或發出噪音）（1分）。管理員把食指放在嘴唇前，是示意他們安靜；「皺着眉」表示不滿（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">6.</span>才七點半，餐廳的伙計便把椅子一張張倒放到桌上，又關掉了一半的燈。這反映餐廳的情況怎樣？試指出哪一個字最能說明。<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）餐廳很早便準備關門，生意冷清，可能沒有客人（1分）。「才」字最能說明：七點半本是晚飯時間，餐廳卻已在收拾（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">7.</span>她把手機貼在耳邊，「喂？喂？」叫了幾聲，又走到窗邊，把手機舉得高高的。她遇到了甚麼問題？試引用兩個動作說明。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）手機訊號不好，她聽不到對方的聲音（1分）。她連叫幾聲「喂」，表示聽不清楚（1分）；走到窗邊、把手機舉高，是想找訊號較好的位置（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">8.</span>他打開冰箱，看了很久，又輕輕關上；再打開米缸，用量杯刮了刮缸底。他家中的情況怎樣？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）家中快沒有食物了，生活可能很拮据（1分）。冰箱「看了很久」又關上，表示裏面沒甚麼可吃（1分）；用量杯「刮」缸底，表示米只剩下一點點（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">9.</span>人羣散去後，清潔工人彎腰拾起地上的小旗和彩帶，又把傾倒的鐵馬一個個扶正。剛才這裏發生了甚麼事？試從動作推斷當時的場面。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）剛才這裏舉行過大型活動，如巡遊或慶典（1分）。地上有小旗和彩帶，可見是喜慶活動（1分）；鐵馬被推倒，可見當時人很多，場面擠擁熱鬧（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">10.</span>早上，爸爸用毛巾一條條塞在門縫下；媽媽把窗台上的盆栽全搬進屋裏，又在玻璃窗上貼了交叉的膠紙。他們在準備甚麼？試指出三項線索，並說明每項動作的目的。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）他們在準備應付颱風（1分）。① 毛巾塞門縫：防止雨水滲入（1分）；② 搬盆栽入屋：防止強風把盆栽吹倒或吹下樓（1分）；③ 玻璃窗貼交叉膠紙：防止玻璃被吹破時碎片四散（1分）。</div></div>
+</div>
+
+<div class="section-header" id="s10"><span class="sh-icon">2️⃣</span><span class="sh-title">練習二：讀出心理（第二層）</span><span class="sh-num">CHAPTER 10</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<p>第 1 至 4 題為選擇題，其後為短答題，由淺入深。</p>
+<div class="qbox"><span class="qn">1.</span>放榜前一晚，他把鬧鐘調好，躺下，又起來再看一次鬧鐘，然後再躺下。他當時的心情是：<span class="mark">（1分）</span>
+  <div class="opts"><div>A. 悠閒自在</div><div>B. 緊張不安</div><div>C. 憤憤不平</div><div>D. 灰心失望</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span style="font-size:13px">重複檢查鬧鐘是多餘的動作，反映他放心不下。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">2.</span>弟弟把滿分的默書簿高高舉起，在客廳跑了一圈，又跑到廚房門口等媽媽。弟弟的心情是：<span class="mark">（1分）</span>
+  <div class="opts"><div>A. 興奮得意</div><div>B. 緊張不安</div><div>C. 灰心失望</div><div>D. 憤憤不平</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span style="font-size:13px">「高高舉起」、「跑了一圈」、等媽媽，都是急着向人展示成績的表現。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">3.</span>她把那封信撕成兩半，又撕成四半，用力丟進垃圾桶。她的心情是：<span class="mark">（1分）</span>
+  <div class="opts"><div>A. 依依不捨</div><div>B. 怒不可遏</div><div>C. 忐忑不安</div><div>D. 欣喜若狂</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span style="font-size:13px">一撕再撕，又「用力」丟掉，表現極度憤怒。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">4.</span>他站在新同學面前，雙手插進口袋又抽出來，張了張嘴，最後只說了一聲「你好」。他當時的心情是：<span class="mark">（1分）</span>
+  <div class="opts"><div>A. 拘謹害羞</div><div>B. 怒氣沖沖</div><div>C. 得意洋洋</div><div>D. 傷心欲絕</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span style="font-size:13px">手不知放哪裏、張嘴又說不出話，是拘謹害羞的表現。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">5.</span>面試結果公布前，他每隔幾分鐘便刷新一次電郵，每次都把手機屏幕湊到眼前。他的心情怎樣？試引用一個動作說明。<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）他焦急、緊張地等待結果（1分）。「每隔幾分鐘便刷新一次」，可見他一刻也等不及；「把屏幕湊到眼前」，怕看漏了任何訊息（1分）。（任引一項）</div></div>
+</div>
+<div class="qbox"><span class="qn">6.</span>同事說了一句玩笑，全組都笑了。阿玲也笑了笑，低頭繼續打字，打錯了好幾個字也沒有發覺。阿玲的心情怎樣？試引用兩個動作說明。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）阿玲心裏不高興，可能覺得受到冒犯，或者另有心事（1分）。她只是「笑了笑」便低頭，表示勉強附和（1分）；「打錯了好幾個字也沒有發覺」，可見她心不在焉（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">7.</span>醫生從手術室走出來。奶奶站起來，雙手緊緊抓住椅背，嘴唇動了動，卻沒有發出聲音。試分析奶奶當時的心理。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）奶奶極度緊張和擔心（1分）。「緊緊抓住椅背」，像要支撐自己，可見她十分害怕（1分）；「嘴唇動了動，卻沒有發出聲音」，表示她想問結果卻不敢問，怕聽到壞消息（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">8.</span>和媽媽吵架後，我一整晚沒有走出房間。第二天早上，我在房門口看到一盒我最愛吃的蛋撻，盒上沒有字條，媽媽已經出門上班了。試分析媽媽的心理。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）媽媽想和「我」和好，也關心「我」一晚沒吃東西（1分）。她特意買「我最愛吃」的蛋撻，表示她仍很疼「我」（1分）；「沒有字條」又在「我」起牀前出門，可見她不善於說出口，只用行動表示（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">9.</span>弟弟出國那天，哥哥說要上班，沒有去機場。那天晚上，哥哥把弟弟的牀鋪重新鋪了一遍，枕頭拍得鬆鬆的。試分析哥哥的心理。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）哥哥其實很捨不得弟弟（1分）。弟弟已經離開，牀鋪沒有人睡，哥哥仍細心重鋪，「拍得鬆鬆的」，像在等弟弟回來，流露思念（1分）。他不去機場，可能是怕自己在送別時流露感情，反映他不善表達（1分）。（言之成理即可）</div></div>
+</div>
+<div class="qbox"><span class="qn">10.</span>接到落選通知後，他把那雙球鞋洗得乾乾淨淨，綁好鞋帶，放回鞋盒，推到牀底最深處。試分析他當時複雜的心理。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）他對落選十分失望，決定放下這項運動（1分）。把球鞋「洗得乾乾淨淨」、「綁好鞋帶」，動作細心，可見他仍很珍惜這雙鞋和過去的努力（1分）；「推到牀底最深處」，則表示他不想再看見，要和這段經歷告別（1分）。珍惜與割捨同時存在，反映他不捨又無奈的矛盾心情（1分）。</div></div>
+</div>
+
+<div class="section-header" id="s11"><span class="sh-icon">3️⃣</span><span class="sh-title">練習三：言行不一與矛盾（第三層）</span><span class="sh-num">CHAPTER 11</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="qbox"><span class="qn">1.</span>「這點小傷，不痛。」弟弟說着，眼淚卻在眼眶裏打轉。弟弟的說話和神態有甚麼矛盾？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）他說「不痛」，但眼淚在眼眶裏打轉（1分），可見他其實很痛，只是強忍着，想表現得勇敢（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">2.</span>「我一點也不累。」媽媽一邊說，一邊用手搥着腰，慢慢坐到沙發上。（a）媽媽的說話和動作有甚麼矛盾？（b）她為甚麼這樣說？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）（a）媽媽說「一點也不累」，但她「搥着腰」、「慢慢」坐下，可見她其實很累（2分）。（b）她不想家人擔心自己（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">3.</span>「誰稀罕你的卡！」妹妹撅着嘴，把卡丟到一旁。晚飯後，我看見那張卡端端正正地立在她的書桌上。妹妹真正的想法是甚麼？試指出前後的對照加以說明。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）妹妹其實很喜歡這張卡（1分）。前面她說「誰稀罕」並「丟到一旁」，表面不在乎（1分）；後來卡「端端正正地立在」書桌上，可見她很珍惜，只是口硬心軟（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">4.</span>「你不用送我，我自己去機場就行。」女兒說。拖着行李出門時，她在門口站了一會兒，回頭看了看坐在客廳的父親。女兒真正的想法是甚麼？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）女兒其實捨不得父親，也希望父親送她（1分）。她嘴上說不用送（1分），出門時卻「站了一會兒」、「回頭看」，流露不捨和期待（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">5.</span>爸爸看完我的作文，只說了句「普普通通」，便把作文簿放回桌上。半夜我起來喝水，看見他戴着老花鏡，在燈下又翻開那本作文簿。試分析爸爸的真正想法。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）爸爸其實很欣賞「我」的作文（1分）。他當面只說「普普通通」，是不善讚賞，或怕「我」驕傲（1分）；半夜「又翻開」重讀，可見他很在意、很喜歡這篇作文（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">6.</span>畢業典禮完結，同學們都跑去拍照。我抱着畢業證書站在禮堂門口，看看校門，又回頭看看空蕩蕩的課室。試用「既……又……」說明「我」的心情，並引用文中動作支持。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）「我」既為畢業、將踏入人生新階段而期待，又捨不得母校（2分）。「抱着畢業證書」、「看看校門」表現對畢業的珍視和對前路的期待；「又回頭看看空蕩蕩的課室」表現不捨（2分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">7.</span>得知自己升職並要調往外地，他笑着請同事們吃飯。回家後，他把車停在樓下，坐在車裏，很久都沒有關掉引擎。試用「既……又……」分析他的心情，並引用文中動作支持。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）他既為升職而高興，又對離開熟悉的環境和家人感到不安、不捨（2分）。「笑着請同事吃飯」表現高興（1分）；回家後「坐在車裏，很久都沒有關掉引擎」，一個人靜坐，遲遲不上樓，可見他心事重重，不知如何向家人開口（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">8.</span>「走吧，走吧，別誤了車。」外婆揮着手催我們。車子開動時，她卻追了幾步，又停下來。試分析外婆前後言行的矛盾，以及她的真正心理。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）外婆嘴上催我們快走，像是不在意離別（1分）；車開動時「卻追了幾步」，可見她捨不得我們離開（1分）。「又停下來」，表示她知道追不上，只能把不捨壓下（1分）。外婆催促，是怕我們誤車，也是怕自己的不捨拖累我們，反映她處處為兒孫着想（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">9.</span>接過孫女送的圍巾，爺爺皺着眉說：「又買這些沒用的東西。」那條圍巾，他從那年冬天一直戴到春天。試分析爺爺的心理，並說明「一直」一詞的作用。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）爺爺表面嫌棄禮物（1分），其實很喜歡、很珍惜孫女的心意，只是不善表達（1分）。「一直」強調他天天戴着，連天氣轉暖的春天也不肯脫下（1分），以行動推翻了他的說話，突出他口硬心軟（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">10.</span>「考不上就考不上，我才不在乎。」表姐說完，把那本厚厚的筆記扔到牀上。半夜，我被翻書聲吵醒，看見她開着枱燈，把筆記一頁一頁撫平，再用夾子夾好。試分析表姐前後的言行，說明她的真正心理及心情的變化。<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分）前：表姐說「才不在乎」，又把筆記「扔」到牀上，表面上滿不在乎，其實是失意和賭氣（2分）。後：她半夜起來把筆記「一頁一頁撫平」、「用夾子夾好」，動作細心，可見她仍珍惜自己的努力，並未真正放棄（2分）。她的心情由失落、賭氣，轉為冷靜下來，重新振作，準備再考（1分）。</div></div>
+</div>
+
+<div class="section-header" id="s12"><span class="sh-icon">4️⃣</span><span class="sh-title">練習四：關鍵字放大鏡</span><span class="sh-num">CHAPTER 12</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="qbox"><span class="qn">1.</span>「他把成績表塞進書包最底層。」如果把「塞」改為「放」，意思有何不同？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「放」只是一般動作，看不出情緒（1分）；「塞」寫出動作匆忙用力，像要把成績表藏起來，反映他對成績不滿、不想讓人看見（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">2.</span>比較「她把門關上」和「她輕輕地把門關上」，加入「輕輕地」有甚麼效果？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「輕輕地」寫出她刻意放輕動作，不發出聲音（1分），表現她小心、體貼，怕驚動屋裏的人（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">3.</span>比較「他把信讀了一遍」和「他把信讀了一遍又一遍」，後者多了甚麼意思？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）重複的動作表示他捨不得放下這封信（1分），反映這封信對他很重要，令他激動或思念寫信人（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">4.</span>「祖母用指頭摩挲着那張舊照片。」如果把「摩挲」改為「摸了摸」，效果有何不同？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「摸了摸」動作短暫，只是一般觸碰（1分）；「摩挲」是反覆輕撫，動作慢而溫柔，帶出祖母對照片中人的懷念和珍惜（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">5.</span>比較以下兩句，說明加入「還」字的效果。<br>甲：爺爺站在村口，看着我們的車子。<br>乙：車子轉了彎，爺爺還站在村口，看着我們離開的方向。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）車子已轉彎，爺爺其實看不見我們（1分），「還」字表示他仍不肯離開，久久站立（1分），突出爺爺的不捨和牽掛（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">6.</span>「他在電話旁坐了一整晚，終於拿起了聽筒。」「終於」一詞說明了甚麼？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）「終於」表示拿起聽筒之前經過了很長時間（1分），他一直猶豫、掙扎，不敢打這個電話（1分），最後才下定決心。可見這通電話對他意義重大，或者內容難以啟齒（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">7.</span>「爸爸接過我的獎狀，沒有說話，只是點了點頭，然後轉身走進房間。」「沒有說話」這個「沒有做的動作」，反映了甚麼？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）一般人看到孩子得獎會稱讚，爸爸卻「沒有說話」（1分）。配合「點了點頭」表示肯定，可見他心裏欣慰（1分），只是不善於用言語表達；「轉身走進房間」，也可能是不想讓孩子看見自己激動的神情（1分）。（言之成理即可）</div></div>
+</div>
+<div class="qbox"><span class="qn">8.</span>比較以下兩句，說明兩個動作在速度上的分別及其反映的心情。<br>甲：她一把搶過那封信。<br>乙：她慢慢接過那封信。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）甲句「一把搶過」，動作快而急，反映她急切想知道信的內容，或者着急、生氣（1.5分）。乙句「慢慢接過」，動作遲緩，反映她猶豫、害怕，或者心情沉重，不想面對信中的內容（1.5分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">9.</span>「他接過那封錄取通知，手指在信封邊緣摩挲了許久，始終沒有拆開。」試指出句中最能表現人物心理的兩個詞語，並加以分析。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）「摩挲了許久」：反覆撫摸信封，動作慢而遲疑，表示他既渴望又害怕（2分）。「始終沒有拆開」：「始終」強調一直不敢拆開，突出他怕失望、不敢面對結果的忐忑心情（2分）。（亦可答「許久」，言之成理即可）</div></div>
+</div>
+<div class="qbox"><span class="qn">10.</span>「夜深了，母親仍坐在窗前，一針一針地織着毛衣。織錯了一行，她便拆開，重新再織。」試找出句中三個關鍵詞語，分析它們如何表現母親的心意。<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分）①「仍」：夜深了還不休息，可見她急於完成，不顧勞累（1.5分）。②「一針一針」：動作細緻緩慢，見其用心（1.5分）。③「拆開，重新再織」：錯了一行也不肯將就，要求完美（1.5分）。三者合起來，表現母親對穿毛衣的人深厚的關愛（0.5分）。</div></div>
+</div>
+
+<div class="section-header" id="s13"><span class="sh-icon">5️⃣</span><span class="sh-title">練習五：辨識作用（第四層）</span><span class="sh-num">CHAPTER 13</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<p>第 1 至 3 題為選擇題，其後須指出作用並加以分析。</p>
+<div class="qbox"><span class="qn">1.</span>「老鐵匠只看了一眼爐火的顏色，便把鐵塊夾了出來。」這句動作描寫的主要作用是：<span class="mark">（1分）</span>
+  <div class="opts"><div>A. 營造緊張的氣氛</div><div>B. 刻畫人物形象</div><div>C. 製造情節懸念</div><div>D. 首尾互相呼應</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span style="font-size:13px">「只看了一眼」便知火候，刻畫老鐵匠經驗豐富、技藝純熟。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">2.</span>「我正要推門進去，卻聽到房裏傳來父母壓低聲音的爭吵。」這句的主要作用是：<span class="mark">（1分）</span>
+  <div class="opts"><div>A. 刻畫人物的外貌</div><div>B. 製造轉折與懸念</div><div>C. 運用景物襯托</div><div>D. 首尾互相呼應</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span style="font-size:13px">推門的動作被打斷，情節出現轉折，讀者想知道父母為何爭吵。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">3.</span>文章開首寫「每次出門，祖母都替我拉好衣領」，結尾寫「如今，我站在鏡前，替自己拉好衣領」。這兩句的作用是：<span class="mark">（1分）</span>
+  <div class="opts"><div>A. 營造熱鬧氣氛</div><div>B. 製造情節懸念</div><div>C. 首尾照應對比</div><div>D. 刻畫外貌特徵</div></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span style="font-size:13px">同一動作首尾出現，由祖母做變成自己做，暗示祖母已不在，寄託懷念。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">4.</span>母親把信讀了一遍，摺好，放進信封，又抽出來，再讀一遍。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）揭示人物心理（1分）。母親摺好信又抽出來再讀，重複的動作表現她放不下這封信（1分），反映她對寫信人深切的思念或內心的激動（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">5.</span>屋裏很靜。祖父坐在藤椅上，一下一下地搖着扇子；扇子停了，又搖起來。窗外的蟬叫個不停。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）營造氣氛（1分）。祖父「一下一下」搖扇，停了又搖，動作緩慢而單調（1分），配合屋裏的靜和窗外的蟬聲，營造夏日午後悠長、寧靜（或寂寞）的氣氛（1分）。（言之成理即可）</div></div>
+</div>
+<div class="qbox"><span class="qn">6.</span>颱風訊號除下後，全村的人都走出來：有人拿掃帚掃街，有人合力扶起倒下的樹，孩子們在水窪裏跳來跳去。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）營造氣氛（1分）。村民「掃街」、「合力扶樹」，見守望相助（1分）；孩子在水窪「跳來跳去」，充滿生氣，營造風雨過後輕鬆、熱鬧、重現生機的氣氛（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">7.</span>文章開首寫：「祖父每天清晨都會把門前的石階掃得一塵不染。」結尾寫：「祖父走後，門前的石階積滿了落葉。」<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）首尾照應、前後對比（1分）。開首的掃階動作刻畫祖父勤勞、愛整潔（1分）；結尾石階積滿落葉，不寫人而寫景物變化，暗示祖父已不在（1分），以物是人非含蓄地寄託作者的哀思（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">8.</span>下課鐘一響，同學們便衝出課室。只有阿明留下來，把黑板擦得乾乾淨淨，又把歪了的椅子逐張推回桌下。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）對比襯托，刻畫人物形象（1分）。同學們「衝出」課室，急着離開（1分）；阿明卻留下來擦黑板、「逐張」推好椅子，做事細心（1分）。以眾人的匆忙襯托阿明的盡責，突出他有責任感、默默付出的形象（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">9.</span>我正要按下「傳送」，手指卻停在半空。過了很久，我把整段訊息一個字一個字地刪掉了。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）揭示心理，並製造轉折（1分）。「手指卻停在半空」，動作突然中止，表示「我」臨時猶豫（1分）；「過了很久」、「一個字一個字地刪掉」，動作緩慢，表現「我」內心掙扎，最終放棄，帶着不捨或無奈（1分）。情節由「要傳送」轉為「刪掉」，引起讀者思考「我」為何改變主意（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">10.</span>一篇文章三次寫外婆「把最大的那塊魚肉夾到我碗裏」：第一次是「我」小時候；第二次是「我」中學時嫌她囉嗦；第三次是「我」婚後帶丈夫回家，外婆的手抖得夾不穩，仍堅持把魚肉夾給「我」。試分析這個反覆出現的動作對全文的作用。<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分）① 線索：同一動作在三個人生階段出現，串連全文，結構緊密（1分）。② 刻畫人物：外婆總把最好的留給「我」，表現她無私的愛（1分）。③ 對比：「我」由接受、到嫌棄、再到長大成家，外婆的動作始終不變，以「我」的變化襯托外婆的愛恆久不變（1分）。④ 細節深化情感：第三次「手抖得夾不穩，仍堅持」，寫出外婆年老體衰，對「我」的愛卻沒有減少（1分）。⑤ 突出主旨：借反覆出現的平凡動作，表達親人之愛深厚長久，以及「我」的感念（1分）。</div></div>
+</div>
+
+<div class="section-header" id="s14"><span class="sh-icon">6️⃣</span><span class="sh-title">練習六：篇章分析</span><span class="sh-num">CHAPTER 14</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="excerpt">
+  <h4>鈕扣</h4>
+  <p>中學畢業那年，我要到外地升學。臨行前一晚，母親說我外套的第二顆鈕扣鬆了，要我脫下來給她。</p>
+  <p>她坐在飯桌旁，把老花鏡推上額頭，又拉下來，眯着眼，把線頭對着燈光穿了好幾次，才穿進針孔。我說：「明天到了宿舍，我自己縫就行了。」她沒有抬頭，只說：「你哪會？」</p>
+  <p>那顆鈕扣，她縫了很久。縫好了，她用牙齒咬斷線頭，拉了拉，又在原處多繞了幾圈，再咬斷，再拉。我站在一旁，看着燈下她鬢邊的白髮，忽然說不出話來。</p>
+  <p>第二天在車站，母親替我穿上外套，從下而上，把鈕扣一顆一顆扣好。車開動了，我隔着車窗向她揮手。她沒有揮手，只是站着，雙手交握在胸前。</p>
+  <p>後來那件外套舊了，袖口也磨破了，我一直沒有丟掉。其他鈕扣早已換過，只有第二顆，到今天仍緊緊地縫在那裏。</p>
+  <div class="src">（潘SIR中文教室撰）</div>
+</div>
+<div class="qbox"><span class="qn">1.</span>根據第一段，母親為甚麼要「我」把外套脫下來？<span class="mark">（1分）</span>
+  <div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）因為外套的第二顆鈕扣鬆了，母親要替「我」縫好。</div></div>
+</div>
+<div class="qbox"><span class="qn">2.</span>試從第二段找出三個表現母親眼力不好的動作。<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）把老花鏡推上額頭，又拉下來；眯着眼；把線頭對着燈光穿了好幾次，才穿進針孔。（每項1分）</div></div>
+</div>
+<div class="qbox"><span class="qn">3.</span>第四段寫母親「從下而上，把鈕扣一顆一顆扣好」。這個動作反映母親怎樣的心意？<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）兒子已長大，本可自己扣鈕扣，母親仍親手「一顆一顆」扣好，動作細緻（1分），表現她對兒子無微不至的照顧，也是想把握分別前最後的親近時刻（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">4.</span>第三段寫「我」「忽然說不出話來」，是因為「我」看見了甚麼？「我」當時有甚麼感受？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）「我」看見母親在燈下反覆加固鈕扣，以及她鬢邊的白髮（1分）。「我」驚覺母親已經老了，仍為自己費盡心力（1分），心裏感動、不捨，也有點愧疚，一時說不出話（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">5.</span>第五段寫外套「舊了」、「磨破了」，「我一直沒有丟掉」。這反映「我」怎樣的心意？<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）外套已經殘舊，按理應該丟掉（1分），「我」卻「一直」保留，可見「我」珍惜的不是外套本身（1分），而是母親縫鈕扣時的心意，藉此懷念母親（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">6.</span>母親說「你哪會？」時「沒有抬頭」。試分析母親當時的心理。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）母親的話表面上帶點嫌棄，好像不信任兒子（1分），實際上是不放心兒子獨自在外照顧自己（1分）。「沒有抬頭」一方面表現她專心縫鈕扣，想親手為兒子做好最後一件事（1分）；另一方面也可能是掩飾離別在即的不捨，不願讓兒子看見自己的神情（1分）。（言之成理即可）</div></div>
+</div>
+<div class="qbox"><span class="qn">7.</span>第三段寫母親縫好鈕扣後「拉了拉，又在原處多繞了幾圈，再咬斷，再拉」。這組動作有甚麼作用？<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）揭示母親的心理（1分）。鈕扣已經縫好，她仍「多繞了幾圈」、「再拉」，重複加固（1分），表示她怕鈕扣在兒子離家後再鬆脫，希望兒子在外一切穩妥（1分），寄託了母親放心不下的關愛，情感含蓄（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">8.</span>第四段寫母親「沒有揮手，只是站着，雙手交握在胸前」，與一般送別場面的寫法有何不同？這樣寫有甚麼效果？<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）一般送別常寫揮手、流淚或叮囑（1分），作者卻寫母親靜止的姿態，與「我」的揮手形成對比（1分）。「雙手交握在胸前」像在默默祝禱，也像在壓抑情緒（1分），把不捨和牽掛收在沉默之中，比直寫哭泣更含蓄動人（1分）。</div></div>
+</div>
+<div class="qbox"><span class="qn">9.</span>綜合全文，母親是一個怎樣的人？試舉兩項，並引用文中的動作描寫加以說明。<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）任答兩項，每項性格1分、引證說明1分：<br>① 細心周到：鈕扣縫好後仍「多繞了幾圈」、「再拉」，反覆加固。<br>② 疼愛兒子、不辭勞苦：眼力不好，仍「穿了好幾次」堅持親手縫。<br>③ 含蓄、不善表達感情：說「你哪會？」時不抬頭；送別時「沒有揮手，只是站着」。</div></div>
+</div>
+<div class="qbox"><span class="qn">10.</span>作者為甚麼以「鈕扣」為題？試結合全文的動作描寫加以分析。<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分）鈕扣是貫串全文的線索，也是母愛的象徵（1分）。母親「多繞了幾圈，再咬斷，再拉」，反覆加固，寄託希望兒子在外穩妥的心意（1分）；車站上她「把鈕扣一顆一顆扣好」，表現無微不至的照顧（1分）。結尾寫其他鈕扣都換過，只有第二顆「仍緊緊地縫在那裏」，與開首呼應（1分），象徵母愛長存，也表現作者對母親的珍惜與懷念（1分）。</div></div>
+</div>
+
+<div class="section-header" id="s15"><span class="sh-icon">7️⃣</span><span class="sh-title">練習七：由閱讀到寫作</span><span class="sh-num">CHAPTER 15</span></div><div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<p>把下列直接抒情的句子，改寫成動作描寫（可加入神態），不可出現括號內的詞語。題目由淺入深。</p>
+<div class="qbox"><span class="qn">1.</span>收到錄取通知，我非常開心。（不可用「開心」、「高興」、「興奮」）<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）我把通知書看了三遍，然後抓起電話，連按了兩次都按錯了號碼。<br><span style="font-size:13px">評分原則：動作具體（1分）；讀者能推斷出情感，沒有用禁用詞語（1分）。學生自由作答，言之成理即可。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">2.</span>聽到弟弟弄壞了他的模型，哥哥很生氣。（不可用「生氣」、「憤怒」、「發怒」）<span class="mark">（2分）</span>
+  <div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）哥哥一把奪過斷了翼的模型，咬着牙，把房門「砰」的一聲甩上。<br><span style="font-size:13px">評分原則：同上。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">3.</span>派發試卷前，我非常緊張。（不可用「緊張」、「不安」）<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）老師抱着一疊試卷走進課室，我把筆蓋拔出來，又套回去，拔出來，又套回去。手心的汗把桌面弄濕了一片，我的眼睛卻一直盯着老師的手。<br><span style="font-size:13px">評分原則：動作具體（1分）；讀者能推斷出情感（1分）；沒有用禁用詞語，句子通順（1分）。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">4.</span>知道自己落選後，我很失望。（不可用「失望」、「難過」、「傷心」）<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）名單上沒有我的名字。我從頭看到尾，又從尾看到頭，然後慢慢把書包背上，沿着牆邊走出了禮堂。<br><span style="font-size:13px">評分原則：同第 3 題。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">5.</span>行雷閃電時，弟弟很害怕。（不可用「害怕」、「驚慌」、「恐懼」）<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）窗外一道白光閃過，弟弟立刻把被子拉過頭，只露出兩隻眼睛。雷聲一響，他便縮成一團，抓着我的衣角不放。<br><span style="font-size:13px">評分原則：同第 3 題。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">6.</span>祖母很想念在外國讀書的孫兒。（不可用「想念」、「掛念」、「思念」）<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）每天吃過晚飯，祖母總會坐到電話旁，把老花鏡戴上又摘下。電話一響，她便搶先拿起聽筒；聽到不是孫兒的聲音，又慢慢把聽筒放回去，用手帕抹了抹上面的灰。<br><span style="font-size:13px">評分原則：同第 3 題。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">7.</span>爸爸工作了一整天，很累，卻不肯承認。（須運用「言行不一」的寫法；不可用「累」、「疲倦」）<span class="mark">（3分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）「不用扶，我精神得很。」爸爸揮揮手，彎腰解鞋帶時卻停了好一會兒，才扶着鞋櫃慢慢直起身來。<br><span style="font-size:13px">評分原則：說話與動作形成矛盾（1分）；動作具體（1分）；沒有用禁用詞語，句子通順（1分）。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">8.</span>知道好友要移民後，我心裏很不捨，卻說不出口。（須運用「言行不一」或「沒有做的動作」其中一種寫法；不可用「不捨」、「捨不得」）<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）「去那邊也好，天氣比這裏好多了。」我笑着說，低頭把飲管咬得扁扁的。她說起機票的日子，我「嗯」了一聲，把杯裏早已喝完的檸檬茶又吸了一口，只吸到一陣空響。<br><span style="font-size:13px">評分原則：運用指定寫法（1分）；動作具體（1分）；讀者能推斷出不捨（1分）；沒有用禁用詞語，句子通順（1分）。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">9.</span>得知外公病重，媽媽十分傷心。（須包含一個「沒有做的動作」；不可用「傷心」、「哭」、「流淚」）<span class="mark">（4分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）放下電話，媽媽沒有說話，也沒有去收拾晚飯的碗筷。她坐在飯桌旁，把外公去年寄來的那封信從抽屜裏拿出來，攤開，用手掌一下一下地撫平。<br><span style="font-size:13px">評分原則：包含「沒有做的動作」（1分）；動作具體（1分）；讀者能推斷出傷心（1分）；沒有用禁用詞語，句子通順（1分）。</span></div></div>
+</div>
+<div class="qbox"><span class="qn">10.</span>試寫一段約一百字的文字，以一個重複出現的動作首尾呼應，表達「我」對一位已離開的人的懷念。全段不可出現「懷念」、「想念」、「思念」、「掛念」。<span class="mark">（5分）</span>
+  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）小時候，每次過馬路，外公都會把我的手握在他的大手裏，說：「看左，看右，再看左。」我總嫌他囉嗦，一到對面便甩開他的手。<br>今天，我牽着女兒站在同一個路口。綠燈亮了，我握緊她的小手，聽見自己說：「看左，看右，再看左。」<br><span style="font-size:13px">評分原則：有一個首尾重複出現的動作（1分）；首尾形成對照或變化（1分）；動作具體，能讓讀者體會懷念（2分）；沒有用禁用詞語，字數及句子合乎要求（1分）。</span></div></div>
+</div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');a.hidden=!show;b.textContent=show?'🙈 隱藏答案':'👁 顯示答案';b.classList.toggle('on',show);}
+function allShown(){return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});}
+function syncAll(){var s=allShown();document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});}
+function toggleAns(btn){var w=btn.parentNode;showOne(w,w.querySelector('.ans').hidden);syncAll();}
+function setAll(show){document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);});syncAll();}
+function printVersion(v){document.body.classList.remove('print-student','print-teacher');document.body.classList.add('print-'+v);var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};window.addEventListener('afterprint',done);window.print();}
+</script>
+</body></html>
