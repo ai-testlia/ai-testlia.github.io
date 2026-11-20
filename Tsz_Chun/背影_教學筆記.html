@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="pansir-category" content="閱讀">
+<meta name="pansir-type" content="筆記">
+<title>講讀《背影》──借事抒情｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5b95;--purple-bg:#f0edf7;--teal:#2a8c82;--teal-bg:#e6f4f2;
+  --coral:#d0654f;--coral-bg:#fcefeb;--amber:#c58a1b;--amber-bg:#fdf5e4;
+  --pink:#c2557f;--pink-bg:#fbeef3;--blue:#3b6ea5;--blue-bg:#eaf1f9;
+  --green:#3c8a4f;--green-bg:#ebf5ee;--red:#c0392b;--red-bg:#fbecea;
+  --hero-bg:#4F6072;--hero-fg:241,244,246;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#a9a9a9;
+    --color-background-primary:#1f2124;--color-background-secondary:#16181a;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#b3a4e0;--purple-bg:#2a2638;--teal:#6cc9bd;--teal-bg:#1d302d;
+    --coral:#f0957f;--coral-bg:#3a2520;--amber:#e7b55a;--amber-bg:#352b18;
+    --pink:#ec8fb4;--pink-bg:#382230;--blue:#8ab4e6;--blue-bg:#1d2a3a;
+    --green:#7fcb92;--green-bg:#1c3022;--red:#f08a7e;--red-bg:#3a1f1c;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:'Noto Sans TC',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 18px 90px}
+h1,h2,.text-block,.excerpt{font-family:'Noto Serif TC',serif}
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--hero-bg);color:rgb(var(--hero-fg));border-radius:var(--border-radius-lg);padding:38px 32px 30px;margin-bottom:18px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero::before{content:"";position:absolute;inset:0;opacity:.13;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cg fill='none' stroke='%23F1F4F6' stroke-width='1.2'%3E%3Cpath d='M0 22H120M0 38H120'/%3E%3Cpath d='M10 16V44M30 16V44M50 16V44M70 16V44M90 16V44M110 16V44'/%3E%3C/g%3E%3C/svg%3E"),
+  radial-gradient(circle at 88% 30%,rgba(232,140,60,.9) 0 22px,transparent 23px),
+  radial-gradient(circle at 80% 62%,rgba(232,140,60,.8) 0 16px,transparent 17px);
+  background-size:120px 60px,100% 100%,100% 100%;background-repeat:repeat-x,no-repeat,no-repeat;background-position:0 100%,0 0,0 0}
+.hero>*{position:relative}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:2px;padding:3px 12px;border-radius:999px;border:1px solid rgba(var(--hero-fg),.3);color:rgba(var(--hero-fg),.65)}
+.hero h1{font-size:30px;margin:12px 0 4px;color:rgb(var(--hero-fg));letter-spacing:1px}
+.hero .sub{font-size:14px;color:rgba(var(--hero-fg),.75)}
+.hero p{margin:12px 0 0;font-size:13px;color:rgba(var(--hero-fg),.5)}
+/* toc */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:16px;display:grid;grid-template-columns:1fr 1fr;gap:2px 18px}
+.toc-title{grid-column:1/-1;font-weight:700;margin-bottom:6px}
+.toc-item{display:flex;gap:10px;align-items:center;color:var(--color-text-primary);text-decoration:none;padding:4px 6px;border-radius:6px;font-size:14px}
+.toc-item:hover{background:var(--color-background-secondary)}
+.toc-item.ex{color:var(--color-text-secondary)}
+.toc-num{font-size:12px;font-weight:700;color:#4F6072;min-width:22px}
+@media (prefers-color-scheme:dark){.toc-num{color:#9fb2c6}}
+.goal-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.goal{background:var(--blue-bg);border-radius:var(--border-radius-md);padding:10px 14px;font-size:14px}
+.goal b{display:block;color:var(--blue);font-size:12px;letter-spacing:1px}
+/* section */
+.section-header{display:flex;align-items:center;gap:14px;margin:34px 0 14px;padding:14px 18px;border-radius:var(--border-radius-lg);background:var(--color-background-primary);border-left:6px solid #4F6072;border-top:0.5px solid var(--color-border-tertiary);border-right:0.5px solid var(--color-border-tertiary);border-bottom:0.5px solid var(--color-border-tertiary)}
+.sh-icon{font-size:26px}
+.sh-ch{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary)}
+.section-header h2{margin:0;font-size:21px}
+/* card */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:14px;font-size:14px;line-height:1.8}
+.card p{margin:6px 0}
+.card-title{font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--purple)}
+.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}
+.small-note{font-size:13px;color:var(--color-text-secondary)}
+/* text */
+.text-block{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:14px;font-size:16px;line-height:2.1}
+.text-block p{margin:0 0 12px;text-indent:0}
+.pnum{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#4F6072;color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-right:8px;vertical-align:2px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:6px;padding:2px 10px;margin:8px 0 8px}
+sup.n{color:var(--coral);font-size:11px;font-family:'Noto Sans TC',sans-serif}
+/* keyword */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin:8px 0 14px}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px}
+.kw-word{font-weight:700;font-size:14px;color:var(--purple)}
+.kw-def{font-size:13.5px;line-height:1.7}
+/* example/alert/formula */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:0 0 14px}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary)}
+.example-text{font-family:'Noto Serif TC',serif;font-size:15px}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:0 0 14px;font-size:14px}
+.alert.tip{background:var(--blue-bg)}.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
+.alert-icon{font-size:18px}
+.alert-label{font-weight:700;font-size:13px}
+.alert.tip .alert-label{color:var(--blue)}.alert.warn .alert-label{color:var(--red)}.alert.success .alert-label{color:var(--green)}.alert.amber .alert-label{color:var(--amber)}
+.formula{background:#2f3d4a;color:#f1f4f6;border-radius:var(--border-radius-lg);padding:16px 20px;margin:0 0 14px;font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9}
+.f-label{font-family:'Noto Sans TC',sans-serif;font-size:12px;letter-spacing:2px;color:#e8a86a;margin-bottom:4px}
+/* compare & flow */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary);background:var(--color-background-primary)}
+.compare-card p{margin:4px 0}
+.compare-card.bad{border-top:4px solid var(--red)}.compare-card.good{border-top:4px solid var(--green)}.compare-card.neutral{border-top:4px solid var(--blue)}
+.cc-title{font-weight:700}
+.eg{color:var(--color-text-secondary);font-size:13px}
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:10px 0}
+.flow-step{flex:1 1 110px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px;text-align:center;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:14px}
+.flow-arrow{display:flex;align-items:center;color:var(--color-text-secondary)}
+/* table */
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--color-border-tertiary);padding:7px 10px;vertical-align:top;text-align:left}
+.tbl th{background:var(--color-background-secondary);font-weight:700}
+.tbl .c,.tbl th.c,.tbl td.c{white-space:nowrap;text-align:center}
+/* exercises */
+.qsub{font-weight:700;color:var(--coral);margin:18px 0 8px;font-size:15px}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:12px 16px;margin-bottom:10px;font-size:14.5px;line-height:2}
+.qn{font-weight:700;color:var(--amber);margin-right:6px}
+.mark{color:var(--color-text-secondary);font-size:13px;margin-left:4px}
+.line{border-bottom:1px solid var(--color-text-secondary);opacity:.45;height:32px}
+.blank{display:inline-block;min-width:90px;border-bottom:1px solid var(--color-text-primary);height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:36px}.blank.l{min-width:160px}
+.opts{margin:6px 0 0 4px}
+.opts>div{padding:1px 0}
+.opts.row{display:flex;gap:30px}
+.opt-l{display:inline-block;width:22px;height:22px;line-height:20px;text-align:center;border:1px solid var(--color-text-secondary);border-radius:50%;font-size:12px;margin-right:8px}
+.box{display:inline-block;width:15px;height:15px;border:1.5px solid var(--color-text-primary);margin-right:6px;vertical-align:-2px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin:0 0 10px;font-size:15px;line-height:1.95}
+.excerpt p{margin:0 0 8px}
+.ex-no{color:var(--coral);margin-right:6px}
+.src{display:block;text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.ex-title{text-align:center;font-weight:700;margin-bottom:6px}
+.ex-title span{font-weight:400;font-size:13px;margin-left:14px;color:var(--color-text-secondary)}
+.grid-60{display:grid;grid-template-columns:repeat(20,1fr);border-top:1px solid var(--color-text-secondary);border-left:1px solid var(--color-text-secondary);margin:8px 0;max-width:640px}
+.grid-60 span{aspect-ratio:1;border-right:1px solid var(--color-text-secondary);border-bottom:1px solid var(--color-text-secondary)}
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer;line-height:1.6}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px;line-height:1.85}
+.ans[hidden]{display:none}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans-note{font-size:13px;color:var(--color-text-secondary)}
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:1px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15);line-height:1.5}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+.ans-bar .tb-btn{box-shadow:none;padding:4px 14px;font-size:12.5px}
+@media (max-width:640px){.toc,.goal-row,.compare-grid{grid-template-columns:1fr}.hero h1{font-size:24px}}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#1a1a1a}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.excerpt,.compare-grid,.flow{page-break-inside:avoid}
+  .text-block p{page-break-inside:avoid}
+  .excerpt.long{page-break-inside:auto}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub,.layer-tag{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+  <div class="hero-tag">閱讀教學筆記</div>
+  <h1>講讀《背影》──借事抒情</h1>
+  <div class="sub">中一　單元三　親情暖心間</div>
+  <p>潘SIR中文教室編撰</p>
+</div>
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>作者與課文</a><a class="toc-item ex" href="#s2"><span class="toc-num">02</span>練習一　字詞與內容</a><a class="toc-item" href="#s3"><span class="toc-num">03</span>篇章結構</a><a class="toc-item ex" href="#s4"><span class="toc-num">04</span>練習二　段意、主旨與課文概覽</a><a class="toc-item" href="#s5"><span class="toc-num">05</span>四次背影與詳略安排</a><a class="toc-item ex" href="#s6"><span class="toc-num">06</span>練習三　四次背影</a><a class="toc-item" href="#s7"><span class="toc-num">07</span>送行細節與父親形象</a><a class="toc-item ex" href="#s8"><span class="toc-num">08</span>練習四　推想父親的用意</a><a class="toc-item" href="#s9"><span class="toc-num">09</span>寫作技巧：借事抒情與反語</a><a class="toc-item ex" href="#s10"><span class="toc-num">10</span>練習五　寫作技巧</a><a class="toc-item" href="#s11"><span class="toc-num">11</span>主旨與比較閱讀</a><a class="toc-item ex" href="#s12"><span class="toc-num">12</span>練習六　主旨、比較與延伸</a></nav>
+<div class="goal-row">
+<div class="goal"><b>學習重點一</b>認識間接抒情的方法（一）：借事抒情。</div>
+<div class="goal"><b>學習重點二</b>運用閱讀策略：留心關鍵的細節。</div>
+</div>
+<div class="section-header first" id="s1"><div class="sh-icon">📖</div><div><div class="sh-ch">CHAPTER 01　教學</div><h2>作者與課文</h2></div></div>
+
+<div class="card"><div class="card-title"><span class="dot purple"></span>作者是誰？</div><p><b>朱自清</b>（1898–1948），字佩弦。他祖籍浙江紹興，在江蘇東海出生，後來跟家人住在揚州。他是現代有名的散文家，也寫詩、做學問。他在北京大學哲學系畢業，後來在清華大學教書。</p>
+<p>他的名作有《背影》、《荷塘月色》、《春》、《匆匆》等。他寫文章用字簡單、樸素，喜歡用生活中的小事和小細節帶出感情。《背影》就是一個好例子。</p></div>
+
+<div class="card"><div class="card-title"><span class="dot teal"></span>這篇文章在寫甚麼時候的事？</div><p>故事發生在作者二十歲那年冬天。那段日子很不好過：</p><div class="flow"><div class="flow-step"><b>祖母去世</b>家裏要辦喪事</div><div class="flow-arrow">→</div><div class="flow-step"><b>父親失業</b>父親丟了工作</div><div class="flow-arrow">→</div><div class="flow-step"><b>回家奔喪</b>作者從北京趕到徐州，和父親一起回家</div><div class="flow-arrow">→</div><div class="flow-step"><b>各自出發</b>父親去南京找工作，作者回北京讀書</div><div class="flow-arrow">→</div><div class="flow-step"><b>車站送別</b>父親在浦口火車站送作者上車</div></div>
+<p>不過，作者寫這篇文章時，已經是幾年後的事。文章第一句說「我與父親不相見已二年餘了」，最後一段又寫他收到父親的信。所以，全篇是作者<b>長大後回想</b>當年的事寫成的。</p></div>
+
+<div class="card"><div class="card-title"><span class="dot amber"></span>讀課文前先知道</div><div class="keyword-grid"><div class="kw"><div class="kw-word">體裁</div><div class="kw-def">記敍抒情散文：一邊記事，一邊抒發感情。</div></div><div class="kw"><div class="kw-word">人稱</div><div class="kw-def">第一人稱，「我」就是作者本人。</div></div><div class="kw"><div class="kw-word">線索</div><div class="kw-def">父親的背影。線索就像一條繩，把全文的事情串起來。</div></div><div class="kw"><div class="kw-word">抒情方法</div><div class="kw-def">借事抒情：不直接說「我很感動」，而是透過事情讓讀者感受到。</div></div><div class="kw"><div class="kw-word">敍述次序</div><div class="kw-def">倒敍：先寫現在，再倒回去寫以前，最後回到現在。</div></div></div>
+</div>
+
+<div class="card"><div class="card-title"><span class="dot amber"></span>課文原文</div><p class="small-note">段號旁的標籤表示文章的層次。加圈數字的詞語見文後註釋。</p></div>
+
+<div class="text-block">
+<div class="layer-tag">第一層　開首：交代背景（第1–2段）</div>
+<p><span class="pnum">1</span>我與父親不相見已二年餘了，我最不能忘記的是他的背影。那年冬天，祖母死了，父親的差使也交卸了<sup class="n">①</sup>，正是禍不單行的日子，我從北京到徐州，打算跟着父親奔喪回家。到徐州見着父親，看見滿院狼藉<sup class="n">②</sup>的東西，又想起祖母，不禁簌簌<sup class="n">③</sup>地流下眼淚。父親說：「事已如此，不必難過，好在天無絕人之路！」</p>
+<p><span class="pnum">2</span>回家變賣典質<sup class="n">④</sup>，父親還了虧空<sup class="n">⑤</sup>；又借錢辦了喪事。這些日子，家中光景<sup class="n">⑥</sup>很是慘澹<sup class="n">⑦</sup>，一半為了喪事，一半為了父親賦閒<sup class="n">⑧</sup>。喪事完畢，父親要到南京謀事，我也要回北京唸書，我們便同行。</p>
+<div class="layer-tag">第二層　送行前（第3段）</div>
+<p><span class="pnum">3</span>到南京時，有朋友約去遊逛，勾留<sup class="n">⑨</sup>了一日；第二日上午便須渡江到浦口<sup class="n">⑩</sup>，下午上車北去。父親因為事忙，本已說定不送我，叫旅館裏一個熟識的茶房<sup class="n">⑪</sup>陪我同去。他再三囑咐茶房，甚是仔細。但他終於不放心，怕茶房不妥帖<sup class="n">⑫</sup>；頗躊躇<sup class="n">⑬</sup>了一會。其實我那年已二十歲，北京已來往過兩三次，是沒有甚麼要緊的了。他躊躇了一會，終於決定還是自己送我去。我兩三回勸他不必去；他只說：「不要緊，他們去不好！」</p>
+<div class="layer-tag">第三層　車站送行（第4–5段）</div>
+<p><span class="pnum">4</span>我們過了江，進了車站。我買票，他忙着照顧行李。行李太多了，得向腳夫<sup class="n">⑭</sup>行些小費，才可過去。他便又忙着和他們講價錢。我那時真是聰明過分，總覺他說話不大漂亮，非自己插嘴不可。但他終於講定了價錢；就送我上車。他給我揀定了靠車門的一張椅子；我將他給我做的紫毛大衣鋪好座位。他囑我路上小心，夜裏要警醒<sup class="n">⑮</sup>些，不要受涼。又囑託茶房好好照應我。我心裏暗笑他的迂<sup class="n">⑯</sup>；他們只認得錢，託他們直是白託！而且我這樣大年紀的人，難道還不能料理自己麼？唉，我現在想想，那時真是太聰明了！</p>
+<p><span class="pnum">5</span>我說道：「爸爸，你走吧。」他望車外看了看，說：「我買幾個橘子去。你就在此地，不要走動。」我看那邊月台的柵欄外有幾個賣東西的等着顧客。走到那邊月台，須穿過鐵道，須跳下去又爬上去。父親是一個胖子，走過去自然要費事些。我本來要去的，他不肯，只好讓他去。我看見他戴着黑布小帽，穿着黑布大馬褂，深青布棉袍，蹣跚<sup class="n">⑰</sup>地走到鐵道邊，慢慢探身下去，尚不大難。可是他穿過鐵道，要爬上那邊月台，就不容易了。他用兩手攀着上面，兩腳再向上縮，他肥胖的身子向左微傾，顯出努力的樣子。這時我看見他的背影，我的淚很快地流下來了。我趕緊拭乾了淚，怕他看見，也怕別人看見。我再向外看時，他已抱了朱紅的橘子望回走了。過鐵道時，他先將橘子散放在地上，自己慢慢爬下，再抱起橘子走。到這邊時，我趕緊去攙他。他和我走到車上，將橘子一股腦兒<sup class="n">⑱</sup>放在我的皮大衣上。於是撲撲衣上的泥土，心裏很輕鬆似的，過一會說：「我走了，到那邊來信！」我望着他走出去。他走了幾步，回過頭看見我，說：「進去吧，裏邊沒人。」等他的背影混入來來往往的人裏，再找不着了，我便進來坐下，我的眼淚又來了。</p>
+<div class="layer-tag">第四層　結尾：回到現在（第6段）</div>
+<p><span class="pnum">6</span>近幾年來，父親和我都是東奔西走，家中光景是一日不如一日。他少年出外謀生，獨立支持，做了許多大事。哪知老境卻如此頹唐<sup class="n">⑲</sup>！他觸目傷懷<sup class="n">⑳</sup>，自然情不能自已。情鬱於中，自然要發之於外<sup class="n">㉑</sup>；家庭瑣屑<sup class="n">㉒</sup>便往往觸他之怒。他待我漸漸不同往日。但最近兩年的不見，他終於忘卻我的不好，只是惦記着我，惦記着我的兒子。我北來後，他寫了一信給我，信中說道：「我身體平安，惟膀子疼痛利害<sup class="n">㉓</sup>，舉箸<sup class="n">㉔</sup>提筆，諸多不便，大約大去之期<sup class="n">㉕</sup>不遠矣。」我讀到此處，在晶瑩的淚光中，又看見那肥胖的，青布棉袍，黑布馬褂的背影。唉！我不知何時再能與他相見！</p>
+</div>
+<div class="card"><div class="card-title"><span class="dot coral"></span>註釋</div><div class="keyword-grid"><div class="kw"><div class="kw-word">① 差使交卸</div><div class="kw-def">差使，工作；交卸，把工作交出去。意思是父親丟了工作。</div></div><div class="kw"><div class="kw-word">② 狼藉</div><div class="kw-def">雜亂不堪的樣子。</div></div><div class="kw"><div class="kw-word">③ 簌簌</div><div class="kw-def">形容眼淚紛紛落下。</div></div><div class="kw"><div class="kw-word">④ 變賣典質</div><div class="kw-def">把家裏的東西賣掉，或拿去當舖抵押，換錢應急。</div></div><div class="kw"><div class="kw-word">⑤ 虧空</div><div class="kw-def">欠下的債務。</div></div><div class="kw"><div class="kw-word">⑥ 光景</div><div class="kw-def">境況、情況。</div></div><div class="kw"><div class="kw-word">⑦ 慘澹</div><div class="kw-def">淒涼、不好過。也寫作「慘淡」。</div></div><div class="kw"><div class="kw-word">⑧ 賦閒</div><div class="kw-def">沒有工作，留在家中。</div></div><div class="kw"><div class="kw-word">⑨ 勾留</div><div class="kw-def">逗留、停留。</div></div><div class="kw"><div class="kw-word">⑩ 浦口</div><div class="kw-def">地名，在南京長江的北岸，那裏有火車站。</div></div><div class="kw"><div class="kw-word">⑪ 茶房</div><div class="kw-def">以前在旅館、火車上倒茶、打雜的服務員。</div></div><div class="kw"><div class="kw-word">⑫ 妥帖</div><div class="kw-def">做事穩妥、靠得住。</div></div><div class="kw"><div class="kw-word">⑬ 躊躇</div><div class="kw-def">猶豫不決。</div></div><div class="kw"><div class="kw-word">⑭ 腳夫</div><div class="kw-def">以前在車站、碼頭替人搬行李的工人。</div></div><div class="kw"><div class="kw-word">⑮ 警醒</div><div class="kw-def">睡得淺一點，容易醒來（以免財物被偷）。</div></div><div class="kw"><div class="kw-word">⑯ 迂</div><div class="kw-def">老土、死板，不懂變通。</div></div><div class="kw"><div class="kw-word">⑰ 蹣跚</div><div class="kw-def">走路慢、搖搖擺擺，腳步不穩的樣子。</div></div><div class="kw"><div class="kw-word">⑱ 一股腦兒</div><div class="kw-def">全部、通通。</div></div><div class="kw"><div class="kw-word">⑲ 頹唐</div><div class="kw-def">失意、沒精神。</div></div><div class="kw"><div class="kw-word">⑳ 觸目傷懷</div><div class="kw-def">看到眼前的情景而感到傷心。</div></div><div class="kw"><div class="kw-word">㉑ 情鬱於中，自然要發之於外</div><div class="kw-def">心裏憋着不開心，自然會發泄出來。</div></div><div class="kw"><div class="kw-word">㉒ 瑣屑</div><div class="kw-def">瑣碎細小的事。</div></div><div class="kw"><div class="kw-word">㉓ 利害</div><div class="kw-def">同「厲害」，很嚴重。</div></div><div class="kw"><div class="kw-word">㉔ 箸</div><div class="kw-def">筷子。</div></div><div class="kw"><div class="kw-word">㉕ 大去之期</div><div class="kw-def">指死去的日子。「大去」是死亡的委婉說法。</div></div></div>
+</div>
+<div class="section-header" id="s2"><div class="sh-icon">✏️</div><div><div class="sh-ch">CHAPTER 02　練習</div><h2>練習一　字詞與內容</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">甲　字詞理解（選擇題）</div>
+
+<div class="qbox"><span class="qn">1.</span>「父親的差使也交卸了」一句的意思是：<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>父親被上司調往別處工作</div><div><span class="opt-l">B</span>父親卸去職務，失去工作</div><div><span class="opt-l">C</span>父親把手頭工作交給作者</div><div><span class="opt-l">D</span>父親剛完成了一件重要差事</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ans-note">「差使」指職務，「交卸」指卸任。父親在祖母去世的同時失去工作，所以說「禍不單行」。</span></div></div></div>
+
+<div class="qbox"><span class="qn">2.</span>「頗躊躇了一會」中「躊躇」的意思是：<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>生氣</div><div><span class="opt-l">B</span>害怕</div><div><span class="opt-l">C</span>猶豫</div><div><span class="opt-l">D</span>傷心</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ans-note">父親本已說定不送，但又怕茶房不妥帖，所以猶豫不決。</span></div></div></div>
+
+<div class="qbox"><span class="qn">3.</span>「我心裏暗笑他的迂」中「迂」的意思是：<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>拘泥守舊</div><div><span class="opt-l">B</span>囉唆多話</div><div><span class="opt-l">C</span>小氣吝嗇</div><div><span class="opt-l">D</span>膽小怕事</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span class="ans-note">作者當時覺得父親拜託茶房照顧自己是多此一舉，笑他不懂變通。</span></div></div></div>
+
+<div class="qbox"><span class="qn">4.</span>父親信中「大約大去之期不遠矣」的「大去之期」是指：<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>出門遠行的日子</div><div><span class="opt-l">B</span>辭職退休的日子</div><div><span class="opt-l">C</span>回鄉團聚的日子</div><div><span class="opt-l">D</span>離開人世的日子</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D<br><span class="ans-note">「大去」是死亡的婉辭。父親自覺身體衰弱，以為自己時日無多。</span></div></div></div>
+
+<div class="qsub">乙　內容理解</div>
+
+<div class="qbox"><span class="qn">5.</span>根據第1段，作者從<span class="blank "></span>（1）到<span class="blank "></span>（2）與父親會合，打算跟父親回家為祖母奔喪。<span class="mark">（2分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（1）北京　（2）徐州</div></div></div>
+
+<div class="qbox"><span class="qn">6.</span>根據第2段，家中光景慘澹，一半為了<span class="blank "></span>（1），一半為了<span class="blank "></span>（2）。<span class="mark">（2分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（1）喪事　（2）父親賦閒（父親失去工作）</div></div></div>
+
+<div class="qbox"><span class="qn">7.</span>喪事完畢後，父親要到<span class="blank "></span>（1）謀事，作者要回<span class="blank "></span>（2）唸書，兩人便同行。<span class="mark">（2分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（1）南京　（2）北京</div></div></div>
+
+<div class="qbox"><span class="qn">8.</span>作者那年多少歲？作者認為父親有沒有必要親自送他上車？試引用第3段的句子說明。<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）作者那年已二十歲。（1分）作者認為沒有必要，因為「北京已來往過兩三次，是沒有甚麼要緊的了」。（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">9.</span>根據第5段，父親到對面月台買橘子要克服甚麼困難？試舉出兩項。<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）須穿過鐵道，跳下去又爬上去；（1分）父親是個胖子，走過去要費事些。（1分）<br><span class="ans-note">其他合理答案，如「月台很高，父親要用兩手攀着、兩腳上縮才爬得上去」，亦可給分。</span></div></div></div>
+
+<div class="qbox"><span class="qn">10.</span>根據第6段，父親在信中說自己的身體有甚麼毛病？作者讀信後有甚麼反應？<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）父親說膀子疼痛得厲害，拿筷子、拿筆都不方便。（1分）作者讀後流淚，在淚光中又看見父親的背影。（1分）</div></div></div>
+
+<div class="section-header" id="s3"><div class="sh-icon">🧭</div><div><div class="sh-ch">CHAPTER 03　教學</div><h2>篇章結構</h2></div></div>
+
+<div class="card"><div class="card-title"><span class="dot purple"></span>文章的時間：現在 → 以前 → 現在</div><p>《背影》用<b>倒敍</b>來寫。倒敍的意思是：先說現在，再倒回去說以前發生的事。</p>
+<p>文章第一句先說「現在」：作者兩年多沒見父親，最忘不了父親的背影。然後時間倒回幾年前的冬天，按先後次序寫奔喪、送行、買橘子和分別。最後一段又回到「現在」，寫父親近年的情況和他寫來的信。</p><div class="flow"><div class="flow-step"><b>現在</b>第1段首句<br>忘不了背影</div><div class="flow-arrow">→</div><div class="flow-step"><b>以前</b>第1–2段<br>奔喪、各自出發</div><div class="flow-arrow">→</div><div class="flow-step"><b>以前</b>第3段<br>送行前</div><div class="flow-arrow">→</div><div class="flow-step"><b>以前</b>第4–5段<br>車站送行</div><div class="flow-arrow">→</div><div class="flow-step"><b>現在</b>第6段<br>讀信，又看見背影</div></div>
+<p>開首和結尾都寫「現在」，也都提到背影。頭尾互相對應，這叫<b>首尾呼應</b>。</p></div>
+
+<div class="card"><div class="card-title"><span class="dot teal"></span>全文分四層</div>
+<p class="small-note">「詳」＝寫得仔細；「略」＝簡單帶過。</p>
+<table class="tbl"><tr><th class="c">層次</th><th class="c">段落</th><th>寫了甚麼</th><th class="c">詳略</th></tr>
+<tr><td class="c">第一層</td><td class="c">第1–2段</td><td>交代背景：祖母去世、父親失業，辦完喪事後父子各自出發。</td><td class="c">略</td></tr>
+<tr><td class="c">第二層</td><td class="c">第3段</td><td>父親本來說好不送，最後還是決定親自送作者。</td><td class="c">略</td></tr>
+<tr><td class="c">第三層</td><td class="c">第4–5段</td><td>車站送行：看行李、講價錢、選座位、叮囑、買橘子、分別。</td><td class="c">詳</td></tr>
+<tr><td class="c">第四層</td><td class="c">第6段</td><td>父親近年過得不好，寫信給作者，作者又想起背影。</td><td class="c">略</td></tr></table></div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">段意怎樣寫？</div><div class="alert-text">段意要包括兩部分：<b>這段寫了甚麼事</b>＋<b>表達了甚麼感情</b>。<br>例如第3段：父親很忙，仍堅持親自送行（事）→ 表達父親對兒子的擔心和牽掛（情）。</div></div></div>
+
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">小心</div><div class="alert-text">第1段同時有「現在」和「以前」。第一句是「現在」，由「那年冬天」開始才是「以前」。做課文概覽時不要混在一起。</div></div></div>
+
+<div class="formula"><div class="f-label">一句記</div>由「忘不了的背影」開始，回憶車站送別，最後以「淚光中的背影」作結。</div>
+<div class="section-header" id="s4"><div class="sh-icon">✏️</div><div><div class="sh-ch">CHAPTER 04　練習</div><h2>練習二　段意、主旨與課文概覽</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">甲　段意（試寫出各段段意）</div>
+
+<div class="qbox"><span class="qn">1.</span>第1段：記述作者從<span class="blank "></span>（1）往<span class="blank "></span>（2）與父親會合，打算與父親回家為祖母奔喪的情形。<span class="mark">（2分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（1）北京　（2）徐州</div></div></div>
+
+<div class="qbox"><span class="qn">2.</span>第2段：記述家中光景<span class="blank "></span>（1），祖母的喪事完結後，作者與父親各奔前程。<span class="mark">（1分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）（1）慘澹</div></div></div>
+
+<div class="qbox"><span class="qn">3.</span>第3段：記述父親在百忙中仍不放心，堅持親自<span class="blank "></span>（1），表達父親對兒子的<span class="blank l"></span>（2）。<span class="mark">（2分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（1）送行　（2）擔心和牽掛</div></div></div>
+
+<div class="qbox"><span class="qn">4.</span>第4段：記述送行時，父親為作者找腳夫、揀座位等事，表達父親對作者<span class="blank l"></span>（1），並抒發作者因當時不能體會父親的關懷而感到<span class="blank "></span>（2）。<span class="mark">（2分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（1）無微不至的照顧　（2）歉疚</div></div></div>
+
+<div class="qbox"><span class="qn">5.</span>第5段：敍述父親為作者買橘子一事，作者詳細描述父親穿過鐵道、<span class="blank l"></span>（1）的艱辛情況，表現<span class="blank "></span>（2）之情；同時抒寫自己目送父親離開時<span class="blank "></span>（3）之情，點出文章「背影」的主題。<span class="mark">（3分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）（1）爬上月台　（2）感動　（3）依依不捨</div></div></div>
+
+<div class="qbox"><span class="qn">6.</span>第6段：記述父親近年<span class="blank "></span>（1），回憶當日父親在車站為他<span class="blank l"></span>（2），抒發與父親<span class="blank "></span>（3）的哀傷和對父親的<span class="blank "></span>（4）。<span class="mark">（4分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）（1）身體日衰　（2）買橘子時的背影　（3）聚少離多　（4）擔憂</div></div></div>
+
+<div class="qsub">乙　主旨</div>
+
+<div class="qbox"><span class="qn">7.</span>作者憶述和父親回家奔喪後，他<span class="blank l"></span>（1），父親到<span class="blank l"></span>（2），為他悉心打點一切。作者詳細描述<span class="blank l"></span>（3）一事，藉此表達父親對兒子<span class="blank l"></span>（4），令他<span class="blank "></span>（5），並抒發<span class="blank l"></span>（6）之情。<span class="mark">（6分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分）（1）回北京唸書　（2）火車站送行　（3）父親爬過月台為他買橘子　（4）無微不至的關懷　（5）深受感動　（6）對父親的思念</div></div></div>
+
+<div class="qsub">丙　課文概覽</div>
+
+<div class="qbox"><span class="qn">8.</span>完成「現在」及「回憶：回家奔喪、各奔前程」部分。<span class="mark">（8分）</span>
+<table class="tbl"><tr><th class="c">時間</th><th>內容</th></tr>
+<tr><td class="c">現在（第1段）</td><td>與父親不相見已二年餘，最不能忘記的是<span class="blank l"></span>（1）。</td></tr>
+<tr><td class="c">回家奔喪<br>（第1–2段）</td><td>在徐州：看到<span class="blank l"></span>（2），又想起<span class="blank "></span>（3），不禁<span class="blank "></span>（4）。<br>在家鄉：由於<span class="blank l"></span>（5），家中<span class="blank "></span>（6）。</td></tr>
+<tr><td class="c">各奔前程<br>（第2段）</td><td>父親：到<span class="blank "></span>（7）。　作者：回<span class="blank "></span>（8）。</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（8分）（1）父親的背影　（2）滿院狼藉的東西　（3）去世的祖母　（4）落淚　（5）辦喪事和父親賦閒　（6）光景慘澹　（7）南京謀事　（8）北京唸書</div></div></div>
+
+<div class="qbox"><span class="qn">9.</span>完成「送行前（第3段）」部分。<span class="mark">（6分）</span>
+<table class="tbl"><tr><th class="c">人物</th><th>表現</th></tr>
+<tr><td class="c">父親</td><td>事忙，請<span class="blank l"></span>（1）相陪，並<span class="blank l"></span>（2）。<br>怕茶房<span class="blank "></span>（3），猶豫後，決定<span class="blank l"></span>（4）。</td></tr>
+<tr><td class="c">作者</td><td>北京已往來過<span class="blank "></span>（5），沒有甚麼要緊的。<br>兩三回<span class="blank l"></span>（6）。</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分）（1）一個熟識的茶房　（2）再三叮囑他　（3）不妥帖　（4）自己去送行　（5）兩三次　（6）勸父親不必去</div></div></div>
+
+<div class="qbox"><span class="qn">10.</span>完成「送行（第4–5段）」及「現在（第6段）」部分。<span class="mark">（15分）</span>
+<table class="tbl"><tr><th class="c">部分</th><th>父親</th><th>作者</th></tr>
+<tr><td class="c">送行</td><td>為作者<span class="blank "></span>（1）、<span class="blank "></span>（2）、<span class="blank l"></span>（3）、囑託茶房照應作者。<br>穿過鐵道，<span class="blank "></span>（6）地爬過月台給作者<span class="blank "></span>（7）。<br>叮囑作者<span class="blank "></span>（9）；走了幾步，又<span class="blank l"></span>（10）。</td>
+<td>總覺父親<span class="blank l"></span>（4）；心裏<span class="blank l"></span>（5）。<br>看見父親爬上月台的背影，<span class="blank l"></span>（8）。<br>等父親的背影消失，<span class="blank l"></span>（11）。</td></tr>
+<tr><td class="c">現在</td><td>生活<span class="blank "></span>（12），因<span class="blank l"></span>（13），常<span class="blank "></span>（14）作者。</td><td>收到父親的來信，腦海浮現<span class="blank l"></span>（15）。</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（15分）（1）照顧行李　（2）跟腳夫講價　（3）選擇和整理座位　（4）說話不大漂亮　（5）暗笑他太守舊　（6）艱辛　（7）買橘子　（8）淚很快流了下來　（9）寫信　（10）回頭看作者　（11）眼淚又來了　（12）艱難　（13）兩年沒見面　（14）惦記　（15）父親的背影<br><span class="ans-note">每空1分。（1）至（3）次序可以調換。</span></div></div></div>
+
+<div class="section-header" id="s5"><div class="sh-icon">👀</div><div><div class="sh-ch">CHAPTER 05　教學</div><h2>四次背影與詳略安排</h2></div></div>
+
+<div class="card"><div class="card-title"><span class="dot purple"></span>讀書方法：留心關鍵的細節</div><p>題目是「背影」，背影就是全文的<b>線索</b>。讀的時候，可以照下面三步做：</p><div class="flow"><div class="flow-step"><b>第一步　圈出</b>把所有寫「背影」的地方圈出來</div><div class="flow-arrow">→</div><div class="flow-step"><b>第二步　比較</b>看看哪一次寫得最仔細</div><div class="flow-arrow">→</div><div class="flow-step"><b>第三步　想一想</b>作者為甚麼這樣寫？想表達甚麼感情？</div></div>
+</div>
+
+<div class="card"><div class="card-title"><span class="dot teal"></span>課文中的四次背影</div>
+<div class="excerpt"><span class="ex-no">❶</span>我與父親不相見已二年餘了，我最不能忘記的是他的背影。<span class="src">（第1段）</span></div>
+<div class="excerpt"><span class="ex-no">❷</span>他用兩手攀着上面，兩腳再向上縮，他肥胖的身子向左微傾，顯出努力的樣子。這時我看見他的背影，我的淚很快地流下來了。<span class="src">（第5段）</span></div>
+<div class="excerpt"><span class="ex-no">❸</span>等他的背影混入來來往往的人裏，再找不着了，我便進來坐下，我的眼淚又來了。<span class="src">（第5段）</span></div>
+<div class="excerpt"><span class="ex-no">❹</span>我讀到此處，在晶瑩的淚光中，又看見那肥胖的，青布棉袍，黑布馬褂的背影。<span class="src">（第6段）</span></div>
+<p class="small-note">發現了嗎？四次背影中，有三次作者都流了淚（❷❸❹）。</p></div>
+<div class="card"><div class="card-title"><span class="dot coral"></span>詳寫和略寫</div><p><b>詳寫</b>：把最重要的事寫得很仔細。<br><b>略寫</b>：把不太重要的事簡單交代。<br>有詳有略，讀者才看得出哪裏是重點。</p>
+<p>四次背影中，只有第二次（父親爬月台買橘子）寫得最仔細。作者把父親的動作一步一步寫出來：</p><div class="flow"><div class="flow-step"><b>蹣跚</b>慢慢地、搖搖擺擺地走到鐵道邊</div><div class="flow-arrow">→</div><div class="flow-step"><b>探身</b>慢慢彎身下去</div><div class="flow-arrow">→</div><div class="flow-step"><b>攀、縮</b>兩手攀着月台，兩腳往上縮</div><div class="flow-arrow">→</div><div class="flow-step"><b>微傾</b>胖胖的身子向左邊斜</div></div>
+<p>再加上父親「肥胖」的身形，讀者好像親眼看見父親爬得多辛苦。父親這麼辛苦也要為兒子買橘子，讀者自然感受到他對兒子的愛。</p></div>
+
+<div class="compare-grid">
+<div class="compare-card bad"><div class="cc-title">如果四次背影都寫得很仔細</div><p>文章會太長，重點不清楚，讀者反而記不住最感人的一幕。</p></div>
+<div class="compare-card good"><div class="cc-title">只把買橘子的背影寫仔細</div><p>集中寫最感人的一幕，令感情去到最高點；其他三次簡單提一提，前後照應就夠了。</p></div>
+</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">答題技巧</div><div class="alert-text">問「詳寫有甚麼作用」，可以分三步答：<br>① 寫了甚麼細節 → ② 讀者因此感受到甚麼 → ③ 令感情表達得怎樣（例如更具體、更深刻）。</div></div></div>
+
+<div class="section-header" id="s6"><div class="sh-icon">✏️</div><div><div class="sh-ch">CHAPTER 06　練習</div><h2>練習三　四次背影</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">甲　找出文中提及父親背影的段落，簡述內容大意和作者抒發的感情</div>
+
+<div class="qbox"><span class="qn">1.</span>第一次提及背影：<span class="mark">（3分）</span>
+<table class="tbl"><tr><th class="c">段落</th><th>內容大意</th><th>抒發的感情</th></tr><tr><td class="c">第<span class="blank s"></span>（1）段</td><td>指出<span class="blank l"></span>（2），最難忘記的是父親的背影。</td><td>抒發<span class="blank l"></span>（3）。</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）（1）1（1分）（2）與父親不相見二年餘（1分）（3）對父親的思念（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">2.</span>第二次提及背影：<span class="mark">（3分）</span>
+<table class="tbl"><tr><th class="c">段落</th><th>內容大意</th><th>抒發的感情</th></tr><tr><td class="c">第<span class="blank s"></span>（1）段</td><td>描寫父親穿過鐵道，吃力地爬上月台<span class="blank l"></span>（2）時的背影。</td><td><span class="blank l"></span>（3）。</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）（1）5（1分）（2）為作者買橘子（1分）（3）因父親的舉動而感動落淚（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">3.</span>第三次提及背影：<span class="mark">（3分）</span>
+<table class="tbl"><tr><th class="c">段落</th><th>內容大意</th><th>抒發的感情</th></tr><tr><td class="c">第<span class="blank s"></span>（1）段</td><td>記述離別時<span class="blank l"></span>（2），再也找不着。</td><td>抒發與父親離別時<span class="blank "></span>（3）之情。</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）（1）5（1分）（2）父親的背影混入人羣中（1分）（3）依依不捨（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">4.</span>第四次提及背影：<span class="mark">（3分）</span>
+<table class="tbl"><tr><th class="c">段落</th><th>內容大意</th><th>抒發的感情</th></tr><tr><td class="c">第<span class="blank s"></span>（1）段</td><td>作者讀父親的來信，他在信中提及健康欠佳，作者憶起<span class="blank l"></span>（2）。</td><td>抒發<span class="blank l"></span>（3）之情。</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）（1）6（1分）（2）別離當日父親的背影（1分）（3）思念和擔憂父親（1分）</div></div></div>
+
+<div class="qsub">乙　詳寫的背影</div>
+
+<div class="qbox"><span class="qn">5.</span>四次背影之中，哪一次寫得最詳細？<span class="mark">（1分）</span>
+<div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）作者寫父親穿過鐵道買橘子時的背影一節最為詳細。</div></div></div>
+
+<div class="qbox"><span class="qn">6.</span>作者在這個情節中強調了父親背影的哪些特點？<span class="mark">（1分）</span>
+<div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）強調父親步履蹣跚、身材肥胖、努力地爬上月台。</div></div></div>
+
+<div class="qbox"><span class="qn">7.</span>作者詳細描述這個情節，在內容表達上有甚麼作用？<span class="mark">（3分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）作者詳細敍述父親穿過鐵道買橘子的過程，細緻刻畫父親步履蹣跚、身材肥胖，卻要爬上月台的背影，令讀者感受到作者父親的艱辛；（1分）把父親愛護作者之情，通過這件事具體表現出來；（1分）令感情表達得更深刻。（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">8.</span>為甚麼作者只詳寫這個情節，不詳寫其他提及背影的情節？<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）作者抓緊最令人感動的情境，詳細敍述和描寫，把情感表達推至最高峯。（1分）若把所有提及背影的內容都細細說出，文章便會變得冗長，並且失去焦點。（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">9.</span>「他用兩手攀着上面，兩腳再向上縮，他肥胖的身子向左微傾」主要運用了哪種描寫？<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>心理描寫</div><div><span class="opt-l">B</span>語言描寫</div><div><span class="opt-l">C</span>動作描寫</div><div><span class="opt-l">D</span>景物描寫</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ans-note">「攀」、「縮」、「傾」都是動作，寫出父親爬月台的吃力。</span></div></div></div>
+
+<div class="qbox"><span class="qn">10.</span>作者看見父親的背影流淚後，「趕緊拭乾了淚，怕他看見，也怕別人看見」。你認為作者為甚麼不想被人看見？試寫出一個原因。<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（示例）作者不想父親看見自己流淚而擔心或難過；（1分）可見作者感情含蓄，不把對父親的感激表露出來。（1分）<br><span class="ans-note">學生自由作答，言之成理即可。亦可答：作者已是二十歲的成年人，不好意思在人前流淚。評分原則：原因1分，扣連作者的感情或性格1分。</span></div></div></div>
+
+<div class="section-header" id="s7"><div class="sh-icon">🧥</div><div><div class="sh-ch">CHAPTER 07　教學</div><h2>送行細節與父親形象</h2></div></div>
+
+<div class="card"><div class="card-title"><span class="dot purple"></span>從小事看出父親的心</div><p>父親送行時話不多，他對兒子的關心，都在一件件小事上看得出來。讀的時候，可以問自己：<b>父親為甚麼要這樣做？</b></p><div class="flow"><div class="flow-step"><b>他做了甚麼</b>找出父親的動作</div><div class="flow-arrow">→</div><div class="flow-step"><b>他在想甚麼</b>推想背後的用意</div><div class="flow-arrow">→</div><div class="flow-step"><b>他是怎樣的人</b>總結父親的形象</div></div>
+</div>
+
+<div class="card"><div class="card-title"><span class="dot teal"></span>送行時父親做了甚麼？</div>
+<table class="tbl"><tr><th class="c">次序</th><th>父親做的事</th><th class="c">段落</th></tr>
+<tr><td class="c">1</td><td>本來說好不送，猶豫了一會，還是決定親自送</td><td class="c">第3段</td></tr>
+<tr><td class="c">2</td><td>照顧行李，和腳夫講價錢</td><td class="c">第4段</td></tr>
+<tr><td class="c">3</td><td>替作者選好靠車門的座位</td><td class="c">第4段</td></tr>
+<tr><td class="c">4</td><td>叮囑作者路上小心，夜裏睡得淺一點，不要着涼</td><td class="c">第4段</td></tr>
+<tr><td class="c">5</td><td>拜託茶房好好照顧作者</td><td class="c">第4段</td></tr>
+<tr><td class="c">6</td><td>穿過鐵道，爬上月台為作者買橘子</td><td class="c">第5段</td></tr>
+<tr><td class="c">7</td><td>臨走叮囑「到那邊來信」，走了幾步又回頭看</td><td class="c">第5段</td></tr></table></div>
+<div class="card"><div class="card-title"><span class="dot coral"></span>別忘了父親當時的處境</div><p>那時候，父親自己也很不好過：母親剛去世，自己丟了工作，家裏要賣東西、借錢才辦得了喪事。</p>
+<p>他自己這麼困難，心裏想的仍然是兒子，連買幾個橘子也要親自爬月台去買。想到這一點，就更明白父親有多愛兒子。</p></div>
+
+<div class="keyword-grid"><div class="kw"><div class="kw-word">慈愛</div><div class="kw-def">甚麼都替兒子想好，連路上吃的橘子也想到。</div></div><div class="kw"><div class="kw-word">細心</div><div class="kw-def">選座位、叮囑保暖、拜託別人照顧，想得很周到。</div></div><div class="kw"><div class="kw-word">含蓄</div><div class="kw-def">不會把「愛」說出口，愛都表現在行動上。</div></div><div class="kw"><div class="kw-word">堅強</div><div class="kw-def">自己遇到喪母、失業，仍說「天無絕人之路」安慰兒子。</div></div></div>
+
+<div class="compare-grid">
+<div class="compare-card bad"><div class="cc-title">當年的「我」怎樣想</div><p>覺得父親「說話不大漂亮」，一定要自己插嘴；心裏笑父親「迂」（老土、不懂變通），覺得拜託茶房「直是白託」。</p></div>
+<div class="compare-card good"><div class="cc-title">現在的「我」怎樣想</div><p>「唉，我現在想想，那時真是太聰明了！」長大後明白了父親的心意，後悔當年不懂事。</p></div>
+</div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">提醒</div><div class="alert-text">推想父親的用意，答案可以不同，但一定要根據課文，不能亂猜。例如「選靠車門的座位」，可以說是方便作者上落車；但不能說成「父親想坐在兒子旁邊」，因為父親根本沒有上車同行。</div></div></div>
+
+<div class="section-header" id="s8"><div class="sh-icon">✏️</div><div><div class="sh-ch">CHAPTER 08　練習</div><h2>練習四　推想父親的用意</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qsub">甲　文中敍述父親為作者送行時的各個情節，反映父親對作者無微不至的照顧。試就各細節推想父親的用意。</div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">說明</div><div class="alert-text">第1至6題學生可自由作答，言之成理即可，以下答案僅供參考。</div></div></div>
+
+<div class="qbox"><span class="qn">1.</span>細節：<b>照顧行李、跟腳夫講價錢</b><br>父親的用意：<span class="mark">（1分）</span>
+<div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）為作者打點一切，讓他節省一點開支。</div></div></div>
+
+<div class="qbox"><span class="qn">2.</span>細節：<b>給作者揀定了靠車門的座位</b><br>父親的用意：<span class="mark">（1分）</span>
+<div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）靠車門的座位方便作者下車。</div></div></div>
+
+<div class="qbox"><span class="qn">3.</span>細節：<b>囑作者路上小心，夜裏要警醒些，不要受涼</b><br>父親的用意：<span class="mark">（1分）</span>
+<div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）怕作者在路上遇上壞人（小偷），怕他夜裏沉睡，不小心着涼。</div></div></div>
+
+<div class="qbox"><span class="qn">4.</span>細節：<b>囑託茶房好好照應作者</b><br>父親的用意：<span class="mark">（1分）</span>
+<div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）希望作者在路上有人照應，免生危險或麻煩。</div></div></div>
+
+<div class="qbox"><span class="qn">5.</span>細節：<b>越過鐵道給作者買橘子</b><br>父親的用意：<span class="mark">（1分）</span>
+<div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）讓作者帶在路上吃，同時希望他得到好運氣。</div></div></div>
+
+<div class="qbox"><span class="qn">6.</span>細節：<b>臨別前叫作者抵達後寫信給他</b><br>父親的用意：<span class="mark">（1分）</span>
+<div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）要作者來信報平安，自己才能放心。</div></div></div>
+
+<div class="qsub">乙　作者當年的反應</div>
+
+<div class="excerpt"><span class="ex-no">❶</span>行李太多了，得向腳夫行些小費，才可過去。他便又忙着和他們講價錢。我那時真是聰明過分，總覺他說話不大漂亮，非自己插嘴不可。<span class="src">（第4段）</span></div>
+<div class="excerpt"><span class="ex-no">❷</span>他囑我路上小心，夜裏要警醒些，不要受涼。又囑託茶房好好照應我。我心裏暗笑他的迂；他們只認得錢，託他們直是白託！而且我這樣大年紀的人，難道還不能料理自己麼？唉，我現在想想，那時真是太聰明了！<span class="src">（第4段）</span></div>
+<div class="qbox"><span class="qn">7.</span>根據引文❶，父親忙着和腳夫講搬行李的價錢時，作者的反應是：<span class="blank l"></span>（1），非自己插嘴不可。<span class="mark">（1分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）（1）覺得父親不會說話</div></div></div>
+
+<div class="qbox"><span class="qn">8.</span>根據引文❷，父親囑託茶房照顧作者時，作者的反應是：<span class="blank l"></span>（1），茶房只認得錢，託他們沒意思。<span class="mark">（1分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）（1）暗笑父親迂腐</div></div></div>
+
+<div class="qbox"><span class="qn">9.</span>父親說「不要緊，他們去不好！」，反映父親怎樣的心情？<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>看不起茶房，不願和他們交往</div><div><span class="opt-l">B</span>放心不下兒子，要親自送行</div><div><span class="opt-l">C</span>覺得南京的事務其實並不忙</div><div><span class="opt-l">D</span>想順道到浦口車站遊玩一番</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ans-note">父親怕茶房不妥帖，雖然事忙，仍堅持親自送兒子上車。</span></div></div></div>
+
+<div class="qbox"><span class="qn">10.</span>作者已是二十歲的成年人，為甚麼父親還要親自為他買橘子？試加以推想。<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（示例）在父親眼中，兒子無論多大仍是需要照顧的孩子；（1分）臨別時父親想為兒子多做一點事，借買橘子表達關愛和不捨。（1分）<br><span class="ans-note">學生自由作答，言之成理即可。評分原則：說出父親的心態1分，扣連父愛或離別之情1分。</span></div></div></div>
+
+<div class="section-header" id="s9"><div class="sh-icon">🖋️</div><div><div class="sh-ch">CHAPTER 09　教學</div><h2>寫作技巧：借事抒情與反語</h2></div></div>
+
+<div class="compare-grid">
+<div class="compare-card neutral"><div class="cc-title">直接抒情</div><p>作者直接把感受說出來，常用感歎句（「唉！」「啊！」）。<br><span class="eg">例：「唉！我不知何時再能與他相見！」</span></p></div>
+<div class="compare-card good"><div class="cc-title">間接抒情：借事抒情</div><p>作者不直接說感受，只是把事情寫出來，讓讀者從事情中感受到。<br><span class="eg">例：仔細寫父親爬月台買橘子，讀者自然感到父愛。</span></p></div>
+</div>
+<div class="card"><div class="card-title"><span class="dot purple"></span>借事抒情怎樣寫？</div><div class="flow"><div class="flow-step"><b>選一件事</b>選最能表達感情的事</div><div class="flow-arrow">→</div><div class="flow-step"><b>寫清細節</b>寫出動作、樣子、說話</div><div class="flow-arrow">→</div><div class="flow-step"><b>加入反應</b>寫自己的反應，例如流淚</div></div>
+<p>好處是<b>具體可感</b>：讀者看到真實的畫面，比只讀到一句「我很感動」更容易投入，也更容易被打動（產生共鳴）。</p></div>
+
+<div class="example-box teal"><div class="example-label">借事抒情例子　第5段</div><div class="example-text">他用兩手攀着上面，兩腳再向上縮，他肥胖的身子向左微傾，顯出努力的樣子。這時我看見他的背影，我的淚很快地流下來了。</div></div>
+
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">重點</div><div class="alert-text">《背影》主要用<b>借事抒情</b>。結尾「唉！我不知何時再能與他相見！」是直接抒情，但全文的感情主要靠送行、買橘子這些事情帶出來。</div></div></div>
+
+<div class="card"><div class="card-title"><span class="dot coral"></span>反語：說反話</div><p><b>反語</b>就是故意說反話：嘴裏說「好」，意思其實是「不好」。</p>
+<table class="tbl"><tr><th>原句</th><th class="c">字面意思</th><th class="c">真正意思</th></tr>
+<tr><td>我那時真是聰明過分</td><td class="c">很聰明</td><td class="c">自以為是、不懂事</td></tr>
+<tr><td>唉，我現在想想，那時真是太聰明了！</td><td class="c">很聰明</td><td class="c">很笨，不明白父親的心</td></tr></table>
+<p>作者用反話「罵」年輕時的自己。這比直接說「我當時很不懂事」更有力，也更能讓人感受到他的<b>自責和悔疚</b>。</p></div>
+
+<div class="card"><div class="card-title"><span class="dot amber"></span>還有這些寫法</div><div class="keyword-grid"><div class="kw"><div class="kw-word">外貌描寫</div><div class="kw-def">寫人物的樣子和衣着。父親戴「黑布小帽」，穿「黑布大馬褂，深青布棉袍」，顏色暗、很樸素，和家裏境況不好正好配合。</div></div><div class="kw"><div class="kw-word">色彩對照</div><div class="kw-def">父親的衣服顏色很深，橘子卻是「朱紅」的，很鮮艷。一暗一亮，令買橘子這一幕更突出。</div></div><div class="kw"><div class="kw-word">語言描寫</div><div class="kw-def">寫人物說的話。父親的話都很短，如「不要緊，他們去不好！」「進去吧，裏邊沒人。」話雖短，句句都是關心。</div></div><div class="kw"><div class="kw-word">首尾呼應</div><div class="kw-def">開首說「最不能忘記的是他的背影」，結尾又「看見那……背影」，頭尾對應，結構完整。</div></div></div>
+</div>
+
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">小心</div><div class="alert-text">「色彩對照」是讀者自己分析出來的，課文沒有直接這樣說。作答時用「可以看出」、「令……更突出」等字眼，不要寫成「作者說……」。</div></div></div>
+
+<div class="section-header" id="s10"><div class="sh-icon">✏️</div><div><div class="sh-ch">CHAPTER 10　練習</div><h2>練習五　寫作技巧</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>作者主要運用哪一種抒情方法抒寫對父親的感情？（用✓表示，只選一項）<span class="mark">（1分）</span>
+<div class="opts row"><div><span class="box"></span>直接抒情</div><div><span class="box"></span>借事抒情</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）✓ 借事抒情</div></div></div>
+
+<div class="qbox"><span class="qn">2.</span>承上題，試在本文中找出一個例子，說明運用這種抒情方法的好處。<span class="mark">（3分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）借事抒情即藉着敍述事情來抒發感情，好處是具體可感；（1分）像朱自清的父親爬過月台為兒子買橘子的舉動，情景逼真；（1分）能牽引讀者投入事件當中，感受作者的情懷，產生共鳴，加強文章的感染力。（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">3.</span>作者回想送行時自己的反應，對自己有甚麼評價？試從第4段摘錄兩個有關的句子。<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）我那時真是聰明過分。（1分）<br>唉，我現在想想，那時真是太聰明了！（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">4.</span>承上題，作者運用了甚麼修辭手法？表達了甚麼感受？（答案須是兩個字）<br>修辭手法：<span class="blank "></span>（1）　感受：<span class="blank "></span>（2）<span class="mark">（2分）</span>
+
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（1）反語（1分）（2）悔疚（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">5.</span>承上題，運用這種修辭手法有甚麼好處？<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）這裏運用反語，讓作者自責和悔疚的感情更深刻地流露，（1分）使文章更有感染力，感動讀者。（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">6.</span>下列哪一句運用了直接抒情？<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>他用兩手攀着上面，兩腳再向上縮。</div><div><span class="opt-l">B</span>他給我揀定了靠車門的一張椅子。</div><div><span class="opt-l">C</span>他先將橘子散放在地上，自己慢慢爬下。</div><div><span class="opt-l">D</span>唉！我不知何時再能與他相見！</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D<br><span class="ans-note">D 句以感歎直接說出作者的思念和擔憂；A、B、C 都是敍述父親的動作。</span></div></div></div>
+
+<div class="qbox"><span class="qn">7.</span>「我那時真是聰明過分」中的「聰明」，實際上是指：<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>自以為是，不懂事</div><div><span class="opt-l">B</span>學識豐富，見多識廣</div><div><span class="opt-l">C</span>反應敏捷，口才好</div><div><span class="opt-l">D</span>精明能幹，會辦事</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span class="ans-note">這是反語，「聰明」其實是批評自己當年自以為是。</span></div></div></div>
+
+<div class="qbox"><span class="qn">8.</span>本文以「背影」為題，有甚麼作用？試寫出兩點。<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）背影是貫穿全文的線索，四次出現，令文章結構緊密；（1分）以背影集中表現父親對兒子的愛，以及作者對父親的感激和思念。（1分）<br><span class="ans-note">其他合理答案，如「題目新穎，引起讀者好奇」，亦可酌情給分。</span></div></div></div>
+
+<div class="qbox"><span class="qn">9.</span>第5段寫父親穿着「黑布小帽，黑布大馬褂，深青布棉袍」，買回來的橘子則是「朱紅」的。試分析這樣描寫的效果。<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（示例）父親衣着顏色深暗、樸素，與家境慘澹和父子心情沉重相配；（1分）朱紅的橘子顏色鮮明，與衣着成對照，令買橘子這份心意更突出。（1分）<br><span class="ans-note">學生自由作答，言之成理即可。評分原則：說出衣着特點及其效果1分，說出橘子顏色的效果1分。</span></div></div></div>
+
+<div class="qbox"><span class="qn">10.</span>父親把橘子放在作者的大衣上後，「撲撲衣上的泥土，心裏很輕鬆似的」。這個細節反映父親當時怎樣的心情？<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（示例）父親完成了為兒子買橘子的心願，感到安心和滿足；（1分）他輕描淡寫地撲去泥土，不想讓兒子察覺爬月台的辛苦。（1分）<br><span class="ans-note">學生自由作答，言之成理即可。</span></div></div></div>
+
+<div class="section-header" id="s11"><div class="sh-icon">💡</div><div><div class="sh-ch">CHAPTER 11　教學</div><h2>主旨與比較閱讀</h2></div></div>
+
+<div class="formula"><div class="f-label">主旨</div>作者回憶父親在火車站送他、爬月台買橘子的情景，表達父親對兒子無微不至的關懷，也寫出自己對父親的感激、後悔和思念。</div>
+<div class="card"><div class="card-title"><span class="dot purple"></span>《背影》為甚麼感人？</div><p><b>一、寫的是平凡小事。</b>文章寫的只是一次普通的送行。很多人都有過被家人送別的經驗，讀者很容易想起自己的父母，產生共鳴。</p>
+<p><b>二、父子之間曾經有隔膜。</b>第6段說，父親晚年不如意，常為家裏的小事發脾氣，對作者「漸漸不同往日」，父子關係變得疏遠。但兩年沒見，父親心裏只惦記着兒子。作者回想當年送行，才明白父親的愛。</p>
+<p><b>三、感情含蓄。</b>父親不會把愛說出口，作者流淚也要偷偷擦乾。父子都沒有把感情說出來，讀者只能從父親的動作和作者的眼淚中體會。</p></div>
+
+<div class="card"><div class="card-title"><span class="dot teal"></span>比較閱讀：另一位家長</div><p>本單元的比較閱讀選了胡適的《我的母親》。胡適的母親「慈母兼嚴父」：管教兒子很嚴，但也很疼愛兒子。比較兩篇文章時，可以從這三方面想：</p><table class="tbl"><tr><th class="c">比較甚麼</th><th>可以問自己</th></tr><tr><td class="c">人物形象</td><td>這位父親／母親是怎樣的人？性格有甚麼不同？</td></tr><tr><td class="c">怎樣表達愛</td><td>他們用甚麼行動表達愛？溫柔還是嚴厲？</td></tr><tr><td class="c">子女的感受</td><td>子女當時明白嗎？長大後有甚麼體會？</td></tr></table></div>
+
+<div class="example-box amber"><div class="example-label">延伸：唐詩《遊子吟》　孟郊</div><div class="example-text">慈母手中線，遊子身上衣。臨行密密縫，意恐遲遲歸。誰言寸草心，報得三春暉。</div></div>
+
+<p class="small-note" style="margin:-6px 0 14px">大意：慈母手拿針線，為快要遠行的兒子縫衣服。臨行前縫得又密又牢，怕兒子很久才能回來。小草一樣微小的心意，怎能報答春天陽光般的母愛呢？</p>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">答題技巧</div><div class="alert-text">比較兩個人物，記住「<b>先同後異，各舉一例</b>」：先說相同的地方（例如都用行動表達愛），再說不同的地方，每一點都要舉課文中的例子。</div></div></div>
+
+<div class="section-header" id="s12"><div class="sh-icon">✏️</div><div><div class="sh-ch">CHAPTER 12　練習</div><h2>練習六　主旨、比較與延伸</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="qbox"><span class="qn">1.</span>下列哪一項最能概括本文的主旨？<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>憶述父親送行的情景，表達父愛及對父親的思念</div><div><span class="opt-l">B</span>記述回鄉奔喪的經過，表達對祖母去世的深切哀痛</div><div><span class="opt-l">C</span>記述父親買橘子的經過，批評父親做事迂腐，不懂變通</div><div><span class="opt-l">D</span>記述父子在南京相處的情形，表達對故鄉揚州的懷念</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span class="ans-note">B 只是開首的背景；C 是作者當年的想法，作者後來已感到後悔；D 課文沒有提及。</span></div></div></div>
+
+<div class="qbox"><span class="qn">2.</span>第6段寫作者收到父親的信。試代入作者的角色，因應當時的環境，想想你可以為父親做些甚麼？<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（示例）作者可以回信給父親，告訴他自己和兒子生活安穩，請他無須掛念；（1分）同時安慰父親，年老多病痛是常理，勸他放鬆心情，不要太擔心。（1分）<br><span class="ans-note">學生自由作答，言之成理即可。</span></div></div></div>
+
+<div class="qsub">閱讀以下文章，然後回答第3至5題。</div>
+
+<div class="excerpt long"><div class="ex-title">我的母親（節錄）<span>胡適</span></div>
+<p><span class="ex-no">❶</span>我母親管束我最嚴，她是慈母兼嚴父。但她從來不在別人面前罵我一句，打我一下。我做錯了事，她只對我一望，我看見了她的嚴厲眼光，就嚇住了。犯的事小，她等到第二天早晨我睡醒時才教訓我。犯的事大，她等到晚上人靜時，關了房門，先責備我，然後行罰，或罰跪，或擰我的肉，無論怎樣重罰，總不許我哭出聲音來。她教訓兒子不是借此出氣叫別人聽的。</p>
+<p><span class="ex-no">❷</span>有一個初秋的傍晚，我吃了晚飯，在門口玩，身上只穿着一件單背心。這時候我母親的妹子──玉英姨母在我家住，她怕我冷了，拿了一件小衫叫我穿上。我不肯穿，她說：「穿上吧，涼了。」我隨口回答：「娘（涼）甚麼！老子都不老子呀。」我剛說了這句話，一抬頭，看見母親從家裏走出，我趕快把小衫穿上。但她已聽見這句輕薄的話了。晚上人靜後，她罰我跪下，重重地責罰了一頓。她說：「你沒了老子，是多麼得意的事！好用來說嘴！」她氣得坐着發抖，也不許我上牀去睡。我跪着哭，用手擦眼淚，不知擦進了甚麼微菌，後來足足害了一年多的眼翳病。醫來醫去，總醫不好。我母親心裏又悔又急，聽說眼翳可以用舌頭舔去，有一夜她把我叫醒，她真用舌頭舔我的病眼。這是我的嚴師，我的慈母。</p></div>
+<div class="qbox"><span class="qn">3.</span>以下哪些項目符合《我的母親》的內容？（可選多於一項）<div class="opts"><div><span class="opt-l">A</span>表達父／母對孩子的關愛。</div><div><span class="opt-l">B</span>表達父／母對孩子的擔憂。</div><div><span class="opt-l">C</span>表達父／母對孩子的期望。</div><div><span class="opt-l">D</span>表達父／母對孩子的管束。</div><div><span class="opt-l">E</span>表達孩子懊悔未能理解父／母的心意。</div><div><span class="opt-l">F</span>表達孩子對父／母的體諒。</div></div><span class="mark">（1分）</span>
+答案：<span class="blank l"></span>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A、B、D<br><span class="ans-note">須全對才給分。</span></div></div></div>
+
+<div class="qbox"><span class="qn">4.</span>承上題，以下哪些項目符合《背影》的內容？（可選多於一項，選項同上）<span class="mark">（1分）</span>
+答案：<span class="blank l"></span>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A、B、E<br><span class="ans-note">須全對才給分。</span></div></div></div>
+
+<div class="qbox"><span class="qn">5.</span>根據課文和上文，朱自清的父親和胡適的母親的形象有甚麼不同？試舉例加以說明。<span class="mark">（4分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）朱自清的父親含蓄低調，並不多言關心，以行動表達對兒子的愛，如他費力地穿過鐵道為作者買橘子。（2分）胡適的母親也以行動表達對兒子的愛，如她用舌頭為兒子舔眼病；但除了慈愛的一面，還有嚴厲的一面，如她重罰兒子說輕薄的話。（2分）<br><span class="ans-note">評分原則：每個人物形象1分，事例1分。</span></div></div></div>
+
+<div class="qsub">延伸思考</div>
+
+<div class="qbox"><span class="qn">6.</span>為甚麼作者讀過父親的信後，會在淚光中「又看見」父親的背影？<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（示例）信中父親說自己身體衰弱，「大去之期不遠」，令作者擔憂父親；（1分）作者想起當年父親爬月台買橘子的背影，那是他最難忘的父愛，因此在思念中再次浮現。（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">7.</span>《遊子吟》中「臨行密密縫，意恐遲遲歸」兩句，表現母親怎樣的心意？<span class="mark">（1分）</span>
+<div class="opts"><div><span class="opt-l">A</span>責怪孩子不肯早點回家，故意把衣服縫得很密</div><div><span class="opt-l">B</span>希望孩子穿上新衣，在外面得到別人的稱讚</div><div><span class="opt-l">C</span>想把手藝傳給孩子，所以一針一線慢慢縫製</div><div><span class="opt-l">D</span>怕孩子久久不能回家，所以把衣服縫得結實</div></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D<br><span class="ans-note">母親擔心孩子在外遲遲未歸，衣服要穿很久，所以在臨行前縫得特別密實。</span></div></div></div>
+
+<div class="qbox"><span class="qn">8.</span>《遊子吟》和《背影》都寫父母送別子女。兩篇作品表達愛的方式有甚麼相同之處？<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（示例）兩篇作品中的父母都沒有直接說出對子女的愛；（1分）而是借臨別前的行動表達，母親密密縫衣，父親爬月台買橘子。（1分）</div></div></div>
+
+<div class="qbox"><span class="qn">9.</span>假如你是作者，見到父親辛辛苦苦為你買來橘子，你會為父親做些甚麼？<span class="mark">（2分）</span>
+<div class="line"></div><div class="line"></div><div class="line"></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（示例）我會扶父親坐下休息，替他撲去衣上的泥土；（1分）並告訴他我會好好照顧自己，到埗後立即寫信報平安，讓他放心。（1分）<br><span class="ans-note">學生自由作答，言之成理即可。評分原則：具體行動1分，能回應父親的關心1分。</span></div></div></div>
+
+<div class="qbox"><span class="qn">10.</span>試仿照《背影》借事抒情的寫法，選一件長輩關心你的小事，寫一段約60字的文字，不可直接寫出「我很感動」之類的句子。<span class="mark">（4分）</span>
+<div class="grid-60"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）（示例）媽媽知道我考試前要早起，前一晚便把鬧鐘調好，放在我的牀頭。第二天清晨，我聽見廚房傳來輕輕的鍋鏟聲，走出去時，桌上已放着一碗熱騰騰的粥，旁邊還有她寫的小字條：「慢慢吃，別緊張。」<br><span class="ans-note">評分原則：選材恰當1分；細節（動作、外貌或語言）具體1分；感情透過事情流露，沒有直接說出感受1分；文句通順1分。</span></div></div></div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+
+</script>
+</body>
+</html>
