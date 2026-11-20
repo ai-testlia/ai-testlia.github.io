@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="pansir-category" content="文言">
+<meta name="pansir-type" content="筆記">
+<title>岳飛《滿江紅》教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2a8a80;--teal-bg:#e4f3f1;
+  --coral:#d0654a;--coral-bg:#fbebe6;
+  --amber:#c48612;--amber-bg:#fbf2df;
+  --pink:#c2557f;--pink-bg:#f9e8ef;
+  --blue:#3a6ea5;--blue-bg:#e6eef7;
+  --green:#3d8b4f;--green-bg:#e7f3ea;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero:#B56A58;--hero-text:#F1EADF;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2124;--color-background-secondary:#151618;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a89be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c302e;
+    --coral:#f08c72;--coral-bg:#3a2520;
+    --amber:#e8b04a;--amber-bg:#36301f;
+    --pink:#ea8ab0;--pink-bg:#382430;
+    --blue:#7fa9d8;--blue-bg:#1f2a38;
+    --green:#74c286;--green-bg:#1e3124;
+    --red:#ee7b6e;--red-bg:#3a2220;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC','Songti TC',serif}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:44px 36px 46px;margin-bottom:22px;min-height:230px;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 10px 28px rgba(94,46,36,.18)}
+.hero .pattern{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:9px;border:1px solid rgba(241,234,223,.28);border-radius:8px;pointer-events:none}
+.hero>*:not(.pattern){position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;border:1px solid rgba(241,234,223,.5);
+  color:rgba(241,234,223,.9);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:rgba(94,46,36,.18)}
+.hero h1{font-size:34px;margin:0 0 6px;line-height:1.35;color:var(--hero-text);font-weight:700;text-shadow:0 1px 10px rgba(94,46,36,.35);max-width:78%}
+.hero .sub{font-size:15px;color:rgba(241,234,223,.85);margin-bottom:16px}
+.hero p{margin:0;font-size:13px;color:rgba(241,234,223,.7);letter-spacing:2px}
+@media (max-width:640px){.hero h1{font-size:27px;max-width:100%}.hero{padding:34px 24px 40px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(181,106,88,.88) 0%,rgba(181,106,88,.55) 62%,rgba(181,106,88,0) 100%);pointer-events:none}}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:0}
+.toc-item:hover{color:var(--blue)}
+.toc-num{font-weight:700;color:var(--hero);font-size:13px;min-width:22px}
+.toc-item .kind{margin-left:auto;font-size:11.5px;color:var(--color-text-secondary);white-space:nowrap}
+@media (prefers-color-scheme:dark){.toc-num{color:var(--blue)}}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;border-radius:var(--border-radius-lg);
+  background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:6px solid var(--hero)}
+.section-header.ex{border-left-color:var(--amber)}
+.section-header .icon{font-size:26px;line-height:1}
+.section-header h2{margin:0;font-size:21px;line-height:1.4}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);font-weight:700}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin:0 0 10px}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--blue)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.hl{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);font-weight:700}
+.em{color:var(--coral);font-weight:700}
+.small{font-size:12.5px;color:var(--color-text-secondary)}
+ul.tight,ol.tight{margin:4px 0 8px;padding-left:1.4em}
+ul.tight li,ol.tight li{margin-bottom:3px}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:3px}
+.example-text{font-size:14px}
+
+/* Alerts */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.bad .ct{color:var(--red)}
+.compare-card.good{background:var(--green-bg)}.compare-card.good .ct{color:var(--green)}
+.compare-card.a{background:var(--blue-bg)}.compare-card.a .ct{color:var(--blue)}
+.compare-card.b{background:var(--coral-bg)}.compare-card.b .ct{color:var(--coral)}
+@media (max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:13px;margin-bottom:2px}
+.flow-arrow{align-self:center;color:var(--teal);font-weight:700}
+
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px}
+.kw-word .py{font-weight:400;font-size:11.5px;color:var(--color-text-secondary);margin-left:4px;font-family:'Noto Sans TC',sans-serif}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* formula */
+.formula{background:#2d3a47;color:#f4f1ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:1.9;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.formula .fl{font-size:12px;letter-spacing:2px;color:#d9c48f;font-weight:700;margin-bottom:4px}
+.formula b{color:#ffe08a}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left;line-height:1.65}
+th{background:var(--color-background-secondary);font-weight:700}
+.c,th.c,td.c{white-space:nowrap}
+td.ctr,th.ctr{text-align:center}
+
+/* poem text */
+.poem{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.poem .ttl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
+.poem .au{text-align:center;font-size:13px;color:var(--color-text-secondary);margin-bottom:12px}
+.poem .ln{font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15;margin:0 0 6px;display:flex;gap:10px;align-items:flex-start}
+.pnum{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-top:7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:1px 12px;margin:6px 0 4px}
+sup.n{color:var(--coral);font-size:10px;font-family:'Noto Sans TC',sans-serif;margin:0 1px}
+.preface{font-size:15px;color:var(--color-text-secondary)}
+
+/* line-by-line */
+.lbl{border-left:3px solid var(--blue);padding:4px 0 4px 14px;margin:12px 0}
+.lbl .orig{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700}
+.lbl .tr{font-size:14px;color:var(--color-text-secondary)}
+.lbl .note{font-size:13.5px;margin-top:3px}
+
+/* chat bubbles (fun) */
+.chat{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0}
+.chat .who{font-size:11.5px;color:var(--color-text-secondary);margin:6px 4px 2px}
+.bubble{display:inline-block;max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.65;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary)}
+.row-r{text-align:right}.row-r .bubble{background:var(--green-bg)}
+.row-r .who{text-align:right}
+
+/* Exercises */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);margin-left:8px}
+.lv{display:inline-block;font-size:11px;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px;font-weight:700}
+.lv1{background:var(--green-bg);color:var(--green)}.lv2{background:var(--amber-bg);color:var(--amber)}.lv3{background:var(--red-bg);color:var(--red)}
+.opts{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.opts.one{grid-template-columns:1fr}
+.opts li{font-size:14px}
+.opts li b{display:inline-block;width:22px}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.line{border-bottom:1px solid #999;height:30px;margin:2px 0}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+.circle{display:inline-block;width:26px;height:26px;border:1px solid #888;border-radius:50%;vertical-align:middle;margin:0 3px}
+.box{display:inline-block;width:15px;height:15px;border:1px solid #888;vertical-align:-2px;margin-right:4px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.extotal{font-size:13px;color:var(--color-text-secondary);margin:-6px 0 12px}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;clear:both}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .ex{font-size:13px;color:var(--color-text-secondary)}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);
+  border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+/* svg charts */
+.chart{width:100%;height:auto;display:block;margin:8px 0}
+.chart text{font-family:'Noto Sans TC',sans-serif}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;font-size:13.5px}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.lbl,.poem,table,.chat{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><svg class="pattern" viewBox="0 0 900 300" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<filter id="grainb" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0.09 0"/>
+</filter>
+<linearGradient id="fadeb" x1="0" x2="1" y1="0" y2="0">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+  <stop offset="0.34" stop-color="#fff" stop-opacity="0.25"/>
+  <stop offset="0.6" stop-color="#fff" stop-opacity="1"/>
+</linearGradient>
+<mask id="sceneMaskb"><rect width="900" height="300" fill="url(#fadeb)"/></mask>
+<radialGradient id="moonb" cx="0.42" cy="0.38" r="0.7">
+  <stop offset="0" stop-color="#FFF8EC"/><stop offset="0.7" stop-color="#F1EADF"/><stop offset="1" stop-color="#E6D3BC"/>
+</radialGradient>
+<radialGradient id="halob"><stop offset="0" stop-color="#F1EADF" stop-opacity="0.38"/><stop offset="1" stop-color="#F1EADF" stop-opacity="0"/></radialGradient>
+<radialGradient id="lampb"><stop offset="0" stop-color="#F6D9A8" stop-opacity="0.75"/><stop offset="1" stop-color="#F6D9A8" stop-opacity="0"/></radialGradient>
+<linearGradient id="mtAb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7A3E31" stop-opacity="0.55"/><stop offset="1" stop-color="#7A3E31" stop-opacity="0"/></linearGradient>
+<linearGradient id="mtBb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5E2E24" stop-opacity="0.75"/><stop offset="1" stop-color="#5E2E24" stop-opacity="0.15"/></linearGradient>
+<linearGradient id="mtCb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F1EADF" stop-opacity="0.22"/><stop offset="1" stop-color="#F1EADF" stop-opacity="0"/></linearGradient>
+<linearGradient id="mistb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F1EADF" stop-opacity="0"/><stop offset="0.5" stop-color="#F1EADF" stop-opacity="0.55"/><stop offset="1" stop-color="#F1EADF" stop-opacity="0"/></linearGradient>
+<pattern id="fretb" width="24" height="12" patternUnits="userSpaceOnUse">
+  <path d="M0 11 H10 V3 H4 V7 H7 M12 1 H22 V9 H16 V5 H19" fill="none" stroke="#F1EADF" stroke-width="1.1"/>
+</pattern>
+</defs><g mask="url(#sceneMaskb)"><circle cx="790" cy="62" r="90" fill="url(#halob)"/><path d="M790 30 A32 32 0 1 0 818 82 A26 26 0 1 1 790 30 Z" fill="#F1EADF" fill-opacity="0.85"/><g transform="translate(520 92) scale(1.0)" fill="#F1EADF" fill-opacity="0.3"><path d="M0 0 C-4 -16 14 -26 26 -16 C30 -32 56 -34 62 -14 C72 -24 92 -16 88 0 Z"/><path d="M88 0 C104 2 116 -4 118 -14 C120 -24 108 -28 102 -20 C98 -14 106 -10 108 -14" fill="none" stroke="#F1EADF" stroke-opacity="0.3" stroke-width="3" stroke-linecap="round"/><path d="M-2 0 H92 C80 6 60 8 40 6 C22 5 8 4 -2 0 Z"/></g><g transform="translate(660 120) scale(0.75)" fill="#F1EADF" fill-opacity="0.24"><path d="M0 0 C-4 -16 14 -26 26 -16 C30 -32 56 -34 62 -14 C72 -24 92 -16 88 0 Z"/><path d="M88 0 C104 2 116 -4 118 -14 C120 -24 108 -28 102 -20 C98 -14 106 -10 108 -14" fill="none" stroke="#F1EADF" stroke-opacity="0.24" stroke-width="3" stroke-linecap="round"/><path d="M-2 0 H92 C80 6 60 8 40 6 C22 5 8 4 -2 0 Z"/></g><path d="M465.8 103.5 l-4.0 14.3" stroke="#F1EADF" stroke-opacity="0.21" stroke-width="0.8" stroke-linecap="round"/><path d="M492.3 118.9 l-4.5 16.1" stroke="#F1EADF" stroke-opacity="0.21" stroke-width="0.8" stroke-linecap="round"/><path d="M642.6 35.4 l-2.2 8.0" stroke="#F1EADF" stroke-opacity="0.19" stroke-width="0.8" stroke-linecap="round"/><path d="M684.4 10.4 l-4.5 15.9" stroke="#F1EADF" stroke-opacity="0.16" stroke-width="0.8" stroke-linecap="round"/><path d="M501.0 6.4 l-5.0 18.0" stroke="#F1EADF" stroke-opacity="0.25" stroke-width="0.8" stroke-linecap="round"/><path d="M835.0 92.4 l-2.3 8.3" stroke="#F1EADF" stroke-opacity="0.18" stroke-width="0.8" stroke-linecap="round"/><path d="M638.7 17.4 l-4.9 17.5" stroke="#F1EADF" stroke-opacity="0.19" stroke-width="0.8" stroke-linecap="round"/><path d="M460.5 122.6 l-2.6 9.2" stroke="#F1EADF" stroke-opacity="0.29" stroke-width="0.8" stroke-linecap="round"/><path d="M615.6 82.8 l-3.2 11.4" stroke="#F1EADF" stroke-opacity="0.21" stroke-width="0.8" stroke-linecap="round"/><path d="M477.2 5.6 l-4.7 16.7" stroke="#F1EADF" stroke-opacity="0.16" stroke-width="0.8" stroke-linecap="round"/><path d="M785.7 31.3 l-5.0 17.7" stroke="#F1EADF" stroke-opacity="0.28" stroke-width="0.8" stroke-linecap="round"/><path d="M772.5 114.4 l-3.9 13.8" stroke="#F1EADF" stroke-opacity="0.25" stroke-width="0.8" stroke-linecap="round"/><path d="M443.7 71.4 l-4.6 16.3" stroke="#F1EADF" stroke-opacity="0.16" stroke-width="0.8" stroke-linecap="round"/><path d="M860.0 133.1 l-3.4 12.1" stroke="#F1EADF" stroke-opacity="0.19" stroke-width="0.8" stroke-linecap="round"/><path d="M614.7 57.9 l-5.0 17.9" stroke="#F1EADF" stroke-opacity="0.19" stroke-width="0.8" stroke-linecap="round"/><path d="M394.0 14.0 l-4.3 15.2" stroke="#F1EADF" stroke-opacity="0.30" stroke-width="0.8" stroke-linecap="round"/><path d="M637.9 73.7 l-3.8 13.5" stroke="#F1EADF" stroke-opacity="0.25" stroke-width="0.8" stroke-linecap="round"/><path d="M495.5 91.3 l-3.8 13.6" stroke="#F1EADF" stroke-opacity="0.23" stroke-width="0.8" stroke-linecap="round"/><path d="M474.0 25.5 l-3.2 11.5" stroke="#F1EADF" stroke-opacity="0.29" stroke-width="0.8" stroke-linecap="round"/><path d="M560.2 89.6 l-3.1 11.1" stroke="#F1EADF" stroke-opacity="0.14" stroke-width="0.8" stroke-linecap="round"/><path d="M414.1 122.1 l-4.4 15.8" stroke="#F1EADF" stroke-opacity="0.19" stroke-width="0.8" stroke-linecap="round"/><path d="M735.3 101.4 l-4.8 17.0" stroke="#F1EADF" stroke-opacity="0.29" stroke-width="0.8" stroke-linecap="round"/><path d="M591.6 148.4 l-4.9 17.6" stroke="#F1EADF" stroke-opacity="0.23" stroke-width="0.8" stroke-linecap="round"/><path d="M839.2 73.6 l-3.3 11.8" stroke="#F1EADF" stroke-opacity="0.16" stroke-width="0.8" stroke-linecap="round"/><path d="M835.6 24.3 l-2.4 8.7" stroke="#F1EADF" stroke-opacity="0.26" stroke-width="0.8" stroke-linecap="round"/><path d="M782.4 72.5 l-4.6 16.4" stroke="#F1EADF" stroke-opacity="0.13" stroke-width="0.8" stroke-linecap="round"/><path d="M514.1 43.5 l-3.4 12.2" stroke="#F1EADF" stroke-opacity="0.15" stroke-width="0.8" stroke-linecap="round"/><path d="M416.1 50.7 l-4.8 17.0" stroke="#F1EADF" stroke-opacity="0.30" stroke-width="0.8" stroke-linecap="round"/><path d="M767.8 71.8 l-2.9 10.5" stroke="#F1EADF" stroke-opacity="0.29" stroke-width="0.8" stroke-linecap="round"/><path d="M653.3 109.3 l-2.3 8.3" stroke="#F1EADF" stroke-opacity="0.16" stroke-width="0.8" stroke-linecap="round"/><path d="M815.9 119.3 l-4.7 16.8" stroke="#F1EADF" stroke-opacity="0.23" stroke-width="0.8" stroke-linecap="round"/><path d="M601.6 87.2 l-4.6 16.5" stroke="#F1EADF" stroke-opacity="0.18" stroke-width="0.8" stroke-linecap="round"/><path d="M657.9 41.4 l-4.4 15.7" stroke="#F1EADF" stroke-opacity="0.12" stroke-width="0.8" stroke-linecap="round"/><path d="M736.4 143.1 l-2.3 8.2" stroke="#F1EADF" stroke-opacity="0.23" stroke-width="0.8" stroke-linecap="round"/><path d="M714.8 127.8 l-3.9 13.8" stroke="#F1EADF" stroke-opacity="0.17" stroke-width="0.8" stroke-linecap="round"/><path d="M590.9 143.8 l-4.8 17.1" stroke="#F1EADF" stroke-opacity="0.14" stroke-width="0.8" stroke-linecap="round"/><path d="M429.3 14.1 l-2.3 8.3" stroke="#F1EADF" stroke-opacity="0.20" stroke-width="0.8" stroke-linecap="round"/><path d="M453.2 130.1 l-4.1 14.6" stroke="#F1EADF" stroke-opacity="0.14" stroke-width="0.8" stroke-linecap="round"/><path d="M660.1 48.6 l-3.6 12.9" stroke="#F1EADF" stroke-opacity="0.16" stroke-width="0.8" stroke-linecap="round"/><path d="M466.4 27.6 l-3.3 11.8" stroke="#F1EADF" stroke-opacity="0.25" stroke-width="0.8" stroke-linecap="round"/><path d="M666.0 6.9 l-4.2 15.1" stroke="#F1EADF" stroke-opacity="0.28" stroke-width="0.8" stroke-linecap="round"/><path d="M782.6 118.6 l-2.3 8.1" stroke="#F1EADF" stroke-opacity="0.20" stroke-width="0.8" stroke-linecap="round"/><path d="M413.0 114.6 l-2.7 9.8" stroke="#F1EADF" stroke-opacity="0.25" stroke-width="0.8" stroke-linecap="round"/><path d="M511.5 104.5 l-3.1 11.1" stroke="#F1EADF" stroke-opacity="0.13" stroke-width="0.8" stroke-linecap="round"/><path d="M582.2 46.4 l-4.8 17.0" stroke="#F1EADF" stroke-opacity="0.17" stroke-width="0.8" stroke-linecap="round"/><path d="M641.6 82.4 l-4.9 17.5" stroke="#F1EADF" stroke-opacity="0.14" stroke-width="0.8" stroke-linecap="round"/><path d="M360.0 232.5 C373.5 232.5 409.5 150.0 450.0 150.0 C470.2 150.0 488.2 207.0 495.0 207.0 C501.8 207.0 519.8 104.0 540.0 104.0 C562.5 104.0 582.5 190.9 590.0 190.9 C597.5 190.9 617.5 124.0 640.0 124.0 C658.0 124.0 674.0 190.9 680.0 190.9 C686.0 190.9 702.0 86.0 720.0 86.0 C742.5 86.0 762.5 183.4 770.0 183.4 C777.5 183.4 797.5 112.0 820.0 112.0 C835.8 112.0 849.8 183.4 855.0 183.4 C860.2 183.4 874.2 96.0 890.0 96.0 C921.5 96.0 949.5 177.6 960.0 177.6 V300 H360.0 Z" fill="url(#mtCb)"/><rect x="0" y="150" width="900" height="60" fill="url(#mistb)" opacity="0.5"/><path d="M340.0 255.0 C353.5 255.0 389.5 200.0 430.0 200.0 C450.2 200.0 468.2 238.0 475.0 238.0 C481.8 238.0 499.8 160.0 520.0 160.0 C538.0 160.0 554.0 224.4 560.0 224.4 C566.0 224.4 582.0 178.0 600.0 178.0 C618.0 178.0 634.0 224.4 640.0 224.4 C646.0 224.4 662.0 140.0 680.0 140.0 C704.8 140.0 726.8 216.9 735.0 216.9 C743.2 216.9 765.2 166.0 790.0 166.0 C810.2 166.0 828.2 216.9 835.0 216.9 C841.8 216.9 859.8 150.0 880.0 150.0 C916.0 150.0 948.0 210.0 960.0 210.0 V300 H340.0 Z" fill="url(#mtAb)"/><rect x="0" y="196" width="900" height="50" fill="url(#mistb)" opacity="0.45"/><path d="M380.0 277.5 C393.5 277.5 429.5 250.0 470.0 250.0 C490.2 250.0 508.2 269.0 515.0 269.0 C521.8 269.0 539.8 222.0 560.0 222.0 C580.2 222.0 598.2 260.3 605.0 260.3 C611.8 260.3 629.8 236.0 650.0 236.0 C674.8 236.0 696.8 260.3 705.0 260.3 C713.2 260.3 735.2 214.0 760.0 214.0 C784.8 214.0 806.8 254.1 815.0 254.1 C823.2 254.1 845.2 226.0 870.0 226.0 C910.5 226.0 946.5 255.6 960.0 255.6 V300 H380.0 Z" fill="url(#mtBb)"/><rect x="610" y="238" width="290" height="30" fill="#5E2E24" fill-opacity="0.78"/><rect x="612" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="628" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="644" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="660" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="676" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="692" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="708" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="724" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="740" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="756" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="772" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="788" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="804" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="820" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="836" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="852" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="868" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><rect x="884" y="232" width="9" height="6" fill="#5E2E24" fill-opacity="0.78"/><path d="M716 268 V254 A10 10 0 0 1 736 254 V268 Z" fill="#F1EADF" fill-opacity="0.18"/><rect x="690" y="208" width="72" height="24" fill="#5E2E24" fill-opacity="0.82"/><path d="M667.0 204.0 Q694.8 207.5 705.2 192.0 L746.8 192.0 Q757.2 207.5 785.0 204.0 Q779.0 209.5 774.0 210.0 L678.0 210.0 Q673.0 209.5 667.0 204.0Z" fill="#5E2E24" fill-opacity="0.86"/><path d="M703.2 189.5 q-1 -2.5 1.5 -3 M748.8 189.5 q1 -2.5 -1.5 -3" stroke="#5E2E24" stroke-opacity="0.86" stroke-width="1.6" fill="none" stroke-linecap="round"/><rect x="704.2" y="190.4" width="43.6" height="1.8" fill="#5E2E24" fill-opacity="0.86"/><rect x="704" y="178" width="44" height="16" fill="#5E2E24" fill-opacity="0.82"/><path d="M681.0 174.0 Q703.2 177.5 710.8 165.0 L741.2 165.0 Q748.8 177.5 771.0 174.0 Q765.0 179.5 760.0 180.0 L692.0 180.0 Q687.0 179.5 681.0 174.0Z" fill="#5E2E24" fill-opacity="0.86"/><path d="M708.8 162.5 q-1 -2.5 1.5 -3 M743.2 162.5 q1 -2.5 -1.5 -3" stroke="#5E2E24" stroke-opacity="0.86" stroke-width="1.6" fill="none" stroke-linecap="round"/><rect x="709.8" y="163.4" width="32.4" height="1.8" fill="#5E2E24" fill-opacity="0.86"/><rect x="700" y="213" width="6" height="9" fill="#F6D9A8" fill-opacity="0.55"/><rect x="716" y="213" width="6" height="9" fill="#F6D9A8" fill-opacity="0.55"/><rect x="736" y="213" width="6" height="9" fill="#F6D9A8" fill-opacity="0.55"/><rect x="752" y="213" width="6" height="9" fill="#F6D9A8" fill-opacity="0.55"/><path d="M650 232 V168.0" stroke="#5E2E24" stroke-opacity="0.85" stroke-width="1.6"/><path d="M650 168.0 C662 172.0 672 162.0 686.0 170.0 L680.0 180.0 L688.0 190.0 C674 184.0 662 192.0 650 188.0 Z" fill="#5E2E24" fill-opacity="0.8"/><path d="M812 232 V161.6" stroke="#5E2E24" stroke-opacity="0.85" stroke-width="1.6"/><path d="M812 161.6 C824 166.0 834 155.0 851.6 163.8 L845.0 174.8 L853.8 185.8 C836 179.2 824 188.0 812 183.6 Z" fill="#5E2E24" fill-opacity="0.8"/><path d="M868 232 V174.4" stroke="#5E2E24" stroke-opacity="0.85" stroke-width="1.6"/><path d="M868 174.4 C880 178.0 890 169.0 900.4 176.2 L895.0 185.2 L902.2 194.2 C892 188.8 880 196.0 868 192.4 Z" fill="#5E2E24" fill-opacity="0.8"/><path d="M900 4 C860 20 836 30 800 34 M860 20 C850 40 846 52 830 62" fill="none" stroke="#5E2E24" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round"/><path d="M806 34 L815.9 34.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L814.6 36.1" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L813.1 38.3" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L809.0 39.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L805.0 39.1" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L800.7 39.1" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L795.7 38.1" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L794.1 35.4" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L794.2 32.6" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L798.0 30.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L800.4 28.7" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L804.9 28.5" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L809.0 28.9" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L812.3 30.1" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M806 34 L815.0 31.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L846.7 58.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L845.3 60.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L842.2 63.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L837.8 64.4" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L833.0 63.3" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L828.9 62.9" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L824.7 61.7" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L822.3 59.4" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L821.9 56.6" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L823.9 54.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L829.3 53.5" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L832.8 51.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L837.6 51.9" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L841.4 53.5" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M834 58 L842.9 55.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L862.9 22.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L860.5 24.1" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L860.5 27.2" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L855.9 28.5" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L850.8 28.1" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L846.9 26.9" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L841.8 26.1" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L841.0 23.3" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L839.7 20.6" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L842.0 18.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L846.5 16.7" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L850.9 16.2" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L855.5 16.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L859.2 17.6" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M852 22 L860.8 19.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L888.2 12.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L889.2 14.7" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L884.1 15.7" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L880.8 16.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L876.8 18.3" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L872.9 16.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L869.0 15.6" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L867.4 13.2" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L867.9 10.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L867.5 7.8" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L873.1 7.3" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L876.9 6.2" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L881.0 6.9" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L885.7 7.3" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M878 12 L887.2 9.7" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L832.4 40.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L833.0 42.7" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L828.9 44.2" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L825.5 45.9" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L820.7 46.9" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L817.3 44.5" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L814.5 43.0" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L812.3 41.1" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L810.2 38.6" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L812.7 36.3" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L817.0 35.3" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L820.9 34.4" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L825.0 34.9" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L829.3 35.6" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M822 40 L830.4 37.9" stroke="#5E2E24" stroke-opacity="0.6" stroke-width="1"/><path d="M554 59 Q557 57 560 61 Q563 57 566 59" fill="none" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1.3" stroke-linecap="round"/><path d="M570 52 Q573 50 576 54 Q579 50 582 52" fill="none" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1.3" stroke-linecap="round"/><path d="M586 45 Q589 43 592 47 Q595 43 598 45" fill="none" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1.3" stroke-linecap="round"/><path d="M602 38 Q605 36 608 40 Q611 36 614 38" fill="none" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1.3" stroke-linecap="round"/><path d="M618 45 Q621 43 624 47 Q627 43 630 45" fill="none" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1.3" stroke-linecap="round"/><path d="M634 52 Q637 50 640 54 Q643 50 646 52" fill="none" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1.3" stroke-linecap="round"/><path d="M650 59 Q653 57 656 61 Q659 57 662 59" fill="none" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1.3" stroke-linecap="round"/></g><rect x="0" y="282" width="900" height="12" fill="url(#fretb)" opacity="0.28"/><path d="M0 279.5 H900 M0 296.5 H900" stroke="#F1EADF" stroke-opacity="0.25" stroke-width="0.8"/><rect width="900" height="300" filter="url(#grainb)"/></svg><div class="hero-tag">閱讀教學筆記</div><h1>岳飛《滿江紅》（怒髮衝冠）</h1><div class="sub">中二　單元四　導讀（建議篇章）</div><p>潘SIR中文教室編撰</p></div>
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>認識岳飛與他的時代<span class="kind">教學</span></a><a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：作者與時代背景<span class="kind">練習</span></a><a class="toc-item" href="#s3"><span class="toc-num">03</span>逐句精讀：原文、註釋與語譯<span class="kind">教學</span></a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：字詞與語譯<span class="kind">練習</span></a><a class="toc-item" href="#s5"><span class="toc-num">05</span>結構、情感與主旨<span class="kind">教學</span></a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：內容理解<span class="kind">練習</span></a><a class="toc-item" href="#s7"><span class="toc-num">07</span>寫作手法與比較閱讀<span class="kind">教學</span></a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習四：手法賞析與比較閱讀<span class="kind">練習</span></a></nav>
+<div class="section-header first" id="s1"><div class="icon">⚔️</div><div><div class="chap">CHAPTER 01　教學</div><h2>認識岳飛與他的時代</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>先想一想</h3>
+<p>假如有一天，敵人攻進你的城市，搶走你的家園，連一國之君也被抓走了，你會有甚麼感受？岳飛就生活在這樣的時代。《滿江紅》寫的正是這份憤怒，以及收復國土的決心。讀這首詞，要先明白他為甚麼這樣憤怒。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>作者小檔案：岳飛</h3>
+<table>
+<tr><th class="c">姓名</th><td>岳飛，字鵬舉</td></tr>
+<tr><th class="c">朝代</th><td>南宋。生於公元1103年，卒於1142年；他在北宋末年出生，主要在南宋領兵抗金。</td></tr>
+<tr><th class="c">籍貫</th><td>相州湯陰（今河南湯陰）</td></tr>
+<tr><th class="c">身份</th><td>抗金名將。年少時已勤奮讀書，尤其喜歡兵法；二十歲從軍，一生主張北伐，收復失地。</td></tr>
+<tr><th class="c">岳家軍</th><td>他帶領的軍隊紀律嚴明，有「凍死不拆屋，餓死不擄掠」的軍規，打得金兵大敗。金人流傳一句話：「撼山易，撼岳家軍難。」意思是搖動一座山容易，要動搖岳家軍卻很難。</td></tr>
+<tr><th class="c">結局</th><td>宋高宗和宰相秦檜一心求和，把正在前線取勝的岳飛召回，最後以「莫須有」（也許有）的罪名把他害死。後來宋孝宗為他平反，追謚「武穆」。</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>時代背景：岳飛為甚麼這麼憤怒？</h3>
+<div class="flow">
+<div class="flow-step"><b>1115年</b>北方的女真族建立金國，勢力迅速壯大。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>1127年 靖康之難</b>金兵攻陷北宋首都汴京後，擄走宋徽宗、宋欽宗及大批后妃宗室北去，北宋滅亡。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>1127年</b>宋高宗在南方即位，史稱南宋。北方大片國土落入金人手中。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>1140年</b>岳飛大敗金兵，逼近舊都汴京，卻被朝廷連發「十二道金牌」召回。</div>
+</div>
+<p>兩個皇帝被敵人擄走，在古人眼中是奇恥大辱，詞中稱為「靖康恥」。岳飛立志洗雪國恥、收復北方的「舊山河」，詞中的憤怒和決心都由此而來。</p>
+</div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">作者有爭議</div><div class="alert-text">《滿江紅》最早見於明代徐階所編的《岳武穆遺文》，岳飛孫子岳珂編的岳飛文集卻沒有收錄，所以有學者懷疑它是明代人借岳飛之名所寫。不過，這首詞文辭激昂，千百年來一直被視為經典的愛國作品。考試一般按課本，以岳飛為作者。</div></div></div>
+
+<div class="card"><h3><span class="dot amber"></span>詞的知識：滿江紅</h3>
+<table>
+<tr><th class="c">詞牌</th><td class="c">滿江紅</td><th class="c">字數</th><td class="c">93字</td><th class="c">類別</th><td class="c">長調</td></tr>
+<tr><th class="c">分片</th><td colspan="5">上片：怒髮衝冠……空悲切；下片：靖康恥……朝天闕</td></tr>
+<tr><th class="c">韻腳</th><td colspan="5">歇、烈、月、切、雪、滅、缺、血、闕</td></tr>
+</table>
+<div class="example-box coral"><div class="example-label">朗讀挑戰：聽聽韻腳的聲音</div><div class="example-text">用廣東話讀這九個韻腳：歇 hit、烈 lit、月 jyut、切 cit、雪 syut、滅 mit、缺 kyut、血 hyut、闕 kyut。全部以「-t」收尾，是短促的「入聲」。讀起來一字一頓，配合詞中的憤怒和決心。</div></div>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">《水調歌頭》</div>韻腳以「-n」收尾（天、年、圓、娟），聲音悠長，適合抒發思念。</div>
+<div class="compare-card b"><div class="ct">《滿江紅》</div>韻腳以「-t」收尾（雪、滅、血、闕），聲音短促有力，適合抒發悲憤。</div>
+</div>
+</div>
+
+<div class="section-header ex" id="s2"><div class="icon">✏️</div><div><div class="chap">CHAPTER 02　練習</div><h2>練習一：作者與時代背景</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分；題目由淺入深。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>岳飛一生主要抵抗哪一個民族建立的政權？<ul class="opts"><li><b>A</b>匈奴（漢代）</li><li><b>B</b>蒙古（元朝）</li><li><b>C</b>女真（金國）</li><li><b>D</b>契丹（遼國）</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>在「靖康之難」中，被金兵擄走的是誰？<ul class="opts"><li><b>A</b>宋高宗和秦檜</li><li><b>B</b>宋徽宗和宋欽宗</li><li><b>C</b>宋太祖和宋太宗</li><li><b>D</b>岳飛和他的兒子</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>在宋朝軍隊取勝的情況下，把岳飛從前線召回的是哪一位皇帝？<ul class="opts"><li><b>A</b>宋徽宗</li><li><b>B</b>宋欽宗</li><li><b>C</b>金太宗</li><li><b>D</b>宋高宗</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D<br><span class="ex">宋高宗和宰相秦檜力主求和，連發「十二道金牌」召回岳飛。</span></div></div></div>
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>判斷以下說法是否正確。正確的寫「✓」，錯誤的寫「✗」。<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr>
+<tr><td>（1） 金人流傳「撼山易，撼岳家軍難」，可見岳家軍令金人害怕。</td><td class="ctr"><span class="circle"></span></td></tr>
+<tr><td>（2） 《滿江紅》全詞93字，屬於小令。</td><td class="ctr"><span class="circle"></span></td></tr>
+<tr><td>（3） 本詞的韻腳用粵音讀，都以「-t」收尾。</td><td class="ctr"><span class="circle"></span></td></tr>
+<tr><td>（4） 學者一致確定本詞是岳飛親筆所寫。</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1） ✓　（2） ✗　（3） ✓　（4） ✗<br><span class="ex">（2） 91字或以上屬長調。（4） 有學者懷疑是明代人托名之作。</span></div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>根據背景資料填空。<p>靖康之難發生於公元（1）<span class="blank"></span>年，北宋滅亡；之後（2）<span class="blank"></span>在南方即位，史稱南宋。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1） 1127　（2） 宋高宗</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv1">基礎</span>以下哪一組字全部是本詞的韻腳？<ul class="opts"><li><b>A</b>歇、烈、月、切</li><li><b>B</b>冠、處、嘯、懷</li><li><b>C</b>土、月、頭、悲</li><li><b>D</b>恥、雪、恨、滅</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>根據本詞的體裁特色，完成下表。<table><tr><th class="c">詞牌</th><td style="width:30%"></td><th class="c">字數</th><td style="width:20%"></td><th class="c">類別</th><td style="width:20%"></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每格1分）詞牌：滿江紅；字數：93字；類別：長調</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>「撼山易，撼岳家軍難」是甚麼意思？這句話反映了岳家軍有甚麼特點？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）意思是搖動一座山容易，要動搖岳家軍卻很難（1分）；反映岳家軍作戰勇猛、紀律嚴明，令金人十分畏懼（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv2">理解</span>本詞的韻腳都是短促的入聲字。這種聲音效果配合了詞中甚麼感情？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）入聲字讀起來短促有力、一字一頓（1分），配合詞中激昂憤慨、決心報國雪恥的感情（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>有學者懷疑《滿江紅》不是岳飛所寫。你認為這會否影響這首詞的價值？試說明你的看法。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）示例：不會完全影響（1分）。這首詞的價值主要在於它文辭激昂，表達了洗雪國恥、收復失地的愛國情懷（1分），這種感情不論作者是誰都能打動讀者，所以千百年來一直被傳誦（1分）。<br><span class="ex">學生亦可持相反立場，例如認為作者身份影響我們對詞中「三十功名」等自述的理解；立場清晰並有合理理由即可給分。</span></div></div></div>
+<div class="section-header" id="s3"><div class="icon">📜</div><div><div class="chap">CHAPTER 03　教學</div><h2>逐句精讀：原文、註釋與語譯</h2></div></div>
+
+<div class="poem"><div class="ttl">滿江紅</div><div class="au">岳飛</div>
+<span class="layer-tag">上片：憑欄遠望，感慨壯志未酬，自我勉勵</span>
+<div class="ln"><span class="pnum">1</span><span>怒髮衝冠<sup class="n">①</sup>，憑闌<sup class="n">②</sup>處、瀟瀟雨歇<sup class="n">③</sup>。抬望眼、仰天長嘯<sup class="n">④</sup>，壯懷<sup class="n">⑤</sup>激烈。三十功名塵與土<sup class="n">⑥</sup>，八千里路雲和月<sup class="n">⑦</sup>。莫等閒<sup class="n">⑧</sup>、白了少年頭，空<sup class="n">⑨</sup>悲切。</span></div>
+<span class="layer-tag">下片：痛恨敵人，誓要雪恥復國</span>
+<div class="ln"><span class="pnum">2</span><span>靖康恥<sup class="n">⑩</sup>，猶未雪<sup class="n">⑪</sup>；臣子恨，何時滅！駕長車<sup class="n">⑫</sup>、踏破賀蘭山缺<sup class="n">⑬</sup>。壯志飢餐胡虜<sup class="n">⑭</sup>肉，笑談渴飲匈奴<sup class="n">⑮</sup>血。待從頭<sup class="n">⑯</sup>、收拾舊山河，朝天闕<sup class="n">⑰</sup>。</span></div>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>註釋</h3>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word">① 怒髮衝冠</div><div class="kw-def">憤怒得頭髮豎起，頂起帽子。誇張兼用典。</div></div>
+<div class="kw"><div class="kw-word">② 憑闌<span class="py">闌音蘭</span></div><div class="kw-def">靠着欄杆。闌：同「欄」。</div></div>
+<div class="kw"><div class="kw-word">③ 瀟瀟雨歇</div><div class="kw-def">急驟的雨剛剛停下來。瀟瀟：形容雨勢急；歇：停止。</div></div>
+<div class="kw"><div class="kw-word">④ 長嘯<span class="py">嘯音笑</span></div><div class="kw-def">撮口發出悠長而響亮的聲音，用來抒發激動的情緒。</div></div>
+<div class="kw"><div class="kw-word">⑤ 壯懷</div><div class="kw-def">豪壯的胸懷、遠大的志向。</div></div>
+<div class="kw"><div class="kw-word">⑥ 三十功名塵與土</div><div class="kw-def">三十歲左右建立的功名，像塵土一樣微不足道。</div></div>
+<div class="kw"><div class="kw-word">⑦ 八千里路雲和月</div><div class="kw-def">轉戰八千多里路，日夜行軍，披星戴月。「八千」是約數。</div></div>
+<div class="kw"><div class="kw-word">⑧ 等閒</div><div class="kw-def">輕易、隨便，這裏指隨便虛度光陰。</div></div>
+<div class="kw"><div class="kw-word">⑨ 空</div><div class="kw-def">徒然、白白地。</div></div>
+<div class="kw"><div class="kw-word">⑩ 靖康恥</div><div class="kw-def">靖康二年（1127年），金兵擄走宋徽宗、宋欽宗，北宋滅亡，史稱「靖康之難」。這裏指這件事帶來的恥辱。</div></div>
+<div class="kw"><div class="kw-word">⑪ 雪</div><div class="kw-def">洗刷、洗擦掉。</div></div>
+<div class="kw"><div class="kw-word">⑫ 長車</div><div class="kw-def">戰車。</div></div>
+<div class="kw"><div class="kw-word">⑬ 賀蘭山缺</div><div class="kw-def">賀蘭山的關口。賀蘭山在今寧夏，這裏借指敵人佔據的險要關口。缺：山口。</div></div>
+<div class="kw"><div class="kw-word">⑭ 胡虜<span class="py">虜音魯</span></div><div class="kw-def">古人對北方民族的稱呼，這裏借指金人。</div></div>
+<div class="kw"><div class="kw-word">⑮ 匈奴</div><div class="kw-def">秦漢時期北方的遊牧民族，這裏同樣借指金人。</div></div>
+<div class="kw"><div class="kw-word">⑯ 從頭</div><div class="kw-def">重新開始。</div></div>
+<div class="kw"><div class="kw-word">⑰ 朝天闕<span class="py">朝音潮</span></div><div class="kw-def">到京城宮殿朝見皇帝。天闕：皇帝的宮殿。</div></div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot"></span>一句一句拆開讀</h3>
+<div class="lbl"><div class="orig">怒髮衝冠，憑闌處、瀟瀟雨歇。</div>
+<div class="tr">我憤怒得頭髮豎起，頂起了帽子；靠着欄杆的時候，急驟的雨剛剛停下來。</div>
+<div class="note">第一句就爆發怒氣，一開始便抓住讀者。雨停後視野清楚，作者登高遠望，看見大好河山，想起國土被敵人佔領，因而觸景生情。</div></div>
+
+<div class="lbl"><div class="orig">抬望眼、仰天長嘯，壯懷激烈。</div>
+<div class="tr">我抬頭向遠處望，不禁仰天長嘯，豪壯的胸懷激動強烈。</div>
+<div class="note">「長嘯」是把滿腔情緒一下子喊出來。這裏除了憤怒，還有想報國的豪情。</div></div>
+
+<div class="lbl"><div class="orig">三十功名塵與土，八千里路雲和月。</div>
+<div class="tr">三十歲了，雖然建立了一些功名，卻像塵土一樣微不足道；轉戰八千多里路，過着披星戴月的行軍生活。</div>
+<div class="note">岳飛當時已是名將，卻說自己的功名只是「塵與土」，因為國恥未雪，他覺得最重要的目標還沒有完成。這是自我反省，不是自卑。</div></div>
+
+<div class="lbl"><div class="orig">莫等閒、白了少年頭，空悲切。</div>
+<div class="tr">不要隨便虛度光陰，等到少年人的頭髮都白了，就只能白白地悲傷痛惜。</div>
+<div class="note">這是岳飛勉勵自己，也勉勵讀者：要珍惜時間，及早努力。這句今天仍常用來提醒人不要浪費青春。</div></div>
+
+<div class="lbl"><div class="orig">靖康恥，猶未雪；臣子恨，何時滅！</div>
+<div class="tr">靖康年間的恥辱，還沒有洗雪；我作為臣子的憤恨，甚麼時候才能消除！</div>
+<div class="note">下片一開始就直接點出憤怒的原因。「恥」是國家的恥辱，「恨」是臣子心中的憤恨。兩個三字句短促有力，像在咬牙切齒。</div></div>
+
+<div class="lbl"><div class="orig">駕長車、踏破賀蘭山缺。</div>
+<div class="tr">我要駕着戰車，踏破敵人佔據的賀蘭山關口。</div>
+<div class="note">「踏破」一座山的關口，是誇張的說法，寫出他要直搗敵人陣地的氣勢。</div></div>
+
+<div class="lbl"><div class="orig">壯志飢餐胡虜肉，笑談渴飲匈奴血。</div>
+<div class="tr">我滿懷壯志，餓了就吃敵人的肉；談笑之間，渴了就喝敵人的血。</div>
+<div class="note">這當然不是真的要吃人，而是用誇張的說法表達對敵人極度痛恨。「笑談」二字更顯出他毫不畏懼、勝券在握的豪氣。</div></div>
+
+<div class="lbl"><div class="orig">待從頭、收拾舊山河，朝天闕。</div>
+<div class="tr">等到我重新收復舊日的國土，便回到京城宮殿朝見皇帝。</div>
+<div class="note">全詞以收復國土後的情景作結：收復失地後才回朝報告，表達盡忠報國的決心。</div></div>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>典故小劇場：「怒髮衝冠」從哪裏來？</h3>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">藺相如完璧歸趙</div>秦王假裝用十五座城換趙國的和氏璧，拿到璧後卻不提交城的事。藺相如藉口璧上有瑕疵，取回璧玉，靠着柱子站立，憤怒得頭髮豎起、頂起帽子，揚言要把璧和自己的頭一起撞碎。秦王只好讓步。</div>
+<div class="compare-card b"><div class="ct">荊軻易水送別</div>燕太子丹派荊軻刺殺秦王。出發時，眾人穿白衣戴白帽在易水邊送行。荊軻唱「風蕭蕭兮易水寒，壯士一去兮不復還」，眾人聽後悲憤得瞪大眼睛，頭髮都豎起來頂住帽子。</div>
+</div>
+<p>兩個故事都出自《史記》，主角都是面對強敵不肯低頭的勇者。岳飛用這個典故，把自己對金人的憤怒，與古代英雄的氣概連在一起。</p>
+</div>
+
+<div class="card"><h3><span class="dot green"></span>全詞語譯</h3>
+<p>我憤怒得頭髮豎起，頂起了帽子，靠着欄杆的時候，急驟的雨停歇了。我抬頭望向遠處，不禁仰望天空，發出長長的呼嘯，豪壯的胸懷激動強烈。我已經三十歲了，雖然建立了一些功名，卻像塵土一樣無足輕重；轉戰八千多里路，過着披星戴月的行軍生活。不要隨便虛度光陰啊，待少年的頭髮變白了，就只能徒然悲痛哀切。</p>
+<p>靖康年間的恥辱，還未洗擦掉；我作為臣子的憤恨，甚麼時候才能消滅！我要駕着戰車，踏破被金人佔領的賀蘭山關口。我滿懷壯志，飢餓時便吃金人的肉；談笑時口渴，便飲金人的鮮血。等到我重新開始，收復舊有的國土，便到京城的宮殿朝見皇帝。</p>
+</div>
+
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見讀錯字</div><div class="alert-text">朝天闕的「朝」讀「潮」，解作朝見；「闕」讀「缺」；憑闌的「闌」讀「蘭」；長嘯的「嘯」讀「笑」；胡虜的「虜」讀「魯」。</div></div></div>
+
+<div class="section-header ex" id="s4"><div class="icon">✏️</div><div><div class="chap">CHAPTER 04　練習</div><h2>練習二：字詞與語譯</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分；題目由淺入深。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「憑闌處」中的「憑」字是甚麼意思？<ul class="opts"><li><b>A</b>憑證</li><li><b>B</b>靠着</li><li><b>C</b>任由</li><li><b>D</b>想像</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「瀟瀟雨歇」中的「歇」字是甚麼意思？<ul class="opts"><li><b>A</b>停止</li><li><b>B</b>落下</li><li><b>C</b>變大</li><li><b>D</b>開始</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>解釋以下句子中加底線的字詞。<table><tr><th>句子</th><th style="width:40%">解釋</th></tr>
+<tr><td>（1） 靖康恥，猶未<u>雪</u></td><td></td></tr>
+<tr><td>（2） 莫<u>等閒</u>、白了少年頭</td><td></td></tr>
+<tr><td>（3） <u>空</u>悲切</td><td></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1） 洗刷／洗擦掉　（2） 輕易、隨便　（3） 徒然、白白地</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>「靖康恥」是指甚麼事？<ul class="opts"><li><b>A</b>岳飛被朝廷召回</li><li><b>B</b>秦檜向金國求和</li><li><b>C</b>岳飛被奸臣秦檜害死</li><li><b>D</b>金兵擄走徽欽二帝</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>詞中的「胡虜」和「匈奴」借指甚麼人？<ul class="opts"><li><b>A</b>漢代匈奴人</li><li><b>B</b>元代蒙古人</li><li><b>C</b>當時的金人</li><li><b>D</b>遼國契丹人</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「朝天闕」中「朝」字的讀音和意思是甚麼？<ul class="opts"><li><b>A</b>讀「招」，早上</li><li><b>B</b>讀「招」，朝代</li><li><b>C</b>讀「潮」，朝向</li><li><b>D</b>讀「潮」，朝見</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>「三十功名塵與土，八千里路雲和月」中，以下詞語分別指甚麼？<table><tr><th>詞語</th><th style="width:60%">意思</th></tr>
+<tr><td>（1） 三十</td><td></td></tr><tr><td>（2） 塵與土</td><td></td></tr><tr><td>（3） 雲和月</td><td></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1） 三十歲（左右）　（2） 比喻自己的功名微不足道、無足輕重　（3） 指日夜行軍、披星戴月的生活</div></div></div>
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>把以下句子譯成白話文。<p>（1） 莫等閒、白了少年頭，空悲切。（2分）</p><div class="line"></div><div class="line"></div><p>（2） 待從頭、收拾舊山河，朝天闕。（2分）</p><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）（1） 不要隨便虛度光陰（1分），等到少年的頭髮變白了，就只能徒然悲痛哀切（1分）。<br>（2） 等到我重新開始，收復舊有的國土（1分），便到京城的宮殿朝見皇帝（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>「怒髮衝冠」用了哪兩個歷史人物的典故？作者用這個典故有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）藺相如和荊軻（1分，兩人全對才給分）；把自己對金人的憤怒與古代勇者面對強敵的氣概相比，突出憤怒之深和不屈的精神（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>賀蘭山在今寧夏，當時並不是金國的地方。作者為甚麼仍然寫「踏破賀蘭山缺」？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）「賀蘭山缺」在這裏借指敵人佔據的險要關口，並非實指（1分）；用具體的山名，令畫面更鮮明有力（1分），表達作者要攻破敵陣、直搗敵境的決心（1分）。</div></div></div>
+<div class="section-header" id="s5"><div class="icon">🔥</div><div><div class="chap">CHAPTER 05　教學</div><h2>結構、情感與主旨</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>上片與下片</h3>
+<table>
+<tr><th class="c">部分</th><th>內容</th><th>重點句</th></tr>
+<tr><td class="c">上片</td><td><b>記述的事：</b>靠着欄杆遠望時，急雨停了，想起國土被佔領。<br><b>感受：</b>十分憤怒，向天呼嘯，激起豪壯的胸懷。<br><b>立志：</b>要把握時間，實現報國的壯志。</td><td>怒髮衝冠<br>壯懷激烈<br>莫等閒、白了少年頭</td></tr>
+<tr><td class="c">下片</td><td><b>感受：</b>因未能為國家洗去恥辱而感到遺憾和憤恨。<br><b>決心：</b>要擊敗敵人，吃他們的肉，喝他們的血；收復河山後，回朝向國君稟報。</td><td>靖康恥，猶未雪<br>壯志飢餐胡虜肉<br>收拾舊山河</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>岳飛的情緒溫度計</h3>
+<p>《水調歌頭》的心情有起有落；《滿江紅》卻一直維持在高溫，只在中段稍為冷靜反省，然後再升到最高點。</p>
+<svg class="chart" viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="岳飛情緒強度">
+<g font-size="12.5">
+<text x="0" y="28" fill="var(--color-text-primary)">怒髮衝冠</text><rect x="150" y="14" width="468" height="20" rx="4" fill="#d0654a"/><text x="626" y="29" fill="var(--color-text-secondary)">憤怒</text>
+<text x="0" y="66" fill="var(--color-text-primary)">瀟瀟雨歇</text><rect x="150" y="52" width="208" height="20" rx="4" fill="#e3a46a"/><text x="366" y="67" fill="var(--color-text-secondary)">靜下來遠望</text>
+<text x="0" y="104" fill="var(--color-text-primary)">仰天長嘯，壯懷激烈</text><rect x="150" y="90" width="442" height="20" rx="4" fill="#d0654a"/><text x="600" y="105" fill="var(--color-text-secondary)">激昂</text>
+<text x="0" y="142" fill="var(--color-text-primary)">三十功名塵與土</text><rect x="150" y="128" width="260" height="20" rx="4" fill="#e3a46a"/><text x="418" y="143" fill="var(--color-text-secondary)">自我反省</text>
+<text x="0" y="180" fill="var(--color-text-primary)">八千里路雲和月</text><rect x="150" y="166" width="312" height="20" rx="4" fill="#e08a5c"/><text x="470" y="181" fill="var(--color-text-secondary)">堅毅</text>
+<text x="0" y="218" fill="var(--color-text-primary)">莫等閒、白了少年頭</text><rect x="150" y="204" width="338" height="20" rx="4" fill="#e08a5c"/><text x="496" y="219" fill="var(--color-text-secondary)">自勉</text>
+<text x="0" y="256" fill="var(--color-text-primary)">靖康恥……何時滅</text><rect x="150" y="242" width="494" height="20" rx="4" fill="#c0392b"/><text x="652" y="257" fill="var(--color-text-secondary)">悲憤</text>
+<text x="0" y="294" fill="var(--color-text-primary)">飢餐胡虜肉……</text><rect x="150" y="280" width="520" height="20" rx="4" fill="#a52a1f"/><text x="678" y="295" fill="var(--color-text-secondary)">痛恨</text>
+<text x="0" y="332" fill="var(--color-text-primary)">收拾舊山河，朝天闕</text><rect x="150" y="318" width="416" height="20" rx="4" fill="#d0654a"/><text x="574" y="333" fill="var(--color-text-secondary)">決心</text>
+</g>
+<text x="150" y="370" font-size="11" fill="var(--color-text-secondary)">（橫條越長，情緒越強烈；此圖為教學示意。）</text>
+</svg>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>岳飛怎樣看自己？</h3>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">回顧過去</div>「三十功名塵與土」：以微小的塵土比喻自己的成就不值一提，感慨報國的壯志還未實現。</div>
+<div class="compare-card b"><div class="ct">提出抱負</div>「八千里路雲和月」：甘願為國家過披星戴月的行軍生活。<br>「莫等閒、白了少年頭，空悲切」：要為收復國土繼續奮鬥，不想一事無成。</div>
+</div>
+<div class="example-box amber"><div class="example-label">對中二同學的啟發</div><div class="example-text">岳飛已是名將，仍然覺得自己做得不夠，因為他的目標是收復國土，眼前的功名離這個目標還很遠。測驗考了好分數，也可以想一想：下一步要怎樣做得更好？</div></div>
+</div>
+
+<div class="card"><h3><span class="dot red"></span>全詞的「恥」與「恨」</h3>
+<p>從「靖康恥，猶未雪」的「恥」字可知，岳飛認為靖康之難是國家的<b>恥辱</b>；「臣子恨，何時滅」的「恨」字，直接表達他對敵人的<b>痛恨</b>和國恥未雪的<b>憤慨</b>。他把這份恨化為行動：駕着戰車攻破敵人的關口，收復失土，一雪國恥。</p>
+</div>
+
+<div class="formula"><div class="fl">主旨一句記</div>
+岳飛通過記述<b>憑欄遠眺</b>時所引發的聯想，表達了<b>國土被侵佔</b>的憤慨，以及為國家<b>洗去恥辱</b>和<b>收復失土</b>的決心。
+</div>
+
+<div class="section-header ex" id="s6"><div class="icon">✏️</div><div><div class="chap">CHAPTER 06　練習</div><h2>練習三：內容理解</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分；題目由淺入深。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>從「怒髮衝冠」一句可見，岳飛當時的心情是怎樣的？<ul class="opts"><li><b>A</b>興奮</li><li><b>B</b>害怕</li><li><b>C</b>憤怒</li><li><b>D</b>徬徨</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">「怒髮衝冠」即憤怒得頭髮豎立起來，可見他非常憤怒。</span></div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>岳飛憑欄遠望時的天氣是怎樣的？<ul class="opts"><li><b>A</b>大雨滂沱</li><li><b>B</b>急雨剛停</li><li><b>C</b>烈日當空</li><li><b>D</b>大雪紛飛</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">「瀟瀟雨歇」指急驟的雨停了。</span></div></div></div>
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>根據課文內容填空，寫出上片和下片的內容大意。<p>上片：寫岳飛靠着欄杆（1）<span class="blank s"></span>，感慨自己（2）<span class="blank"></span>，並作出自我勉勵。<br>下片：表達岳飛對（3）<span class="blank s"></span>的痛恨，以及早日成功（4）<span class="blank"></span>和收復失土的決心。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每空1分）（1） 遠望　（2） 壯志未酬　（3） 敵人　（4） 洗去國家恥辱</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>「三十功名塵與土」反映岳飛怎樣看待自己過去的成就？<ul class="opts"><li><b>A</b>十分自豪</li><li><b>B</b>已經足夠</li><li><b>C</b>令人羨慕</li><li><b>D</b>不值一提</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>岳飛為甚麼會「仰天長嘯」？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）岳飛登樓遠望，看到大好河山，想起國土已被金人佔領（1分），因而感到十分憤怒，激起豪壯的胸懷，於是發出長長的呼嘯（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「莫等閒、白了少年頭，空悲切」表達了岳飛甚麼想法？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）勉勵自己要珍惜時間，不要虛度光陰（1分），要為收復國土繼續奮鬥，以免年老時一事無成，只能徒然悲傷（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>從「靖康恥，猶未雪；臣子恨，何時滅」中的「恥」和「恨」兩字，可見岳飛對靖康之難有甚麼感受？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「恥」字可見他認為靖康之難是國家的恥辱（1分）；「恨」字直接表達他對敵人的痛恨和國恥未雪的憤慨（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>「壯志飢餐胡虜肉，笑談渴飲匈奴血」反映岳飛對敵人的態度是怎樣的？<ul class="opts"><li><b>A</b>痛恨</li><li><b>B</b>同情</li><li><b>C</b>畏懼</li><li><b>D</b>冷漠</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>綜合全詞，岳飛有甚麼期望？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）希望洗刷「靖康之恥」（1分）；驅逐和擊潰金人，收復被侵佔的國土（1分）；從而為國家建功立業，盡忠報答君主（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>岳飛寫作本詞時已是名將，有一定成就，但他仍然反思自勉。這種態度對你在學習方面有甚麼啟發？試以日常生活為例說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）示例：岳飛不因自己的功名而自滿，仍勉勵自己珍惜時間、繼續努力（1分）。這令我明白學習不能自滿，應把握時間虛心學習（1分）。例如即使我在寫作比賽中得獎，也不能自以為是，要繼續多讀多寫，令自己不斷進步（1分）。<br><span class="ex">答案僅供參考，學生言之成理即可。</span></div></div></div>
+<div class="section-header" id="s7"><div class="icon">🔍</div><div><div class="chap">CHAPTER 07　教學</div><h2>寫作手法與比較閱讀</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>抒情手法：觸景生情＋直抒胸臆</h3>
+<div class="flow">
+<div class="flow-step"><b>看見景物</b>雨停後憑欄遠望，看見一片大好河山</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>想起現實</b>這些國土有很多已被金人佔領，國恥未雪</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>引發感情</b>憤怒、激昂，立志報國</div>
+</div>
+<p>開首屬於<span class="hl">借景抒情（觸景生情）</span>。之後的大部分句子，如「靖康恥，猶未雪；臣子恨，何時滅」，都是把感情直接說出來，這叫<span class="hl">直抒胸臆</span>。</p>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">蘇軾：含蓄</div>用「轉、低、照」寫月光，不說「我想你」，讓讀者自己體會。</div>
+<div class="compare-card b"><div class="ct">岳飛：直接</div>直接說「恥」、「恨」、「壯懷激烈」，感情像火山爆發。</div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>修辭手法一覽</h3>
+<table>
+<tr><th class="c">手法</th><th>例子</th><th>作用</th></tr>
+<tr><td class="c">誇張</td><td>怒髮衝冠；<br>踏破賀蘭山缺；<br>壯志飢餐胡虜肉，笑談渴飲匈奴血。</td><td>頭髮不可能真的頂起帽子，誇大寫出極度憤怒；後兩例誇大擊敗金人的行動，生動表達對敵人的痛恨。</td></tr>
+<tr><td class="c">用典</td><td>怒髮衝冠</td><td>借用藺相如、荊軻的故事，表現不屈服於強敵的氣概。</td></tr>
+<tr><td class="c">疊字</td><td>瀟瀟雨歇</td><td>「瀟瀟」形容雨勢急驟，增加音樂感。</td></tr>
+<tr><td class="c">比喻</td><td>三十功名塵與土</td><td>把自己的功名比作塵土，表示微不足道，壯志未酬。</td></tr>
+<tr><td class="c">對偶</td><td>三十功名塵與土，八千里路雲和月。<br>壯志飢餐胡虜肉，笑談渴飲匈奴血。</td><td>句式整齊，節奏鏗鏘，讀起來更有氣勢。</td></tr>
+<tr><td class="c">借代</td><td>白了少年頭／舊山河／天闕／胡虜、匈奴</td><td>以具體事物代替抽象或另一事物，見下表。</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>借代解碼器</h3>
+<table>
+<tr><th class="c">詞中說法</th><th class="c">真正指的是</th><th>為甚麼可以這樣代替</th></tr>
+<tr><td class="c">白了少年頭</td><td class="c">年老</td><td>人老了頭髮會變白，以特徵代替。</td></tr>
+<tr><td class="c">舊山河</td><td class="c">失去的國土</td><td>山和河是國土的一部分，以部分代替整體。</td></tr>
+<tr><td class="c">天闕</td><td class="c">朝廷、皇帝</td><td>天闕是皇帝住的宮殿，以地方代替人。</td></tr>
+<tr><td class="c">胡虜、匈奴</td><td class="c">金人</td><td>借用古代對北方民族的稱呼代替當時的敵人。</td></tr>
+</table>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧</div><div class="alert-text">答修辭作用題，要寫三樣東西：用了甚麼手法、怎樣用（以甚麼寫甚麼）、表達了甚麼感情。例如：「以『塵與土』比喻自己的成就微不足道，表達壯志未酬的感慨。」</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>比較閱讀一：兩個「恨」字</h3>
+<div class="excerpt">甲　靖康恥，猶未雪；臣子恨，何時滅！<div class="src">岳飛《滿江紅》</div></div>
+<div class="excerpt">乙　不應有恨，何事長向別時圓？<div class="src">蘇軾《水調歌頭並序》</div></div>
+<table>
+<tr><th class="c"></th><th>岳飛</th><th>蘇軾</th></tr>
+<tr><td class="c">「恨」是甚麼</td><td>國家未能洗去靖康之恥的遺憾和憤恨</td><td>中秋不能與弟弟團聚的遺憾</td></tr>
+<tr><td class="c">怎樣面對</td><td>化悲憤為力量，立志擊敗敵人、收復失土</td><td>明白悲歡離合無可避免，放下遺憾，送上祝福</td></tr>
+</table>
+<p>同樣是「恨」，岳飛把它化為<b>行動</b>，蘇軾則選擇<b>放下</b>。兩人面對的事不同：一個是國恥，一個是與親人分離。</p>
+</div>
+
+<div class="card"><h3><span class="dot red"></span>比較閱讀二：岳飛與李煜</h3>
+<table>
+<tr><th class="c"></th><th>處境</th><th>感受</th></tr>
+<tr><td class="c">岳飛《滿江紅》</td><td>國土被敵人佔領，自己仍未能為國家擊退敵人、收復國土</td><td>對國恥感到憤慨，立志擊敗敵人，收復失土，為國家雪恥</td></tr>
+<tr><td class="c">李煜《虞美人》</td><td>國家已經滅亡，自己被囚禁</td><td>對昔日往事不忍再回想，對國家的現狀感到哀痛、無奈</td></tr>
+</table>
+<p>兩人都掛念國家。岳飛的國家還在，所以他仍有鬥志；李煜的國家已亡，所以只剩下哀愁。</p>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>比較閱讀三：辛棄疾《破陣子》</h3>
+<div class="excerpt">醉裏挑燈看劍，夢回吹角連營。八百里分麾下炙，五十絃翻塞外聲，沙場秋點兵。　　馬作的盧飛快，弓如霹靂弦驚。了卻君王天下事，贏得生前身後名——可憐白髮生！<div class="src">辛棄疾《破陣子‧為陳同甫賦壯詞以寄之》</div></div>
+<p class="small">語譯：醉中點亮燈火，端詳寶劍；夢醒時聽到各個軍營接連響起號角聲。把牛肉分給部下烤來吃，軍樂隊演奏雄壯的邊塞樂曲，秋天在戰場上檢閱軍隊。戰馬像名駒「的盧」一樣飛快，拉弓的聲音像霹靂般令人心驚。我要完成君主收復中原、統一天下的大業，贏得生前死後為國立功的名聲。可惜白髮已經長出來了！</p>
+<p>辛棄疾和岳飛一樣是南宋的愛國志士。前九句寫他夢想中英勇殺敵的場面，最後一句「可憐白髮生」突然跌回現實，與前面形成強烈對比，帶出壯志難酬的悲痛。</p>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">岳飛的「白頭」</div>「莫等閒、白了少年頭」：提醒自己趁年輕努力，是<b>自勉</b>。</div>
+<div class="compare-card b"><div class="ct">辛棄疾的「白髮」</div>「可憐白髮生」：人已老去，理想仍未實現，是<b>慨歎</b>。</div>
+</div>
+</div>
+
+<div class="section-header ex" id="s8"><div class="icon">✏️</div><div><div class="chap">CHAPTER 08　練習</div><h2>練習四：手法賞析與比較閱讀</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分；題目由淺入深。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「瀟瀟雨歇」中的「瀟瀟」運用了哪一種修辭手法？<ul class="opts"><li><b>A</b>疊字</li><li><b>B</b>對偶</li><li><b>C</b>借代</li><li><b>D</b>比喻</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「三十功名塵與土」主要運用了哪一種修辭手法？<ul class="opts"><li><b>A</b>誇張</li><li><b>B</b>比喻</li><li><b>C</b>排比</li><li><b>D</b>設問</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「待從頭、收拾舊山河」中的「山河」借代甚麼？<ul class="opts"><li><b>A</b>山水風景</li><li><b>B</b>岳飛的家鄉</li><li><b>C</b>國家的領土</li><li><b>D</b>岳家的軍隊</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>以下引文運用了哪些修辭手法？在適當的方格內加「✓」。（可選多於一項）<table><tr><th>引文</th><th class="c ctr">對偶</th><th class="c ctr">比喻</th><th class="c ctr">誇張</th></tr>
+<tr><td>（1） 三十功名塵與土，八千里路雲和月。</td><td class="ctr"><span class="box"></span></td><td class="ctr"><span class="box"></span></td><td class="ctr"><span class="box"></span></td></tr>
+<tr><td>（2） 踏破賀蘭山缺。</td><td class="ctr"><span class="box"></span></td><td class="ctr"><span class="box"></span></td><td class="ctr"><span class="box"></span></td></tr>
+<tr><td>（3） 壯志飢餐胡虜肉，笑談渴飲匈奴血。</td><td class="ctr"><span class="box"></span></td><td class="ctr"><span class="box"></span></td><td class="ctr"><span class="box"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項全對得1分）（1） 對偶、比喻　（2） 誇張　（3） 對偶、誇張</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>寫出以下借代詞語真正指的是甚麼。<table><tr><th>借代詞語</th><th style="width:55%">真正所指</th></tr>
+<tr><td>（1） 白了少年頭</td><td></td></tr><tr><td>（2） 天闕</td><td></td></tr><tr><td>（3） 胡虜、匈奴</td><td></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1） 年老　（2） 朝廷／皇帝（的宮殿）　（3） 金人</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>本詞大部分句子直接說出作者的感受，例如「臣子恨，何時滅」。這種抒情方式稱為甚麼？<ul class="opts"><li><b>A</b>借物抒情</li><li><b>B</b>融情入景</li><li><b>C</b>託物言志</li><li><b>D</b>直抒胸臆</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>「壯志飢餐胡虜肉，笑談渴飲匈奴血」運用了誇張手法。這對表達感情有甚麼效果？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）以吃敵人的肉、喝敵人的血，誇大寫出擊敗金人的行動（1分），生動形象地表達岳飛對金人的痛恨之情和必勝的豪氣（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">8.</span><span class="lv lv3">進階</span>在本詞與《水調歌頭並序》中，岳飛和蘇軾都提到自己的「恨」。試比較他們怎樣面對自己的遺憾。<div class="excerpt">甲　靖康恥，猶未雪；臣子恨，何時滅！<div class="src">岳飛《滿江紅》</div></div><div class="excerpt">乙　不應有恨，何事長向別時圓？<div class="src">蘇軾《水調歌頭並序》</div></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）岳飛對國家未能洗去「靖康之難」的恥辱感到遺憾（1分），但隨即化悲憤為動力，立志擊敗敵人、收復失土，為國家雪恥（1分）；蘇軾質問月亮為甚麼總在人們離別時才圓，遺憾不能與弟弟團聚（1分），但領悟到悲歡離合與月缺月圓一樣無可避免，便不再耿耿於懷，並向遠方的弟弟送上祝福（1分）。<br><span class="ex">答案僅供參考，學生言之成理即可。</span></div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>本詞和李煜《虞美人》都提及作者對國家的情懷。兩人的處境有何不同？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）岳飛處於國土被敵人佔領、自己仍未能收復國土的處境（1分）；李煜則處於國家已經滅亡、自己被囚禁的處境（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>岳飛「莫等閒、白了少年頭」和辛棄疾「可憐白髮生」都寫到白頭髮。兩句表達的心情有甚麼不同？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）岳飛的句子是勉勵自己趁年輕努力，不要虛度光陰，屬自勉（1分）；辛棄疾的句子是慨歎人已老去而收復中原的理想仍未實現，流露壯志難酬的悲痛（1分）。</div></div></div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
