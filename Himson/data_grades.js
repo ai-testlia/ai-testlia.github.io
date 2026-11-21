@@ -20,5 +20,12 @@ const studentGrades = [
     "score": 40.1,
     "max_score": 50.0,
     "remarks": "表現優異，對文意理解透徹，結構嚴謹。"
+  },
+  {
+    "date": "2026-11-21",
+    "test_name": "寫作：一次出言傷害人的經歷",
+    "score": 69.0,
+    "max_score": 80.0,
+    "remarks": "老師表示65分已屬高分，表現出色"
   }
 ];

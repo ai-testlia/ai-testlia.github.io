@@ -27,5 +27,12 @@ const studentGrades = [
     "score": 93.0,
     "max_score": 100.0,
     "remarks": "非常大的進步"
+  },
+  {
+    "date": "2026-10-09",
+    "test_name": "六年級上學期中文科測驗",
+    "score": 91.0,
+    "max_score": 100.0,
+    "remarks": "說話、詞語填充、標點表現穩定；語文知識、仿句同閱讀理解有少量失分。"
   }
 ];
