@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="pansir-category" content="文言">
+<meta name="pansir-type" content="筆記">
+<title>白居易《慈烏夜啼》教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2a8a80;--teal-bg:#e4f3f1;
+  --coral:#d0654a;--coral-bg:#fbebe6;
+  --amber:#c48612;--amber-bg:#fbf2df;
+  --pink:#c2557f;--pink-bg:#f9e8ef;
+  --blue:#3a6ea5;--blue-bg:#e6eef7;
+  --green:#3d8b4f;--green-bg:#e7f3ea;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero:#B56A58;--hero-text:#F1EADF;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2124;--color-background-secondary:#151618;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a89be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c302e;
+    --coral:#f08c72;--coral-bg:#3a2520;
+    --amber:#e8b04a;--amber-bg:#36301f;
+    --pink:#ea8ab0;--pink-bg:#382430;
+    --blue:#7fa9d8;--blue-bg:#1f2a38;
+    --green:#74c286;--green-bg:#1e3124;
+    --red:#ee7b6e;--red-bg:#3a2220;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC','Songti TC',serif}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:44px 36px 46px;margin-bottom:22px;min-height:230px;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 10px 28px rgba(94,46,36,.18)}
+.hero .pattern{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:9px;border:1px solid rgba(241,234,223,.28);border-radius:8px;pointer-events:none}
+.hero>*:not(.pattern){position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;border:1px solid rgba(241,234,223,.5);
+  color:rgba(241,234,223,.9);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:rgba(94,46,36,.18)}
+.hero h1{font-size:34px;margin:0 0 6px;line-height:1.35;color:var(--hero-text);font-weight:700;text-shadow:0 1px 10px rgba(94,46,36,.35);max-width:78%}
+.hero .sub{font-size:15px;color:rgba(241,234,223,.85);margin-bottom:16px}
+.hero .sub .nb,.hero h1 .nb{display:inline-block}
+.hero p{margin:0;font-size:13px;color:rgba(241,234,223,.7);letter-spacing:2px}
+@media (max-width:640px){.hero h1{font-size:27px;max-width:100%}.hero{padding:34px 24px 40px}.hero .sub{font-size:13.5px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(181,106,88,.88) 0%,rgba(181,106,88,.55) 62%,rgba(181,106,88,0) 100%);pointer-events:none}}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:0}
+.toc-item:hover{color:var(--blue)}
+.toc-num{font-weight:700;color:var(--hero);font-size:13px;min-width:22px}
+.toc-item .kind{margin-left:auto;font-size:11.5px;color:var(--color-text-secondary);white-space:nowrap}
+@media (prefers-color-scheme:dark){.toc-num{color:var(--blue)}}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;border-radius:var(--border-radius-lg);
+  background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:6px solid var(--hero)}
+.section-header.ex{border-left-color:var(--amber)}
+.section-header .icon{font-size:26px;line-height:1}
+.section-header h2{margin:0;font-size:21px;line-height:1.4}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);font-weight:700}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin:0 0 10px}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--blue)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.hl{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);font-weight:700}
+.em{color:var(--coral);font-weight:700}
+.small{font-size:12.5px;color:var(--color-text-secondary)}
+ul.tight,ol.tight{margin:4px 0 8px;padding-left:1.4em}
+ul.tight li,ol.tight li{margin-bottom:3px}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:3px}
+.example-text{font-size:14px}
+
+/* Alerts */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.bad .ct{color:var(--red)}
+.compare-card.good{background:var(--green-bg)}.compare-card.good .ct{color:var(--green)}
+.compare-card.a{background:var(--blue-bg)}.compare-card.a .ct{color:var(--blue)}
+.compare-card.b{background:var(--coral-bg)}.compare-card.b .ct{color:var(--coral)}
+@media (max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:13px;margin-bottom:2px}
+.flow-arrow{align-self:center;color:var(--teal);font-weight:700}
+
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px}
+.kw-word .py{font-weight:400;font-size:11.5px;color:var(--color-text-secondary);margin-left:4px;font-family:'Noto Sans TC',sans-serif}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* formula */
+.formula{background:#2d3a47;color:#f4f1ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:1.9;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.formula .fl{font-size:12px;letter-spacing:2px;color:#d9c48f;font-weight:700;margin-bottom:4px}
+.formula b{color:#ffe08a}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left;line-height:1.65}
+th{background:var(--color-background-secondary);font-weight:700}
+.c,th.c,td.c{white-space:nowrap}
+td.ctr,th.ctr{text-align:center}
+
+/* poem text */
+.poem{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.poem .ttl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
+.poem .au{text-align:center;font-size:13px;color:var(--color-text-secondary);margin-bottom:12px}
+.poem .ln{font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15;margin:0 0 6px;display:flex;gap:10px;align-items:flex-start}
+.pnum{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-top:7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:1px 12px;margin:6px 0 4px}
+sup.n{color:var(--coral);font-size:10px;font-family:'Noto Sans TC',sans-serif;margin:0 1px}
+.preface{font-size:15px;color:var(--color-text-secondary)}
+
+/* line-by-line */
+.lbl{border-left:3px solid var(--blue);padding:4px 0 4px 14px;margin:12px 0}
+.lbl .orig{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700}
+.lbl .tr{font-size:14px;color:var(--color-text-secondary)}
+.lbl .note{font-size:13.5px;margin-top:3px}
+
+/* chat bubbles (fun) */
+.chat{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0}
+.chat .who{font-size:11.5px;color:var(--color-text-secondary);margin:6px 4px 2px}
+.bubble{display:inline-block;max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.65;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary)}
+.row-r{text-align:right}.row-r .bubble{background:var(--green-bg)}
+.row-r .who{text-align:right}
+
+/* Exercises */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);margin-left:8px}
+.lv{display:inline-block;font-size:11px;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px;font-weight:700}
+.lv1{background:var(--green-bg);color:var(--green)}.lv2{background:var(--amber-bg);color:var(--amber)}.lv3{background:var(--red-bg);color:var(--red)}
+.opts{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.opts.one{grid-template-columns:1fr}
+.opts li{font-size:14px}
+.opts li b{display:inline-block;width:22px}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.line{border-bottom:1px solid #999;height:30px;margin:2px 0}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+.circle{display:inline-block;width:26px;height:26px;border:1px solid #888;border-radius:50%;vertical-align:middle;margin:0 3px}
+.box{display:inline-block;width:15px;height:15px;border:1px solid #888;vertical-align:-2px;margin-right:4px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.extotal{font-size:13px;color:var(--color-text-secondary);margin:-6px 0 12px}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;clear:both}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .ex{font-size:13px;color:var(--color-text-secondary)}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);
+  border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+/* svg charts */
+.chart{width:100%;height:auto;display:block;margin:8px 0}
+.chart text{font-family:'Noto Sans TC',sans-serif}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;font-size:13.5px}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.lbl,.poem,table,.chat{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* 《燕詩》專用 */
+.rh{border-bottom:2px dotted var(--coral);padding-bottom:1px}
+.legend{font-size:12.5px;color:var(--color-text-secondary);margin:-4px 0 10px}
+.legend .rh{font-family:'Noto Serif TC',serif;color:var(--color-text-primary)}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.panel{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px 12px;position:relative}
+.panel .pic{display:block;width:100%;height:92px;border-radius:6px;background:var(--color-background-primary);margin-bottom:8px}
+.panel .no{position:absolute;top:8px;left:8px;width:22px;height:22px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.panel .pt{font-weight:700;font-size:14px;font-family:'Noto Serif TC',serif}
+.panel .po{font-family:'Noto Serif TC',serif;font-size:13px;color:var(--coral);margin:2px 0}
+.panel .pd{font-size:13px;line-height:1.65;color:var(--color-text-secondary)}
+.panel.end{background:var(--blue-bg)}
+@media (max-width:640px){.strip{grid-template-columns:1fr 1fr}}
+.map{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;gap:6px 4px;align-items:stretch;margin:12px 0;font-size:13.5px}
+.map .h{font-weight:700;text-align:center;font-size:13px;padding:4px;border-radius:6px}
+.map .h.a{background:var(--coral-bg);color:var(--coral)}.map .h.b{background:var(--blue-bg);color:var(--blue)}.map .h.c{background:var(--purple-bg);color:var(--purple)}
+.map .m{background:var(--color-background-secondary);border-radius:6px;padding:6px 9px;line-height:1.6}
+.map .m.poem-l{font-family:'Noto Serif TC',serif}
+.map .ar{display:flex;align-items:center;justify-content:center;color:var(--color-text-secondary);font-weight:700}
+@media (max-width:640px){.map{grid-template-columns:1fr 24px 1fr;}.map .col3{display:none}}
+.sound{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:10px 0}
+.sd{border-radius:var(--border-radius-md);padding:10px 12px;background:var(--pink-bg);text-align:center}
+.sd .w{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;color:var(--pink);letter-spacing:4px}
+.sd .jp{font-size:11.5px;color:var(--color-text-secondary)}
+.sd .d{font-size:13px;line-height:1.6;margin-top:4px}
+.pair{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.pair span{background:var(--color-background-secondary);border-radius:999px;padding:3px 12px;font-size:13px}
+.nbg{display:inline-flex;align-items:center;justify-content:center;min-width:19px;height:19px;padding:0 4px;border-radius:999px;background:var(--coral-bg);color:var(--coral);font-size:11px;font-weight:700;font-family:'Noto Sans TC',sans-serif;margin-right:6px;vertical-align:2px}
+sup.n{font-size:10.5px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><svg class="pattern" viewBox="0 0 900 300" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<filter id="hgrain" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="5" result="n"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0.09 0"/>
+</filter>
+<linearGradient id="hfade" x1="0" x2="1" y1="0" y2="0">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+  <stop offset="0.36" stop-color="#fff" stop-opacity="0.25"/>
+  <stop offset="0.62" stop-color="#fff" stop-opacity="1"/>
+</linearGradient>
+<mask id="hmask"><rect width="900" height="300" fill="url(#hfade)"/></mask>
+<radialGradient id="hmoon" cx="0.4" cy="0.38" r="0.7"><stop offset="0" stop-color="#FFF8EC"/><stop offset="0.7" stop-color="#F1EADF"/><stop offset="1" stop-color="#E6D3BC"/></radialGradient>
+<radialGradient id="hhalo"><stop offset="0" stop-color="#F1EADF" stop-opacity="0.34"/><stop offset="1" stop-color="#F1EADF" stop-opacity="0"/></radialGradient>
+<linearGradient id="hhill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5E2E24" stop-opacity="0.55"/><stop offset="1" stop-color="#5E2E24" stop-opacity="0.2"/></linearGradient>
+<pattern id="hfret" width="24" height="12" patternUnits="userSpaceOnUse">
+  <path d="M0 11 H10 V3 H4 V7 H7 M12 1 H22 V9 H16 V5 H19" fill="none" stroke="#F1EADF" stroke-width="1.1"/>
+</pattern>
+<pattern id="hcloud" width="60" height="30" patternUnits="userSpaceOnUse">
+  <path d="M6 22 C6 14 16 12 20 18 C22 10 34 10 36 18 C40 12 50 14 50 22" fill="none" stroke="#F1EADF" stroke-width="0.9"/>
+</pattern>
+<symbol id="hcrow" viewBox="0 0 120 80"><path d="M30 40 C30 26 46 20 62 22 C74 23 84 30 92 38 L118 47 C108 51 96 51 88 50 C80 58 64 62 50 60 C38 58 30 50 30 40 Z"/><circle cx="29" cy="31" r="11"/><path d="M19 28 L4 33 L19 36 Z"/><path d="M52 60 L50 72 M62 60 L62 72" stroke-width="2.4" stroke-linecap="round" fill="none"/></symbol>
+</defs>
+<g mask="url(#hmask)">
+  <circle cx="735" cy="96" r="140" fill="url(#hhalo)"/>
+  <circle cx="735" cy="96" r="58" fill="url(#hmoon)" fill-opacity="0.92"/>
+  <circle cx="718" cy="84" r="9" fill="#C9A98A" fill-opacity="0.08"/><circle cx="750" cy="110" r="12" fill="#C9A98A" fill-opacity="0.07"/>
+  <rect x="560" y="40" width="340" height="110" fill="url(#hcloud)" opacity="0.14"/>
+  <g fill="#F1EADF" fill-opacity="0.5"><circle cx="560" cy="60" r="1.6"/><circle cx="610" cy="28" r="1.2"/><circle cx="845" cy="40" r="1.5"/><circle cx="880" cy="140" r="1.2"/><circle cx="640" cy="150" r="1.1"/></g>
+  <path d="M430 300 L430 250 C520 220 600 236 680 222 C760 208 830 226 900 214 L900 300 Z" fill="url(#hhill)"/>
+  <!-- 枯枝 -->
+  <g fill="none" stroke="#5E2E24" stroke-opacity="0.85" stroke-linecap="round">
+    <path d="M905 186 C850 180 790 184 720 196 C680 203 640 202 600 210" stroke-width="6"/>
+    <path d="M800 184 C790 168 770 158 752 150" stroke-width="3.2"/>
+    <path d="M700 199 C690 214 676 222 660 228" stroke-width="2.8"/>
+    <path d="M660 204 C650 192 632 186 616 186" stroke-width="2.4"/>
+    <path d="M760 154 C752 140 744 132 734 128" stroke-width="1.8"/>
+    <path d="M860 182 C866 166 880 156 896 150" stroke-width="2.6"/>
+  </g>
+  <!-- 慈烏 -->
+  <use href="#hcrow" x="0" y="0" width="120" height="80" transform="translate(690 140) scale(0.62)" fill="#3a1d17" fill-opacity="0.9" stroke="#3a1d17" stroke-opacity="0.9"/>
+  <path d="M676 152 C664 146 656 146 648 150 M674 160 C662 160 654 164 648 170" fill="none" stroke="#F1EADF" stroke-opacity="0.38" stroke-width="1.3" stroke-linecap="round"/>
+  <rect x="430" y="276" width="470" height="12" fill="url(#hfret)" opacity="0.26"/>
+</g>
+<rect width="900" height="300" filter="url(#hgrain)"/>
+</svg><div class="hero-tag">閱讀教學筆記</div><h1>白居易<span class="nb">《慈烏夜啼》</span></h1><div class="sub"><span class="nb">附比較閱讀《燕詩》</span>　<span class="nb">教育局建議篇章（第三學習階段：中一至中三）</span></div><p>潘SIR中文教室編撰</p></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="crow" viewBox="0 0 120 80"><path d="M30 40 C30 26 46 20 62 22 C74 23 84 30 92 38 L118 47 C108 51 96 51 88 50 C80 58 64 62 50 60 C38 58 30 50 30 40 Z"/><circle cx="29" cy="31" r="11"/><path d="M19 28 L4 33 L19 36 Z"/><path d="M52 60 L50 72 M62 60 L62 72" stroke-width="3" stroke-linecap="round" fill="none"/></symbol>
+<symbol id="bird" viewBox="0 0 40 30"><ellipse cx="20" cy="17" rx="11" ry="8"/><circle cx="11" cy="11" r="5"/><path d="M6 10 L0 12 L6 13 Z"/><path d="M30 15 L39 11 L36 19 Z"/></symbol>
+</defs></svg>
+
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>認識《慈烏夜啼》：背景、反哺與體裁<span class="kind">教學</span></a><a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：作者、背景與體裁<span class="kind">練習</span></a><a class="toc-item" href="#s3"><span class="toc-num">03</span>逐句精讀：原文、註釋與語譯<span class="kind">教學</span></a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：字詞與語譯<span class="kind">練習</span></a><a class="toc-item" href="#s5"><span class="toc-num">05</span>結構、情感與主旨<span class="kind">教學</span></a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：內容理解<span class="kind">練習</span></a><a class="toc-item" href="#s7"><span class="toc-num">07</span>寫作手法與比較閱讀《燕詩》<span class="kind">教學</span></a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習四：手法賞析與比較閱讀<span class="kind">練習</span></a></nav>
+
+<!-- ================= CHAPTER 01 ================= -->
+<div class="section-header first" id="s1"><div class="icon">🌙</div><div><div class="chap">CHAPTER 01　教學</div><h2>認識《慈烏夜啼》：背景、反哺與體裁</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>先想一想</h3>
+<p>你聽過「烏鴉反哺」這個說法嗎？古人相信，小烏鴉長大後，會銜食物回來餵養年老的母親。所以這種烏鴉雖然叫聲沙啞、毛色漆黑，古人卻把牠看成懂得報恩的孝鳥。</p>
+<p>一千二百多年前，白居易的母親去世了。他在守喪的日子裏，寫下一隻失去母親、夜夜啼哭的烏鴉，這就是《慈烏夜啼》。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>作者小檔案：白居易</h3>
+<table>
+<tr><th class="c">姓名</th><td>白居易，字樂天，號香山居士。</td></tr>
+<tr><th class="c">朝代</th><td>唐代。生於公元772年，卒於846年。</td></tr>
+<tr><th class="c">名作</th><td>《賦得古原草送別》、《賣炭翁》、《長恨歌》、《琵琶行》、《燕詩》</td></tr>
+<tr><th class="c">詩風</th><td>用字淺白，內容貼近生活，常借詩歌勸人或批評社會問題。</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>寫作背景：守喪中的白居易</h3>
+<div class="flow">
+<div class="flow-step"><b>元和六年（811年）</b>白居易的母親在長安去世。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>守喪</b>按當時禮制，白居易離開官職，回到下邽（今陝西渭南）為母親守喪。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>寫成本詩</b>一般認為本詩寫於守喪期間（約811–812年）。</div>
+</div>
+<p>白居易失去了母親，詩中的慈烏也失去了母親。讀這首詩時，可以把那隻夜夜啼哭的烏鴉，想像成白居易自己。</p>
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">慈烏與白居易</div><div class="alert-text">詩中慈烏「未盡反哺心」的遺憾，可以看成白居易失去母親後的心情。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>甚麼是「慈烏」和「反哺」？</h3>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word">慈烏</div><div class="kw-def">烏鴉的一種。古人認為牠懂得孝順，所以叫「慈烏」。</div></div>
+<div class="kw"><div class="kw-word">反哺<span class="py">faan2 bou6</span></div><div class="kw-def">「哺」是餵食。幼鳥長大後銜食餵養年老的母鳥，叫「反哺」。後來比喻子女長大後報答父母。</div></div>
+</div>
+<svg class="chart" viewBox="0 0 780 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="哺育與反哺">
+<rect x="30" y="20" width="330" height="150" rx="10" fill="var(--blue-bg)"/>
+<rect x="420" y="20" width="330" height="150" rx="10" fill="var(--coral-bg)"/>
+<text x="195" y="46" text-anchor="middle" font-size="15" font-weight="700" fill="var(--blue)">小時候：母親餵我</text>
+<text x="585" y="46" text-anchor="middle" font-size="15" font-weight="700" fill="var(--coral)">長大後：我餵母親（反哺）</text>
+<use href="#crow" x="0" y="0" width="120" height="80" transform="translate(180 66) scale(-0.9 0.9)" fill="#3b3b3b" stroke="#3b3b3b"/>
+<use href="#crow" x="0" y="0" width="120" height="80" transform="translate(236 104) scale(0.5)" fill="#6b6b6b" stroke="#6b6b6b"/>
+<path d="M182 110 C198 98 216 98 234 112" fill="none" stroke="var(--blue)" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="208" y="94" text-anchor="middle" font-size="12" fill="var(--blue)">餵食</text>
+<use href="#crow" x="0" y="0" width="120" height="80" transform="translate(560 82) scale(-0.72 0.72)" fill="#9a9a9a" stroke="#9a9a9a"/>
+<use href="#crow" x="0" y="0" width="120" height="80" transform="translate(612 66) scale(0.9)" fill="#3b3b3b" stroke="#3b3b3b"/>
+<path d="M562 110 C576 98 596 98 612 108" fill="none" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="587" y="94" text-anchor="middle" font-size="12" fill="var(--coral)">餵食</text>
+<text x="515" y="160" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">年老的母親</text>
+<text x="666" y="160" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">長大的慈烏</text>
+<text x="126" y="160" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">母親</text>
+<text x="266" y="160" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">幼鳥</text>
+<text x="390" y="104" text-anchor="middle" font-size="22" fill="var(--color-text-secondary)">→</text>
+</svg>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">傳說與事實</div><div class="alert-text">「烏鴉反哺」是古人的說法，用來勸人盡孝，未必是烏鴉真實的習性。讀詩時把它當作詩中的設定就可以了。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>體裁：五言古詩</h3>
+<p>《慈烏夜啼》每句五個字，全詩十八句，屬於<span class="hl">五言古詩</span>。古體詩句數不限，平仄沒有嚴格規定，也不一定要對偶。</p>
+<table>
+<tr><th class="c">體裁</th><td class="c">五言古詩</td><th class="c">句數</th><td class="c">18句</td><th class="c">字數</th><td class="c">90字</td></tr>
+<tr><th class="c">押韻位置</th><td colspan="5">雙數句的最後一個字，全詩一韻到底</td></tr>
+<tr><th class="c">韻腳</th><td colspan="5">音、林、襟、心、深、任、臨、禽、參</td></tr>
+</table>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">用廣東話讀一讀</div><div class="alert-text">九個韻腳用粵音讀出來，全部以「-m」收尾：音 jam、林 lam、襟 kam、心 sam、深 sam、任 jam、臨 lam、禽 kam、參 sam。讀到句末都要合上嘴唇，聲音收得短而沉，與全詩哀傷的情調相配。</div></div></div>
+<div class="example-box amber"><div class="example-label">「任」為甚麼讀「吟」？</div><div class="example-text">「任」平常讀 jam6（音「賃」），解作責任、任由。在「使爾悲不任」中，「任」解作承受，要讀平聲 jam4（音「吟」），才能和其他韻腳押韻。</div></div>
+</div>
+
+<!-- ================= CHAPTER 02 ================= -->
+<div class="section-header ex" id="s2"><div class="icon">✏️</div><div><div class="chap">CHAPTER 02　練習</div><h2>練習一：作者、背景與體裁</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「慈烏」是哪一種鳥？<ul class="opts"><li><b>A</b>烏鴉</li><li><b>B</b>燕子</li><li><b>C</b>喜鵲</li><li><b>D</b>麻雀</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「反哺」的本義是甚麼？<ul class="opts"><li><b>A</b>母鳥銜食餵養幼鳥</li><li><b>B</b>幼鳥離巢學習飛行</li><li><b>C</b>幼鳥長大後餵養母鳥</li><li><b>D</b>老鳥回到故林居住</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">A 是「哺育」，方向剛好相反。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>一般認為，白居易寫《慈烏夜啼》時正經歷甚麼事？<ul class="opts"><li><b>A</b>被貶江州</li><li><b>B</b>母親去世</li><li><b>C</b>兒子離家</li><li><b>D</b>考中進士</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">元和六年（811年）母親去世，白居易回下邽守喪，一般認為本詩寫於這段時間。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>《慈烏夜啼》全詩共有多少句？<ul class="opts"><li><b>A</b>十二句</li><li><b>B</b>十六句</li><li><b>C</b>二十句</li><li><b>D</b>十八句</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>根據《慈烏夜啼》的體制，完成下表。
+<table><tr><th class="c">項目</th><th>《慈烏夜啼》</th></tr>
+<tr><td class="c">體裁</td><td>（1）<span class="blank l"></span></td></tr>
+<tr><td class="c">每句字數</td><td>（2）<span class="blank s"></span>字</td></tr>
+<tr><td class="c">押韻位置</td><td>（3）<span class="blank l"></span></td></tr>
+<tr><td class="c">平仄</td><td>（4）<span class="blank l"></span></td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）五言古詩　（2）五　（3）雙數句的最後一個字　（4）沒有嚴格規定</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>試從詩中找出兩個韻腳，並說明它們用粵音讀出來有甚麼共同點。<p>韻腳：<span class="blank s"></span>、<span class="blank s"></span>　共同點：<span class="blank l"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）韻腳：音、林、襟、心、深、任、臨、禽、參中任何兩個（1分）；共同點：粵音都以「-m」收尾（1分）。<br><span class="ex">兩個韻腳都正確才給第一分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>「使爾悲不任」的「任」應讀作甚麼？為甚麼要這樣讀？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）讀平聲 jam4，音「吟」（1分）。因為「任」是韻腳，要讀平聲才能和其他韻腳押韻（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>白居易寫這首詩時的處境，和詩中慈烏的處境有甚麼相同之處？這對理解全詩有甚麼幫助？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）兩者都剛剛失去母親（1分）；白居易回鄉為母親守喪，慈烏也守着故林不肯離去（1分）。知道這一點，就明白詩人是借慈烏寄託自己喪母的哀痛（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv2">理解</span>根據本筆記的資料，簡單說明「慈烏」這個名稱的由來，以及「反哺」後來的比喻義。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）古人認為這種烏鴉長大後會銜食餵養母親，懂得孝順，所以叫「慈烏」（1分）。「反哺」後來比喻子女長大後報答父母（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>白居易想寫自己喪母的悲痛，為甚麼選擇寫慈烏，而不寫燕子、喜鵲等其他雀鳥？試提出兩個理由。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）示例：（1）古人相信慈烏會反哺，牠本身就是孝的象徵，借牠說孝，讀者一看就明白（1分）；（2）烏鴉叫聲沙啞，又在夜裏啼叫，容易營造哀傷的氣氛（1分）。借鳥說出自己的哀痛，比直接訴說更含蓄，也更動人（1分）。<br><span class="ex">評分原則：提出兩個合理理由，各得1分；能說明這樣寫對表達感情的效果，再得1分。</span></div></div></div>
+
+<!-- ================= CHAPTER 03 ================= -->
+<div class="section-header" id="s3"><div class="icon">📜</div><div><div class="chap">CHAPTER 03　教學</div><h2>逐句精讀：原文、註釋與語譯</h2></div></div>
+
+<div class="poem"><div class="ttl">慈烏夜啼</div><div class="au">白居易</div>
+<div class="legend">標示說明：<span class="rh">字</span>＝韻腳（雙數句句末）；<sup class="n">1</sup>＝見下方註釋</div>
+<span class="layer-tag">敘事：慈烏喪母，夜夜悲啼（第1–8句）</span>
+<div class="ln"><span class="pnum">1</span><span>
+慈烏<sup class="n">1</sup>失其母，啞啞<sup class="n">2</sup>吐哀<span class="rh">音</span><sup class="n">3</sup>。<br>
+晝夜不飛去，經年<sup class="n">4</sup>守故<span class="rh">林</span><sup class="n">5</sup>。<br>
+夜夜夜半啼，聞者<sup class="n">6</sup>為霑<span class="rh">襟</span><sup class="n">7</sup>。<br>
+聲中如告訴<sup class="n">8</sup>，未盡反哺<sup class="n">9</sup><span class="rh">心</span>。
+</span></div>
+<span class="layer-tag">推想：百鳥有母，慈烏獨悲（第9–12句）</span>
+<div class="ln"><span class="pnum">2</span><span>
+百鳥豈<sup class="n">10</sup>無母？爾<sup class="n">11</sup>獨哀怨<sup class="n">12</sup><span class="rh">深</span>。<br>
+應是<sup class="n">13</sup>母慈重，使爾悲不<span class="rh">任</span><sup class="n">14</sup>。
+</span></div>
+<span class="layer-tag">議論：貶吳起，讚慈烏（第13–18句）</span>
+<div class="ln"><span class="pnum">3</span><span>
+昔有吳起<sup class="n">15</sup>者，母歿<sup class="n">16</sup>喪不<span class="rh">臨</span><sup class="n">17</sup>。<br>
+嗟哉<sup class="n">18</sup>斯<sup class="n">19</sup>徒輩<sup class="n">20</sup>，其心不如<span class="rh">禽</span><sup class="n">21</sup>！<br>
+慈烏復<sup class="n">22</sup>慈烏，鳥中之曾<span class="rh">參</span><sup class="n">23</sup>。
+</span></div>
+<p class="small" style="margin:8px 0 0">原文據教育局第三學習階段建議篇章。「霑」同「沾」，部分課本作「沾襟」。</p>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>註釋</h3>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word"><span class="nbg">1</span>慈烏</div><div class="kw-def">烏鴉的一種，古人相信牠會反哺，視為孝鳥。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">2</span>啞啞</div><div class="kw-def">烏鴉的叫聲。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">3</span>吐哀音</div><div class="kw-def">發出悲哀的叫聲。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">4</span>經年</div><div class="kw-def">一年又一年，長年累月。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">5</span>故林</div><div class="kw-def">舊日的樹林，指從前和母親一起棲息的地方。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">6</span>聞者</div><div class="kw-def">聽見的人。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">7</span>霑襟<span class="py">zim1 kam1</span></div><div class="kw-def">淚水沾濕衣襟，形容傷心流淚。「霑」同「沾」。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">8</span>告訴</div><div class="kw-def">訴說。與現代漢語「告訴別人一件事」的用法不同。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">9</span>反哺<span class="py">faan2 bou6</span></div><div class="kw-def">幼鳥長大後銜食餵養母鳥，比喻子女報答父母。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">10</span>豈<span class="py">hei2，音「起」</span></div><div class="kw-def">難道。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">11</span>爾</div><div class="kw-def">你，指慈烏。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">12</span>哀怨</div><div class="kw-def">悲哀怨恨。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">13</span>應是</div><div class="kw-def">想必是，表示推測。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">14</span>任<span class="py">jam4，音「吟」</span></div><div class="kw-def">承受。「悲不任」即悲痛得承受不了。因押韻讀平聲。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">15</span>吳起</div><div class="kw-def">戰國時衞國人，著名軍事家。母親去世，他始終沒有回家奔喪。（詳見下文）</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">16</span>歿<span class="py">mut6，音「沒」</span></div><div class="kw-def">死。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">17</span>喪不臨</div><div class="kw-def">不到喪禮致哀，即不回去奔喪。「臨」是親臨。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">18</span>嗟哉<span class="py">ze1 zoi1</span></div><div class="kw-def">唉，表示感歎。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">19</span>斯</div><div class="kw-def">這。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">20</span>徒輩</div><div class="kw-def">這一類人。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">21</span>禽</div><div class="kw-def">鳥類。「不如禽」即連禽鳥也比不上。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">22</span>復</div><div class="kw-def">又。「慈烏復慈烏」即「慈烏啊慈烏」，加強語氣。</div></div>
+<div class="kw"><div class="kw-word"><span class="nbg">23</span>曾參<span class="py">zang1 sam1，音「增深」</span></div><div class="kw-def">春秋時魯國人，孔子的學生，以孝順著稱，後世尊稱「曾子」。</div></div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>兩位人物：一個不孝，一個至孝</h3>
+<div class="compare-grid">
+<div class="compare-card bad"><div class="ct">吳起：反面例子</div>據《史記》記載，吳起離家時咬臂向母親發誓：「起不為卿相，不復入衞。」意思是不當上卿相，就不再回衞國。後來母親去世，他始終沒有回去奔喪。他的老師曾子因此看不起他，和他斷絕往來。</div>
+<div class="compare-card good"><div class="ct">曾參：正面例子</div>孔子的學生，以孝順父母聞名，後世尊稱為「曾子」。古人提到孝子，常常以他為代表。</div>
+</div>
+<p class="small">《史記》中吳起的老師稱為「曾子」，有學者認為指曾參的兒子曾申。無論是哪一位，都不影響詩人以吳起作反面例子。</p>
+</div>
+
+<div class="card"><h3><span class="dot blue"></span>逐句語譯</h3>
+<p>全詩可以分為五個部分。每部分先讀原文，再看語譯，最後留意重點字詞。</p>
+
+<span class="layer-tag">一、喪母守林（第1–4句）</span>
+<div class="lbl"><div class="orig">慈烏失其母，啞啞吐哀音。晝夜不飛去，經年守故林。</div>
+<div class="tr">慈烏失去了母親，啞啞地發出悲哀的叫聲。牠白天黑夜都不肯飛走，一年又一年守在從前和母親同住的樹林裏。</div>
+<div class="note">📌「晝夜」「經年」寫出時間之長：慈烏日日夜夜、年復一年都放不下母親。</div></div>
+
+<span class="layer-tag">二、夜半悲啼（第5–8句）</span>
+<div class="lbl"><div class="orig">夜夜夜半啼，聞者為霑襟。聲中如告訴，未盡反哺心。</div>
+<div class="tr">每天晚上到了半夜，牠就啼哭起來，聽見的人都為牠流淚，淚水沾濕了衣襟。牠的叫聲好像在訴說：自己還沒有報答母親的養育之恩。</div>
+<div class="note">📌「如」是「好像」。烏鴉當然不會說話，「聲中如告訴」是詩人聽到叫聲後的聯想。</div></div>
+
+<span class="layer-tag">三、獨悲之因（第9–12句）</span>
+<div class="lbl"><div class="orig">百鳥豈無母？爾獨哀怨深。應是母慈重，使爾悲不任。</div>
+<div class="tr">難道其他鳥兒都沒有母親嗎？唯獨你哀傷得這樣深。想必是你的母親太慈愛了，所以你悲痛得承受不了。</div>
+<div class="note">📌「應是」表示推測：詩人在猜慈烏為甚麼特別傷心，答案是母愛深重。</div></div>
+
+<span class="layer-tag">四、貶斥吳起（第13–16句）</span>
+<div class="lbl"><div class="orig">昔有吳起者，母歿喪不臨。嗟哉斯徒輩，其心不如禽！</div>
+<div class="tr">從前有一個叫吳起的人，母親死了，他也不回去奔喪。唉，這一類人啊，他們的心連禽鳥也比不上！</div></div>
+
+<span class="layer-tag">五、讚美慈烏（第17–18句）</span>
+<div class="lbl"><div class="orig">慈烏復慈烏，鳥中之曾參。</div>
+<div class="tr">慈烏啊慈烏，你真是鳥類中的曾參。</div>
+<div class="note">📌 把慈烏比作以孝順著稱的曾參，是讚美慈烏的孝心。</div></div>
+
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">四個容易錯的字詞</div><div class="alert-text">
+<b>告訴</b>：解訴說，翻譯時別寫成「告訴別人」。<br>
+<b>任</b>：解承受，讀「吟」；「悲不任」是悲痛得承受不了。<br>
+<b>臨</b>：解親臨，「喪不臨」是不去奔喪，與「來臨」意思不同。<br>
+<b>禽</b>：泛指鳥類，別譯作「家禽」。</div></div></div>
+</div>
+
+<!-- ================= CHAPTER 04 ================= -->
+<div class="section-header ex" id="s4"><div class="icon">✏️</div><div><div class="chap">CHAPTER 04　練習</div><h2>練習二：字詞與語譯</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「經年守<b>故</b>林」的「故」解作甚麼？<ul class="opts"><li><b>A</b>所以</li><li><b>B</b>故意</li><li><b>C</b>舊日的</li><li><b>D</b>事故</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「聞者為<b>霑</b>襟」的「霑」解作甚麼？<ul class="opts"><li><b>A</b>沾濕</li><li><b>B</b>擦乾</li><li><b>C</b>拉緊</li><li><b>D</b>縫補</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「使爾悲不<b>任</b>」的「任」解作甚麼？<ul class="opts"><li><b>A</b>任由</li><li><b>B</b>承受</li><li><b>C</b>責任</li><li><b>D</b>信任</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>「嗟哉<b>斯</b>徒輩」的「斯」解作甚麼？<ul class="opts"><li><b>A</b>斯文</li><li><b>B</b>撕開</li><li><b>C</b>全部</li><li><b>D</b>這</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>解釋以下句子中的粗體字。
+<table><tr><th>句子</th><th>解釋</th></tr>
+<tr><td>（1）<b>經年</b>守故林</td><td><span class="blank l"></span></td></tr>
+<tr><td>（2）<b>聞者</b>為霑襟</td><td><span class="blank l"></span></td></tr>
+<tr><td>（3）百鳥<b>豈</b>無母</td><td><span class="blank l"></span></td></tr>
+<tr><td>（4）母<b>歿</b>喪不臨</td><td><span class="blank l"></span></td></tr>
+<tr><td>（5）嗟哉斯<b>徒輩</b></td><td><span class="blank l"></span></td></tr>
+<tr><td>（6）其心不如<b>禽</b></td><td><span class="blank l"></span></td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，每項1分）（1）一年又一年／長年　（2）聽見的人　（3）難道　（4）死　（5）這一類人　（6）鳥類／禽鳥</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「未盡反哺心」中，「反哺」的本義是甚麼？在詩中有甚麼引申意思？<p>（1）本義：<span class="blank l"></span></p><p>（2）引申：<span class="blank l"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）幼鳥長大後銜食餵養母鳥　（2）子女報答父母的養育之恩</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>把以下詩句譯成白話文：<br><span class="serif">「夜夜夜半啼，聞者為霑襟。」</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）慈烏每天晚上到了半夜就啼哭（1分），聽見的人都為牠流淚，沾濕了衣襟（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>把以下詩句譯成白話文：<br><span class="serif">「百鳥豈無母？爾獨哀怨深。」</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）難道其他鳥兒都沒有母親嗎（1分）？唯獨你（慈烏）哀傷得這樣深（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>把以下詩句譯成白話文：<br><span class="serif">「嗟哉斯徒輩，其心不如禽！」</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）唉，這一類人啊（1分），他們的心連禽鳥也比不上（1分）！<br><span class="ex">評分原則：前半句須譯出「嗟哉」（唉）和「斯徒輩」（這一類人），後半句須譯出「不如禽」，各1分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>「慈烏復慈烏」中，「復」字解作甚麼？詩人重複呼喚「慈烏」，表達了怎樣的感情？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「復」解作「又」（1分）。連聲呼喚慈烏，表達詩人對慈烏孝心的讚歎和敬佩（1分）。</div></div></div>
+
+<!-- ================= CHAPTER 05 ================= -->
+<div class="section-header" id="s5"><div class="icon">🪶</div><div><div class="chap">CHAPTER 05　教學</div><h2>結構、情感與主旨</h2></div></div>
+
+<div class="card"><h3><span class="dot coral"></span>五格看懂全詩</h3>
+<div class="strip">
+
+<div class="panel"><span class="no">1</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><path d="M300 52 C230 50 170 56 100 66 C70 70 40 70 10 76" fill="none" stroke="#8a6a4f" stroke-width="5" stroke-linecap="round"/><path d="M190 54 C182 40 170 32 156 28 M120 62 C114 74 104 80 92 84" fill="none" stroke="#8a6a4f" stroke-width="2.6" stroke-linecap="round"/><g transform="translate(150 22) scale(0.38)"><use href="#crow" width="120" height="80" fill="#3b3b3b" stroke="#3b3b3b"/></g><text x="214" y="30" font-size="13" fill="#c0392b">啞啞……</text></svg>
+<div class="pt">喪母守林</div><div class="po">晝夜不飛去，經年守故林</div><div class="pd">慈烏失去母親，日夜守着舊林，不肯離開。</div></div>
+
+<div class="panel"><span class="no">2</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><rect width="300" height="92" rx="6" fill="#3b4656"/><circle cx="246" cy="28" r="15" fill="#f1e2b8"/><path d="M300 70 C240 68 180 72 110 80" fill="none" stroke="#6b5a4b" stroke-width="5" stroke-linecap="round"/><g transform="translate(140 42) scale(0.38)"><use href="#crow" width="120" height="80" fill="#121518" stroke="#121518"/></g><g fill="#9cc3e6"><path d="M60 30 C56 38 56 42 60 42 C64 42 64 38 60 30 Z"/><path d="M76 46 C72 54 72 58 76 58 C80 58 80 54 76 46 Z"/></g><text x="24" y="78" font-size="12" fill="#f1e2b8">聞者霑襟</text></svg>
+<div class="pt">夜半悲啼</div><div class="po">夜夜夜半啼，聞者為霑襟</div><div class="pd">每晚半夜啼哭，像在訴說未報母恩，聽者落淚。</div></div>
+
+<div class="panel"><span class="no">3</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><g fill="#a9b6c4"><use href="#bird" x="30" y="20" width="40" height="30"/><use href="#bird" x="80" y="44" width="40" height="30"/><use href="#bird" x="40" y="58" width="34" height="26"/><use href="#bird" x="110" y="14" width="34" height="26"/></g><g transform="translate(176 30) scale(0.46)"><use href="#crow" width="120" height="80" fill="#3b3b3b" stroke="#3b3b3b"/></g><text x="240" y="30" font-size="22" font-weight="700" fill="#c0392b">？</text></svg>
+<div class="pt">獨悲之因</div><div class="po">應是母慈重，使爾悲不任</div><div class="pd">百鳥都有母親，唯獨慈烏最悲，想必母愛深重。</div></div>
+
+<div class="panel"><span class="no">4</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><rect x="70" y="14" width="160" height="64" rx="8" fill="#fbe9e7" stroke="#c0392b"/><text x="150" y="44" text-anchor="middle" font-size="18" font-weight="700" fill="#c0392b">吳起</text><text x="150" y="66" text-anchor="middle" font-size="12" fill="#6b4a44">母歿喪不臨</text><path d="M246 20 L280 70 M280 20 L246 70" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/></svg>
+<div class="pt">貶斥吳起</div><div class="po">嗟哉斯徒輩，其心不如禽</div><div class="pd">吳起母死不奔喪，詩人歎他連禽鳥都不如。</div></div>
+
+<div class="panel end"><span class="no">5</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><circle cx="110" cy="48" r="34" fill="#fbf2df" stroke="#c48612" stroke-width="2"/><g transform="translate(84 30) scale(0.44)"><use href="#crow" width="120" height="80" fill="#3b3b3b" stroke="#3b3b3b"/></g><text x="168" y="44" font-size="20" fill="#c48612" font-weight="700">＝</text><rect x="196" y="22" width="72" height="52" rx="8" fill="#e7f3ea" stroke="#3d8b4f"/><text x="232" y="54" text-anchor="middle" font-size="17" font-weight="700" fill="#3d8b4f">曾參</text></svg>
+<div class="pt">讚美慈烏</div><div class="po">慈烏復慈烏，鳥中之曾參</div><div class="pd">稱讚慈烏是鳥類中的曾參。</div></div>
+
+<div class="panel" style="background:transparent;border-style:dashed"><div class="pt" style="margin-top:4px">讀圖小結</div><div class="pd" style="margin-top:6px">第1、2格寫慈烏的舉動，第3格是詩人的推想，第4、5格是詩人的評論。</div></div>
+
+</div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>全詩結構：敘事、推想、議論</h3>
+<svg class="chart" viewBox="0 0 780 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全詩十八句的結構">
+<g>
+<rect x="30" y="44" width="36" height="34" rx="3" fill="var(--coral)"/><rect x="70" y="44" width="36" height="34" rx="3" fill="var(--coral)"/><rect x="110" y="44" width="36" height="34" rx="3" fill="var(--coral)"/><rect x="150" y="44" width="36" height="34" rx="3" fill="var(--coral)"/>
+<rect x="190" y="44" width="36" height="34" rx="3" fill="var(--amber)"/><rect x="230" y="44" width="36" height="34" rx="3" fill="var(--amber)"/><rect x="270" y="44" width="36" height="34" rx="3" fill="var(--amber)"/><rect x="310" y="44" width="36" height="34" rx="3" fill="var(--amber)"/>
+<rect x="364" y="44" width="36" height="34" rx="3" fill="var(--teal)"/><rect x="404" y="44" width="36" height="34" rx="3" fill="var(--teal)"/><rect x="444" y="44" width="36" height="34" rx="3" fill="var(--teal)"/><rect x="484" y="44" width="36" height="34" rx="3" fill="var(--teal)"/>
+<rect x="538" y="44" width="36" height="34" rx="3" fill="var(--purple)"/><rect x="578" y="44" width="36" height="34" rx="3" fill="var(--purple)"/><rect x="618" y="44" width="36" height="34" rx="3" fill="var(--purple)"/><rect x="658" y="44" width="36" height="34" rx="3" fill="var(--purple)"/>
+<rect x="698" y="44" width="36" height="34" rx="3" fill="var(--blue)"/><rect x="738" y="44" width="36" height="34" rx="3" fill="var(--blue)"/>
+</g>
+<path d="M30 34 V26 H346 V34" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.2"/>
+<path d="M364 34 V26 H520 V34" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.2"/>
+<path d="M538 34 V26 H774 V34" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.2"/>
+<g font-size="14" font-weight="700" text-anchor="middle" fill="var(--color-text-primary)"><text x="188" y="18">敘事（8句）</text><text x="442" y="18">推想（4句）</text><text x="656" y="18">議論（6句）</text></g>
+<g font-size="12.5" text-anchor="middle" font-weight="700">
+<text x="108" y="98" fill="var(--coral)">喪母守林</text><text x="108" y="114" fill="var(--color-text-secondary)" font-weight="400">1–4句</text>
+<text x="268" y="98" fill="var(--amber)">夜半悲啼</text><text x="268" y="114" fill="var(--color-text-secondary)" font-weight="400">5–8句</text>
+<text x="442" y="98" fill="var(--teal)">獨悲之因</text><text x="442" y="114" fill="var(--color-text-secondary)" font-weight="400">9–12句</text>
+<text x="616" y="98" fill="var(--purple)">貶斥吳起</text><text x="616" y="114" fill="var(--color-text-secondary)" font-weight="400">13–16句</text>
+<text x="736" y="98" fill="var(--blue)">讚美慈烏</text><text x="736" y="114" fill="var(--color-text-secondary)" font-weight="400">17–18句</text>
+</g>
+<text x="390" y="150" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">由看到的事（敘事），到心裏的猜想（推想），再到明白說出的評價（議論）</text>
+</svg>
+<table>
+<tr><th class="c">部分</th><th class="c">句子</th><th>內容</th></tr>
+<tr><td class="c">喪母守林</td><td class="c">第1–4句</td><td>慈烏失去母親，悲鳴不止，日夜守着舊林，長年不肯離開。</td></tr>
+<tr><td class="c">夜半悲啼</td><td class="c">第5–8句</td><td>慈烏每晚半夜啼哭，叫聲好像在訴說未能報答母恩，聽見的人都流淚。</td></tr>
+<tr><td class="c">獨悲之因</td><td class="c">第9–12句</td><td>詩人問：百鳥都有母親，為何唯獨慈烏這樣悲傷？推想是母愛深重，令牠悲痛難當。</td></tr>
+<tr><td class="c">貶斥吳起</td><td class="c">第13–16句</td><td>以母死不奔喪的吳起作反面例子，歎這類人連禽鳥也不如。</td></tr>
+<tr><td class="c">讚美慈烏</td><td class="c">第17–18句</td><td>稱讚慈烏是鳥類中的曾參。</td></tr>
+</table>
+<p class="small">第5–8句以敘事為主，其中「聲中如告訴」已帶出詩人的聯想；到第9–12句，詩人才集中推想慈烏悲傷的原因。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>時間詞：寫出悲傷之久</h3>
+<p>詩人用一連串時間詞寫慈烏的悲傷：</p>
+<svg class="chart" viewBox="0 0 780 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="時間詞">
+<line x1="40" y1="90" x2="740" y2="90" stroke="var(--color-text-secondary)" stroke-width="2"/>
+<path d="M740 90 L728 83 L728 97 Z" fill="var(--color-text-secondary)"/>
+<g font-size="15" font-weight="700" text-anchor="middle">
+<circle cx="150" cy="90" r="9" fill="var(--coral)"/><text x="150" y="62" fill="var(--coral)">晝夜</text><text x="150" y="122" font-size="12.5" font-weight="400" fill="var(--color-text-secondary)">白天黑夜都不飛走</text>
+<circle cx="390" cy="90" r="9" fill="var(--amber)"/><text x="390" y="62" fill="var(--amber)">經年</text><text x="390" y="122" font-size="12.5" font-weight="400" fill="var(--color-text-secondary)">一年又一年守着故林</text>
+<circle cx="630" cy="90" r="9" fill="var(--purple)"/><text x="630" y="62" fill="var(--purple)">夜夜、夜半</text><text x="630" y="122" font-size="12.5" font-weight="400" fill="var(--color-text-secondary)">每一晚的半夜都在啼哭</text>
+</g>
+<text x="390" y="156" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">三組時間詞都說明慈烏悲傷的時間很長</text>
+</svg>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">答題提示</div><div class="alert-text">問「詩人怎樣表現慈烏的悲傷」時，除了「啼」「哀音」等字眼，記得找出「晝夜」「經年」「夜夜」等時間詞，說明悲傷持續之久。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>感情三層：哀、愧、痛</h3>
+<div class="flow">
+<div class="flow-step"><b>哀</b>「啞啞吐哀音」：失去母親的悲哀。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>愧</b>「未盡反哺心」：還沒報答母親的內疚。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>痛</b>「使爾悲不任」：母愛越深，失去後越痛。</div>
+</div>
+<p>三層感情一層比一層深。</p>
+</div>
+
+<div class="card"><h3><span class="dot red"></span>主旨</h3>
+<div class="formula"><div class="fl">一句記主旨</div>本詩借慈烏喪母後<b>日夜悲啼、未能反哺而內疚哀痛</b>，讚美慈烏的孝心，批評<b>不孝的人</b>，勸勉世人要<b>感念母恩，及時盡孝</b>。</div>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">表面寫慈烏</div>慈烏失母，夜夜悲啼，因未盡反哺而內疚。</div>
+<div class="compare-card b"><div class="ct">實際寄託詩人自己</div>白居易剛剛喪母，借慈烏抒發自己的哀痛，同時勸人盡孝。</div>
+</div>
+</div>
+
+<!-- ================= CHAPTER 06 ================= -->
+<div class="section-header ex" id="s6"><div class="icon">✏️</div><div><div class="chap">CHAPTER 06　練習</div><h2>練習三：內容理解</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>慈烏失去母親後怎樣做？<ul class="opts"><li><b>A</b>飛往別處</li><li><b>B</b>守在故林</li><li><b>C</b>另築新巢</li><li><b>D</b>尋找同伴</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">根據「晝夜不飛去，經年守故林」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>根據詩句，慈烏在甚麼時候啼哭？<ul class="opts"><li><b>A</b>清晨</li><li><b>B</b>黃昏</li><li><b>C</b>正午</li><li><b>D</b>半夜</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D<br><span class="ex">根據「夜夜夜半啼」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>詩人推想慈烏特別悲傷的原因是甚麼？<ul class="opts"><li><b>A</b>母親生前十分慈愛</li><li><b>B</b>其他鳥兒取笑牠</li><li><b>C</b>牠在樹林找不到食物</li><li><b>D</b>牠被同伴趕出樹林</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span class="ex">根據「應是母慈重，使爾悲不任」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>詩人怎樣評價吳起這類人？<ul class="opts"><li><b>A</b>才能出眾</li><li><b>B</b>忠心為國</li><li><b>C</b>心不如禽</li><li><b>D</b>孝感動天</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">根據「嗟哉斯徒輩，其心不如禽」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>試從詩中找出兩個表示時間的詞語，並說明它們怎樣表現慈烏的悲傷。<p>（1）<span class="blank"></span>　（2）<span class="blank"></span></p><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）晝夜、經年、夜夜、夜半中任何兩個（各1分）。這些詞語寫出慈烏日日夜夜、年復一年地悲傷，表現牠的悲傷持續很久（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>完成下表，概括各部分的內容。第一項是示例。
+<table><tr><th class="c">句子</th><th>內容</th></tr>
+<tr><td class="c">第1–4句</td><td>（示例）慈烏失去母親，日夜守着舊林，不肯離開。</td></tr>
+<tr><td class="c">第5–8句</td><td>慈烏每晚半夜啼哭，好像在訴說（1）<span class="blank l"></span>。</td></tr>
+<tr><td class="c">第9–12句</td><td>詩人推想慈烏特別悲傷，是因為（2）<span class="blank l"></span>。</td></tr>
+<tr><td class="c">第13–16句</td><td>以（3）<span class="blank"></span>母死不奔喪的事作反面例子。</td></tr>
+<tr><td class="c">第17–18句</td><td>稱讚慈烏是（4）<span class="blank l"></span>。</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每空1分）（1）自己未能報答母親的養育之恩　（2）母親十分慈愛／母恩深重　（3）吳起　（4）鳥類中的曾參<br><span class="ex">意思相近即可給分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>「聞者為霑襟」寫旁人聽到慈烏啼叫後的反應。這句對表現慈烏的悲傷有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）連聽見的人都傷心流淚（1分），可見慈烏的叫聲非常悲哀，從旁人的反應側面襯托出慈烏的悲痛（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>根據「未盡反哺心」，慈烏除了悲傷，還有甚麼感受？為甚麼？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）內疚／遺憾（1分）。因為母親已經死去，牠還來不及報答母親的養育之恩（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv2">理解</span>試概括本詩的主旨。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）本詩借慈烏喪母後因未能反哺而悲痛內疚（1分），讚美慈烏的孝心，勸勉世人感念母恩、及時盡孝（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>有人認為詩中的慈烏就是白居易自己的寫照。你同意嗎？試結合寫作背景和詩句說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）示例：同意（1分）。一般認為本詩寫於白居易母親去世、他回鄉守喪期間，他和慈烏一樣剛剛失去母親（1分）。詩中慈烏「未盡反哺心」的內疚，可以看成詩人失去母親後的心情，所以慈烏可說是詩人借來抒發哀痛的寫照（1分）。<br><span class="ex">評分原則：立場1分；能結合背景說明1分；能引用詩句說明1分。持不同意見而言之成理，亦可給分。</span></div></div></div>
+
+<!-- ================= CHAPTER 07 ================= -->
+<div class="section-header" id="s7"><div class="icon">🔍</div><div><div class="chap">CHAPTER 07　教學</div><h2>寫作手法與比較閱讀《燕詩》</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>手法一：託物寓意</h3>
+<p>詩人借慈烏寄託孝道，慈烏的一舉一動都可以對應到人身上：</p>
+<div class="map" style="grid-template-columns:1fr 34px 1fr">
+<div class="h a">詩中的慈烏</div><div></div><div class="h b">現實中的人</div>
+<div class="m poem-l">慈烏失其母，啞啞吐哀音</div><div class="ar">→</div><div class="m">子女失去母親，悲痛不已</div>
+<div class="m poem-l">晝夜不飛去，經年守故林</div><div class="ar">→</div><div class="m">守在故居，長久懷念母親</div>
+<div class="m poem-l">聲中如告訴，未盡反哺心</div><div class="ar">→</div><div class="m">遺憾自己來不及報答母恩</div>
+<div class="m poem-l">慈烏復慈烏，鳥中之曾參</div><div class="ar">→</div><div class="m">懂得感恩、盡孝的子女，值得敬佩</div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>手法二：聯想與推想</h3>
+<p>烏鴉不會說話，詩人卻從牠的叫聲和表現，聯想到牠的心事。留意「如」「應是」兩個表示推想的字眼：</p>
+<table>
+<tr><th>詩人看到或聽到的</th><th class="c ctr"></th><th>詩人想到的</th></tr>
+<tr><td>慈烏每晚半夜啼哭</td><td class="ctr">→</td><td>「聲中<b>如</b>告訴，未盡反哺心」：牠好像在訴說未能報答母恩</td></tr>
+<tr><td>百鳥都有母親，唯獨慈烏最悲傷</td><td class="ctr">→</td><td>「<b>應是</b>母慈重」：想必是牠的母親特別慈愛</td></tr>
+</table>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">答題提示</div><div class="alert-text">說明「聯想」時，要寫出兩邊：詩人看到甚麼（慈烏的舉動），再寫出他聯想到甚麼（慈烏的心情或原因）。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>手法三：反問</h3>
+<div class="example-box coral"><div class="example-label">百鳥豈無母？</div><div class="example-text">「豈」解作「難道」。這句的答案就在問題的反面：其他鳥兒當然也有母親。詩人用反問句，強調慈烏的悲傷特別深，引出下文對原因的推想。</div></div>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">反問</div>明知故問，用問句表達肯定的意思，答案就在問題的反面，目的是加強語氣。例：百鳥豈無母？（＝百鳥都有母親）</div>
+<div class="compare-card b"><div class="ct">設問</div>作者提出問題，引起讀者注意或思考；有時自問自答，有時不作回答。例：明月幾時有？把酒問青天。</div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>手法四：正反對比</h3>
+<p>詩人在結尾提到兩個人，一個作反面例子，一個作正面例子：</p>
+<svg class="chart" viewBox="0 0 780 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="吳起、慈烏、曾參的對比">
+<line x1="60" y1="150" x2="720" y2="150" stroke="var(--color-text-secondary)" stroke-width="1.5"/>
+<text x="60" y="176" font-size="12" fill="var(--color-text-secondary)">孝心較弱</text><text x="720" y="176" font-size="12" text-anchor="end" fill="var(--color-text-secondary)">孝心較強</text>
+<rect x="70" y="90" width="150" height="50" rx="10" fill="var(--red-bg)" stroke="var(--red)"/><text x="145" y="112" text-anchor="middle" font-size="15" font-weight="700" fill="var(--red)">吳起（人）</text><text x="145" y="130" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">母死不奔喪</text>
+<rect x="315" y="50" width="150" height="50" rx="10" fill="var(--amber-bg)" stroke="var(--amber)"/><text x="390" y="72" text-anchor="middle" font-size="15" font-weight="700" fill="var(--amber)">慈烏（禽鳥）</text><text x="390" y="90" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">喪母夜夜悲啼</text>
+<rect x="560" y="50" width="150" height="50" rx="10" fill="var(--green-bg)" stroke="var(--green)"/><text x="635" y="72" text-anchor="middle" font-size="15" font-weight="700" fill="var(--green)">曾參（人）</text><text x="635" y="90" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">以孝聞名</text>
+<text x="268" y="94" text-anchor="middle" font-size="24" fill="var(--red)">＜</text>
+<text x="512" y="80" text-anchor="middle" font-size="24" fill="var(--green)">＝</text>
+<text x="268" y="40" text-anchor="middle" font-size="12.5" fill="var(--red)">「其心不如禽」</text>
+<text x="512" y="40" text-anchor="middle" font-size="12.5" fill="var(--green)">「鳥中之曾參」</text>
+</svg>
+<p>人本應比禽鳥更懂得孝順，吳起卻連一隻烏鴉也比不上；一隻烏鴉卻可以和以孝聞名的曾參相比。一貶一讚，慈烏的孝心更加突出，勸人盡孝的道理也更有說服力。</p>
+</div>
+
+<div class="card"><h3><span class="dot pink"></span>手法五：疊字、反復與呼告</h3>
+<div class="sound">
+<div class="sd"><div class="w">啞啞</div><div class="jp">疊字、擬聲</div><div class="d">模仿烏鴉沙啞的叫聲，聽來淒涼。</div></div>
+<div class="sd"><div class="w">夜夜夜半</div><div class="jp">疊字</div><div class="d">三個「夜」字，寫出每晚如是，悲啼不止。</div></div>
+<div class="sd"><div class="w">慈烏復慈烏</div><div class="jp">反復、呼告</div><div class="d">連聲呼喚，表達詩人的讚歎和敬佩。</div></div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>手法六：敘事、抒情、議論結合</h3>
+<div class="flow">
+<div class="flow-step"><b>敘事</b>第1–8句：寫慈烏喪母後的舉動和叫聲。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>抒情、推想</b>第9–12句：詩人直接對慈烏說話，推想牠悲痛的原因。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>議論</b>第13–18句：貶吳起、讚慈烏，點出孝道。</div>
+</div>
+<p>先用故事打動讀者，再說道理，和《燕詩》「先敘後議」的寫法相同。</p>
+</div>
+
+<div class="card"><h3><span class="dot blue"></span>比較閱讀：《燕詩》與《慈烏夜啼》</h3>
+<div class="example-box blue"><div class="example-label">《燕詩》內容提要</div><div class="example-text">白居易另一首詠鳥詩。一對燕子辛勤築巢、捕蟲，把四隻雛燕養大；雛燕翅膀長成後卻「舉翅不回顧，隨風四散飛」，雙燕只能回到空巢，「啁啾終夜悲」。最後六句詩人勸雙燕不要悲傷，應反省自己年輕時也曾「高飛背母」，今天才明白當年父母的心情。詩前小序說明，此詩是寫給一位被兒子背棄的劉姓老人看的。</div></div>
+<svg class="chart" viewBox="0 0 780 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="兩首詩一反一正">
+<rect x="30" y="20" width="330" height="160" rx="12" fill="var(--coral-bg)"/>
+<rect x="420" y="20" width="330" height="160" rx="12" fill="var(--green-bg)"/>
+<text x="195" y="50" text-anchor="middle" font-size="17" font-weight="700" fill="var(--coral)">《燕詩》：反面教材</text>
+<text x="585" y="50" text-anchor="middle" font-size="17" font-weight="700" fill="var(--green)">《慈烏夜啼》：正面榜樣</text>
+<g font-size="13.5" text-anchor="middle" fill="var(--color-text-primary)">
+<text x="195" y="86">從<tspan font-weight="700">父母</tspan>的角度寫</text>
+<text x="195" y="112">子女不顧父母，一去不回</text>
+<text x="195" y="138">父母悲傷失望</text>
+<text x="195" y="164" fill="var(--color-text-secondary)">勸人：不要離棄父母</text>
+<text x="585" y="86">從<tspan font-weight="700">子女</tspan>的角度寫</text>
+<text x="585" y="112">母親去世，來不及報恩</text>
+<text x="585" y="138">子女悲痛內疚</text>
+<text x="585" y="164" fill="var(--color-text-secondary)">勸人：及時盡孝</text>
+</g>
+<text x="390" y="106" text-anchor="middle" font-size="22" fill="var(--color-text-secondary)">⇄</text>
+</svg>
+<table>
+<tr><th class="c">項目</th><th>《燕詩》</th><th>《慈烏夜啼》</th></tr>
+<tr><td class="c">主角</td><td>雙燕（父母）</td><td>慈烏（子女）</td></tr>
+<tr><td class="c">遭遇</td><td>辛苦養大的子女一去不回</td><td>母親去世，來不及報答</td></tr>
+<tr><td class="c">主要感情</td><td>悲傷、失望</td><td>悲痛、內疚</td></tr>
+<tr><td class="c">勸誡對象</td><td>劉叟，以及離棄父母的人</td><td>吳起一類不孝的人，以及世人</td></tr>
+<tr><td class="c">結構</td><td>24句敘事，6句勸告</td><td>12句敘事及推想，6句議論</td></tr>
+<tr><td class="c">體制</td><td>五言古詩，30句；韻腳屬支韻和微韻，鄰韻通押</td><td>五言古詩，18句；押侵韻，一韻到底</td></tr>
+<tr><td class="c">相同之處</td><td colspan="2">都借鳥寫人、宣揚孝道（託物寓意）；都先敘事後議論；語言淺白；結尾六句都由詩人直接說出看法。</td></tr>
+</table>
+<div class="formula"><div class="fl">一句記比較</div>《燕詩》從<b>父母</b>的角度寫被子女離棄之痛，《慈烏夜啼》從<b>子女</b>的角度寫未能盡孝之痛；兩首詩一反一正，都在勸人<b>孝順父母</b>。</div>
+</div>
+
+<!-- ================= CHAPTER 08 ================= -->
+<div class="section-header ex" id="s8"><div class="icon">✏️</div><div><div class="chap">CHAPTER 08　練習</div><h2>練習四：手法賞析與比較閱讀</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分23分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「百鳥豈無母？」運用了哪一種修辭手法？<ul class="opts"><li><b>A</b>設問</li><li><b>B</b>反問</li><li><b>C</b>比喻</li><li><b>D</b>對偶</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">百鳥當然都有母親，答案就在問題的反面；詩人用問句加強語氣，屬反問。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「慈烏復慈烏」直接呼喚慈烏，運用了哪一種修辭手法？<ul class="opts"><li><b>A</b>呼告</li><li><b>B</b>誇張</li><li><b>C</b>借代</li><li><b>D</b>排比</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>詩人寫吳起「母歿喪不臨」，主要是為了甚麼？<ul class="opts"><li><b>A</b>介紹吳起的生平</li><li><b>B</b>稱讚吳起的才能</li><li><b>C</b>說明吳起的遭遇</li><li><b>D</b>反襯慈烏的孝心</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>「鳥中之曾參」把慈烏比作曾參，運用了哪一種修辭手法？<ul class="opts"><li><b>A</b>擬人</li><li><b>B</b>借代</li><li><b>C</b>比喻</li><li><b>D</b>設問</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">把慈烏比作以孝聞名的曾參，說明慈烏像曾參一樣孝順。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>詩人從慈烏的表現聯想到牠的心事。完成下表，並回答問題。
+<table><tr><th>詩人聽到或看到的</th><th>詩人聯想到的（用自己的話寫）</th></tr>
+<tr><td>慈烏每晚半夜啼哭</td><td>（1）<span class="blank l"></span></td></tr>
+<tr><td>百鳥都有母親，唯獨慈烏最悲傷</td><td>（2）<span class="blank l"></span></td></tr></table>
+<p>（3）詩中哪兩個字詞表示這些都是詩人的推想？<span class="blank s"></span>、<span class="blank s"></span></p>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）慈烏好像在訴說自己未能報答母親的養育之恩　（2）想必是慈烏的母親特別慈愛，令牠悲痛得承受不了　（3）如、應是<br><span class="ex">第（3）項須兩個字詞都正確才給分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>詩人在結尾同時提到吳起和曾參，這樣寫有甚麼作用？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）吳起母死不奔喪，是不孝的反面例子，用來反襯慈烏的孝（1分）；曾參以孝聞名，把慈烏比作曾參，正面讚美慈烏（1分）。一貶一讚，突出慈烏的孝心，也令勸人盡孝的道理更有說服力（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>「夜夜夜半啼」一句連用三個「夜」字，有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「夜夜」寫每一晚，「夜半」寫半夜時分（1分）。連用三個「夜」字，強調慈烏每晚深夜都在啼哭，突出牠的悲傷持久而深切（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>比較《燕詩》和《慈烏夜啼》，完成下表。
+<table><tr><th class="c">項目</th><th>《燕詩》</th><th>《慈烏夜啼》</th></tr>
+<tr><td class="c">主角的身份</td><td>雙燕：父母</td><td>慈烏：（1）<span class="blank"></span></td></tr>
+<tr><td class="c">主角的遭遇</td><td>（2）<span class="blank l"></span></td><td>母親去世，來不及報答</td></tr>
+<tr><td class="c">主要感情</td><td>悲傷、失望</td><td>悲痛、（3）<span class="blank"></span></td></tr>
+<tr><td class="c">勸誡的道理</td><td colspan="2">（4）<span class="blank l"></span></td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每空1分）（1）子女　（2）辛苦養大的子女一去不回　（3）內疚　（4）要孝順父母，不要忘記父母的養育之恩</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>兩首詩都借禽鳥說孝道。這種寫法叫甚麼？比起直接說教，有甚麼好處？試提出兩點。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）託物寓意（1分）。好處：（1）借鳥的故事說道理，含蓄委婉，讀者較容易接受（1分）；（2）禽鳥尚且如此，人更應該盡孝，對比之下更能觸動讀者（1分）。<br><span class="ex">亦可答「故事具體生動，容易明白，印象深刻」等，言之成理即可。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>古語說：「樹欲靜而風不止，子欲養而親不待。」這句話與《燕詩》還是《慈烏夜啼》的關係較密切？試加以說明，並談談你會怎樣及時孝順父母。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）《慈烏夜啼》（1分）。「子欲養而親不待」指子女想奉養父母時，父母已經不在。慈烏失去母親後「未盡反哺心」，想報恩已經太遲，正是這種遺憾（1分）。示例：我會趁父母健在，多陪伴他們吃飯聊天（1分），平日幫忙做家務，主動關心他們的身體和心情（1分）。<br><span class="ex">評分原則：選對詩篇1分；能結合詩句說明1分；提出兩項具體而合理的行動，各1分。</span></div></div></div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
