@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>場面與參觀：成語教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5b95;--purple-bg:#efecf6;
+  --teal:#2a7f7a;--teal-bg:#e6f3f2;
+  --coral:#c8553d;--coral-bg:#fbece8;
+  --amber:#b7791f;--amber-bg:#fbf3e3;
+  --pink:#b04a7a;--pink-bg:#f8e9f0;
+  --blue:#3a6ea5;--blue-bg:#e8f0f8;
+  --green:#3d8b5a;--green-bg:#e8f4ec;
+  --red:#b23a3a;--red-bg:#f8e6e6;
+  --hero-bg:#E3D9C6;--hero-text:42,34,20;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b0b0b0;
+    --color-background-primary:#1f1f1f;--color-background-secondary:#151515;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#b3a6dc;--purple-bg:#2a2638;
+    --teal:#6cc4bd;--teal-bg:#1c3130;
+    --coral:#ec9581;--coral-bg:#3a2520;
+    --amber:#e3b05c;--amber-bg:#3a2f1c;
+    --pink:#e294b8;--pink-bg:#3a2430;
+    --blue:#8db6e3;--blue-bg:#1d2a3a;
+    --green:#7fcb98;--green-bg:#1d3326;
+    --red:#ec8b8b;--red-bg:#3a2020;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC",sans-serif;font-size:14px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+.hero{background:var(--hero-bg);color:rgb(var(--hero-text));border-radius:var(--border-radius-lg);padding:34px 30px;margin-bottom:20px}
+.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-text),0.3);color:rgba(var(--hero-text),0.65);border-radius:999px;padding:2px 14px;font-size:12px;letter-spacing:2px}
+.hero h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:30px;margin:12px 0 4px;color:rgb(var(--hero-text))}
+.hero .sub{font-size:15px;color:rgba(var(--hero-text),0.75)}
+.hero p{margin:12px 0 0;font-size:13px;color:rgba(var(--hero-text),0.5)}
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}
+.toc-title{grid-column:1/-1;font-weight:700;margin-bottom:6px}
+.toc-item{color:var(--color-text-primary);text-decoration:none;padding:3px 0;font-size:14px}
+.toc-item:hover{color:var(--teal)}
+.toc-num{display:inline-block;width:30px;color:var(--teal);font-weight:700;font-size:12px}
+.section-header{display:flex;align-items:center;gap:10px;margin:34px 0 14px;padding:12px 18px;border-radius:var(--border-radius-lg);background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:5px solid var(--teal)}
+.sh-icon{font-size:20px}
+.sh-title{font-family:"Noto Serif TC",serif;font-weight:700;font-size:20px;flex:1}
+.sh-num{font-size:11px;letter-spacing:2px;color:var(--color-text-secondary)}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px}
+.card-title{font-weight:700;font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card p{margin:0 0 12px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.blue{background:var(--blue)}.dot.red{background:var(--red)}.dot.green{background:var(--green)}
+/* 概覽 */
+.emo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 14px}
+.emo-card{border-radius:var(--border-radius-md);padding:12px 14px}
+.emo-card.blue{background:var(--blue-bg)}.emo-card.red{background:var(--red-bg)}.emo-card.purple{background:var(--purple-bg)}.emo-card.amber{background:var(--amber-bg)}
+.emo-head{font-family:"Noto Serif TC",serif;font-weight:700;font-size:18px;margin-bottom:6px}
+.emo-icon{margin-right:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--color-background-primary);border-radius:999px;padding:1px 12px;font-family:"Noto Serif TC",serif;font-weight:700;font-size:15px}
+.chip.blue{color:var(--blue)}.chip.red{color:var(--red)}.chip.purple{color:var(--purple)}.chip.amber{color:var(--amber)}
+/* 成語卡 */
+.idiom{display:grid;grid-template-columns:150px 1fr;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden;margin-bottom:12px;page-break-inside:avoid}
+.idiom-word{display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:900;font-size:24px;letter-spacing:2px;padding:12px}
+.idiom.blue .idiom-word{background:var(--blue-bg);color:var(--blue)}
+.idiom.red .idiom-word{background:var(--red-bg);color:var(--red)}
+.idiom.purple .idiom-word{background:var(--purple-bg);color:var(--purple)}
+.idiom.amber .idiom-word{background:var(--amber-bg);color:var(--amber)}
+.idiom-body{padding:10px 14px}
+.irow{display:flex;gap:10px;padding:3px 0}
+.irow+.irow{border-top:1px dashed var(--color-border-tertiary)}
+.ilab{flex:0 0 auto;font-size:12px;font-weight:700;color:var(--color-text-secondary);background:var(--color-background-secondary);border-radius:4px;padding:0 8px;height:22px;line-height:22px;margin-top:3px;white-space:nowrap}
+.irow.ex span:last-child{font-family:"Noto Serif TC",serif}
+.hl{font-weight:700}
+.hl.blue{color:var(--blue)}.hl.red{color:var(--red)}.hl.purple{color:var(--purple)}.hl.amber{color:var(--amber)}
+/* 元素 */
+.example-box{background:var(--purple-bg);border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0}
+.example-label{font-weight:700;font-size:13px;color:var(--purple);margin-bottom:4px}
+.example-text{font-family:"Noto Serif TC",serif}
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:12px 14px;margin:12px 0}
+.alert-icon{font-size:18px;line-height:1.4}
+.alert-label{font-weight:700;font-size:13px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+.flow{display:flex;align-items:stretch;gap:6px;margin:12px 0;flex-wrap:wrap}
+.flow-step{flex:1;min-width:140px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:10px 12px;text-align:center;font-size:13px}
+.flow-step b{display:block;color:var(--teal);font-size:14px}
+.flow-arrow{display:flex;align-items:center;color:var(--teal);font-weight:700}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:10px 14px;font-family:"Noto Serif TC",serif}
+.compare-card small{font-family:"Noto Sans TC",sans-serif;color:var(--color-text-secondary);font-size:12.5px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.good{background:var(--green-bg)}
+.cc-label{font-family:"Noto Sans TC",sans-serif;font-weight:700;font-size:12.5px;margin-bottom:2px}
+.compare-card.bad .cc-label{color:var(--red)}.compare-card.good .cc-label{color:var(--green)}
+.formula{background:#2f3e46;color:#fff;border-radius:var(--border-radius-md);padding:14px 18px;text-align:center;margin-top:12px;font-family:"Noto Serif TC",serif;font-size:16px;font-weight:700}
+.f-label{font-family:"Noto Sans TC",sans-serif;font-size:11px;letter-spacing:3px;opacity:.7;font-weight:500;margin-bottom:4px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th,.tbl td{border:1px solid var(--color-border-tertiary);padding:6px 10px;vertical-align:middle}
+.tbl th{background:var(--color-background-secondary);text-align:left}
+.tbl .c{white-space:nowrap;text-align:center}
+.tbl td.c{font-family:"Noto Serif TC",serif;font-weight:700}
+.emo-card.teal{background:var(--teal-bg)}.emo-card.coral{background:var(--coral-bg)}
+.chip.teal{color:var(--teal)}.chip.coral{color:var(--coral)}
+.idiom.teal .idiom-word{background:var(--teal-bg);color:var(--teal)}
+.idiom.coral .idiom-word{background:var(--coral-bg);color:var(--coral)}
+.hl.teal{color:var(--teal)}.hl.coral{color:var(--coral)}
+.emo-grid.n4{grid-template-columns:1fr 1fr}
+.tbl.typo{margin-top:6px;background:var(--color-background-primary)}
+.tbl.typo td.wrong{color:var(--red);text-decoration:line-through;font-family:"Noto Serif TC",serif}
+/* 練習 */
+.qsub{font-weight:700}
+.wordbank{display:flex;flex-wrap:wrap;gap:8px;border:1.5px dashed var(--amber);border-radius:var(--border-radius-md);padding:12px;background:var(--amber-bg)}
+.bank-item{font-family:"Noto Serif TC",serif;font-weight:700;font-size:16px;background:var(--color-background-primary);border-radius:6px;padding:2px 12px}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:12px 16px;margin-bottom:12px;font-size:15px;line-height:2.1}
+.qn{font-weight:700;color:var(--amber);margin-right:6px}
+.mark{float:right;font-size:12px;color:var(--color-text-secondary)}
+.blank{display:inline-block;border-bottom:1.5px solid var(--color-text-primary);vertical-align:bottom;margin:0 4px}
+.blank.s{width:70px}.blank.l{width:120px}
+.line{border-bottom:1px solid var(--color-text-secondary);height:34px}
+.sw{font-family:"Noto Serif TC",serif;font-size:17px}
+.hint{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.miss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.miss-item{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;text-align:center}
+.miss-item .mn{display:block;text-align:left;font-weight:700;color:var(--amber);font-size:13px;line-height:1}
+.mchars{display:flex;justify-content:center;gap:4px;margin:6px 0 4px}
+.ch,.cb{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;font-family:"Noto Serif TC",serif;font-weight:700;font-size:22px}
+.cb{border:1.5px solid var(--color-text-primary);background:var(--color-background-primary);border-radius:3px}
+.mhint{display:block;font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.match{display:grid;grid-template-columns:1fr 110px 1.6fr;row-gap:10px;margin-top:10px;align-items:center}
+.m-l{display:flex;align-items:center;justify-content:flex-end;gap:8px;font-family:"Noto Serif TC",serif;font-weight:700;font-size:16px;white-space:nowrap}
+.m-l .mn{font-family:"Noto Sans TC",sans-serif;color:var(--amber);font-size:13px;margin-right:auto}
+.m-r{display:flex;align-items:center;gap:8px;font-size:14px;line-height:1.5}
+.mlab{font-weight:700;color:var(--teal);flex:0 0 auto}
+.mdot{flex:0 0 auto;width:11px;height:11px;border-radius:50%;background:var(--color-text-primary)}
+.ans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 14px;margin:4px 0}
+.note{font-size:13px;color:var(--color-text-secondary)}
+/* 答案 */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;line-height:1.8}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+/* 工具列 */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border:none}
+@media (max-width:640px){
+  .toc,.emo-grid,.compare-grid{grid-template-columns:1fr}
+  .idiom{grid-template-columns:1fr}
+  .miss-grid{grid-template-columns:repeat(2,1fr)}
+  .match{grid-template-columns:1fr 40px 1.4fr}
+  .ans-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;color:#1a1a1a}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.idiom{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .hero,.formula,.emo-card,.idiom-word,.chip,.compare-card,.alert,.wordbank,.miss-item,.flow-step,.example-box{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-tag">成語教學筆記</div>
+    <h1>場面與參觀：十二個成語</h1>
+    <div class="sub">小四　單元一　場面與參觀</div>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+  <nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>單元概覽：場面與參觀</a><a class="toc-item" href="#s2"><span class="toc-num">02</span>場面熱鬧</a><a class="toc-item" href="#s3"><span class="toc-num">03</span>場面冷清</a><a class="toc-item" href="#s4"><span class="toc-num">04</span>展品特點</a><a class="toc-item" href="#s5"><span class="toc-num">05</span>建築</a><a class="toc-item" href="#s6"><span class="toc-num">06</span>辨析與運用</a><a class="toc-item" href="#s7"><span class="toc-num">07</span>練習一：填充</a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習二：缺字補全</a><a class="toc-item" href="#s9"><span class="toc-num">09</span>練習三：成語與意思連線</a><a class="toc-item" href="#s10"><span class="toc-num">10</span>練習四：造句</a></nav>
+<div class="section-header first" id="s1"><span class="sh-icon">🗺️</span><span class="sh-title">單元概覽：場面與參觀</span><span class="sh-num">CHAPTER 01</span></div>
+
+<div class="card">
+  <div class="card-title"><span class="dot teal"></span>本單元成語一覽</div>
+  <p>本單元的十二個成語分為四組，分別描寫熱鬧的場面、冷清的場面、展品的特點和建築物的外觀。</p>
+  <div class="emo-grid"><div class="emo-card coral"><div class="emo-head">場面熱鬧</div><div class="chips"><span class="chip coral">門庭若市</span><span class="chip coral">車水馬龍</span><span class="chip coral">川流不息</span></div></div><div class="emo-card blue"><div class="emo-head">場面冷清</div><div class="chips"><span class="chip blue">鴉雀無聲</span><span class="chip blue">死氣沉沉</span></div></div><div class="emo-card purple"><div class="emo-head">展品特點</div><div class="chips"><span class="chip purple">五光十色</span><span class="chip purple">鮮豔奪目</span><span class="chip purple">獨一無二</span><span class="chip purple">遠近聞名</span><span class="chip purple">目不暇給</span></div></div><div class="emo-card teal"><div class="emo-head">建築</div><div class="chips"><span class="chip teal">中西合璧</span><span class="chip teal">金碧輝煌</span></div></div></div>
+  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">學習方法</div><div class="alert-text">學每個成語時，先看「字詞」一欄，弄清楚關鍵字的意思，成語會較易記住，也較少寫錯字。</div></div></div>
+</div>
+<div class="section-header" id="s2"><span class="sh-icon">🏙️</span><span class="sh-title">場面熱鬧</span><span class="sh-num">CHAPTER 02</span></div>
+
+<div class="card">
+  <p>三個成語都形容熱鬧，分別在於寫甚麼：門庭若市多寫店舖或某戶人家來的人多；車水馬龍寫街上車輛多；川流不息寫人或車連續不斷地流動。</p>
+  
+<div class="idiom coral">
+  <div class="idiom-word">門庭若市</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>門前和庭院裏的人多得像市集一樣，形容來的人很多，非常熱鬧。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「庭」指庭院；「若」解作像；「市」指市集。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>這家新開的麪包店推出半價優惠，一連幾天都<b class="hl coral">門庭若市</b>，顧客排隊排到街角。</span></div>
+  </div>
+</div>
+<div class="idiom coral">
+  <div class="idiom-word">車水馬龍</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>車子像流水，馬匹像游龍，形容車馬往來不斷，非常熱鬧。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「車」「馬」是古時的交通工具；今天多用來形容街上汽車多。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>旺角彌敦道上<b class="hl coral">車水馬龍</b>，巴士、的士和私家車一輛接一輛駛過。</span></div>
+  </div>
+</div>
+<div class="idiom coral">
+  <div class="idiom-word">川流不息</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>行人、車馬等像河水一樣流個不停。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「川」指河流；「息」解作停止。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>黃昏時分，地鐵站的人潮<b class="hl coral">川流不息</b>，大家都趕着回家。</span></div>
+  </div>
+</div>
+</div>
+<div class="section-header" id="s3"><span class="sh-icon">🌫️</span><span class="sh-title">場面冷清</span><span class="sh-num">CHAPTER 03</span></div>
+
+<div class="card">
+  <p>鴉雀無聲著重沒有聲音，不一定是壞事；死氣沉沉著重沒有生氣，帶貶義。</p>
+  
+<div class="idiom blue">
+  <div class="idiom-word">鴉雀無聲</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>連烏鴉和麻雀的聲音都沒有，形容非常安靜。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「鴉」指烏鴉；「雀」指麻雀。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>老師一走進來，原本吵鬧的課室立即<b class="hl blue">鴉雀無聲</b>。</span></div>
+  </div>
+</div>
+<div class="idiom blue">
+  <div class="idiom-word">死氣沉沉</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>形容氣氛沉悶，沒有一點生氣；也可形容人精神不振。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「死氣」指沒有生命力的氣氛；「沉沉」形容沉重、低落。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>這個商場的店舖大多已經結業，走廊上<b class="hl blue">死氣沉沉</b>，只有幾個保安在巡邏。</span></div>
+  </div>
+</div>
+</div>
+<div class="section-header" id="s4"><span class="sh-icon">🖼️</span><span class="sh-title">展品特點</span><span class="sh-num">CHAPTER 04</span></div>
+
+<div class="card">
+  <p>五光十色、鮮豔奪目寫展品的顏色；獨一無二寫展品與別不同；遠近聞名寫展品的名氣；目不暇給寫參觀者看展品時的感受。</p>
+  
+<div class="idiom purple">
+  <div class="idiom-word">五光十色</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>形容色彩鮮豔，花樣繁多。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「五」「十」都表示數量多，指光彩和顏色多種多樣。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>維多利亞港兩岸的大廈亮起燈飾，<b class="hl purple">五光十色</b>，十分美麗。</span></div>
+  </div>
+</div>
+<div class="idiom purple">
+  <div class="idiom-word">鮮豔奪目</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>色彩鮮明美麗，十分吸引人的目光。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「奪目」指光彩耀眼，把別人的目光吸引過去。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>展覽廳中央陳列着一件大紅色的龍袍，<b class="hl purple">鮮豔奪目</b>，參觀者都忍不住停下來欣賞。</span></div>
+  </div>
+</div>
+<div class="idiom purple">
+  <div class="idiom-word">獨一無二</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>只有一個，沒有第二個，形容非常特別。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「獨」解作只有。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>這個青花瓷碗是博物館最珍貴的藏品，世上<b class="hl purple">獨一無二</b>。</span></div>
+  </div>
+</div>
+<div class="idiom purple">
+  <div class="idiom-word">遠近聞名</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>遠處和近處的人都知道，形容名氣很大。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「聞名」指出名、有名聲。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>大澳的蝦醬<b class="hl purple">遠近聞名</b>，不少遊客專程去買。</span></div>
+  </div>
+</div>
+<div class="idiom purple">
+  <div class="idiom-word">目不暇給</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>好看的東西太多，眼睛來不及看。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「暇」指空閒；「給」解作足夠。眼睛沒有足夠的空閒看完。也作「目不暇接」。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>科學館裏的展品又多又有趣，我們看得<b class="hl purple">目不暇給</b>。</span></div>
+  </div>
+</div>
+</div>
+<div class="section-header" id="s5"><span class="sh-icon">🏛️</span><span class="sh-title">建築</span><span class="sh-num">CHAPTER 05</span></div>
+
+<div class="card">
+  <p>中西合璧寫建築的風格，金碧輝煌寫建築華麗的外觀。</p>
+  
+<div class="idiom teal">
+  <div class="idiom-word">中西合璧</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>把中國和西方的風格結合在一起，配合得很好。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「璧」是中間有孔的圓形玉器。「合璧」指兩個半璧合成一塊完整的璧，比喻兩樣好東西配合得很好。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>這座大宅既有中式的瓦頂，又有西式的拱門和石柱，是一座<b class="hl teal">中西合璧</b>的建築。</span></div>
+  </div>
+</div>
+<div class="idiom teal">
+  <div class="idiom-word">金碧輝煌</div>
+  <div class="idiom-body">
+    <div class="irow"><span class="ilab">解釋</span><span>形容建築物裝飾華麗，光彩耀眼。</span></div>
+    <div class="irow"><span class="ilab">字詞</span><span>「金」指金色；「碧」指青綠色；「輝煌」指光彩耀眼。</span></div>
+    <div class="irow ex"><span class="ilab">例句</span><span>皇宮的大殿<b class="hl teal">金碧輝煌</b>，柱子和屋樑都繪上了金色和青綠色的花紋。</span></div>
+  </div>
+</div>
+</div>
+<div class="section-header" id="s6"><span class="sh-icon">🔍</span><span class="sh-title">辨析與運用</span><span class="sh-num">CHAPTER 06</span></div>
+
+<div class="card">
+  <div class="card-title"><span class="dot coral"></span>容易混淆的成語</div>
+  <table class="tbl">
+    <thead><tr><th class="c">類別</th><th class="c">成語</th><th>分辨重點</th></tr></thead>
+    <tbody>
+      <tr><td class="c" rowspan="3">場面熱鬧</td><td class="c">門庭若市</td><td>某個地方（店舖、家門）<b>來的人多</b></td></tr>
+      <tr><td class="c">車水馬龍</td><td>街道上<b>車輛多</b></td></tr>
+      <tr><td class="c">川流不息</td><td>人或車<b>連續不斷</b>地流動</td></tr>
+      <tr><td class="c" rowspan="2">場面冷清</td><td class="c">鴉雀無聲</td><td>著重<b>沒有聲音</b>，好的場合也可以用</td></tr>
+      <tr><td class="c">死氣沉沉</td><td>著重<b>沒有生氣</b>，帶貶義</td></tr>
+      <tr><td class="c" rowspan="5">展品特點</td><td class="c">五光十色</td><td>著重<b>顏色多、花樣多</b></td></tr>
+      <tr><td class="c">鮮豔奪目</td><td>著重顏色<b>鮮明、搶眼</b></td></tr>
+      <tr><td class="c">獨一無二</td><td>只有<b>一個</b>，非常特別</td></tr>
+      <tr><td class="c">遠近聞名</td><td><b>名氣</b>很大</td></tr>
+      <tr><td class="c">目不暇給</td><td>寫<b>看的人</b>的感受：東西太多，看不過來</td></tr>
+      <tr><td class="c" rowspan="2">建築</td><td class="c">中西合璧</td><td>寫<b>風格</b>：中式加西式</td></tr>
+      <tr><td class="c">金碧輝煌</td><td>寫<b>外觀</b>：華麗耀眼</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot red"></span>常見錯誤</div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">✗ 錯誤</div>全班同學專心聽課，課室裏死氣沉沉。</div>
+    <div class="compare-card good"><div class="cc-label">✓ 正確</div>全班同學專心聽課，課室裏鴉雀無聲。<br><small>「死氣沉沉」帶貶義，不能用來寫同學專心的好場面。</small></div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">✗ 錯誤</div>這個花瓶非常獨一無二。</div>
+    <div class="compare-card good"><div class="cc-label">✓ 正確</div>這個花瓶獨一無二。<br><small>只有一個，已經是最高程度，不用再加「非常」「很」。</small></div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">✗ 錯誤</div>這家餐廳車水馬龍，坐滿了客人。</div>
+    <div class="compare-card good"><div class="cc-label">✓ 正確</div>這家餐廳門庭若市，坐滿了客人。<br><small>「車水馬龍」寫街道上的車輛，不能用來寫店舖客人多。</small></div>
+  </div>
+  <div class="alert warn"><div class="alert-icon">⚠</div><div style="flex:1"><div class="alert-label">易寫錯的字</div>
+  <table class="tbl typo"><thead><tr><th class="c">正確寫法</th><th class="c">常見錯字</th><th>記憶方法</th></tr></thead><tbody><tr><td class="c">中西合璧</td><td class="c wrong">壁</td><td>「璧」是玉器，下面是「玉」；「壁」是牆，下面是「土」。</td></tr><tr><td class="c">金碧輝煌</td><td class="c wrong">璧</td><td>「碧」指青綠色。</td></tr><tr><td class="c">川流不息</td><td class="c wrong">穿</td><td>「川」指河流。</td></tr><tr><td class="c">目不暇給</td><td class="c wrong">瑕</td><td>「暇」指空閒，日字旁。</td></tr><tr><td class="c">門庭若市</td><td class="c wrong">廷</td><td>「庭」指庭院，有「广」字頭。</td></tr><tr><td class="c">鴉雀無聲</td><td class="c wrong">雅</td><td>「鴉」指烏鴉，鳥字旁。</td></tr><tr><td class="c">遠近聞名</td><td class="c wrong">文</td><td>「聞」指聽見、知道。</td></tr></tbody></table></div></div>
+</div>
+
+<div class="card">
+  <div class="card-title"><span class="dot amber"></span>寫作運用：寫參觀記</div>
+  <p>寫參觀記時，可以按場面、建築、展品、感受的次序寫，每部分用上合適的成語。</p>
+  <div class="compare-grid">
+    <div class="compare-card bad"><div class="cc-label">平淡</div>博物館很多人，展品很好看。</div>
+    <div class="compare-card good"><div class="cc-label">具體</div>博物館門外的參觀者川流不息。博物館是一座中西合璧的建築，館內的展品五光十色，其中一幅油畫鮮豔奪目，我們看得目不暇給。</div>
+  </div>
+</div>
+<div class="section-header" id="s7"><span class="sh-icon">✏️</span><span class="sh-title">練習一：填充</span><span class="sh-num">CHAPTER 07</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="card"><p class="qsub">從下列成語中選出最適當的一個，填在橫線上。每個成語只可用一次。</p><div class="wordbank"><span class="bank-item">目不暇給</span><span class="bank-item">車水馬龍</span><span class="bank-item">死氣沉沉</span><span class="bank-item">中西合璧</span><span class="bank-item">門庭若市</span><span class="bank-item">五光十色</span><span class="bank-item">遠近聞名</span><span class="bank-item">鴉雀無聲</span><span class="bank-item">金碧輝煌</span><span class="bank-item">獨一無二</span><span class="bank-item">川流不息</span><span class="bank-item">鮮豔奪目</span></div></div>
+<div class="qbox"><span class="qn">1.</span>農曆新年前，花墟擠滿了買年花的市民，每間花店都<span class="blank l"></span>，店員忙得不可開交。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>門庭若市</b><br><span class="note">「每間花店」「擠滿」：店舖來的人很多。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">2.</span>考試開始後，禮堂裏<span class="blank l"></span>，只聽見同學寫字的沙沙聲。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>鴉雀無聲</b><br><span class="note">「只聽見寫字的沙沙聲」：非常安靜。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">3.</span>這幅刺繡是老師傅花了三年親手繡成的，世上只有這一幅，可說是<span class="blank l"></span>。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>獨一無二</b><br><span class="note">「世上只有這一幅」：只有一個，沒有第二個。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">4.</span>聖誕節晚上，尖沙咀的街道掛滿了紅、黃、藍、綠各種顏色的燈飾，<span class="blank l"></span>，十分漂亮。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>五光十色</b><br><span class="note">「各種顏色」：顏色多、花樣多。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">5.</span>下班時間，中環的馬路上<span class="blank l"></span>，汽車和巴士一輛接一輛，交通十分繁忙。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>車水馬龍</b><br><span class="note">「馬路上」「汽車和巴士」：街道上車輛多。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">6.</span>這間茶樓的蝦餃已有五十年歷史，<span class="blank l"></span>，連外國遊客也慕名而來。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>遠近聞名</b><br><span class="note">「連外國遊客也慕名而來」：名氣很大。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">7.</span>博物館的展品實在太多了，我們看了這件又想看那件，簡直<span class="blank l"></span>。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>目不暇給</b><br><span class="note">「看了這件又想看那件」：東西太多，眼睛來不及看。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">8.</span>這座教堂有西式的拱門和彩色玻璃窗，屋頂卻鋪上了中式的琉璃瓦，是一座<span class="blank l"></span>的建築。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>中西合璧</b><br><span class="note">「西式……中式……」：中國和西方的風格結合在一起。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">9.</span>大殿的柱子塗上了金漆，屋樑畫滿了青綠色的圖案，在陽光下閃閃發光，顯得<span class="blank l"></span>。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>金碧輝煌</b><br><span class="note">「金漆」「青綠色」「閃閃發光」：裝飾華麗，光彩耀眼。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">10.</span>假期的郊野公園入口，行山人士一批接一批，由早上到下午都<span class="blank l"></span>。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>川流不息</b><br><span class="note">「一批接一批」「由早上到下午」：人流連續不斷。與第5題比較，這裏寫的是人，而且著重沒有停過。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">11.</span>展覽室裏那件大紅色的旗袍<span class="blank l"></span>，一進門就吸引了所有人的目光。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>鮮豔奪目</b><br><span class="note">「大紅色」「吸引了所有人的目光」：只有一件展品，顏色鮮明、十分搶眼。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">12.</span>這個公園的設施殘舊，遊樂場空無一人，連樹木也枯黃了，整個地方<span class="blank l"></span>。
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><b>死氣沉沉</b><br><span class="note">「殘舊」「空無一人」「枯黃」：沒有生氣。與第2題比較，這裏著重氣氛沉悶，沒有寫聲音。</span></div>
+  </div></div>
+<div class="section-header" id="s8"><span class="sh-icon">🧩</span><span class="sh-title">練習二：缺字補全</span><span class="sh-num">CHAPTER 08</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="qbox"><p class="qsub">在方格內填上欠缺的字，組成本單元的成語。方格下方是成語的意思，可作提示。</p><div class="miss-grid"><div class="miss-item"><span class="mn">1.</span><span class="mchars"><span class="ch">金</span><span class="cb"></span><span class="ch">輝</span><span class="cb"></span></span><span class="mhint">建築物裝飾華麗</span></div><div class="miss-item"><span class="mn">2.</span><span class="mchars"><span class="cb"></span><span class="ch">庭</span><span class="ch">若</span><span class="cb"></span></span><span class="mhint">門前的人多得像市集</span></div><div class="miss-item"><span class="mn">3.</span><span class="mchars"><span class="ch">目</span><span class="ch">不</span><span class="cb"></span><span class="ch">給</span></span><span class="mhint">眼睛來不及看</span></div><div class="miss-item"><span class="mn">4.</span><span class="mchars"><span class="ch">中</span><span class="ch">西</span><span class="ch">合</span><span class="cb"></span></span><span class="mhint">中式和西式結合</span></div><div class="miss-item"><span class="mn">5.</span><span class="mchars"><span class="cb"></span><span class="ch">流</span><span class="ch">不</span><span class="cb"></span></span><span class="mhint">像河水一樣流個不停</span></div><div class="miss-item"><span class="mn">6.</span><span class="mchars"><span class="ch">鴉</span><span class="cb"></span><span class="ch">無</span><span class="cb"></span></span><span class="mhint">非常安靜</span></div><div class="miss-item"><span class="mn">7.</span><span class="mchars"><span class="ch">鮮</span><span class="cb"></span><span class="ch">奪</span><span class="cb"></span></span><span class="mhint">顏色鮮明，吸引目光</span></div><div class="miss-item"><span class="mn">8.</span><span class="mchars"><span class="ch">遠</span><span class="ch">近</span><span class="cb"></span><span class="ch">名</span></span><span class="mhint">名氣很大</span></div><div class="miss-item"><span class="mn">9.</span><span class="mchars"><span class="cb"></span><span class="ch">一</span><span class="ch">無</span><span class="ch">二</span></span><span class="mhint">只有一個</span></div><div class="miss-item"><span class="mn">10.</span><span class="mchars"><span class="ch">車</span><span class="cb"></span><span class="ch">馬</span><span class="cb"></span></span><span class="mhint">車輛往來不斷</span></div><div class="miss-item"><span class="mn">11.</span><span class="mchars"><span class="ch">死</span><span class="ch">氣</span><span class="cb"></span><span class="cb"></span></span><span class="mhint">沒有生氣</span></div><div class="miss-item"><span class="mn">12.</span><span class="mchars"><span class="ch">五</span><span class="cb"></span><span class="ch">十</span><span class="cb"></span></span><span class="mhint">色彩鮮豔，花樣多</span></div></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><div class="ans-grid"><span>1. 金<u>碧</u>輝<u>煌</u></span><span>2. <u>門</u>庭若<u>市</u></span><span>3. 目不<u>暇</u>給</span><span>4. 中西合<u>璧</u></span><span>5. <u>川</u>流不<u>息</u></span><span>6. 鴉<u>雀</u>無<u>聲</u></span><span>7. 鮮<u>豔</u>奪<u>目</u></span><span>8. 遠近<u>聞</u>名</span><span>9. <u>獨</u>一無二</span><span>10. 車<u>水</u>馬<u>龍</u></span><span>11. 死氣<u>沉</u><u>沉</u></span><span>12. 五<u>光</u>十<u>色</u></span></div><span class="note">底線為所填的字。</span></div>
+  </div></div>
+<div class="section-header" id="s9"><span class="sh-icon">🔗</span><span class="sh-title">練習三：成語與意思連線</span><span class="sh-num">CHAPTER 09</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="qbox"><p class="qsub">把左邊的成語和右邊正確的意思用線連起來。</p><div class="match"><div class="m-l"><span class="mn">1.</span>鮮豔奪目<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">A</span>只有一個，沒有第二個</div><div class="m-l"><span class="mn">2.</span>川流不息<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">B</span>車輛往來不斷，非常熱鬧</div><div class="m-l"><span class="mn">3.</span>中西合璧<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">C</span>非常安靜，一點聲音也沒有</div><div class="m-l"><span class="mn">4.</span>死氣沉沉<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">D</span>建築物裝飾華麗，光彩耀眼</div><div class="m-l"><span class="mn">5.</span>遠近聞名<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">E</span>色彩鮮豔，花樣繁多</div><div class="m-l"><span class="mn">6.</span>門庭若市<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">F</span>遠處和近處的人都知道，名氣很大</div><div class="m-l"><span class="mn">7.</span>目不暇給<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">G</span>行人或車輛像河水一樣流個不停</div><div class="m-l"><span class="mn">8.</span>金碧輝煌<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">H</span>門前的人多得像市集一樣</div><div class="m-l"><span class="mn">9.</span>獨一無二<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">I</span>氣氛沉悶，沒有生氣</div><div class="m-l"><span class="mn">10.</span>車水馬龍<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">J</span>中國和西方的風格結合在一起</div><div class="m-l"><span class="mn">11.</span>五光十色<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">K</span>好看的東西太多，眼睛來不及看</div><div class="m-l"><span class="mn">12.</span>鴉雀無聲<span class="mdot"></span></div><div class="m-gap"></div><div class="m-r"><span class="mdot"></span><span class="mlab">L</span>色彩鮮明，十分吸引目光</div></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span><div class="ans-grid"><span>1. 鮮豔奪目 — L</span><span>2. 川流不息 — G</span><span>3. 中西合璧 — J</span><span>4. 死氣沉沉 — I</span><span>5. 遠近聞名 — F</span><span>6. 門庭若市 — H</span><span>7. 目不暇給 — K</span><span>8. 金碧輝煌 — D</span><span>9. 獨一無二 — A</span><span>10. 車水馬龍 — B</span><span>11. 五光十色 — E</span><span>12. 鴉雀無聲 — C</span></div></div>
+  </div></div>
+<div class="section-header" id="s10"><span class="sh-icon">📝</span><span class="sh-title">練習四：造句</span><span class="sh-num">CHAPTER 10</span></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="card"><p class="qsub" style="margin:0">用下列成語造句，每句寫在橫線上。</p></div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">造句提示</div><div class="alert-text">句子要寫出地點和具體情況，讓人明白為甚麼用這個成語。只寫「街上車水馬龍。」這類短句，未能顯示你懂得運用。</div></div></div>
+<div class="qbox"><span class="qn">1.</span><b class="sw">門庭若市</b><div class="hint">提示：寫出一個擠滿客人的地方，例如店舖、餐廳、攤檔。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）這間雪糕店推出新口味後<b>門庭若市</b>，門外排起了長長的人龍。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">2.</span><b class="sw">車水馬龍</b><div class="hint">提示：寫出一條車輛很多的街道或馬路。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）星期六晚上，銅鑼灣的軒尼詩道<b>車水馬龍</b>，十分熱鬧。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">3.</span><b class="sw">川流不息</b><div class="hint">提示：寫出連續不斷地流動的人或車。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）年宵市場開放到深夜，前來購物的市民<b>川流不息</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">4.</span><b class="sw">鴉雀無聲</b><div class="hint">提示：寫出一個突然或一直很安靜的場面。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）校長站上台準備宣布比賽結果，禮堂立即<b>鴉雀無聲</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">5.</span><b class="sw">死氣沉沉</b><div class="hint">提示：寫出一個沒有生氣、氣氛沉悶的地方或場合。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）舊街市搬走後，這條街變得<b>死氣沉沉</b>，路上行人稀少。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">6.</span><b class="sw">五光十色</b><div class="hint">提示：寫出顏色多、花樣多的東西。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）魚缸裏的熱帶魚<b>五光十色</b>，妹妹看得入了迷。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">7.</span><b class="sw">鮮豔奪目</b><div class="hint">提示：寫出一件顏色鮮明、吸引人的東西。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）花展中那一大片紅色的鬱金香<b>鮮豔奪目</b>，很多人在旁邊拍照。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">8.</span><b class="sw">獨一無二</b><div class="hint">提示：寫出一件非常特別、只有一件的東西。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）這張生日卡是我親手為媽媽畫的，世上<b>獨一無二</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">9.</span><b class="sw">遠近聞名</b><div class="hint">提示：寫出一個很有名的地方或食物。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）長洲的平安包<b>遠近聞名</b>，每年包山節都吸引大批遊客。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">10.</span><b class="sw">目不暇給</b><div class="hint">提示：寫出參觀時看到很多有趣的東西。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）玩具展覽有幾百款模型，我和弟弟看得<b>目不暇給</b>。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">11.</span><b class="sw">中西合璧</b><div class="hint">提示：寫出一座結合中式和西式風格的建築或事物。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）這間餐廳的設計<b>中西合璧</b>，既有中式屏風，又有西式吊燈。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<div class="qbox"><span class="qn">12.</span><b class="sw">金碧輝煌</b><div class="hint">提示：寫出一座裝飾華麗的建築物。</div><div class="line"></div><div class="line"></div>
+  <div class="ans-wrap">
+    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+    <div class="ans" hidden><span class="ans-tag">參考答案</span>（示例）酒店大堂<b>金碧輝煌</b>，牆上的金色花紋在燈光下閃閃發亮。<br><span class="note">學生自由作答，言之成理即可。評分重點：成語運用恰當；句子有完整情境；沒有錯別字。</span></div>
+  </div></div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
