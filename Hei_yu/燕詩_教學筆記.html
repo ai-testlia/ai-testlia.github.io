@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="pansir-category" content="文言">
+<meta name="pansir-type" content="筆記">
+<title>白居易《燕詩》教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2a8a80;--teal-bg:#e4f3f1;
+  --coral:#d0654a;--coral-bg:#fbebe6;
+  --amber:#c48612;--amber-bg:#fbf2df;
+  --pink:#c2557f;--pink-bg:#f9e8ef;
+  --blue:#3a6ea5;--blue-bg:#e6eef7;
+  --green:#3d8b4f;--green-bg:#e7f3ea;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero:#B56A58;--hero-text:#F1EADF;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2124;--color-background-secondary:#151618;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a89be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c302e;
+    --coral:#f08c72;--coral-bg:#3a2520;
+    --amber:#e8b04a;--amber-bg:#36301f;
+    --pink:#ea8ab0;--pink-bg:#382430;
+    --blue:#7fa9d8;--blue-bg:#1f2a38;
+    --green:#74c286;--green-bg:#1e3124;
+    --red:#ee7b6e;--red-bg:#3a2220;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC','Songti TC',serif}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:44px 36px 46px;margin-bottom:22px;min-height:230px;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 10px 28px rgba(94,46,36,.18)}
+.hero .pattern{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:9px;border:1px solid rgba(241,234,223,.28);border-radius:8px;pointer-events:none}
+.hero>*:not(.pattern){position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;border:1px solid rgba(241,234,223,.5);
+  color:rgba(241,234,223,.9);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:rgba(94,46,36,.18)}
+.hero h1{font-size:34px;margin:0 0 6px;line-height:1.35;color:var(--hero-text);font-weight:700;text-shadow:0 1px 10px rgba(94,46,36,.35);max-width:78%}
+.hero .sub{font-size:15px;color:rgba(241,234,223,.85);margin-bottom:16px}
+.hero .sub .nb,.hero h1 .nb{display:inline-block}
+.hero p{margin:0;font-size:13px;color:rgba(241,234,223,.7);letter-spacing:2px}
+@media (max-width:640px){.hero h1{font-size:27px;max-width:100%}.hero{padding:34px 24px 40px}.hero .sub{font-size:13.5px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(181,106,88,.88) 0%,rgba(181,106,88,.55) 62%,rgba(181,106,88,0) 100%);pointer-events:none}}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:0}
+.toc-item:hover{color:var(--blue)}
+.toc-num{font-weight:700;color:var(--hero);font-size:13px;min-width:22px}
+.toc-item .kind{margin-left:auto;font-size:11.5px;color:var(--color-text-secondary);white-space:nowrap}
+@media (prefers-color-scheme:dark){.toc-num{color:var(--blue)}}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;border-radius:var(--border-radius-lg);
+  background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:6px solid var(--hero)}
+.section-header.ex{border-left-color:var(--amber)}
+.section-header .icon{font-size:26px;line-height:1}
+.section-header h2{margin:0;font-size:21px;line-height:1.4}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);font-weight:700}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin:0 0 10px}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--blue)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.hl{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);font-weight:700}
+.em{color:var(--coral);font-weight:700}
+.small{font-size:12.5px;color:var(--color-text-secondary)}
+ul.tight,ol.tight{margin:4px 0 8px;padding-left:1.4em}
+ul.tight li,ol.tight li{margin-bottom:3px}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:3px}
+.example-text{font-size:14px}
+
+/* Alerts */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.bad .ct{color:var(--red)}
+.compare-card.good{background:var(--green-bg)}.compare-card.good .ct{color:var(--green)}
+.compare-card.a{background:var(--blue-bg)}.compare-card.a .ct{color:var(--blue)}
+.compare-card.b{background:var(--coral-bg)}.compare-card.b .ct{color:var(--coral)}
+@media (max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:13px;margin-bottom:2px}
+.flow-arrow{align-self:center;color:var(--teal);font-weight:700}
+
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px}
+.kw-word .py{font-weight:400;font-size:11.5px;color:var(--color-text-secondary);margin-left:4px;font-family:'Noto Sans TC',sans-serif}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* formula */
+.formula{background:#2d3a47;color:#f4f1ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:1.9;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.formula .fl{font-size:12px;letter-spacing:2px;color:#d9c48f;font-weight:700;margin-bottom:4px}
+.formula b{color:#ffe08a}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left;line-height:1.65}
+th{background:var(--color-background-secondary);font-weight:700}
+.c,th.c,td.c{white-space:nowrap}
+td.ctr,th.ctr{text-align:center}
+
+/* poem text */
+.poem{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.poem .ttl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
+.poem .au{text-align:center;font-size:13px;color:var(--color-text-secondary);margin-bottom:12px}
+.poem .ln{font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15;margin:0 0 6px;display:flex;gap:10px;align-items:flex-start}
+.pnum{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-top:7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:1px 12px;margin:6px 0 4px}
+sup.n{color:var(--coral);font-size:10px;font-family:'Noto Sans TC',sans-serif;margin:0 1px}
+.preface{font-size:15px;color:var(--color-text-secondary)}
+
+/* line-by-line */
+.lbl{border-left:3px solid var(--blue);padding:4px 0 4px 14px;margin:12px 0}
+.lbl .orig{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700}
+.lbl .tr{font-size:14px;color:var(--color-text-secondary)}
+.lbl .note{font-size:13.5px;margin-top:3px}
+
+/* chat bubbles (fun) */
+.chat{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0}
+.chat .who{font-size:11.5px;color:var(--color-text-secondary);margin:6px 4px 2px}
+.bubble{display:inline-block;max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.65;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary)}
+.row-r{text-align:right}.row-r .bubble{background:var(--green-bg)}
+.row-r .who{text-align:right}
+
+/* Exercises */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);margin-left:8px}
+.lv{display:inline-block;font-size:11px;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px;font-weight:700}
+.lv1{background:var(--green-bg);color:var(--green)}.lv2{background:var(--amber-bg);color:var(--amber)}.lv3{background:var(--red-bg);color:var(--red)}
+.opts{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.opts.one{grid-template-columns:1fr}
+.opts li{font-size:14px}
+.opts li b{display:inline-block;width:22px}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.line{border-bottom:1px solid #999;height:30px;margin:2px 0}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+.circle{display:inline-block;width:26px;height:26px;border:1px solid #888;border-radius:50%;vertical-align:middle;margin:0 3px}
+.box{display:inline-block;width:15px;height:15px;border:1px solid #888;vertical-align:-2px;margin-right:4px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.extotal{font-size:13px;color:var(--color-text-secondary);margin:-6px 0 12px}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;clear:both}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .ex{font-size:13px;color:var(--color-text-secondary)}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);
+  border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+/* svg charts */
+.chart{width:100%;height:auto;display:block;margin:8px 0}
+.chart text{font-family:'Noto Sans TC',sans-serif}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;font-size:13.5px}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.lbl,.poem,table,.chat{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* 《燕詩》專用 */
+.rh{border-bottom:2px dotted var(--coral);padding-bottom:1px}
+.legend{font-size:12.5px;color:var(--color-text-secondary);margin:-4px 0 10px}
+.legend .rh{font-family:'Noto Serif TC',serif;color:var(--color-text-primary)}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.panel{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px 12px;position:relative}
+.panel .pic{display:block;width:100%;height:92px;border-radius:6px;background:var(--color-background-primary);margin-bottom:8px}
+.panel .no{position:absolute;top:8px;left:8px;width:22px;height:22px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.panel .pt{font-weight:700;font-size:14px;font-family:'Noto Serif TC',serif}
+.panel .po{font-family:'Noto Serif TC',serif;font-size:13px;color:var(--coral);margin:2px 0}
+.panel .pd{font-size:13px;line-height:1.65;color:var(--color-text-secondary)}
+.panel.end{background:var(--blue-bg)}
+@media (max-width:640px){.strip{grid-template-columns:1fr 1fr}}
+.map{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;gap:6px 4px;align-items:stretch;margin:12px 0;font-size:13.5px}
+.map .h{font-weight:700;text-align:center;font-size:13px;padding:4px;border-radius:6px}
+.map .h.a{background:var(--coral-bg);color:var(--coral)}.map .h.b{background:var(--blue-bg);color:var(--blue)}.map .h.c{background:var(--purple-bg);color:var(--purple)}
+.map .m{background:var(--color-background-secondary);border-radius:6px;padding:6px 9px;line-height:1.6}
+.map .m.poem-l{font-family:'Noto Serif TC',serif}
+.map .ar{display:flex;align-items:center;justify-content:center;color:var(--color-text-secondary);font-weight:700}
+@media (max-width:640px){.map{grid-template-columns:1fr 24px 1fr;}.map .col3{display:none}}
+.sound{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:10px 0}
+.sd{border-radius:var(--border-radius-md);padding:10px 12px;background:var(--pink-bg);text-align:center}
+.sd .w{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;color:var(--pink);letter-spacing:4px}
+.sd .jp{font-size:11.5px;color:var(--color-text-secondary)}
+.sd .d{font-size:13px;line-height:1.6;margin-top:4px}
+.pair{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.pair span{background:var(--color-background-secondary);border-radius:999px;padding:3px 12px;font-size:13px}
+.nbg{display:inline-flex;align-items:center;justify-content:center;min-width:19px;height:19px;padding:0 4px;border-radius:999px;background:var(--coral-bg);color:var(--coral);font-size:11px;font-weight:700;font-family:'Noto Sans TC',sans-serif;margin-right:6px;vertical-align:2px}
+sup.n{font-size:10.5px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><svg class="pattern" viewBox="0 0 900 300" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<filter id="hgrain" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="n"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0.09 0"/>
+</filter>
+<linearGradient id="hfade" x1="0" x2="1" y1="0" y2="0">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+  <stop offset="0.36" stop-color="#fff" stop-opacity="0.25"/>
+  <stop offset="0.62" stop-color="#fff" stop-opacity="1"/>
+</linearGradient>
+<mask id="hmask"><rect width="900" height="300" fill="url(#hfade)"/></mask>
+<radialGradient id="hglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#F6D9A8" stop-opacity="0.45"/><stop offset="1" stop-color="#F6D9A8" stop-opacity="0"/></radialGradient>
+<linearGradient id="hroof" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5E2E24" stop-opacity="0.78"/><stop offset="1" stop-color="#5E2E24" stop-opacity="0.5"/></linearGradient>
+<pattern id="htile" width="18" height="14" patternUnits="userSpaceOnUse">
+  <path d="M0 14 Q9 2 18 14" fill="none" stroke="#F1EADF" stroke-opacity="0.22" stroke-width="1.2"/>
+</pattern>
+<pattern id="hfret" width="24" height="12" patternUnits="userSpaceOnUse">
+  <path d="M0 11 H10 V3 H4 V7 H7 M12 1 H22 V9 H16 V5 H19" fill="none" stroke="#F1EADF" stroke-width="1.1"/>
+</pattern>
+<pattern id="hlattice" width="22" height="22" patternUnits="userSpaceOnUse">
+  <path d="M11 0 L22 11 L11 22 L0 11 Z" fill="none" stroke="#F1EADF" stroke-width="0.8"/>
+  <circle cx="11" cy="11" r="2.2" fill="none" stroke="#F1EADF" stroke-width="0.8"/>
+</pattern>
+<symbol id="hsw" viewBox="-46 -18 92 50"><path d="M0 -16 C4 -16 5 -11 4 -6 C14 -10 30 -8 44 6 C30 0 16 0 5 4 C5 10 6 18 10 30 C6 24 3 18 0 14 C-3 18 -6 24 -10 30 C-6 18 -5 10 -5 4 C-16 0 -30 0 -44 6 C-30 -8 -14 -10 -4 -6 C-5 -11 -4 -16 0 -16 Z"/></symbol>
+<symbol id="hleaf" viewBox="-4 -10 8 20"><path d="M0 -10 C4 -4 4 4 0 10 C-4 4 -4 -4 0 -10 Z"/></symbol>
+</defs>
+<g mask="url(#hmask)">
+  <!-- 月洞窗格 -->
+  <circle cx="742" cy="150" r="104" fill="url(#hlattice)" opacity="0.16"/>
+  <circle cx="742" cy="150" r="104" fill="none" stroke="#F1EADF" stroke-opacity="0.28" stroke-width="2"/>
+  <circle cx="742" cy="150" r="96" fill="none" stroke="#F1EADF" stroke-opacity="0.14" stroke-width="1"/>
+  <circle cx="742" cy="150" r="150" fill="url(#hglow)"/>
+  <!-- 飛簷屋頂 -->
+  <path d="M430 30 C520 44 640 48 760 44 C820 42 870 36 905 22 L905 0 L430 0 Z" fill="url(#hroof)"/>
+  <path d="M430 30 C520 44 640 48 760 44 C820 42 870 36 905 22 L905 0 L430 0 Z" fill="url(#htile)"/>
+  <path d="M412 22 C428 34 440 34 452 33" fill="none" stroke="#F1EADF" stroke-opacity="0.45" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M430 30 C520 44 640 48 760 44 C820 42 870 36 905 22" fill="none" stroke="#F1EADF" stroke-opacity="0.4" stroke-width="1.6"/>
+  <rect x="470" y="44" width="430" height="9" fill="#5E2E24" fill-opacity="0.45"/>
+  <g fill="#F1EADF" fill-opacity="0.32"><rect x="500" y="53" width="7" height="12" rx="2"/><rect x="560" y="53" width="7" height="12" rx="2"/><rect x="620" y="53" width="7" height="12" rx="2"/><rect x="680" y="53" width="7" height="12" rx="2"/><rect x="740" y="53" width="7" height="12" rx="2"/><rect x="800" y="53" width="7" height="12" rx="2"/><rect x="860" y="53" width="7" height="12" rx="2"/></g>
+  <!-- 燕巢與四雛 -->
+  <g transform="translate(653 66)">
+    <path d="M-30 0 H30 C28 22 14 32 0 32 C-14 32 -28 22 -30 0 Z" fill="#7A3E31" fill-opacity="0.75"/>
+    <path d="M-26 8 C-12 12 12 12 26 8 M-22 17 C-8 21 8 21 22 17 M-15 25 C-5 28 5 28 15 25" fill="none" stroke="#F1EADF" stroke-opacity="0.35" stroke-width="1.1"/>
+    <g fill="#F1EADF" fill-opacity="0.62"><circle cx="-18" cy="-3" r="5"/><circle cx="-6" cy="-6" r="5.5"/><circle cx="6" cy="-6" r="5.5"/><circle cx="18" cy="-3" r="5"/></g>
+    <g fill="#F2C96B" fill-opacity="0.85"><path d="M-21 -9 L-18 -15 L-15 -9 Z"/><path d="M-9 -12 L-6 -19 L-3 -12 Z"/><path d="M3 -12 L6 -19 L9 -12 Z"/><path d="M15 -9 L18 -15 L21 -9 Z"/></g>
+  </g>
+  <!-- 柳枝 -->
+  <g fill="none" stroke="#F1EADF" stroke-opacity="0.38" stroke-width="1.3">
+    <path d="M880 53 C870 110 876 170 860 238"/><path d="M846 53 C842 100 828 150 832 206"/><path d="M812 53 C814 90 800 120 806 160"/>
+  </g>
+  <g fill="#F1EADF" fill-opacity="0.34">
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(873 92) rotate(18)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(868 126) rotate(-16)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(872 160) rotate(20)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(864 198) rotate(-14)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(860 232) rotate(10)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(840 84) rotate(-20)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(836 120) rotate(16)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(830 160) rotate(-18)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(832 196) rotate(12)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(810 82) rotate(14)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(805 120) rotate(-16)"/>
+    <use href="#hleaf" x="-4" y="-10" width="8" height="20" transform="translate(806 152) rotate(18)"/>
+  </g>
+  <!-- 雙燕 -->
+  <g fill="#F1EADF">
+    <use href="#hsw" x="-46" y="-18" width="92" height="50" transform="translate(560 156) rotate(-62) scale(0.95)" fill-opacity="0.7"/>
+    <use href="#hsw" x="-46" y="-18" width="92" height="50" transform="translate(640 210) rotate(-52) scale(0.72)" fill-opacity="0.55"/>
+    <use href="#hsw" x="-46" y="-18" width="92" height="50" transform="translate(500 236) rotate(-75) scale(0.42)" fill-opacity="0.35"/>
+    <use href="#hsw" x="-46" y="-18" width="92" height="50" transform="translate(720 254) rotate(-40) scale(0.34)" fill-opacity="0.3"/>
+  </g>
+  <path d="M520 190 C560 176 590 186 610 200" fill="none" stroke="#F1EADF" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="2 5"/>
+  <!-- 回紋底帶 -->
+  <rect x="430" y="276" width="470" height="12" fill="url(#hfret)" opacity="0.28"/>
+</g>
+<rect width="900" height="300" filter="url(#hgrain)"/>
+</svg><div class="hero-tag">閱讀教學筆記</div><h1>白居易<span class="nb">《燕詩》</span></h1><div class="sub"><span class="nb">初中中國語文</span>　<span class="nb">教育局建議篇章（第三學習階段：中一至中三）</span></div><p>潘SIR中文教室編撰</p></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="sw" viewBox="-46 -18 92 50"><path d="M0 -16 C4 -16 5 -11 4 -6 C14 -10 30 -8 44 6 C30 0 16 0 5 4 C5 10 6 18 10 30 C6 24 3 18 0 14 C-3 18 -6 24 -10 30 C-6 18 -5 10 -5 4 C-16 0 -30 0 -44 6 C-30 -8 -14 -10 -4 -6 C-5 -11 -4 -16 0 -16 Z"/></symbol>
+<symbol id="nest" viewBox="-32 -22 64 56"><path d="M-30 0 H30 C28 22 14 32 0 32 C-14 32 -28 22 -30 0 Z" fill="#9b6a4f"/><path d="M-26 8 C-12 12 12 12 26 8 M-22 17 C-8 21 8 21 22 17" fill="none" stroke="#f1e2cf" stroke-width="1.4"/></symbol>
+<symbol id="chicks" viewBox="-32 -22 64 24"><g fill="#6d6259"><circle cx="-18" cy="-3" r="5"/><circle cx="-6" cy="-6" r="5.5"/><circle cx="6" cy="-6" r="5.5"/><circle cx="18" cy="-3" r="5"/></g><g fill="#e9b53c"><path d="M-21 -9 L-18 -16 L-15 -9 Z"/><path d="M-9 -12 L-6 -20 L-3 -12 Z"/><path d="M3 -12 L6 -20 L9 -12 Z"/><path d="M15 -9 L18 -16 L21 -9 Z"/></g></symbol>
+</defs></svg>
+
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>認識白居易與《燕詩》<span class="kind">教學</span></a><a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：作者、背景與體裁<span class="kind">練習</span></a><a class="toc-item" href="#s3"><span class="toc-num">03</span>逐句精讀：原文、註釋與語譯<span class="kind">教學</span></a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：字詞與語譯<span class="kind">練習</span></a><a class="toc-item" href="#s5"><span class="toc-num">05</span>燕子一家的故事：結構與主旨<span class="kind">教學</span></a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：內容理解<span class="kind">練習</span></a><a class="toc-item" href="#s7"><span class="toc-num">07</span>寫作手法與閱讀策略<span class="kind">教學</span></a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習四：手法賞析與延伸思考<span class="kind">練習</span></a></nav>
+
+<!-- ================= CHAPTER 01 ================= -->
+<div class="section-header first" id="s1"><div class="icon">🏮</div><div><div class="chap">CHAPTER 01　教學</div><h2>認識白居易與《燕詩》</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>先想一想</h3>
+<p>你見過屋簷下的燕子窩嗎？燕子爸媽整天飛進飛出，把捉來的蟲子送進小燕子張大的嘴裏。等到小燕子學會飛，牠們便離開鳥巢，自己生活去了。</p>
+<p>一千二百多年前，有一位姓劉的老人，疼愛的兒子背棄他離家出走，老人十分傷心。唐代詩人白居易想開導他，先講了一個燕子家庭的故事，最後才說出道理，這就是《燕詩》。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>作者小檔案：白居易</h3>
+<table>
+<tr><th class="c">姓名</th><td>白居易，字樂天，號香山居士。</td></tr>
+<tr><th class="c">朝代</th><td>唐代。生於公元772年，卒於846年。</td></tr>
+<tr><th class="c">名作</th><td>《賦得古原草送別》（「離離原上草，一歲一枯榮」）、《賣炭翁》、《長恨歌》、《琵琶行》</td></tr>
+<tr><th class="c">寫詩主張</th><td>「文章合為時而著，歌詩合為事而作」（《與元九書》）：文章要配合時代需要而寫，詩歌要針對現實中的事情而作。</td></tr>
+<tr><th class="c">詩風</th><td>用字淺白，內容貼近百姓生活，常借詩歌勸人或批評社會問題。</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>「老嫗能解」：連老婆婆都聽得懂</h3>
+<p>宋代僧人惠洪在《冷齋夜話》中記載了一個傳說：白居易每寫好一首詩，就先讀給一位老婆婆聽，問她懂不懂。老婆婆說懂，他才定稿；說不懂，他就再改。以下是按這個傳說想像出來的情景：</p>
+<div class="chat">
+<div class="who">白居易</div><div class="bubble">婆婆，「青蟲不易捕，黃口無飽期」，你聽得明白嗎？</div>
+<div class="row-r"><div class="who">老婆婆</div><div class="bubble">明白。蟲子難捉，小燕子卻總是餓。</div></div>
+<div class="who">白居易</div><div class="bubble">好，這句不用改了。</div>
+</div>
+<p>這個傳說未必真有其事，卻反映了白居易詩歌的特點：<span class="hl">淺白易懂，人人都能讀</span>。讀《燕詩》時，大部分句子單看字面已經可以猜到意思。</p>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>寫作背景：一位傷心的劉老伯</h3>
+<p>這首詩題目或作《燕詩示劉叟》，約寫於唐憲宗元和年間（約807–811年）。「示」是給人看，「叟」是老人，意思是「寫給劉老伯看的燕子詩」。白居易在詩前寫了一段小序，交代寫作原因：</p>
+<div class="excerpt">叟有愛子，背叟逃去，叟甚悲念之。叟少年時，亦嘗如是。故作《燕詩》以諭之矣。<div class="src">白居易《燕詩》小序</div></div>
+<p><b>語譯：</b>劉老伯有一個疼愛的兒子，背棄他逃走了，老伯非常傷心，十分掛念兒子。其實老伯年輕的時候，也曾經這樣離開自己的父母。所以我寫了這首燕子詩來開導他。</p>
+<div class="flow">
+<div class="flow-step"><b>多年以前</b>年輕的劉叟也曾背棄父母，離家而去。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>後來</b>劉叟有了心愛的兒子。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>如今</b>兒子背棄劉叟逃走，劉叟傷心掛念。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>白居易</b>寫燕子的故事，提醒他想想從前的自己。</div>
+</div>
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">燕子與劉叟的對應</div><div class="alert-text">詩中的燕子爸媽，就是劉叟；飛走的小燕子，就是劉叟的兒子。燕子爸媽小時候也曾飛離自己的父母，正如劉叟年輕時也離開過父母。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>體裁：五言古詩</h3>
+<p>唐詩大致分為兩大類。唐代以前已有的寫法叫<b>古體詩</b>（古詩）；唐代才定下嚴格格律的叫<b>近體詩</b>，即絕句和律詩。《燕詩》每句五個字，屬於<span class="hl">五言古詩</span>。</p>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">古體詩（如《燕詩》）</div>
+<ul class="tight"><li>句數不限，可長可短</li><li>平仄沒有嚴格規定</li><li>不一定要對偶</li><li>押韻較寬，可押仄聲韻，也可換韻</li></ul></div>
+<div class="compare-card b"><div class="ct">近體詩（絕句、律詩）</div>
+<ul class="tight"><li>絕句四句，律詩八句</li><li>平仄有嚴格規定</li><li>律詩中間兩聯要對偶</li><li>一般押平聲韻，一韻到底</li></ul></div>
+</div>
+<table>
+<tr><th class="c">體裁</th><td class="c">五言古詩</td><th class="c">句數</th><td class="c">30句</td><th class="c">字數</th><td class="c">150字</td></tr>
+<tr><th class="c">押韻位置</th><td colspan="5">雙數句的最後一個字，全詩一韻到底</td></tr>
+<tr><th class="c">韻腳</th><td colspan="5">雌、兒、孜、期、疲、飢、肥、衣、枝、飛、歸、悲、思、時、知</td></tr>
+</table>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">用廣東話讀一讀</div><div class="alert-text">韻腳用粵音讀出來，尾音都收在「i」：雌 ci、期 kei、飛 fei、歸 gwai、悲 bei、知 zi。讀到句末，聲音便重複落在相近的音上，全詩讀來順口，容易背誦。</div></div></div>
+<p class="small">怎樣數句數？五言詩以五個字為一句，兩句合成一聯。本詩第一段24句（12聯），第二段6句（3聯），合共30句（15聯）。</p>
+</div>
+
+<!-- ================= CHAPTER 02 ================= -->
+<div class="section-header ex" id="s2"><div class="icon">✏️</div><div><div class="chap">CHAPTER 02　練習</div><h2>練習一：作者、背景與體裁</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>白居易是哪一個朝代的詩人？<ul class="opts"><li><b>A</b>漢代</li><li><b>B</b>宋代</li><li><b>C</b>唐代</li><li><b>D</b>明代</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>白居易的字是甚麼？<ul class="opts"><li><b>A</b>樂天</li><li><b>B</b>太白</li><li><b>C</b>子美</li><li><b>D</b>子瞻</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span class="ex">太白是李白的字，子美是杜甫的字，子瞻是蘇軾的字。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>《燕詩》的題目又作甚麼？<ul class="opts"><li><b>A</b>《燕子歸巢》</li><li><b>B</b>《詠梁上燕》</li><li><b>C</b>《雙燕辭劉翁》</li><li><b>D</b>《燕詩示劉叟》</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>《燕詩》屬於哪一種詩歌體裁？<ul class="opts"><li><b>A</b>五言絕句</li><li><b>B</b>五言古詩</li><li><b>C</b>五言律詩</li><li><b>D</b>七言古詩</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">每句五字，全詩30句，不受絕句四句、律詩八句的限制。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>以下關於古體詩的說法，正確的在括號內寫「✓」，錯誤的寫「✗」。
+<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr>
+<tr><td>（1）古體詩每首只可以有四句或八句。</td><td class="ctr">（　　）</td></tr>
+<tr><td>（2）古體詩的平仄沒有嚴格規定。</td><td class="ctr">（　　）</td></tr>
+<tr><td>（3）古體詩中間的句子必須對偶。</td><td class="ctr">（　　）</td></tr>
+<tr><td>（4）古體詩押韻較寬，可以換韻。</td><td class="ctr">（　　）</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）✗　（2）✓　（3）✗　（4）✓<br><span class="ex">（1）（3）是近體詩的規定：絕句四句、律詩八句，律詩中間兩聯要對偶。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>數一數，《燕詩》全詩共有（1）<span class="blank s"></span>句，每句（2）<span class="blank s"></span>字。<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1）30　（2）5</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>《燕詩》在單數句還是雙數句押韻？試從詩中找出兩個韻腳。<p>押韻位置：<span class="blank"></span>　　韻腳：（1）<span class="blank s"></span>　（2）<span class="blank s"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）雙數句（1分）；韻腳：雌、兒、孜、期、疲、飢、肥、衣、枝、飛、歸、悲、思、時、知中任何兩個（每個1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>相傳白居易寫好詩後，先讀給老婆婆聽，她聽得懂才定稿。這個傳說反映白居易的詩歌有甚麼特點？這個特點對他借詩勸人有甚麼好處？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）特點：用字淺白，通俗易懂（1分）。好處：一般百姓也讀得明白，詩中的道理容易傳開，勸人的效果更好（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv2">理解</span>根據《燕詩》的小序，劉叟現在遇到甚麼不幸？他年輕時又做過甚麼事？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）現在：他疼愛的兒子背棄他逃走了，他非常傷心（1分）。年輕時：他也曾經這樣離開自己的父母（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>白居易想開導劉叟，他沒有直接對劉叟說「你年輕時也離開過父母」，選擇寫一個燕子的故事。你認為這樣做有甚麼好處？試提出兩點。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）示例：（1）借燕子說話，語氣委婉，不會直接揭劉叟的瘡疤，他較容易接受（1分）；（2）燕子的故事具體生動，容易明白（1分）；劉叟從燕子身上看到自己的影子，由自己想通道理，印象更深（1分）。<br><span class="ex">評分原則：提出兩項好處，各得1分；能結合劉叟的處境加以說明，再得1分。</span></div></div></div>
+
+<!-- ================= CHAPTER 03 ================= -->
+<div class="section-header" id="s3"><div class="icon">📜</div><div><div class="chap">CHAPTER 03　教學</div><h2>逐句精讀：原文、註釋與語譯</h2></div></div>
+
+<div class="poem"><div class="ttl">燕詩</div><div class="au">白居易</div>
+<div class="preface" style="font-family:'Noto Serif TC',serif;margin:0 0 10px;text-indent:2em">叟<sup class="n">1</sup>有愛子，背叟逃去，叟甚悲念之。叟少年時，亦嘗如是。故作《燕詩》以諭<sup class="n">2</sup>之矣。</div>
+<div class="legend">標示說明：<span class="rh">字</span>＝韻腳（雙數句句末）；<sup class="n">1</sup>＝見下方註釋</div>
+<span class="layer-tag">第一段　燕子一家的故事（第1–24句）</span>
+<div class="ln"><span class="pnum">1</span><span>
+梁<sup class="n">3</sup>上有雙燕，翩翩<sup class="n">4</sup>雄與<span class="rh">雌</span>。<br>
+銜<sup class="n">5</sup>泥兩椽<sup class="n">6</sup>間，一巢生四<span class="rh">兒</span>。<br>
+四兒日夜長<sup class="n">7</sup>，索食聲孜<span class="rh">孜</span><sup class="n">8</sup>。<br>
+青蟲不易捕，黃口<sup class="n">9</sup>無飽<span class="rh">期</span><sup class="n">10</sup>。<br>
+嘴爪雖欲敝<sup class="n">11</sup>，心力不知<span class="rh">疲</span>。<br>
+須臾<sup class="n">12</sup>十來往，猶恐<sup class="n">13</sup>巢中<span class="rh">飢</span>。<br>
+辛勤三十日，母瘦雛<sup class="n">14</sup>漸<span class="rh">肥</span>。<br>
+喃喃<sup class="n">15</sup>教言語，一一<sup class="n">16</sup>刷毛<span class="rh">衣</span><sup class="n">17</sup>。<br>
+一旦羽翼成<sup class="n">18</sup>，引<sup class="n">19</sup>上庭樹<span class="rh">枝</span>。<br>
+舉翅不回顧<sup class="n">20</sup>，隨風四散<span class="rh">飛</span>。<br>
+雌雄空中鳴，聲盡<sup class="n">21</sup>呼不<span class="rh">歸</span>。<br>
+卻<sup class="n">22</sup>入空巢裏，啁啾<sup class="n">23</sup>終夜<span class="rh">悲</span>。
+</span></div>
+<span class="layer-tag">第二段　作者對燕子說的話（第25–30句）</span>
+<div class="ln"><span class="pnum">2</span><span>
+燕燕爾<sup class="n">24</sup>勿悲，爾當反自<span class="rh">思</span><sup class="n">25</sup>：<br>
+思爾為雛日，高飛背<sup class="n">26</sup>母<span class="rh">時</span>。<br>
+當時父母念<sup class="n">27</sup>，今日爾應<span class="rh">知</span>！
+</span></div>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>註釋</h3>
+<div class="keyword-grid">
+<div class="kw" data-n="1"><div class="kw-word"><span class="nbg">1</span>叟<span class="py">sau2，音「手」</span></div><div class="kw-def">老人，這裏指劉姓老人。</div></div>
+<div class="kw" data-n="2"><div class="kw-word"><span class="nbg">2</span>諭<span class="py">jyu6，音「預」</span></div><div class="kw-def">開導、使人明白。</div></div>
+<div class="kw" data-n="3"><div class="kw-word"><span class="nbg">3</span>梁</div><div class="kw-def">屋樑，房屋上架起來的大橫木。</div></div>
+<div class="kw" data-n="4"><div class="kw-word"><span class="nbg">4</span>翩翩<span class="py">pin1 pin1</span></div><div class="kw-def">輕快地飛舞的樣子。</div></div>
+<div class="kw" data-n="5"><div class="kw-word"><span class="nbg">5</span>銜<span class="py">haam4</span></div><div class="kw-def">用嘴叼着。</div></div>
+<div class="kw" data-n="6"><div class="kw-word"><span class="nbg">6</span>椽<span class="py">cyun4，音「全」</span></div><div class="kw-def">架在屋樑上、承托屋頂的木條。</div></div>
+<div class="kw" data-n="7"><div class="kw-word"><span class="nbg">7</span>長<span class="py">zoeng2，音「掌」</span></div><div class="kw-def">生長、長大。</div></div>
+<div class="kw" data-n="8"><div class="kw-word"><span class="nbg">8</span>孜孜<span class="py">zi1 zi1</span></div><div class="kw-def">雛鳥的叫聲。「索食聲孜孜」寫雛燕連聲叫着討食物。</div></div>
+<div class="kw" data-n="9"><div class="kw-word"><span class="nbg">9</span>黃口</div><div class="kw-def">雛鳥的嘴邊是嫩黃色的，這裏借指雛燕。</div></div>
+<div class="kw" data-n="10"><div class="kw-word"><span class="nbg">10</span>無飽期</div><div class="kw-def">沒有吃飽的時候。</div></div>
+<div class="kw" data-n="11"><div class="kw-word"><span class="nbg">11</span>敝<span class="py">bai6，音「幣」</span></div><div class="kw-def">破損。「欲敝」即快要磨破。</div></div>
+<div class="kw" data-n="12"><div class="kw-word"><span class="nbg">12</span>須臾<span class="py">seoi1 jyu4</span></div><div class="kw-def">片刻，極短的時間。</div></div>
+<div class="kw" data-n="13"><div class="kw-word"><span class="nbg">13</span>猶恐</div><div class="kw-def">仍然擔心。</div></div>
+<div class="kw" data-n="14"><div class="kw-word"><span class="nbg">14</span>雛<span class="py">co1，音「初」</span></div><div class="kw-def">剛出生不久的幼鳥。</div></div>
+<div class="kw" data-n="15"><div class="kw-word"><span class="nbg">15</span>喃喃<span class="py">naam4 naam4</span></div><div class="kw-def">低聲細語。</div></div>
+<div class="kw" data-n="16"><div class="kw-word"><span class="nbg">16</span>一一</div><div class="kw-def">逐一、一隻一隻地。</div></div>
+<div class="kw" data-n="17"><div class="kw-word"><span class="nbg">17</span>刷毛衣</div><div class="kw-def">梳理羽毛。「毛衣」指鳥的羽毛。</div></div>
+<div class="kw" data-n="18"><div class="kw-word"><span class="nbg">18</span>羽翼成</div><div class="kw-def">羽毛和翅膀長成了，可以飛了。</div></div>
+<div class="kw" data-n="19"><div class="kw-word"><span class="nbg">19</span>引</div><div class="kw-def">帶領。</div></div>
+<div class="kw" data-n="20"><div class="kw-word"><span class="nbg">20</span>回顧</div><div class="kw-def">回頭看。</div></div>
+<div class="kw" data-n="21"><div class="kw-word"><span class="nbg">21</span>聲盡</div><div class="kw-def">叫到聲音沙啞，再也叫不出來。</div></div>
+<div class="kw" data-n="22"><div class="kw-word"><span class="nbg">22</span>卻</div><div class="kw-def">退回、返回。現代漢語常用的「但是」解法，放在這裏說不通。</div></div>
+<div class="kw" data-n="23"><div class="kw-word"><span class="nbg">23</span>啁啾<span class="py">zau1 zau1</span></div><div class="kw-def">鳥叫的聲音。</div></div>
+<div class="kw" data-n="24"><div class="kw-word"><span class="nbg">24</span>爾</div><div class="kw-def">你、你們。</div></div>
+<div class="kw" data-n="25"><div class="kw-word"><span class="nbg">25</span>反自思</div><div class="kw-def">反過來想想自己。</div></div>
+<div class="kw" data-n="26"><div class="kw-word"><span class="nbg">26</span>背<span class="py">bui3，音「貝」</span></div><div class="kw-def">背棄、離開。</div></div>
+<div class="kw" data-n="27"><div class="kw-word"><span class="nbg">27</span>念</div><div class="kw-def">思念、掛念。</div></div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot blue"></span>逐句語譯</h3>
+<p>全詩可以分為五個部分。每部分先讀原文，再看語譯，最後留意重點字詞。</p>
+
+<span class="layer-tag">一、築巢生子（第1–4句）</span>
+<div class="lbl"><div class="orig">梁上有雙燕，翩翩雄與雌。銜泥兩椽間，一巢生四兒。</div>
+<div class="tr">屋樑上住着一對燕子，一雄一雌，輕快地飛來飛去。牠們一口一口地銜來泥土，在兩條椽子之間築了一個巢，一窩生下四隻小燕子。</div>
+<div class="note">📌「兒」指小燕子。詩人把燕子的孩子叫作「兒」，一開始就把燕子當成人來寫。</div></div>
+
+<span class="layer-tag">二、辛勤餵養（第5–14句）</span>
+<div class="lbl"><div class="orig">四兒日夜長，索食聲孜孜。青蟲不易捕，黃口無飽期。</div>
+<div class="tr">四隻小燕子日夜不停地長大，張着嘴連聲討食物。青蟲很難捉到，可是那些嫩黃的小嘴，卻好像永遠也吃不飽。</div></div>
+<div class="lbl"><div class="orig">嘴爪雖欲敝，心力不知疲。須臾十來往，猶恐巢中飢。</div>
+<div class="tr">燕子爸媽的嘴巴和爪子都快要磨破了，牠們卻一點也不覺得累。一會兒就來回飛了十多趟，還是擔心巢裏的孩子餓着。</div>
+<div class="note">📌「十來往」的「十」表示次數多，未必剛好十次。</div></div>
+<div class="lbl"><div class="orig">辛勤三十日，母瘦雛漸肥。</div>
+<div class="tr">辛辛苦苦地過了三十天，燕子媽媽瘦了，小燕子卻一天比一天胖。</div></div>
+
+<span class="layer-tag">三、悉心教導（第15–18句）</span>
+<div class="lbl"><div class="orig">喃喃教言語，一一刷毛衣。一旦羽翼成，引上庭樹枝。</div>
+<div class="tr">燕子爸媽低聲細語，教孩子鳴叫，又一隻一隻地替牠們梳理羽毛。終於有一天，小燕子的翅膀長成了，爸媽便帶牠們飛上庭院的樹枝。</div>
+<div class="note">📌「引上庭樹枝」：先帶到樹枝上，是讓小燕子練習飛行。</div></div>
+
+<span class="layer-tag">四、雛燕離去（第19–24句）</span>
+<div class="lbl"><div class="orig">舉翅不回顧，隨風四散飛。雌雄空中鳴，聲盡呼不歸。</div>
+<div class="tr">小燕子張開翅膀，頭也不回，隨着風向四方飛散了。燕子爸媽在半空中呼喚，叫到聲音都啞了，孩子們始終沒有回來。</div></div>
+<div class="lbl"><div class="orig">卻入空巢裏，啁啾終夜悲。</div>
+<div class="tr">燕子爸媽只好飛回空空的巢裏，整夜啁啾地哀鳴。</div>
+<div class="note">📌「終夜」即整夜。辛勞了三十天，換來的是一整夜的悲鳴。</div></div>
+
+<span class="layer-tag">五、勸告燕子（第25–30句）</span>
+<div class="lbl"><div class="orig">燕燕爾勿悲，爾當反自思：思爾為雛日，高飛背母時。當時父母念，今日爾應知！</div>
+<div class="tr">燕子啊燕子，你們不要悲傷了，應該反過來想想自己：想想你們還是小燕子的時候，也是這樣高高飛走，離開了母親。當時你們的父母有多掛念你們，今天你們應該明白了吧！</div>
+<div class="note">📌「為雛日」的「為」解作「是」，「為雛日」即「還是小燕子的時候」。</div></div>
+
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">四個容易錯的字</div><div class="alert-text">
+<b>長</b>：讀「掌」，解生長，與長短的「長」讀音、意思都不同。<br>
+<b>卻</b>：解退回，別誤解作「但是」。<br>
+<b>背</b>：讀「貝」，解背棄、離開，與背脊無關。<br>
+<b>爾</b>：解你們，第二段的「爾」都指燕子爸媽。</div></div></div>
+</div>
+
+<!-- ================= CHAPTER 04 ================= -->
+<div class="section-header ex" id="s4"><div class="icon">✏️</div><div><div class="chap">CHAPTER 04　練習</div><h2>練習二：字詞與語譯</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「銜泥兩<b>椽</b>間」的「椽」是指甚麼？<ul class="opts"><li><b>A</b>屋頂上的瓦片</li><li><b>B</b>承托屋頂的木條</li><li><b>C</b>窗前的木欄杆</li><li><b>D</b>庭院中的樹枝</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「嘴爪雖欲<b>敝</b>」的「敝」解作甚麼？<ul class="opts"><li><b>A</b>破損</li><li><b>B</b>疲倦</li><li><b>C</b>張開</li><li><b>D</b>弄髒</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「<b>須臾</b>十來往」的「須臾」解作甚麼？<ul class="opts"><li><b>A</b>整天</li><li><b>B</b>每次</li><li><b>C</b>終於</li><li><b>D</b>片刻</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>「<b>卻</b>入空巢裏」的「卻」解作甚麼？<ul class="opts"><li><b>A</b>反而</li><li><b>B</b>忘記</li><li><b>C</b>退回</li><li><b>D</b>然而</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">「反而」「然而」是「卻」在現代漢語的常見意思，放回詩句中說不通。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>解釋以下句子中的粗體字。
+<table><tr><th>句子</th><th>解釋</th></tr>
+<tr><td>（1）四兒日夜<b>長</b></td><td><span class="blank l"></span></td></tr>
+<tr><td>（2）<b>引</b>上庭樹枝</td><td><span class="blank l"></span></td></tr>
+<tr><td>（3）舉翅不<b>回顧</b></td><td><span class="blank l"></span></td></tr>
+<tr><td>（4）燕燕<b>爾</b>勿悲</td><td><span class="blank l"></span></td></tr>
+<tr><td>（5）高飛<b>背</b>母時</td><td><span class="blank l"></span></td></tr>
+<tr><td>（6）當時父母<b>念</b></td><td><span class="blank l"></span></td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，每項1分）（1）生長／長大　（2）帶領　（3）回頭看　（4）你們　（5）背棄／離開　（6）思念／掛念</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「黃口無飽期」中，「黃口」的字面意思是甚麼？在詩中借指甚麼？<p>（1）字面意思：<span class="blank l"></span></p><p>（2）借指：<span class="blank l"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）嫩黃色的小嘴　（2）雛燕／小燕子</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>把以下詩句譯成白話文：<br><span class="serif">「青蟲不易捕，黃口無飽期。」</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）青蟲很難捉到（1分），小燕子的小嘴卻好像永遠吃不飽（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>把以下詩句譯成白話文：<br><span class="serif">「辛勤三十日，母瘦雛漸肥。」</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）辛辛苦苦地過了三十天（1分），燕子媽媽瘦了，小燕子卻漸漸胖起來（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>把以下詩句譯成白話文：<br><span class="serif">「思爾為雛日，高飛背母時。」</span><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）想想你們還是小燕子的時候（1分），也曾高飛而去，離開了母親（1分）。<br><span class="ex">評分原則：前半句須譯出「為」（是）的意思，後半句須譯出「背」（離開、背棄）的意思，各1分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>「舉翅不回顧」中，「不回顧」三字寫出了小燕子怎樣的態度？試加以說明。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）寫出小燕子毫不留戀父母、頭也不回地離去（1分）。牠們沒有顧念父母多日來的養育之恩，顯得無情（1分）。</div></div></div>
+
+<!-- ================= CHAPTER 05 ================= -->
+<div class="section-header" id="s5"><div class="icon">🪶</div><div><div class="chap">CHAPTER 05　教學</div><h2>燕子一家的故事：結構與主旨</h2></div></div>
+
+<div class="card"><h3><span class="dot coral"></span>六格看懂全詩</h3>
+<div class="strip">
+
+<div class="panel"><span class="no">1</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><rect width="300" height="10" fill="#b9a48f"/><use href="#nest" x="118" y="-12" width="64" height="56"/><use href="#chicks" x="118" y="-12" width="64" height="24"/><g transform="translate(62 54) rotate(-28)"><use href="#sw" x="-23" y="-9" width="46" height="25" fill="#5b6f86"/></g><g transform="translate(240 60) rotate(32)"><use href="#sw" x="-20" y="-8" width="40" height="22" fill="#7c8da1"/></g></svg>
+<div class="pt">築巢生子</div><div class="po">銜泥兩椽間，一巢生四兒</div><div class="pd">一對燕子在屋樑上築巢，生了四隻小燕子。</div></div>
+
+<div class="panel"><span class="no">2</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><rect width="300" height="10" fill="#b9a48f"/><use href="#nest" x="168" y="-12" width="64" height="56"/><use href="#chicks" x="168" y="-12" width="64" height="24"/><path d="M40 70 C70 20 120 20 150 46 C120 80 70 84 40 70" fill="none" stroke="#c48612" stroke-width="1.5" stroke-dasharray="3 4"/><g transform="translate(140 46) rotate(60)"><use href="#sw" x="-23" y="-9" width="46" height="25" fill="#5b6f86"/></g><path d="M156 30 c4 -4 8 2 12 -2" fill="none" stroke="#3d8b4f" stroke-width="3" stroke-linecap="round"/><text x="44" y="40" font-size="14" fill="#c48612" font-weight="700">×10</text></svg>
+<div class="pt">辛勤餵養</div><div class="po">須臾十來往，猶恐巢中飢</div><div class="pd">爸媽不停捉蟲，飛得嘴爪都快磨破。</div></div>
+
+<div class="panel"><span class="no">3</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><rect width="300" height="10" fill="#b9a48f"/><use href="#nest" x="118" y="-12" width="64" height="56"/><use href="#chicks" x="118" y="-12" width="64" height="24"/><g transform="translate(212 28) rotate(-70)"><use href="#sw" x="-21" y="-8" width="42" height="23" fill="#5b6f86"/></g><text x="228" y="62" font-size="13" fill="#c2557f">喃喃……</text><text x="40" y="62" font-size="13" fill="#2a8a80">刷毛衣</text></svg>
+<div class="pt">悉心教導</div><div class="po">喃喃教言語，一一刷毛衣</div><div class="pd">爸媽教孩子鳴叫，又逐隻替牠們梳理羽毛。</div></div>
+
+<div class="panel"><span class="no">4</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><path d="M20 82 C90 70 160 58 280 30" stroke="#8a6a4f" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M150 60 l14 -18 M210 46 l10 -16" stroke="#8a6a4f" stroke-width="3" stroke-linecap="round"/><g fill="#6d6259"><circle cx="110" cy="62" r="6"/><circle cx="135" cy="57" r="6"/><circle cx="175" cy="50" r="6"/><circle cx="200" cy="44" r="6"/></g><g fill="#e9b53c"><path d="M114 58 l7 -1 l-6 4z"/><path d="M139 53 l7 -1 l-6 4z"/><path d="M179 46 l7 -1 l-6 4z"/><path d="M204 40 l7 -1 l-6 4z"/></g><g transform="translate(250 22) rotate(-40)"><use href="#sw" x="-20" y="-8" width="40" height="22" fill="#5b6f86"/></g><g transform="translate(60 40) rotate(20)"><use href="#sw" x="-20" y="-8" width="40" height="22" fill="#7c8da1"/></g></svg>
+<div class="pt">帶上樹枝</div><div class="po">一旦羽翼成，引上庭樹枝</div><div class="pd">小燕子翅膀長成，爸媽帶牠們上樹練飛。</div></div>
+
+<div class="panel"><span class="no">5</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><g stroke="#aab4bf" stroke-width="1.2" stroke-dasharray="2 4" fill="none"><path d="M150 50 L40 14"/><path d="M150 50 L40 80"/><path d="M150 50 L262 12"/><path d="M150 50 L266 82"/></g><g fill="#6d6259"><g transform="translate(36 14) rotate(-110)"><use href="#sw" x="-12" y="-5" width="24" height="13"/></g><g transform="translate(36 80) rotate(-70)"><use href="#sw" x="-12" y="-5" width="24" height="13"/></g><g transform="translate(266 12) rotate(70)"><use href="#sw" x="-12" y="-5" width="24" height="13"/></g><g transform="translate(270 82) rotate(115)"><use href="#sw" x="-12" y="-5" width="24" height="13"/></g></g><g transform="translate(140 52) rotate(-10)"><use href="#sw" x="-18" y="-7" width="36" height="20" fill="#5b6f86"/></g><g transform="translate(166 50) rotate(12)"><use href="#sw" x="-18" y="-7" width="36" height="20" fill="#7c8da1"/></g><text x="136" y="24" font-size="15" fill="#c0392b" font-weight="700">回來呀！</text></svg>
+<div class="pt">四散飛走</div><div class="po">舉翅不回顧，隨風四散飛</div><div class="pd">孩子頭也不回地飛走，爸媽叫到聲音沙啞。</div></div>
+
+<div class="panel"><span class="no">6</span>
+<svg class="pic" viewBox="0 0 300 92" aria-hidden="true"><rect width="300" height="92" rx="6" fill="#3b4656"/><circle cx="250" cy="30" r="14" fill="#f1e2b8"/><circle cx="256" cy="26" r="13" fill="#3b4656"/><g fill="#f1e2b8"><circle cx="40" cy="20" r="1.4"/><circle cx="90" cy="34" r="1.2"/><circle cx="200" cy="64" r="1.2"/><circle cx="270" cy="70" r="1.4"/></g><rect width="300" height="10" fill="#6b5a4b"/><use href="#nest" x="118" y="-12" width="64" height="56"/><g fill="#c9d1da"><circle cx="140" cy="4" r="6"/><circle cx="160" cy="4" r="6"/></g><text x="196" y="76" font-size="13" fill="#f1e2b8">啁啾……</text></svg>
+<div class="pt">空巢夜悲</div><div class="po">卻入空巢裏，啁啾終夜悲</div><div class="pd">爸媽回到空巢，整夜悲鳴。</div></div>
+
+</div>
+<div class="example-box blue"><div class="example-label">第二段的作用</div><div class="example-text">第六格之後，詩人走進故事裏，對燕子爸媽說：「別哭了，想想你們小時候也是這樣飛走的。」這番話就是全詩的第二段。</div></div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>全詩結構：二十四句講故事，六句講道理</h3>
+<svg class="chart" viewBox="0 0 780 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全詩三十句的結構">
+<g>
+<rect x="20" y="40" width="22" height="34" rx="3" fill="var(--coral)"/><rect x="44" y="40" width="22" height="34" rx="3" fill="var(--coral)"/><rect x="68" y="40" width="22" height="34" rx="3" fill="var(--coral)"/><rect x="92" y="40" width="22" height="34" rx="3" fill="var(--coral)"/>
+<rect x="116" y="40" width="22" height="34" rx="3" fill="var(--amber)"/><rect x="140" y="40" width="22" height="34" rx="3" fill="var(--amber)"/><rect x="164" y="40" width="22" height="34" rx="3" fill="var(--amber)"/><rect x="188" y="40" width="22" height="34" rx="3" fill="var(--amber)"/><rect x="212" y="40" width="22" height="34" rx="3" fill="var(--amber)"/><rect x="236" y="40" width="22" height="34" rx="3" fill="var(--amber)"/><rect x="260" y="40" width="22" height="34" rx="3" fill="var(--amber)"/><rect x="284" y="40" width="22" height="34" rx="3" fill="var(--amber)"/><rect x="308" y="40" width="22" height="34" rx="3" fill="var(--amber)"/><rect x="332" y="40" width="22" height="34" rx="3" fill="var(--amber)"/>
+<rect x="356" y="40" width="22" height="34" rx="3" fill="var(--teal)"/><rect x="380" y="40" width="22" height="34" rx="3" fill="var(--teal)"/><rect x="404" y="40" width="22" height="34" rx="3" fill="var(--teal)"/><rect x="428" y="40" width="22" height="34" rx="3" fill="var(--teal)"/>
+<rect x="452" y="40" width="22" height="34" rx="3" fill="var(--purple)"/><rect x="476" y="40" width="22" height="34" rx="3" fill="var(--purple)"/><rect x="500" y="40" width="22" height="34" rx="3" fill="var(--purple)"/><rect x="524" y="40" width="22" height="34" rx="3" fill="var(--purple)"/><rect x="548" y="40" width="22" height="34" rx="3" fill="var(--purple)"/><rect x="572" y="40" width="22" height="34" rx="3" fill="var(--purple)"/>
+<rect x="608" y="40" width="22" height="34" rx="3" fill="var(--blue)"/><rect x="632" y="40" width="22" height="34" rx="3" fill="var(--blue)"/><rect x="656" y="40" width="22" height="34" rx="3" fill="var(--blue)"/><rect x="680" y="40" width="22" height="34" rx="3" fill="var(--blue)"/><rect x="704" y="40" width="22" height="34" rx="3" fill="var(--blue)"/><rect x="728" y="40" width="22" height="34" rx="3" fill="var(--blue)"/>
+</g>
+<path d="M20 30 V22 H594 V30" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.2"/>
+<path d="M608 30 V22 H750 V30" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.2"/>
+<text x="307" y="16" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">第一段：講故事（24句）</text>
+<text x="679" y="16" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">第二段：講道理（6句）</text>
+<g font-size="12.5" text-anchor="middle" font-weight="700">
+<text x="67" y="94" fill="var(--coral)">築巢生子</text><text x="67" y="110" fill="var(--color-text-secondary)" font-weight="400">1–4句</text>
+<text x="224" y="94" fill="var(--amber)">辛勤餵養</text><text x="224" y="110" fill="var(--color-text-secondary)" font-weight="400">5–14句</text>
+<text x="403" y="94" fill="var(--teal)">悉心教導</text><text x="403" y="110" fill="var(--color-text-secondary)" font-weight="400">15–18句</text>
+<text x="523" y="94" fill="var(--purple)">雛燕離去</text><text x="523" y="110" fill="var(--color-text-secondary)" font-weight="400">19–24句</text>
+<text x="679" y="94" fill="var(--blue)">勸告燕子</text><text x="679" y="110" fill="var(--color-text-secondary)" font-weight="400">25–30句</text>
+</g>
+<text x="224" y="146" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">↑ 篇幅最長：用了10句寫餵養雛燕</text>
+</svg>
+<table>
+<tr><th class="c">部分</th><th class="c">句子</th><th>內容</th></tr>
+<tr><td class="c">築巢生子</td><td class="c">第1–4句</td><td>一對燕子在屋樑的椽子間築巢，生下四隻雛燕。</td></tr>
+<tr><td class="c">辛勤餵養</td><td class="c">第5–14句</td><td>雙燕不辭勞苦地捕蟲餵食，母燕瘦了，雛燕漸漸長大。</td></tr>
+<tr><td class="c">悉心教導</td><td class="c">第15–18句</td><td>雙燕教雛燕鳴叫、替牠們梳理羽毛，又帶牠們學飛。</td></tr>
+<tr><td class="c">雛燕離去</td><td class="c">第19–24句</td><td>雛燕頭也不回地飛散，雙燕呼喚不回，回到空巢整夜悲鳴。</td></tr>
+<tr><td class="c">勸告燕子</td><td class="c">第25–30句</td><td>詩人勸雙燕不要悲傷，叫牠們反省自己小時候也離開了父母，現在應該明白父母當年的心情。</td></tr>
+</table>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">為甚麼「辛勤餵養」寫得最長？</div><div class="alert-text">父母付出寫得越多，後面孩子「不回顧」便顯得越無情，雙燕的悲傷也越教人同情。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>雙燕的心情變化</h3>
+<p>詩中直接寫出雙燕心情的字眼不多，只有「猶恐」的「恐」和「終夜悲」的「悲」，其他心情要從牠們的行動去推想。</p>
+<svg class="chart" viewBox="0 0 780 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="雙燕心情變化曲線">
+<rect x="40" y="20" width="720" height="200" fill="var(--color-background-secondary)" rx="6"/>
+<line x1="40" y1="120" x2="760" y2="120" stroke="var(--color-text-secondary)" stroke-dasharray="4 4" stroke-width="1"/>
+<text x="48" y="112" font-size="11" fill="var(--color-text-secondary)">↑ 愉快</text>
+<text x="48" y="138" font-size="11" fill="var(--color-text-secondary)">↓ 難過</text>
+<polyline fill="none" stroke="var(--coral)" stroke-width="3" stroke-linejoin="round" points="130,55 270,85 410,50 550,165 690,200"/>
+<g fill="var(--coral)"><circle cx="130" cy="55" r="7"/><circle cx="270" cy="85" r="7"/><circle cx="410" cy="50" r="7"/><circle cx="550" cy="165" r="7"/><circle cx="690" cy="200" r="7"/></g>
+<g font-size="13" font-weight="700" fill="var(--color-text-primary)" text-anchor="middle">
+<text x="130" y="40">幸福滿足</text><text x="270" y="70">辛苦但甘心</text><text x="410" y="35">充滿期望</text><text x="550" y="150">焦急失望</text><text x="660" y="186">悲傷孤單</text></g>
+<g font-size="12" fill="var(--color-text-secondary)" text-anchor="middle">
+<text x="130" y="244">組織家庭</text><text x="130" y="262">一巢生四兒</text>
+<text x="270" y="244">捕蟲餵養</text><text x="270" y="262">心力不知疲</text>
+<text x="410" y="244">教導學飛</text><text x="410" y="262">引上庭樹枝</text>
+<text x="550" y="244">雛燕飛走</text><text x="550" y="262">聲盡呼不歸</text>
+<text x="690" y="244">回到空巢</text><text x="690" y="262">啁啾終夜悲</text></g>
+</svg>
+<p>曲線在第四點突然下跌。雙燕辛勤餵養三十天，又悉心教導，滿心期望孩子長大，等來的卻是孩子一去不回。前面越幸福，後面越悲傷。</p>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>「今日爾應知」：兩代燕子的經歷</h3>
+<p>第二段最重要的一點：雙燕現在的遭遇，牠們年輕時也曾帶給自己的父母。</p>
+<svg class="chart" viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="兩代燕子的循環">
+<g font-size="14" font-weight="700" text-anchor="middle">
+<rect x="70" y="20" width="250" height="56" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"/><text x="195" y="44" fill="var(--color-text-primary)">雙燕的父母</text><text x="195" y="64" font-size="12" font-weight="400" fill="var(--color-text-secondary)">當年辛苦養大雙燕</text>
+<rect x="70" y="122" width="250" height="56" rx="10" fill="var(--coral-bg)" stroke="var(--coral)"/><text x="195" y="146" fill="var(--coral)">雙燕</text><text x="195" y="166" font-size="12" font-weight="400" fill="var(--color-text-secondary)">小時候「高飛背母」</text>
+<rect x="70" y="224" width="250" height="56" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"/><text x="195" y="248" fill="var(--color-text-primary)">四隻雛燕</text><text x="195" y="268" font-size="12" font-weight="400" fill="var(--color-text-secondary)">長大後「隨風四散飛」</text>
+</g>
+<g stroke="var(--color-text-secondary)" stroke-width="1.6" fill="none"><path d="M150 78 V118" marker-end="url(#ah)"/><path d="M150 180 V220" marker-end="url(#ah)"/></g>
+<g stroke="var(--red)" stroke-width="2" fill="none" stroke-dasharray="5 4"><path d="M322 150 C372 140 372 60 324 50" marker-end="url(#ahr)"/><path d="M322 252 C372 242 372 162 324 152" marker-end="url(#ahr)"/></g>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="var(--color-text-secondary)"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="var(--red)"/></marker></defs>
+<g font-size="12" fill="var(--color-text-secondary)"><text x="160" y="104">養大</text><text x="160" y="206">養大</text></g>
+<g font-size="12.5" fill="var(--red)" font-weight="700"><text x="378" y="104">離開父母</text><text x="378" y="206">離開父母</text></g>
+<g font-size="13" fill="var(--color-text-primary)">
+<rect x="500" y="20" width="230" height="56" rx="10" fill="var(--blue-bg)"/><text x="615" y="53" text-anchor="middle">劉叟的父母</text>
+<rect x="500" y="122" width="230" height="56" rx="10" fill="var(--blue-bg)"/><text x="615" y="155" text-anchor="middle">劉叟</text>
+<rect x="500" y="224" width="230" height="56" rx="10" fill="var(--blue-bg)"/><text x="615" y="257" text-anchor="middle">劉叟的愛子</text>
+</g>
+<g font-size="18" fill="var(--blue)" text-anchor="middle"><text x="465" y="54">＝</text><text x="465" y="156">＝</text><text x="465" y="258">＝</text></g>
+</svg>
+<p>「當時父母念，今日爾應知」：雙燕今天嘗到孩子離去的痛，才明白當年自己的父母有多難過。詩人要劉叟明白的，也是這一點。</p>
+</div>
+
+<div class="card"><h3><span class="dot red"></span>主旨</h3>
+<div class="formula"><div class="fl">一句記主旨</div>本詩借一對燕子<b>辛勤養育子女</b>，子女長大後卻<b>一去不回</b>的故事，告誡世人要<b>體諒父母養育的辛勞</b>，不要離棄父母。</div>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">寫給劉叟</div>勸他不要只顧悲傷，先反省自己年輕時也離開過父母。</div>
+<div class="compare-card b"><div class="ct">寫給所有讀者</div>提醒做子女的人：父母的養育得來不易，不要忘恩，不要離棄父母。</div>
+</div>
+</div>
+
+<!-- ================= CHAPTER 06 ================= -->
+<div class="section-header ex" id="s6"><div class="icon">✏️</div><div><div class="chap">CHAPTER 06　練習</div><h2>練習三：內容理解</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>雙燕把巢築在哪裏？<ul class="opts"><li><b>A</b>兩條椽子之間</li><li><b>B</b>庭院樹枝之上</li><li><b>C</b>窗台牆角旁邊</li><li><b>D</b>屋簷燈籠之下</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span class="ex">根據「銜泥兩椽間」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>根據詩句，雙燕辛勤餵養雛燕的時間有多長？<ul class="opts"><li><b>A</b>十天</li><li><b>B</b>二十天</li><li><b>C</b>三十天</li><li><b>D</b>四十天</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">根據「辛勤三十日，母瘦雛漸肥」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>哪一句寫雛燕離開父母時毫不留戀？<ul class="opts"><li><b>A</b>一旦羽翼成</li><li><b>B</b>喃喃教言語</li><li><b>C</b>須臾十來往</li><li><b>D</b>舉翅不回顧</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>「卻入空巢裏，啁啾終夜悲」表現了雙燕甚麼心情？<ul class="opts"><li><b>A</b>憤怒不平</li><li><b>B</b>悲傷失落</li><li><b>C</b>後悔自責</li><li><b>D</b>欣慰滿足</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">「空巢」寫孩子都走了，「終夜悲」寫整夜悲鳴。詩中沒有寫雙燕生氣或後悔。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>按故事發生的先後，在圓圈內填上1至5。
+<table><tr><th class="c ctr">次序</th><th>事件</th></tr>
+<tr><td class="ctr"><span class="circle"></span></td><td>（1）雙燕教雛燕鳴叫</td></tr>
+<tr><td class="ctr"><span class="circle"></span></td><td>（2）雙燕銜泥築巢</td></tr>
+<tr><td class="ctr"><span class="circle"></span></td><td>（3）雛燕隨風四散飛走</td></tr>
+<tr><td class="ctr"><span class="circle"></span></td><td>（4）雙燕不停捕捉青蟲</td></tr>
+<tr><td class="ctr"><span class="circle"></span></td><td>（5）雙燕帶雛燕飛上樹枝</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）（1）3　（2）1　（3）5　（4）2　（5）4<br><span class="ex">全對得2分；錯一至兩項得1分；錯三項或以上不給分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>完成下表，概括各部分的內容。第一項是示例。
+<table><tr><th class="c">句子</th><th>內容</th></tr>
+<tr><td class="c">第1–4句</td><td>（示例）雙燕築巢，生下四隻雛燕。</td></tr>
+<tr><td class="c">第5–14句</td><td>雙燕（1）<span class="blank l"></span>，把雛燕養大。</td></tr>
+<tr><td class="c">第15–18句</td><td>雙燕悉心（2）<span class="blank"></span>雛燕，又帶牠們學飛。</td></tr>
+<tr><td class="c">第19–24句</td><td>雛燕長大後（3）<span class="blank l"></span>，雙燕回到空巢悲鳴。</td></tr>
+<tr><td class="c">第25–30句</td><td>詩人勸雙燕（4）<span class="blank l"></span>，體會父母當年的心情。</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每空1分）（1）辛勤地捕蟲餵食　（2）教導／照顧　（3）頭也不回地四散飛走　（4）不要悲傷，反省自己小時候也離開了父母<br><span class="ex">意思相近即可給分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>雙燕怎樣照顧雛燕？試根據詩句，寫出三項。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分，任答三項）<br>（1）不停來回捕捉青蟲餵養雛燕（須臾十來往）；（2）教雛燕鳴叫（喃喃教言語）；（3）逐一替雛燕梳理羽毛（一一刷毛衣）；（4）帶雛燕飛上樹枝，教牠們飛行（引上庭樹枝）；（5）銜泥築巢，讓雛燕有安身的地方（銜泥兩椽間）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>「母瘦雛漸肥」一句，一「瘦」一「肥」說明了甚麼？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）母燕把精力和食物都給了孩子，自己累得消瘦（1分）；雛燕得到悉心餵養，一天天長胖。這說明父母犧牲自己來養育子女（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv2">理解</span>試概括本詩的主旨。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）本詩借雙燕辛勤養育子女、子女長大後一去不回的故事（1分），告誡世人要體諒父母養育的辛勞，不要離棄父母（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>詩人說「當時父母念，今日爾應知」。雙燕為甚麼到了「今日」才會明白？牠們明白了甚麼？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）雙燕年輕時只顧高飛，沒有想過父母的感受（1分）；到了今日，自己的孩子也離牠們而去，牠們親身嘗到被離棄的痛苦（1分），才明白當年自己的父母也是這樣掛念自己、這樣傷心（1分）。</div></div></div>
+
+<!-- ================= CHAPTER 07 ================= -->
+<div class="section-header" id="s7"><div class="icon">🔍</div><div><div class="chap">CHAPTER 07　教學</div><h2>寫作手法與閱讀策略</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>手法一：以燕喻人（託物寓意）</h3>
+<p>詩人表面寫燕子，實際寫人。燕子一家的每一步，都可以在人的家庭裏找到對應：</p>
+<div class="map" style="grid-template-columns:1fr 34px 1fr">
+<div class="h a">詩中的燕子</div><div></div><div class="h b">現實中的人</div>
+<div class="m poem-l">梁上有雙燕……一巢生四兒</div><div class="ar">→</div><div class="m">夫婦成家，生兒育女</div>
+<div class="m poem-l">嘴爪雖欲敝，心力不知疲</div><div class="ar">→</div><div class="m">父母早出晚歸工作養家，再累也不放棄</div>
+<div class="m poem-l">喃喃教言語，一一刷毛衣</div><div class="ar">→</div><div class="m">父母教子女說話做人，照顧生活上的大小事</div>
+<div class="m poem-l">舉翅不回顧，隨風四散飛</div><div class="ar">→</div><div class="m">子女長大後離家，從此不再回來</div>
+<div class="m poem-l">卻入空巢裏，啁啾終夜悲</div><div class="ar">→</div><div class="m">父母守着冷清的家，孤單傷心</div>
+</div>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word">託物寓意</div><div class="kw-def">借具體事物寄託一個道理。本詩借燕子一家的故事，說出「不要離棄父母」的道理。</div></div>
+<div class="kw"><div class="kw-word">好處</div><div class="kw-def">道理藏在故事裏，讀者自己從故事中領悟，比直接說教更容易接受，也更深刻。</div></div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>手法二：細節描寫</h3>
+<p>詩人沒有空泛地說「父母很辛苦」，他寫出幾個看得見的細節：</p>
+<div class="example-box amber"><div class="example-label">嘴爪雖欲敝</div><div class="example-text">嘴巴和爪子快要磨破，寫出捕蟲十分艱苦。</div></div>
+<div class="example-box amber"><div class="example-label">須臾十來往</div><div class="example-text">片刻之間來回十多趟，寫出動作頻密，一刻不停。</div></div>
+<div class="example-box amber"><div class="example-label">猶恐巢中飢</div><div class="example-text">飛了這麼多趟，還在擔心孩子餓着，寫出父母的牽掛。</div></div>
+<div class="example-box amber"><div class="example-label">一一刷毛衣</div><div class="example-text">逐隻梳理羽毛，「一一」二字寫出照顧得仔細周到，一隻也沒有遺漏。</div></div>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>手法三：對比</h3>
+<p>「母瘦雛漸肥」五個字，已經包含一個對比。三十天裏，兩條線朝相反方向走：</p>
+<svg class="chart" viewBox="0 0 780 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="母瘦雛漸肥示意圖">
+<rect x="70" y="20" width="660" height="180" fill="var(--color-background-secondary)" rx="6"/>
+<line x1="70" y1="200" x2="730" y2="200" stroke="var(--color-text-secondary)" stroke-width="1.2"/>
+<line x1="70" y1="20" x2="70" y2="200" stroke="var(--color-text-secondary)" stroke-width="1.2"/>
+<path d="M90 60 C250 70 450 110 710 160" fill="none" stroke="var(--coral)" stroke-width="3.5"/>
+<path d="M90 175 C250 165 450 120 710 52" fill="none" stroke="var(--blue)" stroke-width="3.5"/>
+<text x="600" y="176" font-size="14" font-weight="700" fill="var(--coral)">母燕：漸瘦</text>
+<text x="600" y="44" font-size="14" font-weight="700" fill="var(--blue)">雛燕：漸肥</text>
+<g font-size="12" fill="var(--color-text-secondary)" text-anchor="middle"><text x="90" y="220">第1天</text><text x="400" y="220">第15天</text><text x="710" y="220">第30天</text></g>
+<text x="36" y="115" font-size="12" fill="var(--color-text-secondary)" text-anchor="middle" transform="rotate(-90 36 115)">體重（示意）</text>
+<text x="400" y="242" font-size="11.5" fill="var(--color-text-secondary)" text-anchor="middle">按「辛勤三十日，母瘦雛漸肥」繪畫的示意圖，只供示意，不代表實際數據。</text>
+</svg>
+<p>整首詩還有更大的對比：</p>
+<table>
+<tr><th class="c">對比項目</th><th>前面</th><th>後面</th><th>效果</th></tr>
+<tr><td class="c">父母與子女</td><td>雙燕「心力不知疲」地付出</td><td>雛燕「舉翅不回顧」地離去</td><td>突出子女無情，令人同情雙燕</td></tr>
+<tr><td class="c">熱鬧與冷清</td><td>四兒「索食聲孜孜」</td><td>雙燕「卻入空巢裏」</td><td>巢還在，孩子卻不在，更顯孤單</td></tr>
+<tr><td class="c">忙碌與空虛</td><td>「須臾十來往」，忙個不停</td><td>「啁啾終夜悲」，徹夜難眠</td><td>從忙碌變成空虛，悲傷更深</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot pink"></span>手法四：疊詞與擬聲詞</h3>
+<p>白居易用了不少疊詞和擬聲詞，令詩句有聲有色，讀來順口。</p>
+<div class="sound">
+<div class="sd"><div class="w">翩翩</div><div class="jp">疊詞｜pin1 pin1</div><div class="d">雙燕輕快飛舞，帶出新家庭的歡快。</div></div>
+<div class="sd"><div class="w">孜孜</div><div class="jp">疊詞、擬聲｜zi1 zi1</div><div class="d">雛燕連聲討食，寫出父母的壓力。</div></div>
+<div class="sd"><div class="w">喃喃</div><div class="jp">疊詞、擬聲｜naam4 naam4</div><div class="d">低聲細語，教得耐心溫柔。</div></div>
+<div class="sd"><div class="w">一一</div><div class="jp">疊詞｜jat1 jat1</div><div class="d">逐一照顧，一隻也不遺漏。</div></div>
+<div class="sd"><div class="w">啁啾</div><div class="jp">擬聲詞｜zau1 zau1</div><div class="d">本是鳥叫，在空巢中變成悲鳴。</div></div>
+</div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">分清楚</div><div class="alert-text">疊詞是同一個字重複，如「翩翩」；擬聲詞是模仿聲音的詞，如「啁啾」。「啁」「啾」是兩個不同的字，所以「啁啾」屬擬聲詞，不屬疊詞。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>手法五：擬人與呼告</h3>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">擬人</div>燕子會「教言語」，會「悲」，還聽得懂詩人的勸告。詩人把燕子當作人來寫，讀者便容易把燕子的遭遇和人的遭遇連在一起。</div>
+<div class="compare-card b"><div class="ct">呼告</div>「燕燕爾勿悲」：詩人直接呼喚燕子，對牠們說話。語氣親切懇切，好像站在燕巢前面開導牠們。</div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>手法六：先敘後議，卒章顯志</h3>
+<div class="flow">
+<div class="flow-step"><b>先敘事</b>第1–24句：詳細講燕子一家的故事。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>後議論</b>第25–30句：詩人出場，對燕子講道理。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>效果</b>讀者先被故事打動，到結尾才點出主旨，印象深刻。</div>
+</div>
+<p>白居易在《新樂府序》中說明自己的新樂府詩「首句標其目，卒章顯其志」。「卒章」是詩的結尾，「顯其志」是表明作者的用意。《燕詩》雖然不屬於新樂府，同樣把道理放在最後六句，運用了「卒章顯志」的寫法。</p>
+</div>
+
+<div class="card"><h3><span class="dot green"></span>閱讀策略：運用想像豐富內容</h3>
+<p>古詩字數少，讀的時候可以按以下步驟，在腦中把畫面「補」出來：</p>
+<div class="flow">
+<div class="flow-step"><b>① 找字面</b>先弄清詩句說了甚麼事。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>② 補畫面</b>想像人物在哪裏、做甚麼。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>③ 補聲音動作</b>想像聽到甚麼、看到甚麼動作。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>④ 補心情</b>代入人物，想想他心裏在想甚麼。</div>
+</div>
+<div class="example-box teal"><div class="example-label">示例：須臾十來往，猶恐巢中飢</div><div class="example-text">清晨的露水還沒有乾，燕子媽媽已經飛到田邊，在草葉間找到一條青蟲，馬上叼回巢裏。四張黃色的小嘴同時張開，吱吱亂叫。牠把蟲塞進最大聲那張嘴裏，轉身又飛出去。一來一回，不知飛了多少趟，翅膀越來越重。牠心裏卻只有一個念頭：「孩子們還沒吃飽呢。」</div></div>
+<p class="small">①是詩句本來的意思；②至④是想像加上去的部分。想像要合理，不能違背詩句原意，例如不能想像成燕子媽媽偷懶休息。</p>
+</div>
+
+<!-- ================= CHAPTER 08 ================= -->
+<div class="section-header ex" id="s8"><div class="icon">✏️</div><div><div class="chap">CHAPTER 08　練習</div><h2>練習四：手法賞析與延伸思考</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分23分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「燕燕爾勿悲」運用了哪一種修辭手法？<ul class="opts"><li><b>A</b>呼告</li><li><b>B</b>設問</li><li><b>C</b>比喻</li><li><b>D</b>對偶</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span class="ex">詩人直接呼喚燕子並對牠們說話。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「翩翩」和「一一」都屬於哪一類詞語？<ul class="opts"><li><b>A</b>擬聲詞</li><li><b>B</b>疊詞</li><li><b>C</b>對偶句</li><li><b>D</b>借代詞</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「母瘦雛漸肥」主要運用了哪一種手法？<ul class="opts"><li><b>A</b>借代</li><li><b>B</b>誇張</li><li><b>C</b>對比</li><li><b>D</b>排比</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>全詩先講故事，到最後六句才說出道理。這種寫法稱為甚麼？<ul class="opts"><li><b>A</b>倒敘</li><li><b>B</b>插敘</li><li><b>C</b>首尾呼應</li><li><b>D</b>卒章顯志</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D<br><span class="ex">倒敘是先寫結果再寫經過；本詩按時間順序敘事，最後才表明用意。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>詩人以燕喻人。把左邊的詩句與右邊現實中的情況配對，把代表答案的英文字母填在括號內。
+<table><tr><th>詩句</th><th class="c ctr">答案</th><th>現實中的情況</th></tr>
+<tr><td class="serif">（1）銜泥兩椽間，一巢生四兒</td><td class="ctr">（　　）</td><td>A　父母日夜工作，不怕辛苦</td></tr>
+<tr><td class="serif">（2）嘴爪雖欲敝，心力不知疲</td><td class="ctr">（　　）</td><td>B　子女離家，父母孤單傷心</td></tr>
+<tr><td class="serif">（3）喃喃教言語，一一刷毛衣</td><td class="ctr">（　　）</td><td>C　夫婦成家，生兒育女</td></tr>
+<tr><td class="serif">（4）卻入空巢裏，啁啾終夜悲</td><td class="ctr">（　　）</td><td>D　父母教導子女，照顧生活細節</td></tr></table>
+<div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）C　（2）A　（3）D　（4）B</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>詩人用了哪些細節描寫雙燕養育雛燕的辛勞？試摘錄兩句詩句，並加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）示例：「嘴爪雖欲敝，心力不知疲」（1分）寫雙燕捕蟲捕到嘴和爪都快要磨破，仍然不覺疲倦（1分）；「須臾十來往，猶恐巢中飢」寫牠們片刻間來回十多趟，還擔心孩子吃不飽（1分）。<br><span class="ex">評分原則：摘錄正確詩句得1分；兩項說明各得1分。亦可引「辛勤三十日，母瘦雛漸肥」「一一刷毛衣」，言之成理即可。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>詩人前面寫「四兒日夜長，索食聲孜孜」，後面寫「卻入空巢裏」。這樣前後對照有甚麼作用？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）前面巢中四隻雛燕吵着討食，十分熱鬧（1分）；後面孩子全部飛走，只剩一個空巢，非常冷清（1分）。一熱一冷形成對比，突出雙燕的孤單和失落，令讀者更同情牠們（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>詩人寫燕子會「教言語」、會「悲」，這是甚麼修辭手法？這樣寫對表達主旨有甚麼幫助？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）擬人（1分）。燕子像人一樣有感情、會教養子女，讀者容易把燕子的遭遇聯想到人的家庭，從而明白不要離棄父母的道理（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>運用想像豐富內容：試代入燕子媽媽，想像牠回到空巢那一晚的情景，寫一段約60至80字的文字，須包括畫面、聲音和心情。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）示例：夜深了，我和丈夫飛回屋樑上的巢。巢裏還留着孩子們掉下的細毛，卻再也聽不到吱吱的叫聲。我對着夜空呼喚，喉嚨沙啞了，只發得出啁啾的低鳴。孩子們，你們今晚睡在哪裏呢？<br><span class="ex">評分原則：有合理的畫面描寫得1分；有聲音描寫得1分；寫出悲傷、掛念等心情，且符合詩意得1分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>今天很多年輕人要離家升學或工作。有人認為：「離開家就是背棄父母。」你同意嗎？試結合《燕詩》的內容，說明你的看法。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）示例：我不同意（1分）。詩中雛燕令雙燕傷心，原因在於牠們「舉翅不回顧」，離開後對父母毫不理會（1分）。子女長大後離家升學、工作，是成長的必經階段（1分）；只要常常探望、關心父母，記得父母的養育之恩，就算身在遠方，也沒有背棄父母（1分）。<br><span class="ex">評分原則：立場清晰得1分；能引用或結合詩句內容得1分；理由合理得2分。持同意立場而言之成理，亦可給分。</span></div></div></div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
