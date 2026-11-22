@@ -26,6 +26,6 @@ const studentGrades = [
     "test_name": "寫作：一次出言傷害人的經歷",
     "score": 69.0,
     "max_score": 80.0,
-    "remarks": "老師表示65分已屬高分，表現出色"
+    "remarks": "老師表示65分已屬高分，這次表現出色。"
   }
 ];
