@@ -1,171 +1,225 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-HK">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>《廉頗藺相如列傳》DSE 教學筆記｜潘SIR中文教室</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《廉頗藺相如列傳》DSE教學筆記｜潘SIR中文教室</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --color-text-primary:#1a1a1a;
-  --color-text-secondary:#555;
-  --color-background-primary:#ffffff;
-  --color-background-secondary:#f5f5f3;
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
   --color-border-tertiary:rgba(0,0,0,0.1);
-  --border-radius-md:8px;
-  --border-radius-lg:12px;
+  --border-radius-md:8px;--border-radius-lg:12px;
   --purple:#6b5ca5;--purple-bg:#efecf8;
-  --teal:#2a8a80;--teal-bg:#e3f3f1;
-  --coral:#d0654a;--coral-bg:#fbeae5;
-  --amber:#c48a1a;--amber-bg:#fbf1dc;
+  --teal:#2a8a80;--teal-bg:#e4f3f1;
+  --coral:#d0654a;--coral-bg:#fbebe6;
+  --amber:#c48612;--amber-bg:#fbf2df;
   --pink:#c2557f;--pink-bg:#f9e8ef;
   --blue:#3a6ea5;--blue-bg:#e6eef7;
-  --green:#3d8b4f;--green-bg:#e6f3e8;
-  --red:#c0392b;--red-bg:#fbe7e5;
-  --hero-bg:#D5D8C5;--hero-fg:26,32,21;
+  --green:#3d8b4f;--green-bg:#e7f3ea;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero:#B56A58;--hero-text:#F1EADF;
 }
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme:dark){
   :root{
-    --color-text-primary:#ececec;
-    --color-text-secondary:#b4b4b4;
-    --color-background-primary:#1f1f1f;
-    --color-background-secondary:#151515;
+    --color-text-primary:#ececec;--color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2124;--color-background-secondary:#151618;
     --color-border-tertiary:rgba(255,255,255,0.12);
-    --purple:#a99be0;--purple-bg:#2a2638;
+    --purple:#a89be0;--purple-bg:#2a2638;
     --teal:#5cc2b6;--teal-bg:#1c302e;
-    --coral:#ee9078;--coral-bg:#3a2520;
-    --amber:#e3b456;--amber-bg:#352c19;
-    --pink:#e58aae;--pink-bg:#382430;
-    --blue:#7fa9d6;--blue-bg:#1d2a38;
-    --green:#74c487;--green-bg:#1c2f21;
-    --red:#ef8478;--red-bg:#3a201d;
+    --coral:#f08c72;--coral-bg:#3a2520;
+    --amber:#e8b04a;--amber-bg:#36301f;
+    --pink:#ea8ab0;--pink-bg:#382430;
+    --blue:#7fa9d8;--blue-bg:#1f2a38;
+    --green:#74c286;--green-bg:#1e3124;
+    --red:#ee7b6e;--red-bg:#3a2220;
   }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);font-family:"Noto Sans TC",sans-serif;font-size:14px;line-height:1.8}
-.wrap{max-width:880px;margin:0 auto;padding:24px 16px 80px}
-h1,h2,h3,.serif{font-family:"Noto Serif TC",serif}
-.c{white-space:nowrap}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC','Songti TC',serif}
 
-/* hero */
-.hero{background:var(--hero-bg);border-radius:var(--border-radius-lg);padding:34px 28px;margin-bottom:20px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.hero-tag{display:inline-block;border:1px solid rgba(var(--hero-fg),0.3);color:rgba(var(--hero-fg),0.65);border-radius:999px;padding:2px 14px;font-size:12.5px;letter-spacing:2px}
-.hero h1{color:rgb(var(--hero-fg));font-size:32px;margin:12px 0 4px}
-.hero .sub{color:rgba(var(--hero-fg),0.75);font-size:15px}
-.hero p{color:rgba(var(--hero-fg),0.5);margin:10px 0 0;font-size:13px}
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:44px 36px 46px;margin-bottom:22px;min-height:230px;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 10px 28px rgba(94,46,36,.18)}
+.hero .pattern{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:9px;border:1px solid rgba(241,234,223,.28);border-radius:8px;pointer-events:none}
+.hero>*:not(.pattern){position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;border:1px solid rgba(241,234,223,.5);
+  color:rgba(241,234,223,.9);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:rgba(94,46,36,.18)}
+.hero h1{font-size:34px;margin:0 0 6px;line-height:1.35;color:var(--hero-text);font-weight:700;text-shadow:0 1px 10px rgba(94,46,36,.35);max-width:78%}
+.hero .sub{font-size:15px;color:rgba(241,234,223,.85);margin-bottom:16px}
+.hero .sub .nb,.hero h1 .nb{display:inline-block}
+.hero p{margin:0;font-size:13px;color:rgba(241,234,223,.7);letter-spacing:2px}
+@media (max-width:640px){.hero h1{font-size:27px;max-width:100%}.hero{padding:34px 24px 40px}.hero .sub{font-size:13.5px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(181,106,88,.88) 0%,rgba(181,106,88,.55) 62%,rgba(181,106,88,0) 100%);pointer-events:none}}
 
-/* toc */
-.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 20px;margin-bottom:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px 16px}
-.toc-title{grid-column:1/-1;font-weight:700;font-size:15px;margin-bottom:4px}
-.toc-item{color:var(--color-text-primary);text-decoration:none;padding:4px 0;font-size:14px}
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:0}
 .toc-item:hover{color:var(--blue)}
-.toc-num{display:inline-block;width:30px;color:var(--teal);font-weight:700}
+.toc-num{font-weight:700;color:var(--hero);font-size:13px;min-width:22px}
+.toc-item .kind{margin-left:auto;font-size:11.5px;color:var(--color-text-secondary);white-space:nowrap}
+@media (prefers-color-scheme:dark){.toc-num{color:var(--blue)}}
 
-/* section header */
-.section-header{display:flex;align-items:center;gap:14px;margin:40px 0 16px}
-.section-header.first{margin-top:10px}
-.sh-icon{width:44px;height:44px;border-radius:12px;background:var(--teal-bg);display:flex;align-items:center;justify-content:center;font-size:22px;flex:none}
-.sh-text h2{margin:0;font-size:22px}
-.sh-text .ch{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary)}
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;border-radius:var(--border-radius-lg);
+  background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:6px solid var(--hero)}
+.section-header.ex{border-left-color:var(--amber)}
+.section-header .icon{font-size:26px;line-height:1}
+.section-header h2{margin:0;font-size:21px;line-height:1.4}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);font-weight:700}
 
-/* card */
-.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:14px}
-.card h3{margin:0 0 8px;font-size:17px;display:flex;align-items:center;gap:8px}
-.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--purple)}
-.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.blue{background:var(--blue)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
-.card p{margin:6px 0}
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin:0 0 10px}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--blue)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.hl{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);font-weight:700}
+.em{color:var(--coral);font-weight:700}
+.small{font-size:12.5px;color:var(--color-text-secondary)}
+ul.tight,ol.tight{margin:4px 0 8px;padding-left:1.4em}
+ul.tight li,ol.tight li{margin-bottom:3px}
 
-/* example box */
+/* Example box */
 .example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
 .example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
 .example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
 .example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
 .example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
-.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:2px}
+.example-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:3px}
 .example-text{font-size:14px}
 
-/* alert */
-.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
-.alert.tip{background:var(--blue-bg)}.alert.warn{background:var(--red-bg)}.alert.success{background:var(--green-bg)}.alert.amber{background:var(--amber-bg)}
-.alert-icon{font-size:18px;line-height:1.6}
-.alert-label{font-weight:700;font-size:13px}
-.alert.tip .alert-label{color:var(--blue)}.alert.warn .alert-label{color:var(--red)}.alert.success .alert-label{color:var(--green)}.alert.amber .alert-label{color:var(--amber)}
-.alert-text{font-size:14px}
+/* Alerts */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
 
 /* compare */
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
-.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px}
-.compare-card.bad{background:var(--coral-bg);border-top:4px solid var(--coral)}
-.compare-card.good{background:var(--teal-bg);border-top:4px solid var(--teal)}
-.compare-card h4{margin:0 0 6px;font-size:15px}
-@media (max-width:600px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.bad .ct{color:var(--red)}
+.compare-card.good{background:var(--green-bg)}.compare-card.good .ct{color:var(--green)}
+.compare-card.a{background:var(--blue-bg)}.compare-card.a .ct{color:var(--blue)}
+.compare-card.b{background:var(--coral-bg)}.compare-card.b .ct{color:var(--coral)}
+@media (max-width:640px){.compare-grid{grid-template-columns:1fr}}
 
 /* flow */
-.flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:6px;margin:12px 0}
-.flow-step{flex:1 1 120px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px}
-.flow-step b{display:block;color:var(--teal);font-size:13.5px}
-.flow-arrow{align-self:center;color:var(--color-text-secondary);font-size:18px}
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:13px;margin-bottom:2px}
+.flow-arrow{align-self:center;color:var(--teal);font-weight:700}
 
-/* keyword */
-.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin:10px 0}
-.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px}
-.kw-word{font-family:"Noto Serif TC",serif;font-weight:700;color:var(--purple)}
-.kw-def{font-size:13px;color:var(--color-text-secondary)}
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px}
+.kw-word .py{font-weight:400;font-size:11.5px;color:var(--color-text-secondary);margin-left:4px;font-family:'Noto Sans TC',sans-serif}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
 
 /* formula */
-.formula{background:#2e3a2c;color:#f2f2ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:12px 0;font-family:"Noto Serif TC",serif;font-size:16px;text-align:center;line-height:1.9}
-.formula small{display:block;font-family:"Noto Sans TC",sans-serif;font-size:12px;opacity:.7;letter-spacing:2px}
+.formula{background:#2d3a47;color:#f4f1ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:1.9;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.formula .fl{font-size:12px;letter-spacing:2px;color:#d9c48f;font-weight:700;margin-bottom:4px}
+.formula b{color:#ffe08a}
 
-/* table */
-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px;background:var(--color-background-primary)}
-th,td{border:0.5px solid var(--color-border-tertiary);padding:7px 10px;vertical-align:top;text-align:left}
-th{background:var(--color-background-secondary);white-space:nowrap;font-weight:700}
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left;line-height:1.65}
+th{background:var(--color-background-secondary);font-weight:700}
+.c,th.c,td.c{white-space:nowrap}
+td.ctr,th.ctr{text-align:center}
 
-/* text */
-.text-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:14px}
-.para{font-family:"Noto Serif TC",serif;font-size:16.5px;line-height:2.1;margin:10px 0;display:flex;gap:10px}
-.pnum{flex:none;width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;font-family:"Noto Sans TC",sans-serif;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:6px}
-.layer-tag{display:inline-block;background:var(--amber-bg);color:var(--amber);font-size:12px;font-weight:700;border-radius:999px;padding:1px 12px;margin-top:10px}
-sup.n{color:var(--coral);font-family:"Noto Sans TC",sans-serif;font-size:11px}
-.date{text-align:right;font-family:"Noto Serif TC",serif;color:var(--color-text-secondary)}
+/* poem text */
+.poem{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.poem .ttl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
+.poem .au{text-align:center;font-size:13px;color:var(--color-text-secondary);margin-bottom:12px}
+.poem .ln{font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15;margin:0 0 6px;display:flex;gap:10px;align-items:flex-start}
+.pnum{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-top:7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:1px 12px;margin:6px 0 4px}
+sup.n{color:var(--coral);font-size:10px;font-family:'Noto Sans TC',sans-serif;margin:0 1px}
+.preface{font-size:15px;color:var(--color-text-secondary)}
 
-/* practice */
-.qsub{font-family:"Noto Serif TC",serif;font-size:17px;font-weight:700;margin:20px 0 8px;padding-left:10px;border-left:4px solid var(--teal)}
-.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px}
+/* line-by-line */
+.lbl{border-left:3px solid var(--blue);padding:4px 0 4px 14px;margin:12px 0}
+.lbl .orig{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700}
+.lbl .tr{font-size:14px;color:var(--color-text-secondary)}
+.lbl .note{font-size:13.5px;margin-top:3px}
+
+/* chat bubbles (fun) */
+.chat{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0}
+.chat .who{font-size:11.5px;color:var(--color-text-secondary);margin:6px 4px 2px}
+.bubble{display:inline-block;max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.65;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary)}
+.row-r{text-align:right}.row-r .bubble{background:var(--green-bg)}
+.row-r .who{text-align:right}
+
+/* Exercises */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
 .qn{font-weight:700;color:var(--amber);margin-right:4px}
-.mark{color:var(--color-text-secondary);font-size:13px;margin-left:4px}
-.line{border-bottom:1px solid var(--color-text-secondary);height:30px;opacity:.5}
-.blank{display:inline-block;border-bottom:1px solid var(--color-text-primary);min-width:90px;height:1.2em;vertical-align:bottom}
-.blank.s{min-width:50px}.blank.l{min-width:180px}
-.opts{margin:6px 0 6px 18px}
-.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:10px 0;font-family:"Noto Serif TC",serif;font-size:15.5px;line-height:2}
-.excerpt .src{text-align:right;font-family:"Noto Sans TC",sans-serif;font-size:12.5px;color:var(--color-text-secondary)}
-.notes{font-size:12.5px;color:var(--color-text-secondary)}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);margin-left:8px}
+.lv{display:inline-block;font-size:11px;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px;font-weight:700}
+.lv1{background:var(--green-bg);color:var(--green)}.lv2{background:var(--amber-bg);color:var(--amber)}.lv3{background:var(--red-bg);color:var(--red)}
+.opts{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.opts.one{grid-template-columns:1fr}
+.opts li{font-size:14px}
+.opts li b{display:inline-block;width:22px}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.line{border-bottom:1px solid #999;height:30px;margin:2px 0}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+.circle{display:inline-block;width:26px;height:26px;border:1px solid #888;border-radius:50%;vertical-align:middle;margin:0 3px}
+.box{display:inline-block;width:15px;height:15px;border:1px solid #888;vertical-align:-2px;margin-right:4px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.extotal{font-size:13px;color:var(--color-text-secondary);margin:-6px 0 12px}
 
 /* answers */
 .ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
-.ans-wrap{margin-top:10px}
+.ans-wrap{margin-top:10px;clear:both}
 .ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
 .ans-btn.on{background:var(--green);color:#fff}
 .ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
 .ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
-.ans ul{margin:4px 0;padding-left:20px}
+.ans .ex{font-size:13px;color:var(--color-text-secondary)}
 
 /* toolbar */
 .toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
 .tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
 .toolbar.open .tb-menu{display:flex}
-.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);border-radius:999px;padding:6px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
-.tb-btn.primary{background:#2f5f6e;color:#fff;border:none}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);
+  border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+/* svg charts */
+.chart{width:100%;height:auto;display:block;margin:8px 0}
+.chart text{font-family:'Noto Sans TC',sans-serif}
 
 @media print{
   @page{margin:12mm 10mm}
-  body{background:white}
+  body{background:white;font-size:13.5px}
   .wrap{max-width:100%;padding:0}
   .toc{display:none}
   a{color:inherit;text-decoration:none}
-  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid}
+  .card,.qbox,.example-box,.alert,.formula,.lbl,.poem,table,.chat{page-break-inside:avoid}
   .section-header{page-break-before:always;page-break-after:avoid}
   .section-header.first{page-break-before:auto}
   .hero{page-break-after:avoid}
@@ -177,382 +231,910 @@ sup.n{color:var(--coral);font-family:"Noto Sans TC",sans-serif;font-size:11px}
   body.print-teacher .ans{display:block !important}
   .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+
+
+/* 本筆記：DSE 範文金色 Hero（汴京暮色金 #D9B07C） */
+:root{--hero:#D9B07C;--hero-text:#3B2A14;--hero-deep:#96702F}
+.hero{box-shadow:0 10px 28px rgba(120,84,30,.22)}
+.hero::after{border-color:rgba(59,42,20,.25)}
+.hero-tag{border-color:rgba(59,42,20,.3);color:rgba(59,42,20,.65);background:rgba(255,248,234,.3)}
+.hero h1{color:#3B2A14;text-shadow:0 1px 10px rgba(255,246,230,.45)}
+.hero .sub{color:rgba(59,42,20,.72)}
+.hero p{color:rgba(59,42,20,.5)}
+@media (max-width:640px){.hero .pattern{opacity:.4}.hero::before{background:linear-gradient(90deg,rgba(217,176,124,.9) 0%,rgba(217,176,124,.6) 62%,rgba(217,176,124,0) 100%)}}
+.toc-num{color:var(--hero-deep)}
+.section-header{border-left-color:var(--hero-deep)}
+.section-header.ex{border-left-color:var(--amber)}
+.pnum{background:var(--hero-deep)}
+.poem .ln{font-size:17px;line-height:2.1}
+.poem .ln>span:last-child{flex:1}
+.layer-tag{color:var(--hero-deep);background:var(--amber-bg)}
+.lbl{border-left-color:var(--hero-deep)}
+.lbl .orig{font-size:15px}
+.lbl .tr{font-size:14.5px;color:var(--color-text-primary);line-height:1.9}
+.lbl .tr b{color:var(--hero-deep)}
+.formula .fl{color:#E8C98F}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+.duo-col{border-radius:var(--border-radius-md);padding:12px 14px}
+.duo-col p{margin:0 0 6px;font-size:14px}
+.duo-col.wen{background:var(--blue-bg)}.duo-col.wu{background:var(--coral-bg)}
+.duo-h{font-weight:700;font-size:15px;margin-bottom:6px;font-family:'Noto Serif TC',serif}
+.duo-col table{background:transparent}
+@media (max-width:640px){.duo{grid-template-columns:1fr}}
+.stage-row{display:flex;align-items:stretch;gap:8px;margin:8px 0 4px}
+.stage{flex:1;border-radius:var(--border-radius-md);padding:12px 34px 12px 14px;position:relative;border:1px solid var(--color-border-tertiary);font-size:13.5px;line-height:1.7}
+.stage.s-a{background:var(--coral-bg)}.stage.s-b{background:var(--blue-bg)}.stage.s-c{background:var(--green-bg)}
+.stage-key{position:absolute;right:10px;top:4px;font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;opacity:.18}
+.stage-t{font-weight:700;margin-bottom:4px}
+.stage-w{display:inline-block;margin-top:4px;font-size:11.5px;font-weight:700;border-radius:999px;padding:0 10px;background:var(--color-background-primary);color:var(--color-text-secondary)}
+.stage-arrow{align-self:center;font-weight:700;color:var(--hero-deep)}
+@media (max-width:640px){.stage-row{flex-direction:column}.stage-arrow{transform:rotate(90deg);text-align:center}}
+@media print{.poem,.lbl,.duo,.stage-row{page-break-inside:avoid}}
+
+/* 淺白版元件 */
+.qtag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--hero-deep);border:1px solid var(--hero);border-radius:999px;padding:0 9px;margin-right:6px;vertical-align:2px}
+.trait-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.trait{border-radius:var(--border-radius-md);padding:10px 12px;background:var(--amber-bg);border-top:3px solid var(--hero-deep);font-size:13.5px}
+.trait-h{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:4px}
+.trait-e{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+@media (max-width:640px){.trait-grid{grid-template-columns:1fr}}
+.tri{border-radius:var(--border-radius-md);overflow:hidden;border:1px solid var(--color-border-tertiary);margin:10px 0}
+.tri-row{display:flex;gap:12px;padding:10px 14px;font-size:14.5px;line-height:1.85}
+.tri-row+.tri-row{border-top:1px dashed var(--color-border-tertiary)}
+.tri-tag{flex:none;width:84px;font-size:12px;font-weight:700;border-radius:999px;padding:2px 0;text-align:center;height:fit-content;margin-top:3px}
+.tri-body{flex:1}
+.t1{background:var(--green-bg)}.t1 .tri-tag{background:var(--green);color:#fff}
+.t2{background:var(--color-background-primary)}.t2 .tri-tag{background:var(--blue);color:#fff}
+.t3{background:var(--amber-bg)}.t3 .tri-tag{background:var(--amber);color:#fff}
+@media (max-width:640px){.tri-row{flex-direction:column;gap:4px}}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0}
+.pcard{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;text-align:center;border:1px solid var(--color-border-tertiary)}
+.pcard.gold{background:var(--amber-bg);border-color:var(--hero)}
+.pav{font-size:26px;line-height:1.3}
+.pname{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px;margin-top:4px}
+.prole{font-size:11.5px;color:var(--color-text-secondary);margin-bottom:6px}
+.pdesc{font-size:13px;line-height:1.65;text-align:left}
+@media (max-width:640px){.people{grid-template-columns:1fr 1fr}}
+.pblock{border-top:1px dashed var(--color-border-tertiary);padding:14px 0 6px}
+.pblock:first-of-type{border-top:0}
+.pb-head{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:6px}
+.pb-head .pnum{margin-top:0}
+.pb-orig{font-family:'Noto Serif TC',serif;font-size:18px;line-height:2.2;background:var(--amber-bg);border-radius:var(--border-radius-md);padding:10px 14px}
+.pb-sub{font-weight:700;font-size:13.5px;color:var(--hero-deep);margin:12px 0 4px}
+.pb-tr{font-size:14.5px;line-height:1.95}
+.pb-tr b{color:var(--hero-deep)}
+.pb-gist{margin-top:10px;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 12px;font-size:14.5px}
+.order{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0}
+.order-h{font-weight:700;font-size:14px;margin-bottom:6px}
+.order-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:4px}
+.chip{display:inline-block;font-family:'Noto Serif TC',serif;font-size:16px;background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:6px;padding:2px 10px}
+.chip.hot{background:var(--hero);color:#3B2A14;border-color:var(--hero-deep);font-weight:700}
+.oarr{font-weight:700;color:var(--hero-deep);margin:0 6px}
+.hw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 14px;margin:8px 0}
+.hw-row{display:flex;gap:8px;align-items:center}
+.hw-src{font-size:12px;font-weight:700;color:var(--color-text-secondary);width:40px}
+.hw-cell{flex:1;text-align:center;font-family:'Noto Serif TC',serif;font-size:17px;background:var(--color-background-primary);border-radius:6px;padding:4px}
+.hw-cell b.g,.hw-h.g{color:var(--green)}.hw-cell b.r,.hw-h.r{color:var(--red)}
+.hw-arrow{text-align:center;font-size:12.5px;color:var(--hero-deep);font-weight:700;margin:6px 0}
+.hw-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:4px;font-size:13.5px}
+.hw-h{font-weight:700;padding:4px 8px;background:var(--color-background-primary);border-radius:6px}
+.hw-x{text-align:center;padding:4px;background:var(--color-background-primary);border-radius:6px;color:var(--color-text-secondary)}
+.tech{border-radius:var(--border-radius-md);overflow:hidden;border:1px solid var(--color-border-tertiary)}
+.tech-row{display:flex;gap:12px;padding:9px 14px;font-size:14.5px;line-height:1.8}
+.tech-row+.tech-row{border-top:1px dashed var(--color-border-tertiary)}
+.tech-k{flex:none;width:70px;font-weight:700;color:var(--hero-deep)}
+@media (max-width:640px){.tech-row{flex-direction:column;gap:2px}}
+.scene text{font-family:'Noto Sans TC',sans-serif}
+@media (max-width:640px){.pblock .keyword-grid{grid-template-columns:1fr 1fr}.pblock .kw{padding:6px 8px}.pb-orig{font-size:17px}}
+@media print{.tri,.order,.hw,.tech,.people,.scene{page-break-inside:avoid}}
+
+/* 淺白版第二輪：小場景、故事板、對白、寫法卡 */
+.scn{border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px 12px;margin:10px 0;background:var(--color-background-primary)}
+.scn-h{font-weight:700;font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;font-family:'Noto Serif TC',serif}
+.scn-no{font-family:'Noto Sans TC',sans-serif;font-size:11.5px;font-weight:700;background:var(--hero);color:#3B2A14;border-radius:999px;padding:1px 10px}
+.scn-tr{margin-top:8px;font-size:14.5px;line-height:1.95;padding:8px 12px;border-left:3px solid var(--blue);background:var(--blue-bg);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
+.scn-tr b{color:var(--hero-deep)}
+.scn-tag{display:inline-block;font-size:11.5px;font-weight:700;background:var(--blue);color:#fff;border-radius:999px;padding:0 9px;margin-right:8px;vertical-align:1px}
+.kwbox{margin-top:8px}
+.kwbox summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--hero-deep);padding:2px 0}
+.keyword-grid.sm{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;margin-top:6px}
+.keyword-grid.sm .kw{padding:6px 10px}
+.keyword-grid.sm .kw-word{font-size:14.5px}
+.keyword-grid.sm .kw-def{font-size:12.5px;line-height:1.6}
+.py{font-family:'Noto Sans TC',sans-serif;font-size:11px;color:var(--color-text-secondary);margin-left:4px;font-weight:400}
+.story{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0;counter-reset:sp}
+.sp{position:relative;background:var(--amber-bg);border:1px solid var(--hero);border-radius:var(--border-radius-md);padding:10px 10px 10px;font-size:13px;line-height:1.65}
+.sp-n{position:absolute;top:6px;right:8px;font-size:11px;font-weight:700;color:var(--hero-deep)}
+.sp-e{font-size:26px;line-height:1.2}
+.sp-t{font-family:'Noto Serif TC',serif;font-weight:700;font-size:15px;margin:2px 0 4px}
+.sp-x{color:var(--color-text-primary)}
+.sp-q{margin-top:6px;font-family:'Noto Serif TC',serif;font-size:13px;color:var(--hero-deep);border-top:1px dashed var(--hero);padding-top:4px}
+.sp-q::before{content:'「'}.sp-q::after{content:'」'}
+.story.s3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:720px){.story,.story.s3{grid-template-columns:1fr 1fr}}
+.bubble .bo{display:block;font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.8}
+.bubble .bp{display:block;font-size:13px;color:var(--color-text-secondary);margin-top:4px;padding-top:4px;border-top:1px dashed var(--color-border-tertiary)}
+.bubble .bp::before{content:'白話：';font-weight:700}
+.tk{display:flex;gap:12px;align-items:flex-start}
+.tk-i{font-size:30px;line-height:1;flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--amber-bg);border-radius:50%}
+.tk-b{flex:1}
+.tk-row{font-size:14.5px;line-height:1.8;padding:4px 0}
+.tk-row+.tk-row{border-top:1px dashed var(--color-border-tertiary)}
+.tk-row ul.tight{margin:2px 0 0}
+.tk-l{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--hero-deep);border-radius:999px;padding:0 9px;margin-right:8px;vertical-align:1px}
+.tk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:6px 0}
+.tk-c{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px;color:var(--color-text-secondary)}
+.tk-c b{display:block;font-size:14.5px;color:var(--color-text-primary)}
+@media print{.scn,.sp,.tk,.story{page-break-inside:avoid}.kwbox:not([open]) .keyword-grid{display:grid}}
 </style>
 </head>
 <body>
 <div class="wrap">
+<div class="hero"><svg class="pattern" viewBox="0 0 900 300" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<filter id="grainG" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="5" result="n"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.24  0 0 0 0 0.1  0 0 0 0.10 0"/>
+</filter>
+<linearGradient id="fadeG" x1="0" x2="1" y1="0" y2="0">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.36" stop-color="#fff" stop-opacity="0.22"/><stop offset="0.62" stop-color="#fff" stop-opacity="1"/>
+</linearGradient>
+<mask id="maskG"><rect width="900" height="300" fill="url(#fadeG)"/></mask>
+<radialGradient id="jadeG" cx="0.4" cy="0.35" r="0.75"><stop offset="0" stop-color="#FFFBF2"/><stop offset="0.65" stop-color="#F4E6C6"/><stop offset="1" stop-color="#E3C890"/></radialGradient>
+<radialGradient id="haloG"><stop offset="0" stop-color="#FFF6E6" stop-opacity="0.55"/><stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/></radialGradient>
+<pattern id="guG" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="2.1" fill="none" stroke="#5A3E1B" stroke-opacity="0.35" stroke-width="0.9"/></pattern>
+<pattern id="fretG" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0 11 H10 V3 H4 V7 H7 M12 1 H22 V9 H16 V5 H19" fill="none" stroke="#5A3E1B" stroke-width="1.1"/></pattern>
+<g id="ruyiG" fill="none" stroke-width="1.5" stroke-linecap="round">
+  <path d="M0 0 C-2 -14 16 -20 24 -10 C28 -22 50 -22 52 -8 C64 -14 76 -4 70 6 C78 10 74 20 62 18 L4 18 C-10 18 -12 4 0 0 Z"/><path d="M24 -10 C20 -2 28 4 34 0 M52 -8 C48 0 54 6 60 4"/>
+</g>
+</defs>
+<g mask="url(#maskG)">
+  <!-- 城牆（邯鄲） -->
+  <path d="M300 236 V206 h20 v-8 h12 v8 h20 v-8 h12 v8 h20 v-8 h12 v8 h20 v-8 h12 v8 h20 V236 Z" fill="#5A3E1B" fill-opacity="0.12"/>
+  <path d="M430 236 V196 h16 v-10 h28 v10 h16 V236 Z" fill="#5A3E1B" fill-opacity="0.12"/>
+  <!-- 如意雲 -->
+  <use href="#ruyiG" transform="translate(500 70) scale(0.8)" stroke="#5A3E1B" stroke-opacity="0.22"/>
+  <use href="#ruyiG" transform="translate(640 210) scale(1.0)" stroke="#5A3E1B" stroke-opacity="0.2"/>
+  <!-- 宮柱 -->
+  <g transform="translate(600 0)">
+    <rect x="-18" y="36" width="36" height="12" rx="2" fill="#5A3E1B" fill-opacity="0.5"/>
+    <path d="M-26 36 Q0 22 26 36 Z" fill="#5A3E1B" fill-opacity="0.45"/>
+    <rect x="-12" y="48" width="24" height="200" fill="#5A3E1B" fill-opacity="0.32"/>
+    <path d="M-12 80 H12 M-12 216 H12" stroke="#FFF6E6" stroke-opacity="0.3" stroke-width="1"/>
+    <rect x="-20" y="248" width="40" height="14" rx="2" fill="#5A3E1B" fill-opacity="0.5"/>
+  </g>
+  <!-- 和氏璧 -->
+  <circle cx="770" cy="128" r="120" fill="url(#haloG)"/>
+  <g transform="translate(770 128)">
+    <circle r="72" fill="url(#jadeG)" fill-opacity="0.95"/>
+    <circle r="72" fill="url(#guG)"/>
+    <circle r="24" fill="#D9B07C"/>
+    <circle r="24" fill="none" stroke="#5A3E1B" stroke-opacity="0.45" stroke-width="1.4"/>
+    <circle r="66" fill="none" stroke="#5A3E1B" stroke-opacity="0.35" stroke-width="1.2"/>
+    <circle r="30" fill="none" stroke="#5A3E1B" stroke-opacity="0.3" stroke-width="1"/>
+    <circle r="80" fill="none" stroke="#FFF6E6" stroke-opacity="0.5" stroke-width="0.8" stroke-dasharray="2 5"/>
+    <path d="M-30 -60 q6 -2 10 0" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- 荊條 -->
+  <g transform="translate(690 262) rotate(-12)" stroke="#5A3E1B" stroke-opacity="0.55" stroke-linecap="round" fill="none">
+    <path d="M-70 0 H70" stroke-width="3"/><path d="M-66 -5 H66" stroke-width="2.2"/><path d="M-62 5 H62" stroke-width="2.2"/>
+    <path d="M-40 0 l-6 -8 M-10 -5 l-5 -8 M20 0 l-6 -9 M44 5 l-5 8 M-24 5 l-5 8" stroke-width="1.6"/>
+    <path d="M-14 -9 V9 M16 -9 V9" stroke-width="2.4" stroke-opacity="0.7"/>
+  </g>
+  <!-- 缻 -->
+  <g transform="translate(520 236)" fill="#5A3E1B" fill-opacity="0.55">
+    <path d="M-22 -16 C-30 -6 -28 10 -16 16 L16 16 C28 10 30 -6 22 -16 Z"/>
+    <rect x="-18" y="-22" width="36" height="7" rx="2"/>
+  </g>
+</g>
+<rect x="0" y="282" width="900" height="12" fill="url(#fretG)" opacity="0.22"/>
+<path d="M0 279.5 H900 M0 296.5 H900" stroke="#5A3E1B" stroke-opacity="0.22" stroke-width="0.8"/>
+<rect width="900" height="300" filter="url(#grainG)"/>
+</svg><div class="hero-tag">文言教學筆記</div><h1>《廉頗藺相如列傳》</h1><div class="sub"><span class="nb">司馬遷（節錄）</span>　<span class="nb">香港中學文憑試　指定文言篇章精讀</span></div><p>潘SIR中文教室編撰</p></div>
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>先認識人物和故事<span class="kind">教學</span></a><a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：作者與背景<span class="kind">練習</span></a><a class="toc-item" href="#s3"><span class="toc-num">03</span>原文逐段讀<span class="kind">教學</span></a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：字詞與語譯<span class="kind">練習</span></a><a class="toc-item" href="#s5"><span class="toc-num">05</span>三件事怎樣一步步寫<span class="kind">教學</span></a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：內容理解<span class="kind">練習</span></a><a class="toc-item" href="#s7"><span class="toc-num">07</span>作者用了哪些寫法<span class="kind">教學</span></a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習四：寫作手法與主旨<span class="kind">練習</span></a><a class="toc-item" href="#s9"><span class="toc-num">09</span>DSE 模擬試題<span class="kind">模擬試題</span></a></nav>
+<div class="section-header first" id="s1"><div class="icon">📜</div><div><div class="chap">CHAPTER 01　教學</div><h2>先認識人物和故事</h2></div></div>
 
-<div class="hero">
-  <div class="hero-tag">文言教學筆記</div>
-  <h1>司馬遷《廉頗藺相如列傳》（節錄）</h1>
-  <div class="sub">HKDSE 指定文言經典精編</div>
-  <p>潘SIR中文教室編撰</p>
+<div class="card"><h3><span class="dot"></span>這篇文章在講甚麼</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">戰國時，強大的秦國不斷欺壓趙國。趙國靠一文一武兩位重臣抵擋秦國：文臣藺相如、武將廉頗。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body">文章寫了三件事：<ol class="tight"><li><b>完璧歸趙：</b>秦王說要用十五座城換和氏璧，真正目的是騙取寶璧。相如把璧完整帶回趙國。</li><li><b>澠池之會：</b>秦王在宴會上想羞辱趙王，相如逼秦王也為趙王擊缻。</li><li><b>負荊請罪：</b>相如升官後地位比廉頗高，廉頗不服。相如為了國家一再忍讓，廉頗最後背着荊條上門認錯。</li></ol></div></div><div class="tri-row t3"><div class="tri-tag">必背</div><div class="tri-body">本文透過三件事，表現藺相如智勇雙全、「先國家之急而後私讎」的胸襟，以及廉頗知錯能改的品格；將相同心，趙國才能抵抗強秦。</div></div></div>
+<svg class="chart" viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="本文三件事">
+<defs><marker id="arT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs>
+<g font-size="13">
+<rect x="10" y="14" width="230" height="272" rx="14" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-opacity="0.45"/>
+<g transform="translate(125 70)"><circle r="30" fill="#f4e6c6" stroke="#96702F" stroke-width="1.5"/><circle r="10" fill="var(--blue-bg)" stroke="#96702F" stroke-width="1.2"/></g>
+<text x="125" y="128" text-anchor="middle" font-size="16" font-weight="700" fill="#3a6ea5">① 完璧歸趙</text>
+<text x="125" y="150" text-anchor="middle" fill="var(--color-text-secondary)">第2至4段</text>
+<text x="125" y="178" text-anchor="middle" fill="var(--color-text-primary)">秦王想用空話騙走璧，</text>
+<text x="125" y="198" text-anchor="middle" fill="var(--color-text-primary)">相如把璧完整送回趙國。</text>
+<rect x="38" y="222" width="174" height="44" rx="8" fill="#fff" fill-opacity="0.75"/>
+<text x="125" y="241" text-anchor="middle" font-weight="700" fill="#3a6ea5">表現相如：智、勇</text>
+<text x="125" y="258" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">結果：升為上大夫</text>
+<rect x="265" y="14" width="230" height="272" rx="14" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.45"/>
+<g transform="translate(380 70)" fill="#96702F"><path d="M-24 -14 C-32 -4 -30 12 -18 18 L18 18 C30 12 32 -4 24 -14 Z" fill-opacity="0.75"/><rect x="-20" y="-22" width="40" height="8" rx="2" fill-opacity="0.85"/></g>
+<text x="380" y="128" text-anchor="middle" font-size="16" font-weight="700" fill="#d0654a">② 澠池之會</text>
+<text x="380" y="150" text-anchor="middle" fill="var(--color-text-secondary)">第5段</text>
+<text x="380" y="178" text-anchor="middle" fill="var(--color-text-primary)">秦王要趙王彈瑟，</text>
+<text x="380" y="198" text-anchor="middle" fill="var(--color-text-primary)">相如逼秦王擊缻。</text>
+<rect x="293" y="222" width="174" height="44" rx="8" fill="#fff" fill-opacity="0.75"/>
+<text x="380" y="241" text-anchor="middle" font-weight="700" fill="#d0654a">表現相如：勇、護國尊嚴</text>
+<text x="380" y="258" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">結果：升為上卿</text>
+<rect x="520" y="14" width="230" height="272" rx="14" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.45"/>
+<g transform="translate(635 70) rotate(-12)" stroke="#5A3E1B" stroke-linecap="round" fill="none"><path d="M-34 0 H34" stroke-width="3"/><path d="M-30 -5 H30 M-30 5 H30" stroke-width="2"/><path d="M-8 -9 V9 M10 -9 V9" stroke-width="2.4"/></g>
+<text x="635" y="128" text-anchor="middle" font-size="16" font-weight="700" fill="#3d8b4f">③ 負荊請罪</text>
+<text x="635" y="150" text-anchor="middle" fill="var(--color-text-secondary)">第6段</text>
+<text x="635" y="178" text-anchor="middle" fill="var(--color-text-primary)">廉頗不服，相如忍讓；</text>
+<text x="635" y="198" text-anchor="middle" fill="var(--color-text-primary)">廉頗負荊請罪。</text>
+<rect x="548" y="222" width="174" height="44" rx="8" fill="#fff" fill-opacity="0.75"/>
+<text x="635" y="241" text-anchor="middle" font-weight="700" fill="#3d8b4f">表現相如：顧全大局</text>
+<text x="635" y="258" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">結果：成為刎頸之交</text>
+</g>
+<path d="M240 150 H262" stroke="#96702F" stroke-width="2" marker-end="url(#arT)"/>
+<path d="M495 150 H517" stroke="#96702F" stroke-width="2" marker-end="url(#arT)"/>
+</svg>
+<p style="margin-top:12px"><b>文中出現的人物</b>（讀每一段時，先問自己：這段寫誰？）</p>
+<div class="people">
+<div class="pcard"><div class="pav">⚔️</div><div class="pname">廉頗</div><div class="prole">趙國名將，上卿</div><div class="pdesc">打勝仗出名，「以勇氣聞於諸侯」。性格直率，後來知錯能改。</div></div>
+<div class="pcard gold"><div class="pav">📜</div><div class="pname">藺相如</div><div class="prole">本是宦官首領的門客</div><div class="pdesc">智勇雙全，三件事都以國家為先：保璧、護國、忍讓廉頗。</div></div>
+<div class="pcard"><div class="pav">👑</div><div class="pname">趙惠文王</div><div class="prole">趙國國君</div><div class="pdesc">害怕秦國，但懂得聽取意見，重用相如。</div></div>
+<div class="pcard"><div class="pav">🏯</div><div class="pname">秦昭王</div><div class="prole">秦國國君</div><div class="pdesc">貪心、狡猾，想用空話騙走和氏璧。</div></div>
+<div class="pcard"><div class="pav">🗣</div><div class="pname">繆賢</div><div class="prole">趙國宦官首領</div><div class="pdesc">相如的主人，向趙王推薦相如出使秦國。</div></div>
+</div>
 </div>
 
-<nav class="toc">
-  <div class="toc-title">目錄</div>
-  <a class="toc-item" href="#s1"><span class="toc-num">01</span>作者與歷史背景</a>
-  <a class="toc-item" href="#s2"><span class="toc-num">02</span>課文原文及註釋</a>
-  <a class="toc-item" href="#s3"><span class="toc-num">03</span>篇章結構</a>
-  <a class="toc-item" href="#s4"><span class="toc-num">04</span>內容理解（三件事精讀）</a>
-  <a class="toc-item" href="#s5"><span class="toc-num">05</span>寫作技巧</a>
-  <a class="toc-item" href="#s6"><span class="toc-num">06</span>人物形象與主旨</a>
-  <a class="toc-item" href="#s7"><span class="toc-num">07</span>練習一：字詞解釋及語譯</a>
-  <a class="toc-item" href="#s8"><span class="toc-num">08</span>練習二：理解及分析</a>
-  <a class="toc-item" href="#s9"><span class="toc-num">09</span>練習三：比較閱讀</a>
-</nav>
-
-<!-- 01 -->
-<div class="section-header first" id="s1">
-  <div class="sh-icon">👤</div>
-  <div class="sh-text"><div class="ch">CHAPTER 01</div><h2>作者與歷史背景</h2></div>
+<div class="card"><h3><span class="dot purple"></span>作者司馬遷：記住三件事</h3>
+<div class="trait-grid">
+<div class="trait"><div class="trait-h">西漢史學家</div><div class="trait-e">做過太史令，即管理國家史書和天文曆法的官，後人稱他「太史公」。</div></div>
+<div class="trait"><div class="trait-h">寫成《史記》</div><div class="trait-e">中國第一部紀傳體通史，被稱為「二十四史」之首。本文節錄自其中的〈廉頗藺相如列傳〉。</div></div>
+<div class="trait"><div class="trait-h">忍辱完成巨著</div><div class="trait-e">他替戰敗投降匈奴的李陵說話，觸怒漢武帝，被判宮刑。他忍受屈辱，發憤寫完《史記》。</div></div>
+</div>
 </div>
 
-<div class="card">
-  <h3><span class="dot teal"></span>司馬遷與《史記》</h3>
-  <p>司馬遷，字子長，西漢史學家、文學家，繼承父親司馬談出任太史令。他因替李陵辯護而受宮刑，忍辱完成《史記》。</p>
-  <p>《史記》是紀傳體通史，共一百三十篇，分本紀、表、書、世家、列傳五體。「列傳」主要記述重要人物的事跡，本文是其中一篇合傳，把廉頗和藺相如兩人放在一起寫。</p>
-</div>
-
-<div class="card">
-  <h3><span class="dot coral"></span>戰國形勢</h3>
-  <p>故事發生在戰國後期趙惠文王在位時。當時秦國最強，不斷向東擴張；趙國是能與秦國抗衡的少數國家之一。秦國對趙國時而施壓、時而攻打，「和氏璧」和「澠池之會」都是秦國試探趙國的手段。</p>
-  <div class="alert amber">
-    <div class="alert-icon">📌</div>
-    <div><div class="alert-label">讀文前先記住</div><div class="alert-text">文中反覆出現「秦彊而趙弱」。藺相如每一次出手，都是在國力不如人的處境下為趙國爭回顏面。</div></div>
-  </div>
-</div>
-
-<!-- 02 -->
-<div class="section-header" id="s2">
-  <div class="sh-icon">📜</div>
-  <div class="sh-text"><div class="ch">CHAPTER 02</div><h2>課文原文及註釋</h2></div>
-</div>
-
-<div class="text-card">
-  <div class="layer-tag">第一部分　人物介紹（第1段）</div>
-  <div class="para"><span class="pnum">1</span><div>廉頗者，趙之良將也。趙惠文王十六年，廉頗為趙將伐齊，大破之，取陽晉，拜為上卿<sup class="n">①</sup>，以勇氣聞於諸侯。藺相如者，趙人也，為趙宦者令繆賢舍人<sup class="n">②</sup>。</div></div>
-
-  <div class="layer-tag">第二部分　完璧歸趙（第2–5段）</div>
-  <div class="para"><span class="pnum">2</span><div>趙惠文王時，得楚和氏璧。秦昭王聞之，使人遺<sup class="n">③</sup>趙王書，願以十五城請易璧。趙王與大將軍廉頗諸大臣謀：欲予秦，秦城恐不可得，徒見欺；欲勿予，即患秦兵之來。計未定，求人可使報秦者，未得。宦者令繆賢曰：「臣舍人藺相如可使。」王問：「何以知之？」對曰：「臣嘗有罪，竊計欲亡走燕，臣舍人相如止臣曰：『君何以知燕王？』臣語曰：『臣嘗從大王與燕王會境上，燕王私握臣手，曰「願結友」。以此知之，故欲往。』相如謂臣曰：『夫趙彊而燕弱，而君幸<sup class="n">④</sup>於趙王，故燕王欲結於君。今君乃亡趙走燕，燕畏趙，其勢必不敢留君，而束君歸趙矣。君不如肉袒伏斧質<sup class="n">⑤</sup>請罪，則幸得脫矣。』臣從其計，大王亦幸赦臣。臣竊以為其人勇士，有智謀，宜可使。」於是王召見，問藺相如曰：「秦王以十五城請易寡人之璧，可予不？」相如曰：「秦彊而趙弱，不可不許。」王曰：「取吾璧，不予我城，奈何？」相如曰：「秦以城求璧而趙不許，曲在趙。趙予璧而秦不予趙城，曲在秦。均之二策，寧許以負秦曲<sup class="n">⑥</sup>。」王曰：「誰可使者？」相如曰：「王必無人，臣願奉璧往使。城入趙而璧留秦；城不入，臣請完璧歸趙。」趙王於是遂遣相如奉璧西入秦。</div></div>
-  <div class="para"><span class="pnum">3</span><div>秦王坐章臺見相如，相如奉璧奏秦王。秦王大喜，傳以示美人及左右，左右皆呼萬歲。相如視秦王無意償趙城，乃前曰：「璧有瑕，請指示王。」王授璧，相如因持璧卻立，倚柱，怒髮上衝冠，謂秦王曰：「大王欲得璧，使人發書至趙王，趙王悉召群臣議，皆曰『秦貪，負其彊，以空言求璧，償城恐不可得』。議不欲予秦璧。臣以為布衣之交尚不相欺，況大國乎！且以一璧之故逆彊秦之驩<sup class="n">⑦</sup>，不可。於是趙王乃齋戒五日，使臣奉璧，拜送書於庭。何者？嚴大國之威以修敬也。今臣至，大王見臣列觀<sup class="n">⑧</sup>，禮節甚倨；得璧，傳之美人，以戲弄臣。臣觀大王無意償趙王城邑，故臣復取璧。大王必欲急臣，臣頭今與璧俱碎於柱矣！」相如持其璧睨<sup class="n">⑨</sup>柱，欲以擊柱。秦王恐其破璧，乃辭謝固請，召有司案圖，指從此以往十五都予趙。相如度秦王特以詐詳<sup class="n">⑩</sup>為予趙城，實不可得，乃謂秦王曰：「和氏璧，天下所共傳寶也，趙王恐，不敢不獻。趙王送璧時，齋戒五日，今大王亦宜齋戒五日，設九賓<sup class="n">⑪</sup>於廷，臣乃敢上璧。」秦王度之，終不可彊奪，遂許齋五日，舍相如廣成傳舍。相如度秦王雖齋，決負約不償城，乃使其從者衣褐<sup class="n">⑫</sup>，懷其璧，從徑道亡，歸璧于趙。</div></div>
-  <div class="para"><span class="pnum">4</span><div>秦王齋五日後，乃設九賓禮於廷，引趙使者藺相如。相如至，謂秦王曰：「秦自繆公以來二十餘君，未嘗有堅明約束者也。臣誠恐見欺於王而負趙，故令人持璧歸，間<sup class="n">⑬</sup>至趙矣。且秦彊而趙弱，大王遣一介之使至趙，趙立奉璧來。今以秦之彊而先割十五都予趙，趙豈敢留璧而得罪於大王乎？臣知欺大王之罪當誅，臣請就湯鑊<sup class="n">⑭</sup>，唯大王與群臣孰計議之。」秦王與群臣相視而嘻。左右或欲引相如去，秦王因曰：「今殺相如，終不能得璧也，而絕秦趙之驩，不如因而厚遇之，使歸趙，趙王豈以一璧之故欺秦邪！」卒廷見相如，畢禮而歸之。</div></div>
-  <div class="para"><span class="pnum">5</span><div>相如既歸，趙王以為賢大夫使不辱於諸侯，拜相如為上大夫。秦亦不以城予趙，趙亦終不予秦璧。</div></div>
-
-  <div class="layer-tag">第三部分　澠池之會（第6段）</div>
-  <div class="para"><span class="pnum">6</span><div>其後秦伐趙，拔石城。明年，復攻趙，殺二萬人。秦王使使者告趙王，欲與王為好會於西河外澠池。趙王畏秦，欲毋行。廉頗、藺相如計曰：「王不行，示趙弱且怯也。」趙王遂行，相如從。廉頗送至境，與王訣曰：「王行，度道里會遇之禮畢，還，不過三十日。三十日不還，則請立太子為王，以絕秦望。」王許之，遂與秦王會澠池。秦王飲酒酣，曰：「寡人竊聞趙王好音，請奏瑟。」趙王鼓瑟。秦御史前書曰：「某年月日，秦王與趙王會飲，令趙王鼓瑟。」藺相如前曰：「趙王竊聞秦王善為秦聲，請奏盆缻<sup class="n">⑮</sup>秦王，以相娛樂。」秦王怒，不許。於是相如前進缻，因跪請秦王。秦王不肯擊缻。相如曰：「五步之內，相如請得以頸血濺大王矣！」左右欲刃相如，相如張目叱之，左右皆靡<sup class="n">⑯</sup>。於是秦王不懌，為一擊缻。相如顧召趙御史書曰：「某年月日，秦王為趙王擊缻。」秦之群臣曰：「請以趙十五城為秦王壽。」藺相如亦曰：「請以秦之咸陽為趙王壽。」秦王竟酒，終不能加勝於趙。趙亦盛設兵以待秦，秦不敢動。</div></div>
-
-  <div class="layer-tag">第四部分　將相和（第7段）</div>
-  <div class="para"><span class="pnum">7</span><div>既罷歸國，以相如功大，拜為上卿，位在廉頗之右<sup class="n">⑰</sup>。廉頗曰：「我為趙將，有攻城野戰之大功，而藺相如徒以口舌為勞，而位居我上，且相如素賤人，吾羞，不忍為之下。」宣言曰：「我見相如，必辱之。」相如聞，不肯與會。相如每朝時，常稱病，不欲與廉頗爭列。已而相如出，望見廉頗，相如引車避匿。於是舍人相與諫曰：「臣所以去親戚而事君者，徒慕君之高義也。今君與廉頗同列，廉君宣惡言而君畏匿之，恐懼殊甚，且庸人尚羞之，況於將相乎！臣等不肖，請辭去。」藺相如固止之，曰：「公之視廉將軍孰與秦王？」曰：「不若也。」相如曰：「夫以秦王之威，而相如廷叱之，辱其群臣，相如雖駑，獨畏廉將軍哉？顧吾念之，彊秦之所以不敢加兵於趙者，徒以吾兩人在也。今兩虎共鬥，其勢不俱生。吾所以為此者，以先國家之急而後私讎也。」廉頗聞之，肉袒負荊<sup class="n">⑱</sup>，因賓客至藺相如門謝罪，曰：「鄙賤之人，不知將軍寬之至此也。」卒相與驩，為刎頸之交<sup class="n">⑲</sup>。</div></div>
-</div>
-
-<div class="card">
-  <h3><span class="dot coral"></span>註釋</h3>
-  <div class="keyword-grid">
-    <div class="kw"><div class="kw-word">① 上卿</div><div class="kw-def">戰國時最高一級的官位。</div></div>
-    <div class="kw"><div class="kw-word">② 宦者令繆賢舍人</div><div class="kw-def">宦官首領繆賢的門客。舍人：門客。</div></div>
-    <div class="kw"><div class="kw-word">③ 遺</div><div class="kw-def">送給。</div></div>
-    <div class="kw"><div class="kw-word">④ 幸</div><div class="kw-def">受寵愛。</div></div>
-    <div class="kw"><div class="kw-word">⑤ 肉袒伏斧質</div><div class="kw-def">脫去上衣，伏在刑具上，表示認罪受罰。</div></div>
-    <div class="kw"><div class="kw-word">⑥ 負秦曲</div><div class="kw-def">使秦國承擔理虧的責任。曲：理虧。</div></div>
-    <div class="kw"><div class="kw-word">⑦ 驩</div><div class="kw-def">同「歡」，友好。</div></div>
-    <div class="kw"><div class="kw-word">⑧ 列觀</div><div class="kw-def">一般的宮殿，指不在正殿接見，有輕視之意。</div></div>
-    <div class="kw"><div class="kw-word">⑨ 睨</div><div class="kw-def">斜視。</div></div>
-    <div class="kw"><div class="kw-word">⑩ 詳</div><div class="kw-def">通「佯」，假裝。</div></div>
-    <div class="kw"><div class="kw-word">⑪ 九賓</div><div class="kw-def">外交上最隆重的禮節。</div></div>
-    <div class="kw"><div class="kw-word">⑫ 衣褐</div><div class="kw-def">穿上粗布衣服，扮作平民。衣：穿。</div></div>
-    <div class="kw"><div class="kw-word">⑬ 間</div><div class="kw-def">抄小路、秘密地。</div></div>
-    <div class="kw"><div class="kw-word">⑭ 就湯鑊</div><div class="kw-def">接受烹刑。湯鑊：盛滾水的大鍋。</div></div>
-    <div class="kw"><div class="kw-word">⑮ 盆缻</div><div class="kw-def">瓦器，秦人用作敲擊伴唱的樂器。缻：同「缶」。</div></div>
-    <div class="kw"><div class="kw-word">⑯ 靡</div><div class="kw-def">退縮。</div></div>
-    <div class="kw"><div class="kw-word">⑰ 右</div><div class="kw-def">上位。當時以右為尊。</div></div>
-    <div class="kw"><div class="kw-word">⑱ 肉袒負荊</div><div class="kw-def">脫去上衣，背着荊條，表示請對方責打。</div></div>
-    <div class="kw"><div class="kw-word">⑲ 刎頸之交</div><div class="kw-def">可以同生死的朋友。</div></div>
-  </div>
-</div>
-
-<!-- 03 -->
-<div class="section-header" id="s3">
-  <div class="sh-icon">🧭</div>
-  <div class="sh-text"><div class="ch">CHAPTER 03</div><h2>篇章結構</h2></div>
-</div>
-
-<div class="card">
-  <h3><span class="dot blue"></span>全文脈絡：一個介紹，三件大事</h3>
-  <div class="flow">
-    <div class="flow-step"><b>第1段　人物介紹</b>廉頗是上卿；相如只是舍人</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><b>第2–5段　完璧歸趙</b>相如出使秦國，保住和氏璧，拜上大夫</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><b>第6段　澠池之會</b>相如護趙王，秦國佔不到便宜</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><b>第7段　將相和</b>相如位在廉頗之上；廉頗不服，後負荊請罪</div>
-  </div>
-  <table>
-    <tr><th>部分</th><th>事件</th><th>相如官位</th><th>重點</th></tr>
-    <tr><td class="c">第1段</td><td>介紹兩人</td><td class="c">舍人</td><td>地位懸殊，為後文伏筆</td></tr>
-    <tr><td class="c">第2–5段</td><td>完璧歸趙</td><td class="c">上大夫</td><td>相如的智和勇</td></tr>
-    <tr><td class="c">第6段</td><td>澠池之會</td><td class="c">上大夫（會後拜上卿）</td><td>相如不畏強秦，廉頗安排後援</td></tr>
-    <tr><td class="c">第7段</td><td>將相和</td><td class="c">上卿（位在廉頗之右）</td><td>相如顧全大局，廉頗知錯能改</td></tr>
-  </table>
-  <div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">考試技巧</div><div class="alert-text">相如官位一路上升（舍人 → 上大夫 → 上卿），正是廉頗不服的原因。答結構題時，記得把第1段和第7段連起來講。</div></div></div>
-</div>
-
-<!-- 04 -->
-<div class="section-header" id="s4">
-  <div class="sh-icon">🔍</div>
-  <div class="sh-text"><div class="ch">CHAPTER 04</div><h2>內容理解（三件事精讀）</h2></div>
-</div>
-
-<div class="card">
-  <h3><span class="dot teal"></span>完璧歸趙：在秦國手上把璧拿回來</h3>
-  <p><b>出使前</b>：趙王左右為難，給璧怕被騙，不給怕秦兵來攻。相如提出「均之二策，寧許以負秦曲」：答應交璧，若秦國不給城，理虧的是秦國。他又承諾「城不入，臣請完璧歸趙」。</p>
-  <p><b>在秦廷</b>：秦王把璧傳給美人和左右，毫無換城誠意。相如藉口「璧有瑕」取回和氏璧，倚柱而立，以頭與璧俱碎相脅。秦王假意按圖指城，相如看穿是詐，再要求秦王齋戒五日、設九賓之禮，爭取時間。</p>
-  <p><b>送璧回趙</b>：相如派從者扮作平民，從小路把璧送回趙國，自己留下面對秦王，並說明是秦國歷來不守約，才出此下策。秦王權衡後不殺他，以禮送回。</p>
-</div>
-
-<div class="card">
-  <h3><span class="dot coral"></span>澠池之會：秦王要趙王難堪，相如一一還擊</h3>
-  <table>
-    <tr><th>秦國的羞辱</th><th>相如的回應</th></tr>
-    <tr><td>秦王要趙王鼓瑟，秦御史記下「令趙王鼓瑟」</td><td>以「五步之內」血濺秦王相逼，迫秦王擊缻，命趙御史記下「秦王為趙王擊缻」</td></tr>
-    <tr><td>秦群臣要趙國獻十五城為秦王祝壽</td><td>要求秦國以咸陽為趙王祝壽</td></tr>
-  </table>
-  <p>文末「趙亦盛設兵以待秦，秦不敢動」，說明廉頗在外的軍事準備，也是秦國不敢妄動的原因。廉頗與趙王「訣」別時提出立太子，可見他已作最壞打算。</p>
-</div>
-
-<div class="card">
-  <h3><span class="dot purple"></span>將相和：一個退讓，一個認錯</h3>
-  <p>廉頗不服相如「徒以口舌為勞」又是「素賤人」，揚言要羞辱他。相如稱病、引車避匿，舍人以為他膽怯，紛紛請辭。</p>
-  <p>相如用一問一答說明：自己連秦王也敢當廷斥責，不會怕廉頗；退讓是因為「兩虎共鬥，其勢不俱生」，要「先國家之急而後私讎」。廉頗聽後肉袒負荊請罪，兩人成為刎頸之交。</p>
-  <div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見陷阱</div><div class="alert-text">「位在廉頗之右」的「右」是上位，不是方向。「兩虎共鬥」是借喻，「兩虎」借指廉頗和相如。</div></div></div>
-</div>
-
-<!-- 05 -->
-<div class="section-header" id="s5">
-  <div class="sh-icon">✒️</div>
-  <div class="sh-text"><div class="ch">CHAPTER 05</div><h2>寫作技巧</h2></div>
-</div>
-
-<div class="card">
-  <h3><span class="dot purple"></span>以言行刻畫人物</h3>
-  <p>司馬遷很少直接評論人物，多讓人物自己說話、行動。相如的智勇，是從他與趙王、秦王、舍人的對話，以及「持璧卻立，倚柱」「張目叱之」等動作中顯出來的。</p>
-  <div class="example-box"><div class="example-label">例</div><div class="example-text">「怒髮上衝冠」：以誇張的外貌描寫寫相如的憤怒。</div></div>
-</div>
-
-<div class="card">
-  <h3><span class="dot teal"></span>對比與襯托</h3>
-  <p>趙王和群臣「計未定」，襯托相如的果斷；秦王的傲慢無禮，襯托相如的不卑不亢；廉頗的爭強，襯托相如的寬容。</p>
-</div>
-
-<div class="card">
-  <h3><span class="dot coral"></span>伏筆與照應</h3>
-  <p>首段寫兩人地位懸殊，到第7段廉頗說相如「素賤人」，前後照應。完璧歸趙中的「勇士，有智謀」，在後文多次得到印證。</p>
-</div>
-
-<div class="card">
-  <h3><span class="dot amber"></span>詳略得宜</h3>
-  <p>完璧歸趙寫得最詳細，因為它奠定相如的地位；第5段只用兩句交代結果，秦伐趙的經過也一筆帶過，重點始終放在人物表現上。</p>
-</div>
-
-<!-- 06 -->
-<div class="section-header" id="s6">
-  <div class="sh-icon">🎯</div>
-  <div class="sh-text"><div class="ch">CHAPTER 06</div><h2>人物形象與主旨</h2></div>
-</div>
-
+<div class="card"><h3><span class="dot teal"></span>甚麼是「列傳」</h3>
 <div class="compare-grid">
-  <div class="compare-card good">
-    <h4>藺相如</h4>
-    <p><b>有智謀</b>：分析形勢，提出「負秦曲」；看穿秦王詐騙，以齋戒拖延。</p>
-    <p><b>勇敢</b>：倚柱欲碎璧；五步之內以頸血相逼。</p>
-    <p><b>顧全大局</b>：避讓廉頗，先國家之急而後私讎。</p>
-  </div>
-  <div class="compare-card bad">
-    <h4>廉頗</h4>
-    <p><b>勇武善戰</b>：伐齊大破之，以勇氣聞於諸侯。</p>
-    <p><b>心胸一度狹窄</b>：不忿相如位居其上，揚言辱之。</p>
-    <p><b>知錯能改</b>：肉袒負荊，坦然認錯。</p>
-  </div>
+<div class="compare-card a"><div class="ct">《史記》分五部分</div>本紀：寫帝王<br>世家：寫諸侯<br><b>列傳：寫其他重要人物</b><br>表、書：寫年表和制度</div>
+<div class="compare-card b"><div class="ct">紀傳體與史傳文</div>以人物為中心寫歷史，這種體例叫「紀傳體」。<br>本文記真實歷史，又像故事一樣有情節、有對話，叫「史傳文」。</div>
+</div>
+<p class="small">廉頗和藺相如的事跡緊緊相連，所以司馬遷把兩人寫在同一篇列傳。</p>
 </div>
 
-<div class="formula">
-  <small>主旨一句記</small>
-  記述完璧歸趙、澠池之會及將相和三件事，<br>表現藺相如的智勇與顧全大局、廉頗的勇武與知錯能改，<br>說明將相同心、以國事為先，是弱國抵抗強秦的關鍵。
+<div class="card"><h3><span class="dot coral"></span>時代背景：秦強趙弱</h3>
+<svg class="chart" viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="戰國形勢示意圖">
+<rect x="0" y="0" width="680" height="330" rx="12" fill="var(--amber-bg)"/>
+<path d="M40 150 C120 140 170 170 230 160 C300 148 330 120 400 118 C470 116 520 140 600 128" fill="none" stroke="#3a6ea5" stroke-width="5" stroke-opacity="0.55" stroke-linecap="round"/>
+<text x="610" y="124" font-size="12" fill="#3a6ea5">黃河</text>
+<g font-size="15" font-weight="700">
+<rect x="40" y="170" width="150" height="110" rx="10" fill="#555" fill-opacity="0.16" stroke="#555" stroke-opacity="0.5"/>
+<text x="115" y="215" text-anchor="middle" fill="var(--color-text-primary)">秦</text>
+<text x="115" y="240" text-anchor="middle" font-size="12" font-weight="400" fill="var(--color-text-secondary)">國都：咸陽</text>
+<text x="115" y="262" text-anchor="middle" font-size="12" font-weight="400" fill="#c0392b">最強，想吞併六國</text>
+<rect x="250" y="40" width="160" height="80" rx="10" fill="#96702F" fill-opacity="0.3" stroke="#96702F"/>
+<text x="330" y="74" text-anchor="middle" fill="#96702F">趙</text>
+<text x="330" y="98" text-anchor="middle" font-size="12" font-weight="400" fill="var(--color-text-primary)">國都：邯鄲（秦的主要對手）</text>
+<rect x="440" y="22" width="120" height="60" rx="10" fill="#3d8b4f" fill-opacity="0.14" stroke="#3d8b4f" stroke-opacity="0.5"/>
+<text x="500" y="58" text-anchor="middle" fill="var(--color-text-primary)">燕</text>
+<rect x="500" y="150" width="140" height="80" rx="10" fill="#3a6ea5" fill-opacity="0.14" stroke="#3a6ea5" stroke-opacity="0.5"/>
+<text x="570" y="186" text-anchor="middle" fill="var(--color-text-primary)">齊</text>
+<text x="570" y="208" text-anchor="middle" font-size="12" font-weight="400" fill="var(--color-text-secondary)">陽晉（廉頗攻取）</text>
+<rect x="280" y="170" width="160" height="70" rx="10" fill="#6b5ca5" fill-opacity="0.12" stroke="#6b5ca5" stroke-opacity="0.45"/>
+<text x="360" y="210" text-anchor="middle" font-size="13" fill="var(--color-text-primary)">韓、魏</text>
+<rect x="250" y="262" width="220" height="56" rx="10" fill="#d0654a" fill-opacity="0.12" stroke="#d0654a" stroke-opacity="0.45"/>
+<text x="360" y="296" text-anchor="middle" fill="var(--color-text-primary)">楚</text>
+</g>
+<circle cx="222" cy="178" r="7" fill="#c0392b"/>
+<text x="232" y="168" font-size="12.5" font-weight="700" fill="#c0392b">澠池（會面地點）</text>
+<text x="668" y="318" text-anchor="end" font-size="11" fill="var(--color-text-secondary)">示意圖，不按比例</text>
+</svg>
+<ul class="tight">
+<li>戰國後期，秦國變法後最強大，不斷向東進攻其他國家。</li>
+<li>趙國在秦國東北面，是秦國擴張時最大的對手。</li>
+<li>所以秦國處處想欺壓趙國，趙國要想盡辦法保住國家。</li>
+</ul>
+<div class="flow">
+<div class="flow-step"><b>公元前283年</b>（趙惠文王十六年）廉頗攻齊，取陽晉，升為上卿。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>趙惠文王在位期間</b>秦王要用十五座城換和氏璧：完璧歸趙。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>其後</b>秦國先攻下石城，第二年再攻趙，殺二萬人。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>公元前279年</b>（趙惠文王二十年）澠池之會，之後將相失和，最後和好。</div>
+</div>
+<p class="small">公元年份按趙惠文王在位年份推算；「完璧歸趙」的確切年份，史書沒有清楚記載。</p>
 </div>
 
-<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">重點</div><div class="alert-text">寫廉頗不要只寫缺點。他既有「宣言辱之」的一面，也有負荊請罪的一面，答題時兩面都要提。</div></div></div>
-
-<!-- 07 -->
-<div class="section-header" id="s7">
-  <div class="sh-icon">✏️</div>
-  <div class="sh-text"><div class="ch">CHAPTER 07</div><h2>練習一：字詞解釋及語譯</h2></div>
+<div class="card"><h3><span class="dot green"></span>考試會怎樣考</h3>
+<table>
+<tr><th class="c">考試範圍</th><td>文憑試中國語文科卷一甲部「指定文言篇章」，十二篇範文之一</td></tr>
+<tr><th class="c">出題紀錄</th><td>2022年文憑試卷一甲部曾以本篇出題（考「者」字的用法）</td></tr>
+<tr><th class="c">常考題型</th><td>字詞解釋、語譯、三件事的經過和因果、藺相如和廉頗的性格、人物描寫手法、伏筆和照應、詳略安排</td></tr>
+</table>
 </div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">閱讀時留意</div><div class="alert-text">藺相如面對秦王時十分強硬，面對廉頗時卻一再退讓。讀到最後一段，你就會明白原因。</div></div></div>
+<div class="section-header ex" id="s2"><div class="icon">✏️</div><div><div class="chap">CHAPTER 02　練習</div><h2>練習一：作者與背景</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>司馬遷是哪一個朝代的人？<ul class="opts"><li><b>A</b>東漢</li><li><b>B</b>西漢</li><li><b>C</b>戰國</li><li><b>D</b>唐朝</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>《史記》屬於哪一種史書體例？<ul class="opts"><li><b>A</b>編年體</li><li><b>B</b>國別體</li><li><b>C</b>紀傳體</li><li><b>D</b>紀事本末體</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>《史記》中的「列傳」，主要記載：<ul class="opts one"><li><b>A</b>帝王的事跡</li><li><b>B</b>諸侯家族的事跡</li><li><b>C</b>典章制度</li><li><b>D</b>帝王諸侯以外重要人物的事跡</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>判斷以下說法是否正確。正確的寫「✓」，錯誤的寫「✗」。<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr><tr><td>（1）廉頗是趙國的名將，官至上卿。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（2）藺相如出場時，已是趙王身邊的大臣。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（3）本文所寫的是戰國時秦、趙兩國之間的事。</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）✓　（2）✗　（3）✓<br><span class="ex">（2）藺相如出場時只是宦官首領繆賢的門客。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>把左邊的事件與右邊的結果配對，把代表答案的英文字母填在括號內。<table><tr><th>事件</th><th class="c ctr">答案</th><th>結果</th></tr><tr><td class="c">（1）完璧歸趙</td><td class="ctr">（　　）</td><td>A　秦國始終不能壓倒趙國</td></tr><tr><td class="c">（2）澠池之會</td><td class="ctr">（　　）</td><td>B　廉頗與相如成為刎頸之交</td></tr><tr><td class="c">（3）負荊請罪</td><td class="ctr">（　　）</td><td>C　和氏璧完整地回到趙國</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）C　（2）A　（3）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>下列哪一項最能說明本文的時代背景？<ul class="opts one"><li><b>A</b>秦國最強，趙國是秦國東進的主要對手</li><li><b>B</b>趙國最強，各國都要討好趙國</li><li><b>C</b>秦國已統一六國</li><li><b>D</b>齊國最強，秦趙聯手抗齊</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>根據第一章內容填空。<p>司馬遷因替（1）<span class="blank"></span>辯護而被判宮刑，他忍受屈辱，完成了（2）<span class="blank"></span>一書。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1）李陵　（2）《史記》</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>解釋下列兩個出自本文的成語。<p>（1）完璧歸趙：<span class="blank l"></span>　（2）負荊請罪：<span class="blank l"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）把原物完好地歸還原主　（2）主動向人認錯，請求責罰</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>第1段分別介紹廉頗和藺相如的身份。兩人的身份有甚麼不同？這樣寫對下文有甚麼作用？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）廉頗戰功顯赫，官至上卿，「以勇氣聞於諸侯」（1分）；藺相如只是宦官首領繆賢的門客，地位低微（1分）。兩人身份懸殊，為下文廉頗嫌相如「素賤人」、不服他地位在己之上埋下伏筆（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>試用自己的話，說明本文三件事之間的因果關係。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）相如完璧歸趙，因功升為上大夫（1分）；澠池之會再立大功，升為上卿，地位在廉頗之上（1分）；因而引起廉頗不服，相如忍讓，廉頗最後負荊請罪，將相重歸於好（1分）。</div></div></div>
+<div class="section-header" id="s3"><div class="icon">📜</div><div><div class="chap">CHAPTER 03　教學</div><h2>原文逐段讀</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>怎樣用這一章</h3>
+<p>本文很長，所以分成18個小場景。每個場景都按同一次序讀：</p>
+<div class="flow">
+<div class="flow-step"><b>① 讀原文</b>先讀米色框內的原文，看到小數字先不用停。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>② 讀白話</b>對照下面的白話，粗體字是考試常考的字詞。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>③ 查字詞卡</b>回頭查小數字的意思，再讀一次原文。</div>
+</div>
+<p class="small">原文及分段依據教育局提供的參考版本，全文共6段。</p>
+</div>
+<div class="poem"><div class="ttl">廉頗藺相如列傳（節錄）</div><div class="au">司馬遷</div>
+<div class="pblock"><div class="layer-tag">第一部分　人物出場</div><div class="pb-head"><span class="pnum">1</span>第1段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 1</span>兩位主角出場</div>
+<div class="pb-orig">廉頗者，趙之良將也。趙惠文王<sup class="n">1</sup>十六年，廉頗為<sup class="n">2</sup>趙將伐齊，大破之，取陽晉<sup class="n">3</sup>，拜為上卿<sup class="n">4</sup>，以勇氣聞於諸侯<sup class="n">5</sup>。藺相如者，趙人也，為趙宦者令<sup class="n">6</sup>繆賢舍人<sup class="n">7</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>廉頗是趙國的優秀將領。趙惠文王十六年，廉頗擔任趙國將領，攻打齊國，大敗齊軍，奪取了陽晉，被任命為<b>上卿</b>，憑着勇猛在各國諸侯之間<b>出名</b>。藺相如是趙國人，是趙國宦官首領繆賢的<b>門客</b>。</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">1　趙惠文王</div><div class="kw-def">戰國時趙國的國君，趙武靈王的兒子。</div></div><div class="kw"><div class="kw-word">2　為<span class="py">粵音「圍」</span></div><div class="kw-def">做、擔任。</div></div><div class="kw"><div class="kw-word">3　陽晉</div><div class="kw-def">齊國的城邑，在今山東省鄆城縣西。</div></div><div class="kw"><div class="kw-word">4　拜為上卿</div><div class="kw-def">被任命為上卿。拜，授予官職。上卿，高級官員。</div></div><div class="kw"><div class="kw-word">5　以勇氣聞於諸侯</div><div class="kw-def">憑着勇猛在各國諸侯之間出名。聞，出名。</div></div><div class="kw"><div class="kw-word">6　宦者令</div><div class="kw-def">宦官的首領。</div></div><div class="kw"><div class="kw-word">7　舍人</div><div class="kw-def">王公貴族的門客、侍從。</div></div></div></details></div>
+<div class="pb-gist"><b>第1段一句話：</b>先介紹兩位主角：廉頗是戰功顯赫的名將，藺相如只是宦官首領的門客，兩人地位相差很遠。</div></div>
+<div class="pblock"><div class="layer-tag">第二部分　完璧歸趙</div><div class="pb-head"><span class="pnum">2</span>第2段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 2</span>秦王來信，趙國左右為難</div>
+<div class="pb-orig">趙惠文王時，得楚和氏璧<sup class="n">8</sup>。秦昭王聞之，使人遺<sup class="n">9</sup>趙王書，願以十五城請易<sup class="n">10</sup>璧。趙王與大將軍廉頗諸大臣謀：欲予秦，秦城恐不可得，徒見欺<sup class="n">11</sup>；欲勿予，即患<sup class="n">12</sup>秦兵之來。計未定，求人可使報秦者<sup class="n">13</sup>，未得。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>趙惠文王的時候，趙國得到了楚國的和氏璧。秦昭王聽說了，派人<b>送</b>信給趙王，表示願意用十五座城<b>交換</b>和氏璧。趙王和大將軍廉頗及大臣們商量：想把璧給秦國，又怕得不到秦國的城，<b>白白被欺騙</b>；想不給，又<b>擔心</b>秦軍來攻打。計策還沒定下來，想找一個可以出使秦國、回覆秦國的人，也找不到。</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">8　和氏璧</div><div class="kw-def">春秋時楚人卞和發現的寶玉，後來雕成玉璧，稱為「和氏璧」。璧，圓形而中間有孔的玉器。</div></div><div class="kw"><div class="kw-word">9　遺<span class="py">粵音「惠」</span></div><div class="kw-def">送給。</div></div><div class="kw"><div class="kw-word">10　易</div><div class="kw-def">交換。</div></div><div class="kw"><div class="kw-word">11　徒見欺</div><div class="kw-def">白白被欺騙。徒，白白地。見，被。</div></div><div class="kw"><div class="kw-word">12　患</div><div class="kw-def">擔心。</div></div><div class="kw"><div class="kw-word">13　求人可使報秦者</div><div class="kw-def">尋找一個可以出使秦國、回覆秦國的人。報，回覆。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 3</span>繆賢推薦藺相如</div>
+<div class="pb-orig">宦者令繆賢曰：「臣舍人藺相如可使。」王問：「何以知之？」對曰：「臣嘗有罪，竊計<sup class="n">14</sup>欲亡走燕<sup class="n">15</sup>，臣舍人相如止臣，曰：『君何以知燕王？』臣語<sup class="n">16</sup>曰：『臣嘗從大王與燕王會境上，燕王私握臣手，曰：「願結友。」以此知之，故欲往。』相如謂臣曰：『夫趙彊<sup class="n">17</sup>而燕弱，而君幸於趙王<sup class="n">18</sup>，故燕王欲結於君。今君乃亡趙走燕，燕畏趙，其勢必不敢留君，而束君歸趙<sup class="n">19</sup>矣。君不如肉袒伏斧質<sup class="n">20</sup>請罪，則幸得脫<sup class="n">21</sup>矣。』臣從其計，大王亦幸赦<sup class="n">22</sup>臣。臣竊以為其人勇士，有智謀，宜可使。」</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>宦官首領繆賢說：「我的門客藺相如可以出使。」趙王問：「你憑甚麼知道他可以？」繆賢回答說：「我曾經犯了罪，<b>私下</b>打算逃到燕國。我的門客相如阻止我，說：『你憑甚麼了解燕王？』我<b>告訴</b>他說：『我曾經跟隨大王和燕王在邊境上會面，燕王私下握着我的手說：「希望和你交個朋友。」因此了解他，所以想去投靠他。』相如對我說：『趙國強，燕國弱，而你得到趙王<b>寵愛</b>，所以燕王想和你結交。現在你竟然從趙國逃到燕國，燕國懼怕趙國，必定不敢收留你，反而會把你捆起來送回趙國。你不如赤裸上身，伏在刑具上向大王請罪，<b>或許</b>能夠免罪。』我聽從了他的計策，大王也幸而赦免了我。我私下認為這個人是勇士，又有智謀，應該可以出使。」</div>
+<details class="kwbox" open><summary>字詞卡（9個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">14　竊計</div><div class="kw-def">私下盤算。竊，私下。</div></div><div class="kw"><div class="kw-word">15　亡走燕</div><div class="kw-def">逃到燕國。亡，逃亡。走，奔向。</div></div><div class="kw"><div class="kw-word">16　語<span class="py">粵音「預」</span></div><div class="kw-def">告訴。</div></div><div class="kw"><div class="kw-word">17　彊</div><div class="kw-def">同「強」。</div></div><div class="kw"><div class="kw-word">18　幸於趙王</div><div class="kw-def">得到趙王寵愛。幸，寵愛。</div></div><div class="kw"><div class="kw-word">19　束君歸趙</div><div class="kw-def">把你捆綁起來送回趙國。束，捆綁。</div></div><div class="kw"><div class="kw-word">20　肉袒伏斧質</div><div class="kw-def">赤裸上身，伏在刑具上，表示請罪。斧質，古代斬人的刑具。質，通「鑕」，砧板。</div></div><div class="kw"><div class="kw-word">21　幸得脫</div><div class="kw-def">或許能夠免罪。幸，希望、或許。脫，免罪。</div></div><div class="kw"><div class="kw-word">22　赦</div><div class="kw-def">赦免。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 4</span>相如分析利害，自願出使</div>
+<div class="pb-orig">於是王召見，問藺相如曰：「秦王以十五城請易寡人之璧，可予不<sup class="n">23</sup>？」相如曰：「秦彊而趙弱，不可不許。」王曰：「取吾璧，不予我城，奈何？」相如曰：「秦以城求璧而趙不許，曲<sup class="n">24</sup>在趙；趙予璧而秦不予趙城，曲在秦。均之二策<sup class="n">25</sup>，寧許以負秦曲<sup class="n">26</sup>。」王曰：「誰可使者？」相如曰：「王必無人，臣願奉<sup class="n">27</sup>璧往使。城入趙而璧留秦；城不入，臣請完璧歸趙<sup class="n">28</sup>。」趙王於是遂遣相如奉璧西入秦。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>於是趙王召見藺相如，問他：「秦王要用十五座城交換我的璧，可以給他<b>嗎</b>？」相如說：「秦國強，趙國弱，不能不答應。」趙王說：「秦國拿了我的璧，卻不給我城，怎麼辦？」相如說：「秦國用城換璧而趙國不答應，<b>理虧</b>的是趙國；趙國給了璧而秦國不給趙國城，理虧的是秦國。<b>比較</b>這兩種對策，寧可答應秦國，<b>讓秦國承擔</b>理虧的責任。」趙王說：「誰可以出使？」相如說：「大王如果實在找不到人，我願意捧着璧出使。城池歸入趙國，璧就留在秦國；城池不歸趙國，我一定讓璧完整無缺地回到趙國。」趙王於是派相如捧着璧，向西進入秦國。</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">23　可予不</div><div class="kw-def">可以給他嗎？不，同「否」。</div></div><div class="kw"><div class="kw-word">24　曲</div><div class="kw-def">理虧。</div></div><div class="kw"><div class="kw-word">25　均之二策</div><div class="kw-def">比較這兩種對策。均，衡量、比較。</div></div><div class="kw"><div class="kw-word">26　寧許以負秦曲</div><div class="kw-def">寧可答應秦國，讓秦國承擔理虧的責任。負，使……承擔。</div></div><div class="kw"><div class="kw-word">27　奉</div><div class="kw-def">捧着。</div></div><div class="kw"><div class="kw-word">28　完璧歸趙</div><div class="kw-def">讓璧完整無缺地回到趙國。</div></div></div></details></div>
+<div class="pb-gist"><b>第2段一句話：</b>秦國想用十五座城換和氏璧，趙國左右為難。繆賢推薦藺相如，相如分析利害，自願帶璧出使秦國。</div></div>
+<div class="pblock"><div class="pb-head"><span class="pnum">3</span>第3段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 5</span>秦王收璧，無意交城</div>
+<div class="pb-orig">秦王坐章臺<sup class="n">29</sup>見相如，相如奉璧奏<sup class="n">30</sup>秦王。秦王大喜，傳以示美人<sup class="n">31</sup>及左右<sup class="n">32</sup>，左右皆呼萬歲。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>秦王在章臺接見相如，相如捧着璧<b>獻給</b>秦王。秦王非常高興，把璧傳給<b>妃嬪</b>和<b>侍從</b>看，侍從們都高呼萬歲。</div>
+<details class="kwbox" open><summary>字詞卡（4個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">29　章臺</div><div class="kw-def">秦國宮中的臺名。</div></div><div class="kw"><div class="kw-word">30　奏</div><div class="kw-def">獻上。</div></div><div class="kw"><div class="kw-word">31　美人</div><div class="kw-def">君王的妃嬪。</div></div><div class="kw"><div class="kw-word">32　左右</div><div class="kw-def">君王身邊的侍從。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 6</span>藉口「璧有瑕」，取回寶璧</div>
+<div class="pb-orig">相如視秦王無意償<sup class="n">33</sup>趙城，乃前曰：「璧有瑕<sup class="n">34</sup>，請指示王。」王授璧，</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>相如看出秦王沒有用城<b>抵償</b>的意思，就上前說：「璧上有點斑點，請讓我指給大王看。」秦王把璧交給他，</div>
+<details class="kwbox" open><summary>字詞卡（2個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">33　償</div><div class="kw-def">抵償，指用城池交換。</div></div><div class="kw"><div class="kw-word">34　瑕</div><div class="kw-def">玉上的斑點。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 7</span>持璧倚柱，怒斥秦王</div>
+<div class="pb-orig">相如因持璧卻立<sup class="n">35</sup>，倚柱，怒髮上衝冠<sup class="n">36</sup>，謂秦王曰：「大王欲得璧，使人發書至趙王，趙王悉<sup class="n">37</sup>召羣臣議，皆曰：『秦貪，負其彊<sup class="n">38</sup>，以空言求璧，償城恐不可得。』議不欲予秦璧。臣以為布衣之交<sup class="n">39</sup>尚不相欺，況大國乎！且以一璧之故逆彊秦之驩<sup class="n">40</sup>，不可。於是趙王乃齋戒<sup class="n">41</sup>五日，使臣奉璧，拜送書於庭<sup class="n">42</sup>。何者？嚴大國之威以修敬也<sup class="n">43</sup>。今臣至，大王見臣列觀<sup class="n">44</sup>，禮節甚倨<sup class="n">45</sup>；得璧，傳之美人，以戲弄臣。臣觀大王無意償趙王城邑，故臣復取璧。大王必欲急<sup class="n">46</sup>臣，臣頭今與璧俱碎於柱矣！」相如持其璧睨<sup class="n">47</sup>柱，欲以擊柱。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>相如於是拿着璧<b>退後</b>幾步站着，靠着柱子，憤怒得頭髮豎起，頂起帽子，對秦王說：「大王想得到璧，派人送信給趙王，趙王把大臣<b>全部</b>召來商議，大家都說：『秦國貪心，<b>倚仗</b>它強大，用空話來騙取璧，恐怕得不到城。』商議的結果是不想把璧給秦國。我認為平民之間的交往尚且不互相欺騙，何況是大國呢！而且因為一塊璧的緣故而使強大的秦國不高興，是不應該的。於是趙王齋戒了五天，派我捧着璧，在朝廷上恭敬地送出國書。為甚麼這樣做？是尊重大國的威嚴，以表達敬意。現在我來到秦國，大王卻在一般的宮殿接見我，禮節十分<b>傲慢</b>；得到璧後，又傳給妃嬪看，以此戲弄我。我看大王沒有把城給趙王的意思，所以我把璧取回來。大王如果一定要<b>逼迫</b>我，我的頭現在就和璧一起在柱子上撞碎！」相如拿着璧，<b>斜眼看着</b>柱子，準備用璧撞柱。</div>
+<details class="kwbox" open><summary>字詞卡（13個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">35　卻立</div><div class="kw-def">退後幾步站着。卻，後退。</div></div><div class="kw"><div class="kw-word">36　怒髮上衝冠</div><div class="kw-def">憤怒得頭髮豎起，頂起帽子。形容極度憤怒。</div></div><div class="kw"><div class="kw-word">37　悉</div><div class="kw-def">全部。</div></div><div class="kw"><div class="kw-word">38　負其彊</div><div class="kw-def">倚仗它強大。負，倚仗。</div></div><div class="kw"><div class="kw-word">39　布衣之交</div><div class="kw-def">平民之間的交往。布衣，平民。</div></div><div class="kw"><div class="kw-word">40　逆彊秦之驩</div><div class="kw-def">使強大的秦國不高興。逆，違背。驩，同「歡」，歡心。</div></div><div class="kw"><div class="kw-word">41　齋戒</div><div class="kw-def">古人在舉行隆重典禮前，素食、沐浴、獨居，表示虔誠恭敬。</div></div><div class="kw"><div class="kw-word">42　拜送書於庭</div><div class="kw-def">在朝廷上恭敬地送出國書。</div></div><div class="kw"><div class="kw-word">43　嚴大國之威以修敬</div><div class="kw-def">尊重大國的威嚴，以表達敬意。嚴，尊重。修敬，表達敬意。</div></div><div class="kw"><div class="kw-word">44　列觀<span class="py">觀，粵音「貫」</span></div><div class="kw-def">供遊樂的一般宮殿。在這裏接見使臣，是輕視對方的表現。</div></div><div class="kw"><div class="kw-word">45　倨<span class="py">粵音「據」</span></div><div class="kw-def">傲慢。</div></div><div class="kw"><div class="kw-word">46　急</div><div class="kw-def">逼迫。</div></div><div class="kw"><div class="kw-word">47　睨<span class="py">粵音「藝」</span></div><div class="kw-def">斜着眼看。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 8</span>秦王假意讓步，相如提出條件</div>
+<div class="pb-orig">秦王恐其破璧，乃辭謝固請<sup class="n">48</sup>，召有司案圖<sup class="n">49</sup>，指從此以往十五都<sup class="n">50</sup>予趙。相如度<sup class="n">51</sup>秦王特以詐佯為予趙城<sup class="n">52</sup>，實不可得，乃謂秦王曰：「和氏璧，天下所共傳寶也。趙王恐，不敢不獻。趙王送璧時，齋戒五日，今大王亦宜齋戒五日，設九賓於廷<sup class="n">53</sup>，臣乃敢上璧。」</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>秦王怕他撞碎璧，就婉言道歉，<b>堅決</b>請求他不要這樣做，又召來主管官員查看地圖，指着從這裏到那裏的十五座城劃給趙國。相如<b>估計</b>秦王只是用欺詐手段<b>假裝</b>把城給趙國，實際上是得不到的，就對秦王說：「和氏璧是天下公認的寶物。趙王懼怕秦國，不敢不獻上。趙王送璧的時候，齋戒了五天；現在大王也應該齋戒五天，在朝廷上安排九賓之禮，我才敢獻上璧。」</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">48　辭謝固請</div><div class="kw-def">婉言道歉，堅決請求（相如不要撞璧）。固，堅決。</div></div><div class="kw"><div class="kw-word">49　有司案圖</div><div class="kw-def">主管官員查看地圖。有司，主管官員。案，查看。</div></div><div class="kw"><div class="kw-word">50　都</div><div class="kw-def">城。</div></div><div class="kw"><div class="kw-word">51　度<span class="py">粵音「踱」</span></div><div class="kw-def">揣測、估計。</div></div><div class="kw"><div class="kw-word">52　特以詐佯為予趙城<span class="py">佯，粵音「羊」</span></div><div class="kw-def">只不過用欺詐手段，假裝要給趙國城池。特，只是。佯，假裝。</div></div><div class="kw"><div class="kw-word">53　設九賓於廷</div><div class="kw-def">在朝廷上安排九賓之禮。九賓，古代最隆重的外交禮節。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 9</span>暗中送璧回國</div>
+<div class="pb-orig">秦王度之，終不可彊奪，遂許齋五日，舍相如廣成傳<sup class="n">54</sup>。相如度秦王雖齋，決負約<sup class="n">55</sup>不償城，乃使其從者衣褐<sup class="n">56</sup>，懷其璧，從徑道<sup class="n">57</sup>亡，歸璧於趙。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>秦王考慮到始終不能強行奪取，就答應齋戒五天，安排相如住在廣成傳舍。相如估計秦王雖然齋戒，也<b>一定</b>會違背約定，不給城池，就讓他的隨從<b>穿上</b>粗布衣服，把璧藏在懷裏，從小路逃走，把璧送回趙國。</div>
+<details class="kwbox" open><summary>字詞卡（4個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">54　舍相如廣成傳</div><div class="kw-def">安排相如住在廣成傳舍。舍，安置住宿。傳，傳舍，招待賓客的館舍。</div></div><div class="kw"><div class="kw-word">55　決負約</div><div class="kw-def">一定會違背約定。決，一定。負，違背。</div></div><div class="kw"><div class="kw-word">56　衣褐<span class="py">衣，粵音「意」</span></div><div class="kw-def">穿上粗布衣服（扮作平民）。衣，穿。褐，粗布衣。</div></div><div class="kw"><div class="kw-word">57　徑道</div><div class="kw-def">小路。</div></div></div></details></div>
+<div class="pb-gist"><b>第3段一句話：</b>相如在秦宮看出秦王無意交城，持璧倚柱，以撞碎璧相逼；再要求秦王齋戒五天，暗中派人把璧送回趙國。</div></div>
+<div class="pblock"><div class="pb-head"><span class="pnum">4</span>第4段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 10</span>九賓禮上說出真相</div>
+<div class="pb-orig">秦王齋五日後，乃設九賓禮於廷，引<sup class="n">58</sup>趙使者藺相如。相如至，謂秦王曰：「秦自繆公<sup class="n">59</sup>以來二十餘君，未嘗有堅明約束<sup class="n">60</sup>者也。臣誠恐見欺於王而負趙<sup class="n">61</sup>，故令人持璧歸，間<sup class="n">62</sup>至趙矣。且秦彊而趙弱，大王遣一介之使<sup class="n">63</sup>至趙，趙立奉璧來；今以秦之彊而先割十五都予趙，趙豈敢留璧而得罪於大王乎？臣知欺大王之罪當誅<sup class="n">64</sup>，臣請就湯鑊<sup class="n">65</sup>，唯大王與羣臣孰計議之<sup class="n">66</sup>！」</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>秦王齋戒五天後，就在朝廷上安排了九賓之禮，<b>引領</b>趙國使者藺相如上殿。相如到了，對秦王說：「秦國自穆公以來二十多位國君，從來沒有一位堅守盟約的。我實在害怕被大王欺騙而<b>對不起</b>趙國，所以派人帶着璧回去，已經<b>從小路</b>回到趙國了。而且秦國強，趙國弱，大王派一個使者到趙國，趙國馬上就捧着璧送來；現在憑秦國的強大，先割十五座城給趙國，趙國怎敢留下璧而得罪大王呢？我知道欺騙大王的罪應當<b>處死</b>，我願意接受烹煮的刑罰，請大王和大臣們<b>仔細</b>商量這件事吧！」</div>
+<details class="kwbox" open><summary>字詞卡（9個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">58　引</div><div class="kw-def">引領。</div></div><div class="kw"><div class="kw-word">59　繆公</div><div class="kw-def">即秦穆公，春秋時秦國國君。</div></div><div class="kw"><div class="kw-word">60　堅明約束</div><div class="kw-def">堅守盟約。約束，盟約。</div></div><div class="kw"><div class="kw-word">61　見欺於王而負趙</div><div class="kw-def">被大王欺騙而對不起趙國。見，被。負，辜負、對不起。</div></div><div class="kw"><div class="kw-word">62　間<span class="py">粵音「諫」</span></div><div class="kw-def">從小路，一說暗中。</div></div><div class="kw"><div class="kw-word">63　一介之使</div><div class="kw-def">一個使者。介，個。</div></div><div class="kw"><div class="kw-word">64　誅</div><div class="kw-def">處死。</div></div><div class="kw"><div class="kw-word">65　就湯鑊</div><div class="kw-def">接受烹煮的刑罰。就，接受。湯鑊，盛滾水的大鍋，古代用來烹殺犯人。</div></div><div class="kw"><div class="kw-word">66　孰計議之</div><div class="kw-def">仔細考慮商議這件事。孰，通「熟」，仔細。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 11</span>秦王放人，相如升官</div>
+<div class="pb-orig">秦王與羣臣相視而嘻<sup class="n">67</sup>。左右或欲引相如去，秦王因曰：「今殺相如，終不能得璧也，而絕秦趙之驩，不如因而厚遇<sup class="n">68</sup>之，使歸趙，趙王豈以一璧之故欺秦邪！」卒<sup class="n">69</sup>廷見相如，畢禮而歸之<sup class="n">70</sup>。相如既歸，趙王以為賢大夫，使不辱於諸侯<sup class="n">71</sup>，拜相如為上大夫<sup class="n">72</sup>。秦亦不以城予趙，趙亦終不予秦璧。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>秦王和大臣們你看我，我看你，發出驚怒的聲音。侍從中有人想把相如拉下去處置，秦王於是說：「現在殺了相如，始終不能得到璧，反而斷絕了秦趙兩國的友好關係，不如趁機好好款待他，讓他回趙國，趙王難道會因為一塊璧的緣故而欺騙秦國嗎！」<b>最終</b>在朝廷上接見相如，完成禮節後讓他回國。相如回國後，趙王認為他是賢能的大臣，出使諸侯國而沒有受辱，任命相如為上大夫。秦國也沒有把城給趙國，趙國也始終沒有把璧給秦國。</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">67　嘻</div><div class="kw-def">驚怒的聲音。</div></div><div class="kw"><div class="kw-word">68　厚遇</div><div class="kw-def">好好款待。</div></div><div class="kw"><div class="kw-word">69　卒</div><div class="kw-def">終於。</div></div><div class="kw"><div class="kw-word">70　畢禮而歸之</div><div class="kw-def">完成禮節，讓他回國。</div></div><div class="kw"><div class="kw-word">71　使不辱於諸侯</div><div class="kw-def">出使諸侯國而沒有受辱。</div></div><div class="kw"><div class="kw-word">72　上大夫</div><div class="kw-def">官職名，地位次於卿。</div></div></div></details></div>
+<div class="pb-gist"><b>第4段一句話：</b>九賓禮上，相如說出璧已送回，願意受死；秦王權衡利害，放他回國。相如因功升為上大夫。</div></div>
+<div class="pblock"><div class="layer-tag">第三部分　澠池之會</div><div class="pb-head"><span class="pnum">5</span>第5段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 12</span>秦王邀約，廉頗作安排</div>
+<div class="pb-orig">其後秦伐趙，拔<sup class="n">73</sup>石城。明年，復攻趙，殺二萬人。秦王使使者告趙王，欲與王為好會<sup class="n">74</sup>於西河外澠池<sup class="n">75</sup>。趙王畏秦，欲毋<sup class="n">76</sup>行。廉頗、藺相如計曰：「王不行，示趙弱且怯也。」趙王遂行，相如從。廉頗送至境，與王訣<sup class="n">77</sup>曰：「王行，度道里會遇之禮畢<sup class="n">78</sup>，還，不過三十日。三十日不還，則請立太子為王，以絕秦望<sup class="n">79</sup>。」王許之，遂與秦王會澠池。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>後來秦國攻打趙國，<b>攻下</b>了石城。第二年，秦國又攻打趙國，殺了兩萬人。秦王派使者告訴趙王，想和趙王在西河以外的澠池<b>友好會面</b>。趙王害怕秦國，想<b>不</b>去。廉頗、藺相如商量後說：「大王不去，就顯得趙國軟弱又膽怯。」趙王於是動身，相如跟隨前往。廉頗送到邊境，和趙王<b>道別</b>說：「大王此行，估計路程，加上會面的禮節完成，再回來，不會超過三十天。三十天還不回來，就請允許我們立太子為王，以斷絕秦國要挾趙國的念頭。」趙王答應了，於是和秦王在澠池會面。</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">73　拔</div><div class="kw-def">攻下。</div></div><div class="kw"><div class="kw-word">74　好會</div><div class="kw-def">友好的會面。</div></div><div class="kw"><div class="kw-word">75　澠池<span class="py">澠，粵音「敏」</span></div><div class="kw-def">地名，在今河南省澠池縣。</div></div><div class="kw"><div class="kw-word">76　毋</div><div class="kw-def">不。</div></div><div class="kw"><div class="kw-word">77　訣</div><div class="kw-def">道別（作好不再相見的準備）。</div></div><div class="kw"><div class="kw-word">78　度道里會遇之禮畢<span class="py">度，粵音「踱」</span></div><div class="kw-def">估計路程，加上會面的禮節完成。道里，路程。</div></div><div class="kw"><div class="kw-word">79　以絕秦望</div><div class="kw-def">用來斷絕秦國（以趙王要挾趙國）的念頭。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 13</span>第一回合：鼓瑟與擊缻</div>
+<div class="pb-orig">秦王飲酒酣<sup class="n">80</sup>，曰：「寡人竊聞趙王好音，請奏瑟。」趙王鼓瑟<sup class="n">81</sup>。秦御史<sup class="n">82</sup>前書曰：「某年月日，秦王與趙王會飲，令趙王鼓瑟。」藺相如前曰：「趙王竊聞秦王善為秦聲<sup class="n">83</sup>，請奏盆缻<sup class="n">84</sup>秦王，以相娛樂。」秦王怒，不許。於是相如前進缻，因跪請秦王。秦王不肯擊缻。相如曰：「五步之內，相如請得以頸血濺大王矣<sup class="n">85</sup>！」左右欲刃<sup class="n">86</sup>相如，相如張目叱<sup class="n">87</sup>之，左右皆靡<sup class="n">88</sup>。於是秦王不懌<sup class="n">89</sup>，為一擊缻。相如顧召趙御史書曰：「某年月日，秦王為趙王擊缻。」</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>秦王喝酒喝得暢快，說：「我私下聽說趙王喜歡音樂，請彈一彈瑟吧。」趙王就彈瑟。秦國的御史上前寫道：「某年某月某日，秦王和趙王會面飲酒，命令趙王彈瑟。」藺相如上前說：「趙王私下聽說秦王擅長演奏秦國的音樂，請讓我把盆缻獻給秦王，大家互相娛樂。」秦王發怒，不答應。於是相如上前獻上缻，跪下請秦王敲擊。秦王不肯擊缻。相如說：「在五步之內，我可以把頸上的血濺到大王身上！」秦王的侍從想用刀殺相如，相如瞪大眼睛呵斥他們，侍從們都嚇得<b>後退</b>。於是秦王很<b>不高興</b>，勉強敲了一下缻。相如回頭召趙國的御史寫道：「某年某月某日，秦王為趙王擊缻。」</div>
+<details class="kwbox" open><summary>字詞卡（10個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">80　酣</div><div class="kw-def">喝酒喝得暢快。</div></div><div class="kw"><div class="kw-word">81　鼓瑟</div><div class="kw-def">彈瑟。瑟，古代的弦樂器。</div></div><div class="kw"><div class="kw-word">82　御史</div><div class="kw-def">負責記事的官員。</div></div><div class="kw"><div class="kw-word">83　秦聲</div><div class="kw-def">秦國的音樂。</div></div><div class="kw"><div class="kw-word">84　盆缻<span class="py">缻，粵音「否」</span></div><div class="kw-def">瓦盆一類的器皿，秦人敲擊它來打拍子。缻，同「缶」。</div></div><div class="kw"><div class="kw-word">85　以頸血濺大王</div><div class="kw-def">把頸上的血濺在大王身上，即要和秦王拼命。</div></div><div class="kw"><div class="kw-word">86　刃</div><div class="kw-def">用刀殺。</div></div><div class="kw"><div class="kw-word">87　叱</div><div class="kw-def">大聲呵斥。</div></div><div class="kw"><div class="kw-word">88　靡<span class="py">粵音「美」</span></div><div class="kw-def">倒退。</div></div><div class="kw"><div class="kw-word">89　不懌<span class="py">懌，粵音「翼」</span></div><div class="kw-def">不高興。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 14</span>第二回合：互相「祝壽」</div>
+<div class="pb-orig">秦之羣臣曰：「請以趙十五城為秦王壽<sup class="n">90</sup>。」藺相如亦曰：「請以秦之咸陽為趙王壽。」秦王竟酒<sup class="n">91</sup>，終不能加勝於趙<sup class="n">92</sup>。趙亦盛設兵<sup class="n">93</sup>以待秦，秦不敢動。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>秦國的大臣們說：「請用趙國的十五座城向秦王獻禮祝福。」藺相如也說：「請用秦國的咸陽向趙王獻禮祝福。」直到酒宴結束，秦王始終不能壓倒趙國。趙國也大量部署軍隊防備秦國，秦國不敢輕舉妄動。</div>
+<details class="kwbox" open><summary>字詞卡（4個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">90　為秦王壽</div><div class="kw-def">向秦王獻禮祝福。</div></div><div class="kw"><div class="kw-word">91　竟酒</div><div class="kw-def">直到酒宴結束。</div></div><div class="kw"><div class="kw-word">92　加勝於趙</div><div class="kw-def">壓倒趙國，佔上風。</div></div><div class="kw"><div class="kw-word">93　盛設兵</div><div class="kw-def">大量部署軍隊。</div></div></div></details></div>
+<div class="pb-gist"><b>第5段一句話：</b>澠池之會上，秦王要趙王彈瑟，相如以死相逼，令秦王擊缻，處處維護趙國尊嚴；趙國又部署大軍，令秦國不敢妄動。</div></div>
+<div class="pblock"><div class="layer-tag">第四部分　負荊請罪</div><div class="pb-head"><span class="pnum">6</span>第6段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 15</span>廉頗不服，揚言羞辱相如</div>
+<div class="pb-orig">既罷歸國<sup class="n">94</sup>，以相如功大，拜為上卿，位在廉頗之右<sup class="n">95</sup>。廉頗曰：「我為趙將，有攻城野戰之大功，而藺相如徒以口舌為勞<sup class="n">96</sup>，而位居我上，且相如素賤人<sup class="n">97</sup>，吾羞，不忍為之下。」宣言<sup class="n">98</sup>曰：「我見相如，必辱之。」</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>會面結束回國後，趙王因為相如功勞大，任命他為上卿，地位在廉頗<b>之上</b>。廉頗說：「我是趙國的將軍，有攻城野戰的大功，而藺相如<b>只</b>靠一張嘴立功，地位卻在我之上；況且相如本來是出身卑賤的人，我感到羞恥，不能忍受在他之下。」又<b>公開揚言</b>說：「我見到相如，一定要羞辱他。」</div>
+<details class="kwbox" open><summary>字詞卡（5個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">94　既罷歸國</div><div class="kw-def">會面結束，回到趙國以後。</div></div><div class="kw"><div class="kw-word">95　位在廉頗之右</div><div class="kw-def">地位在廉頗之上。古代以右為尊。</div></div><div class="kw"><div class="kw-word">96　徒以口舌為勞</div><div class="kw-def">只靠說話立功。徒，只。</div></div><div class="kw"><div class="kw-word">97　素賤人</div><div class="kw-def">本來是出身卑賤的人。素，向來、本來。</div></div><div class="kw"><div class="kw-word">98　宣言</div><div class="kw-def">公開揚言。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 16</span>相如避讓，門客請辭</div>
+<div class="pb-orig">相如聞，不肯與會。相如每朝時，常稱病，不欲與廉頗爭列<sup class="n">99</sup>。已而<sup class="n">100</sup>相如出，望見廉頗，相如引車避匿<sup class="n">101</sup>。於是舍人相與諫曰：「臣所以去親戚而事君者<sup class="n">102</sup>，徒慕君之高義<sup class="n">103</sup>也。今君與廉頗同列，廉君宣惡言而君畏匿之，恐懼殊甚<sup class="n">104</sup>，且庸人尚羞之，況於將相乎！臣等不肖<sup class="n">105</sup>，請辭去。」</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>相如聽說後，不肯和廉頗見面。每逢上朝的時候，相如常常推說有病，不想和廉頗爭位次先後。<b>不久</b>，相如外出，遠遠看見廉頗，就調轉車子躲避。於是相如的門客一起勸諫說：「我們離開<b>親人</b>來侍奉您，只是仰慕您崇高的品德。現在您和廉頗地位相同，廉頗說您壞話，您卻害怕躲避他，怕得太厲害了。普通人尚且感到羞恥，何況是將相呢！我們<b>沒有才能</b>，請讓我們告辭離開。」</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">99　爭列</div><div class="kw-def">爭位次的先後。列，位次。</div></div><div class="kw"><div class="kw-word">100　已而</div><div class="kw-def">不久。</div></div><div class="kw"><div class="kw-word">101　引車避匿</div><div class="kw-def">調轉車子躲避。引，牽引、調轉。</div></div><div class="kw"><div class="kw-word">102　去親戚而事君</div><div class="kw-def">離開親人來侍奉您。去，離開。親戚，親人。</div></div><div class="kw"><div class="kw-word">103　高義</div><div class="kw-def">崇高的品德。</div></div><div class="kw"><div class="kw-word">104　殊甚</div><div class="kw-def">非常厲害。</div></div><div class="kw"><div class="kw-word">105　不肖</div><div class="kw-def">不賢、沒有才能，自謙的說法。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 17</span>相如說出真正原因</div>
+<div class="pb-orig">藺相如固止之，曰：「公之視廉將軍孰與秦王<sup class="n">106</sup>？」曰：「不若也。」相如曰：「夫以秦王之威，而相如廷叱之，辱其羣臣，相如雖駑<sup class="n">107</sup>，獨畏廉將軍哉？顧<sup class="n">108</sup>吾念之，彊秦之所以不敢加兵<sup class="n">109</sup>於趙者，徒以吾兩人在也。今兩虎共鬥，其勢不俱生<sup class="n">110</sup>。吾所以為此者，以先國家之急而後私讎<sup class="n">111</sup>也。」</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>藺相如堅決挽留他們，說：「你們看廉將軍和秦王<b>相比，哪一個</b>厲害？」門客說：「廉將軍比不上秦王。」相如說：「憑秦王的威勢，我尚且敢在朝廷上呵斥他，羞辱他的大臣；我雖然愚鈍，難道偏偏怕廉將軍嗎？<b>只是</b>我考慮到，強大的秦國之所以不敢出兵攻打趙國，只是因為有我們兩人在。現在兩虎相鬥，按形勢必定不能都活下來。我這樣做，是因為把國家的危難放在前面，把個人的仇怨放在後面。」</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">106　孰與</div><div class="kw-def">與……相比，哪一個……。</div></div><div class="kw"><div class="kw-word">107　駑<span class="py">粵音「奴」</span></div><div class="kw-def">劣馬，比喻愚鈍，自謙的說法。</div></div><div class="kw"><div class="kw-word">108　顧</div><div class="kw-def">只是、不過，表示轉折。</div></div><div class="kw"><div class="kw-word">109　加兵</div><div class="kw-def">出兵攻打。</div></div><div class="kw"><div class="kw-word">110　其勢不俱生</div><div class="kw-def">按形勢不能都活下來。俱，都。</div></div><div class="kw"><div class="kw-word">111　先國家之急而後私讎</div><div class="kw-def">把國家的危難放在前面，把個人的仇怨放在後面。讎，同「仇」。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 18</span>負荊請罪，刎頸之交</div>
+<div class="pb-orig">廉頗聞之，肉袒負荊<sup class="n">112</sup>，因<sup class="n">113</sup>賓客至藺相如門謝罪。曰：「鄙賤之人<sup class="n">114</sup>，不知將軍寬之至此也。」卒相與驩，為刎頸之交<sup class="n">115</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>廉頗聽到這番話，便赤裸上身，背着荊條，<b>通過</b>賓客引領，來到藺相如家門前請罪。廉頗說：「我這個粗野卑賤的人，不知道將軍寬容我到這個地步！」兩人終於和好，成為同生共死的朋友。</div>
+<details class="kwbox" open><summary>字詞卡（4個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">112　肉袒負荊</div><div class="kw-def">赤裸上身，背着荊條（讓對方責打），表示認錯請罪。</div></div><div class="kw"><div class="kw-word">113　因</div><div class="kw-def">通過、依靠。</div></div><div class="kw"><div class="kw-word">114　鄙賤之人</div><div class="kw-def">粗野卑賤的人，廉頗的自謙說法。</div></div><div class="kw"><div class="kw-word">115　刎頸之交<span class="py">刎，粵音「吻」</span></div><div class="kw-def">可以同生共死的朋友。刎頸，割脖子。</div></div></div></details></div>
+<div class="pb-gist"><b>第6段一句話：</b>廉頗不服相如地位在自己之上，揚言要羞辱他；相如為國家一再忍讓。廉頗明白後負荊請罪，兩人成為生死之交。</div></div>
+</div>
+<div class="card"><h3><span class="dot purple"></span>重點字詞：五類必溫</h3>
+<div class="duo">
+<div class="duo-col wen"><div class="duo-h">A　通假字及異體字</div><p class="small">古人借用了另一個字，翻譯時要按「本字」解釋。</p>
+<table><tr><th class="c">原文</th><th class="c">同／通</th><th>解釋</th></tr>
+<tr><td class="c">秦<b>彊</b>而趙弱</td><td class="c">強</td><td>強大</td></tr>
+<tr><td class="c">逆彊秦之<b>驩</b></td><td class="c">歡</td><td>歡心；「卒相與驩」指和好</td></tr>
+<tr><td class="c">可予<b>不</b></td><td class="c">否</td><td>表示疑問，「嗎」</td></tr>
+<tr><td class="c"><b>孰</b>計議之</td><td class="c">熟</td><td>仔細</td></tr>
+<tr><td class="c">肉袒伏斧<b>質</b></td><td class="c">鑕</td><td>砧板，刑具</td></tr>
+<tr><td class="c">私<b>讎</b></td><td class="c">仇</td><td>仇怨</td></tr>
+<tr><td class="c">盆<b>缻</b></td><td class="c">缶</td><td>瓦器</td></tr>
+<tr><td class="c"><b>繆</b>公</td><td class="c">穆</td><td>秦穆公</td></tr></table></div>
+<div class="duo-col wu"><div class="duo-h">B　古今意思不一樣</div><p class="small">字面和今天一樣，意思卻不同。用今天的意思去翻譯就會錯。</p>
+<table><tr><th class="c">詞語</th><th>古代意思</th><th>今天意思</th></tr>
+<tr><td class="c">美人</td><td>君王的妃嬪</td><td>漂亮的人</td></tr>
+<tr><td class="c">左右</td><td>身邊的侍從</td><td>方位；大約</td></tr>
+<tr><td class="c">布衣</td><td>平民</td><td>布做的衣服</td></tr>
+<tr><td class="c">親戚</td><td>親人，包括父母兄弟</td><td>家庭以外的親屬</td></tr>
+<tr><td class="c">宣言</td><td>公開揚言</td><td>公開發表的聲明</td></tr>
+<tr><td class="c">不肖</td><td>不賢、沒有才能</td><td>品行不好</td></tr></table></div>
+</div>
+<h3 style="margin-top:14px"><span class="dot amber"></span>C　同一個字，不同意思</h3>
+<table><tr><th class="c">字</th><th>例句</th><th>意思</th><th>記法</th></tr>
+<tr><td class="c" rowspan="4">負</td><td><b>負</b>其彊</td><td>倚仗</td><td rowspan="4">可以從「背着」聯想記憶：背着靠山（倚仗）、背着責任（承擔）、背棄別人（辜負）、背着荊條（背着）</td></tr>
+<tr><td>寧許以<b>負</b>秦曲</td><td>使……承擔</td></tr>
+<tr><td>恐見欺於王而<b>負</b>趙</td><td>辜負、對不起</td></tr>
+<tr><td>肉袒<b>負</b>荊</td><td>背着</td></tr>
+<tr><td class="c" rowspan="3">引</td><td><b>引</b>趙使者藺相如</td><td>引領</td><td rowspan="3">都和「拉、帶」有關：帶人進來、把人拉走、拉車轉向</td></tr>
+<tr><td>左右或欲<b>引</b>相如去</td><td>拉</td></tr>
+<tr><td>相如<b>引</b>車避匿</td><td>調轉（車子）</td></tr>
+<tr><td class="c" rowspan="3">度</td><td>相如<b>度</b>秦王特以詐佯為予趙城</td><td>揣測</td><td rowspan="3">讀「踱」時解作估計、考慮</td></tr>
+<tr><td>秦王<b>度</b>之</td><td>考慮</td></tr>
+<tr><td><b>度</b>道里會遇之禮畢</td><td>估計</td></tr>
+<tr><td class="c" rowspan="3">幸</td><td>君<b>幸</b>於趙王</td><td>寵愛</td><td rowspan="3">看上文下理：被君王「幸」是得寵；「幸得」「幸赦」帶有僥倖的意思</td></tr>
+<tr><td>則<b>幸</b>得脫矣</td><td>或許、希望</td></tr>
+<tr><td>大王亦<b>幸</b>赦臣</td><td>幸而</td></tr>
+<tr><td class="c" rowspan="2">徒</td><td><b>徒</b>見欺</td><td>白白地</td><td rowspan="2">兩個都有「只」的意味：只是被騙（白白地）、只靠一張嘴（只）</td></tr>
+<tr><td><b>徒</b>以口舌為勞</td><td>只</td></tr>
+</table>
+<h3 style="margin-top:14px"><span class="dot teal"></span>D　句式跟今天不同</h3>
+<div class="order"><div class="order-h">① 判斷句：「……者，……也」　<span class="small">（判斷句）</span></div><div class="order-row"><span class="chip">廉頗</span><span class="chip hot">者</span><span class="chip">趙之良將</span><span class="chip hot">也</span><span class="oarr">⇒</span><span class="chip">廉頗</span><span class="chip hot">是</span><span class="chip">趙國的優秀將領</span></div><div class="small">文言常用「……者，……也」表示「……是……」。「藺相如者，趙人也」同理。</div></div><div class="order"><div class="order-h">② 「見」表示被動　<span class="small">（被動句）</span></div><div class="order-row"><span class="chip">徒</span><span class="chip hot">見</span><span class="chip">欺</span><span class="oarr">⇒</span><span class="chip">白白</span><span class="chip hot">被</span><span class="chip">欺騙</span></div><div class="small">「臣誠恐見欺於王」：我實在怕被大王欺騙。「見……於……」＝被……所……。</div></div><div class="order"><div class="order-h">③ 問句裏的「何」走到了前面　<span class="small">（賓語前置）</span></div><div class="order-row"><span class="chip hot">何</span><span class="chip">以</span><span class="chip">知</span><span class="chip">之</span><span class="oarr">⇒</span><span class="chip">以</span><span class="chip hot">何</span><span class="chip">知</span><span class="chip">之</span></div><div class="small">今天的說法：憑甚麼知道他可以？「君何以知燕王」同理。疑問代詞作賓語時，常常放在動詞或介詞前面。</div></div><div class="order"><div class="order-h">④ 形容的部分放到了後面　<span class="small">（定語後置）</span></div><div class="order-row"><span class="chip">求</span><span class="chip">人</span><span class="chip hot">可使報秦</span><span class="chip hot">者</span><span class="oarr">⇒</span><span class="chip">求</span><span class="chip hot">可使報秦</span><span class="chip">之</span><span class="chip">人</span></div><div class="small">今天的說法：尋找一個可以出使秦國、回覆秦國的人。「者」提示前面的部分是用來形容「人」的。</div></div><div class="order"><div class="order-h">⑤ 「在哪裏」放到了句尾　<span class="small">（介詞結構後置，又稱狀語後置）</span></div><div class="order-row"><span class="chip">拜送書</span><span class="chip hot">於庭</span><span class="oarr">⇒</span><span class="chip hot">於庭</span><span class="chip">拜送書</span></div><div class="small">今天的說法：在朝廷上恭敬地送出國書。「設九賓於廷」同理。</div></div>
+<p class="small">另有比較句「公之視廉將軍孰與秦王」：「孰與」＝與……相比，哪一個……。</p>
+<h3 style="margin-top:14px"><span class="dot coral"></span>E　由本文而來的成語</h3>
+<table><tr><th class="c">成語</th><th>出處</th><th>今天的意思</th></tr>
+<tr><td class="c">完璧歸趙</td><td>臣請完璧歸趙</td><td>把原物完好地歸還原主</td></tr>
+<tr><td class="c">怒髮衝冠</td><td>怒髮上衝冠</td><td>形容極度憤怒</td></tr>
+<tr><td class="c">負荊請罪</td><td>肉袒負荊……謝罪</td><td>主動向人認錯，請求責罰</td></tr>
+<tr><td class="c">刎頸之交</td><td>為刎頸之交</td><td>可以同生共死的朋友</td></tr>
+</table>
+<h3 style="margin-top:14px"><span class="dot red"></span>容易讀錯的字</h3>
+<table><tr><th>字（詞）</th><th class="c">粵音</th><th>字（詞）</th><th class="c">粵音</th></tr>
+<tr><td>廉頗<b>為</b>趙將</td><td class="c">圍</td><td>使人<b>遺</b>趙王書</td><td class="c">惠</td></tr>
+<tr><td>臣<b>語</b>曰</td><td class="c">預</td><td>列<b>觀</b></td><td class="c">貫</td></tr>
+<tr><td>禮節甚<b>倨</b></td><td class="c">據</td><td><b>睨</b>柱</td><td class="c">藝</td></tr>
+<tr><td>相如<b>度</b>秦王</td><td class="c">踱</td><td>詐<b>佯</b></td><td class="c">羊</td></tr>
+<tr><td><b>衣</b>褐</td><td class="c">意</td><td><b>間</b>至趙矣</td><td class="c">諫</td></tr>
+<tr><td><b>澠</b>池</td><td class="c">敏</td><td>盆<b>缻</b></td><td class="c">否</td></tr>
+<tr><td>左右皆<b>靡</b></td><td class="c">美</td><td>不<b>懌</b></td><td class="c">翼</td></tr>
+<tr><td>相如雖<b>駑</b></td><td class="c">奴</td><td><b>刎</b>頸之交</td><td class="c">吻</td></tr>
+</table>
+</div>
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">最常失分的三處</div><div class="alert-text">（1）「寧許以負秦曲」的「負」是「使秦國承擔」，不可譯作「辜負秦國」。<br>（2）「徒見欺」的「見」表示被動，要譯作「被」。<br>（3）「親戚」指父母兄弟等親人，不可只理解為今天所說的叔伯、表親等親戚。</div></div></div>
+<div class="section-header ex" id="s4"><div class="icon">✏️</div><div><div class="chap">CHAPTER 04　練習</div><h2>練習二：字詞與語譯</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>解釋下列文句中的粗體字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）使人<b>遺</b>趙王書</td><td><span class="blank l"></span></td></tr><tr><td>（2）願以十五城請<b>易</b>璧</td><td><span class="blank l"></span></td></tr><tr><td>（3）禮節甚<b>倨</b></td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）送給　（2）交換　（3）傲慢</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「秦<b>彊</b>而趙弱」的「彊」，意思是：<ul class="opts"><li><b>A</b>強大</li><li><b>B</b>勉強</li><li><b>C</b>邊疆</li><li><b>D</b>倔強</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「可予<b>不</b>」的「不」，意思是：<ul class="opts"><li><b>A</b>不要</li><li><b>B</b>同「否」，表示疑問</li><li><b>C</b>不能</li><li><b>D</b>沒有</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>解釋下列四句中的「負」字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）<b>負</b>其彊</td><td><span class="blank l"></span></td></tr><tr><td>（2）寧許以<b>負</b>秦曲</td><td><span class="blank l"></span></td></tr><tr><td>（3）臣誠恐見欺於王而<b>負</b>趙</td><td><span class="blank l"></span></td></tr><tr><td>（4）肉袒<b>負</b>荊</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）倚仗　（2）使……承擔　（3）辜負、對不起　（4）背着</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>「徒見欺」屬於哪一種句式？<ul class="opts"><li><b>A</b>判斷句</li><li><b>B</b>賓語前置</li><li><b>C</b>被動句</li><li><b>D</b>省略句</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">「見」表示被動，「徒見欺」即白白被欺騙。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「求人可使報秦者」屬於哪一種句式？<ul class="opts"><li><b>A</b>判斷句</li><li><b>B</b>被動句</li><li><b>C</b>賓語前置</li><li><b>D</b>定語後置</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D<br><span class="ex">正常語序為「求可使報秦之人」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>寫出下列粗體詞語在文中的意思。<p>（1）傳以示<b>美人</b>：<span class="blank l"></span>　（2）臣所以去<b>親戚</b>而事君者：<span class="blank l"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）君王的妃嬪　（2）親人（父母兄弟等）</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>把以下文句譯為語體文。<div class="excerpt">秦以城求璧而趙不許，曲在趙。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）秦國用城換璧而趙國不答應，理虧的是趙國。<br><span class="ex">「以」譯為用（1分）；「曲」譯為理虧（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">吾所以為此者，以先國家之急而後私讎也。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）我之所以這樣做，是因為把國家的危難放在前面，把個人的仇怨放在後面。<br><span class="ex">「所以……者」譯為之所以……（1分）；「以」譯為因為（1分）；「先……而後……」譯為把……放在前面，把……放在後面（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">公之視廉將軍孰與秦王？</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）你們看廉將軍和秦王相比，哪一個厲害？<br><span class="ex">「視」譯為看（1分）；「孰與」譯為與……相比，哪一個（1分）。</span></div></div></div>
+<div class="section-header" id="s5"><div class="icon">🧭</div><div><div class="chap">CHAPTER 05　教學</div><h2>三件事怎樣一步步寫</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>全文路線圖</h3>
+<svg class="chart" viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全文路線圖">
+<defs><marker id="arR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs>
+<g font-size="13">
+<rect x="6" y="40" width="150" height="150" rx="12" fill="#D9B07C" fill-opacity="0.22" stroke="#96702F" stroke-opacity="0.5"/>
+<text x="81" y="68" text-anchor="middle" font-weight="700" fill="#96702F">第1段</text>
+<text x="81" y="92" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">人物出場</text>
+<text x="81" y="122" text-anchor="middle" fill="var(--color-text-primary)">廉頗：上卿</text>
+<text x="81" y="144" text-anchor="middle" fill="var(--color-text-primary)">相如：門客</text>
+<text x="81" y="172" text-anchor="middle" font-size="12" fill="#c0392b">身份懸殊（伏筆）</text>
+<rect x="196" y="40" width="170" height="150" rx="12" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-opacity="0.5"/>
+<text x="281" y="68" text-anchor="middle" font-weight="700" fill="#3a6ea5">第2至4段</text>
+<text x="281" y="92" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">完璧歸趙</text>
+<text x="281" y="122" text-anchor="middle" fill="var(--color-text-primary)">相如智勇保璧</text>
+<text x="281" y="172" text-anchor="middle" font-size="12" fill="#3a6ea5">→ 升為上大夫</text>
+<rect x="406" y="40" width="160" height="150" rx="12" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.5"/>
+<text x="486" y="68" text-anchor="middle" font-weight="700" fill="#d0654a">第5段</text>
+<text x="486" y="92" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">澠池之會</text>
+<text x="486" y="122" text-anchor="middle" fill="var(--color-text-primary)">相如力保國威</text>
+<text x="486" y="172" text-anchor="middle" font-size="12" fill="#d0654a">→ 升為上卿</text>
+<rect x="606" y="40" width="148" height="150" rx="12" fill="#96702F" fill-opacity="0.9"/>
+<text x="680" y="68" text-anchor="middle" font-weight="700" fill="#FFF6E6">第6段</text>
+<text x="680" y="92" text-anchor="middle" font-weight="700" fill="#FFF6E6">負荊請罪</text>
+<text x="680" y="122" text-anchor="middle" fill="#FFF6E6">廉頗不服</text>
+<text x="680" y="144" text-anchor="middle" fill="#FFF6E6">相如忍讓</text>
+<text x="680" y="172" text-anchor="middle" font-size="12" fill="#FFF6E6">→ 刎頸之交</text>
+</g>
+<g stroke="#96702F" stroke-width="2" fill="none"><path d="M156 115 H192" marker-end="url(#arR)"/><path d="M366 115 H402" marker-end="url(#arR)"/><path d="M566 115 H602" marker-end="url(#arR)"/></g>
+<text x="380" y="222" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">每件事都令相如升官，最後一次升官引起廉頗不服：三件事前因後果緊緊相連</text>
+</svg>
+<table>
+<tr><th class="c">段落</th><th>一句話說明</th><th>要記的關鍵句</th></tr>
+<tr><td class="c">第1段</td><td>介紹廉頗和藺相如，兩人身份懸殊</td><td>以勇氣聞於諸侯；為趙宦者令繆賢舍人</td></tr>
+<tr><td class="c">第2段</td><td>秦國索璧，相如被推薦，自願出使</td><td>寧許以負秦曲；臣請完璧歸趙</td></tr>
+<tr><td class="c">第3段</td><td>章臺獻璧，相如取回璧，暗中送回趙國</td><td>臣頭今與璧俱碎於柱矣</td></tr>
+<tr><td class="c">第4段</td><td>九賓禮上，相如說明真相，秦王放他回國</td><td>臣請就湯鑊；拜相如為上大夫</td></tr>
+<tr><td class="c">第5段</td><td>澠池之會，相如令秦王擊缻</td><td>五步之內，相如請得以頸血濺大王矣</td></tr>
+<tr><td class="c">第6段</td><td>廉頗不服，相如忍讓，廉頗負荊請罪</td><td>先國家之急而後私讎；肉袒負荊</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>第1段：兩位主角出場</h3>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">廉頗</div>打敗齊國，奪取陽晉<br>官至上卿（高級官員）<br>「以勇氣聞於諸侯」：各國都知道他勇猛</div>
+<div class="compare-card b"><div class="ct">藺相如</div>趙國人<br>只是宦官首領繆賢的門客<br>地位低微，還未做官</div>
+</div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">兩人地位相差很遠：一個是名揚各國的大將，一個只是門客。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body">作者特意把兩人放在一起介紹。讀者先記住「相如地位低」，到第6段廉頗嫌相如「素賤人」，就會明白廉頗為甚麼不服。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">第1段寫二人身份懸殊，為下文廉頗不服相如「素賤人」埋下伏筆。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot blue"></span>第2段：秦國索璧，相如出場</h3>
+<svg class="chart" viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="趙國的兩難及相如的分析">
+<defs><marker id="arD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#555"/></marker></defs>
+<g font-size="13">
+<rect x="270" y="8" width="220" height="44" rx="22" fill="#555" fill-opacity="0.15" stroke="#555" stroke-opacity="0.5"/>
+<text x="380" y="35" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">秦王：十五座城換和氏璧</text>
+<rect x="40" y="86" width="280" height="76" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"/>
+<text x="180" y="112" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">給璧（欲予秦）</text>
+<text x="180" y="136" text-anchor="middle" fill="#c0392b">怕得不到城，白白被騙</text>
+<text x="180" y="154" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">秦城恐不可得，徒見欺</text>
+<rect x="440" y="86" width="280" height="76" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"/>
+<text x="580" y="112" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">不給（欲勿予）</text>
+<text x="580" y="136" text-anchor="middle" fill="#c0392b">怕秦軍來攻打</text>
+<text x="580" y="154" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">即患秦兵之來</text>
+<rect x="60" y="196" width="640" height="84" rx="12" fill="#D9B07C" fill-opacity="0.28" stroke="#96702F"/>
+<text x="380" y="222" text-anchor="middle" font-weight="700" fill="#96702F">藺相如的分析：看「誰理虧」</text>
+<text x="380" y="246" text-anchor="middle" fill="var(--color-text-primary)">趙國不給 → 曲在趙（趙國理虧）　｜　趙國給了而秦不給城 → 曲在秦（秦國理虧）</text>
+<text x="380" y="268" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">結論：寧許以負秦曲（答應秦國，讓秦國承擔理虧的責任）</text>
+</g>
+<g stroke="#555" stroke-width="1.6" fill="none"><path d="M330 52 L220 84" marker-end="url(#arD)"/><path d="M430 52 L540 84" marker-end="url(#arD)"/><path d="M180 162 L230 194" marker-end="url(#arD)"/><path d="M580 162 L530 194" marker-end="url(#arD)"/></g>
+</svg>
+<p><b>繆賢怎樣推薦相如？</b>他說出自己的往事：</p>
+<div class="chat"><div><div class="who">繆賢（曾想逃往燕國）</div><div class="bubble"><span class="bo">臣嘗從大王與燕王會境上，燕王私握臣手，曰：「願結友。」</span><span class="bp">我曾跟隨大王和燕王會面，燕王私下握着我的手，說想和我交朋友。</span></div></div><div class="row-r"><div class="who">相如（勸繆賢）</div><div class="bubble"><span class="bo">燕畏趙，其勢必不敢留君，而束君歸趙矣。</span><span class="bp">燕國怕趙國，一定不敢收留你，反而會把你綁回趙國。</span></div></div><div class="row-r"><div class="who">相如（勸繆賢）</div><div class="bubble"><span class="bo">君不如肉袒伏斧質請罪，則幸得脫矣。</span><span class="bp">你不如赤裸上身伏在刑具上請罪，或許能免罪。</span></div></div></div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">趙國給璧怕被騙，不給怕被打。繆賢推薦相如，相如提出寧可答應秦國，讓秦國理虧。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><ul class="tight"><li><b>繆賢的往事</b>說明相如看得清形勢（智），又敢勸主人去請罪（勇）。</li><li><b>相如的分析</b>：趙國不給璧，是趙國理虧；給了璧而秦國不給城，是秦國理虧。所以寧可答應，讓秦國理虧。</li><li><b>相如的承諾</b>：「城不入，臣請完璧歸趙」，拿不到城，就把璧完整帶回來。</li></ul></div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">繆賢藉往事從側面表現相如有智謀；相如以「曲在趙」「曲在秦」分析利害，提出「寧許以負秦曲」，可見他見識過人，並勇於承擔出使重任。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>第3、4段：完璧歸趙八格故事</h3>
+<p class="small">按次序看八格，每格下面的引號是原文，可以用來答題。</p>
+<div class="story"><div class="sp"><div class="sp-n">1</div><div class="sp-e">🏯</div><div class="sp-t">章臺獻璧</div><div class="sp-x">秦王收到璧，十分高興，傳給妃嬪侍從看，卻不提給城。</div><div class="sp-q">秦王大喜，傳以示美人及左右</div></div><div class="sp"><div class="sp-n">2</div><div class="sp-e">🔍</div><div class="sp-t">「璧有瑕」</div><div class="sp-x">相如說璧上有斑點，要指給秦王看，借機把璧拿回手中。</div><div class="sp-q">璧有瑕，請指示王</div></div><div class="sp"><div class="sp-n">3</div><div class="sp-e">🏛</div><div class="sp-t">持璧倚柱</div><div class="sp-x">相如退到柱旁，怒髮衝冠，說要把頭和璧一起撞碎。</div><div class="sp-q">臣頭今與璧俱碎於柱矣</div></div><div class="sp"><div class="sp-n">4</div><div class="sp-e">🗺</div><div class="sp-t">假意劃城</div><div class="sp-x">秦王怕璧碎，叫官員查地圖，指出十五座城。相如看穿是假的。</div><div class="sp-q">相如度秦王特以詐佯為予趙城</div></div><div class="sp"><div class="sp-n">5</div><div class="sp-e">🙏</div><div class="sp-t">要求齋戒</div><div class="sp-x">相如要秦王像趙王一樣齋戒五天，並設九賓之禮，才肯交璧。</div><div class="sp-q">今大王亦宜齋戒五日</div></div><div class="sp"><div class="sp-n">6</div><div class="sp-e">🌙</div><div class="sp-t">暗送璧回</div><div class="sp-x">相如讓隨從穿上粗布衣，帶着璧從小路逃回趙國。</div><div class="sp-q">懷其璧，從徑道亡</div></div><div class="sp"><div class="sp-n">7</div><div class="sp-e">⚖️</div><div class="sp-t">九賓禮上</div><div class="sp-x">相如說出璧已送回，願意受死，請秦王和大臣仔細商量。</div><div class="sp-q">臣請就湯鑊</div></div><div class="sp"><div class="sp-n">8</div><div class="sp-e">🏠</div><div class="sp-t">平安回國</div><div class="sp-x">秦王想到殺了相如也得不到璧，只好放他回國。相如升為上大夫。</div><div class="sp-q">卒廷見相如，畢禮而歸之</div></div></div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">相如先用計取回璧，再以死相逼，又借齋戒拖延時間，把璧送回趙國。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><ul class="tight"><li><b>智：</b>用「璧有瑕」做藉口取回璧；看穿秦王假意劃城；用齋戒五天爭取時間送璧。</li><li><b>勇：</b>持璧倚柱，要與璧同碎；在九賓禮上坦然承認送走了璧，甘願受死。</li><li><b>秦王為甚麼放人：</b>他自己說，殺了相如「終不能得璧」，反而「絕秦趙之驩」，破壞兩國關係。</li></ul></div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">相如藉「璧有瑕」巧取寶璧，持璧睨柱以死相逼，又要求齋戒五日以拖延時間，暗中送璧歸趙，最後在九賓禮上據理力陳，表現他機智過人、勇敢無畏，終於實踐「完璧歸趙」的承諾。</div></div></div>
+
+<div class="stage-row">
+<div class="stage s-b"><div class="stage-t">章臺初見</div>傳璧給妃嬪看<br><span class="stage-w">傲慢</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-a"><div class="stage-t">相如持璧</div>辭謝固請<br><span class="stage-w">驚恐</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-c"><div class="stage-t">九賓禮上</div>相視而嘻<br><span class="stage-w">驚怒</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-a" style="background:var(--amber-bg)"><div class="stage-t">最後</div>厚遇而歸之<br><span class="stage-w">權衡讓步</span></div>
+</div>
+<p class="small">秦王的態度：傲慢 → 驚恐 → 驚怒 → 權衡讓步。秦王一步步退讓，正好反襯相如的智勇。</p>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>第5段：澠池之會</h3>
+<ul class="tight">
+<li><b>出發前：</b>趙王怕秦國，想不去。廉頗、相如都說不去會顯得趙國軟弱膽怯。</li>
+<li><b>廉頗送行：</b>三十天不回來，就立太子為王，令秦國不能拿趙王要挾趙國。</li>
+</ul>
+<svg class="chart" viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="澠池之會比分表">
+<g font-size="13">
+<rect x="10" y="10" width="700" height="44" rx="10" fill="#555" fill-opacity="0.12"/>
+<text x="120" y="38" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">回合</text>
+<text x="330" y="38" text-anchor="middle" font-weight="700" fill="#555">秦方出招</text>
+<text x="580" y="38" text-anchor="middle" font-weight="700" fill="#96702F">趙方（藺相如）回應</text>
+<text x="120" y="92" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">第一回合：音樂</text>
+<rect x="210" y="66" width="240" height="56" rx="8" fill="var(--color-background-secondary)"/>
+<text x="330" y="88" text-anchor="middle" fill="var(--color-text-primary)">請趙王鼓瑟，</text>
+<text x="330" y="108" text-anchor="middle" fill="var(--color-text-primary)">秦御史記「令趙王鼓瑟」</text>
+<rect x="460" y="66" width="240" height="56" rx="8" fill="#D9B07C" fill-opacity="0.3"/>
+<text x="580" y="88" text-anchor="middle" fill="var(--color-text-primary)">以頸血相逼，令秦王擊缻，</text>
+<text x="580" y="108" text-anchor="middle" fill="var(--color-text-primary)">趙御史記「秦王為趙王擊缻」</text>
+<text x="120" y="160" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">第二回合：祝壽</text>
+<rect x="210" y="134" width="240" height="56" rx="8" fill="var(--color-background-secondary)"/>
+<text x="330" y="156" text-anchor="middle" fill="var(--color-text-primary)">秦羣臣：請以趙十五城</text>
+<text x="330" y="176" text-anchor="middle" fill="var(--color-text-primary)">為秦王壽</text>
+<rect x="460" y="134" width="240" height="56" rx="8" fill="#D9B07C" fill-opacity="0.3"/>
+<text x="580" y="156" text-anchor="middle" fill="var(--color-text-primary)">相如：請以秦之咸陽</text>
+<text x="580" y="176" text-anchor="middle" fill="var(--color-text-primary)">為趙王壽</text>
+<text x="120" y="228" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">場外：軍力</text>
+<rect x="210" y="202" width="240" height="56" rx="8" fill="var(--color-background-secondary)"/>
+<text x="330" y="234" text-anchor="middle" fill="var(--color-text-primary)">秦國不敢輕舉妄動</text>
+<rect x="460" y="202" width="240" height="56" rx="8" fill="#D9B07C" fill-opacity="0.3"/>
+<text x="580" y="224" text-anchor="middle" fill="var(--color-text-primary)">趙亦盛設兵以待秦</text>
+<text x="580" y="244" text-anchor="middle" fill="var(--color-text-primary)">（趙國大量部署軍隊）</text>
+<rect x="10" y="268" width="700" height="28" rx="8" fill="#96702F"/>
+<text x="360" y="287" text-anchor="middle" font-weight="700" fill="#FFF6E6">結果：秦王竟酒，終不能加勝於趙；秦不敢動</text>
+</g>
+</svg><div class="chat"><div><div class="who">秦王</div><div class="bubble"><span class="bo">寡人竊聞趙王好音，請奏瑟。</span><span class="bp">我聽說趙王喜歡音樂，請彈一彈瑟吧。</span></div></div><div class="row-r"><div class="who">藺相如</div><div class="bubble"><span class="bo">趙王竊聞秦王善為秦聲，請奏盆缻秦王，以相娛樂。</span><span class="bp">趙王聽說秦王擅長秦國音樂，請讓我把盆缻獻給秦王，大家一起娛樂。</span></div></div><div class="row-r"><div class="who">藺相如（秦王不肯時）</div><div class="bubble"><span class="bo">五步之內，相如請得以頸血濺大王矣！</span><span class="bp">五步之內，我可以把頸血濺到大王身上。</span></div></div></div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">秦王想羞辱趙王，相如每一招都還以顏色，秦國始終佔不到上風。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><ul class="tight"><li>秦王叫趙王彈瑟，還叫御史記下「令趙王鼓瑟」，把趙王寫成聽命的人。</li><li>相如以死相逼，令秦王擊缻，也叫趙國御史記下「秦王為趙王擊缻」。</li><li>秦國大臣要趙國送十五座城祝壽，相如就要秦國送都城咸陽祝壽。</li><li>趙國又大量部署軍隊，秦國不敢輕舉妄動。</li></ul></div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">澠池之會上，相如針鋒相對，以「頸血濺大王」相逼，令秦王為趙王擊缻，又以「秦之咸陽為趙王壽」反擊，維護了趙國的尊嚴；加上趙國「盛設兵以待秦」，秦國終不能加勝於趙。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot green"></span>第6段：負荊請罪</h3>
+<div class="story s3">
+<div class="sp"><div class="sp-n">1</div><div class="sp-e">🎖</div><div class="sp-t">相如升官</div><div class="sp-x">拜為上卿，地位在廉頗之上。</div><div class="sp-q">位在廉頗之右</div></div>
+<div class="sp"><div class="sp-n">2</div><div class="sp-e">😤</div><div class="sp-t">廉頗不服</div><div class="sp-x">揚言見到相如，一定要羞辱他。</div><div class="sp-q">我見相如，必辱之</div></div>
+<div class="sp"><div class="sp-n">3</div><div class="sp-e">🚗</div><div class="sp-t">相如避讓</div><div class="sp-x">稱病不上朝，遠遠看見廉頗就調轉車子避開。</div><div class="sp-q">引車避匿</div></div>
+<div class="sp"><div class="sp-n">4</div><div class="sp-e">🙇</div><div class="sp-t">門客請辭</div><div class="sp-x">門客以為相如害怕廉頗，覺得羞恥，要離開。</div><div class="sp-q">臣等不肖，請辭去</div></div>
+<div class="sp"><div class="sp-n">5</div><div class="sp-e">🐯</div><div class="sp-t">相如解釋</div><div class="sp-x">兩虎相鬥必有一傷，國家的事要放在前面。</div><div class="sp-q">先國家之急而後私讎也</div></div>
+<div class="sp"><div class="sp-n">6</div><div class="sp-e">🤝</div><div class="sp-t">廉頗請罪</div><div class="sp-x">廉頗赤裸上身，背着荊條上門認錯，兩人成為生死之交。</div><div class="sp-q">卒相與驩，為刎頸之交</div></div>
+</div>
+<div class="chat"><div><div class="who">廉頗</div><div class="bubble"><span class="bo">藺相如徒以口舌為勞，而位居我上，且相如素賤人……</span><span class="bp">相如只靠一張嘴，地位卻比我高，而且他出身卑賤。</span></div></div><div><div class="who">門客</div><div class="bubble"><span class="bo">廉君宣惡言而君畏匿之，恐懼殊甚……</span><span class="bp">廉頗說您壞話，您卻怕得躲起來，太膽小了。</span></div></div><div class="row-r"><div class="who">藺相如</div><div class="bubble"><span class="bo">公之視廉將軍孰與秦王？</span><span class="bp">你們看廉將軍和秦王比，哪一個厲害？</span></div></div><div class="row-r"><div class="who">藺相如</div><div class="bubble"><span class="bo">今兩虎共鬥，其勢不俱生。吾所以為此者，以先國家之急而後私讎也。</span><span class="bp">兩虎相鬥，按形勢不能都活下來。我這樣做，是把國家的危難放在前面，個人的仇怨放在後面。</span></div></div><div><div class="who">廉頗（肉袒負荊）</div><div class="bubble"><span class="bo">鄙賤之人，不知將軍寬之至此也。</span><span class="bp">我這個粗人，想不到將軍寬容我到這個地步。</span></div></div></div>
+<svg class="chart" viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="相如心中的天秤">
+<g transform="translate(320 0)">
+<path d="M0 80 V200" stroke="#96702F" stroke-width="4"/>
+<path d="M-60 210 H60" stroke="#96702F" stroke-width="6" stroke-linecap="round"/>
+<circle cx="0" cy="80" r="8" fill="#96702F"/>
+<path d="M-200 80 L200 0" stroke="#96702F" stroke-width="4" stroke-linecap="round" transform="translate(0 40) rotate(0)"/>
+<path d="M-200 120 V150 M200 40 V70" stroke="#96702F" stroke-width="1.5"/>
+<path d="M-260 150 H-140 L-160 178 H-240 Z" fill="#D9B07C" stroke="#96702F"/>
+<text x="-200" y="169" text-anchor="middle" font-size="15" font-weight="700" fill="#3B2A14">國家之急</text>
+<text x="-200" y="200" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">強秦不敢攻趙，因有廉藺二人</text>
+<path d="M140 70 H260 L240 98 H160 Z" fill="var(--color-background-secondary)" stroke="#96702F"/>
+<text x="200" y="89" text-anchor="middle" font-size="15" font-weight="700" fill="var(--color-text-primary)">私讎</text>
+<text x="200" y="120" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">廉頗要羞辱我</text>
+</g>
+<text x="320" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">先國家之急而後私讎：國家安危比個人面子重要得多</text>
+</svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">廉頗不服相如，相如為了國家一再退讓；廉頗明白後，親自上門請罪。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><ul class="tight"><li><b>廉頗不服：</b>自恃戰功大，又嫌相如出身卑賤。</li><li><b>相如避讓：</b>他連秦王也敢當面呵斥，怎會怕廉頗？他怕的是兩人相爭，令秦國有機可乘。</li><li><b>廉頗請罪：</b>明白相如用心後，赤裸上身、背着荊條上門認錯。</li></ul></div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">相如以「兩虎共鬥，其勢不俱生」說明避讓的原因，表現他「先國家之急而後私讎」、顧全大局的胸襟；廉頗聞言即「肉袒負荊」請罪，表現他知錯能改、以國事為重。</div></div></div>
+
+</div>
+<div class="card"><h3><span class="dot red"></span>人物性格一覽</h3>
+<div class="trait-grid">
+<div class="trait"><div class="trait-h">藺相如：智</div><div class="trait-e">分析「曲在趙」「曲在秦」；藉口「璧有瑕」取回璧；要求齋戒五日，拖延時間送璧回國。</div></div>
+<div class="trait"><div class="trait-h">藺相如：勇</div><div class="trait-e">持璧睨柱，要與璧俱碎；在澠池說要以頸血濺秦王；張目叱退秦王侍從。</div></div>
+<div class="trait"><div class="trait-h">藺相如：顧全大局</div><div class="trait-e">面對廉頗的挑釁一再避讓，因為「先國家之急而後私讎」。</div></div>
+<div class="trait"><div class="trait-h">廉頗：勇猛善戰、忠心</div><div class="trait-e">伐齊大勝，「以勇氣聞於諸侯」；澠池之會前提出「三十日不還，則請立太子為王」，防範秦國要挾趙國。</div></div>
+<div class="trait"><div class="trait-h">廉頗：心胸較窄</div><div class="trait-e">不服相如地位在己之上，嫌他出身卑賤，揚言要羞辱他。</div></div>
+<div class="trait"><div class="trait-h">廉頗：知錯能改</div><div class="trait-e">明白相如用心後，立即肉袒負荊，上門請罪。</div></div>
+</div>
+<p class="small">秦王：貪婪狡詐（用空話騙璧、假裝劃城），但懂得權衡利害（不殺相如）。趙王：畏懼秦國（欲毋行），但能聽取意見、重用人才。</p>
+</div>
+
+<div class="formula"><div class="fl">一句記全文</div>藺相如<b>完璧歸趙、澠池護國</b>，智勇雙全；為國忍讓廉頗，<b>先國家之急而後私讎</b>；廉頗<b>肉袒負荊</b>，知錯能改，將相重歸於好。</div>
+
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">三個常見錯誤</div><div class="alert-text">（1）相如避讓廉頗，是為了國家，不可答成「相如害怕廉頗」；門客說他「恐懼殊甚」，是門客的誤會。<br>（2）「完璧歸趙」是相如派隨從把璧從小路送回趙國，相如本人留在秦國，九賓禮後才回國。<br>（3）澠池之會上，秦國最後沒有佔到上風，但趙國也沒有「打敗」秦國；答題時用「終不能加勝於趙」較準確。</div></div></div>
+<div class="section-header ex" id="s6"><div class="icon">✏️</div><div><div class="chap">CHAPTER 06　練習</div><h2>練習三：內容理解</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>面對秦國「以十五城請易璧」，趙國的難處是：<ul class="opts one"><li><b>A</b>給璧怕被騙，不給又怕秦國出兵</li><li><b>B</b>國內沒有和氏璧</li><li><b>C</b>趙王不捨得和氏璧</li><li><b>D</b>秦國要求的城池太多</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>繆賢向趙王推薦相如時，用了哪件事作例子？<ul class="opts one"><li><b>A</b>相如曾經出使燕國</li><li><b>B</b>相如勸繆賢不要逃往燕國，改為向趙王請罪</li><li><b>C</b>相如曾經打敗齊國</li><li><b>D</b>相如曾經獻計攻打秦國</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>根據文章內容，判斷以下陳述。<table><tr><th>陳述</th><th class="c ctr">正確</th><th class="c ctr">錯誤</th><th class="c ctr">無從判斷</th></tr><tr><td>（1）秦王在章臺接見相如時，禮節十分隆重。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（2）相如出使前，曾與趙王商量送璧回國的路線。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（3）秦王最終沒有殺相如，並讓他回國。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）錯誤　（2）無從判斷　（3）正確<br><span class="ex">（1）相如指秦王「見臣列觀，禮節甚倨」。（2）文中沒有提及相如出使前與趙王商量過送璧回國的路線。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>試就秦王在「完璧歸趙」中的態度變化完成下表。<table><tr><th class="c">情節</th><th>秦王的態度</th></tr><tr><td class="c">章臺初見相如</td><td>（1）<span class="blank l"></span></td></tr><tr><td class="c">相如持璧欲擊柱</td><td>（2）<span class="blank l"></span></td></tr><tr><td class="c">九賓禮上得知璧已送回</td><td>（3）<span class="blank l"></span></td></tr><tr><td class="c">最後</td><td>（4）<span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）傲慢、輕視（「禮節甚倨」）　（2）驚恐，低聲下氣（「辭謝固請」）　（3）驚怒（「相視而嘻」）　（4）權衡利害，厚待相如，讓他回國</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>澠池之會上，相如堅持要秦王擊缻，主要目的是：<ul class="opts one"><li><b>A</b>報復秦王攻打趙國</li><li><b>B</b>讓秦王出醜，引起兩國戰爭</li><li><b>C</b>令趙王不再單方面受辱，維護趙國尊嚴</li><li><b>D</b>顯示自己精通音樂</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>廉頗送趙王到邊境時說：「三十日不還，則請立太子為王，以絕秦望。」這表現了廉頗甚麼品格？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）忠心為國，以國家安危為重（1分）；考慮周到，預先防範秦國以趙王要挾趙國（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>廉頗為甚麼不服藺相如？試列出兩個原因。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）廉頗自恃有攻城野戰的大功，認為相如只靠口舌立功（1分）；又嫌相如本來出身卑賤（「素賤人」）（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>相如問門客「公之視廉將軍孰與秦王」，用意是：<ul class="opts one"><li><b>A</b>稱讚廉頗比秦王更厲害</li><li><b>B</b>暗示門客應該離開</li><li><b>C</b>表示自己害怕廉頗</li><li><b>D</b>說明自己連秦王也不怕，避讓廉頗另有原因</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>相如為甚麼一再避讓廉頗？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）強秦不敢攻打趙國，只因為有廉、藺二人在（1分）；兩人相爭如「兩虎共鬥」，必有損傷，危害國家，所以他先國家之急而後私讎（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>廉頗聽到相如的話後有甚麼行動？這表現了他怎樣的性格？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）廉頗赤裸上身，背着荊條，通過賓客引領到相如家門前請罪（1分）。這表現他知錯能改（1分），而且坦率真誠、以國事為重（1分）。</div></div></div>
+<div class="section-header" id="s7"><div class="icon">🖌</div><div><div class="chap">CHAPTER 07　教學</div><h2>作者用了哪些寫法</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>先看全局：以事寫人</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">作者沒有直接說「相如很聰明」，只寫了三件事，讓讀者自己看出來。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><ul class="tight"><li>完璧歸趙：寫相如的<b>智和勇</b>。</li><li>澠池之會：再寫他的<b>勇</b>，以及維護國家尊嚴。</li><li>負荊請罪：寫他的<b>胸襟</b>和廉頗的知錯能改。</li></ul>三件事一件比一件深入，這種寫法叫「以事寫人」。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者選取完璧歸趙、澠池之會、負荊請罪三件事，層層深入地表現藺相如智勇雙全、顧全大局的形象。</div></div></div>
+
+<p style="margin-top:12px"><b>七種寫法一覽</b>（下面逐一說明）</p>
+<div class="tk-grid">
+<div class="tk-c"><b>💬 語言</b>聽他說甚麼</div>
+<div class="tk-c"><b>🎭 動作神態</b>看他做甚麼、甚麼表情</div>
+<div class="tk-c"><b>👥 側面</b>看別人怎樣說他、怎樣反應</div>
+<div class="tk-c"><b>⚖️ 對比</b>兩樣放在一起比</div>
+<div class="tk-c"><b>🔎 誇張</b>故意說大一點</div>
+<div class="tk-c"><b>🧵 伏筆照應</b>前面埋線，後面收線</div>
+<div class="tk-c"><b>✂️ 詳略</b>重要的多寫，次要的少寫</div>
+</div>
+</div>
+<div class="card"><h3><span class="dot blue"></span>寫法一：語言描寫</h3>
+<div class="tk"><div class="tk-i">💬</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>透過人物說的話，表現他的想法和性格。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「曲在趙……曲在秦」：分析條理分明，見其<b>智</b>。</li><li>「臣頭今與璧俱碎於柱矣」：語氣決絕，見其<b>勇</b>。</li><li>「先國家之急而後私讎也」：見其<b>胸襟</b>。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>人物對話多，讀者好像親耳聽到人物說話，形象更生動。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot coral"></span>寫法二：動作、神態描寫</h3>
+<div class="tk"><div class="tk-i">🎭</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>寫人物做了甚麼（動作），臉上是甚麼樣子（神態）。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>動作：「持璧卻立，倚柱」「引車避匿」「肉袒負荊」</li><li>神態：「怒髮上衝冠」「張目叱之」</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>「卻立，倚柱」寫相如隨時準備撞璧，「張目叱之」寫他威嚴逼人，讀者如在眼前。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot teal"></span>寫法三：側面描寫（襯托）</h3>
+<div class="tk"><div class="tk-i">👥</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>透過別人的話或反應，間接突出主角。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>繆賢稱相如「勇士，有智謀」：相如還未正式登場，讀者已知他有勇有謀。</li><li>秦王左右被相如一喝「皆靡」：襯托他氣勢逼人。</li><li>門客誤會他「恐懼殊甚」：引出他說出真正原因。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>不由作者直接稱讚，而由旁人反映，更有說服力。</div>
+</div></div></div>
+
+<div class="card"><h3><span class="dot amber"></span>寫法四：對比</h3>
+<svg class="chart" viewBox="0 0 720 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="相如對秦王和對廉頗的不同態度">
+<defs><linearGradient id="goldCard2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F6E7C6"/><stop offset="1" stop-color="#E2BF86"/></linearGradient></defs>
+<rect x="10" y="20" width="300" height="230" rx="14" fill="var(--red-bg)" stroke="#c0392b" stroke-opacity="0.45"/>
+<text x="160" y="52" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b" letter-spacing="2">對外：面對秦王</text>
+<text x="160" y="80" text-anchor="middle" font-size="18" font-weight="700" fill="var(--color-text-primary)">寸步不讓</text>
+<g font-size="13" fill="var(--color-text-primary)">
+<text x="34" y="116">・持璧睨柱，要與璧俱碎</text>
+<text x="34" y="144">・九賓禮上，請就湯鑊</text>
+<text x="34" y="172">・五步之內，以頸血濺大王</text>
+<text x="34" y="200">・廷叱秦王，辱其羣臣</text>
+</g>
+<text x="160" y="234" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">為了國家尊嚴，連命也不顧</text>
+<rect x="410" y="20" width="300" height="230" rx="14" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.45"/>
+<text x="560" y="52" text-anchor="middle" font-size="12" font-weight="700" fill="#3d8b4f" letter-spacing="2">對內：面對廉頗</text>
+<text x="560" y="80" text-anchor="middle" font-size="18" font-weight="700" fill="var(--color-text-primary)">一再退讓</text>
+<g font-size="13" fill="var(--color-text-primary)">
+<text x="434" y="116">・不肯與會</text>
+<text x="434" y="144">・每朝常稱病，不欲爭列</text>
+<text x="434" y="172">・望見廉頗，引車避匿</text>
+<text x="434" y="200">・門客請辭，仍不改變</text>
+</g>
+<text x="560" y="234" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">為了國家團結，連面子也不要</text>
+<rect x="318" y="92" width="84" height="86" rx="10" fill="url(#goldCard2)" stroke="#96702F"/>
+<text x="360" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#3B2A14">同一個</text>
+<text x="360" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="#3B2A14">原因</text>
+<text x="360" y="162" text-anchor="middle" font-size="11.5" fill="#3B2A14">國家為先</text>
+</svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">相如對秦王強硬，對廉頗退讓。兩種態度一比，就看出他以國家為先。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><ul class="tight"><li><b>主要對比：</b>對秦王寸步不讓，對廉頗處處避開。</li><li><b>其他對比：</b>廉頗靠武功，相如靠口才；廉頗尊貴，相如出身低微；秦王前倨後恭。</li></ul></div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者以相如對秦王的強硬與對廉頗的退讓作對比，突出他不畏強權、顧全大局的形象。</div></div></div>
+
+</div>
+<div class="card"><h3><span class="dot pink"></span>寫法五：誇張</h3>
+<div class="tk"><div class="tk-i">🔎</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>故意把程度說得比實際大，加強效果。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「怒髮上衝冠」：頭髮豎起來，把帽子也頂起來。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>誇大相如的憤怒，表現他義正辭嚴，毫不畏懼秦王。</div>
+</div></div></div>
+
+<div class="card"><h3><span class="dot green"></span>寫法六：伏筆和照應</h3>
+<svg class="chart" viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="前後照應">
+<defs><marker id="arE" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs>
+<g font-size="13">
+<rect x="10" y="20" width="250" height="60" rx="10" fill="var(--blue-bg)"/>
+<text x="135" y="44" text-anchor="middle" font-weight="700" fill="#3a6ea5">第1段</text>
+<text x="135" y="66" text-anchor="middle" fill="var(--color-text-primary)">相如只是「繆賢舍人」</text>
+<rect x="460" y="20" width="250" height="60" rx="10" fill="var(--blue-bg)"/>
+<text x="585" y="44" text-anchor="middle" font-weight="700" fill="#3a6ea5">第6段</text>
+<text x="585" y="66" text-anchor="middle" fill="var(--color-text-primary)">廉頗嫌相如「素賤人」</text>
+<rect x="10" y="100" width="250" height="60" rx="10" fill="var(--coral-bg)"/>
+<text x="135" y="124" text-anchor="middle" font-weight="700" fill="#d0654a">第2段</text>
+<text x="135" y="146" text-anchor="middle" fill="var(--color-text-primary)">相如勸繆賢「肉袒伏斧質請罪」</text>
+<rect x="460" y="100" width="250" height="60" rx="10" fill="var(--coral-bg)"/>
+<text x="585" y="124" text-anchor="middle" font-weight="700" fill="#d0654a">第6段</text>
+<text x="585" y="146" text-anchor="middle" fill="var(--color-text-primary)">廉頗「肉袒負荊」請罪</text>
+<rect x="10" y="180" width="250" height="60" rx="10" fill="var(--green-bg)"/>
+<text x="135" y="204" text-anchor="middle" font-weight="700" fill="#3d8b4f">第2段</text>
+<text x="135" y="226" text-anchor="middle" fill="var(--color-text-primary)">相如承諾「完璧歸趙」</text>
+<rect x="460" y="180" width="250" height="60" rx="10" fill="var(--green-bg)"/>
+<text x="585" y="204" text-anchor="middle" font-weight="700" fill="#3d8b4f">第3段</text>
+<text x="585" y="226" text-anchor="middle" fill="var(--color-text-primary)">「歸璧於趙」，實踐承諾</text>
+</g>
+<g stroke="#96702F" stroke-width="2" fill="none"><path d="M262 50 H456" marker-end="url(#arE)"/><path d="M262 130 H456" marker-end="url(#arE)"/><path d="M262 210 H456" marker-end="url(#arE)"/></g>
+<g font-size="12" fill="#96702F" font-weight="700"><text x="359" y="42" text-anchor="middle">伏筆 → 照應</text><text x="359" y="122" text-anchor="middle">同一個請罪方式</text><text x="359" y="202" text-anchor="middle">承諾 → 實現</text></g>
+</svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">伏筆是前面先埋下線索，照應是前後內容互相呼應。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><ul class="tight"><li><b>伏筆：</b>第1段寫相如只是門客 → 第6段廉頗嫌他「素賤人」。</li><li><b>照應：</b>第2段相如教繆賢「肉袒伏斧質請罪」 → 第6段廉頗「肉袒負荊」請罪。</li><li><b>照應：</b>第2段相如承諾「完璧歸趙」 → 第3段「歸璧於趙」。</li></ul></div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">第1段寫二人身份懸殊，為第6段廉頗不服埋下伏筆；第2段「肉袒伏斧質請罪」與第6段「肉袒負荊」前後照應，使全文結構嚴密。</div></div></div>
+
+</div>
+<div class="card"><h3><span class="dot purple"></span>寫法七：詳略得宜</h3>
+<div class="tk"><div class="tk-i">✂️</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>重要的寫得多（詳寫），次要的寫得少（略寫）。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>略寫：廉頗伐齊只一句「大破之，取陽晉」；秦攻趙只寫「拔石城」「殺二萬人」。</li><li>詳寫：完璧歸趙佔了三段，相如的言行寫得十分仔細。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>把篇幅留給主角相如；廉頗的戰功只需交代他地位尊貴，為後文他不服相如作鋪墊。</div>
+</div></div></div>
+
+<div class="card"><h3><span class="dot red"></span>主旨：作者最想說甚麼</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">相如智勇雙全、以國家為重，廉頗知錯能改；將相同心，國家才能抵抗強敵。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><ul class="tight"><li>對外：相如不畏強秦，維護國家尊嚴。</li><li>對內：相如為國忍讓，廉頗勇於認錯。</li><li>秦國不敢攻趙，靠的是將相兩人；兩人和好，趙國更穩固。</li></ul></div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">本文透過三件事，表現藺相如智勇雙全、「先國家之急而後私讎」的胸襟，以及廉頗知錯能改的品格，說明將相團結、以國家利益為重，國家才能抵禦外侮。</div></div></div>
+
+</div>
+
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">寫法題答題三步</div><div class="alert-text">① 說出手法名稱 → ② 引用原文例子 → ③ 說明效果（扣連人物性格或主旨）。<br>示例：作者運用神態描寫（①），寫相如「怒髮上衝冠」（②），表現他極度憤怒、不畏秦王的形象（③）。</div></div></div>
+<div class="section-header ex" id="s8"><div class="icon">✏️</div><div><div class="chap">CHAPTER 08　練習</div><h2>練習四：寫作手法與主旨</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「怒髮上衝冠」主要運用了哪種修辭手法？<ul class="opts"><li><b>A</b>比喻</li><li><b>B</b>誇張</li><li><b>C</b>擬人</li><li><b>D</b>借代</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>作者透過繆賢的推薦介紹相如的才能，屬於哪種寫法？<ul class="opts"><li><b>A</b>側面描寫</li><li><b>B</b>正面描寫</li><li><b>C</b>景物描寫</li><li><b>D</b>心理描寫</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>指出下列文句主要運用了哪種人物描寫，把代表答案的英文字母填在括號內。<p class="small">A　語言描寫　　B　動作描寫　　C　神態描寫</p><table><tr><th>文句</th><th class="c ctr">答案</th></tr><tr><td>（1）大王必欲急臣，臣頭今與璧俱碎於柱矣！</td><td class="ctr">（　　）</td></tr><tr><td>（2）相如因持璧卻立，倚柱</td><td class="ctr">（　　）</td></tr><tr><td>（3）怒髮上衝冠</td><td class="ctr">（　　）</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）A　（2）B　（3）C</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>第6段「廉頗聞之，肉袒負荊」與第2段「君不如肉袒伏斧質請罪」，兩者的關係是：<ul class="opts"><li><b>A</b>對比</li><li><b>B</b>排比</li><li><b>C</b>照應</li><li><b>D</b>設問</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>判斷以下說法是否正確。正確的寫「✓」，錯誤的寫「✗」。<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr><tr><td>（1）本文透過三件事刻畫人物。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（2）作者詳細記述了廉頗攻打齊國的經過。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（3）第1段寫二人身份懸殊，為下文將相失和埋下伏筆。</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）✓　（2）✗　（3）✓<br><span class="ex">（2）廉頗伐齊只用「大破之，取陽晉」一句帶過，屬略寫。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>相如面對秦王和面對廉頗的態度有甚麼不同？作者這樣寫有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）相如對秦王寸步不讓，對廉頗卻一再退讓（1分）；兩相對比，突出相如不畏強權、以國家利益為先的胸襟（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>「左右欲刃相如，相如張目叱之，左右皆靡」運用了甚麼寫法表現相如？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）側面描寫（襯托）（1分）。作者寫秦王的侍從被相如一喝便全部後退（1分），襯托出相如威嚴勇猛、氣勢逼人（1分）。<br><span class="ex">答「神態描寫」並以「張目叱之」說明相如威嚴，可給1分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>下列哪一項最能概括本文的主旨？<ul class="opts one"><li><b>A</b>讚美和氏璧價值連城</li><li><b>B</b>批評秦王貪婪無信</li><li><b>C</b>記述戰國時代的外交禮節</li><li><b>D</b>讚揚藺相如智勇雙全、以國家為重，以及廉頗知錯能改</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>作者寫秦王在章臺上先傲慢、後「辭謝固請」，有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）秦王的態度由傲慢變為低聲下氣（1分），反襯相如以智勇迫使強秦讓步，突出相如的形象（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>試以「完璧歸趙」為例，說明作者如何透過人物的語言表現藺相如的智慧。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，示例）相如以「璧有瑕，請指示王」為藉口，把璧拿回手中（1分）；又以「趙王送璧時，齋戒五日，今大王亦宜齋戒五日」為理由，要求秦王齋戒，藉此拖延時間送璧回國（1分）。兩番話都合情合理，令秦王無法拒絕，可見相如機智過人（1分）。<br><span class="ex">其他合理例子，如以「曲在趙」「曲在秦」分析利害，亦可給分。</span></div></div></div>
+<div class="section-header ex" id="s9"><div class="icon">📝</div><div><div class="chap">CHAPTER 09　模擬試題</div><h2>DSE 模擬試題</h2></div></div>
 <div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
 
-<div class="qsub">甲部　字詞解釋（8分）</div>
-<div class="qbox"><span class="qn">1.</span>解釋下列文句中「」內的字。<span class="mark">（每題1分，共8分）</span>
-  <table>
-    <tr><th>題號</th><th>文句（段落）</th><th>解釋</th></tr>
-    <tr><td class="c">（1）</td><td>使人「遺」趙王書（第2段）</td><td style="width:40%"></td></tr>
-    <tr><td class="c">（2）</td><td>願以十五城請「易」璧（第2段）</td><td></td></tr>
-    <tr><td class="c">（3）</td><td>秦城恐不可得，「徒」見欺（第2段）</td><td></td></tr>
-    <tr><td class="c">（4）</td><td>而君「幸」於趙王（第2段）</td><td></td></tr>
-    <tr><td class="c">（5）</td><td>寧許以「負」秦曲（第2段）</td><td></td></tr>
-    <tr><td class="c">（6）</td><td>相如持其璧「睨」柱（第3段）</td><td></td></tr>
-    <tr><td class="c">（7）</td><td>故令人持璧歸，「間」至趙矣（第4段）</td><td></td></tr>
-    <tr><td class="c">（8）</td><td>相如「引」車避匿（第7段）</td><td></td></tr>
-  </table>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（每題1分）<br>（1）送給　（2）交換　（3）白白地　（4）受寵愛<br>（5）使……承擔　（6）斜視　（7）抄小路、秘密地　（8）掉轉</div>
-  </div>
-</div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">作答提示</div><div class="alert-text">本卷共20題，滿分70分。題型參照文憑試卷一甲部「指定文言篇章」：第1至13題為短答題，包括字詞解釋、語譯、選擇、判斷及填表；第14至20題為長問答，每題6分，分別考核敘事結構、人物形象、人物評鑒、描寫手法、文意評鑒、前後呼應及詳略剪裁。<br>（1）解釋字詞要按句意作答，不可只寫字典上的第一個意思。<br>（2）語譯要把關鍵字詞逐一譯出，句子要通順。<br>（3）長問答一般每1分對應一個要點；每個要點都要引用原文，再用自己的話說明。</div></div></div>
+<div class="qsub">甲　短答題（第1至13題）</div>
+<div class="qbox"><span class="mark">（5分）</span><span class="qn">1.</span>解釋下列文句中的粗體字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）以勇氣<b>聞</b>於諸侯</td><td><span class="blank l"></span></td></tr><tr><td>（2）相如視秦王無意<b>償</b>趙城</td><td><span class="blank l"></span></td></tr><tr><td>（3）乃辭謝<b>固</b>請</td><td><span class="blank l"></span></td></tr><tr><td>（4）臣請<b>就</b>湯鑊</td><td><span class="blank l"></span></td></tr><tr><td>（5）於是秦王不<b>懌</b></td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分，每項1分）（1）出名　（2）抵償　（3）堅決　（4）接受　（5）高興</div></div></div>
 
-<div class="qsub">乙部　語譯（6分）</div>
-<div class="qbox"><span class="qn">2.</span>把下列文句譯為白話文：均之二策，寧許以負秦曲。（第2段）<span class="mark">（2分）</span>
-  <div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）衡量這兩個策略（1分），寧可答應秦國，讓秦國承擔理虧的責任。（1分）</div>
-  </div>
-</div>
-<div class="qbox"><span class="qn">3.</span>把下列文句譯為白話文：臣以為布衣之交尚不相欺，況大國乎！（第3段）<span class="mark">（2分）</span>
-  <div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）我認為平民之間的交往尚且不互相欺騙（1分），何況是大國呢！（1分）</div>
-  </div>
-</div>
-<div class="qbox"><span class="qn">4.</span>把下列文句譯為白話文：吾所以為此者，以先國家之急而後私讎也。（第7段）<span class="mark">（2分）</span>
-  <div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）我之所以這樣做（1分），是因為把國家的危急放在前面，而把私人的仇怨放在後面。（1分）</div>
-  </div>
-</div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">2.</span>解釋下列文句中的粗體字詞。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）<b>均</b>之二策</td><td><span class="blank l"></span></td></tr><tr><td>（2）唯大王與羣臣<b>孰</b>計議之</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）衡量、比較　（2）通「熟」，仔細</div></div></div>
 
-<!-- 08 -->
-<div class="section-header" id="s8">
-  <div class="sh-icon">📝</div>
-  <div class="sh-text"><div class="ch">CHAPTER 08</div><h2>練習二：理解及分析</h2></div>
-</div>
-<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span>「相如<b>度</b>秦王特以詐佯為予趙城」中「度」的意思是：<ul class="opts"><li><b>A</b>揣測</li><li><b>B</b>量度</li><li><b>C</b>法度</li><li><b>D</b>度過</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
 
-<div class="qsub">丙部　理解及分析（26分）</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span>下列哪一項中的「者」，用法與「廉頗<b>者</b>，趙之良將也」的「者」相同？<ul class="opts one"><li><b>A</b>求人可使報秦<b>者</b></li><li><b>B</b>藺相如<b>者</b>，趙人也</li><li><b>C</b>臣所以去親戚而事君<b>者</b></li><li><b>D</b>何<b>者</b>？嚴大國之威以修敬也</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">「廉頗者」「藺相如者」的「者」用在主語後，引出下文的判斷，構成「……者，……也」的判斷句。</span></div></div></div>
 
-<div class="qbox"><span class="qn">5.</span>第1段介紹廉頗和藺相如的身分。這一段在全文結構上有甚麼作用？試加以說明。<span class="mark">（3分）</span>
-  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）作用：伏筆。（1分）首段交代廉頗是趙國良將，官拜上卿，以勇氣聞名；藺相如只是宦者令的舍人，兩人地位懸殊。（1分）後來相如憑完璧歸趙和澠池之會升為上卿，位在廉頗之上，廉頗認為相如「素賤人」而不服，首段的介紹為兩人日後的矛盾埋下伏筆。（1分）</div>
-  </div>
-</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span>「臣知欺大王之罪當<b>誅</b>」中「誅」的意思是：<ul class="opts"><li><b>A</b>責罵</li><li><b>B</b>罷免</li><li><b>C</b>處死</li><li><b>D</b>監禁</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
 
-<div class="qbox"><span class="qn">6.</span>繆賢推薦藺相如時，認為他是「勇士，有智謀」。試根據第2段繆賢所述的經歷，分別說明藺相如的「勇」和「智」。<span class="mark">（4分）</span>
-  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）智：相如分析趙強燕弱的形勢，看出燕王想結交繆賢，只因繆賢得寵於趙王（1分）；若繆賢逃到燕國，燕國畏懼趙國，必定把他綁回趙國，可見他能洞察形勢。（1分）<br>勇：相如勸繆賢「肉袒伏斧質請罪」（1分），主人犯了罪，他敢直言勸阻，還提出冒險向趙王請罪，可見他有膽識。（1分）</div>
-  </div>
-</div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span>把以下文句譯為語體文。<div class="excerpt">臣以為布衣之交尚不相欺，況大國乎！</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）我認為平民之間的交往尚且不互相欺騙，何況是大國呢！<br><span class="ex">「布衣之交」譯為平民之間的交往（1分）；「況……乎」譯為何況……呢（1分）。</span></div></div></div>
 
-<div class="qbox"><span class="qn">7.</span>以下哪些關於第3段的描述是正確的？<span class="mark">（2分）</span>
-  <div class="opts">
-    (1) 藺相如以「璧有瑕」為藉口，從秦王手中取回和氏璧。<br>
-    (2) 「怒髮上衝冠」運用誇張手法，表現藺相如的憤怒。<br>
-    (3) 秦王「召有司案圖」，表示他真心願意以城換璧。<br>
-    (4) 藺相如要求秦王齋戒五日，是為了拖延時間。
-  </div>
-  <div class="opts">A. (1)、(2)　　B. (1)、(3)　　C. (2)、(4)　　D. (1)、(2)、(4)</div>
-  <p>答案：<span class="blank s"></span></p>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）D<br><span style="font-size:13px">(3) 錯，相如判斷秦王「特以詐詳為予趙城」，即只是假裝給城。</span></div>
-  </div>
-</div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span>把以下文句譯為語體文。<div class="excerpt">今兩虎共鬥，其勢不俱生。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）現在兩隻老虎相鬥，按形勢必定不能都活下來。<br><span class="ex">「兩虎共鬥」譯為兩隻老虎相鬥（1分）；「不俱生」譯為不能都活下來（1分）。</span></div></div></div>
 
-<div class="qbox"><span class="qn">8.</span>在澠池之會上，秦王多番羞辱趙國。試舉出兩個例子，說明藺相如如何為趙國挽回顏面。<span class="mark">（4分）</span>
-  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）例一：秦王要趙王鼓瑟，並命秦御史記錄（1分）；相如以「五步之內」血濺秦王相逼，迫秦王擊缻，再命趙御史記錄「秦王為趙王擊缻」，以牙還牙。（1分）<br>例二：秦國群臣要求趙國獻十五城為秦王祝壽（1分）；相如即要求秦國以都城咸陽為趙王祝壽，使秦國無法佔得上風。（1分）</div>
-  </div>
-</div>
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">8.</span>根據文章內容，判斷以下陳述。<table><tr><th>陳述</th><th class="c ctr">正確</th><th class="c ctr">錯誤</th><th class="c ctr">無從判斷</th></tr><tr><td>（1）秦王答應齋戒五日後，相如便把璧獻上。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（2）相如在九賓禮上承認已派人把璧送回趙國。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（3）相如的隨從用了五天便把璧送回趙國。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（4）相如的門客認為相如避讓廉頗是因為害怕。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）錯誤　（2）正確　（3）無從判斷　（4）正確<br><span class="ex">（1）相如早已派隨從把璧送回趙國，始終沒有把璧獻給秦王。（3）文中沒有交代隨從用了多少天。（4）門客說「君畏匿之，恐懼殊甚」。</span></div></div></div>
 
-<div class="qbox"><span class="qn">9.</span>廉頗認為藺相如「徒以口舌為勞」。你同意這個評價嗎？試結合「完璧歸趙」及「澠池之會」兩件事加以評論。<span class="mark">（5分）</span>
-  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（5分，示例）立場（1分）：不同意。理據（最多4分）：
-      <ul>
-        <li>完璧歸趙：相如不只靠口才，還要判斷秦王無意償城，持璧倚柱，以頭與璧俱碎相脅，冒生命危險保住和氏璧，又暗中派人送璧回趙。</li>
-        <li>澠池之會：相如以「五步之內」相逼，左右欲殺他也不退縮，迫秦王擊缻，維護了趙王和趙國的尊嚴。</li>
-        <li>兩件事都要冒死應對，又要看穿秦王的意圖，相如的功勞並非單靠口舌。</li>
-      </ul>
-      <span style="font-size:13px">評分：兩件事都能結合原文分析，給4分；只寫一件事，最多給2分。學生同意而理據充分，亦可酌情給分。</span></div>
-  </div>
-</div>
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">9.</span>試根據第5段，完成下表。<table><tr><th class="c">秦方的做法</th><th>藺相如的回應</th></tr><tr><td class="c">秦王請趙王鼓瑟，並由秦御史記錄</td><td>（1）<span class="blank l"></span><br>（2）<span class="blank l"></span></td></tr><tr><td class="c">秦羣臣請以趙十五城為秦王壽</td><td>（3）<span class="blank l"></span></td></tr><tr><td class="c">最終結果</td><td>（4）<span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）以頸血相逼，令秦王為趙王擊缻　（2）召趙御史記錄「秦王為趙王擊缻」　（3）請以秦之咸陽為趙王壽　（4）秦王竟酒，終不能加勝於趙</div></div></div>
 
-<div class="qbox"><span class="qn">10.</span>藺相如回答舍人時問「公之視廉將軍孰與秦王？」。這番話運用了甚麼說話技巧？有甚麼作用？<span class="mark">（4分）</span>
-  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）技巧：先發問，讓舍人自己承認廉頗不如秦王（1分），再以自己敢在朝廷上斥責秦王作對比，指出自己不可能畏懼廉頗。（1分）<br>作用：說明自己退讓並非出於膽怯（1分），再說出「先國家之急而後私讎」的真正原因，舍人便無話可說。（1分）</div>
-  </div>
-</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">10.</span>繆賢說相如是「勇士」。下列哪一件事最能表現相如的「勇」？<ul class="opts one"><li><b>A</b>勸繆賢肉袒伏斧質請罪</li><li><b>B</b>持璧睨柱，欲以擊柱</li><li><b>C</b>要求秦王齋戒五日</li><li><b>D</b>分析「曲在趙」「曲在秦」</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
 
-<div class="qbox"><span class="qn">11.</span>試從「負荊請罪」一事，分析廉頗的性格特點。<span class="mark">（4分）</span>
-  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（4分）知錯能改：廉頗聽到相如的話，即「肉袒負荊」登門謝罪，承認自己是「鄙賤之人」。（2分）<br>以國家為重：他明白將相不和會危害趙國，肯放下面子與相如和好，最終成為「刎頸之交」。（2分）<br><span style="font-size:13px">亦可答坦率直爽、勇於承擔等，有原文支持即可給分；每項性格1分、說明1分。</span></div>
-  </div>
-</div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">11.</span>相如在九賓禮上說：「秦自繆公以來二十餘君，未嘗有堅明約束者也。」他的用意是甚麼？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）指出秦國歷來不守信用（1分）；為自己派人把璧送回趙國作解釋（1分）。</div></div></div>
 
-<!-- 09 -->
-<div class="section-header" id="s9">
-  <div class="sh-icon">📚</div>
-  <div class="sh-text"><div class="ch">CHAPTER 09</div><h2>練習三：比較閱讀</h2></div>
-</div>
-<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">12.</span>「趙王以為賢大夫，使不辱於諸侯」中「使不辱於諸侯」的意思是：<ul class="opts one"><li><b>A</b>派諸侯去辦事</li><li><b>B</b>使諸侯不受羞辱</li><li><b>C</b>沒有羞辱諸侯</li><li><b>D</b>出使諸侯國而沒有受辱</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
 
-<div class="qsub">丁部　比較閱讀（10分）</div>
-<p>細讀以下同樣節錄自《廉頗藺相如列傳》、記述廉頗晚年的文字，然後回答問題。</p>
-<div class="excerpt">
-  廉頗居梁久之，魏不能信用。趙以數困於秦兵，趙王思復得廉頗，廉頗亦思復用於趙。趙王使使者視廉頗尚可用否。廉頗之仇郭開多與使者金，令毀之。趙使者既見廉頗，廉頗為之一飯斗米，肉十斤，被甲上馬，以示尚可用。趙使還報王曰：「廉將軍雖老，尚善飯，然與臣坐，頃之三遺矢矣。」趙王以為老，遂不召。
-  <div class="src">——節錄自司馬遷《廉頗藺相如列傳》</div>
-</div>
-<p class="notes">註：梁：魏國都城大梁。毀：說壞話。被：通「披」，穿上。遺矢：指上廁所。</p>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">13.</span>相如用甚麼理由要求秦王齋戒五日？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）和氏璧是天下公認的寶物（1分）；趙王送璧時齋戒了五天，秦王也應以同樣隆重的禮節接受（1分）。</div></div></div>
 
-<div class="qbox"><span class="qn">12.</span>廉頗「一飯斗米，肉十斤，被甲上馬」，反映他怎樣的心態？這與節錄第7段中廉頗的哪一面形象一致？試引原文加以說明。<span class="mark">（3分）</span>
-  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）心態：廉頗雖已年老，仍不服老，渴望再為趙國效力。（1分）一致之處：節錄中廉頗以自己「有攻城野戰之大功」為傲（1分），兩處都可見他看重自己的武勇和戰功。（1分）</div>
-  </div>
-</div>
+<div class="qsub">乙　長問答（第14至20題，每題6分）</div>
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">14.</span><span class="qtag">敘事結構</span>本文記述了「完璧歸趙」「澠池之會」「負荊請罪」三件事。三件事之間有甚麼關係？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）相如在「完璧歸趙」中顯露才能，因功升為上大夫（1分），從此得到趙王信任，與廉頗一同為澠池之會出謀，並隨趙王赴會（1分）。他在「澠池之會」中再立大功，拜為上卿，「位在廉頗之右」（1分），直接引起廉頗不服，揚言要羞辱他（1分），從而引出相如避讓、廉頗請罪的「負荊請罪」（1分）。三件事前因後果緊緊相連，層層推進，逐步表現相如的智勇和顧全大局（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
 
-<div class="qbox"><span class="qn">13.</span>試比較節錄與上文中趙國君臣對待人才的態度，並評論這對趙國有甚麼影響。<span class="mark">（7分）</span>
-  <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
-  <div class="ans-wrap">
-    <button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
-    <div class="ans" hidden><span class="ans-tag">參考答案</span>（7分）
-      <ul>
-        <li>節錄（2分）：趙王聽從繆賢推薦，重用出身舍人的藺相如，按功勞拜為上卿；將相之間也能以國事為重，放下私怨。</li>
-        <li>上文（2分）：郭開為了私仇賄賂使者，使者收金後說廉頗壞話；趙王只聽一面之詞，沒有查證，便放棄廉頗。</li>
-        <li>評論（2分）：節錄中將相和睦，「彊秦之所以不敢加兵於趙」；上文中趙國「數困於秦兵」，卻因私仇和賄賂失去可用的良將。兩相對照，趙國用人得當時秦國不敢來犯，用人不當時便自己削弱了抵抗秦國的力量。</li>
-        <li>表達（1分）：能引兩文原文作證，比較對應清晰。</li>
-      </ul></div>
-  </div>
-</div>
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">15.</span><span class="qtag">人物形象</span>試綜合全文，分析藺相如的性格特點。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）（1）機智：相如以「曲在趙」「曲在秦」分析利害（1分），又藉「璧有瑕」取回寶璧、要求秦王齋戒五日以拖延時間，可見他足智多謀（1分）。（2）勇敢：他持璧睨柱，要與璧俱碎；在澠池又以「頸血濺大王」相逼（1分），面對強秦毫不畏懼（1分）。（3）顧全大局：面對廉頗的挑釁，他常稱病、引車避匿（1分），因為「先國家之急而後私讎」，可見他以國家為重、胸襟廣闊（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
 
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">16.</span><span class="qtag">人物評鑒</span>有人認為廉頗心胸狹窄，不值得欣賞。你同意嗎？試結合文章內容加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）不同意（1分）。廉頗不服相如地位在己之上，揚言「我見相如，必辱之」，確有心胸狹窄之處（1分）。但他伐齊大勝，「以勇氣聞於諸侯」，戰功顯赫（1分）；澠池之會前提出「三十日不還，則請立太子為王，以絕秦望」，可見他以國家安危為重，忠心為國（1分）。他明白相如的用心後，立即「肉袒負荊」請罪，知錯能改（1分）。整體而言，廉頗雖有缺點，仍值得欣賞（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>立場清晰，能兼顧廉頗的缺點與優點，並引用原文具體論證，闡述完備</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>立場清晰，能引用部分原文論證，闡述一般</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能表明立場，或論證粗疏，欠缺原文支持</td></tr></table><br><span class="ex">答「同意」亦可，但須結合原文說明廉頗心胸狹窄之處，並回應他其後負荊請罪的表現，再按品第給分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">17.</span><span class="qtag">描寫手法</span>作者如何運用語言、動作和神態描寫，表現藺相如在章臺上的機智和勇敢？試舉例說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）語言描寫：相如說「璧有瑕，請指示王」，巧妙地把璧取回手中（1分），表現他的機智（1分）。動作描寫：相如「持璧卻立，倚柱」，又「持其璧睨柱，欲以擊柱」（1分），表現他不惜與璧俱碎的勇氣（1分）。神態描寫：相如「怒髮上衝冠」（1分），以誇張的寫法表現他憤怒到極點、不畏秦王（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">18.</span><span class="qtag">文意評鑒</span>相如每次遇見廉頗都避開，門客認為他「恐懼殊甚」。你認為相如的避讓是否怯懦的表現？試結合全文加以析述。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）相如的避讓是顧全大局，算不上怯懦（1分）。他曾在秦廷持璧睨柱，欲與璧俱碎（1分）；在澠池又以「頸血濺大王」相逼，令秦王擊缻（1分），可見他連強秦也不怕。他避讓廉頗，是因為「彊秦之所以不敢加兵於趙者，徒以吾兩人在也」（1分）；若兩人相爭，好比「兩虎共鬥，其勢不俱生」，國家必受損害（1分）。所以他的避讓是「先國家之急而後私讎」，是顧全大局的表現（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>準確理解相如避讓的原因，能結合前文事例及原文具體析述，闡述清晰，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>大致理解避讓的原因，能引用部分原文說明</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能表明立場，或說明粗疏，未能指出避讓的真正原因</td></tr></table><br><span class="ex">認為相如「怯懦」而未能結合文意說明，或理解與原文不符，給0分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">19.</span><span class="qtag">前後呼應</span>試找出本文兩處前後呼應的地方，並分別說明其作用。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）（1）第1段寫廉頗「以勇氣聞於諸侯」，官至上卿，而相如只是「繆賢舍人」（1分）；第6段廉頗就以相如「素賤人」為由不服（1分）。前文埋下伏筆，令後文將相失和的情節合理自然（1分）。（2）第2段相如勸繆賢「肉袒伏斧質請罪」（1分）；第6段廉頗以「肉袒負荊」向相如請罪（1分）。前後照應，一個是相如教人認錯，一個是別人向相如認錯，使全文結構嚴密，也突出廉頗知錯能改（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table><br><span class="ex">亦可答第2段相如承諾「完璧歸趙」與第3段「歸璧於趙」的照應，說明合理即可給分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">20.</span><span class="qtag">詳略剪裁</span>本文詳寫「完璧歸趙」，卻只用一句略寫廉頗伐齊的經過。試分析作者這樣安排的原因和效果。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）本文的重點在刻畫藺相如，以及廉藺兩人的關係（1分）。廉頗伐齊只是交代他戰功顯赫、地位尊貴（1分），一筆帶過已足夠，也為後文他不服相如作鋪墊（1分）。「完璧歸趙」是相如首次登場立功，情節曲折，需要詳寫他的言行（1分），才能充分表現他的機智和勇敢，並寫出秦王態度的變化（1分）。詳略得宜，令人物形象鮮明，主旨突出（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
 <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
   <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
     <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
     版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
   </div>
 </footer>
+
 </div>
 
 <div class="toolbar" id="toolbar">
@@ -563,6 +1145,7 @@ sup.n{color:var(--coral);font-family:"Noto Sans TC",sans-serif;font-size:11px}
   </div>
   <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
 </div>
+
 <script>
 function showOne(w,show){
   var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');

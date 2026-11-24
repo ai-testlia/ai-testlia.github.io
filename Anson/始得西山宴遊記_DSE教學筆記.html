@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《始得西山宴遊記》DSE教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2a8a80;--teal-bg:#e4f3f1;
+  --coral:#d0654a;--coral-bg:#fbebe6;
+  --amber:#c48612;--amber-bg:#fbf2df;
+  --pink:#c2557f;--pink-bg:#f9e8ef;
+  --blue:#3a6ea5;--blue-bg:#e6eef7;
+  --green:#3d8b4f;--green-bg:#e7f3ea;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero:#B56A58;--hero-text:#F1EADF;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2124;--color-background-secondary:#151618;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a89be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c302e;
+    --coral:#f08c72;--coral-bg:#3a2520;
+    --amber:#e8b04a;--amber-bg:#36301f;
+    --pink:#ea8ab0;--pink-bg:#382430;
+    --blue:#7fa9d8;--blue-bg:#1f2a38;
+    --green:#74c286;--green-bg:#1e3124;
+    --red:#ee7b6e;--red-bg:#3a2220;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC','Songti TC',serif}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:44px 36px 46px;margin-bottom:22px;min-height:230px;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 10px 28px rgba(94,46,36,.18)}
+.hero .pattern{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:9px;border:1px solid rgba(241,234,223,.28);border-radius:8px;pointer-events:none}
+.hero>*:not(.pattern){position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;border:1px solid rgba(241,234,223,.5);
+  color:rgba(241,234,223,.9);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:rgba(94,46,36,.18)}
+.hero h1{font-size:34px;margin:0 0 6px;line-height:1.35;color:var(--hero-text);font-weight:700;text-shadow:0 1px 10px rgba(94,46,36,.35);max-width:78%}
+.hero .sub{font-size:15px;color:rgba(241,234,223,.85);margin-bottom:16px}
+.hero .sub .nb,.hero h1 .nb{display:inline-block}
+.hero p{margin:0;font-size:13px;color:rgba(241,234,223,.7);letter-spacing:2px}
+@media (max-width:640px){.hero h1{font-size:27px;max-width:100%}.hero{padding:34px 24px 40px}.hero .sub{font-size:13.5px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(181,106,88,.88) 0%,rgba(181,106,88,.55) 62%,rgba(181,106,88,0) 100%);pointer-events:none}}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:0}
+.toc-item:hover{color:var(--blue)}
+.toc-num{font-weight:700;color:var(--hero);font-size:13px;min-width:22px}
+.toc-item .kind{margin-left:auto;font-size:11.5px;color:var(--color-text-secondary);white-space:nowrap}
+@media (prefers-color-scheme:dark){.toc-num{color:var(--blue)}}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;border-radius:var(--border-radius-lg);
+  background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:6px solid var(--hero)}
+.section-header.ex{border-left-color:var(--amber)}
+.section-header .icon{font-size:26px;line-height:1}
+.section-header h2{margin:0;font-size:21px;line-height:1.4}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);font-weight:700}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin:0 0 10px}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--blue)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.hl{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);font-weight:700}
+.em{color:var(--coral);font-weight:700}
+.small{font-size:12.5px;color:var(--color-text-secondary)}
+ul.tight,ol.tight{margin:4px 0 8px;padding-left:1.4em}
+ul.tight li,ol.tight li{margin-bottom:3px}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:3px}
+.example-text{font-size:14px}
+
+/* Alerts */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.bad .ct{color:var(--red)}
+.compare-card.good{background:var(--green-bg)}.compare-card.good .ct{color:var(--green)}
+.compare-card.a{background:var(--blue-bg)}.compare-card.a .ct{color:var(--blue)}
+.compare-card.b{background:var(--coral-bg)}.compare-card.b .ct{color:var(--coral)}
+@media (max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:13px;margin-bottom:2px}
+.flow-arrow{align-self:center;color:var(--teal);font-weight:700}
+
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px}
+.kw-word .py{font-weight:400;font-size:11.5px;color:var(--color-text-secondary);margin-left:4px;font-family:'Noto Sans TC',sans-serif}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* formula */
+.formula{background:#2d3a47;color:#f4f1ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:1.9;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.formula .fl{font-size:12px;letter-spacing:2px;color:#d9c48f;font-weight:700;margin-bottom:4px}
+.formula b{color:#ffe08a}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left;line-height:1.65}
+th{background:var(--color-background-secondary);font-weight:700}
+.c,th.c,td.c{white-space:nowrap}
+td.ctr,th.ctr{text-align:center}
+
+/* poem text */
+.poem{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.poem .ttl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
+.poem .au{text-align:center;font-size:13px;color:var(--color-text-secondary);margin-bottom:12px}
+.poem .ln{font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15;margin:0 0 6px;display:flex;gap:10px;align-items:flex-start}
+.pnum{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-top:7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:1px 12px;margin:6px 0 4px}
+sup.n{color:var(--coral);font-size:10px;font-family:'Noto Sans TC',sans-serif;margin:0 1px}
+.preface{font-size:15px;color:var(--color-text-secondary)}
+
+/* line-by-line */
+.lbl{border-left:3px solid var(--blue);padding:4px 0 4px 14px;margin:12px 0}
+.lbl .orig{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700}
+.lbl .tr{font-size:14px;color:var(--color-text-secondary)}
+.lbl .note{font-size:13.5px;margin-top:3px}
+
+/* chat bubbles (fun) */
+.chat{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0}
+.chat .who{font-size:11.5px;color:var(--color-text-secondary);margin:6px 4px 2px}
+.bubble{display:inline-block;max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.65;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary)}
+.row-r{text-align:right}.row-r .bubble{background:var(--green-bg)}
+.row-r .who{text-align:right}
+
+/* Exercises */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);margin-left:8px}
+.lv{display:inline-block;font-size:11px;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px;font-weight:700}
+.lv1{background:var(--green-bg);color:var(--green)}.lv2{background:var(--amber-bg);color:var(--amber)}.lv3{background:var(--red-bg);color:var(--red)}
+.opts{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.opts.one{grid-template-columns:1fr}
+.opts li{font-size:14px}
+.opts li b{display:inline-block;width:22px}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.line{border-bottom:1px solid #999;height:30px;margin:2px 0}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+.circle{display:inline-block;width:26px;height:26px;border:1px solid #888;border-radius:50%;vertical-align:middle;margin:0 3px}
+.box{display:inline-block;width:15px;height:15px;border:1px solid #888;vertical-align:-2px;margin-right:4px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.extotal{font-size:13px;color:var(--color-text-secondary);margin:-6px 0 12px}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;clear:both}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .ex{font-size:13px;color:var(--color-text-secondary)}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);
+  border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+/* svg charts */
+.chart{width:100%;height:auto;display:block;margin:8px 0}
+.chart text{font-family:'Noto Sans TC',sans-serif}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;font-size:13.5px}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.lbl,.poem,table,.chat{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+
+/* 本筆記：DSE 範文金色 Hero（汴京暮色金 #D9B07C） */
+:root{--hero:#D9B07C;--hero-text:#3B2A14;--hero-deep:#96702F}
+.hero{box-shadow:0 10px 28px rgba(120,84,30,.22)}
+.hero::after{border-color:rgba(59,42,20,.25)}
+.hero-tag{border-color:rgba(59,42,20,.3);color:rgba(59,42,20,.65);background:rgba(255,248,234,.3)}
+.hero h1{color:#3B2A14;text-shadow:0 1px 10px rgba(255,246,230,.45)}
+.hero .sub{color:rgba(59,42,20,.72)}
+.hero p{color:rgba(59,42,20,.5)}
+@media (max-width:640px){.hero .pattern{opacity:.4}.hero::before{background:linear-gradient(90deg,rgba(217,176,124,.9) 0%,rgba(217,176,124,.6) 62%,rgba(217,176,124,0) 100%)}}
+.toc-num{color:var(--hero-deep)}
+.section-header{border-left-color:var(--hero-deep)}
+.section-header.ex{border-left-color:var(--amber)}
+.pnum{background:var(--hero-deep)}
+.poem .ln{font-size:17px;line-height:2.1}
+.poem .ln>span:last-child{flex:1}
+.layer-tag{color:var(--hero-deep);background:var(--amber-bg)}
+.lbl{border-left-color:var(--hero-deep)}
+.lbl .orig{font-size:15px}
+.lbl .tr{font-size:14.5px;color:var(--color-text-primary);line-height:1.9}
+.lbl .tr b{color:var(--hero-deep)}
+.formula .fl{color:#E8C98F}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+.duo-col{border-radius:var(--border-radius-md);padding:12px 14px}
+.duo-col p{margin:0 0 6px;font-size:14px}
+.duo-col.wen{background:var(--blue-bg)}.duo-col.wu{background:var(--coral-bg)}
+.duo-h{font-weight:700;font-size:15px;margin-bottom:6px;font-family:'Noto Serif TC',serif}
+.duo-col table{background:transparent}
+@media (max-width:640px){.duo{grid-template-columns:1fr}}
+.stage-row{display:flex;align-items:stretch;gap:8px;margin:8px 0 4px}
+.stage{flex:1;border-radius:var(--border-radius-md);padding:12px 34px 12px 14px;position:relative;border:1px solid var(--color-border-tertiary);font-size:13.5px;line-height:1.7}
+.stage.s-a{background:var(--coral-bg)}.stage.s-b{background:var(--blue-bg)}.stage.s-c{background:var(--green-bg)}
+.stage-key{position:absolute;right:10px;top:4px;font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;opacity:.18}
+.stage-t{font-weight:700;margin-bottom:4px}
+.stage-w{display:inline-block;margin-top:4px;font-size:11.5px;font-weight:700;border-radius:999px;padding:0 10px;background:var(--color-background-primary);color:var(--color-text-secondary)}
+.stage-arrow{align-self:center;font-weight:700;color:var(--hero-deep)}
+@media (max-width:640px){.stage-row{flex-direction:column}.stage-arrow{transform:rotate(90deg);text-align:center}}
+@media print{.poem,.lbl,.duo,.stage-row{page-break-inside:avoid}}
+
+/* 淺白版元件 */
+.qtag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--hero-deep);border:1px solid var(--hero);border-radius:999px;padding:0 9px;margin-right:6px;vertical-align:2px}
+.trait-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.trait{border-radius:var(--border-radius-md);padding:10px 12px;background:var(--amber-bg);border-top:3px solid var(--hero-deep);font-size:13.5px}
+.trait-h{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:4px}
+.trait-e{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+@media (max-width:640px){.trait-grid{grid-template-columns:1fr}}
+.tri{border-radius:var(--border-radius-md);overflow:hidden;border:1px solid var(--color-border-tertiary);margin:10px 0}
+.tri-row{display:flex;gap:12px;padding:10px 14px;font-size:14.5px;line-height:1.85}
+.tri-row+.tri-row{border-top:1px dashed var(--color-border-tertiary)}
+.tri-tag{flex:none;width:84px;font-size:12px;font-weight:700;border-radius:999px;padding:2px 0;text-align:center;height:fit-content;margin-top:3px}
+.tri-body{flex:1}
+.t1{background:var(--green-bg)}.t1 .tri-tag{background:var(--green);color:#fff}
+.t2{background:var(--color-background-primary)}.t2 .tri-tag{background:var(--blue);color:#fff}
+.t3{background:var(--amber-bg)}.t3 .tri-tag{background:var(--amber);color:#fff}
+@media (max-width:640px){.tri-row{flex-direction:column;gap:4px}}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0}
+.pcard{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;text-align:center;border:1px solid var(--color-border-tertiary)}
+.pcard.gold{background:var(--amber-bg);border-color:var(--hero)}
+.pav{font-size:26px;line-height:1.3}
+.pname{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px;margin-top:4px}
+.prole{font-size:11.5px;color:var(--color-text-secondary);margin-bottom:6px}
+.pdesc{font-size:13px;line-height:1.65;text-align:left}
+@media (max-width:640px){.people{grid-template-columns:1fr 1fr}}
+.pblock{border-top:1px dashed var(--color-border-tertiary);padding:14px 0 6px}
+.pblock:first-of-type{border-top:0}
+.pb-head{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:6px}
+.pb-head .pnum{margin-top:0}
+.pb-orig{font-family:'Noto Serif TC',serif;font-size:18px;line-height:2.2;background:var(--amber-bg);border-radius:var(--border-radius-md);padding:10px 14px}
+.pb-sub{font-weight:700;font-size:13.5px;color:var(--hero-deep);margin:12px 0 4px}
+.pb-tr{font-size:14.5px;line-height:1.95}
+.pb-tr b{color:var(--hero-deep)}
+.pb-gist{margin-top:10px;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 12px;font-size:14.5px}
+.order{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0}
+.order-h{font-weight:700;font-size:14px;margin-bottom:6px}
+.order-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:4px}
+.chip{display:inline-block;font-family:'Noto Serif TC',serif;font-size:16px;background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:6px;padding:2px 10px}
+.chip.hot{background:var(--hero);color:#3B2A14;border-color:var(--hero-deep);font-weight:700}
+.oarr{font-weight:700;color:var(--hero-deep);margin:0 6px}
+.hw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 14px;margin:8px 0}
+.hw-row{display:flex;gap:8px;align-items:center}
+.hw-src{font-size:12px;font-weight:700;color:var(--color-text-secondary);width:40px}
+.hw-cell{flex:1;text-align:center;font-family:'Noto Serif TC',serif;font-size:17px;background:var(--color-background-primary);border-radius:6px;padding:4px}
+.hw-cell b.g,.hw-h.g{color:var(--green)}.hw-cell b.r,.hw-h.r{color:var(--red)}
+.hw-arrow{text-align:center;font-size:12.5px;color:var(--hero-deep);font-weight:700;margin:6px 0}
+.hw-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:4px;font-size:13.5px}
+.hw-h{font-weight:700;padding:4px 8px;background:var(--color-background-primary);border-radius:6px}
+.hw-x{text-align:center;padding:4px;background:var(--color-background-primary);border-radius:6px;color:var(--color-text-secondary)}
+.tech{border-radius:var(--border-radius-md);overflow:hidden;border:1px solid var(--color-border-tertiary)}
+.tech-row{display:flex;gap:12px;padding:9px 14px;font-size:14.5px;line-height:1.8}
+.tech-row+.tech-row{border-top:1px dashed var(--color-border-tertiary)}
+.tech-k{flex:none;width:70px;font-weight:700;color:var(--hero-deep)}
+@media (max-width:640px){.tech-row{flex-direction:column;gap:2px}}
+.scene text{font-family:'Noto Sans TC',sans-serif}
+@media (max-width:640px){.pblock .keyword-grid{grid-template-columns:1fr 1fr}.pblock .kw{padding:6px 8px}.pb-orig{font-size:17px}}
+@media print{.tri,.order,.hw,.tech,.people,.scene{page-break-inside:avoid}}
+
+/* 淺白版第二輪：小場景、故事板、對白、寫法卡 */
+.scn{border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px 12px;margin:10px 0;background:var(--color-background-primary)}
+.scn-h{font-weight:700;font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;font-family:'Noto Serif TC',serif}
+.scn-no{font-family:'Noto Sans TC',sans-serif;font-size:11.5px;font-weight:700;background:var(--hero);color:#3B2A14;border-radius:999px;padding:1px 10px}
+.scn-tr{margin-top:8px;font-size:14.5px;line-height:1.95;padding:8px 12px;border-left:3px solid var(--blue);background:var(--blue-bg);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
+.scn-tr b{color:var(--hero-deep)}
+.scn-tag{display:inline-block;font-size:11.5px;font-weight:700;background:var(--blue);color:#fff;border-radius:999px;padding:0 9px;margin-right:8px;vertical-align:1px}
+.kwbox{margin-top:8px}
+.kwbox summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--hero-deep);padding:2px 0}
+.keyword-grid.sm{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;margin-top:6px}
+.keyword-grid.sm .kw{padding:6px 10px}
+.keyword-grid.sm .kw-word{font-size:14.5px}
+.keyword-grid.sm .kw-def{font-size:12.5px;line-height:1.6}
+.py{font-family:'Noto Sans TC',sans-serif;font-size:11px;color:var(--color-text-secondary);margin-left:4px;font-weight:400}
+.story{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0;counter-reset:sp}
+.sp{position:relative;background:var(--amber-bg);border:1px solid var(--hero);border-radius:var(--border-radius-md);padding:10px 10px 10px;font-size:13px;line-height:1.65}
+.sp-n{position:absolute;top:6px;right:8px;font-size:11px;font-weight:700;color:var(--hero-deep)}
+.sp-e{font-size:26px;line-height:1.2}
+.sp-t{font-family:'Noto Serif TC',serif;font-weight:700;font-size:15px;margin:2px 0 4px}
+.sp-x{color:var(--color-text-primary)}
+.sp-q{margin-top:6px;font-family:'Noto Serif TC',serif;font-size:13px;color:var(--hero-deep);border-top:1px dashed var(--hero);padding-top:4px}
+.sp-q::before{content:'「'}.sp-q::after{content:'」'}
+.story.s3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:720px){.story,.story.s3{grid-template-columns:1fr 1fr}}
+.bubble .bo{display:block;font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.8}
+.bubble .bp{display:block;font-size:13px;color:var(--color-text-secondary);margin-top:4px;padding-top:4px;border-top:1px dashed var(--color-border-tertiary)}
+.bubble .bp::before{content:'白話：';font-weight:700}
+.tk{display:flex;gap:12px;align-items:flex-start}
+.tk-i{font-size:30px;line-height:1;flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--amber-bg);border-radius:50%}
+.tk-b{flex:1}
+.tk-row{font-size:14.5px;line-height:1.8;padding:4px 0}
+.tk-row+.tk-row{border-top:1px dashed var(--color-border-tertiary)}
+.tk-row ul.tight{margin:2px 0 0}
+.tk-l{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--hero-deep);border-radius:999px;padding:0 9px;margin-right:8px;vertical-align:1px}
+.tk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:6px 0}
+.tk-c{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px;color:var(--color-text-secondary)}
+.tk-c b{display:block;font-size:14.5px;color:var(--color-text-primary)}
+@media print{.scn,.sp,.tk,.story{page-break-inside:avoid}.kwbox:not([open]) .keyword-grid{display:grid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><svg class="pattern" viewBox="0 0 900 300" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<filter id="grainX" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.24  0 0 0 0 0.1  0 0 0 0.10 0"/>
+</filter>
+<linearGradient id="fadeX" x1="0" x2="1" y1="0" y2="0">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.34" stop-color="#fff" stop-opacity="0.2"/><stop offset="0.6" stop-color="#fff" stop-opacity="1"/>
+</linearGradient>
+<mask id="maskX"><rect width="900" height="300" fill="url(#fadeX)"/></mask>
+<radialGradient id="moonX" cx="0.42" cy="0.34" r="0.78"><stop offset="0" stop-color="#FFFBF2"/><stop offset="0.55" stop-color="#F6E7C8"/><stop offset="1" stop-color="#E0BF84"/></radialGradient>
+<radialGradient id="haloX"><stop offset="0" stop-color="#FFF6E6" stop-opacity="0.55"/><stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/></radialGradient>
+<linearGradient id="peakX" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7A5826"/><stop offset="1" stop-color="#B48A4C"/></linearGradient>
+<clipPath id="clipX"><circle r="80"/></clipPath>
+<pattern id="cloudX" width="56" height="34" patternUnits="userSpaceOnUse">
+  <path d="M4 26 C4 16 18 12 24 20 C26 10 42 10 44 20 C52 18 56 26 50 30" fill="none" stroke="#5A3E1B" stroke-opacity="0.13" stroke-width="1"/>
+  <path d="M30 8 C30 3 37 1 40 6" fill="none" stroke="#5A3E1B" stroke-opacity="0.1" stroke-width="1"/>
+</pattern>
+<pattern id="fretX" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0 11 H10 V3 H4 V7 H7 M12 1 H22 V9 H16 V5 H19" fill="none" stroke="#5A3E1B" stroke-width="1.1"/></pattern>
+<g id="moundX"><path d="M-22 0 C-14 -16 -6 -20 0 -20 C6 -20 14 -16 22 0 Z"/></g>
+</defs>
+<g mask="url(#maskX)">
+  <rect x="250" y="0" width="650" height="276" fill="url(#cloudX)"/>
+  <!-- 遠方一列小丘（培塿），向左漸淡 -->
+  <g fill="#5A3E1B">
+    <use href="#moundX" transform="translate(338 262) scale(0.8)" fill-opacity="0.12"/>
+    <use href="#moundX" transform="translate(380 262) scale(1)" fill-opacity="0.16"/>
+    <use href="#moundX" transform="translate(428 262) scale(0.7)" fill-opacity="0.2"/>
+    <use href="#moundX" transform="translate(470 262) scale(1.1)" fill-opacity="0.24"/>
+    <use href="#moundX" transform="translate(520 262) scale(0.85)" fill-opacity="0.28"/>
+    <use href="#moundX" transform="translate(566 262) scale(1)" fill-opacity="0.32"/>
+    <use href="#moundX" transform="translate(612 262) scale(0.75)" fill-opacity="0.36"/>
+  </g>
+  <!-- 縈青繚白：一道白水 -->
+  <path d="M300 238 C380 226 420 246 500 232 C560 222 600 236 660 226" fill="none" stroke="#FFF6E6" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round"/>
+  <path d="M300 238 C380 226 420 246 500 232 C560 222 600 236 660 226" fill="none" stroke="#5A3E1B" stroke-opacity="0.18" stroke-width="0.8"/>
+  <!-- 飛鳥 -->
+  <g fill="none" stroke="#5A3E1B" stroke-opacity="0.35" stroke-width="1.3" stroke-linecap="round">
+    <path d="M520 70 q6 -5 12 0 q6 -5 12 0"/><path d="M556 92 q4 -4 9 0 q4 -4 9 0"/><path d="M490 104 q4 -3 8 0 q4 -3 8 0"/>
+  </g>
+  <!-- 月洞：西山特出，山頂一人箕踞而飲 -->
+  <circle cx="770" cy="128" r="122" fill="url(#haloX)"/>
+  <g transform="translate(770 128)">
+    <circle r="80" fill="url(#moonX)" fill-opacity="0.96"/>
+    <g clip-path="url(#clipX)">
+      <path d="M-90 80 L-46 30 L-34 40 L-20 18 L0 -38 L22 14 L36 4 L60 44 L90 80 Z" fill="url(#peakX)" fill-opacity="0.9"/>
+      <path d="M0 -38 L8 -18 L2 -20 L-6 -8 Z" fill="#FFF6E6" fill-opacity="0.45"/>
+      <path d="M-90 62 C-50 50 -30 66 0 56 C30 48 60 60 90 52" fill="none" stroke="#FFF6E6" stroke-opacity="0.75" stroke-width="2.2"/>
+      <g fill="#5A3E1B" fill-opacity="0.4"><use href="#moundX" transform="translate(-60 80) scale(0.5)"/><use href="#moundX" transform="translate(52 80) scale(0.45)"/></g>
+    </g>
+    <!-- 箕踞的人與酒觴 -->
+    <g stroke="#3B2A14" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="1.6">
+      <circle cx="0" cy="-52" r="3.6" fill="#3B2A14"/>
+      <path d="M0 -48 L0 -41"/><path d="M-8 -36 L0 -41 L8 -36"/><path d="M0 -41 L-3 -38"/>
+      <path d="M-10 -36 L-3 -38 M10 -36 L3 -38"/>
+      <path d="M9 -45 L14 -48"/>
+    </g>
+    <path d="M13 -50 h4 l-1 3 h-2 Z" fill="#3B2A14"/>
+    <circle r="74" fill="none" stroke="#5A3E1B" stroke-opacity="0.35" stroke-width="1.2"/>
+    <circle r="88" fill="none" stroke="#FFF6E6" stroke-opacity="0.55" stroke-width="0.8" stroke-dasharray="2 5"/>
+    <path d="M-36 -62 q8 -3 14 0" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </g>
+</g>
+<rect x="0" y="282" width="900" height="12" fill="url(#fretX)" opacity="0.22"/>
+<path d="M0 279.5 H900 M0 296.5 H900" stroke="#5A3E1B" stroke-opacity="0.22" stroke-width="0.8"/>
+<rect width="900" height="300" filter="url(#grainX)"/>
+</svg><div class="hero-tag">文言教學筆記</div><h1>《始得西山宴遊記》</h1><div class="sub"><span class="nb">柳宗元</span>　<span class="nb">香港中學文憑試　指定文言篇章精讀</span></div><p>潘SIR中文教室編撰</p></div>
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>先認識柳宗元和這篇文章<span class="kind">教學</span></a><a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：作者與背景<span class="kind">練習</span></a><a class="toc-item" href="#s3"><span class="toc-num">03</span>原文逐段讀<span class="kind">教學</span></a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：字詞與語譯<span class="kind">練習</span></a><a class="toc-item" href="#s5"><span class="toc-num">05</span>柳宗元的心情怎樣變<span class="kind">教學</span></a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：內容理解<span class="kind">練習</span></a><a class="toc-item" href="#s7"><span class="toc-num">07</span>柳宗元用了哪些寫法<span class="kind">教學</span></a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習四：寫作手法與主旨<span class="kind">練習</span></a><a class="toc-item" href="#s9"><span class="toc-num">09</span>DSE 模擬試題<span class="kind">模擬試題</span></a></nav>
+<div class="section-header first" id="s1"><div class="icon">🏞</div><div><div class="chap">CHAPTER 01　教學</div><h2>先認識柳宗元和這篇文章</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>這篇文章在講甚麼</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">柳宗元被貶到永州，心裏一直害怕。他到處遊山喝酒，煩惱只能暫時忘記。直到登上西山，他才放下憂懼，明白這一次才算真正的遊覽。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body">全文只有兩段：<ol class="tight"><li><b>第1段　昔日之遊：</b>被貶後常常憂懼，於是天天遊山、喝酒、睡覺、做夢，醒了就回家。自以為遊遍永州奇山，卻不知道有西山。</li><li><b>第2段　西山之遊：</b>在西亭望見西山，開路登上山頂，看見數州土地都在腳下，明白西山「不與培塿為類」；醉到天黑也不想回去，心神與大自然融為一體，才知道「遊於是乎始」。</li></ol></div></div><div class="tri-row t3"><div class="tri-tag">必背</div><div class="tri-body">本文記述作者發現並宴遊西山的經過，描寫西山高峻特出的形勢，抒發作者由「恒惴慄」到「心凝形釋，與萬化冥合」的心境轉變；並以西山自喻，寄託自己特立獨行、不與世俗同流合污的高潔品格。</div></div></div>
+<svg class="chart" viewBox="0 0 760 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="題目拆解"><rect x="0" y="0" width="760" height="190" rx="14" fill="var(--amber-bg)"/><rect x="24" y="26" width="170" height="70" rx="14" fill="#96702F"/><text x="109" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">始得</text><text x="109" y="124" text-anchor="middle" font-size="13.5" font-weight="700" fill="#96702F">才發現</text><text x="109" y="146" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">以前沒發現，這次才找到</text><text x="109" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">「始」字貫串全文</text><rect x="214" y="26" width="150" height="70" rx="14" fill="var(--color-background-primary)"/><text x="289" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#96702F" font-family="Noto Serif TC,serif">西山</text><text x="289" y="124" text-anchor="middle" font-size="13.5" font-weight="700" fill="#96702F">遊覽的地方</text><text x="289" y="146" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">永州城西的一座山</text><text x="289" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">寫景的中心</text><rect x="384" y="26" width="170" height="70" rx="14" fill="var(--color-background-primary)"/><text x="469" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#96702F" font-family="Noto Serif TC,serif">宴遊</text><text x="469" y="124" text-anchor="middle" font-size="13.5" font-weight="700" fill="#96702F">飲酒遊樂</text><text x="469" y="146" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">在山頂喝酒、遊覽</text><text x="469" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">「引觴滿酌」</text><rect x="574" y="26" width="162" height="70" rx="14" fill="var(--color-background-primary)"/><text x="655" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#96702F" font-family="Noto Serif TC,serif">記</text><text x="655" y="124" text-anchor="middle" font-size="13.5" font-weight="700" fill="#96702F">文體</text><text x="655" y="146" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">記事、寫景、抒情的文章</text><text x="655" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">屬遊記</text></svg>
+<p class="small">題目的「始」字很重要，它和篇末「遊於是乎始」前後呼應。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>作者柳宗元：記住三件事</h3>
+<div class="trait-grid">
+<div class="trait"><div class="trait-h">唐代文學家</div><div class="trait-e">字子厚，河東（今山西運城一帶）人，世稱「柳河東」，晚年任柳州刺史，又稱「柳柳州」。「唐宋八大家」之一，與韓愈並稱「韓柳」。</div></div>
+<div class="trait"><div class="trait-h">少年得志</div><div class="trait-e">二十一歲考中進士，三十三歲已任禮部員外郎，參與王叔文推行的政治改革，希望一展抱負。</div></div>
+<div class="trait"><div class="trait-h">山水遊記大家</div><div class="trait-e">被貶永州十年，寫下大量山水遊記，其中八篇合稱「永州八記」。本文是八記的第一篇。</div></div>
+</div>
+<svg class="chart" viewBox="0 0 760 226" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="柳宗元生平時間線"><rect x="0" y="0" width="760" height="226" rx="14" fill="var(--color-background-secondary)"/><path d="M30 108 H730" stroke="#96702F" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="108" r="8" fill="#96702F"/><path d="M70 108 V80" stroke="#96702F" stroke-width="1.4" stroke-dasharray="3 3"/><text x="70" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">773年</text><text x="70" y="46" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">出生</text><text x="70" y="66" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">河東人，世稱柳河東</text><circle cx="190" cy="108" r="8" fill="#96702F"/><path d="M190 108 V126" stroke="#96702F" stroke-width="1.4" stroke-dasharray="3 3"/><text x="190" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">793年</text><text x="190" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">中進士</text><text x="190" y="186" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">年僅二十一歲</text><circle cx="310" cy="108" r="8" fill="#c0392b"/><path d="M310 108 V80" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="3 3"/><text x="310" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#c0392b">805年</text><text x="310" y="46" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">參與永貞革新</text><text x="310" y="66" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">改革失敗</text><circle cx="430" cy="108" r="8" fill="#c0392b"/><path d="M430 108 V126" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="3 3"/><text x="430" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#c0392b">805年</text><text x="430" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">貶永州司馬</text><text x="430" y="186" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">在永州十年</text><circle cx="550" cy="108" r="8" fill="#B8862F"/><path d="M550 108 V80" stroke="#B8862F" stroke-width="1.4" stroke-dasharray="3 3"/><text x="550" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#B8862F">809年</text><text x="550" y="46" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">寫成本文</text><text x="550" y="66" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">「永州八記」第一篇</text><circle cx="670" cy="108" r="8" fill="#96702F"/><path d="M670 108 V126" stroke="#96702F" stroke-width="1.4" stroke-dasharray="3 3"/><text x="670" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">815–819年</text><text x="670" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">改任柳州刺史</text><text x="670" y="186" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">在柳州去世</text><text x="740" y="216" text-anchor="end" font-size="11" fill="var(--color-text-secondary)">紅點：被貶的轉折；金點：寫成本文</text></svg>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>時代背景：從朝廷到永州</h3>
+<div class="flow">
+<div class="flow-step"><b>參與改革</b>唐順宗時，柳宗元與王叔文等人推行改革，打擊宦官和藩鎮的勢力，史稱「永貞革新」。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>改革失敗</b>順宗退位，憲宗即位，改革只維持了一百多天。王叔文先被貶，後被賜死。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>貶到永州</b>柳宗元先被貶為邵州刺史，未到任，再貶為永州司馬。司馬是閒職，沒有實權。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>寄情山水</b>他在永州處境艱難，常受誹謗，心中憂懼，只能遊山玩水排解苦悶。</div>
+</div>
+<p class="small">本文寫於元和四年（809年），是柳宗元被貶永州的第四年。開首的「僇人」「恒惴慄」，就是這段遭遇留下的陰影。</p>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>他怎樣找到西山</h3>
+<svg class="chart" viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="發現西山與登山路線示意圖"><defs><marker id="arR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#c0392b"/></marker></defs><rect x="0" y="0" width="760" height="330" rx="14" fill="var(--color-background-secondary)"/><text x="20" y="28" font-size="12" fill="var(--color-text-secondary)">西</text><text x="728" y="28" font-size="12" fill="var(--color-text-secondary)">東</text><path d="M40 250 L120 104 L160 132 L196 70 L262 186 L300 250 Z" fill="#96702F" fill-opacity="0.85"/><path d="M196 70 L214 102 L200 98 L186 112 Z" fill="#FFF6E6" fill-opacity="0.5"/><text x="170" y="214" text-anchor="middle" font-size="22" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">西山</text><path d="M300 250 q14 -14 28 0 q14 -12 26 0" fill="#96702F" fill-opacity="0.35"/><path d="M392 0 C370 90 430 150 400 220 C380 270 410 300 400 330" fill="none" stroke="#3a6ea5" stroke-opacity="0.5" stroke-width="26"/><text x="418" y="60" font-size="13" font-weight="700" fill="#3a6ea5">湘江</text><text x="418" y="78" font-size="11" fill="var(--color-text-secondary)">（實為瀟水）</text><path d="M392 236 C350 238 320 270 262 262" fill="none" stroke="#3a6ea5" stroke-opacity="0.45" stroke-width="9"/><text x="300" y="292" font-size="12.5" font-weight="700" fill="#3a6ea5">染溪（後名愚溪）</text><rect x="520" y="140" width="200" height="120" rx="12" fill="var(--color-background-primary)" stroke="var(--color-border-tertiary)"/><text x="620" y="164" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">永州城</text><path d="M560 230 L590 206 L620 230 Z" fill="#96702F"/><rect x="568" y="230" width="44" height="18" fill="#96702F" fill-opacity="0.6"/><text x="660" y="226" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">法華寺</text><text x="660" y="244" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">西亭</text><path d="M560 208 C470 120 320 80 214 82" fill="none" stroke="#96702F" stroke-width="1.6" stroke-dasharray="4 5"/><text x="470" y="112" font-size="12.5" font-weight="700" fill="#96702F">① 望西山，始指異之</text><path d="M560 252 C520 280 460 270 420 262 C380 254 340 262 280 252 C240 236 210 150 200 84" fill="none" stroke="#c0392b" stroke-width="2.6" marker-end="url(#arR)"/><g font-size="12" font-weight="700" fill="#c0392b"><text x="470" y="298">② 過湘江</text><text x="250" y="316">③ 緣染溪</text><text x="228" y="168">④ 斫榛莽，焚茅茷</text><text x="226" y="58">⑤ 窮山之高而止</text></g><text x="740" y="318" text-anchor="end" font-size="11" fill="var(--color-text-secondary)">示意圖，不按實際比例</text></svg>
+<p class="small">記住五步：望山、渡江、沿溪、開路、登頂。第2段開首就是按這個次序寫的。</p>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>先弄懂四個關鍵詞</h3>
+<div class="trait-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="trait"><div class="trait-h">僇人</div><div class="trait-e">受過刑罰的人，即罪人。柳宗元被貶官，用這個詞稱呼自己，語帶自嘲，也有不平。</div></div>
+<div class="trait"><div class="trait-h">永州八記</div><div class="trait-e">柳宗元在永州寫的八篇山水遊記。前四篇寫於元和四年，後四篇寫於元和七年。本文居首，記述他第一次遊西山。</div></div>
+<div class="trait"><div class="trait-h">遊記</div><div class="trait-e">記述遊覽經過、描寫所見景物、抒發感受的文章。好的遊記寫景之外，還有作者的情感和寄託。</div></div>
+<div class="trait"><div class="trait-h">託物言志</div><div class="trait-e">借描寫某一事物，寄託自己的志向或品格。本文寫西山「不與培塿為類」，就是以山自比。</div></div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot green"></span>這是一篇怎樣的文章</h3>
+<p>本文是一篇<b>遊記</b>，記事、寫景、抒情三者結合。讀遊記，先找三樣東西：</p>
+<table>
+<tr><th class="c">要找的東西</th><th>意思</th><th>本文的答案</th></tr>
+<tr><td class="c">記事</td><td>遊覽的經過</td><td>昔日到處遊山；九月二十八日望見西山，開路登頂，飲酒至天黑</td></tr>
+<tr><td class="c">寫景</td><td>看見的景物</td><td>數州土壤在衽席之下；若垤若穴，尺寸千里；縈青繚白，外與天際</td></tr>
+<tr><td class="c">抒情</td><td>作者的感受</td><td>由「恒惴慄」到「心凝形釋，與萬化冥合」；明白「遊於是乎始」</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot blue"></span>考試會怎樣考</h3>
+<table>
+<tr><th class="c">考試範圍</th><td>文憑試中國語文科卷一甲部「指定文言篇章」，十二篇範文之一</td></tr>
+<tr><th class="c">常考題型</th><td>字詞解釋、語譯、作者心情的變化、昔遊與今遊的分別、西山的特點、襯托與誇張的作用、以西山自喻的寄意、「始」字的意義</td></tr>
+</table>
+</div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">閱讀時留意</div><div class="alert-text">全文的線索是作者的心情。讀每一句時都問自己：這時候他是害怕、暫時忘憂，還是已經放開了？</div></div></div>
+<div class="section-header ex" id="s2"><div class="icon">✏️</div><div><div class="chap">CHAPTER 02　練習</div><h2>練習一：作者與背景</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>柳宗元是哪一個朝代的人？<ul class="opts"><li><b>A</b>唐</li><li><b>B</b>北宋</li><li><b>C</b>南宋</li><li><b>D</b>東漢</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>與柳宗元並稱「韓柳」的是：<ul class="opts"><li><b>A</b>韓非</li><li><b>B</b>韓愈</li><li><b>C</b>韓信</li><li><b>D</b>韓琦</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>柳宗元被貶到永州，擔任的官職是：<ul class="opts"><li><b>A</b>刺史</li><li><b>B</b>宰相</li><li><b>C</b>司馬</li><li><b>D</b>縣令</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">柳宗元先被貶為邵州刺史，未到任，再貶為永州司馬。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>判斷以下說法是否正確。正確的寫「✓」，錯誤的寫「✗」。<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr><tr><td>（1）柳宗元因「永貞革新」失敗而被貶。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（2）本文寫於柳宗元剛到永州的第一年。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（3）本文是「永州八記」的第一篇。</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）✓　（2）✗　（3）✓<br><span class="ex">（2）本文寫於元和四年，是柳宗元被貶永州的第四年。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>把左邊的詞語與右邊的解釋配對，把代表答案的英文字母填在括號內。<table><tr><th>詞語</th><th class="c ctr">答案</th><th>解釋</th></tr><tr><td>（1）僇人</td><td class="ctr">（　　）</td><td>A　記述遊覽經過、描寫景物、抒發感受的文章</td></tr><tr><td>（2）永州八記</td><td class="ctr">（　　）</td><td>B　受過刑罰的人，即罪人</td></tr><tr><td>（3）遊記</td><td class="ctr">（　　）</td><td>C　借描寫事物寄託志向或品格</td></tr><tr><td>（4）託物言志</td><td class="ctr">（　　）</td><td>D　柳宗元在永州寫的八篇山水遊記</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）B　（2）D　（3）A　（4）C</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>本文寫於哪一年？<ul class="opts"><li><b>A</b>元和元年</li><li><b>B</b>永貞元年</li><li><b>C</b>元和七年</li><li><b>D</b>元和四年</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>根據第一章內容填空。<p>題目「始得西山宴遊記」中，「始得」的意思是（1）<span class="blank l"></span>；「宴遊」的意思是（2）<span class="blank l"></span>。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1）才發現（才得到）　（2）飲酒遊樂</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>把柳宗元發現並登上西山的經過，按先後次序排列。<p>A　斫榛莽，焚茅茷　　B　坐法華西亭，望西山　　C　過湘江　　D　緣染溪　　E　窮山之高而止</p><p>答案：<span class="blank"></span> → <span class="blank s"></span> → <span class="blank s"></span> → <span class="blank s"></span> → <span class="blank s"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，全對得2分）B → C → D → A → E</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>柳宗元在文中自稱「僇人」。這個詞反映了他怎樣的處境和心情？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）處境：參與改革失敗後，被貶到偏遠的永州，身為罪人（1分）；心情：常常憂懼不安（1分）；用「僇人」自稱，語帶自嘲和不平（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>柳宗元被貶永州時為甚麼「恒惴慄」？試結合寫作背景說明。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）改革失敗，好友王叔文被賜死，他擔心自己也會遭到迫害（1分）；他在永州又不斷受人誹謗攻擊，處境艱難（1分）。</div></div></div>
+<div class="section-header" id="s3"><div class="icon">📜</div><div><div class="chap">CHAPTER 03　教學</div><h2>原文逐段讀</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>怎樣用這一章</h3>
+<p>全文共兩段，分成12個小場景。每個場景都按同一次序讀：</p>
+<div class="flow">
+<div class="flow-step"><b>① 讀原文</b>先讀米色框內的原文，看到小數字先不用停。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>② 讀白話</b>對照下面的白話，粗體字是考試常考的字詞。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>③ 查字詞卡</b>回頭查小數字的意思，再讀一次原文。</div>
+</div>
+<p class="small">原文及分段依據教育局提供的參考版本。</p>
+</div>
+<div class="poem"><div class="ttl">始得西山宴遊記</div><div class="au">柳宗元</div>
+<div class="pblock"><div class="layer-tag">第一部分　昔日之遊</div><div class="pb-head"><span class="pnum">1</span>第1段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 1</span>被貶永州，常常害怕</div>
+<div class="pb-orig">自<sup class="n">1</sup>余<sup class="n">2</sup>為僇人<sup class="n">3</sup>，居是州<sup class="n">4</sup>，恒<sup class="n">5</sup>惴慄<sup class="n">6</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span><b>自從</b>我成了<b>受過刑罰的罪人</b>，住在<b>這個州</b>，<b>常常</b>憂懼不安。</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">1　自</div><div class="kw-def">自從。</div></div><div class="kw"><div class="kw-word">2　余</div><div class="kw-def">我。</div></div><div class="kw"><div class="kw-word">3　僇人<span class="py">僇，粵音「陸」</span></div><div class="kw-def">受過刑罰的人，即罪人。柳宗元參與改革，失敗後被貶，用這個詞自稱，帶有自嘲的意味。僇，同「戮」。</div></div><div class="kw"><div class="kw-word">4　是州</div><div class="kw-def">這個州，指永州（今湖南永州）。是，這。</div></div><div class="kw"><div class="kw-word">5　恒</div><div class="kw-def">常常。</div></div><div class="kw"><div class="kw-word">6　惴慄<span class="py">惴，粵音「最」；慄，粵音「律」</span></div><div class="kw-def">恐懼、戰慄。</div></div></div></details><svg class="chart" viewBox="0 0 760 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="恒惴慄"><rect x="0" y="0" width="760" height="170" rx="14" fill="var(--color-background-secondary)"/><rect x="20" y="30" width="216" height="110" rx="14" fill="var(--color-background-primary)" stroke="#c0392b" stroke-opacity="0.5"/><text x="128" y="64" text-anchor="middle" font-size="22" font-weight="700" fill="#c0392b" font-family="Noto Serif TC,serif">僇人</text><text x="128" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">身分：罪人</text><text x="128" y="118" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">因改革失敗被貶</text><rect x="272" y="30" width="216" height="110" rx="14" fill="var(--color-background-primary)" stroke="#3a6ea5" stroke-opacity="0.5"/><text x="380" y="64" text-anchor="middle" font-size="22" font-weight="700" fill="#3a6ea5" font-family="Noto Serif TC,serif">是州</text><text x="380" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">地方：永州</text><text x="380" y="118" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">遠離京城的邊地</text><rect x="524" y="30" width="216" height="110" rx="14" fill="var(--color-background-primary)" stroke="#6b5ca5" stroke-opacity="0.5"/><text x="632" y="64" text-anchor="middle" font-size="22" font-weight="700" fill="#6b5ca5" font-family="Noto Serif TC,serif">恒惴慄</text><text x="632" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">心情：常常害怕</text><text x="632" y="118" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">擔心再受迫害</text><text x="380" y="160" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">開首三句交代了身分、地方和心情，全文的情感由「恒惴慄」出發</text></svg></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 2</span>一有空閒，就去遊山</div>
+<div class="pb-orig">其隙<sup class="n">7</sup>也，則施施<sup class="n">8</sup>而行，漫漫<sup class="n">9</sup>而遊。日與其徒<sup class="n">10</sup>上高山，入深林，窮<sup class="n">11</sup>迴溪<sup class="n">12</sup>，幽泉<sup class="n">13</sup>怪石，無遠不到。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>在公務以外的<b>空閒時間</b>，就<b>慢慢地</b>走，<b>無拘無束</b>地遊覽。每天和志趣相投的<b>朋友</b>登上高山，走進深林，<b>走到</b>曲折溪流的盡頭；凡有幽靜泉水、奇形怪石的地方，不論多遠都去。</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">7　隙</div><div class="kw-def">空隙，指公務以外的空閒時間。</div></div><div class="kw"><div class="kw-word">8　施施<span class="py">粵音「詩詩」</span></div><div class="kw-def">慢慢行走的樣子。一說解作喜悅自得的樣子，讀作「移移」。</div></div><div class="kw"><div class="kw-word">9　漫漫</div><div class="kw-def">隨意、無拘無束的樣子。</div></div><div class="kw"><div class="kw-word">10　徒</div><div class="kw-def">同伴，指志趣相投的朋友。</div></div><div class="kw"><div class="kw-word">11　窮</div><div class="kw-def">走到盡頭。作動詞用。</div></div><div class="kw"><div class="kw-word">12　迴溪</div><div class="kw-def">曲折迂迴的溪流。</div></div><div class="kw"><div class="kw-word">13　幽泉</div><div class="kw-def">幽靜的泉水。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 3</span>醉了就睡，睡了就夢</div>
+<div class="pb-orig">到則披草<sup class="n">14</sup>而坐，傾壺<sup class="n">15</sup>而醉。醉則更相<sup class="n">16</sup>枕<sup class="n">17</sup>以臥，臥而夢。意有所極<sup class="n">18</sup>，夢亦同趣<sup class="n">19</sup>。覺<sup class="n">20</sup>而起，起而歸。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>到了那裏，就<b>撥開</b>野草坐下，<b>倒盡壺中的酒</b>，喝個大醉。醉了就<b>互相</b>枕着身體躺下，躺下就做夢。心中的意趣到了<b>極點</b>，連夢裏也有相同的意趣。<b>睡醒</b>了就起來，起來了就回家。</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">14　披草</div><div class="kw-def">撥開野草。披，用手撥開。</div></div><div class="kw"><div class="kw-word">15　傾壺</div><div class="kw-def">把壺中的酒倒盡。</div></div><div class="kw"><div class="kw-word">16　更相<span class="py">更，粵音「庚」</span></div><div class="kw-def">互相、彼此。</div></div><div class="kw"><div class="kw-word">17　枕<span class="py">粵音「浸」</span></div><div class="kw-def">以頭枕着（對方的身體）。作動詞用。</div></div><div class="kw"><div class="kw-word">18　意有所極</div><div class="kw-def">心中的意趣到了極點。極，至、到。</div></div><div class="kw"><div class="kw-word">19　同趣</div><div class="kw-def">有相同的意趣。一說「趣」同「趨」，指夢境也隨心意而去。</div></div><div class="kw"><div class="kw-word">20　覺<span class="py">粵音「教」</span></div><div class="kw-def">睡醒。</div></div></div></details><svg class="chart" viewBox="0 0 760 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="醉、臥、夢、覺、起、歸"><defs><marker id="arCh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs><rect x="0" y="0" width="760" height="170" rx="14" fill="var(--amber-bg)"/><circle cx="70" cy="74" r="36" fill="#96702F"/><text x="70" y="86" text-anchor="middle" font-size="30" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">醉</text><text x="70" y="132" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">傾壺而醉</text><circle cx="194" cy="74" r="36" fill="#96702F"/><text x="194" y="86" text-anchor="middle" font-size="30" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">臥</text><text x="194" y="132" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">更相枕以臥</text><circle cx="318" cy="74" r="36" fill="#96702F"/><text x="318" y="86" text-anchor="middle" font-size="30" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">夢</text><text x="318" y="132" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">臥而夢</text><circle cx="442" cy="74" r="36" fill="var(--color-background-primary)"/><text x="442" y="86" text-anchor="middle" font-size="30" font-weight="700" fill="#96702F" font-family="Noto Serif TC,serif">覺</text><text x="442" y="132" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">覺而起</text><circle cx="566" cy="74" r="36" fill="var(--color-background-primary)"/><text x="566" y="86" text-anchor="middle" font-size="30" font-weight="700" fill="#96702F" font-family="Noto Serif TC,serif">起</text><text x="566" y="132" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">起而歸</text><circle cx="690" cy="74" r="36" fill="var(--color-background-primary)"/><text x="690" y="86" text-anchor="middle" font-size="30" font-weight="700" fill="#96702F" font-family="Noto Serif TC,serif">歸</text><text x="690" y="132" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">回家</text><path d="M108 74 H154" stroke="#96702F" stroke-width="2" marker-end="url(#arCh)"/><path d="M232 74 H278" stroke="#96702F" stroke-width="2" marker-end="url(#arCh)"/><path d="M356 74 H402" stroke="#96702F" stroke-width="2" marker-end="url(#arCh)"/><path d="M480 74 H526" stroke="#96702F" stroke-width="2" marker-end="url(#arCh)"/><path d="M604 74 H650" stroke="#96702F" stroke-width="2" marker-end="url(#arCh)"/><text x="380" y="160" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">上句結尾就是下句開頭（頂真）。深色的醉、臥、夢是暫時忘憂，淺色的覺、起、歸是回到現實</text></svg></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 4</span>以為遊遍了，卻不知有西山</div>
+<div class="pb-orig">以為凡是州之山有異態<sup class="n">21</sup>者，皆我有<sup class="n">22</sup>也，而未始<sup class="n">23</sup>知西山<sup class="n">24</sup>之怪特<sup class="n">25</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>我以為凡是這個州裏形態<b>奇異</b>的山，都已經被我遊遍了，卻<b>不曾</b>知道西山的<b>奇特</b>。</div>
+<details class="kwbox" open><summary>字詞卡（5個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">21　異態</div><div class="kw-def">奇異的形態。</div></div><div class="kw"><div class="kw-word">22　皆我有</div><div class="kw-def">都被我擁有，意思是都已遊遍。</div></div><div class="kw"><div class="kw-word">23　未始</div><div class="kw-def">不曾、未曾。</div></div><div class="kw"><div class="kw-word">24　西山</div><div class="kw-def">山名，在永州城西。</div></div><div class="kw"><div class="kw-word">25　怪特</div><div class="kw-def">奇異特出。</div></div></div></details></div>
+<div class="pb-gist"><b>第1段一句話：</b>寫作者被貶永州後常常憂懼，於是終日遊山飲酒，醉了就睡，醒了就回家；自以為已遊遍永州奇山，卻不曾知道西山的奇特。</div></div>
+<div class="pblock"><div class="layer-tag">第二部分　西山之遊</div><div class="pb-head"><span class="pnum">2</span>第2段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 5</span>在西亭望見西山</div>
+<div class="pb-orig">今年九月二十八日，因<sup class="n">26</sup>坐法華西亭<sup class="n">27</sup>，望西山，始<sup class="n">28</sup>指異之<sup class="n">29</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>今年九月二十八日，我<b>因為</b>坐在法華寺的西亭，遠望西山，<b>才</b>指着它，<b>覺得它與眾不同</b>。</div>
+<details class="kwbox" open><summary>字詞卡（4個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">26　因</div><div class="kw-def">因為。</div></div><div class="kw"><div class="kw-word">27　法華西亭</div><div class="kw-def">法華寺西面的亭子，為柳宗元所建。法華寺在永州城內。</div></div><div class="kw"><div class="kw-word">28　始</div><div class="kw-def">才。</div></div><div class="kw"><div class="kw-word">29　異之</div><div class="kw-def">對它感到驚異，覺得它與眾不同。異，作動詞用。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 6</span>開路登山</div>
+<div class="pb-orig">遂<sup class="n">30</sup>命僕過湘江<sup class="n">31</sup>，緣<sup class="n">32</sup>染溪<sup class="n">33</sup>，斫<sup class="n">34</sup>榛莽<sup class="n">35</sup>，焚茅茷<sup class="n">36</sup>，窮山之高<sup class="n">37</sup>而止。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span><b>於是</b>吩咐僕人渡過湘江，<b>沿着</b>染溪，<b>砍伐</b>雜亂叢生的草木，燒掉茂密的茅草，一直走到山的<b>最高處</b>才停下來。</div>
+<details class="kwbox" open><summary>字詞卡（8個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">30　遂</div><div class="kw-def">於是。</div></div><div class="kw"><div class="kw-word">31　湘江</div><div class="kw-def">湖南省的大河。據考證，這次渡過的是湘江的支流瀟水。</div></div><div class="kw"><div class="kw-word">32　緣</div><div class="kw-def">沿着、順着。</div></div><div class="kw"><div class="kw-word">33　染溪</div><div class="kw-def">溪名，又叫冉溪，後來柳宗元把它改名為愚溪。</div></div><div class="kw"><div class="kw-word">34　斫<span class="py">粵音「爵」</span></div><div class="kw-def">砍伐。</div></div><div class="kw"><div class="kw-word">35　榛莽</div><div class="kw-def">雜亂叢生的草木。</div></div><div class="kw"><div class="kw-word">36　茅茷</div><div class="kw-def">茂密的茅草。茷，草葉茂盛的樣子。</div></div><div class="kw"><div class="kw-word">37　窮山之高</div><div class="kw-def">走到山的最高處。窮，盡。</div></div></div></details><div class="stage-row">
+<div class="stage s-b"><div class="stage-key">渡</div><div class="stage-t">過湘江</div>渡過大江<br><span class="stage-w">水路</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-b"><div class="stage-key">沿</div><div class="stage-t">緣染溪</div>沿着小溪走<br><span class="stage-w">沿溪而行</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-c"><div class="stage-key">砍</div><div class="stage-t">斫榛莽</div>砍掉雜樹<br><span class="stage-w">開路</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-c"><div class="stage-key">燒</div><div class="stage-t">焚茅茷</div>燒掉茅草<br><span class="stage-w">開路</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-a"><div class="stage-key">頂</div><div class="stage-t">窮山之高</div>到達山頂<br><span class="stage-w">才停下</span></div>
+</div>
+<p class="small">五個動詞「過、緣、斫、焚、窮」接連出現，寫出登山之路難走，也寫出作者非要登頂不可的興致。</p>
+</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 7</span>坐在山頂，數州在腳下</div>
+<div class="pb-orig">攀援<sup class="n">38</sup>而登，箕踞<sup class="n">39</sup>而遨<sup class="n">40</sup>，則凡數州之土壤<sup class="n">41</sup>，皆在衽席<sup class="n">42</sup>之下。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>我們攀援着登上山頂，<b>張開兩腿隨意坐下</b>，放眼四望，只見幾個州的<b>土地</b>，都在我們的<b>座席</b>下面。</div>
+<details class="kwbox" open><summary>字詞卡（5個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">38　攀援</div><div class="kw-def">抓住東西向上爬。</div></div><div class="kw"><div class="kw-word">39　箕踞<span class="py">粵音「基據」</span></div><div class="kw-def">張開兩腿坐着，形狀像簸箕，是隨意、不拘禮節的坐姿。</div></div><div class="kw"><div class="kw-word">40　遨</div><div class="kw-def">遊玩，這裏指放眼四望。</div></div><div class="kw"><div class="kw-word">41　土壤</div><div class="kw-def">土地。</div></div><div class="kw"><div class="kw-word">42　衽席<span class="py">衽，粵音「任」</span></div><div class="kw-def">座席。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 8</span>從山頂向下望</div>
+<div class="pb-orig">其高下之勢，岈然窪然<sup class="n">43</sup>，若垤若穴<sup class="n">44</sup>，尺寸千里<sup class="n">45</sup>，攢蹙累積<sup class="n">46</sup>，莫得遯隱<sup class="n">47</sup>。縈青繚白<sup class="n">48</sup>，外與天際<sup class="n">49</sup>，四望如一。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>那些高高低低的地勢，有的高峻，有的低凹，高的像<b>小土堆</b>，低的像<b>蟻穴</b>；千里之遠，看來只在尺寸之間；山巒聚集緊靠，重疊堆積，沒有一處能夠<b>隱藏</b>。青山白水互相環繞，遠處和天空<b>相接</b>，向四面望去都是一樣。</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">43　岈然窪然<span class="py">岈，粵音「蝦」，也讀「牙」</span></div><div class="kw-def">岈然，高峻的樣子（一說指山谷深邃）；窪然，低凹的樣子。窪，也寫作「洼」。</div></div><div class="kw"><div class="kw-word">44　若垤若穴<span class="py">垤，粵音「秩」</span></div><div class="kw-def">（高的）像小土堆，（低的）像蟻穴。垤，蟻穴外的小土堆。</div></div><div class="kw"><div class="kw-word">45　尺寸千里</div><div class="kw-def">千里之遠，看來只在尺寸之間。</div></div><div class="kw"><div class="kw-word">46　攢蹙累積<span class="py">攢，粵音「全」；蹙，粵音「速」</span></div><div class="kw-def">（山巒）聚集緊靠，重疊堆積。攢，聚集；蹙，緊迫。</div></div><div class="kw"><div class="kw-word">47　莫得遯隱</div><div class="kw-def">沒有一處能夠隱藏。遯，同「遁」，隱藏。</div></div><div class="kw"><div class="kw-word">48　縈青繚白</div><div class="kw-def">青山白水互相環繞。青，指山；白，指水；縈、繚，都是環繞的意思。</div></div><div class="kw"><div class="kw-word">49　際</div><div class="kw-def">相接。作動詞用。</div></div></div></details><svg class="chart" viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="從西山山頂向下望"><defs><linearGradient id="skyL" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#FFF6E6"/><stop offset="1" stop-color="#F1DDB4"/></linearGradient></defs><rect x="0" y="0" width="760" height="330" rx="14" fill="url(#skyL)"/><path d="M300 150 H748" stroke="#96702F" stroke-width="1.4" stroke-dasharray="5 5"/><text x="740" y="140" text-anchor="end" font-size="12.5" font-weight="700" fill="#96702F">外與天際：遠處和天空相接</text><path d="M10 330 L150 64 L290 330 Z" fill="#96702F"/><circle cx="150" cy="46" r="8" fill="var(--color-text-primary)"/><path d="M150 54 V66 M136 70 L150 62 L164 70" stroke="var(--color-text-primary)" stroke-width="3" stroke-linecap="round" fill="none"/><text x="150" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#96702F">箕踞而遨</text><text x="150" y="250" text-anchor="middle" font-size="22" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">西山</text><g stroke="#96702F" stroke-width="1.2" stroke-dasharray="3 4" fill="none"><path d="M162 56 L420 230"/><path d="M162 56 L600 220"/><path d="M162 56 L740 152"/></g><g fill="#96702F" fill-opacity="0.55"><path d="M330 260 q16 -26 32 0 Z"/><path d="M380 264 q12 -20 24 0 Z"/><path d="M440 256 q14 -22 28 0 Z"/><path d="M520 250 q10 -18 20 0 Z"/><path d="M570 244 q12 -20 24 0 Z"/><path d="M640 236 q8 -14 16 0 Z"/><path d="M690 230 q8 -12 16 0 Z"/></g><g fill="#5A3E1B" fill-opacity="0.35"><ellipse cx="412" cy="272" rx="8" ry="3"/><ellipse cx="500" cy="262" rx="7" ry="2.6"/><ellipse cx="614" cy="250" rx="6" ry="2.2"/></g><path d="M300 300 C380 280 420 300 480 284 C540 268 600 270 660 252 C700 240 730 236 750 232" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/><path d="M300 300 C380 280 420 300 480 284 C540 268 600 270 660 252 C700 240 730 236 750 232" fill="none" stroke="#3a6ea5" stroke-opacity="0.35" stroke-width="2"/><g font-size="12.5" font-weight="700"><text x="346" y="226" fill="#96702F">若垤若穴</text><text x="346" y="244" font-size="11.5" font-weight="400" fill="var(--color-text-secondary)">山像小土堆，谷像蟻穴</text><text x="520" y="318" fill="#3a6ea5">縈青繚白：青山白水互相環繞</text><text x="520" y="196" fill="#c0392b">尺寸千里</text><text x="520" y="214" font-size="11.5" font-weight="400" fill="var(--color-text-secondary)">千里之遠，看來近在眼前</text></g><text x="740" y="40" text-anchor="end" font-size="12" fill="var(--color-text-secondary)">山越高，下面的東西看來越小：</text><text x="740" y="58" text-anchor="end" font-size="12" fill="var(--color-text-secondary)">寫眾山之小，正是寫西山之高</text></svg></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 9</span>西山不與培塿為類</div>
+<div class="pb-orig">然後知是山<sup class="n">50</sup>之特出<sup class="n">51</sup>，不與培塿<sup class="n">52</sup>為類<sup class="n">53</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>這時我才知道這座山特別<b>突出</b>，跟那些<b>小土丘</b>不屬同一類。</div>
+<details class="kwbox" open><summary>字詞卡（4個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">50　是山</div><div class="kw-def">這座山，指西山。</div></div><div class="kw"><div class="kw-word">51　特出</div><div class="kw-def">特別突出。</div></div><div class="kw"><div class="kw-word">52　培塿<span class="py">塿，粵音「柳」</span></div><div class="kw-def">小土丘。</div></div><div class="kw"><div class="kw-word">53　為類</div><div class="kw-def">成為同類。</div></div></div></details><svg class="chart" viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="西山與培塿"><defs><marker id="arPe" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs><rect x="0" y="0" width="760" height="250" rx="14" fill="var(--color-background-secondary)"/><path d="M30 210 H360" stroke="#96702F" stroke-width="2"/><path d="M60 210 L150 40 L240 210 Z" fill="#96702F"/><text x="150" y="176" text-anchor="middle" font-size="18" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">西山</text><g fill="#96702F" fill-opacity="0.45"><path d="M250 210 q12 -20 24 0 Z"/><path d="M282 210 q10 -16 20 0 Z"/><path d="M310 210 q12 -22 24 0 Z"/></g><text x="292" y="232" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-secondary)">培塿（小土丘）</text><text x="150" y="232" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">特出</text><path d="M376 126 H430" stroke="#96702F" stroke-width="2.4" marker-end="url(#arPe)"/><text x="403" y="114" text-anchor="middle" font-size="12" font-weight="700" fill="#96702F">暗指</text><rect x="446" y="40" width="292" height="80" rx="14" fill="var(--amber-bg)" stroke="#96702F" stroke-opacity="0.5"/><text x="592" y="72" text-anchor="middle" font-size="15" font-weight="700" fill="#96702F">西山 ＝ 柳宗元自己</text><text x="592" y="98" text-anchor="middle" font-size="12.5" fill="var(--color-text-primary)">才德特出，品格高潔，孤高不群</text><rect x="446" y="136" width="292" height="80" rx="14" fill="var(--color-background-primary)" stroke="var(--color-border-tertiary)"/><text x="592" y="168" text-anchor="middle" font-size="15" font-weight="700" fill="var(--color-text-secondary)">培塿 ＝ 平庸的人</text><text x="592" y="194" text-anchor="middle" font-size="12.5" fill="var(--color-text-primary)">隨波逐流的庸俗之輩</text></svg></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 10</span>與天地融為一體</div>
+<div class="pb-orig">悠悠乎<sup class="n">54</sup>與顥氣<sup class="n">55</sup>俱<sup class="n">56</sup>，而莫得其涯<sup class="n">57</sup>；洋洋乎<sup class="n">58</sup>與造物者<sup class="n">59</sup>遊，而不知其所窮<sup class="n">60</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>我感到心胸悠遠廣闊，與天地間的<b>大氣</b>融為一體，看不到它的<b>邊際</b>；又感到浩瀚無邊，與創造萬物的<b>大自然</b>一同遨遊，不知道它的<b>盡頭</b>在哪裏。</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">54　悠悠</div><div class="kw-def">悠遠廣闊的樣子。</div></div><div class="kw"><div class="kw-word">55　顥氣</div><div class="kw-def">充塞天地之間的大氣。顥，同「灝」。</div></div><div class="kw"><div class="kw-word">56　俱</div><div class="kw-def">在一起，這裏指融為一體。</div></div><div class="kw"><div class="kw-word">57　涯</div><div class="kw-def">邊際。</div></div><div class="kw"><div class="kw-word">58　洋洋</div><div class="kw-def">廣大無邊的樣子。</div></div><div class="kw"><div class="kw-word">59　造物者</div><div class="kw-def">創造萬物的大自然。語出《莊子‧大宗師》。</div></div><div class="kw"><div class="kw-word">60　所窮</div><div class="kw-def">盡頭。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 11</span>醉到天黑也不想走</div>
+<div class="pb-orig">引觴<sup class="n">61</sup>滿酌<sup class="n">62</sup>，頹然<sup class="n">63</sup>就醉，不知日之入。蒼然暮色<sup class="n">64</sup>，自遠而至，至無所見，而猶<sup class="n">65</sup>不欲歸。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>我<b>拿起酒杯</b>，<b>斟滿</b>酒，喝得<b>東歪西倒</b>，不覺醉了，連太陽下山也不知道。<b>深沉的暮色</b>從遠處而來，到了甚麼也看不見的時候，我<b>仍然</b>不想回去。</div>
+<details class="kwbox" open><summary>字詞卡（5個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">61　引觴<span class="py">觴，粵音「雙」</span></div><div class="kw-def">拿起酒杯。引，拿起；觴，酒杯。</div></div><div class="kw"><div class="kw-word">62　滿酌</div><div class="kw-def">斟滿酒。</div></div><div class="kw"><div class="kw-word">63　頹然</div><div class="kw-def">醉得東歪西倒、站也站不穩的樣子。</div></div><div class="kw"><div class="kw-word">64　蒼然暮色</div><div class="kw-def">深沉的暮色。蒼，深青色。</div></div><div class="kw"><div class="kw-word">65　猶</div><div class="kw-def">仍然。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 12</span>遊覽從這次才開始</div>
+<div class="pb-orig">心凝形釋<sup class="n">66</sup>，與萬化冥合<sup class="n">67</sup>。然後知吾嚮<sup class="n">68</sup>之未始遊，遊於是乎始<sup class="n">69</sup>，故為之文以志<sup class="n">70</sup>。是歲元和四年<sup class="n">71</sup>也。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>我心神凝聚，形體好像不再受到束縛，與萬物默默地融合為一。這時我才知道，我<b>從前</b>不曾真正遊覽過，遊覽從這次才算開始，所以為這次遊覽寫了這篇文章來<b>記下</b>它。這一年是元和四年。</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">66　心凝形釋</div><div class="kw-def">心神凝聚，形體好像不再受束縛。凝，凝聚；釋，放開。</div></div><div class="kw"><div class="kw-word">67　萬化冥合<span class="py">冥，粵音「名」</span></div><div class="kw-def">與萬物默默地融合為一。萬化，萬物，指大自然；冥合，暗暗契合。</div></div><div class="kw"><div class="kw-word">68　嚮</div><div class="kw-def">同「向」，從前、過去。</div></div><div class="kw"><div class="kw-word">69　遊於是乎始</div><div class="kw-def">遊覽從這次才算開始。是，這（次）。</div></div><div class="kw"><div class="kw-word">70　志</div><div class="kw-def">同「誌」，記下。</div></div><div class="kw"><div class="kw-word">71　元和四年</div><div class="kw-def">元和，唐憲宗的年號。元和四年即公元809年。</div></div></div></details></div>
+<div class="pb-gist"><b>第2段一句話：</b>寫作者發現西山、開路登山及山頂所見，悟出西山「不與培塿為類」；作者醉至天黑仍不想回去，達到「心凝形釋，與萬化冥合」的境界，才知道真正的遊覽從這次開始。</div></div>
+</div>
+<div class="card"><h3><span class="dot purple"></span>重點字詞：五類必溫</h3>
+<div class="duo">
+<div class="duo-col wen"><div class="duo-h">A　通假字和異體字</div><p class="small">古人借用了另一個字，或用了同一個字的另一種寫法。翻譯時要按右邊的字解釋。</p>
+<table><tr><th class="c">原文</th><th class="c">同</th><th>解釋</th></tr>
+<tr><td class="c">為<b>僇</b>人</td><td class="c">戮</td><td>刑罰、懲罰</td></tr>
+<tr><td class="c">莫得<b>遯</b>隱</td><td class="c">遁</td><td>隱藏</td></tr>
+<tr><td class="c">與<b>顥</b>氣俱</td><td class="c">灝</td><td>廣大</td></tr>
+<tr><td class="c">吾<b>嚮</b>之未始遊</td><td class="c">向</td><td>從前</td></tr>
+<tr><td class="c">為之文以<b>志</b></td><td class="c">誌</td><td>記下</td></tr></table></div>
+<div class="duo-col wu"><div class="duo-h">B　古今意思不一樣</div><p class="small">字面和今天一樣，意思卻不同。用今天的意思去翻譯就會錯。</p>
+<table><tr><th class="c">詞語</th><th>古代意思</th><th>今天意思</th></tr>
+<tr><td class="c">土壤</td><td>土地</td><td>泥土</td></tr>
+<tr><td class="c">是</td><td>這（是州、是山、是歲）</td><td>判斷詞「是」</td></tr>
+<tr><td class="c">徒</td><td>同伴、朋友</td><td>徒弟</td></tr>
+<tr><td class="c">窮</td><td>走到盡頭</td><td>貧窮</td></tr>
+<tr><td class="c">覺</td><td>睡醒</td><td>感覺</td></tr>
+<tr><td class="c">於是</td><td>從這（次）</td><td>因此</td></tr></table></div>
+</div>
+<h3 style="margin-top:14px"><span class="dot amber"></span>C　同一個字，不同意思</h3>
+<svg class="chart" viewBox="0 0 760 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="「始」字的意思"><rect x="0" y="0" width="760" height="270" rx="14" fill="var(--color-background-secondary)"/><path d="M380 140 L380 44" stroke="#d0654a" stroke-width="2" stroke-opacity="0.5"/><path d="M380 140 L650 104" stroke="#3a6ea5" stroke-width="2" stroke-opacity="0.5"/><path d="M380 140 L600 214" stroke="#3d8b4f" stroke-width="2" stroke-opacity="0.5"/><path d="M380 140 L160 214" stroke="#6b5ca5" stroke-width="2" stroke-opacity="0.5"/><path d="M380 140 L110 104" stroke="#96702F" stroke-width="2" stroke-opacity="0.5"/><circle cx="380" cy="140" r="44" fill="#96702F"/><text x="380" y="152" text-anchor="middle" font-size="34" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">始</text><rect x="275" y="19" width="210" height="50" rx="12" fill="var(--color-background-primary)" stroke="#d0654a" stroke-width="1.6"/><text x="380" y="40" text-anchor="middle" font-size="13.5" font-weight="700" fill="#d0654a">曾（「未始」＝不曾）</text><text x="380" y="60" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">而未始知西山之怪特</text><rect x="545" y="79" width="210" height="50" rx="12" fill="var(--color-background-primary)" stroke="#3a6ea5" stroke-width="1.6"/><text x="650" y="100" text-anchor="middle" font-size="13.5" font-weight="700" fill="#3a6ea5">才</text><text x="650" y="120" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">始指異之</text><rect x="495" y="189" width="210" height="50" rx="12" fill="var(--color-background-primary)" stroke="#3d8b4f" stroke-width="1.6"/><text x="600" y="210" text-anchor="middle" font-size="13.5" font-weight="700" fill="#3d8b4f">曾（「未始」＝不曾）</text><text x="600" y="230" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">吾嚮之未始遊</text><rect x="55" y="189" width="210" height="50" rx="12" fill="var(--color-background-primary)" stroke="#6b5ca5" stroke-width="1.6"/><text x="160" y="210" text-anchor="middle" font-size="13.5" font-weight="700" fill="#6b5ca5">開始</text><text x="160" y="230" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">遊於是乎始</text><rect x="5" y="79" width="210" height="50" rx="12" fill="var(--color-background-primary)" stroke="#96702F" stroke-width="1.6"/><text x="110" y="100" text-anchor="middle" font-size="13.5" font-weight="700" fill="#96702F">才、開始</text><text x="110" y="120" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">題目：始得西山</text></svg>
+<table><tr><th class="c">字</th><th>例句</th><th>意思</th><th>記法</th></tr>
+<tr><td class="c" rowspan="3">始</td><td>而未<b>始</b>知西山之怪特</td><td>曾（「未始」即不曾）</td><td rowspan="3">「未始」連讀解作不曾；單獨的「始」，看它表示「才」還是「開始」</td></tr>
+<tr><td><b>始</b>指異之</td><td>才</td></tr>
+<tr><td>遊於是乎<b>始</b></td><td>開始</td></tr>
+<tr><td class="c" rowspan="3">窮</td><td><b>窮</b>迴溪</td><td>走到盡頭</td><td rowspan="3">三個「窮」都和「盡」有關：走盡、登盡、沒有盡頭</td></tr>
+<tr><td><b>窮</b>山之高而止</td><td>走到（最高處）</td></tr>
+<tr><td>不知其所<b>窮</b></td><td>盡頭</td></tr>
+<tr><td class="c" rowspan="2">異</td><td>凡是州之山有<b>異</b>態者</td><td>奇異的</td><td rowspan="2">後面接名詞，是形容詞；後面接「之」，是動詞</td></tr>
+<tr><td>始指<b>異</b>之</td><td>覺得……奇異</td></tr>
+<tr><td class="c" rowspan="3">而</td><td>施施<b>而</b>行</td><td>表示修飾，不用譯</td><td rowspan="3">「而」前後意思相反時，多解作「卻」</td></tr>
+<tr><td>覺<b>而</b>起，起<b>而</b>歸</td><td>就、然後</td></tr>
+<tr><td>至無所見，<b>而</b>猶不欲歸</td><td>卻</td></tr>
+<tr><td class="c" rowspan="3">之</td><td>西山<b>之</b>怪特</td><td>的</td><td rowspan="3">「之」在動詞後面多是代詞，先問它指甚麼</td></tr>
+<tr><td>始指異<b>之</b></td><td>代詞，指西山</td></tr>
+<tr><td>故為<b>之</b>文以志</td><td>代詞，指這次遊覽</td></tr>
+</table>
+<h3 style="margin-top:14px"><span class="dot teal"></span>D　句式跟今天不同</h3>
+<div class="order"><div class="order-h">① 「……也」表示「……是……」　<span class="small">（判斷句）</span></div><div class="order-row"><span class="chip">是歲</span><span class="chip">元和四年</span><span class="chip hot">也</span><span class="oarr">⇒</span><span class="chip">這一年</span><span class="chip hot">是</span><span class="chip">元和四年</span></div><div class="small">「以為凡是州之山有異態者，皆我有也」同理：凡是有奇異形態的山，都是我（遊過）的。</div></div><div class="order"><div class="order-h">② 「於是」要搬到動詞前面　<span class="small">（介詞結構後置）</span></div><div class="order-row"><span class="chip">遊</span><span class="chip hot">於是乎</span><span class="chip">始</span><span class="oarr">⇒</span><span class="chip">遊覽</span><span class="chip hot">從這次</span><span class="chip">開始</span></div><div class="small">這裏的「於是」要拆開讀：「於」解作從，「是」解作這次，和今天解作「因此」的「於是」不同；「乎」是語氣助詞，不用譯。</div></div><div class="order"><div class="order-h">③ 句子省去了一些字　<span class="small">（省略句）</span></div><div class="order-row"><span class="chip hot">（高者）</span><span class="chip">若垤</span><span class="chip hot">（下者）</span><span class="chip">若穴</span><span class="oarr">⇒</span><span class="chip hot">高的</span><span class="chip">像小土堆</span><span class="chip hot">低的</span><span class="chip">像蟻穴</span></div><div class="small">「到則披草而坐」也省去了主語「我們」。翻譯時要把省去的部分補上，意思才完整。</div></div><div class="order"><div class="order-h">④ 字的詞性改變了　<span class="small">（詞類活用）</span></div><div class="order-row"><span class="chip hot">窮</span><span class="chip">迴溪</span><span class="oarr">⇒</span><span class="chip hot">走到</span><span class="chip">曲折溪流的</span><span class="chip hot">盡頭</span></div><div class="small">「窮」本是形容詞（盡），這裏作動詞；「異」本是形容詞，「異之」即「覺得它奇異」。「外與天<b>際</b>」的「際」、「更相<b>枕</b>」的「枕」，都是名詞作動詞用。</div></div>
+<h3 style="margin-top:14px"><span class="dot coral"></span>E　值得積累的四字詞</h3>
+<table><tr><th class="c">四字詞</th><th>文中意思</th><th>可以怎樣用</th></tr>
+<tr><td class="c">心凝形釋</td><td>心神凝聚，形體不受束縛</td><td>形容身心完全放鬆、物我兩忘的境界</td></tr>
+<tr><td class="c">尺寸千里</td><td>千里之遠，看來只在尺寸之間</td><td>形容登高遠望，遠景彷彿近在眼前</td></tr>
+<tr><td class="c">縈青繚白</td><td>青山白水互相環繞</td><td>描寫山水交錯的景色</td></tr>
+<tr><td class="c">蒼然暮色</td><td>深沉的暮色</td><td>描寫黃昏時天色漸暗</td></tr>
+</table>
+<h3 style="margin-top:14px"><span class="dot red"></span>容易讀錯的字</h3>
+<table><tr><th>字（詞）</th><th class="c">粵音</th><th>字（詞）</th><th class="c">粵音</th></tr>
+<tr><td>為<b>僇</b>人</td><td class="c">陸</td><td>恒<b>惴慄</b></td><td class="c">最律</td></tr>
+<tr><td><b>施施</b>而行</td><td class="c">詩詩</td><td><b>更</b>相枕</td><td class="c">庚</td></tr>
+<tr><td>更相<b>枕</b>以臥</td><td class="c">浸</td><td><b>覺</b>而起</td><td class="c">教</td></tr>
+<tr><td><b>斫</b>榛莽</td><td class="c">爵</td><td><b>箕踞</b>而遨</td><td class="c">基據</td></tr>
+<tr><td><b>衽</b>席</td><td class="c">任</td><td><b>岈</b>然窪然</td><td class="c">蝦（也讀「牙」）</td></tr>
+<tr><td>若<b>垤</b>若穴</td><td class="c">秩</td><td><b>攢蹙</b>累積</td><td class="c">全速</td></tr>
+<tr><td>培<b>塿</b></td><td class="c">柳</td><td>引<b>觴</b>滿酌</td><td class="c">雙</td></tr>
+<tr><td>萬化<b>冥</b>合</td><td class="c">名</td><td></td><td class="c"></td></tr>
+</table>
+</div>
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">最常失分的三處</div><div class="alert-text">（1）全文有四個「始」：「未始」解作不曾，「始指異之」解作才，「遊於是乎始」解作開始，不可一律譯作「開始」。<br>（2）「數州之土壤」的「土壤」解作土地，不可解作泥土。<br>（3）「遊於是乎始」的「於是」解作「從這次」，不可解作「因此」，全句譯作「遊覽從這次才算開始」。</div></div></div>
+<div class="section-header ex" id="s4"><div class="icon">✏️</div><div><div class="chap">CHAPTER 04　練習</div><h2>練習二：字詞與語譯</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>解釋下列文句中的粗體字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）其<b>隙</b>也</td><td><span class="blank l"></span></td></tr><tr><td>（2）日與其<b>徒</b>上高山</td><td><span class="blank l"></span></td></tr><tr><td>（3）<b>覺</b>而起</td><td><span class="blank l"></span></td></tr><tr><td>（4）外與天<b>際</b></td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）空閒時間　（2）同伴、志趣相投的朋友　（3）睡醒　（4）相接</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>寫出與下列粗體字相同的字。<table><tr><th>文句</th><th class="c ctr">同</th></tr><tr><td>（1）自余為<b>僇</b>人</td><td class="ctr"><span class="blank s"></span></td></tr><tr><td>（2）莫得<b>遯</b>隱</td><td class="ctr"><span class="blank s"></span></td></tr><tr><td>（3）然後知吾<b>嚮</b>之未始遊</td><td class="ctr"><span class="blank s"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）戮　（2）遁　（3）向</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「而<b>未始</b>知西山之怪特」中「未始」的意思是：<ul class="opts"><li><b>A</b>未曾開始</li><li><b>B</b>不曾</li><li><b>C</b>才開始</li><li><b>D</b>還沒有結束</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>「始指<b>異</b>之」中「異」的意思是：<ul class="opts"><li><b>A</b>奇異的</li><li><b>B</b>不同的</li><li><b>C</b>覺得……奇異</li><li><b>D</b>異鄉</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">「異」後面接代詞「之」（西山），作動詞用，即覺得西山奇異。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>「則凡數州之<b>土壤</b>」中「土壤」的意思是：<ul class="opts"><li><b>A</b>土地</li><li><b>B</b>泥土</li><li><b>C</b>田園</li><li><b>D</b>土產</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span class="ex">古今意思不同：古代的「土壤」解作土地，今天解作泥土。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>解釋下列三個「窮」字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）<b>窮</b>迴溪</td><td><span class="blank l"></span></td></tr><tr><td>（2）<b>窮</b>山之高而止</td><td><span class="blank l"></span></td></tr><tr><td>（3）而不知其所<b>窮</b></td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）走到盡頭　（2）走到（最高處）　（3）盡頭</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>「至無所見，<b>而</b>猶不欲歸」中「而」的意思是：<ul class="opts"><li><b>A</b>而且</li><li><b>B</b>就</li><li><b>C</b>因而</li><li><b>D</b>卻</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D<br><span class="ex">天黑到甚麼也看不見，照理應該回家，作者卻仍不想回去，前後意思相反，所以「而」解作「卻」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">醉則更相枕以臥，臥而夢。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）醉了就互相枕着身體躺下，躺下就做夢。<br><span class="ex">「更相枕以臥」譯為互相枕着身體躺下（1分）；「臥而夢」譯為躺下就做夢（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">縈青繚白，外與天際，四望如一。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）青山白水互相環繞，遠處和天空相接，向四面望去都是一樣。<br><span class="ex">「縈青繚白」譯為青山白水互相環繞（1分）；「外與天際」譯為遠處和天空相接（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">然後知吾嚮之未始遊，遊於是乎始。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）這時才知道，我從前不曾真正遊覽過，遊覽從這次才算開始。<br><span class="ex">「吾嚮之未始遊」譯為我從前不曾（真正）遊覽過（1分）；「遊於是乎始」譯為遊覽從這次才（算）開始（1分）。</span></div></div></div>
+<div class="section-header" id="s5"><div class="icon">🧭</div><div><div class="chap">CHAPTER 05　教學</div><h2>柳宗元的心情怎樣變</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>全文結構圖</h3>
+<svg class="chart" viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全文結構圖"><defs><marker id="arM" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs><rect x="10" y="10" width="740" height="110" rx="14" fill="var(--blue-bg)" fill-opacity="0.7"/><text x="30" y="36" font-size="13" font-weight="700" fill="#3a6ea5">第1段　昔日之遊（略寫）</text><rect x="30" y="48" width="210" height="62" rx="12" fill="var(--color-background-primary)" stroke="#3a6ea5" stroke-opacity="0.55"/><text x="135" y="74" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">被貶憂懼</text><text x="135" y="96" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">僇人；恒惴慄</text><rect x="275" y="48" width="210" height="62" rx="12" fill="var(--color-background-primary)" stroke="#3a6ea5" stroke-opacity="0.55"/><text x="380" y="74" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">遊山醉夢</text><text x="380" y="96" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">醉、臥、夢、覺、起、歸</text><rect x="520" y="48" width="210" height="62" rx="12" fill="var(--color-background-primary)" stroke="#3a6ea5" stroke-opacity="0.55"/><text x="625" y="74" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">未知西山</text><text x="625" y="96" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">皆我有也，而未始知</text><rect x="10" y="140" width="740" height="210" rx="14" fill="var(--amber-bg)"/><text x="730" y="166" text-anchor="end" font-size="13" font-weight="700" fill="#96702F">第2段　西山之遊（詳寫）</text><rect x="30" y="178" width="130" height="70" rx="12" fill="var(--color-background-primary)" stroke="#96702F" stroke-opacity="0.55"/><text x="95" y="204" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">發現</text><text x="95" y="226" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">始指異之</text><rect x="174" y="178" width="130" height="70" rx="12" fill="var(--color-background-primary)" stroke="#96702F" stroke-opacity="0.55"/><text x="239" y="204" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">登山</text><text x="239" y="226" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">斫榛莽，焚茅茷</text><rect x="318" y="178" width="130" height="70" rx="12" fill="var(--color-background-primary)" stroke="#96702F" stroke-opacity="0.55"/><text x="383" y="204" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">所見</text><text x="383" y="226" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">若垤若穴</text><rect x="462" y="178" width="130" height="70" rx="12" fill="var(--color-background-primary)" stroke="#96702F" stroke-opacity="0.55"/><text x="527" y="204" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">所感</text><text x="527" y="226" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">不與培塿為類</text><rect x="606" y="178" width="130" height="70" rx="12" fill="var(--color-background-primary)" stroke="#96702F" stroke-opacity="0.55"/><text x="671" y="204" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">宴飲</text><text x="671" y="226" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">猶不欲歸</text><rect x="200" y="272" width="360" height="66" rx="14" fill="#96702F"/><text x="380" y="298" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF6E6">所悟</text><text x="380" y="324" text-anchor="middle" font-size="16" font-weight="700" fill="#FFF6E6">心凝形釋，與萬化冥合；遊於是乎始</text><g stroke="#96702F" stroke-width="2" fill="none"><path d="M240 79 H271" marker-end="url(#arM)"/><path d="M485 79 H516" marker-end="url(#arM)"/><path d="M625 110 C625 140 95 140 95 174" stroke-dasharray="5 4" marker-end="url(#arM)"/><path d="M160 213 H170" marker-end="url(#arM)"/><path d="M304 213 H314" marker-end="url(#arM)"/><path d="M448 213 H458" marker-end="url(#arM)"/><path d="M592 213 H602" marker-end="url(#arM)"/><path d="M671 248 C671 290 600 300 564 302" marker-end="url(#arM)"/></g><text x="40" y="135" font-size="12" fill="var(--color-text-secondary)">「未始知西山之怪特」引出下文</text></svg>
+<table>
+<tr><th class="c">段落</th><th>一句話說明</th><th>要記的關鍵句</th></tr>
+<tr><td class="c">第1段</td><td>被貶後常常憂懼，天天遊山醉夢，自以為遊遍永州，卻不知有西山</td><td>恒惴慄；施施而行，漫漫而遊；未始知西山之怪特</td></tr>
+<tr><td class="c">第2段</td><td>發現西山，開路登頂，看見眾山渺小，明白西山特出；醉到天黑仍不想回去，物我合一，才知道真正的遊覽從這次開始</td><td>始指異之；不與培塿為類；心凝形釋，與萬化冥合；遊於是乎始</td></tr>
+</table>
+<p class="small">第1段略寫，概括多次遊覽；第2段詳寫，只寫一次遊覽。詳略分明，突出西山之遊。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>先看一條線：心情曲線</h3>
+<svg class="chart" viewBox="0 0 760 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="作者心情變化曲線"><rect x="0" y="0" width="760" height="350" rx="14" fill="var(--color-background-secondary)"/><rect x="30" y="20" width="268" height="250" rx="10" fill="var(--blue-bg)" fill-opacity="0.6"/><rect x="298" y="20" width="440" height="250" rx="10" fill="var(--amber-bg)" fill-opacity="0.7"/><text x="164" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#3a6ea5">第1段　昔日之遊</text><text x="518" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">第2段　西山之遊</text><path d="M30 262 H738" stroke="var(--color-text-secondary)" stroke-opacity="0.4"/><path d="M54 232 L114 192 L174 158 L234 146 L294 200" fill="none" stroke="#3a6ea5" stroke-width="2.6" stroke-dasharray="7 5"/><path d="M294 200 L354 166 L414 134 L474 106 L534 84 L594 66 L654 56 L714 40" fill="none" stroke="#96702F" stroke-width="3.2"/><circle cx="54" cy="232" r="6" fill="#c0392b"/><text x="58" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 58 284)">恒惴慄</text><circle cx="114" cy="192" r="6" fill="#3a6ea5"/><text x="118" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 118 284)">施施而行</text><circle cx="174" cy="158" r="6" fill="#3a6ea5"/><text x="178" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 178 284)">傾壺而醉</text><circle cx="234" cy="146" r="6" fill="#3a6ea5"/><text x="238" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 238 284)">臥而夢</text><circle cx="294" cy="200" r="6" fill="#3a6ea5"/><text x="298" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 298 284)">起而歸</text><circle cx="354" cy="166" r="6" fill="#96702F"/><text x="358" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 358 284)">始指異之</text><circle cx="414" cy="134" r="6" fill="#96702F"/><text x="418" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 418 284)">窮山之高</text><circle cx="474" cy="106" r="6" fill="#96702F"/><text x="478" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 478 284)">四望如一</text><circle cx="534" cy="84" r="6" fill="#96702F"/><text x="538" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 538 284)">不與培塿為類</text><circle cx="594" cy="66" r="6" fill="#96702F"/><text x="598" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 598 284)">與造物者遊</text><circle cx="654" cy="56" r="6" fill="#96702F"/><text x="658" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 658 284)">猶不欲歸</text><circle cx="714" cy="40" r="6" fill="#3d8b4f"/><text x="718" y="284" text-anchor="end" font-size="11.5" fill="var(--color-text-primary)" transform="rotate(-38 718 284)">心凝形釋</text><text x="164" y="118" text-anchor="middle" font-size="11.5" fill="#3a6ea5">醉、夢時暫時忘憂</text><text x="250" y="226" text-anchor="middle" font-size="11.5" fill="#3a6ea5">醒來又回到現實</text><text x="640" y="30" text-anchor="middle" font-size="11.5" font-weight="700" fill="#3d8b4f">徹底解脫</text><text x="22" y="40" font-size="11" fill="var(--color-text-secondary)" transform="rotate(-90 22 40)" text-anchor="end">心情</text></svg>
+<p class="small">藍色虛線是昔日之遊：喝醉、做夢時心情好一點，醒來又回到原點。金色實線是西山之遊：一路向上，最後到達「心凝形釋」。</p>
+</div>
+
+<div class="card"><h3><span class="dot red"></span>第一步：開首三句，寫出處境和心情</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">柳宗元自稱「僇人」，說自己住在永州「恒惴慄」：常常害怕。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>「僇人」：</b>罪人。他因改革失敗被貶，用這個詞稱呼自己，有自嘲，也有不平。<br><b>「恒惴慄」：</b>「恒」是常常，「惴慄」是恐懼得發抖。好友王叔文被賜死，自己又不斷被人誹謗，他擔心災禍隨時臨頭。<br><b>作用：</b>全文由這份憂懼出發，後文寫遊山、寫西山，都是寫他怎樣擺脫這份憂懼。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">開首「自余為僇人，居是州，恒惴慄」三句交代作者被貶永州的處境，直接抒發憂懼不安的心情，為全文感情發展定下起點，與篇末「心凝形釋」形成對比。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot blue"></span>第二步：昔日之遊，只能暫時忘憂</h3>
+<div class="story"><div class="sp"><div class="sp-n">1</div><div class="sp-e">🚶</div><div class="sp-t">慢慢走</div><div class="sp-x">有空就出門，沒有目的，隨意走走。</div><div class="sp-q">施施而行，漫漫而遊</div></div><div class="sp"><div class="sp-n">2</div><div class="sp-e">🏔</div><div class="sp-t">到處去</div><div class="sp-x">高山、深林、溪流盡頭，多遠都去。</div><div class="sp-q">幽泉怪石，無遠不到</div></div><div class="sp"><div class="sp-n">3</div><div class="sp-e">🍶</div><div class="sp-t">喝醉睡</div><div class="sp-x">坐在草地上喝酒，醉了就互相枕着睡。</div><div class="sp-q">醉則更相枕以臥</div></div><div class="sp"><div class="sp-n">4</div><div class="sp-e">🏠</div><div class="sp-t">醒了回家</div><div class="sp-x">睡醒就起來，起來就回家，明天再來。</div><div class="sp-q">覺而起，起而歸</div></div></div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">他天天遊山喝酒，醉了睡，睡了夢，醒了回家。煩惱只在醉和夢中暫時忘記。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>為甚麼遊：</b>「其隙也」，一有空就去，可見他想借遊山排解憂懼。<br><b>怎樣遊：</b>「施施而行，漫漫而遊」，沒有目的，隨意漫遊。「無遠不到」寫出遊得多、遊得遠。<br><b>遊得怎樣：</b>「醉則更相枕以臥，臥而夢……覺而起，起而歸」，句句相連，日日如是。他借酒消愁，醒來仍然要面對現實，所以這只是暫時的解脫。<br><b>自以為遊遍：</b>「以為凡是州之山有異態者，皆我有也」，語氣自滿；下一句「而未始知西山之怪特」一轉，引出西山。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">首段概括昔日遊覽的情況：作者「施施而行，漫漫而遊」，借遊山飲酒排解憂懼，醉後而臥、臥後而夢、覺後而歸，只能暫時忘憂；末句以「未始知西山之怪特」作轉折，引出下文西山之遊。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>第三步：發現西山，非登上去不可</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">坐在西亭望見西山，才覺得它與眾不同；於是立即渡江、沿溪、砍樹、燒草，一直走到山頂。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>「始指異之」：</b>「始」是才，表示發現得晚；「異」呼應上文的「怪特」，西山和以前遊過的山不同。<br><b>一連串動詞：</b>「過、緣、斫、焚、窮」，寫出開路登山的艱辛，也寫出作者的興致和決心。昔日是「施施而行」，這次是「窮山之高而止」，態度完全不同。<br><b>「遂」字：</b>於是。一發現就立即行動，可見他急於一遊。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者在法華西亭望見西山，「始指異之」，隨即「過湘江，緣染溪，斫榛莽，焚茅茷，窮山之高而止」，連用動詞寫出開路登山的經過，表現他遊覽西山的強烈興致和決心。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>第四步：站在山頂，眾山都變小了</h3>
+<div class="story"><div class="sp"><div class="sp-n">1</div><div class="sp-e">🗺</div><div class="sp-t">看得廣</div><div class="sp-x">幾個州的土地，都在座席下面。</div><div class="sp-q">則凡數州之土壤，皆在衽席之下</div></div><div class="sp"><div class="sp-n">2</div><div class="sp-e">🐜</div><div class="sp-t">看得小</div><div class="sp-x">高山像小土堆，深谷像蟻穴。</div><div class="sp-q">若垤若穴</div></div><div class="sp"><div class="sp-n">3</div><div class="sp-e">📏</div><div class="sp-t">看得近</div><div class="sp-x">千里的距離，看來只在尺寸之間。</div><div class="sp-q">尺寸千里</div></div><div class="sp"><div class="sp-n">4</div><div class="sp-e">🌊</div><div class="sp-t">看得遠</div><div class="sp-x">青山白水環繞，遠處和天空相接。</div><div class="sp-q">縈青繚白，外與天際</div></div></div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">坐在山頂向下望，幾個州的土地都在腳下，高山像小土堆，千里像尺寸那麼近。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>寫眾山，為了寫西山：</b>作者沒有直接寫西山有多高，只寫從山頂看下去，四周的山都變得很小。周圍的山越小，就顯得西山越高。這是<b>襯托</b>。<br><b>誇張和比喻：</b>「尺寸千里」是誇張，「若垤若穴」是比喻，把遠近、高低寫得具體。<br><b>四字句：</b>「岈然窪然，若垤若穴，尺寸千里，攢蹙累積，莫得遯隱」，句子短而整齊，節奏明快，把高低、遠近、聚散的景象逐一呈現。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者寫登頂後俯瞰所見：數州土壤皆在衽席之下，群山「若垤若穴，尺寸千里，攢蹙累積，莫得遯隱」，以群山的渺小襯托西山的高峻特出，並運用比喻和誇張，寫出視野的廣闊。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>第五步：西山「不與培塿為類」</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">他這時才知道，西山特別突出，和那些小土丘不屬同一類。這句話寫山，也寫他自己。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>字面：</b>西山高峻特出，四周的小山丘不能和它相比。<br><b>寄意：</b>柳宗元以西山自比，暗示自己才德出眾、品格高潔，不願和朝中那些趨炎附勢的庸俗之輩為伍。<br><b>為甚麼這樣寫：</b>他被貶為「僇人」，心中不平。借西山說出自己的品格，比直接說更含蓄。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">「然後知是山之特出，不與培塿為類」表面寫西山高峻，遠非小土丘可比；實際上作者以西山自喻，寄託自己才德特出、不與世俗同流合污的高潔品格。</div></div></div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">考試常用的說法</div><div class="alert-text">「以西山自況」「託物言志」「以山喻人」，三種說法意思相同，答題時寫出其中一種，再說明西山與作者相似的地方。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>第六步：醉到天黑，也不想回家</h3>
+<div class="chat"><div><div class="who">柳宗元</div><div class="bubble"><span class="bo">悠悠乎與顥氣俱，而莫得其涯；洋洋乎與造物者遊，而不知其所窮。</span><span class="bp">我感到心胸悠遠廣闊，與天地間的大氣融為一體，看不到邊際；又浩瀚無邊，與大自然一同遨遊，不知道盡頭在哪裏。</span></div></div><div><div class="who">柳宗元</div><div class="bubble"><span class="bo">引觴滿酌，頹然就醉，不知日之入。</span><span class="bp">我拿起酒杯斟滿酒，喝得東歪西倒，不覺醉了，連太陽下山也不知道。</span></div></div><div><div class="who">柳宗元</div><div class="bubble"><span class="bo">蒼然暮色，自遠而至，至無所見，而猶不欲歸。</span><span class="bp">深沉的暮色從遠處而來，到了甚麼也看不見，我仍然不想回去。</span></div></div><div class="row-r"><div class="who">柳宗元</div><div class="bubble"><span class="bo">心凝形釋，與萬化冥合。</span><span class="bp">我心神凝聚，形體不再受束縛，與萬物默默地融為一體。</span></div></div></div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">他覺得自己和天地融為一體，喝醉了也不知道太陽下山，天黑了仍不想走，最後達到「心凝形釋」。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>與天地合一：</b>「悠悠乎……洋洋乎……」兩句結構相同，寫出心胸開闊，好像與天地、大自然一同遨遊。（也有人理解為寫西山的廣大；兩種理解都寫出了物我合一的感受。）<br><b>醉而不歸：</b>這次的醉，是醉在美景之中；昔日是「覺而起，起而歸」，這次「至無所見，而猶不欲歸」，兩相對照，可見他留戀西山。<br><b>心凝形釋：</b>心神凝聚，形體放開，憂懼一掃而空。這和開頭的「恒惴慄」剛好相反。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者在山頂「引觴滿酌，頹然就醉」，至暮色四合「而猶不欲歸」，最後達到「心凝形釋，與萬化冥合」的境界，與首段「恒惴慄」及「覺而起，起而歸」對照，表現他擺脫憂懼、身心得到解脫。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot green"></span>第七步：真正的遊覽，從這次才開始</h3>
+<table>
+<tr><th class="c">比較</th><th>昔日之遊（第1段）</th><th>西山之遊（第2段）</th></tr>
+<tr><td class="c">寫法</td><td>概括地寫，不寫哪一座山</td><td>具體地寫，日子、地點、路線都寫得清楚</td></tr>
+<tr><td class="c">遊的方式</td><td>「施施而行，漫漫而遊」，到處走走</td><td>「斫榛莽，焚茅茷，窮山之高而止」，非登頂不可</td></tr>
+<tr><td class="c">喝酒</td><td>「傾壺而醉」：借酒消愁</td><td>「引觴滿酌，頹然就醉」：醉在美景之中</td></tr>
+<tr><td class="c">結束</td><td>「覺而起，起而歸」：醒了就回家</td><td>「至無所見，而猶不欲歸」：天黑了仍不想走</td></tr>
+<tr><td class="c">心情</td><td>暫時忘憂，醒後依然「恒惴慄」</td><td>「心凝形釋，與萬化冥合」：徹底解脫</td></tr>
+<tr><td class="c">作者的結論</td><td>自以為遊遍永州奇山</td><td>「吾嚮之未始遊，遊於是乎始」</td></tr>
+</table><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">他明白以前那些遊覽不算真正的遊覽，所以寫下這篇文章，記住這一次。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>「吾嚮之未始遊」：</b>以前天天遊山，卻說「未始遊」，因為那時心中有憂懼，只是借遊山逃避。<br><b>「遊於是乎始」：</b>這次遊西山，身心都得到解脫，遊覽才算開始。<br><b>呼應題目：</b>題目「始得西山」的「始」，在篇末得到解答。「是歲元和四年也」補記寫作年份。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">篇末「然後知吾嚮之未始遊，遊於是乎始」，否定昔日之遊，肯定西山之遊才是真正的遊覽，點明遊西山的意義，並呼應題目「始得」二字。</div></div></div>
+
+</div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">兩段怎樣連起來</div><div class="alert-text">第1段以「未始知西山之怪特」收結，第2段即寫怎樣發現西山；第1段寫「覺而起，起而歸」，第2段寫「猶不欲歸」；第1段「恒惴慄」，第2段「心凝形釋」。兩段處處對照，突出西山之遊的意義。</div></div></div>
+<div class="section-header ex" id="s6"><div class="icon">✏️</div><div><div class="chap">CHAPTER 06　練習</div><h2>練習三：內容理解</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>第1段中，作者昔日遊山的方式是：<ul class="opts"><li><b>A</b>有計劃地逐一遊覽</li><li><b>B</b>只在城中散步</li><li><b>C</b>隨意而行，無拘無束</li><li><b>D</b>騎馬到遠處遊覽</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">「施施而行，漫漫而遊」寫出作者隨意、無拘無束地遊覽。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「以為凡是州之山有異態者，皆我有也」的意思是：<ul class="opts"><li><b>A</b>他已遊遍永州的奇山</li><li><b>B</b>永州的奇山都屬於他所有</li><li><b>C</b>他想買下永州的山</li><li><b>D</b>永州的山都很平凡</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>根據第2段，完成下表。<table><tr><th class="c">項目</th><th>答案（摘錄原文）</th></tr><tr><td class="c">望見西山的地點</td><td>（1）<span class="blank l"></span></td></tr><tr><td class="c">登山時開路的兩個動作</td><td>（2）<span class="blank"></span>　（3）<span class="blank"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）法華西亭　（2）斫榛莽　（3）焚茅茷</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>根據文章內容，判斷以下陳述。<table><tr><th>陳述</th><th class="c ctr">正確</th><th class="c ctr">錯誤</th><th class="c ctr">無從判斷</th></tr><tr><td>（1）作者在法華西亭望見西山，才覺得它與眾不同。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（2）作者獨自一人開路登上西山。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（3）作者登山當日天氣晴朗。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）正確　（2）錯誤　（3）無從判斷<br><span class="ex">（1）文中說「因坐法華西亭，望西山，始指異之」。（2）文中說「遂命僕過湘江」，有僕人同行。（3）文中沒有交代天氣。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>「醉則更相枕以臥，臥而夢……覺而起，起而歸」反映作者昔日的遊覽有甚麼特點？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）每次遊覽都是喝酒、睡覺、做夢、醒來、回家，日日如是，千篇一律（1分）；作者只是借醉和夢暫時忘憂，醒來又回到現實（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>作者在西山山頂向下望，看見的景物有甚麼特點？試舉兩項，以自己的文字說明。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，任答兩項，每項1分）群山顯得十分渺小，像小土堆和蟻穴；千里的距離看來近在眼前；山巒聚集重疊，一覽無遺；青山白水互相環繞，遠處和天空相接。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>「然後知是山之特出，不與培塿為類」中，「是山」和「培塿」分別指甚麼？<p>（1）是山：<span class="blank"></span>　（2）培塿：<span class="blank"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）西山　（2）小土丘</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>「悠悠乎與顥氣俱……洋洋乎與造物者遊」寫出作者怎樣的感受？<ul class="opts"><li><b>A</b>對前途感到迷惘不安</li><li><b>B</b>因醉酒而頭暈目眩</li><li><b>C</b>害怕山高路遠難行</li><li><b>D</b>與天地融為一體</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>首段說「覺而起，起而歸」，次段說「至無所見，而猶不欲歸」。兩者反映作者的心情有甚麼不同？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）昔日醒來便回家，作者只是借醉夢暫時忘憂（1分）；遊西山時天黑仍不想回去，可見他留戀西山，沉醉其中（1分）；作者的心情由憂懼不安轉為舒暢、解脫（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>作者以前天天遊山，為甚麼篇末說「吾嚮之未始遊」？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）昔日的遊覽只是借遊山飲酒排解憂懼，作者心中仍然「恒惴慄」（1分）；遊西山令他「心凝形釋，與萬化冥合」，身心得到解脫，這才算真正的遊覽（1分）。</div></div></div>
+<div class="section-header" id="s7"><div class="icon">🖌</div><div><div class="chap">CHAPTER 07　教學</div><h2>柳宗元用了哪些寫法</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>先看全局：寫景為了寫人</h3>
+<svg class="chart" viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="本文主要寫法">
+<rect x="0" y="0" width="720" height="330" rx="14" fill="var(--color-background-secondary)"/>
+<g stroke="#96702F" stroke-opacity="0.4" stroke-width="2"><path d="M360 165 L130 70 M360 165 L590 70 M360 165 L130 260 M360 165 L590 260 M360 165 V292"/></g>
+<rect x="250" y="128" width="220" height="74" rx="37" fill="#96702F"/>
+<text x="360" y="160" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF6E6">寫西山，也寫自己</text>
+<text x="360" y="184" text-anchor="middle" font-size="13" fill="#FFF6E6">由恒惴慄到心凝形釋</text>
+<g text-anchor="middle">
+<rect x="20" y="24" width="220" height="84" rx="12" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.5"/>
+<text x="130" y="52" font-size="15" font-weight="700" fill="#d0654a">① 對比</text>
+<text x="130" y="76" font-size="12.5" fill="var(--color-text-primary)">昔日之遊與西山之遊</text>
+<text x="130" y="96" font-size="12" fill="var(--color-text-secondary)">突出西山之遊的意義</text>
+<rect x="480" y="24" width="220" height="84" rx="12" fill="var(--amber-bg)" stroke="#96702F" stroke-opacity="0.5"/>
+<text x="590" y="52" font-size="15" font-weight="700" fill="#96702F">② 襯托</text>
+<text x="590" y="76" font-size="12.5" fill="var(--color-text-primary)">群山渺小，西山特出</text>
+<text x="590" y="96" font-size="12" fill="var(--color-text-secondary)">不直寫山高，山更顯高</text>
+<rect x="20" y="222" width="220" height="84" rx="12" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-opacity="0.5"/>
+<text x="130" y="250" font-size="15" font-weight="700" fill="#3a6ea5">③ 託物言志</text>
+<text x="130" y="274" font-size="12.5" fill="var(--color-text-primary)">不與培塿為類</text>
+<text x="130" y="294" font-size="12" fill="var(--color-text-secondary)">以西山自喻</text>
+<rect x="480" y="222" width="220" height="84" rx="12" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.5"/>
+<text x="590" y="250" font-size="15" font-weight="700" fill="#3d8b4f">④ 情景交融</text>
+<text x="590" y="274" font-size="12.5" fill="var(--color-text-primary)">蒼然暮色，猶不欲歸</text>
+<text x="590" y="294" font-size="12" fill="var(--color-text-secondary)">景物和心情連在一起</text>
+<rect x="270" y="270" width="180" height="50" rx="12" fill="var(--purple-bg)" stroke="#6b5ca5" stroke-opacity="0.5"/>
+<text x="360" y="292" font-size="14" font-weight="700" fill="#6b5ca5">⑤ 比喻、誇張</text>
+<text x="360" y="311" font-size="11.5" fill="var(--color-text-secondary)">若垤若穴；尺寸千里</text>
+</g>
+</svg><p style="margin:12px 0 4px"><b>除了以上五種，還要留意四種寫法：</b></p>
+<div class="tk-grid">
+<div class="tk-c"><b>🔗 頂真</b>醉→臥→夢；覺→起→歸</div>
+<div class="tk-c"><b>📐 四字句</b>岈然窪然，若垤若穴</div>
+<div class="tk-c"><b>↩️ 首尾呼應</b>「始」字貫串全文</div>
+<div class="tk-c"><b>⚖️ 詳略得宜</b>昔遊略寫，今遊詳寫</div>
+</div>
+
+<p class="small">遊記考寫法，最常考對比、襯托和託物言志。答題時要寫出三樣東西：用了甚麼方法、文中哪一句、有甚麼作用。</p>
+</div>
+<div class="card"><h3><span class="dot coral"></span>寫法一：對比</h3>
+<div class="tk"><div class="tk-i">↔️</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>把兩種不同的人、事、物或心情放在一起，突出要表達的意思。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>昔遊與今遊：昔日「施施而行，漫漫而遊」；今次「斫榛莽，焚茅茷，窮山之高而止」。</li><li>歸與不歸：昔日「覺而起，起而歸」；今次「至無所見，而猶不欲歸」。</li><li>心情前後：開首「恒惴慄」；篇末「心凝形釋，與萬化冥合」。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>突出西山之遊與昔日之遊的分別，表現作者心境由憂懼到解脫的轉變，點明「遊於是乎始」的意思。昔日之遊略寫、西山之遊詳寫，所以也可以說是以昔遊反襯今遊。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot amber"></span>寫法二：襯托</h3>
+<div class="tk"><div class="tk-i">🏔</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>借寫旁邊的人或事物，使主要的對象更突出。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>以群山之小襯托西山之高：「凡數州之土壤，皆在衽席之下」；「若垤若穴，尺寸千里，攢蹙累積，莫得遯隱」。</li><li>以培塿之低襯托西山之高：「然後知是山之特出，不與培塿為類」。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>作者沒有寫西山有多高，只寫從山頂看下去，群山都變成小土堆，西山的高峻特出就更鮮明。</div>
+</div></div><p class="small" style="margin:8px 0 0">分辨：對比是兩者並重，互相比較；襯托有主有次，次要的用來突出主要的。「群山襯西山」以西山為主，所以是襯托。</p></div>
+<div class="card"><h3><span class="dot blue"></span>寫法三：託物言志（以西山自喻）</h3>
+<div class="tk"><div class="tk-i">🪨</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>借描寫某一事物，寄託自己的志向、品格或遭遇。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「然後知是山之特出，不與培塿為類」：西山高峻特出，不與小土丘同類。</li><li>西山如此怪特，作者以前卻未曾發現；正如作者才德出眾，卻被貶在偏遠的永州，不為朝廷所用。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>借西山的特出，寄託作者才德出眾、品格高潔、不與世俗同流合污的心志；寫法含蓄，令景物更有深意。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot green"></span>寫法四：借景抒情、情景交融</h3>
+<div class="tk"><div class="tk-i">🌆</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>寫景物時融入自己的感情，景中有情，情由景生。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「悠悠乎與顥氣俱，而莫得其涯；洋洋乎與造物者遊，而不知其所窮」：景物廣闊無邊，心胸也隨之開闊。</li><li>「蒼然暮色，自遠而至，至無所見，而猶不欲歸」：暮色漸濃，作者仍沉醉不歸。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>把西山的景物和作者擺脫憂懼、與天地合一的感受融在一起，令讀者感受到作者身心得到解脫的喜悅。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot purple"></span>寫法五：比喻和誇張</h3>
+<div class="tk"><div class="tk-i">🔎</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>比喻：用相似的事物來說明；誇張：故意把事物說得比實際大或小。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>比喻：「若垤若穴」，把高山比作小土堆，把深谷比作蟻穴。</li><li>誇張：「尺寸千里」，千里之遠，看來只在尺寸之間；「凡數州之土壤，皆在衽席之下」，幾個州的土地都在座席下面。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>具體寫出從山頂俯瞰時群山的渺小，突出西山的高峻和視野的廣闊。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot red"></span>寫法六：頂真和四字句</h3>
+<div class="tk"><div class="tk-i">🔗</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>頂真：上一句的結尾作為下一句的開頭。四字句：多用整齊的四字短句。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>頂真：「醉則更相枕以臥，臥而夢……覺而起，起而歸」。</li><li>四字句：「岈然窪然，若垤若穴，尺寸千里，攢蹙累積，莫得遯隱。縈青繚白，外與天際，四望如一。」</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>頂真句環環相扣，寫出昔日遊覽千篇一律、日日如是；四字句節奏明快，把山頂所見的景象逐一呈現，寫景簡潔有力。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot teal"></span>寫法七：首尾呼應</h3>
+<div class="tk"><div class="tk-i">↩️</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>文章前後提到的人、事、字詞互相照應。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「始」字：題目「始得」、首段「未始知」、次段「始指異之」、篇末「遊於是乎始」。</li><li>心情：開首「恒惴慄」與篇末「心凝形釋」前後照應。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>「始」字貫串全文，點出西山之遊是真正遊覽的開始；心情前後照應，令全文結構完整，感情發展清楚。</div>
+</div></div><table>
+<tr><th class="c">位置</th><th>原文</th><th>意思</th><th>作用</th></tr>
+<tr><td class="c">題目</td><td>始得西山宴遊記</td><td>才發現（才得到）</td><td>點出題旨</td></tr>
+<tr><td class="c">第1段末</td><td>而未始知西山之怪特</td><td>不曾</td><td>引出西山</td></tr>
+<tr><td class="c">第2段首</td><td>始指異之</td><td>才</td><td>寫發現西山</td></tr>
+<tr><td class="c">第2段末</td><td>吾嚮之未始遊，遊於是乎始</td><td>不曾；開始</td><td>點明遊西山的意義，呼應題目</td></tr>
+</table></div>
+
+<div class="card"><h3><span class="dot teal"></span>結構：先略後詳，由事到情</h3>
+<div class="stage-row">
+<div class="stage s-b"><div class="stage-key">昔</div><div class="stage-t">昔日之遊</div>概括地寫，只能暫時忘憂<br><span class="stage-w">第1段　略寫</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-a"><div class="stage-key">得</div><div class="stage-t">發現、登山</div>始指異之；窮山之高<br><span class="stage-w">第2段　敍事</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-c"><div class="stage-key">見</div><div class="stage-t">山頂所見</div>若垤若穴，縈青繚白<br><span class="stage-w">第2段　描寫</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-a" style="background:var(--amber-bg)"><div class="stage-key">悟</div><div class="stage-t">所感所悟</div>心凝形釋；遊於是乎始<br><span class="stage-w">第2段　抒情</span></div>
+</div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">第1段略寫以前的遊覽，第2段詳寫西山之遊；第2段又按「發現、登山、所見、所感」的次序寫。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>詳略得宜：</b>昔日的遊覽次數多，卻只用一段概括；西山之遊只有一次，卻寫得很詳細。這樣安排，突出西山之遊才是重點。<br><b>敍事、描寫、抒情結合：</b>先記登山經過（敍事），再寫山頂景物（描寫），最後寫感受和領悟（抒情），層層推進。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">全文以昔日之遊與西山之遊作對比，前略後詳；第2段先敍述發現和登臨西山的經過，再描寫山頂所見，最後抒發物我合一的感受，敍事、描寫、抒情緊密結合，層次分明。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot red"></span>主旨：柳宗元最想說甚麼</h3>
+<svg class="chart" viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="主旨三層"><rect x="0" y="0" width="760" height="250" rx="14" fill="var(--color-background-secondary)"/><path d="M220 26 H540 L580 86 H180 Z" fill="#96702F"/><text x="380" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF6E6">第三層　寄意（最深）</text><text x="380" y="74" text-anchor="middle" font-size="13.5" fill="#FFF6E6">以西山自喻：才德特出，不與世俗同流</text><path d="M176 92 H584 L624 152 H136 Z" fill="#D9B07C" fill-opacity="0.75"/><text x="380" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#3B2A14">第二層　情感</text><text x="380" y="140" text-anchor="middle" font-size="13.5" fill="#3B2A14">由「恒惴慄」到「心凝形釋」，憂懼得到紓解</text><path d="M132 158 H628 L668 218 H92 Z" fill="var(--amber-bg)" stroke="#96702F" stroke-opacity="0.5"/><text x="380" y="184" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">第一層　記事寫景（表面）</text><text x="380" y="206" text-anchor="middle" font-size="13.5" fill="var(--color-text-primary)">發現、登上西山，寫西山的怪特</text><g font-size="12" fill="var(--color-text-secondary)"><text x="700" y="60" text-anchor="middle">讀得越深</text><text x="700" y="196" text-anchor="middle">字面意思</text></g><path d="M700 178 V78" stroke="var(--color-text-secondary)" stroke-width="2"/><path d="M694 86 L700 74 L706 86" fill="none" stroke="var(--color-text-secondary)" stroke-width="2"/><text x="380" y="240" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">答主旨題時，三層都要寫：先說寫了甚麼，再說心情怎樣變，最後點出寄意</text></svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">西山之遊令柳宗元放下憂懼，與天地融為一體；他也借西山的特出，寄託自己不與世俗同流的品格。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>第一層（記事寫景）：</b>記述發現、登臨、宴遊西山的經過，描寫西山的怪特。<br><b>第二層（情感）：</b>作者由被貶後的「恒惴慄」，到西山之巔的「心凝形釋，與萬化冥合」，憂懼得到紓解。<br><b>第三層（寄意）：</b>以西山「不與培塿為類」自喻，表現自己才德特出、品格高潔。</div></div><div class="tri-row t3"><div class="tri-tag">必背</div><div class="tri-body">本文記述作者發現並宴遊西山的經過，描寫西山高峻特出的形勢，抒發作者由「恒惴慄」到「心凝形釋，與萬化冥合」的心境轉變；並以西山自喻，寄託自己特立獨行、不與世俗同流合污的高潔品格。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>延伸知識：「永州八記」和柳宗元的山水</h3>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">《至小丘西小石潭記》</div>八記的第四篇。柳宗元在小石潭邊感到「淒神寒骨，悄愴幽邃」，覺得環境太冷清，不可久留，於是記下便離開。和西山的「猶不欲歸」對讀，可見柳宗元在永州的心情時有起伏。</div>
+<div class="compare-card b"><div class="ct">《江雪》</div>柳宗元在永州所寫的五言絕句：「千山鳥飛絕，萬徑人蹤滅。孤舟蓑笠翁，獨釣寒江雪。」寫一個在寒江獨釣的漁翁，同樣寄託了他孤高的心志。</div>
+</div>
+<p class="small">柳宗元的山水作品多借景物寫自己。讀《始得西山宴遊記》時要記住，景物背後有作者被貶後的心情。</p>
+</div>
+
+<div class="section-header ex" id="s8"><div class="icon">✏️</div><div><div class="chap">CHAPTER 08　練習</div><h2>練習四：寫作手法與主旨</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「醉則更相枕以臥，臥而夢……覺而起，起而歸」運用了哪種修辭手法？<ul class="opts"><li><b>A</b>對偶</li><li><b>B</b>排比</li><li><b>C</b>頂真</li><li><b>D</b>反問</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「若垤若穴」運用了哪種修辭手法？<ul class="opts"><li><b>A</b>比喻</li><li><b>B</b>借代</li><li><b>C</b>擬人</li><li><b>D</b>設問</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A<br><span class="ex">把高山比作小土堆，把深谷比作蟻穴。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「尺寸千里」運用了哪種修辭手法？<ul class="opts"><li><b>A</b>對偶</li><li><b>B</b>誇張</li><li><b>C</b>頂真</li><li><b>D</b>反問</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>把左邊的文句或內容與右邊的寫法配對，把代表答案的英文字母填在括號內。<table><tr><th>文句或內容</th><th class="c ctr">答案</th><th>寫法</th></tr><tr><td>（1）以群山渺小突出西山高峻</td><td class="ctr">（　　）</td><td>A　託物言志</td></tr><tr><td>（2）以西山自喻，寄託高潔品格</td><td class="ctr">（　　）</td><td>B　襯托</td></tr><tr><td>（3）昔日之遊與西山之遊互相比較</td><td class="ctr">（　　）</td><td>C　情景交融</td></tr><tr><td>（4）「蒼然暮色，自遠而至，至無所見，而猶不欲歸」</td><td class="ctr">（　　）</td><td>D　對比</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）B　（2）A　（3）D　（4）C</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>題目「始得西山宴遊記」的「始」字，與篇末「遊於是乎始」有甚麼關係？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）篇末指出西山之遊才是真正遊覽的開始（1分），點明題目「始得」的意思，首尾呼應（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>本文第1段略寫，第2段詳寫。這樣安排有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）昔日遊覽多次，只用一段概括，突出西山之遊才是全文重點（1分）；以昔日之遊與西山之遊對照，突出這次遊覽的意義（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">7.</span><span class="lv lv3">進階</span>作者寫山頂所見，沒有直接寫西山有多高，而寫群山「若垤若穴」。試說明這種寫法及其作用。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）作者運用襯托手法（1分）；以群山渺小如小土堆、蟻穴（1分），突出西山的高峻特出（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv3">進階</span>「不與培塿為類」寄寓了作者怎樣的心志？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）作者以西山自喻（1分），表現自己才德特出、品格高潔，不與世俗同流合污（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>試指出本文的主旨。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）本文記述作者宴遊西山的經過，抒發他由憂懼不安到心凝形釋、與自然合一的心境轉變（1分）；並以西山自喻，寄託自己不與世俗同流的高潔品格（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>「岈然窪然，若垤若穴，尺寸千里，攢蹙累積，莫得遯隱」多用四字句，有甚麼表達效果？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）句式整齊，節奏明快（1分）；簡潔地寫出群山高低起伏、聚集重疊、一覽無遺的形態（1分）。</div></div></div>
+<div class="section-header ex" id="s9"><div class="icon">📝</div><div><div class="chap">CHAPTER 09　模擬試題</div><h2>DSE 模擬試題</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">作答提示</div><div class="alert-text">本卷共20題，滿分70分。題型參照文憑試卷一甲部「指定文言篇章」：第1至13題為短答題，包括字詞解釋、語譯、選擇、判斷及填表；第14至20題為長問答，每題6分，分別考核心情變化、對比、文意理解、寄意、「始」字的作用、句式及寫景手法。<br>（1）解釋字詞要按句意作答，通假字要寫出相同的字和意思。<br>（2）語譯要把關鍵字詞逐一譯出，句子要通順。<br>（3）長問答要「先答重點，再引原文，後加說明」，不可只抄原文。</div></div></div>
+<div class="qsub">甲　短答題（第1至13題）</div>
+<div class="qbox"><span class="mark">（5分）</span><span class="qn">1.</span>解釋下列文句中的粗體字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）<b>恒</b>惴慄</td><td><span class="blank l"></span></td></tr><tr><td>（2）<b>斫</b>榛莽</td><td><span class="blank l"></span></td></tr><tr><td>（3）<b>遂</b>命僕過湘江</td><td><span class="blank l"></span></td></tr><tr><td>（4）而莫得其<b>涯</b></td><td><span class="blank l"></span></td></tr><tr><td>（5）而<b>猶</b>不欲歸</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分，每項1分）（1）常常　（2）砍伐　（3）於是　（4）邊際　（5）仍然</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">2.</span>解釋下列文句中的粗體字詞。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）<b>箕踞</b>而遨</td><td><span class="blank l"></span></td></tr><tr><td>（2）<b>頹然</b>就醉</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）張開兩腿隨意而坐　（2）醉得東歪西倒、站不穩的樣子</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span>「故為之文以<b>志</b>」中「志」的意思是：<ul class="opts"><li><b>A</b>志向</li><li><b>B</b>記下</li><li><b>C</b>意志</li><li><b>D</b>標誌</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">「志」同「誌」，記下。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span>下列哪一項中的「之」，用法與「始指異<b>之</b>」的「之」相同？<ul class="opts one"><li><b>A</b>西山<strong>之</strong>怪特</li><li><b>B</b>不知日<strong>之</strong>入</li><li><b>C</b>故為<strong>之</strong>文以志</li><li><b>D</b>數州<strong>之</strong>土壤</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">「始指異之」的「之」是代詞，指西山；「故為之文以志」的「之」也是代詞，指這次遊覽。其餘三項的「之」都是助詞。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span>「施施而行，漫漫而遊」寫出作者遊覽時：<ul class="opts"><li><b>A</b>隨意自在</li><li><b>B</b>急於趕路</li><li><b>C</b>小心翼翼</li><li><b>D</b>心事重重</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span>把以下文句譯為語體文。<div class="excerpt">以為凡是州之山有異態者，皆我有也，而未始知西山之怪特。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）我以為凡是這個州裏形態奇異的山，都已經被我遊遍了，卻不曾知道西山的奇特。<br><span class="ex">「皆我有也」譯為都已被我遊遍（1分）；「未始知」譯為不曾知道（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span>把以下文句譯為語體文。<div class="excerpt">引觴滿酌，頹然就醉，不知日之入。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）我拿起酒杯，斟滿酒，喝得東歪西倒，不覺醉了，連太陽下山也不知道。<br><span class="ex">「引觴滿酌」譯為拿起酒杯，斟滿酒（1分）；「不知日之入」譯為不知道太陽下山（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">8.</span>根據文章內容，判斷以下陳述。<table><tr><th>陳述</th><th class="c ctr">正確</th><th class="c ctr">錯誤</th><th class="c ctr">無從判斷</th></tr><tr><td>（1）作者被貶永州後，常與朋友一同遊山。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（2）西山是永州最高的山。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（3）作者到了山頂後，因天色已晚而立即下山。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（4）作者遊西山的那一年是元和四年。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）正確　（2）無從判斷　（3）錯誤　（4）正確<br><span class="ex">（1）文中說「日與其徒上高山」。（2）文中只說西山「特出，不與培塿為類」，沒有說它是永州最高的山。（3）文中說「至無所見，而猶不欲歸」。（4）文中說「是歲元和四年也」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">9.</span>試根據全文，完成下表。（摘錄原文作答）<table><tr><th class="c">比較</th><th>昔日之遊</th><th>西山之遊</th></tr><tr><td class="c">喝酒</td><td>傾壺而醉</td><td>（1）<span class="blank l"></span></td></tr><tr><td class="c">回家</td><td>（2）<span class="blank l"></span></td><td>至無所見，（3）<span class="blank"></span></td></tr><tr><td class="c">心情</td><td>恒惴慄</td><td>（4）<span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）引觴滿酌，頹然就醉　（2）覺而起，起而歸　（3）而猶不欲歸　（4）心凝形釋，與萬化冥合</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">10.</span>「縈青繚白」中的「青」和「白」分別指：<ul class="opts"><li><b>A</b>青天和白雲</li><li><b>B</b>青草和白石</li><li><b>C</b>青煙和白霧</li><li><b>D</b>青山和白水</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">11.</span>「則凡數州之土壤，皆在衽席之下」是甚麼意思？作者為甚麼能看到這樣的景象？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）意思是幾個州的土地，都在作者的座席下面（1分）；因為西山高峻，作者坐在山頂向下望，四周的土地盡收眼底（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">12.</span>「然後知是山之特出」中「是山」指：<ul class="opts"><li><b>A</b>法華寺</li><li><b>B</b>培塿</li><li><b>C</b>湘江旁的小山</li><li><b>D</b>西山</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">13.</span>「心凝形釋，與萬化冥合」描寫了作者怎樣的境界？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）作者心神凝聚，形體不受束縛，放下了一切憂懼（1分）；他與大自然融為一體，達到物我兩忘的境界（1分）。</div></div></div>
+
+<div class="qsub">乙　長問答（第14至20題，每題6分）</div>
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">14.</span><span class="qtag">心情變化</span>試根據全文，析述作者的心情如何轉變。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）開首作者自稱「僇人」，被貶永州，「恒惴慄」，常常憂懼不安（1分）。昔日他「施施而行，漫漫而遊」，借遊山飲酒排遣憂懼（1分），但只能在醉夢中暫時忘憂，「覺而起，起而歸」，醒來仍要面對現實（1分）。到法華西亭望見西山，「始指異之」，對西山感到驚異，急於登臨（1分）。登頂後俯瞰群山，悟出西山「不與培塿為類」，心胸開闊，覺得「與顥氣俱」「與造物者遊」（1分）；最後醉至天黑「猶不欲歸」，達到「心凝形釋，與萬化冥合」的境界，憂懼一掃而空，身心得到解脫（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">15.</span><span class="qtag">對比</span>本文如何以昔日之遊與西山之遊作對比？這樣寫有甚麼作用？試舉兩例加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）例一：遊覽的態度。昔日「施施而行，漫漫而遊」，隨意而行（1分）；遊西山則「斫榛莽，焚茅茷，窮山之高而止」，開路登頂，興致和決心截然不同（1分）。例二：遊後的去留。昔日「覺而起，起而歸」，醒來便回家（1分）；遊西山則「至無所見，而猶不欲歸」，天黑仍不願離去（1分）。作用：突出昔日之遊只能暫時忘憂，西山之遊卻令作者「心凝形釋」，身心真正得到解脫（1分）；從而帶出「吾嚮之未始遊，遊於是乎始」的領悟，點明遊西山的意義（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">16.</span><span class="qtag">文意理解</span>就第2段所述，作者在西山之巔看見怎樣的景象？這些景象為甚麼能令他擺脫「恒惴慄」的心情？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）景象：作者看見數州的土地都在座席之下（1分）；群山渺小如小土堆、蟻穴，千里之遙看來只在尺寸之間，一切盡收眼底（1分）；青山白水互相環繞，遠處與天相接，四望無邊（1分）。原因：站在高處俯瞰，視野開闊，作者的心胸也隨之開闊，覺得自己「與顥氣俱」「與造物者遊」（1分）；廣大的天地令他覺得個人的得失變得渺小，不再執着於被貶的憂懼（1分）；他又從西山「不與培塿為類」中看到自己的品格，得到肯定和慰藉，終於「心凝形釋，與萬化冥合」（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">17.</span><span class="qtag">寄意</span>「然後知是山之特出，不與培塿為類」一句寄寓了作者怎樣的情懷？試結合作者的遭遇加以析述。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）字面上，這句寫西山高峻特出，四周的小土丘不能與它相比（1分）。柳宗元在這裏以西山自喻，運用了託物言志的手法（1分）。他少年得志，參與永貞革新，一心興利除弊（1分），改革失敗後被貶為永州司馬，成了「僇人」，處境孤立（1分）。西山如此怪特，作者以前卻未曾發現，正如他才德出眾，卻被貶邊地，不為朝廷所用（1分）；「不與培塿為類」表現他自視高潔，不願與朝中趨炎附勢的庸俗之輩同流合污，也透露他被貶後的孤高和不平（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">18.</span><span class="qtag">「始」字</span>本文題目及內容多次出現「始」字。試說明「始」字在全文中的作用。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）題目「始得西山宴遊記」的「始得」，表示作者這次才真正發現並遊覽西山，點出題旨（1分）。首段末句「而未始知西山之怪特」，「未始」即不曾，承接上文自以為遊遍永州，引出西山（1分）。次段「始指異之」的「始」解作才，表示發現得晚，寫出作者對西山的驚異（1分）。篇末「吾嚮之未始遊，遊於是乎始」，否定昔日之遊，肯定西山之遊才是真正遊覽的開始（1分）。「始」字貫串全文，成為行文的線索，使結構緊密（1分）；篇末回應題目，首尾呼應，突出西山之遊對作者的意義（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">19.</span><span class="qtag">句式</span>試分析首段「醉則更相枕以臥，臥而夢。意有所極，夢亦同趣。覺而起，起而歸」的寫作手法及表達效果。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）手法：這幾句運用頂真，以「臥」「起」等字承接上句結尾作下句開頭（1分），句句相連，環環相扣（1分）。句子短促，節奏明快，一句一個動作（1分）。效果：寫出昔日遊覽喝醉、躺臥、做夢、睡醒、起來、回家的過程，日日如是，千篇一律（1分）；表現作者只能借醉和夢暫時忘憂，醒後又回到現實，憂懼並未消除（1分）；為下文西山之遊「猶不欲歸」「心凝形釋」作對比和鋪墊（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">20.</span><span class="qtag">寫景手法</span>試分析「其高下之勢，岈然窪然，若垤若穴，尺寸千里，攢蹙累積，莫得遯隱。縈青繚白，外與天際，四望如一」一節的寫景手法及效果。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）比喻：「若垤若穴」把高山比作小土堆，把深谷比作蟻穴，具體寫出群山的渺小（1分）。誇張：「尺寸千里」把千里之遙說成尺寸之間，突出視野的廣闊（1分）。襯托：作者不直接寫西山之高，而以群山的渺小、「莫得遯隱」一覽無遺，襯托西山的高峻特出（1分）。色彩：「縈青繚白」以青、白兩色寫山水環繞，畫面鮮明（1分）。句式：全節多用四字句，整齊簡潔，節奏明快，把山頂所見逐一呈現（1分）。整節由腳下的群山寫到遠處「外與天際，四望如一」，寫出天地的廣闊，為下文「然後知是山之特出」及作者心胸開闊作鋪墊（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>

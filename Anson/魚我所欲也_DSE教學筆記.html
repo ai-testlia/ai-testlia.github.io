@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《魚我所欲也》DSE教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2a8a80;--teal-bg:#e4f3f1;
+  --coral:#d0654a;--coral-bg:#fbebe6;
+  --amber:#c48612;--amber-bg:#fbf2df;
+  --pink:#c2557f;--pink-bg:#f9e8ef;
+  --blue:#3a6ea5;--blue-bg:#e6eef7;
+  --green:#3d8b4f;--green-bg:#e7f3ea;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero:#B56A58;--hero-text:#F1EADF;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2124;--color-background-secondary:#151618;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a89be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c302e;
+    --coral:#f08c72;--coral-bg:#3a2520;
+    --amber:#e8b04a;--amber-bg:#36301f;
+    --pink:#ea8ab0;--pink-bg:#382430;
+    --blue:#7fa9d8;--blue-bg:#1f2a38;
+    --green:#74c286;--green-bg:#1e3124;
+    --red:#ee7b6e;--red-bg:#3a2220;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC','Songti TC',serif}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:44px 36px 46px;margin-bottom:22px;min-height:230px;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 10px 28px rgba(94,46,36,.18)}
+.hero .pattern{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:9px;border:1px solid rgba(241,234,223,.28);border-radius:8px;pointer-events:none}
+.hero>*:not(.pattern){position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;border:1px solid rgba(241,234,223,.5);
+  color:rgba(241,234,223,.9);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:rgba(94,46,36,.18)}
+.hero h1{font-size:34px;margin:0 0 6px;line-height:1.35;color:var(--hero-text);font-weight:700;text-shadow:0 1px 10px rgba(94,46,36,.35);max-width:78%}
+.hero .sub{font-size:15px;color:rgba(241,234,223,.85);margin-bottom:16px}
+.hero .sub .nb,.hero h1 .nb{display:inline-block}
+.hero p{margin:0;font-size:13px;color:rgba(241,234,223,.7);letter-spacing:2px}
+@media (max-width:640px){.hero h1{font-size:27px;max-width:100%}.hero{padding:34px 24px 40px}.hero .sub{font-size:13.5px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(181,106,88,.88) 0%,rgba(181,106,88,.55) 62%,rgba(181,106,88,0) 100%);pointer-events:none}}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:0}
+.toc-item:hover{color:var(--blue)}
+.toc-num{font-weight:700;color:var(--hero);font-size:13px;min-width:22px}
+.toc-item .kind{margin-left:auto;font-size:11.5px;color:var(--color-text-secondary);white-space:nowrap}
+@media (prefers-color-scheme:dark){.toc-num{color:var(--blue)}}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;border-radius:var(--border-radius-lg);
+  background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:6px solid var(--hero)}
+.section-header.ex{border-left-color:var(--amber)}
+.section-header .icon{font-size:26px;line-height:1}
+.section-header h2{margin:0;font-size:21px;line-height:1.4}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);font-weight:700}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin:0 0 10px}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--blue)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.hl{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);font-weight:700}
+.em{color:var(--coral);font-weight:700}
+.small{font-size:12.5px;color:var(--color-text-secondary)}
+ul.tight,ol.tight{margin:4px 0 8px;padding-left:1.4em}
+ul.tight li,ol.tight li{margin-bottom:3px}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:3px}
+.example-text{font-size:14px}
+
+/* Alerts */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.bad .ct{color:var(--red)}
+.compare-card.good{background:var(--green-bg)}.compare-card.good .ct{color:var(--green)}
+.compare-card.a{background:var(--blue-bg)}.compare-card.a .ct{color:var(--blue)}
+.compare-card.b{background:var(--coral-bg)}.compare-card.b .ct{color:var(--coral)}
+@media (max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:13px;margin-bottom:2px}
+.flow-arrow{align-self:center;color:var(--teal);font-weight:700}
+
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px}
+.kw-word .py{font-weight:400;font-size:11.5px;color:var(--color-text-secondary);margin-left:4px;font-family:'Noto Sans TC',sans-serif}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* formula */
+.formula{background:#2d3a47;color:#f4f1ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:1.9;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.formula .fl{font-size:12px;letter-spacing:2px;color:#d9c48f;font-weight:700;margin-bottom:4px}
+.formula b{color:#ffe08a}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left;line-height:1.65}
+th{background:var(--color-background-secondary);font-weight:700}
+.c,th.c,td.c{white-space:nowrap}
+td.ctr,th.ctr{text-align:center}
+
+/* poem text */
+.poem{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.poem .ttl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
+.poem .au{text-align:center;font-size:13px;color:var(--color-text-secondary);margin-bottom:12px}
+.poem .ln{font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15;margin:0 0 6px;display:flex;gap:10px;align-items:flex-start}
+.pnum{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-top:7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:1px 12px;margin:6px 0 4px}
+sup.n{color:var(--coral);font-size:10px;font-family:'Noto Sans TC',sans-serif;margin:0 1px}
+.preface{font-size:15px;color:var(--color-text-secondary)}
+
+/* line-by-line */
+.lbl{border-left:3px solid var(--blue);padding:4px 0 4px 14px;margin:12px 0}
+.lbl .orig{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700}
+.lbl .tr{font-size:14px;color:var(--color-text-secondary)}
+.lbl .note{font-size:13.5px;margin-top:3px}
+
+/* chat bubbles (fun) */
+.chat{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0}
+.chat .who{font-size:11.5px;color:var(--color-text-secondary);margin:6px 4px 2px}
+.bubble{display:inline-block;max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.65;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary)}
+.row-r{text-align:right}.row-r .bubble{background:var(--green-bg)}
+.row-r .who{text-align:right}
+
+/* Exercises */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);margin-left:8px}
+.lv{display:inline-block;font-size:11px;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px;font-weight:700}
+.lv1{background:var(--green-bg);color:var(--green)}.lv2{background:var(--amber-bg);color:var(--amber)}.lv3{background:var(--red-bg);color:var(--red)}
+.opts{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.opts.one{grid-template-columns:1fr}
+.opts li{font-size:14px}
+.opts li b{display:inline-block;width:22px}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.line{border-bottom:1px solid #999;height:30px;margin:2px 0}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+.circle{display:inline-block;width:26px;height:26px;border:1px solid #888;border-radius:50%;vertical-align:middle;margin:0 3px}
+.box{display:inline-block;width:15px;height:15px;border:1px solid #888;vertical-align:-2px;margin-right:4px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.extotal{font-size:13px;color:var(--color-text-secondary);margin:-6px 0 12px}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;clear:both}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .ex{font-size:13px;color:var(--color-text-secondary)}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);
+  border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+/* svg charts */
+.chart{width:100%;height:auto;display:block;margin:8px 0}
+.chart text{font-family:'Noto Sans TC',sans-serif}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;font-size:13.5px}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.lbl,.poem,table,.chat{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+
+/* 本筆記：DSE 範文金色 Hero（汴京暮色金 #D9B07C） */
+:root{--hero:#D9B07C;--hero-text:#3B2A14;--hero-deep:#96702F}
+.hero{box-shadow:0 10px 28px rgba(120,84,30,.22)}
+.hero::after{border-color:rgba(59,42,20,.25)}
+.hero-tag{border-color:rgba(59,42,20,.3);color:rgba(59,42,20,.65);background:rgba(255,248,234,.3)}
+.hero h1{color:#3B2A14;text-shadow:0 1px 10px rgba(255,246,230,.45)}
+.hero .sub{color:rgba(59,42,20,.72)}
+.hero p{color:rgba(59,42,20,.5)}
+@media (max-width:640px){.hero .pattern{opacity:.4}.hero::before{background:linear-gradient(90deg,rgba(217,176,124,.9) 0%,rgba(217,176,124,.6) 62%,rgba(217,176,124,0) 100%)}}
+.toc-num{color:var(--hero-deep)}
+.section-header{border-left-color:var(--hero-deep)}
+.section-header.ex{border-left-color:var(--amber)}
+.pnum{background:var(--hero-deep)}
+.poem .ln{font-size:17px;line-height:2.1}
+.poem .ln>span:last-child{flex:1}
+.layer-tag{color:var(--hero-deep);background:var(--amber-bg)}
+.lbl{border-left-color:var(--hero-deep)}
+.lbl .orig{font-size:15px}
+.lbl .tr{font-size:14.5px;color:var(--color-text-primary);line-height:1.9}
+.lbl .tr b{color:var(--hero-deep)}
+.formula .fl{color:#E8C98F}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+.duo-col{border-radius:var(--border-radius-md);padding:12px 14px}
+.duo-col p{margin:0 0 6px;font-size:14px}
+.duo-col.wen{background:var(--blue-bg)}.duo-col.wu{background:var(--coral-bg)}
+.duo-h{font-weight:700;font-size:15px;margin-bottom:6px;font-family:'Noto Serif TC',serif}
+.duo-col table{background:transparent}
+@media (max-width:640px){.duo{grid-template-columns:1fr}}
+.stage-row{display:flex;align-items:stretch;gap:8px;margin:8px 0 4px}
+.stage{flex:1;border-radius:var(--border-radius-md);padding:12px 34px 12px 14px;position:relative;border:1px solid var(--color-border-tertiary);font-size:13.5px;line-height:1.7}
+.stage.s-a{background:var(--coral-bg)}.stage.s-b{background:var(--blue-bg)}.stage.s-c{background:var(--green-bg)}
+.stage-key{position:absolute;right:10px;top:4px;font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;opacity:.18}
+.stage-t{font-weight:700;margin-bottom:4px}
+.stage-w{display:inline-block;margin-top:4px;font-size:11.5px;font-weight:700;border-radius:999px;padding:0 10px;background:var(--color-background-primary);color:var(--color-text-secondary)}
+.stage-arrow{align-self:center;font-weight:700;color:var(--hero-deep)}
+@media (max-width:640px){.stage-row{flex-direction:column}.stage-arrow{transform:rotate(90deg);text-align:center}}
+@media print{.poem,.lbl,.duo,.stage-row{page-break-inside:avoid}}
+
+/* 淺白版元件 */
+.qtag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--hero-deep);border:1px solid var(--hero);border-radius:999px;padding:0 9px;margin-right:6px;vertical-align:2px}
+.trait-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.trait{border-radius:var(--border-radius-md);padding:10px 12px;background:var(--amber-bg);border-top:3px solid var(--hero-deep);font-size:13.5px}
+.trait-h{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:4px}
+.trait-e{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+@media (max-width:640px){.trait-grid{grid-template-columns:1fr}}
+.tri{border-radius:var(--border-radius-md);overflow:hidden;border:1px solid var(--color-border-tertiary);margin:10px 0}
+.tri-row{display:flex;gap:12px;padding:10px 14px;font-size:14.5px;line-height:1.85}
+.tri-row+.tri-row{border-top:1px dashed var(--color-border-tertiary)}
+.tri-tag{flex:none;width:84px;font-size:12px;font-weight:700;border-radius:999px;padding:2px 0;text-align:center;height:fit-content;margin-top:3px}
+.tri-body{flex:1}
+.t1{background:var(--green-bg)}.t1 .tri-tag{background:var(--green);color:#fff}
+.t2{background:var(--color-background-primary)}.t2 .tri-tag{background:var(--blue);color:#fff}
+.t3{background:var(--amber-bg)}.t3 .tri-tag{background:var(--amber);color:#fff}
+@media (max-width:640px){.tri-row{flex-direction:column;gap:4px}}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0}
+.pcard{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;text-align:center;border:1px solid var(--color-border-tertiary)}
+.pcard.gold{background:var(--amber-bg);border-color:var(--hero)}
+.pav{font-size:26px;line-height:1.3}
+.pname{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px;margin-top:4px}
+.prole{font-size:11.5px;color:var(--color-text-secondary);margin-bottom:6px}
+.pdesc{font-size:13px;line-height:1.65;text-align:left}
+@media (max-width:640px){.people{grid-template-columns:1fr 1fr}}
+.pblock{border-top:1px dashed var(--color-border-tertiary);padding:14px 0 6px}
+.pblock:first-of-type{border-top:0}
+.pb-head{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:6px}
+.pb-head .pnum{margin-top:0}
+.pb-orig{font-family:'Noto Serif TC',serif;font-size:18px;line-height:2.2;background:var(--amber-bg);border-radius:var(--border-radius-md);padding:10px 14px}
+.pb-sub{font-weight:700;font-size:13.5px;color:var(--hero-deep);margin:12px 0 4px}
+.pb-tr{font-size:14.5px;line-height:1.95}
+.pb-tr b{color:var(--hero-deep)}
+.pb-gist{margin-top:10px;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 12px;font-size:14.5px}
+.order{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0}
+.order-h{font-weight:700;font-size:14px;margin-bottom:6px}
+.order-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:4px}
+.chip{display:inline-block;font-family:'Noto Serif TC',serif;font-size:16px;background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:6px;padding:2px 10px}
+.chip.hot{background:var(--hero);color:#3B2A14;border-color:var(--hero-deep);font-weight:700}
+.oarr{font-weight:700;color:var(--hero-deep);margin:0 6px}
+.hw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 14px;margin:8px 0}
+.hw-row{display:flex;gap:8px;align-items:center}
+.hw-src{font-size:12px;font-weight:700;color:var(--color-text-secondary);width:40px}
+.hw-cell{flex:1;text-align:center;font-family:'Noto Serif TC',serif;font-size:17px;background:var(--color-background-primary);border-radius:6px;padding:4px}
+.hw-cell b.g,.hw-h.g{color:var(--green)}.hw-cell b.r,.hw-h.r{color:var(--red)}
+.hw-arrow{text-align:center;font-size:12.5px;color:var(--hero-deep);font-weight:700;margin:6px 0}
+.hw-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:4px;font-size:13.5px}
+.hw-h{font-weight:700;padding:4px 8px;background:var(--color-background-primary);border-radius:6px}
+.hw-x{text-align:center;padding:4px;background:var(--color-background-primary);border-radius:6px;color:var(--color-text-secondary)}
+.tech{border-radius:var(--border-radius-md);overflow:hidden;border:1px solid var(--color-border-tertiary)}
+.tech-row{display:flex;gap:12px;padding:9px 14px;font-size:14.5px;line-height:1.8}
+.tech-row+.tech-row{border-top:1px dashed var(--color-border-tertiary)}
+.tech-k{flex:none;width:70px;font-weight:700;color:var(--hero-deep)}
+@media (max-width:640px){.tech-row{flex-direction:column;gap:2px}}
+.scene text{font-family:'Noto Sans TC',sans-serif}
+@media (max-width:640px){.pblock .keyword-grid{grid-template-columns:1fr 1fr}.pblock .kw{padding:6px 8px}.pb-orig{font-size:17px}}
+@media print{.tri,.order,.hw,.tech,.people,.scene{page-break-inside:avoid}}
+
+/* 淺白版第二輪：小場景、故事板、對白、寫法卡 */
+.scn{border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px 12px;margin:10px 0;background:var(--color-background-primary)}
+.scn-h{font-weight:700;font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;font-family:'Noto Serif TC',serif}
+.scn-no{font-family:'Noto Sans TC',sans-serif;font-size:11.5px;font-weight:700;background:var(--hero);color:#3B2A14;border-radius:999px;padding:1px 10px}
+.scn-tr{margin-top:8px;font-size:14.5px;line-height:1.95;padding:8px 12px;border-left:3px solid var(--blue);background:var(--blue-bg);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
+.scn-tr b{color:var(--hero-deep)}
+.scn-tag{display:inline-block;font-size:11.5px;font-weight:700;background:var(--blue);color:#fff;border-radius:999px;padding:0 9px;margin-right:8px;vertical-align:1px}
+.kwbox{margin-top:8px}
+.kwbox summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--hero-deep);padding:2px 0}
+.keyword-grid.sm{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;margin-top:6px}
+.keyword-grid.sm .kw{padding:6px 10px}
+.keyword-grid.sm .kw-word{font-size:14.5px}
+.keyword-grid.sm .kw-def{font-size:12.5px;line-height:1.6}
+.py{font-family:'Noto Sans TC',sans-serif;font-size:11px;color:var(--color-text-secondary);margin-left:4px;font-weight:400}
+.story{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0;counter-reset:sp}
+.sp{position:relative;background:var(--amber-bg);border:1px solid var(--hero);border-radius:var(--border-radius-md);padding:10px 10px 10px;font-size:13px;line-height:1.65}
+.sp-n{position:absolute;top:6px;right:8px;font-size:11px;font-weight:700;color:var(--hero-deep)}
+.sp-e{font-size:26px;line-height:1.2}
+.sp-t{font-family:'Noto Serif TC',serif;font-weight:700;font-size:15px;margin:2px 0 4px}
+.sp-x{color:var(--color-text-primary)}
+.sp-q{margin-top:6px;font-family:'Noto Serif TC',serif;font-size:13px;color:var(--hero-deep);border-top:1px dashed var(--hero);padding-top:4px}
+.sp-q::before{content:'「'}.sp-q::after{content:'」'}
+.story.s3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:720px){.story,.story.s3{grid-template-columns:1fr 1fr}}
+.bubble .bo{display:block;font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.8}
+.bubble .bp{display:block;font-size:13px;color:var(--color-text-secondary);margin-top:4px;padding-top:4px;border-top:1px dashed var(--color-border-tertiary)}
+.bubble .bp::before{content:'白話：';font-weight:700}
+.tk{display:flex;gap:12px;align-items:flex-start}
+.tk-i{font-size:30px;line-height:1;flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--amber-bg);border-radius:50%}
+.tk-b{flex:1}
+.tk-row{font-size:14.5px;line-height:1.8;padding:4px 0}
+.tk-row+.tk-row{border-top:1px dashed var(--color-border-tertiary)}
+.tk-row ul.tight{margin:2px 0 0}
+.tk-l{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--hero-deep);border-radius:999px;padding:0 9px;margin-right:8px;vertical-align:1px}
+.tk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:6px 0}
+.tk-c{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px;color:var(--color-text-secondary)}
+.tk-c b{display:block;font-size:14.5px;color:var(--color-text-primary)}
+@media print{.scn,.sp,.tk,.story{page-break-inside:avoid}.kwbox:not([open]) .keyword-grid{display:grid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><svg class="pattern" viewBox="0 0 900 300" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<filter id="grainY" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.24  0 0 0 0 0.1  0 0 0 0.10 0"/>
+</filter>
+<linearGradient id="fadeY" x1="0" x2="1" y1="0" y2="0">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.34" stop-color="#fff" stop-opacity="0.2"/><stop offset="0.6" stop-color="#fff" stop-opacity="1"/>
+</linearGradient>
+<mask id="maskY"><rect width="900" height="300" fill="url(#fadeY)"/></mask>
+<radialGradient id="moonY" cx="0.42" cy="0.36" r="0.75"><stop offset="0" stop-color="#FFFBF2"/><stop offset="0.6" stop-color="#F4E6C6"/><stop offset="1" stop-color="#E2C48A"/></radialGradient>
+<radialGradient id="haloY"><stop offset="0" stop-color="#FFF6E6" stop-opacity="0.55"/><stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/></radialGradient>
+<pattern id="scaleY" width="20" height="10" patternUnits="userSpaceOnUse">
+  <path d="M0 10 A10 10 0 0 1 20 10 M-10 5 A10 10 0 0 1 10 5 M10 5 A10 10 0 0 1 30 5" fill="none" stroke="#5A3E1B" stroke-opacity="0.28" stroke-width="0.8"/>
+</pattern>
+<pattern id="waveY" width="40" height="20" patternUnits="userSpaceOnUse">
+  <path d="M0 20 A20 20 0 0 1 40 20 M6 20 A14 14 0 0 1 34 20 M12 20 A8 8 0 0 1 28 20 M-20 10 A20 20 0 0 1 20 10 M20 10 A20 20 0 0 1 60 10" fill="none" stroke="#5A3E1B" stroke-opacity="0.3" stroke-width="0.9"/>
+</pattern>
+<pattern id="fretY" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0 11 H10 V3 H4 V7 H7 M12 1 H22 V9 H16 V5 H19" fill="none" stroke="#5A3E1B" stroke-width="1.1"/></pattern>
+<pattern id="weaveY" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 4 H8 M4 0 V8" stroke="#FFF6E6" stroke-opacity="0.35" stroke-width="0.8"/></pattern>
+<g id="fishY"><path d="M-24 0 C-14 -13 10 -14 19 -3 L30 -12 C28 -4 28 4 30 12 L19 3 C10 14 -14 13 -24 0 Z"/></g>
+<g id="pawY"><ellipse cx="0" cy="5" rx="12" ry="9.5"/><circle cx="-13" cy="-8" r="4.2"/><circle cx="-4.5" cy="-13" r="4.4"/><circle cx="5" cy="-13" r="4.4"/><circle cx="13.5" cy="-8" r="4.2"/></g>
+<g id="ruyiY" fill="none" stroke-width="1.5" stroke-linecap="round">
+  <path d="M0 0 C-2 -14 16 -20 24 -10 C28 -22 50 -22 52 -8 C64 -14 76 -4 70 6 C78 10 74 20 62 18 L4 18 C-10 18 -12 4 0 0 Z"/><path d="M24 -10 C20 -2 28 4 34 0 M52 -8 C48 0 54 6 60 4"/>
+</g>
+</defs>
+<g mask="url(#maskY)">
+  <!-- 海水紋 -->
+  <rect x="280" y="228" width="600" height="46" fill="url(#waveY)"/>
+  <!-- 如意雲 -->
+  <use href="#ruyiY" transform="translate(360 64) scale(0.8)" stroke="#5A3E1B" stroke-opacity="0.22"/>
+  <use href="#ruyiY" transform="translate(650 214) scale(0.9)" stroke="#5A3E1B" stroke-opacity="0.18"/>
+  <!-- 天平：一邊魚，一邊熊掌，熊掌一邊較重 -->
+  <g transform="translate(575 16) scale(0.94)" stroke="#5A3E1B" fill="none" stroke-linecap="round">
+    <path d="M0 46 V214" stroke-width="5" stroke-opacity="0.42"/>
+    <path d="M-30 222 H30 M-20 214 H20" stroke-width="6" stroke-opacity="0.42"/>
+    <circle cx="0" cy="40" r="6" fill="#5A3E1B" fill-opacity="0.45" stroke="none"/>
+    <path d="M-78 30 L78 50" stroke-width="4" stroke-opacity="0.5"/>
+    <path d="M-78 30 L-98 104 M-78 30 L-58 104 M78 50 L58 132 M78 50 L98 132" stroke-width="1" stroke-opacity="0.45"/>
+    <path d="M-104 104 Q-78 124 -52 104 Z" fill="#5A3E1B" fill-opacity="0.32" stroke-width="1.2" stroke-opacity="0.5"/>
+    <path d="M52 132 Q78 152 104 132 Z" fill="#5A3E1B" fill-opacity="0.32" stroke-width="1.2" stroke-opacity="0.5"/>
+    <use href="#fishY" transform="translate(-78 92) scale(0.75)" fill="#5A3E1B" fill-opacity="0.45" stroke="none"/>
+    <use href="#pawY" transform="translate(78 118) scale(0.85)" fill="#5A3E1B" fill-opacity="0.55" stroke="none"/>
+  </g>
+  <!-- 簞（竹籃）與豆（高腳盤） -->
+  <g transform="translate(440 236)">
+    <path d="M-30 -18 H30 L24 14 H-24 Z" fill="#5A3E1B" fill-opacity="0.42"/>
+    <path d="M-30 -18 H30 L24 14 H-24 Z" fill="url(#weaveY)"/>
+    <path d="M-34 -22 H34" stroke="#5A3E1B" stroke-opacity="0.5" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(505 240)" fill="#5A3E1B" fill-opacity="0.45">
+    <path d="M-26 -16 Q0 4 26 -16 Z"/><rect x="-4" y="-8" width="8" height="18"/><path d="M-16 16 Q0 6 16 16 Z"/>
+  </g>
+  <!-- 月洞：魚鱗紋與鯉魚 -->
+  <circle cx="770" cy="128" r="122" fill="url(#haloY)"/>
+  <g transform="translate(770 128)">
+    <circle r="78" fill="url(#moonY)" fill-opacity="0.95"/>
+    <circle r="78" fill="url(#scaleY)"/>
+    <circle r="72" fill="none" stroke="#5A3E1B" stroke-opacity="0.35" stroke-width="1.2"/>
+    <circle r="86" fill="none" stroke="#FFF6E6" stroke-opacity="0.55" stroke-width="0.8" stroke-dasharray="2 5"/>
+    <g transform="rotate(-18) scale(1.55)">
+      <use href="#fishY" fill="#D9B07C" stroke="#5A3E1B" stroke-opacity="0.55" stroke-width="0.9"/>
+      <circle cx="-15" cy="-2" r="1.8" fill="#5A3E1B" fill-opacity="0.7"/>
+      <path d="M-6 -8 A7 7 0 0 1 -6 8 M2 -9 A7 7 0 0 1 2 9 M10 -7 A6 6 0 0 1 10 7" fill="none" stroke="#5A3E1B" stroke-opacity="0.4" stroke-width="0.7"/>
+      <path d="M-2 -11 Q4 -20 12 -9 M-2 11 Q3 17 9 9" fill="#D9B07C" stroke="#5A3E1B" stroke-opacity="0.45" stroke-width="0.7"/>
+    </g>
+    <path d="M-34 -62 q8 -3 14 0" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </g>
+</g>
+<rect x="0" y="282" width="900" height="12" fill="url(#fretY)" opacity="0.22"/>
+<path d="M0 279.5 H900 M0 296.5 H900" stroke="#5A3E1B" stroke-opacity="0.22" stroke-width="0.8"/>
+<rect width="900" height="300" filter="url(#grainY)"/>
+</svg><div class="hero-tag">文言教學筆記</div><h1>《魚我所欲也》</h1><div class="sub"><span class="nb">《孟子‧告子上》</span>　<span class="nb">香港中學文憑試　指定文言篇章精讀</span></div><p>潘SIR中文教室編撰</p></div>
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>先認識孟子和這篇文章<span class="kind">教學</span></a><a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：作者與背景<span class="kind">練習</span></a><a class="toc-item" href="#s3"><span class="toc-num">03</span>原文逐段讀<span class="kind">教學</span></a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：字詞與語譯<span class="kind">練習</span></a><a class="toc-item" href="#s5"><span class="toc-num">05</span>孟子怎樣一步步說理<span class="kind">教學</span></a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：內容理解<span class="kind">練習</span></a><a class="toc-item" href="#s7"><span class="toc-num">07</span>孟子用了哪些論證方法<span class="kind">教學</span></a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習四：論證手法與主旨<span class="kind">練習</span></a><a class="toc-item" href="#s9"><span class="toc-num">09</span>DSE 模擬試題<span class="kind">模擬試題</span></a></nav>
+<div class="section-header first" id="s1"><div class="icon">🐟</div><div><div class="chap">CHAPTER 01　教學</div><h2>先認識孟子和這篇文章</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>這篇文章在講甚麼</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">生命和道義只能二選一時，應該放棄生命，選擇道義。這份看重道義的心，人人本來就有。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body">全文只有兩段：<ol class="tight"><li><b>第1段　講道理：</b>先用「魚和熊掌」打比方，提出「舍生而取義」；再正反推論，證明人追求的東西中，有比生命更重要的；最後指出這種心人人都有。</li><li><b>第2段　舉例子：</b>路人和乞丐寧願餓死，也不接受無禮的施捨；有人卻為了優厚的俸祿，連禮義也不理會。孟子說這種人「失其本心」。</li></ol></div></div><div class="tri-row t3"><div class="tri-tag">必背</div><div class="tri-body">本文以魚與熊掌設喻，論證「舍生而取義」的道理，指出人人皆有羞惡的本心，勸勉世人不要因物質享受和虛榮而喪失本心。</div></div></div>
+<svg class="chart" viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="魚與熊掌、生與義的取捨"><defs>
+<g id="fishS"><path d="M-24 0 C-14 -13 10 -14 19 -3 L30 -12 C28 -4 28 4 30 12 L19 3 C10 14 -14 13 -24 0 Z"/></g>
+<g id="pawS"><ellipse cx="0" cy="5" rx="12" ry="9.5"/><circle cx="-13" cy="-8" r="4.2"/><circle cx="-4.5" cy="-13" r="4.4"/><circle cx="5" cy="-13" r="4.4"/><circle cx="13.5" cy="-8" r="4.2"/></g>
+<marker id="arY" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker>
+</defs><rect x="0" y="0" width="760" height="290" rx="14" fill="var(--amber-bg)"/><g transform="translate(175 14) scale(0.82)">
+<path d="M0 60 V228" stroke="#96702F" stroke-width="5" stroke-linecap="round"/>
+<path d="M-46 236 H46" stroke="#96702F" stroke-width="8" stroke-linecap="round"/>
+<path d="M-120 62 L120 92" stroke="#5A3E1B" stroke-width="4" stroke-linecap="round"/>
+<circle cx="0" cy="77" r="7" fill="#96702F"/>
+<path d="M-120 62 L-150 138 M-120 62 L-90 138 M120 92 L90 168 M120 92 L150 168" stroke="#5A3E1B" stroke-opacity="0.5" stroke-width="1"/>
+<path d="M-158 138 Q-120 162 -82 138 Z" fill="#3a6ea5" fill-opacity="0.35" stroke="#3a6ea5" stroke-width="1.4"/>
+<path d="M82 168 Q120 192 158 168 Z" fill="#96702F" fill-opacity="0.35" stroke="#96702F" stroke-width="1.4"/>
+<use href="#fishS" transform="translate(-120 126) scale(0.8)" fill="#3a6ea5" fill-opacity="0.75"/><use href="#pawS" transform="translate(120 152) scale(0.9)" fill="#96702F"/>
+<text x="-120" y="190" text-anchor="middle" font-size="18" font-weight="700" fill="#3a6ea5">魚</text>
+<text x="120" y="220" text-anchor="middle" font-size="18" font-weight="700" fill="#96702F">熊掌</text>
+<text x="0" y="268" text-anchor="middle" font-size="13" fill="var(--color-text-primary)">日常的選擇：舍魚而取熊掌</text>
+</g><g transform="translate(585 14) scale(0.82)">
+<path d="M0 60 V228" stroke="#96702F" stroke-width="5" stroke-linecap="round"/>
+<path d="M-46 236 H46" stroke="#96702F" stroke-width="8" stroke-linecap="round"/>
+<path d="M-120 62 L120 92" stroke="#5A3E1B" stroke-width="4" stroke-linecap="round"/>
+<circle cx="0" cy="77" r="7" fill="#96702F"/>
+<path d="M-120 62 L-150 138 M-120 62 L-90 138 M120 92 L90 168 M120 92 L150 168" stroke="#5A3E1B" stroke-opacity="0.5" stroke-width="1"/>
+<path d="M-158 138 Q-120 162 -82 138 Z" fill="#3a6ea5" fill-opacity="0.35" stroke="#3a6ea5" stroke-width="1.4"/>
+<path d="M82 168 Q120 192 158 168 Z" fill="#c0392b" fill-opacity="0.35" stroke="#c0392b" stroke-width="1.4"/>
+<circle cx="-120" cy="124" r="11" fill="#3a6ea5" fill-opacity="0.7"/><rect x="108" y="140" width="24" height="24" rx="4" fill="#c0392b" fill-opacity="0.8"/>
+<text x="-120" y="190" text-anchor="middle" font-size="18" font-weight="700" fill="#3a6ea5">生</text>
+<text x="120" y="220" text-anchor="middle" font-size="18" font-weight="700" fill="#c0392b">義</text>
+<text x="0" y="268" text-anchor="middle" font-size="13" fill="var(--color-text-primary)">人生的選擇：舍生而取義</text>
+</g><path d="M318 112 H442" stroke="#96702F" stroke-width="2.4" marker-end="url(#arY)"/><text x="380" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">同一道理</text><text x="380" y="134" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">由淺易推到深刻</text><text x="380" y="280" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">天平上較重、向下沉的一邊，是被選取的一方</text></svg>
+<p class="small">「魚」和「熊掌」都是美食，大家一看就懂得怎樣選。孟子先講這個人人明白的選擇，再帶出「生」和「義」的選擇。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>作者孟子：記住三件事</h3>
+<div class="trait-grid">
+<div class="trait"><div class="trait-h">戰國儒家代表</div><div class="trait-e">名軻，戰國時鄒國人。他繼承孔子的學說，是孔子之後最重要的儒家人物，後世尊稱他為「亞聖」。</div></div>
+<div class="trait"><div class="trait-h">主張性善、仁政</div><div class="trait-e">認為人生來就有善心；又勸國君推行「仁政」，愛護百姓；做人做事要重義輕利。</div></div>
+<div class="trait"><div class="trait-h">《孟子》一書</div><div class="trait-e">記錄孟子的言論，由孟子和弟子萬章、公孫丑等編成，共七篇。本文節錄自〈告子上〉。</div></div>
+</div>
+<div class="compare-grid" style="margin-top:10px">
+<div class="compare-card a"><div class="ct">孟母三遷</div>孟子小時候住在墓地附近，常學人辦喪事；搬到市集旁，又學人做買賣。孟母於是搬到學校旁邊，孟子開始學習禮儀。</div>
+<div class="compare-card b"><div class="ct">斷織教子</div>孟子讀書半途而廢，跑回家中。孟母剪斷正在織的布，說讀書中途放棄，如同這匹被剪斷的布，再也沒有用處。孟子從此勤奮學習。</div>
+</div>
+<p class="small">孟子三歲喪父，由母親撫養成人。這兩個故事說明孟母很重視孩子的成長環境和學習態度。</p>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>時代背景：人人追求利益的亂世</h3>
+<div class="flow">
+<div class="flow-step"><b>戰國時代</b>諸侯為了土地互相攻打，「爭地以戰，殺人盈野」。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>社會風氣</b>君主追求土地、財富，士人追求官位、俸祿，很多人為利益放棄原則。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>孟子的行動</b>帶着弟子周遊列國，勸國君行仁政，但不被重用。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>晚年</b>回到家鄉講學，和弟子整理自己的言論，寫成《孟子》。</div>
+</div>
+<p class="small">明白這個背景，就會明白孟子為甚麼要批評「萬鍾則不辯禮義而受之」的人：這些人為了高官厚祿，連禮義也不理會。</p>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>先弄懂四個關鍵詞</h3>
+<svg class="chart" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="孟子的四端">
+<rect x="0" y="0" width="680" height="300" rx="14" fill="var(--color-background-secondary)"/>
+<g stroke="#96702F" stroke-opacity="0.45" stroke-width="2"><path d="M340 150 L180 74 M340 150 L500 74 M340 150 L180 226 M340 150 L500 226"/></g>
+<circle cx="340" cy="150" r="62" fill="#F1DFC0" stroke="#96702F" stroke-width="2"/>
+<text x="340" y="146" text-anchor="middle" font-size="19" font-weight="700" fill="#5A3E1B">本心</text>
+<text x="340" y="170" text-anchor="middle" font-size="12.5" fill="#5A3E1B">人生來就有的善心</text>
+<g font-size="15" text-anchor="middle">
+<rect x="70" y="42" width="190" height="64" rx="12" fill="var(--color-background-primary)" stroke="var(--color-border-tertiary)"/>
+<text x="165" y="68" font-weight="700" fill="var(--color-text-primary)">惻隱之心</text><text x="165" y="92" font-size="12.5" fill="var(--color-text-secondary)">同情別人 → 仁的開端</text>
+<rect x="420" y="42" width="190" height="64" rx="12" fill="var(--color-background-primary)"/><rect x="420" y="42" width="190" height="64" rx="12" fill="#c0392b" fill-opacity="0.1" stroke="#c0392b" stroke-width="2"/>
+<text x="515" y="68" font-weight="700" fill="#c0392b">羞惡之心</text><text x="515" y="92" font-size="12.5" fill="#c0392b">做錯事會羞恥 → 義的開端</text>
+<rect x="70" y="194" width="190" height="64" rx="12" fill="var(--color-background-primary)" stroke="var(--color-border-tertiary)"/>
+<text x="165" y="220" font-weight="700" fill="var(--color-text-primary)">辭讓之心</text><text x="165" y="244" font-size="12.5" fill="var(--color-text-secondary)">懂得謙讓 → 禮的開端</text>
+<rect x="420" y="194" width="190" height="64" rx="12" fill="var(--color-background-primary)" stroke="var(--color-border-tertiary)"/>
+<text x="515" y="220" font-weight="700" fill="var(--color-text-primary)">是非之心</text><text x="515" y="244" font-size="12.5" fill="var(--color-text-secondary)">分得清對錯 → 智的開端</text>
+</g>
+<text x="515" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">本文的重點</text>
+<text x="668" y="290" text-anchor="end" font-size="11" fill="var(--color-text-secondary)">四端之說見《孟子‧公孫丑上》</text>
+</svg>
+<div class="trait-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="trait"><div class="trait-h">羞惡之心</div><div class="trait-e">對自己做錯事感到羞恥，對別人做壞事感到厭惡。孟子說這是「義」的開端。</div></div>
+<div class="trait"><div class="trait-h">義</div><div class="trait-e">合乎道德、應該做的事。本文的「舍生而取義」，就是把道義看得比生命更重要。</div></div>
+<div class="trait"><div class="trait-h">本心（是心）</div><div class="trait-e">人生來就有的良心。本文指「所欲有甚於生，所惡有甚於死」的心，即羞惡之心。</div></div>
+<div class="trait"><div class="trait-h">性善論</div><div class="trait-e">孟子認為人人生來都有善心，只要好好保存、擴充，人人都可以成為好人。</div></div>
+</div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">賢者和普通人的分別</div><div class="alert-text">孟子說「非獨賢者有是心也，人皆有之，賢者能勿喪耳」。人人都有本心，分別只在於能否保住它。保得住的是賢者，保不住的就是「失其本心」。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>這是一篇怎樣的文章</h3>
+<p>本文是一篇<b>說理文章</b>。讀說理文章，先找三樣東西：</p>
+<table>
+<tr><th class="c">要找的東西</th><th>意思</th><th>本文的答案</th></tr>
+<tr><td class="c">論點</td><td>作者想證明的道理</td><td>生與義不可兼得時，要捨生取義；這種重義的本心人人都有，不可喪失</td></tr>
+<tr><td class="c">論據</td><td>用來證明道理的材料</td><td>魚與熊掌的取捨；路人、乞丐不受無禮施捨；有人為萬鍾而不辨禮義</td></tr>
+<tr><td class="c">論證方法</td><td>作者怎樣用材料證明道理</td><td>比喻論證、正反論證、舉例論證、對比論證（第七章詳細講解）</td></tr>
+</table>
+<p class="small">《孟子》以記錄孟子的言論為主，所以本文以「孟子曰」開頭，全文都是孟子說的話。</p>
+</div>
+
+<div class="card"><h3><span class="dot green"></span>考試會怎樣考</h3>
+<table>
+<tr><th class="c">考試範圍</th><td>文憑試中國語文科卷一甲部「指定文言篇章」，十二篇範文之一</td></tr>
+<tr><th class="c">出題紀錄</th><td>2021年考過「鄉為身死而不受」的「鄉」字；2022年以本篇設題，考孟子怎樣從正反兩面論述、「本心」的意思等</td></tr>
+<tr><th class="c">常考題型</th><td>字詞解釋（通假字特別多）、語譯、比喻論證和正反論證、「是心」「本心」的意思、今昔對比和排比的作用、中心論點</td></tr>
+</table>
+</div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">閱讀時留意</div><div class="alert-text">全文最重要的是一個「心」字：第1段說人人都有「是心」，第2段說有人「失其本心」。讀的時候，留意孟子怎樣由「有」講到「失」。</div></div></div>
+<div class="section-header ex" id="s2"><div class="icon">✏️</div><div><div class="chap">CHAPTER 02　練習</div><h2>練習一：作者與背景</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>孟子是哪一個時代的人？<ul class="opts"><li><b>A</b>春秋</li><li><b>B</b>戰國</li><li><b>C</b>西漢</li><li><b>D</b>東漢</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>後世尊稱孟子為：<ul class="opts"><li><b>A</b>至聖</li><li><b>B</b>詩聖</li><li><b>C</b>亞聖</li><li><b>D</b>史聖</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">「至聖」指孔子，「詩聖」指杜甫，「史聖」指司馬遷。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>本文節錄自：<ul class="opts one"><li><b>A</b>《論語‧衛靈公》</li><li><b>B</b>《荀子‧勸學》</li><li><b>C</b>《史記》</li><li><b>D</b>《孟子‧告子上》</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>判斷以下說法是否正確。正確的寫「✓」，錯誤的寫「✗」。<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr><tr><td>（1）《孟子》一書由孟子和弟子萬章、公孫丑等編成。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（2）孟子繼承了墨子的學說。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（3）本文全文都是孟子說的話。</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）✓　（2）✗　（3）✓<br><span class="ex">（2）孟子繼承的是孔子的學說，屬儒家。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>孟子認為人生來就有「四端」。把左邊的「心」與右邊的品德配對，把代表答案的英文字母填在括號內。<table><tr><th>四端</th><th class="c ctr">答案</th><th>品德</th></tr><tr><td class="c">（1）惻隱之心</td><td class="ctr">（　　）</td><td>A　禮</td></tr><tr><td class="c">（2）羞惡之心</td><td class="ctr">（　　）</td><td>B　智</td></tr><tr><td class="c">（3）辭讓之心</td><td class="ctr">（　　）</td><td>C　仁</td></tr><tr><td class="c">（4）是非之心</td><td class="ctr">（　　）</td><td>D　義</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）C　（2）D　（3）A　（4）B<br><span class="ex">本文的「本心」主要指羞惡之心，即「義」的開端。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>孟子主張「性善論」，意思是：<ul class="opts one"><li><b>A</b>人生來就有善心</li><li><b>B</b>人生來就有追求利益的欲望</li><li><b>C</b>人要靠法律約束才會向善</li><li><b>D</b>人性沒有善惡之分</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>根據第一章內容填空。<p>孟子勸國君推行（1）<span class="blank"></span>，愛護百姓；又主張做人要重（2）<span class="blank"></span>輕利。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1）仁政　（2）義</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>解釋下列兩個與本文有關的詞語。<p>（1）捨生取義：<span class="blank l"></span>　（2）魚與熊掌：<span class="blank l"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）為了正義而犧牲生命　（2）比喻兩樣都想要、卻不能同時得到的東西</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>孟子說「非獨賢者有是心也，人皆有之」。這句話怎樣表現了孟子的「性善論」？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）性善論認為人生來就有善心（1分）；孟子指出重義、知羞恥的「是心」不單賢者有，人人都有（1分），即人人生來都有本心，這正是性善論的觀點（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>孟子為甚麼先講「魚」和「熊掌」，才講「生」和「義」？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）魚和熊掌的取捨是人人明白的生活常理（1分）；先講常理，再引出生與義的取捨，可以把抽象的道理說得淺白易明（1分）。</div></div></div>
+<div class="section-header" id="s3"><div class="icon">📜</div><div><div class="chap">CHAPTER 03　教學</div><h2>原文逐段讀</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>怎樣用這一章</h3>
+<p>全文只有兩段，但內容緊湊，所以分成8個小場景。每個場景都按同一次序讀：</p>
+<div class="flow">
+<div class="flow-step"><b>① 讀原文</b>先讀米色框內的原文，看到小數字先不用停。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>② 讀白話</b>對照下面的白話，粗體字是考試常考的字詞。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>③ 查字詞卡</b>回頭查小數字的意思，再讀一次原文。</div>
+</div>
+<p class="small">原文及分段依據教育局提供的參考版本，全文共2段。</p>
+</div>
+<div class="poem"><div class="ttl">魚我所欲也</div><div class="au">孟子</div>
+<div class="pblock"><div class="layer-tag">第一部分　講道理</div><div class="pb-head"><span class="pnum">1</span>第1段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 1</span>魚與熊掌：先打個比方</div>
+<div class="pb-orig">孟子曰：「魚，我所欲也，熊掌<sup class="n">1</sup>，亦我所欲也；二者不可得兼<sup class="n">2</sup>，舍<sup class="n">3</sup>魚而取熊掌者也。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>孟子說：「魚，是我想要的；熊掌，也是我想要的。這兩樣東西如果不能<b>同時得到</b>，我會<b>捨棄</b>魚而選取熊掌。</div>
+<details class="kwbox" open><summary>字詞卡（3個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">1　熊掌</div><div class="kw-def">熊的腳掌，古代難得的美食。</div></div><div class="kw"><div class="kw-word">2　兼</div><div class="kw-def">同時得到。</div></div><div class="kw"><div class="kw-word">3　舍<span class="py">粵音「寫」</span></div><div class="kw-def">通「捨」，捨棄、放棄。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 2</span>生與義：提出中心論點</div>
+<div class="pb-orig">生亦我所欲也，義<sup class="n">4</sup>亦我所欲也；二者不可得兼，舍生而取義者也。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>生命，是我想要的；道義，也是我想要的。這兩樣如果不能同時得到，我會捨棄生命而選取道義。</div>
+<details class="kwbox" open><summary>字詞卡（1個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">4　義</div><div class="kw-def">道義，指合乎道德、應該做的事。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 3</span>正面說：有比生死更重要的東西</div>
+<div class="pb-orig">生亦我所欲，所欲有甚於<sup class="n">5</sup>生者，故不為苟得<sup class="n">6</sup>也；死亦我所惡<sup class="n">7</sup>，所惡有甚於死者，故患有所不辟<sup class="n">8</sup>也。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>生命是我想要的，但我想要的東西中，有<b>比</b>生命<b>更重要</b>的，所以我不會用不正當的方法<b>苟且偷生</b>；死亡是我<b>厭惡</b>的，但我厭惡的東西中，有比死亡更令人厭惡的，所以有些禍患我也不<b>躲避</b>。</div>
+<details class="kwbox" open><summary>字詞卡（4個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">5　甚於</div><div class="kw-def">比……更重要。甚，程度深，這裏指更重要；於，比。</div></div><div class="kw"><div class="kw-word">6　苟得</div><div class="kw-def">用不正當的方法求得（生存），即苟且偷生。苟，隨便、苟且。</div></div><div class="kw"><div class="kw-word">7　惡<span class="py">讀「厭惡」的「惡」</span></div><div class="kw-def">厭惡、憎恨。</div></div><div class="kw"><div class="kw-word">8　患有所不辟<span class="py">辟，粵音「避」</span></div><div class="kw-def">有些禍患也不躲避。患，禍患。辟，通「避」，躲避。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 4</span>反面說：如果生命最重要……</div>
+<div class="pb-orig">如使<sup class="n">9</sup>人之所欲莫甚於生，則凡可以得生<sup class="n">10</sup>者，何不用也<sup class="n">11</sup>？使人之所惡莫甚於死者，則凡可以辟患者，何不為也？由是則生而有不用也<sup class="n">12</sup>，由是則可以辟患而有不為也，是故<sup class="n">13</sup>所欲有甚於生者，所惡有甚於死者。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span><b>假如</b>人想要的東西沒有比生命更重要的，那麼凡是可以保存性命的方法，有甚麼不可以用呢？假如人厭惡的東西沒有比死亡更令人厭惡的，那麼凡是可以躲避禍患的手段，有甚麼不可以做呢？可是，用某種方法就可以活命，卻有人不肯用；用某種方法就可以躲避禍患，卻有人不肯做。<b>因此</b>可見，人想要的東西中，有比生命更重要的；人厭惡的東西中，有比死亡更令人厭惡的。</div>
+<details class="kwbox" open><summary>字詞卡（5個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">9　如使</div><div class="kw-def">假如、假使。</div></div><div class="kw"><div class="kw-word">10　得生</div><div class="kw-def">保存性命，活下去。</div></div><div class="kw"><div class="kw-word">11　何不用也</div><div class="kw-def">（那麼）有甚麼方法不可以用呢？用，採用。</div></div><div class="kw"><div class="kw-word">12　由是則生而有不用也</div><div class="kw-def">採用某種方法就可以活命，卻有人不肯用。由是，用這個方法。</div></div><div class="kw"><div class="kw-word">13　是故</div><div class="kw-def">因此、所以。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 5</span>人人都有這種心</div>
+<div class="pb-orig">非獨賢者有是心<sup class="n">14</sup>也，人皆有之，賢者能勿喪<sup class="n">15</sup>耳<sup class="n">16</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>不單賢人有這種心，人人都有，只是賢人能夠不<b>喪失</b>它<b>罷了</b>。</div>
+<details class="kwbox" open><summary>字詞卡（3個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">14　是心</div><div class="kw-def">這種心，指「所欲有甚於生，所惡有甚於死」的心。</div></div><div class="kw"><div class="kw-word">15　勿喪</div><div class="kw-def">不喪失。喪，失去。</div></div><div class="kw"><div class="kw-word">16　耳</div><div class="kw-def">句末語氣詞，相當於「罷了」。</div></div></div></details></div>
+<div class="pb-gist"><b>第1段一句話：</b>孟子以「舍魚而取熊掌」比喻「舍生而取義」，再從正反兩面推論，證明人追求的東西中有比生命更重要的；這種心人人都有，賢者只是能夠不喪失它。</div></div>
+<div class="pblock"><div class="layer-tag">第二部分　舉例子</div><div class="pb-head"><span class="pnum">2</span>第2段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 6</span>一簞食，一豆羹：路人和乞丐的選擇</div>
+<div class="pb-orig">一簞<sup class="n">17</sup>食<sup class="n">18</sup>，一豆<sup class="n">19</sup>羹<sup class="n">20</sup>，得之則生，弗<sup class="n">21</sup>得則死。嘑爾而與之<sup class="n">22</sup>，行道之人<sup class="n">23</sup>弗受；蹴爾<sup class="n">24</sup>而與之，乞人不屑<sup class="n">25</sup>也。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>一竹籃飯，一碗湯，得到就能活下去，得不到就會餓死。如果大聲<b>呼喝</b>着給人，過路的人也不肯接受；如果用腳<b>踐踏</b>過才給人，乞丐也<b>不屑</b>接受。</div>
+<details class="kwbox" open><summary>字詞卡（9個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">17　簞<span class="py">粵音「丹」</span></div><div class="kw-def">古代盛飯的圓形竹器。</div></div><div class="kw"><div class="kw-word">18　食</div><div class="kw-def">飯。</div></div><div class="kw"><div class="kw-word">19　豆</div><div class="kw-def">古代盛食物的器皿，形狀像高腳盤。</div></div><div class="kw"><div class="kw-word">20　羹<span class="py">粵音「庚」</span></div><div class="kw-def">帶汁的肉湯。</div></div><div class="kw"><div class="kw-word">21　弗</div><div class="kw-def">不。</div></div><div class="kw"><div class="kw-word">22　嘑爾而與之<span class="py">嘑，粵音「呼」</span></div><div class="kw-def">大聲呼喝着給人。嘑，同「呼」，呼喝。爾，詞尾，表示……的樣子。與，給予。</div></div><div class="kw"><div class="kw-word">23　行道之人</div><div class="kw-def">過路的人。</div></div><div class="kw"><div class="kw-word">24　蹴爾<span class="py">蹴，粵音「促」</span></div><div class="kw-def">用腳踐踏的樣子。蹴，踐踏。</div></div><div class="kw"><div class="kw-word">25　不屑</div><div class="kw-def">看不起，不願意接受。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 7</span>萬鍾俸祿：有人卻接受了</div>
+<div class="pb-orig">萬鍾<sup class="n">26</sup>則不辯<sup class="n">27</sup>禮義而受之。萬鍾於我何加<sup class="n">28</sup>焉？為宮室<sup class="n">29</sup>之美、妻妾之奉<sup class="n">30</sup>、所識窮乏者得我與<sup class="n">31</sup>？</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>可是，面對萬鍾的<b>優厚俸祿</b>，有人卻不<b>分辨</b>是否合乎禮義就接受了。萬鍾俸祿對我有甚麼<b>好處</b>呢？接受它是為了住宅的華美、妻妾的<b>侍奉</b>，以及讓認識的窮困的人<b>感激</b>我嗎？</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">26　萬鍾<span class="py">鍾，粵音「中」</span></div><div class="kw-def">極優厚的俸祿。鍾，古代的容量單位。</div></div><div class="kw"><div class="kw-word">27　辯<span class="py">粵音「辨」</span></div><div class="kw-def">通「辨」，分辨。</div></div><div class="kw"><div class="kw-word">28　何加</div><div class="kw-def">有甚麼增益、好處。加，增加。</div></div><div class="kw"><div class="kw-word">29　宮室</div><div class="kw-def">住宅、房屋。</div></div><div class="kw"><div class="kw-word">30　奉</div><div class="kw-def">侍奉。</div></div><div class="kw"><div class="kw-word">31　所識窮乏者得我與<span class="py">與，粵音「如」</span></div><div class="kw-def">（是為了）讓認識的窮困的人感激我嗎？得，通「德」，感激。與，通「歟」，句末語氣詞，表示疑問。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 8</span>今昔對比：失其本心</div>
+<div class="pb-orig">鄉<sup class="n">32</sup>為身死而不受，今為宮室之美為之；鄉為身死而不受，今為妻妾之奉為之；鄉為身死而不受，今為所識窮乏者得我而為之，是亦不可以已<sup class="n">33</sup>乎？此之謂失其本心<sup class="n">34</sup>。」</div>
+<div class="scn-tr"><span class="scn-tag">白話</span><b>從前</b>寧願死也不肯接受，現在卻為了住宅的華美而接受了；從前寧願死也不肯接受，現在卻為了妻妾的侍奉而接受了；從前寧願死也不肯接受，現在卻為了讓認識的窮困的人感激自己而接受了。這種做法不也可以<b>停止</b>嗎？這就叫做喪失了人本來的良心。」</div>
+<details class="kwbox" open><summary>字詞卡（3個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">32　鄉<span class="py">粵音「向」</span></div><div class="kw-def">通「向」，從前、以往。</div></div><div class="kw"><div class="kw-word">33　已</div><div class="kw-def">停止。</div></div><div class="kw"><div class="kw-word">34　本心</div><div class="kw-def">人本來就有的良心，本文指羞惡之心，即「所欲有甚於生，所惡有甚於死」的心。</div></div></div></details></div>
+<div class="pb-gist"><b>第2段一句話：</b>路人、乞丐在生死關頭也不接受無禮的施捨，有人卻為了萬鍾俸祿而不辨禮義。孟子以今昔對比指出，這種人已經「失其本心」。</div></div>
+</div>
+<div class="card"><h3><span class="dot purple"></span>重點字詞：五類必溫</h3>
+<div class="duo">
+<div class="duo-col wen"><div class="duo-h">A　通假字</div><p class="small">古人借用了另一個字，翻譯時要按「本字」解釋。本文特別多，是必考重點。「嘑」與「呼」是同一個字的不同寫法（異體字），也一併列出。</p>
+<table><tr><th class="c">原文</th><th class="c">通／同</th><th>解釋</th></tr>
+<tr><td class="c"><b>舍</b>魚而取熊掌</td><td class="c">捨</td><td>捨棄</td></tr>
+<tr><td class="c">患有所不<b>辟</b></td><td class="c">避</td><td>躲避</td></tr>
+<tr><td class="c"><b>嘑</b>爾而與之</td><td class="c">呼</td><td>呼喝</td></tr>
+<tr><td class="c">不<b>辯</b>禮義</td><td class="c">辨</td><td>分辨</td></tr>
+<tr><td class="c">窮乏者<b>得</b>我</td><td class="c">德</td><td>感激</td></tr>
+<tr><td class="c">得我<b>與</b></td><td class="c">歟</td><td>表示疑問的語氣詞</td></tr>
+<tr><td class="c"><b>鄉</b>為身死而不受</td><td class="c">向</td><td>從前、以往</td></tr></table></div>
+<div class="duo-col wu"><div class="duo-h">B　古今意思不一樣</div><p class="small">字面和今天一樣，意思卻不同。用今天的意思去翻譯就會錯。</p>
+<table><tr><th class="c">詞語</th><th>古代意思</th><th>今天意思</th></tr>
+<tr><td class="c">宮室</td><td>住宅、房屋</td><td>帝王的宮殿</td></tr>
+<tr><td class="c">豆</td><td>盛食物的高腳盤</td><td>豆類植物</td></tr>
+<tr><td class="c">加</td><td>增益、好處</td><td>加上、增加數量</td></tr>
+<tr><td class="c">已</td><td>停止</td><td>已經</td></tr>
+<tr><td class="c">喪</td><td>喪失</td><td>多指喪事</td></tr>
+<tr><td class="c">本心</td><td>人本來就有的良心</td><td>本來的心意</td></tr></table></div>
+</div>
+<h3 style="margin-top:14px"><span class="dot amber"></span>C　同一個字，不同意思</h3>
+<table><tr><th class="c">字</th><th>例句</th><th>意思</th><th>記法</th></tr>
+<tr><td class="c" rowspan="3">為</td><td>故不<b>為</b>苟得也</td><td>做</td><td rowspan="3">讀「圍」時是動詞「做」；讀「胃」時是「為了」</td></tr>
+<tr><td>今<b>為</b>宮室之美為之</td><td>為了</td></tr>
+<tr><td>今為宮室之美<b>為</b>之</td><td>做（指接受萬鍾）</td></tr>
+<tr><td class="c" rowspan="3">之</td><td>得<b>之</b>則生</td><td>代詞，指一簞食、一豆羹</td><td rowspan="3">先問「之」指甚麼東西或甚麼人，再翻譯</td></tr>
+<tr><td>嘑爾而與<b>之</b></td><td>代詞，指受施捨的人</td></tr>
+<tr><td>不辯禮義而受<b>之</b></td><td>代詞，指萬鍾俸祿</td></tr>
+<tr><td class="c" rowspan="3">得</td><td>二者不可<b>得</b>兼</td><td>能夠</td><td rowspan="3">「得我」的「得」通「德」，最常考，不可譯作「得到我」</td></tr>
+<tr><td><b>得</b>之則生</td><td>得到</td></tr>
+<tr><td>所識窮乏者<b>得</b>我與</td><td>通「德」，感激</td></tr>
+<tr><td class="c" rowspan="2">於</td><td>所欲有甚<b>於</b>生者</td><td>比</td><td rowspan="2">放在形容詞後面多解作「比」</td></tr>
+<tr><td>萬鍾<b>於</b>我何加焉</td><td>對於</td></tr>
+</table>
+<h3 style="margin-top:14px"><span class="dot teal"></span>D　句式跟今天不同</h3>
+<div class="order"><div class="order-h">① 「……，……也」表示「……是……」　<span class="small">（判斷句）</span></div><div class="order-row"><span class="chip">魚</span><span class="chip">我所欲</span><span class="chip hot">也</span><span class="oarr">⇒</span><span class="chip">魚</span><span class="chip hot">是</span><span class="chip">我想要的東西</span></div><div class="small">「熊掌，亦我所欲也」「生亦我所欲也」同理。「舍魚而取熊掌者也」的「者也」也帶判斷語氣。</div></div><div class="order"><div class="order-h">② 「比較」的部分放到了後面　<span class="small">（介詞結構後置）</span></div><div class="order-row"><span class="chip">所欲</span><span class="chip">有</span><span class="chip">甚</span><span class="chip hot">於生</span><span class="chip">者</span><span class="oarr">⇒</span><span class="chip">想要的東西中</span><span class="chip">有</span><span class="chip hot">比生命</span><span class="chip">更重要</span><span class="chip">的</span></div><div class="small">「於」在這裏解作「比」。「所惡有甚於死者」同理：有比死亡更令人厭惡的東西。</div></div><div class="order"><div class="order-h">③ 形容的部分放到了後面　<span class="small">（定語後置）</span></div><div class="order-row"><span class="chip">所識</span><span class="chip hot">窮乏</span><span class="chip hot">者</span><span class="oarr">⇒</span><span class="chip hot">窮乏</span><span class="chip">的</span><span class="chip">所識</span></div><div class="small">今天的說法：認識的窮困的人。「者」提示前面的「窮乏」是用來形容「所識」的。</div></div><div class="order"><div class="order-h">④ 用問句表達肯定的意思　<span class="small">（反問句）</span></div><div class="order-row"><span class="chip">是</span><span class="chip">亦</span><span class="chip hot">不可以</span><span class="chip">已</span><span class="chip hot">乎</span><span class="oarr">⇒</span><span class="chip">這</span><span class="chip">完全</span><span class="chip hot">可以</span><span class="chip">停止</span></div><div class="small">「何不用也」「何不為也」「萬鍾於我何加焉」都是反問句：沒有方法不用、沒有事情不做、對我沒有好處。</div></div>
+<h3 style="margin-top:14px"><span class="dot coral"></span>E　由本文而來的成語</h3>
+<table><tr><th class="c">成語</th><th>出處</th><th>今天的意思</th></tr>
+<tr><td class="c">捨生取義</td><td>舍生而取義者也</td><td>為了正義而犧牲生命</td></tr>
+<tr><td class="c">魚與熊掌</td><td>魚，我所欲也，熊掌，亦我所欲也</td><td>比喻兩樣都想要、卻不能同時得到的東西</td></tr>
+</table>
+<h3 style="margin-top:14px"><span class="dot red"></span>容易讀錯的字</h3>
+<table><tr><th>字（詞）</th><th class="c">粵音</th><th>字（詞）</th><th class="c">粵音</th></tr>
+<tr><td><b>舍</b>魚</td><td class="c">寫</td><td>所<b>惡</b></td><td class="c">「厭惡」的「惡」</td></tr>
+<tr><td>不<b>辟</b></td><td class="c">避</td><td>一<b>簞</b>食</td><td class="c">丹</td></tr>
+<tr><td>一豆<b>羹</b></td><td class="c">庚</td><td><b>嘑</b>爾</td><td class="c">呼</td></tr>
+<tr><td><b>蹴</b>爾</td><td class="c">促</td><td>萬<b>鍾</b></td><td class="c">中</td></tr>
+<tr><td>不<b>辯</b></td><td class="c">辨</td><td>得我<b>與</b></td><td class="c">如</td></tr>
+<tr><td><b>鄉</b>為身死</td><td class="c">向</td><td>不<b>為</b>苟得</td><td class="c">圍</td></tr>
+</table>
+</div>
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">最常失分的三處</div><div class="alert-text">（1）「所識窮乏者得我與」的「得」通「德」，解作「感激」，不可譯作「得到我」。<br>（2）「鄉為身死而不受」的「鄉」通「向」，解作「從前」，不可解作「家鄉」。<br>（3）「是亦不可以已乎」的「已」解作「停止」，不可解作「已經」。</div></div></div>
+<div class="section-header ex" id="s4"><div class="icon">✏️</div><div><div class="chap">CHAPTER 04　練習</div><h2>練習二：字詞與語譯</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（5分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>解釋下列文句中的粗體字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）故不為<b>苟</b>得也</td><td><span class="blank l"></span></td></tr><tr><td>（2）故患有所不<b>辟</b>也</td><td><span class="blank l"></span></td></tr><tr><td>（3）<b>弗</b>得則死</td><td><span class="blank l"></span></td></tr><tr><td>（4）<b>蹴</b>爾而與之</td><td><span class="blank l"></span></td></tr><tr><td>（5）是亦不可以<b>已</b>乎</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分，每項1分）（1）隨便、苟且　（2）通「避」，躲避　（3）不　（4）踐踏　（5）停止</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>下列都是通假字，寫出它們的本字。<table><tr><th>文句</th><th class="c ctr">本字</th></tr><tr><td>（1）<b>舍</b>魚而取熊掌者也</td><td class="ctr"><span class="blank s"></span></td></tr><tr><td>（2）萬鍾則不<b>辯</b>禮義而受之</td><td class="ctr"><span class="blank s"></span></td></tr><tr><td>（3）<b>鄉</b>為身死而不受</td><td class="ctr"><span class="blank s"></span></td></tr><tr><td>（4）所識窮乏者<b>得</b>我與</td><td class="ctr"><span class="blank s"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）捨　（2）辨　（3）向　（4）德</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv2">理解</span>「今<b>為</b>宮室之美為之」中第一個「為」的意思是：<ul class="opts"><li><b>A</b>做</li><li><b>B</b>為了</li><li><b>C</b>成為</li><li><b>D</b>被</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>「萬鍾<b>於</b>我何加焉」中「於」的意思是：<ul class="opts"><li><b>A</b>在</li><li><b>B</b>比</li><li><b>C</b>對於</li><li><b>D</b>被</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>「得<b>之</b>則生」中的「之」指：<ul class="opts"><li><b>A</b>道義</li><li><b>B</b>路人</li><li><b>C</b>萬鍾</li><li><b>D</b>一簞食、一豆羹</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「所欲有<b>甚於</b>生者」中「甚於」的意思是：<ul class="opts one"><li><b>A</b>比……更重要</li><li><b>B</b>等於</li><li><b>C</b>少於</li><li><b>D</b>非常喜歡</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">死亦我所惡，所惡有甚於死者，故患有所不辟也。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）死亡是我厭惡的，但我厭惡的東西中有比死亡更令人厭惡的，所以有些禍患我也不躲避。<br><span class="ex">「所惡有甚於死者」譯為厭惡的東西中有比死亡更令人厭惡的（1分）；「患有所不辟」譯為有些禍患也不躲避（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">非獨賢者有是心也，人皆有之，賢者能勿喪耳。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）不單賢人有這種心，人人都有，只是賢人能夠不喪失它罷了。<br><span class="ex">「非獨」譯為不單（1分）；「能勿喪耳」譯為能夠不喪失罷了（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">萬鍾則不辯禮義而受之。萬鍾於我何加焉？</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）面對萬鍾的優厚俸祿，有人卻不分辨是否合乎禮義就接受了。萬鍾俸祿對我有甚麼好處呢？<br><span class="ex">「不辯禮義」譯為不分辨是否合乎禮義（1分）；「何加」譯為有甚麼好處、增益（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">10.</span><span class="lv lv2">理解</span>「是亦不可以已乎」屬於哪一種句式？<ul class="opts"><li><b>A</b>判斷句</li><li><b>B</b>被動句</li><li><b>C</b>倒裝句</li><li><b>D</b>反問句</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+<div class="section-header" id="s5"><div class="icon">🧭</div><div><div class="chap">CHAPTER 05　教學</div><h2>孟子怎樣一步步說理</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>全文路線圖</h3>
+<svg class="chart" viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全文論證路線圖"><defs><marker id="arM" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs><text x="10" y="22" font-size="13" font-weight="700" fill="#96702F">第1段　講道理</text><rect x="10" y="34" width="162" height="104" rx="12" fill="#D9B07C33" stroke="#96702F" stroke-opacity="0.55"/><text x="91" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">① 打比方</text><text x="91" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">魚與熊掌</text><text x="91" y="104" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">舍魚而取熊掌</text><rect x="202" y="34" width="162" height="104" rx="12" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.55"/><text x="283" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#d0654a">② 提出論點</text><text x="283" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">生與義</text><text x="283" y="104" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">舍生而取義</text><rect x="394" y="34" width="162" height="104" rx="12" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-opacity="0.55"/><text x="475" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#3a6ea5">③ 正反推論</text><text x="475" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">有比生死更重要的</text><text x="475" y="104" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">不為苟得；有不用、有不為</text><rect x="586" y="34" width="164" height="104" rx="12" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.55"/><text x="668" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#3d8b4f">④ 推及眾人</text><text x="668" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">人皆有之</text><text x="668" y="104" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">賢者能勿喪耳</text><text x="10" y="200" font-size="13" font-weight="700" fill="#96702F">第2段　舉例子</text><rect x="10" y="212" width="162" height="104" rx="12" fill="#D9B07C33" stroke="#96702F" stroke-opacity="0.55"/><text x="91" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">⑤ 舉例</text><text x="91" y="260" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">一簞食，一豆羹</text><text x="91" y="282" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">路人弗受，乞人不屑</text><rect x="202" y="212" width="162" height="104" rx="12" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.55"/><text x="283" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="#d0654a">⑥ 對比</text><text x="283" y="260" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">萬鍾則受之</text><text x="283" y="282" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">不辯禮義</text><rect x="394" y="212" width="162" height="104" rx="12" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-opacity="0.55"/><text x="475" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="#3a6ea5">⑦ 今昔對比</text><text x="475" y="260" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">鄉……今……</text><text x="475" y="282" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">三句排比，一句反問</text><rect x="586" y="212" width="164" height="104" rx="12" fill="#96702F"/><text x="668" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF6E6">⑧ 下結論</text><text x="668" y="262" text-anchor="middle" font-size="14" font-weight="700" fill="#FFF6E6">失其本心</text><text x="668" y="284" text-anchor="middle" font-size="12.5" fill="#FFF6E6">點出全文主旨</text><g stroke="#96702F" stroke-width="2" fill="none"><path d="M172 86 H198" marker-end="url(#arM)"/><path d="M364 86 H390" marker-end="url(#arM)"/><path d="M556 86 H582" marker-end="url(#arM)"/><path d="M668 138 V166 H150 V208" marker-end="url(#arM)"/><path d="M172 264 H198" marker-end="url(#arM)"/><path d="M364 264 H390" marker-end="url(#arM)"/><path d="M556 264 H582" marker-end="url(#arM)"/></g><rect x="580" y="28" width="176" height="116" rx="16" fill="none" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="5 4"/><rect x="580" y="206" width="176" height="116" rx="16" fill="none" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="5 4"/><text x="380" y="345" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">紅色虛線框：第1段「賢者能勿喪」與第2段「失其本心」前後呼應，一個保得住，一個保不住</text></svg>
+<table>
+<tr><th class="c">層次</th><th>一句話說明</th><th>要記的關鍵句</th></tr>
+<tr><td class="c">① 打比方</td><td>魚和熊掌都想要，只能選一樣時，選熊掌</td><td>舍魚而取熊掌者也</td></tr>
+<tr><td class="c">② 提論點</td><td>生和義都想要，只能選一樣時，選義</td><td>舍生而取義者也</td></tr>
+<tr><td class="c">③ 正反推論</td><td>證明人想要的東西中，有比生命更重要的</td><td>故不為苟得也；由是則生而有不用也</td></tr>
+<tr><td class="c">④ 推及眾人</td><td>這種心人人都有，賢者只是保得住</td><td>人皆有之，賢者能勿喪耳</td></tr>
+<tr><td class="c">⑤ 舉例</td><td>路人、乞丐寧死也不受無禮的施捨</td><td>行道之人弗受；乞人不屑也</td></tr>
+<tr><td class="c">⑥ 對比</td><td>有人面對萬鍾，卻不理禮義就接受</td><td>萬鍾則不辯禮義而受之</td></tr>
+<tr><td class="c">⑦ 今昔對比</td><td>從前寧死不受，現在為享受而受</td><td>鄉為身死而不受，今為……為之</td></tr>
+<tr><td class="c">⑧ 結論</td><td>這就是喪失了本心</td><td>此之謂失其本心</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>第一步：用魚和熊掌打比方</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">魚和熊掌只能選一樣，大家都選熊掌；生命和道義只能選一樣，孟子選道義。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>先講常理：</b>魚是常見的美食，熊掌是難得的珍品。兩樣只能選一樣時，人人都會選更珍貴的熊掌。<br><b>再講道理：</b>生命和道義都是人想要的。兩樣只能選一樣時，孟子認為道義更珍貴，所以「舍生而取義」。<br><b>留意條件：</b>孟子說的是「二者不可得兼」的時候。他沒有叫人隨便犧牲生命，他自己也說「生亦我所欲也」。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">孟子以「舍魚而取熊掌」設喻，以淺喻深，引出「舍生而取義」的中心論點，使抽象的道理變得具體易明。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot blue"></span>第二步：正面說一次，反面再說一次</h3>
+<svg class="chart" viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="正反論證示意圖"><defs><marker id="arM" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs><rect x="8" y="8" width="352" height="290" rx="14" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.45"/><text x="184" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#3d8b4f">正面說：直接講道理</text><rect x="28" y="52" width="312" height="70" rx="12" fill="var(--color-background-primary)" stroke="#3d8b4f" stroke-opacity="0.55"/><text x="184" y="78" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">所欲有甚於生者</text><text x="184" y="100" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">想要的東西中，有比生命更重要的</text><rect x="28" y="152" width="312" height="70" rx="12" fill="var(--color-background-primary)" stroke="#3d8b4f" stroke-opacity="0.55"/><text x="184" y="178" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">故不為苟得也</text><text x="184" y="200" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">所以不會苟且偷生</text><path d="M184 122 V148" stroke="#3d8b4f" stroke-width="2" marker-end="url(#arM)"/><text x="184" y="252" text-anchor="middle" font-size="12.5" fill="var(--color-text-primary)">「所惡有甚於死者，故患有所不辟也」</text><text x="184" y="274" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">同一結構，講「死」的一面</text><rect x="400" y="8" width="352" height="290" rx="14" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.45"/><text x="576" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#d0654a">反面說：假設相反的情況</text><rect x="420" y="50" width="312" height="52" rx="12" fill="var(--color-background-primary)" stroke="#d0654a" stroke-opacity="0.55"/><text x="576" y="76" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">假如：生命是最重要的</text><rect x="420" y="128" width="312" height="52" rx="12" fill="var(--color-background-primary)" stroke="#d0654a" stroke-opacity="0.55"/><text x="576" y="154" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">那麼：甚麼求生方法都會用</text><rect x="420" y="206" width="312" height="70" rx="12" fill="var(--color-background-primary)" stroke="#d0654a" stroke-opacity="0.55"/><text x="576" y="232" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">可是事實：生而有不用</text><text x="576" y="254" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">能活命的方法，有人卻不用</text><path d="M576 102 V124" stroke="#d0654a" stroke-width="2" marker-end="url(#arM)"/><path d="M576 180 V202" stroke="#d0654a" stroke-width="2" marker-end="url(#arM)"/><path d="M184 298 V326 H360" fill="none" stroke="#96702F" stroke-width="2"/><path d="M576 298 V326 H400" fill="none" stroke="#96702F" stroke-width="2"/><path d="M380 326 V338" stroke="#96702F" stroke-width="2" marker-end="url(#arM)"/><rect x="170" y="342" width="420" height="50" rx="12" fill="#96702F"/><text x="380" y="364" text-anchor="middle" font-size="14" font-weight="700" fill="#FFF6E6">結論：所欲有甚於生者，所惡有甚於死者</text><text x="380" y="384" text-anchor="middle" font-size="12" fill="#FFF6E6">兩面都推出同一個答案，論點更有說服力</text></svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">正面說：人有比生命更重要的追求，所以不苟且偷生。反面說：如果生命最重要，人就甚麼求生方法都會用；可是有人偏偏不用。兩面都證明同一個道理。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>正面論證：</b>「所欲有甚於生者，故不為苟得也；所惡有甚於死者，故患有所不辟也。」人想要的東西有比生命更重要的，所以不會用不正當的方法偷生；人厭惡的東西有比死亡更令人厭惡的，所以有些禍患也不躲避。<br><b>反面論證：</b>孟子先假設「人之所欲莫甚於生」，如果真是這樣，凡是可以活命的方法，人都會用；凡是可以避禍的手段，人都會做。可是事實上，「由是則生而有不用也，由是則可以辟患而有不為也」，有人寧可不用、不做。這就證明假設不成立。<br><b>回到結論：</b>「是故所欲有甚於生者，所惡有甚於死者」，正反兩面推出同一個結論。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">孟子先從正面指出人所欲有甚於生、所惡有甚於死，故不苟且偷生；再從反面假設人最看重生命，則必不擇手段求生避禍，然而事實上有人不肯這樣做，反證人確有比生死更重要的追求。正反論證互相補足，使論點更具說服力。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot green"></span>第三步：人人都有，只是有人保不住</h3>
+<svg class="chart" viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="人人都有本心"><rect x="0" y="0" width="680" height="250" rx="14" fill="var(--color-background-secondary)"/><text x="340" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#96702F">每個人出生時都有一顆「本心」（紅心）</text><g transform="translate(120 0)"><circle cx="0" cy="70" r="22" fill="#D9B07C" fill-opacity="0.55" stroke="#96702F"/><path d="M-38 168 C-38 112 38 112 38 168 Z" fill="#D9B07C" fill-opacity="0.4" stroke="#96702F"/><g transform="translate(0 140)"><path d="M0 6 C-14 -6 -10 -20 0 -12 C10 -20 14 -6 0 6 Z" fill="#c0392b"/></g><circle cx="0" cy="138" r="24" fill="none" stroke="#3d8b4f" stroke-width="2"/><text x="0" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="var(--color-text-primary)">賢者</text><text x="0" y="218" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">能勿喪：一直保住</text></g><g transform="translate(340 0)"><circle cx="0" cy="70" r="22" fill="#D9B07C" fill-opacity="0.55" stroke="#96702F"/><path d="M-38 168 C-38 112 38 112 38 168 Z" fill="#D9B07C" fill-opacity="0.4" stroke="#96702F"/><g transform="translate(0 140)"><path d="M0 6 C-14 -6 -10 -20 0 -12 C10 -20 14 -6 0 6 Z" fill="#c0392b"/></g><text x="0" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="var(--color-text-primary)">行道之人、乞人</text><text x="0" y="218" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">生死關頭也保住了</text></g><g transform="translate(560 0)"><circle cx="0" cy="70" r="22" fill="#D9B07C" fill-opacity="0.55" stroke="#96702F"/><path d="M-38 168 C-38 112 38 112 38 168 Z" fill="#D9B07C" fill-opacity="0.4" stroke="#96702F"/><g transform="translate(0 140)"><path d="M0 6 C-14 -6 -10 -20 0 -12 C10 -20 14 -6 0 6 Z" fill="none" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="3 3"/></g><g fill="#96702F"><circle cx="52" cy="150" r="9"/><circle cx="64" cy="138" r="9"/><circle cx="58" cy="124" r="9"/></g><text x="0" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="var(--color-text-primary)">受萬鍾者</text><text x="0" y="218" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">為了享受而失去</text></g><text x="340" y="242" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">分別只在保不保得住：「非獨賢者有是心也，人皆有之，賢者能勿喪耳」</text></svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">這種「所欲有甚於生」的心，不單賢人有，人人都有。賢人只是能夠不失去它。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body">孟子在這裏把道理推到每一個人身上：普通人也有本心。這句話是孟子「性善論」的表現。<br>「賢者能勿喪耳」一句很重要：它說明賢人和普通人的分別在於能否「保存」本心。這句也為第2段寫有人「失其本心」作準備。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">「非獨賢者有是心也，人皆有之，賢者能勿喪耳」指出人人皆有重義之心，賢者只是能保存它；此句總結第1段，又引起下文「失其本心」，承上啟下。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>第四步：一籃飯、一碗湯的考驗</h3>
+<div class="story"><div class="sp"><div class="sp-n">1</div><div class="sp-e">🍚</div><div class="sp-t">生死關頭</div><div class="sp-x">只有一籃飯、一碗湯。吃了就能活，不吃就會餓死。</div><div class="sp-q">一簞食，一豆羹，得之則生，弗得則死</div></div><div class="sp"><div class="sp-n">2</div><div class="sp-e">📢</div><div class="sp-t">呼喝着給</div><div class="sp-x">施捨的人大聲呼喝，態度無禮。過路的人寧願餓着，也不接受。</div><div class="sp-q">嘑爾而與之，行道之人弗受</div></div><div class="sp"><div class="sp-n">3</div><div class="sp-e">🦶</div><div class="sp-t">踩過才給</div><div class="sp-x">施捨的人用腳踐踏過食物才給。連乞丐也看不起，不肯接受。</div><div class="sp-q">蹴爾而與之，乞人不屑也</div></div><div class="sp"><div class="sp-n">4</div><div class="sp-e">💰</div><div class="sp-t">萬鍾俸祿</div><div class="sp-x">面對優厚的俸祿，有人卻不分辨合不合禮義，就接受了。</div><div class="sp-q">萬鍾則不辯禮義而受之</div></div></div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">就算快要餓死，路人和乞丐也不肯接受無禮的施捨。可見最平凡、最窮困的人也有本心。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>為甚麼選這個例子：</b>一簞食、一豆羹，是生死關頭的救命食物；路人、乞丐，是最普通、最窮困的人。如果連他們在生死關頭也能守住尊嚴，就證明「人皆有之」。<br><b>拒絕的原因：</b>施捨的人態度無禮，「嘑爾」是呼喝，「蹴爾」是踐踏。受這樣的施捨，等於放棄做人的尊嚴，這就是「羞惡之心」。<br><b>相關故事：</b>《禮記‧檀弓下》記載，齊國饑荒，黔敖在路邊施捨食物，對一個餓漢喊：「嗟！來食！」餓漢說，自己正是不吃這種「嗟來之食」，才落到這個地步。黔敖向他道歉，餓漢始終不吃，最後餓死。這個故事可以幫助理解「嘑爾而與之」。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">孟子以「一簞食，一豆羹」為例，指出路人、乞丐在生死關頭仍不肯接受無禮的施捨，證明人人皆有羞惡之心，具體印證第1段「人皆有之」的論點。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>第五步：從前寧死不受，現在為享受而受</h3>
+<svg class="chart" viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="今昔對比">
+<defs><marker id="arN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#c0392b"/></marker></defs>
+<rect x="8" y="8" width="236" height="284" rx="14" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.5"/>
+<text x="126" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#3d8b4f">鄉（從前）</text>
+<text x="126" y="64" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">生死關頭</text>
+<g font-size="13.5" text-anchor="middle" fill="var(--color-text-primary)">
+<rect x="26" y="84" width="200" height="54" rx="10" fill="var(--color-background-primary)"/><text x="126" y="116">為身死而不受</text>
+<rect x="26" y="152" width="200" height="54" rx="10" fill="var(--color-background-primary)"/><text x="126" y="184">為身死而不受</text>
+<rect x="26" y="220" width="200" height="54" rx="10" fill="var(--color-background-primary)"/><text x="126" y="252">為身死而不受</text>
+</g>
+<rect x="516" y="8" width="236" height="284" rx="14" fill="var(--coral-bg)" stroke="#c0392b" stroke-opacity="0.5"/>
+<text x="634" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#c0392b">今（現在）</text>
+<text x="634" y="64" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">只為享受和虛榮</text>
+<g font-size="13.5" text-anchor="middle" fill="var(--color-text-primary)">
+<rect x="534" y="84" width="200" height="54" rx="10" fill="var(--color-background-primary)"/><text x="634" y="108">為宮室之美為之</text><text x="634" y="128" font-size="11.5" fill="var(--color-text-secondary)">住得舒適（物質享受）</text>
+<rect x="534" y="152" width="200" height="54" rx="10" fill="var(--color-background-primary)"/><text x="634" y="176">為妻妾之奉為之</text><text x="634" y="196" font-size="11.5" fill="var(--color-text-secondary)">有人侍奉（生活享樂）</text>
+<rect x="534" y="220" width="200" height="54" rx="10" fill="var(--color-background-primary)"/><text x="634" y="244">為所識窮乏者得我而為之</text><text x="634" y="264" font-size="11.5" fill="var(--color-text-secondary)">別人感激（虛榮）</text>
+</g>
+<g stroke="#c0392b" stroke-width="1.8" fill="none"><path d="M230 111 H530" marker-end="url(#arN)"/><path d="M230 179 H530" marker-end="url(#arN)"/><path d="M230 247 H530" marker-end="url(#arN)"/></g>
+<g font-size="12.5" text-anchor="middle" fill="#c0392b" font-weight="700"><text x="380" y="102">不受 → 受了</text><text x="380" y="170">不受 → 受了</text><text x="380" y="238">不受 → 受了</text></g>
+<text x="380" y="314" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">連死也不肯換的原則，現在卻為了身外之物放棄</text>
+</svg>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">從前寧願死也不接受，現在卻為了住得好、有人侍奉、受人感激就接受了。孟子說，這就是失去了本心。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>萬鍾俸祿有甚麼用：</b>孟子問「萬鍾於我何加焉」：俸祿再多，對我本身有甚麼增益呢？只不過換來住宅、妻妾和別人的感激，都是身外之物。<br><b>輕重倒置：</b>從前連生命也不肯拿來交換的原則，現在卻為了這些身外之物放棄了。生命比享受重要得多，可見這種做法完全不合理。<br><b>反問收結：</b>「是亦不可以已乎」：這種做法難道不可以停止嗎？孟子用反問勸人懸崖勒馬，最後點明「此之謂失其本心」。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">孟子以三組「鄉為身死而不受，今為……為之」的排比句，將從前寧死不受與如今為宮室、妻妾、虛榮而受作今昔對比，突出受萬鍾者輕重倒置、見利忘義，從而指出他們已「失其本心」。</div></div></div>
+
+</div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">兩段怎樣連起來</div><div class="alert-text">第1段說人人都有「是心」，賢者能「勿喪」；第2段先舉路人、乞丐證明「人皆有之」，再舉受萬鍾者說明本心會「喪失」。兩段一講「有」，一講「失」，前後呼應。</div></div></div>
+<div class="section-header ex" id="s6"><div class="icon">✏️</div><div><div class="chap">CHAPTER 06　練習</div><h2>練習三：內容理解</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>文中的「魚」和「熊掌」分別比喻：<ul class="opts"><li><b>A</b>生命、道義</li><li><b>B</b>道義、生命</li><li><b>C</b>利益、名聲</li><li><b>D</b>貧窮、富貴</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>根據文章內容，判斷以下陳述。<table><tr><th>陳述</th><th class="c ctr">正確</th><th class="c ctr">錯誤</th><th class="c ctr">無從判斷</th></tr><tr><td>（1）孟子認為只有賢者才有「所欲有甚於生」的心。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（2）孟子認為死亡是人所厭惡的。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（3）文中拒絕施捨的乞丐最後餓死了。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（4）孟子認為任何人接受萬鍾俸祿，都是失其本心。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）錯誤　（2）正確　（3）無從判斷　（4）錯誤<br><span class="ex">（1）孟子說「非獨賢者有是心也，人皆有之」。（2）文中說「死亦我所惡」。（3）文中沒有交代乞丐的結果。（4）孟子批評的是「不辯禮義而受之」，即不分辨是否合乎禮義就接受。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>第1段哪兩句從正面說明人有比生死更重要的追求？試摘錄原文。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）生亦我所欲，所欲有甚於生者，故不為苟得也　（2）死亦我所惡，所惡有甚於死者，故患有所不辟也</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>孟子在反面論證時，先作了甚麼假設？這個假設為甚麼不成立？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）假設人想要的東西沒有比生命更重要的，那麼人會用盡一切方法求生（1分）；可是事實上，有些方法可以活命，有人卻不肯用，所以假設不成立（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>「非獨賢者有是心也」中的「是心」，指的是：<ul class="opts one"><li><b>A</b>求生之心</li><li><b>B</b>怕死之心</li><li><b>C</b>重義、知羞恥之心</li><li><b>D</b>追求富貴之心</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「行道之人」和「乞人」在生死關頭，為甚麼仍然不肯接受食物？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）施捨的人呼喝或踐踏食物，態度無禮（1分）；他們有羞惡之心，寧願餓死也不願受辱（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>孟子指出有人為了三樣東西而接受萬鍾。試用自己的話說明這三樣東西。<table><tr><th class="c">原文</th><th>用自己的話說明</th></tr><tr><td class="c">宮室之美</td><td>（1）<span class="blank l"></span></td></tr><tr><td class="c">妻妾之奉</td><td>（2）<span class="blank l"></span></td></tr><tr><td class="c">所識窮乏者得我</td><td>（3）<span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）住宅華美　（2）有妻妾侍奉　（3）認識的窮困的人感激自己</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>「鄉為身死而不受」的意思是：<ul class="opts one"><li><b>A</b>從前寧願死也不接受</li><li><b>B</b>從前為了自身而死去</li><li><b>C</b>從前因家鄉的人死去而不接受</li><li><b>D</b>從前已經死去，不能接受</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>「此之謂失其本心」中的「此」指甚麼？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）指從前寧死也不接受（1分），現在卻為了宮室之美、妻妾之奉和窮乏者的感激而不辨禮義接受萬鍾的做法（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>孟子說「是亦不可以已乎」，有甚麼用意？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）以反問指出這種見利忘義的做法完全可以停止（1分），勸人及早醒覺，保存本心（1分）。</div></div></div>
+<div class="section-header" id="s7"><div class="icon">🖌</div><div><div class="chap">CHAPTER 07　教學</div><h2>孟子用了哪些論證方法</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>先看全局：圍繞一個論點</h3>
+<svg class="chart" viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="四種論證方法">
+<rect x="0" y="0" width="720" height="330" rx="14" fill="var(--color-background-secondary)"/>
+<g stroke="#96702F" stroke-opacity="0.4" stroke-width="2"><path d="M360 165 L190 80 M360 165 L530 80 M360 165 L190 250 M360 165 L530 250"/></g>
+<rect x="250" y="128" width="220" height="74" rx="37" fill="#96702F"/>
+<text x="360" y="160" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF6E6">論點</text>
+<text x="360" y="184" text-anchor="middle" font-size="13" fill="#FFF6E6">捨生取義；人皆有本心</text>
+<g text-anchor="middle">
+<rect x="40" y="28" width="300" height="86" rx="12" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-opacity="0.5"/>
+<text x="190" y="56" font-size="15" font-weight="700" fill="#3a6ea5">① 比喻論證</text>
+<text x="190" y="80" font-size="12.5" fill="var(--color-text-primary)">魚與熊掌 → 生與義</text>
+<text x="190" y="100" font-size="12" fill="var(--color-text-secondary)">把深的道理講淺</text>
+<rect x="380" y="28" width="300" height="86" rx="12" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.5"/>
+<text x="530" y="56" font-size="15" font-weight="700" fill="#3d8b4f">② 正反論證</text>
+<text x="530" y="80" font-size="12.5" fill="var(--color-text-primary)">不為苟得 ／ 如使……何不用也</text>
+<text x="530" y="100" font-size="12" fill="var(--color-text-secondary)">兩面推出同一結論</text>
+<rect x="40" y="216" width="300" height="86" rx="12" fill="var(--amber-bg)" stroke="#96702F" stroke-opacity="0.5"/>
+<text x="190" y="244" font-size="15" font-weight="700" fill="#96702F">③ 舉例論證</text>
+<text x="190" y="268" font-size="12.5" fill="var(--color-text-primary)">一簞食，一豆羹；路人、乞人</text>
+<text x="190" y="288" font-size="12" fill="var(--color-text-secondary)">用實例證明人皆有之</text>
+<rect x="380" y="216" width="300" height="86" rx="12" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.5"/>
+<text x="530" y="244" font-size="15" font-weight="700" fill="#d0654a">④ 對比論證</text>
+<text x="530" y="268" font-size="12.5" fill="var(--color-text-primary)">乞人不屑 ／ 萬鍾受之；鄉 ／ 今</text>
+<text x="530" y="288" font-size="12" fill="var(--color-text-secondary)">突出失其本心的可悲</text>
+</g>
+</svg><p style="margin:12px 0 4px"><b>除了四種論證方法，還要留意三種寫法：</b></p>
+<div class="tk-grid">
+<div class="tk-c"><b>🔁 排比</b>相同句式連用三次</div>
+<div class="tk-c"><b>❓ 反問</b>用問句表達肯定的意思</div>
+<div class="tk-c"><b>🪜 層層推進</b>一步接一步，最後下結論</div>
+</div>
+
+<p class="small">說理文章考寫法，最常考論證方法。答題時要寫出三樣東西：用了甚麼方法、文中哪一句、有甚麼作用。</p>
+</div>
+<div class="card"><h3><span class="dot blue"></span>寫法一：比喻論證</h3>
+<div class="tk"><div class="tk-i">🐟</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>用人人熟悉、淺易的事物作比喻，說明抽象、深刻的道理。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>以「魚」與「熊掌」不可兼得、「舍魚而取熊掌」，比喻「生」與「義」不可兼得時要「舍生而取義」。</li><li>魚比喻生命，熊掌比喻道義：熊掌比魚珍貴，道義也比生命珍貴。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>把「舍生而取義」這個抽象的道理，用飲食的常理說出來，使讀者容易明白和接受；放在文章開頭，也能引起讀者興趣。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot green"></span>寫法二：正反論證</h3>
+<div class="tk"><div class="tk-i">⚖️</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>先從正面直接說明道理，再假設相反的情況，推出不合理的結果，反過來證明原來的道理。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>正面：「所欲有甚於生者，故不為苟得也；所惡有甚於死者，故患有所不辟也。」</li><li>反面：「如使人之所欲莫甚於生，則凡可以得生者，何不用也？」可是「由是則生而有不用也」。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>正反兩面推出同一結論「所欲有甚於生者，所惡有甚於死者」，論證周密，令人信服。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot amber"></span>寫法三：舉例論證</h3>
+<div class="tk"><div class="tk-i">🍚</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>用具體的事例證明論點。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「一簞食，一豆羹，得之則生，弗得則死。嘑爾而與之，行道之人弗受；蹴爾而與之，乞人不屑也。」</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>以路人、乞丐這些最普通、最窮困的人為例，證明連他們在生死關頭也有羞惡之心，有力地支持「人皆有之」的論點。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot coral"></span>寫法四：對比論證</h3>
+<div class="tk"><div class="tk-i">↔️</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>把兩種相反的人或做法放在一起比較，突出要說明的重點。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>人與人的對比：路人、乞丐寧死也「弗受」「不屑」；有人面對萬鍾卻「不辯禮義而受之」。</li><li>今昔的對比：「鄉為身死而不受」與「今為宮室之美為之」等。</li><li>輕重的對比：從前連生命也不換，現在卻為了宮室、妻妾、別人的感激而放棄原則。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>突出受萬鍾者連乞丐也不如，見利忘義、輕重倒置，有力地說明他們「失其本心」。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot purple"></span>寫法五：排比</h3>
+<div class="tk"><div class="tk-i">🔁</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>用三個或以上結構相同的句子，表達相關的內容。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「鄉為身死而不受，今為宮室之美為之；鄉為身死而不受，今為妻妾之奉為之；鄉為身死而不受，今為所識窮乏者得我而為之」</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>三句句式相同，「鄉為身死而不受」反覆出現，節奏有力，氣勢強盛；層層揭示受萬鍾者的種種理由，加強批評的力度。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot red"></span>寫法六：反問</h3>
+<div class="tk"><div class="tk-i">❓</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>用問句的形式表達肯定的意思，不需要回答。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「何不用也？」「何不為也？」「萬鍾於我何加焉？」「是亦不可以已乎？」</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>加強語氣，使論證更有力；文末的「是亦不可以已乎」更帶有勸告的意味，引起讀者反省。</div>
+</div></div><table>
+<tr><th class="c">反問句</th><th>直接說出來的意思</th><th>語氣上的分別</th></tr>
+<tr><td class="c">則凡可以得生者，何不用也？</td><td>凡是可以活命的方法，都會用。</td><td rowspan="4">反問句不用回答，答案已在問題之中。比起直接說，語氣更強烈，也迫使讀者自己去想。</td></tr>
+<tr><td class="c">則凡可以辟患者，何不為也？</td><td>凡是可以避禍的手段，都會做。</td></tr>
+<tr><td class="c">萬鍾於我何加焉？</td><td>萬鍾俸祿對我沒有甚麼好處。</td></tr>
+<tr><td class="c">是亦不可以已乎？</td><td>這種做法完全可以停止。</td></tr>
+</table></div>
+
+<div class="card"><h3><span class="dot teal"></span>寫法七：層層推進，前後呼應</h3>
+<div class="stage-row">
+<div class="stage s-a"><div class="stage-key">一</div><div class="stage-t">由淺到深</div>由飲食的取捨講到生死的取捨<br><span class="stage-w">比喻</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-b"><div class="stage-key">二</div><div class="stage-t">由論點到論證</div>提出捨生取義，再正反推論<br><span class="stage-w">正反論證</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-c"><div class="stage-key">三</div><div class="stage-t">由道理到例子</div>由「人皆有之」到路人、乞丐<br><span class="stage-w">舉例</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-a" style="background:var(--amber-bg)"><div class="stage-key">四</div><div class="stage-t">由有到失</div>由保住本心到失其本心<br><span class="stage-w">對比</span></div>
+</div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">孟子一步接一步地說理，最後才說出「失其本心」，首尾連成一體。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>層層推進：</b>每一層都以上一層為基礎：先有比喻，才引出論點；有了論點，才用正反推論證明；證明了人有這種心，才指出人人都有；再用例子印證，最後用對比說明本心會失去。<br><b>前後呼應：</b>第1段說「賢者能勿喪耳」，第2段結尾說「此之謂失其本心」，一「勿喪」一「失」，互相呼應；「是心」和「本心」所指相同，使全文緊密相連。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">全文由比喻引出論點，經正反論證、推及眾人，再以實例和對比印證，最後點出「失其本心」，層層推進，結構嚴密；「賢者能勿喪耳」與「失其本心」前後呼應，使主旨更鮮明。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot red"></span>主旨：孟子最想說甚麼</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">人人都有重義的本心，要好好保存，不要為了享受和虛榮而失去。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>第一層：</b>當生命和道義不能兩全時，要捨棄生命，選擇道義。<br><b>第二層：</b>這種看重道義、對不義感到羞恥的心，人人生來就有。<br><b>第三層：</b>人會因為物質享受、生活享樂和虛榮而喪失本心，所以要時刻警惕，保存本心。</div></div><div class="tri-row t3"><div class="tri-tag">必背</div><div class="tri-body">本文以魚與熊掌設喻，論證「舍生而取義」的道理，指出人皆有羞惡之本心，並批評為宮室、妻妾、虛榮而不辨禮義、接受萬鍾的人「失其本心」，勸勉世人保存本心，重義輕利。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot pink"></span>延伸知識：「孔曰成仁，孟曰取義」</h3>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">孔子講「仁」</div>《論語》說：「志士仁人，無求生以害仁，有殺身以成仁。」為了成全仁德，可以犧牲生命。</div>
+<div class="compare-card b"><div class="ct">孟子講「義」</div>本文說：「二者不可得兼，舍生而取義者也。」生命與道義不能兩全時，選擇道義。</div>
+</div>
+<p>南宋文天祥抗元被俘，拒絕投降，從容就義。他在衣帶中寫下：「孔曰成仁，孟曰取義，惟其義盡，所以仁至。」把孔子的「殺身成仁」和孟子的「舍生取義」連在一起，成為後人景仰的榜樣。</p>
+<div class="compare-grid" style="margin-top:10px">
+<div class="compare-card a"><div class="ct">孟子：性善</div>人生來就有善心，只要保存、擴充，就能成為好人。本文說「人皆有之」，正是性善論的表現。</div>
+<div class="compare-card b"><div class="ct">荀子：性惡</div>荀子認為人生來就有追求利益的欲望，要靠後天的學習和禮義教化才能向善。可以和《勸學》一併理解。</div>
+</div>
+</div>
+<div class="section-header ex" id="s8"><div class="icon">✏️</div><div><div class="chap">CHAPTER 08　練習</div><h2>練習四：論證手法與主旨</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>孟子以「魚」與「熊掌」引出「生」與「義」，運用了：<ul class="opts"><li><b>A</b>舉例論證</li><li><b>B</b>比喻論證</li><li><b>C</b>對比論證</li><li><b>D</b>引用論證</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「如使人之所欲莫甚於生，則凡可以得生者，何不用也？」屬於：<ul class="opts"><li><b>A</b>正面論證</li><li><b>B</b>舉例論證</li><li><b>C</b>反面論證</li><li><b>D</b>引用論證</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>把左邊的文句與右邊的寫法配對，把代表答案的英文字母填在括號內。<table><tr><th>文句</th><th class="c ctr">答案</th><th>寫法</th></tr><tr><td>（1）魚，我所欲也，熊掌，亦我所欲也</td><td class="ctr">（　　）</td><td>A　舉例論證</td></tr><tr><td>（2）一簞食，一豆羹，得之則生，弗得則死</td><td class="ctr">（　　）</td><td>B　排比</td></tr><tr><td>（3）萬鍾於我何加焉</td><td class="ctr">（　　）</td><td>C　比喻論證</td></tr><tr><td>（4）鄉為身死而不受……今為所識窮乏者得我而為之</td><td class="ctr">（　　）</td><td>D　反問</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）C　（2）A　（3）D　（4）B</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>本文的中心論點是甚麼？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）生命與道義不可兼得時，應捨生取義（1分）；這種重義的本心人人皆有，不可喪失（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>「萬鍾於我何加焉？」運用了甚麼修辭手法？有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）反問（1分）；強調萬鍾俸祿對自己本身沒有真正的好處，加強語氣（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>第2段連用三次「鄉為身死而不受」，有甚麼作用？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）構成排比，節奏有力，加強氣勢（1分）；逐一列出受萬鍾者的理由，層層揭示他們見利忘義（1分）；突出今昔對比，諷刺他們輕重倒置，失其本心（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>本文的主旨是：<ul class="opts one"><li><b>A</b>勸人愛惜生命</li><li><b>B</b>勸人保存本心，重義輕利</li><li><b>C</b>勸人追求富貴</li><li><b>D</b>勸人施捨窮人</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv3">進階</span>第1段哪一句與第2段的「此之謂失其本心」前後呼應？這樣寫有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「賢者能勿喪耳」（1分）；一說保存本心，一說失去本心，前後呼應，使結構緊密，突出主旨（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>有同學認為孟子不重視生命。試根據原文，指出這說法的錯誤。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）孟子說「生亦我所欲也」，承認生命是人想要的（1分）；他只是主張在生與義「不可得兼」時才捨生取義（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>第2段先寫路人、乞丐，再寫接受萬鍾的人。這樣安排有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）形成對比（1分）；突出受萬鍾者連路人、乞丐也不如，更見他們失其本心（1分）。</div></div></div>
+<div class="section-header ex" id="s9"><div class="icon">📝</div><div><div class="chap">CHAPTER 09　模擬試題</div><h2>DSE 模擬試題</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">作答提示</div><div class="alert-text">本卷共20題，滿分70分。題型參照文憑試卷一甲部「指定文言篇章」：第1至13題為短答題，包括字詞解釋、語譯、選擇、判斷及填表；第14至20題為長問答，每題6分，分別考核論證方法、篇章結構、內容理解、設喻效果、文意評鑒、句式語氣及對比論證。<br>（1）解釋字詞要按句意作答，通假字要寫出本字和意思。<br>（2）語譯要把關鍵字詞逐一譯出，句子要通順。<br>（3）長問答要「先答重點，再引原文，後加說明」，不可只抄原文。</div></div></div>
+<div class="qsub">甲　短答題（第1至13題）</div>
+<div class="qbox"><span class="mark">（5分）</span><span class="qn">1.</span>解釋下列文句中的粗體字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）二者不可得<b>兼</b></td><td><span class="blank l"></span></td></tr><tr><td>（2）故不為<b>苟</b>得也</td><td><span class="blank l"></span></td></tr><tr><td>（3）<b>嘑</b>爾而與之</td><td><span class="blank l"></span></td></tr><tr><td>（4）妻妾之<b>奉</b></td><td><span class="blank l"></span></td></tr><tr><td>（5）<b>鄉</b>為身死而不受</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分，每項1分）（1）同時得到　（2）隨便、苟且　（3）同「呼」，呼喝　（4）侍奉　（5）通「向」，從前</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">2.</span>解釋下列文句中的粗體字詞。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）萬鍾於我<b>何加</b>焉</td><td><span class="blank l"></span></td></tr><tr><td>（2）所識窮乏者<b>得</b>我與</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）有甚麼增益、好處　（2）通「德」，感激</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span>「<b>如</b>使人之所欲莫甚於生」中「如」的意思是：<ul class="opts"><li><b>A</b>假如</li><li><b>B</b>如同</li><li><b>C</b>依照</li><li><b>D</b>比得上</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span>下列哪一項中的「之」，用法與「得<b>之</b>則生」的「之」相同？<ul class="opts one"><li><b>A</b>行道<strong>之</strong>人弗受</li><li><b>B</b>嘑爾而與<strong>之</strong></li><li><b>C</b>妻妾<strong>之</strong>奉</li><li><b>D</b>宮室<strong>之</strong>美</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">「得之則生」和「嘑爾而與之」的「之」都是代詞；其餘三項的「之」都是助詞，相當於「的」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span>「賢者能勿<b>喪</b>耳」中「喪」的意思是：<ul class="opts"><li><b>A</b>喪事</li><li><b>B</b>悲傷</li><li><b>C</b>死亡</li><li><b>D</b>喪失</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span>把以下文句譯為語體文。<div class="excerpt">生亦我所欲，所欲有甚於生者，故不為苟得也。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）生命是我想要的，但我想要的東西中有比生命更重要的，所以我不會苟且偷生。<br><span class="ex">「所欲有甚於生者」譯為想要的東西中有比生命更重要的（1分）；「不為苟得」譯為不會苟且偷生、不用不正當的方法求生（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span>把以下文句譯為語體文。<div class="excerpt">鄉為身死而不受，今為所識窮乏者得我而為之。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）從前寧願死也不肯接受，現在卻為了讓認識的窮困的人感激自己而接受了。<br><span class="ex">「鄉」譯為從前（1分）；「得我」譯為感激我（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">8.</span>根據文章內容，判斷以下陳述。<table><tr><th>陳述</th><th class="c ctr">正確</th><th class="c ctr">錯誤</th><th class="c ctr">無從判斷</th></tr><tr><td>（1）魚和熊掌不能同時得到時，孟子會選擇熊掌。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（2）孟子認為人在任何情況下都應該捨棄生命。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（3）路人拒絕食物後，施捨的人改為以禮相待。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（4）孟子認為普通人也有「所欲有甚於生」的心。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）正確　（2）錯誤　（3）無從判斷　（4）正確<br><span class="ex">（1）文中說「舍魚而取熊掌者也」。（2）孟子只在生與義「不可得兼」時才主張捨生取義。（3）文中沒有交代施捨者之後的做法。（4）文中說「人皆有之」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">9.</span>試根據第2段，完成下表。<table><tr><th class="c">人物</th><th>面對的情況</th><th>做法</th></tr><tr><td class="c">行道之人</td><td>嘑爾而與之</td><td>（1）<span class="blank l"></span></td></tr><tr><td class="c">乞人</td><td>（2）<span class="blank l"></span></td><td>不屑</td></tr><tr><td class="c">受萬鍾者</td><td>萬鍾俸祿</td><td>（3）<span class="blank l"></span></td></tr><tr><td class="c" colspan="2">孟子對受萬鍾者的評語</td><td>（4）<span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）弗受　（2）蹴爾而與之　（3）不辯禮義而受之　（4）失其本心</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">10.</span>文中的「萬鍾」指：<ul class="opts"><li><b>A</b>一萬個銅鐘</li><li><b>B</b>大量的糧食</li><li><b>C</b>優厚的俸祿</li><li><b>D</b>華美的宮殿</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">11.</span>「由是則生而有不用也」一句在論證上有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）以事實指出有人寧可不用求生的方法（1分），推翻「人之所欲莫甚於生」的假設，反證人所欲有甚於生（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">12.</span>「為宮室之美、妻妾之奉、所識窮乏者得我<b>與</b>？」中「與」的作用是：<ul class="opts one"><li><b>A</b>表示給予</li><li><b>B</b>連接前後兩項</li><li><b>C</b>表示參與</li><li><b>D</b>表示疑問的語氣</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">13.</span>根據第1段，孟子認為賢者和一般人的分別在哪裏？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）兩者都有重義的本心（1分）；賢者能夠保存它，不讓它喪失（1分）。</div></div></div>
+
+<div class="qsub">乙　長問答（第14至20題，每題6分）</div>
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">14.</span><span class="qtag">論證方法</span>孟子如何從正反兩方面論證「所欲有甚於生者，所惡有甚於死者」？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）正面：孟子指出人「所欲有甚於生」，所以「不為苟得」（1分）；「所惡有甚於死」，所以「患有所不辟」（1分），直接說明人有比生死更重要的追求。反面：孟子假設「人之所欲莫甚於生」，則凡可以求生的方法都會用；假設「人之所惡莫甚於死」，則凡可以避禍的手段都會做（1分）。然而事實上「生而有不用」「可以辟患而有不為」（1分），可見假設不能成立（1分）。正反兩面推出同一結論，論證周密，具說服力（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">15.</span><span class="qtag">篇章結構</span>有人認為本文說理層層推進。試結合全文加以析述。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）孟子先以「舍魚而取熊掌」設喻（1分），引出「舍生而取義」的論點（1分）；再以正反論證說明人「所欲有甚於生，所惡有甚於死」（1分），並推及「人皆有之，賢者能勿喪耳」（1分）。第2段以路人、乞丐寧死不受無禮施捨的例子印證人皆有本心（1分），最後以受萬鍾者今昔不同的做法作對比，點出「失其本心」，由提出論點到證明、印證，再到下結論，步步推進（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">16.</span><span class="qtag">內容理解</span>文中的「本心」所指為何？孟子認為人為甚麼會「失其本心」？試結合第2段加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）「本心」指人生來就有的良心（1分），即第1段所說「所欲有甚於生，所惡有甚於死」的羞惡之心（1分）。孟子認為人受到物質享受和虛榮引誘，就會失去本心（1分）。文中指出有人為了「宮室之美」「妻妾之奉」（1分），以及「所識窮乏者得我」的虛榮（1分），便「不辯禮義而受之」，從前寧死不受，現在卻為身外之物接受萬鍾，所以是「失其本心」（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">17.</span><span class="qtag">設喻效果</span>孟子以「魚」與「熊掌」設喻，有甚麼作用？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）魚與熊掌都是人想要的美食，而熊掌比魚珍貴，兩者不可兼得時，人自然「舍魚而取熊掌」（1分）。孟子以魚比喻生命，以熊掌比喻道義（1分），說明生與義不可兼得時，應選取較珍貴的道義（1分）。這樣以日常飲食的取捨比喻人生的抉擇（1分），把「舍生而取義」這個抽象的道理說得具體淺白，令讀者容易明白和接受（1分）；文章以此開首，也能引起讀者興趣，自然地帶出中心論點（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">18.</span><span class="qtag">文意評鑒</span>有人認為，孟子只以「行道之人」和「乞人」為例，不足以證明「人皆有之」。你是否同意？試結合文意加以析述。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）不同意（1分）。孟子特意選取最普通的路人和最窮困的乞丐（1分），又把情況設定在「得之則生，弗得則死」的生死關頭（1分）。他們在最需要食物時，仍因對方「嘑爾」「蹴爾」而「弗受」「不屑」（1分），可見羞惡之心不因身份、處境而消失（1分）。由最難做到的情況推及一般人，正好有力地證明「人皆有之」（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>立場清晰，能扣連例子的人物、處境和做法，具體說明例子與「人皆有之」的關係，闡述完備</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>立場清晰，能引用部分原文說明，闡述一般</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能表明立場，或說明粗疏，未能扣連文意</td></tr></table><br><span class="ex">答「同意」亦可，例如指出例子數量少、只涉及飲食施捨等，但須結合文意說明，並回應孟子選取生死關頭和窮困者為例的用意，再按品第給分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">19.</span><span class="qtag">句式語氣</span>試分析「鄉為身死而不受，今為宮室之美為之；鄉為身死而不受，今為妻妾之奉為之；鄉為身死而不受，今為所識窮乏者得我而為之，是亦不可以已乎？」的句式特點及表達效果。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）三句結構相同，構成排比（1分），「鄉為身死而不受」反覆出現，節奏有力，加強氣勢（1分）。每句都以「鄉」與「今」對照，形成今昔對比（1分），逐一列出宮室、妻妾、虛榮三種理由，層層揭示受萬鍾者見利忘義（1分）。句末以「是亦不可以已乎」反問作結（1分），語氣強烈，既帶批評，也帶勸告，促使讀者反省（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">20.</span><span class="qtag">對比論證</span>第2段如何運用對比，突出「失其本心」的不合理？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）人物的對比：路人、乞丐身處生死關頭，仍「弗受」「不屑」無禮的施捨（1分）；受萬鍾者沒有性命之憂，卻「不辯禮義而受之」（1分），可見他們連路人、乞丐也不如（1分）。輕重的對比：「一簞食，一豆羹」關乎生死，萬鍾帶來的宮室、妻妾和別人的感激，只是身外之物，「於我何加」（1分）。從前為生命也不肯放棄的原則，現在卻為身外之物放棄（1分），輕重倒置，突出「失其本心」的不合理（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>

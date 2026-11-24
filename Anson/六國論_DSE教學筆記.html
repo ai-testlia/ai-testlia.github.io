@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《六國論》DSE教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2a8a80;--teal-bg:#e4f3f1;
+  --coral:#d0654a;--coral-bg:#fbebe6;
+  --amber:#c48612;--amber-bg:#fbf2df;
+  --pink:#c2557f;--pink-bg:#f9e8ef;
+  --blue:#3a6ea5;--blue-bg:#e6eef7;
+  --green:#3d8b4f;--green-bg:#e7f3ea;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero:#B56A58;--hero-text:#F1EADF;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2124;--color-background-secondary:#151618;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a89be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c302e;
+    --coral:#f08c72;--coral-bg:#3a2520;
+    --amber:#e8b04a;--amber-bg:#36301f;
+    --pink:#ea8ab0;--pink-bg:#382430;
+    --blue:#7fa9d8;--blue-bg:#1f2a38;
+    --green:#74c286;--green-bg:#1e3124;
+    --red:#ee7b6e;--red-bg:#3a2220;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC','Songti TC',serif}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:44px 36px 46px;margin-bottom:22px;min-height:230px;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 10px 28px rgba(94,46,36,.18)}
+.hero .pattern{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:9px;border:1px solid rgba(241,234,223,.28);border-radius:8px;pointer-events:none}
+.hero>*:not(.pattern){position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;border:1px solid rgba(241,234,223,.5);
+  color:rgba(241,234,223,.9);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:rgba(94,46,36,.18)}
+.hero h1{font-size:34px;margin:0 0 6px;line-height:1.35;color:var(--hero-text);font-weight:700;text-shadow:0 1px 10px rgba(94,46,36,.35);max-width:78%}
+.hero .sub{font-size:15px;color:rgba(241,234,223,.85);margin-bottom:16px}
+.hero .sub .nb,.hero h1 .nb{display:inline-block}
+.hero p{margin:0;font-size:13px;color:rgba(241,234,223,.7);letter-spacing:2px}
+@media (max-width:640px){.hero h1{font-size:27px;max-width:100%}.hero{padding:34px 24px 40px}.hero .sub{font-size:13.5px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(181,106,88,.88) 0%,rgba(181,106,88,.55) 62%,rgba(181,106,88,0) 100%);pointer-events:none}}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:0}
+.toc-item:hover{color:var(--blue)}
+.toc-num{font-weight:700;color:var(--hero);font-size:13px;min-width:22px}
+.toc-item .kind{margin-left:auto;font-size:11.5px;color:var(--color-text-secondary);white-space:nowrap}
+@media (prefers-color-scheme:dark){.toc-num{color:var(--blue)}}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;border-radius:var(--border-radius-lg);
+  background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:6px solid var(--hero)}
+.section-header.ex{border-left-color:var(--amber)}
+.section-header .icon{font-size:26px;line-height:1}
+.section-header h2{margin:0;font-size:21px;line-height:1.4}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);font-weight:700}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin:0 0 10px}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--blue)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.hl{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);font-weight:700}
+.em{color:var(--coral);font-weight:700}
+.small{font-size:12.5px;color:var(--color-text-secondary)}
+ul.tight,ol.tight{margin:4px 0 8px;padding-left:1.4em}
+ul.tight li,ol.tight li{margin-bottom:3px}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:3px}
+.example-text{font-size:14px}
+
+/* Alerts */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.bad .ct{color:var(--red)}
+.compare-card.good{background:var(--green-bg)}.compare-card.good .ct{color:var(--green)}
+.compare-card.a{background:var(--blue-bg)}.compare-card.a .ct{color:var(--blue)}
+.compare-card.b{background:var(--coral-bg)}.compare-card.b .ct{color:var(--coral)}
+@media (max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:13px;margin-bottom:2px}
+.flow-arrow{align-self:center;color:var(--teal);font-weight:700}
+
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px}
+.kw-word .py{font-weight:400;font-size:11.5px;color:var(--color-text-secondary);margin-left:4px;font-family:'Noto Sans TC',sans-serif}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* formula */
+.formula{background:#2d3a47;color:#f4f1ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:1.9;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.formula .fl{font-size:12px;letter-spacing:2px;color:#d9c48f;font-weight:700;margin-bottom:4px}
+.formula b{color:#ffe08a}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left;line-height:1.65}
+th{background:var(--color-background-secondary);font-weight:700}
+.c,th.c,td.c{white-space:nowrap}
+td.ctr,th.ctr{text-align:center}
+
+/* poem text */
+.poem{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.poem .ttl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
+.poem .au{text-align:center;font-size:13px;color:var(--color-text-secondary);margin-bottom:12px}
+.poem .ln{font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15;margin:0 0 6px;display:flex;gap:10px;align-items:flex-start}
+.pnum{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-top:7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:1px 12px;margin:6px 0 4px}
+sup.n{color:var(--coral);font-size:10px;font-family:'Noto Sans TC',sans-serif;margin:0 1px}
+.preface{font-size:15px;color:var(--color-text-secondary)}
+
+/* line-by-line */
+.lbl{border-left:3px solid var(--blue);padding:4px 0 4px 14px;margin:12px 0}
+.lbl .orig{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700}
+.lbl .tr{font-size:14px;color:var(--color-text-secondary)}
+.lbl .note{font-size:13.5px;margin-top:3px}
+
+/* chat bubbles (fun) */
+.chat{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0}
+.chat .who{font-size:11.5px;color:var(--color-text-secondary);margin:6px 4px 2px}
+.bubble{display:inline-block;max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.65;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary)}
+.row-r{text-align:right}.row-r .bubble{background:var(--green-bg)}
+.row-r .who{text-align:right}
+
+/* Exercises */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);margin-left:8px}
+.lv{display:inline-block;font-size:11px;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px;font-weight:700}
+.lv1{background:var(--green-bg);color:var(--green)}.lv2{background:var(--amber-bg);color:var(--amber)}.lv3{background:var(--red-bg);color:var(--red)}
+.opts{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.opts.one{grid-template-columns:1fr}
+.opts li{font-size:14px}
+.opts li b{display:inline-block;width:22px}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.line{border-bottom:1px solid #999;height:30px;margin:2px 0}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+.circle{display:inline-block;width:26px;height:26px;border:1px solid #888;border-radius:50%;vertical-align:middle;margin:0 3px}
+.box{display:inline-block;width:15px;height:15px;border:1px solid #888;vertical-align:-2px;margin-right:4px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.extotal{font-size:13px;color:var(--color-text-secondary);margin:-6px 0 12px}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;clear:both}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .ex{font-size:13px;color:var(--color-text-secondary)}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);
+  border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+/* svg charts */
+.chart{width:100%;height:auto;display:block;margin:8px 0}
+.chart text{font-family:'Noto Sans TC',sans-serif}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;font-size:13.5px}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.lbl,.poem,table,.chat{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+
+/* 本筆記：DSE 範文金色 Hero（汴京暮色金 #D9B07C） */
+:root{--hero:#D9B07C;--hero-text:#3B2A14;--hero-deep:#96702F}
+.hero{box-shadow:0 10px 28px rgba(120,84,30,.22)}
+.hero::after{border-color:rgba(59,42,20,.25)}
+.hero-tag{border-color:rgba(59,42,20,.3);color:rgba(59,42,20,.65);background:rgba(255,248,234,.3)}
+.hero h1{color:#3B2A14;text-shadow:0 1px 10px rgba(255,246,230,.45)}
+.hero .sub{color:rgba(59,42,20,.72)}
+.hero p{color:rgba(59,42,20,.5)}
+@media (max-width:640px){.hero .pattern{opacity:.4}.hero::before{background:linear-gradient(90deg,rgba(217,176,124,.9) 0%,rgba(217,176,124,.6) 62%,rgba(217,176,124,0) 100%)}}
+.toc-num{color:var(--hero-deep)}
+.section-header{border-left-color:var(--hero-deep)}
+.section-header.ex{border-left-color:var(--amber)}
+.pnum{background:var(--hero-deep)}
+.poem .ln{font-size:17px;line-height:2.1}
+.poem .ln>span:last-child{flex:1}
+.layer-tag{color:var(--hero-deep);background:var(--amber-bg)}
+.lbl{border-left-color:var(--hero-deep)}
+.lbl .orig{font-size:15px}
+.lbl .tr{font-size:14.5px;color:var(--color-text-primary);line-height:1.9}
+.lbl .tr b{color:var(--hero-deep)}
+.formula .fl{color:#E8C98F}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+.duo-col{border-radius:var(--border-radius-md);padding:12px 14px}
+.duo-col p{margin:0 0 6px;font-size:14px}
+.duo-col.wen{background:var(--blue-bg)}.duo-col.wu{background:var(--coral-bg)}
+.duo-h{font-weight:700;font-size:15px;margin-bottom:6px;font-family:'Noto Serif TC',serif}
+.duo-col table{background:transparent}
+@media (max-width:640px){.duo{grid-template-columns:1fr}}
+.stage-row{display:flex;align-items:stretch;gap:8px;margin:8px 0 4px}
+.stage{flex:1;border-radius:var(--border-radius-md);padding:12px 34px 12px 14px;position:relative;border:1px solid var(--color-border-tertiary);font-size:13.5px;line-height:1.7}
+.stage.s-a{background:var(--coral-bg)}.stage.s-b{background:var(--blue-bg)}.stage.s-c{background:var(--green-bg)}
+.stage-key{position:absolute;right:10px;top:4px;font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;opacity:.18}
+.stage-t{font-weight:700;margin-bottom:4px}
+.stage-w{display:inline-block;margin-top:4px;font-size:11.5px;font-weight:700;border-radius:999px;padding:0 10px;background:var(--color-background-primary);color:var(--color-text-secondary)}
+.stage-arrow{align-self:center;font-weight:700;color:var(--hero-deep)}
+@media (max-width:640px){.stage-row{flex-direction:column}.stage-arrow{transform:rotate(90deg);text-align:center}}
+@media print{.poem,.lbl,.duo,.stage-row{page-break-inside:avoid}}
+
+/* 淺白版元件 */
+.qtag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--hero-deep);border:1px solid var(--hero);border-radius:999px;padding:0 9px;margin-right:6px;vertical-align:2px}
+.trait-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.trait{border-radius:var(--border-radius-md);padding:10px 12px;background:var(--amber-bg);border-top:3px solid var(--hero-deep);font-size:13.5px}
+.trait-h{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:4px}
+.trait-e{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+@media (max-width:640px){.trait-grid{grid-template-columns:1fr}}
+.tri{border-radius:var(--border-radius-md);overflow:hidden;border:1px solid var(--color-border-tertiary);margin:10px 0}
+.tri-row{display:flex;gap:12px;padding:10px 14px;font-size:14.5px;line-height:1.85}
+.tri-row+.tri-row{border-top:1px dashed var(--color-border-tertiary)}
+.tri-tag{flex:none;width:84px;font-size:12px;font-weight:700;border-radius:999px;padding:2px 0;text-align:center;height:fit-content;margin-top:3px}
+.tri-body{flex:1}
+.t1{background:var(--green-bg)}.t1 .tri-tag{background:var(--green);color:#fff}
+.t2{background:var(--color-background-primary)}.t2 .tri-tag{background:var(--blue);color:#fff}
+.t3{background:var(--amber-bg)}.t3 .tri-tag{background:var(--amber);color:#fff}
+@media (max-width:640px){.tri-row{flex-direction:column;gap:4px}}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0}
+.pcard{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;text-align:center;border:1px solid var(--color-border-tertiary)}
+.pcard.gold{background:var(--amber-bg);border-color:var(--hero)}
+.pav{font-size:26px;line-height:1.3}
+.pname{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px;margin-top:4px}
+.prole{font-size:11.5px;color:var(--color-text-secondary);margin-bottom:6px}
+.pdesc{font-size:13px;line-height:1.65;text-align:left}
+@media (max-width:640px){.people{grid-template-columns:1fr 1fr}}
+.pblock{border-top:1px dashed var(--color-border-tertiary);padding:14px 0 6px}
+.pblock:first-of-type{border-top:0}
+.pb-head{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:6px}
+.pb-head .pnum{margin-top:0}
+.pb-orig{font-family:'Noto Serif TC',serif;font-size:18px;line-height:2.2;background:var(--amber-bg);border-radius:var(--border-radius-md);padding:10px 14px}
+.pb-sub{font-weight:700;font-size:13.5px;color:var(--hero-deep);margin:12px 0 4px}
+.pb-tr{font-size:14.5px;line-height:1.95}
+.pb-tr b{color:var(--hero-deep)}
+.pb-gist{margin-top:10px;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 12px;font-size:14.5px}
+.order{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0}
+.order-h{font-weight:700;font-size:14px;margin-bottom:6px}
+.order-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:4px}
+.chip{display:inline-block;font-family:'Noto Serif TC',serif;font-size:16px;background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:6px;padding:2px 10px}
+.chip.hot{background:var(--hero);color:#3B2A14;border-color:var(--hero-deep);font-weight:700}
+.oarr{font-weight:700;color:var(--hero-deep);margin:0 6px}
+.hw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 14px;margin:8px 0}
+.hw-row{display:flex;gap:8px;align-items:center}
+.hw-src{font-size:12px;font-weight:700;color:var(--color-text-secondary);width:40px}
+.hw-cell{flex:1;text-align:center;font-family:'Noto Serif TC',serif;font-size:17px;background:var(--color-background-primary);border-radius:6px;padding:4px}
+.hw-cell b.g,.hw-h.g{color:var(--green)}.hw-cell b.r,.hw-h.r{color:var(--red)}
+.hw-arrow{text-align:center;font-size:12.5px;color:var(--hero-deep);font-weight:700;margin:6px 0}
+.hw-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:4px;font-size:13.5px}
+.hw-h{font-weight:700;padding:4px 8px;background:var(--color-background-primary);border-radius:6px}
+.hw-x{text-align:center;padding:4px;background:var(--color-background-primary);border-radius:6px;color:var(--color-text-secondary)}
+.tech{border-radius:var(--border-radius-md);overflow:hidden;border:1px solid var(--color-border-tertiary)}
+.tech-row{display:flex;gap:12px;padding:9px 14px;font-size:14.5px;line-height:1.8}
+.tech-row+.tech-row{border-top:1px dashed var(--color-border-tertiary)}
+.tech-k{flex:none;width:70px;font-weight:700;color:var(--hero-deep)}
+@media (max-width:640px){.tech-row{flex-direction:column;gap:2px}}
+.scene text{font-family:'Noto Sans TC',sans-serif}
+@media (max-width:640px){.pblock .keyword-grid{grid-template-columns:1fr 1fr}.pblock .kw{padding:6px 8px}.pb-orig{font-size:17px}}
+@media print{.tri,.order,.hw,.tech,.people,.scene{page-break-inside:avoid}}
+
+/* 淺白版第二輪：小場景、故事板、對白、寫法卡 */
+.scn{border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px 12px;margin:10px 0;background:var(--color-background-primary)}
+.scn-h{font-weight:700;font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;font-family:'Noto Serif TC',serif}
+.scn-no{font-family:'Noto Sans TC',sans-serif;font-size:11.5px;font-weight:700;background:var(--hero);color:#3B2A14;border-radius:999px;padding:1px 10px}
+.scn-tr{margin-top:8px;font-size:14.5px;line-height:1.95;padding:8px 12px;border-left:3px solid var(--blue);background:var(--blue-bg);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
+.scn-tr b{color:var(--hero-deep)}
+.scn-tag{display:inline-block;font-size:11.5px;font-weight:700;background:var(--blue);color:#fff;border-radius:999px;padding:0 9px;margin-right:8px;vertical-align:1px}
+.kwbox{margin-top:8px}
+.kwbox summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--hero-deep);padding:2px 0}
+.keyword-grid.sm{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;margin-top:6px}
+.keyword-grid.sm .kw{padding:6px 10px}
+.keyword-grid.sm .kw-word{font-size:14.5px}
+.keyword-grid.sm .kw-def{font-size:12.5px;line-height:1.6}
+.py{font-family:'Noto Sans TC',sans-serif;font-size:11px;color:var(--color-text-secondary);margin-left:4px;font-weight:400}
+.story{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0;counter-reset:sp}
+.sp{position:relative;background:var(--amber-bg);border:1px solid var(--hero);border-radius:var(--border-radius-md);padding:10px 10px 10px;font-size:13px;line-height:1.65}
+.sp-n{position:absolute;top:6px;right:8px;font-size:11px;font-weight:700;color:var(--hero-deep)}
+.sp-e{font-size:26px;line-height:1.2}
+.sp-t{font-family:'Noto Serif TC',serif;font-weight:700;font-size:15px;margin:2px 0 4px}
+.sp-x{color:var(--color-text-primary)}
+.sp-q{margin-top:6px;font-family:'Noto Serif TC',serif;font-size:13px;color:var(--hero-deep);border-top:1px dashed var(--hero);padding-top:4px}
+.sp-q::before{content:'「'}.sp-q::after{content:'」'}
+.story.s3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:720px){.story,.story.s3{grid-template-columns:1fr 1fr}}
+.bubble .bo{display:block;font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.8}
+.bubble .bp{display:block;font-size:13px;color:var(--color-text-secondary);margin-top:4px;padding-top:4px;border-top:1px dashed var(--color-border-tertiary)}
+.bubble .bp::before{content:'白話：';font-weight:700}
+.tk{display:flex;gap:12px;align-items:flex-start}
+.tk-i{font-size:30px;line-height:1;flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--amber-bg);border-radius:50%}
+.tk-b{flex:1}
+.tk-row{font-size:14.5px;line-height:1.8;padding:4px 0}
+.tk-row+.tk-row{border-top:1px dashed var(--color-border-tertiary)}
+.tk-row ul.tight{margin:2px 0 0}
+.tk-l{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--hero-deep);border-radius:999px;padding:0 9px;margin-right:8px;vertical-align:1px}
+.tk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:6px 0}
+.tk-c{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13px;color:var(--color-text-secondary)}
+.tk-c b{display:block;font-size:14.5px;color:var(--color-text-primary)}
+@media print{.scn,.sp,.tk,.story{page-break-inside:avoid}.kwbox:not([open]) .keyword-grid{display:grid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><svg class="pattern" viewBox="0 0 900 300" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<filter id="grainL" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="n"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.24  0 0 0 0 0.1  0 0 0 0.10 0"/>
+</filter>
+<linearGradient id="fadeL" x1="0" x2="1" y1="0" y2="0">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.34" stop-color="#fff" stop-opacity="0.2"/><stop offset="0.6" stop-color="#fff" stop-opacity="1"/>
+</linearGradient>
+<mask id="maskL"><rect width="900" height="300" fill="url(#fadeL)"/></mask>
+<radialGradient id="moonL" cx="0.42" cy="0.36" r="0.75"><stop offset="0" stop-color="#FFFBF2"/><stop offset="0.6" stop-color="#F4E6C6"/><stop offset="1" stop-color="#E2C48A"/></radialGradient>
+<radialGradient id="haloL"><stop offset="0" stop-color="#FFF6E6" stop-opacity="0.55"/><stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/></radialGradient>
+<radialGradient id="emberL" cx="0.5" cy="0.75" r="0.6"><stop offset="0" stop-color="#FFF1D6"/><stop offset="0.55" stop-color="#E9B66E"/><stop offset="1" stop-color="#B9793A"/></radialGradient>
+<pattern id="leiL" width="28" height="28" patternUnits="userSpaceOnUse">
+  <path d="M2 2 H26 V26 H6 V6 H22 V22 H10 V10 H18 V18 H14" fill="none" stroke="#5A3E1B" stroke-opacity="0.16" stroke-width="1"/>
+</pattern>
+<pattern id="fretL" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0 11 H10 V3 H4 V7 H7 M12 1 H22 V9 H16 V5 H19" fill="none" stroke="#5A3E1B" stroke-width="1.1"/></pattern>
+<g id="spadeL"><path d="M-7 -20 H7 V-12 L13 -9 L15 14 L9 16 L5 6 L0 16 L-5 6 L-9 16 L-15 14 L-13 -9 L-7 -12 Z"/></g>
+<g id="ruyiL" fill="none" stroke-width="1.5" stroke-linecap="round">
+  <path d="M0 0 C-2 -14 16 -20 24 -10 C28 -22 50 -22 52 -8 C64 -14 76 -4 70 6 C78 10 74 20 62 18 L4 18 C-10 18 -12 4 0 0 Z"/><path d="M24 -10 C20 -2 28 4 34 0 M52 -8 C48 0 54 6 60 4"/>
+</g>
+</defs>
+<g mask="url(#maskL)">
+  <!-- 雲雷紋地 -->
+  <rect x="250" y="0" width="650" height="276" fill="url(#leiL)"/>
+  <!-- 如意雲 -->
+  <use href="#ruyiL" transform="translate(372 56) scale(0.8)" stroke="#5A3E1B" stroke-opacity="0.22"/>
+  <use href="#ruyiL" transform="translate(540 30) scale(0.62)" stroke="#5A3E1B" stroke-opacity="0.16"/>
+  <!-- 城堞：一列城牆，右邊完整，向左逐段缺去（日削月割） -->
+  <g fill="#5A3E1B">
+    <path d="M300 262 V240 H312 V232 H322 V240 H334 V232 H344 V240 H356 V262 Z" fill-opacity="0.12"/>
+    <path d="M366 262 V236 H378 V228 H388 V236 H400 V228 H410 V236 H422 V228 H432 V236 H444 V262 Z" fill-opacity="0.2"/>
+    <path d="M454 262 V232 H466 V222 H476 V232 H488 V222 H498 V232 H510 V222 H520 V232 H532 V222 H542 V232 H554 V262 Z" fill-opacity="0.3"/>
+    <path d="M564 262 V228 H576 V216 H586 V228 H598 V216 H608 V228 H620 V216 H630 V228 H642 V262 Z" fill-opacity="0.38"/>
+  </g>
+  <!-- 六枚布幣：向西（左）飄去，越來越淡 -->
+  <g fill="#5A3E1B">
+    <use href="#spadeL" transform="translate(612 160) rotate(-8) scale(0.95)" fill-opacity="0.42"/>
+    <use href="#spadeL" transform="translate(566 176) rotate(-14) scale(0.9)" fill-opacity="0.36"/>
+    <use href="#spadeL" transform="translate(522 150) rotate(-20) scale(0.85)" fill-opacity="0.3"/>
+    <use href="#spadeL" transform="translate(478 170) rotate(-26) scale(0.8)" fill-opacity="0.24"/>
+    <use href="#spadeL" transform="translate(436 142) rotate(-32) scale(0.75)" fill-opacity="0.18"/>
+    <use href="#spadeL" transform="translate(396 164) rotate(-38) scale(0.7)" fill-opacity="0.12"/>
+  </g>
+  <path d="M640 150 C580 120 500 118 390 148" fill="none" stroke="#5A3E1B" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="3 5"/>
+  <!-- 月洞：抱薪救火 -->
+  <circle cx="770" cy="128" r="122" fill="url(#haloL)"/>
+  <g transform="translate(770 128)">
+    <circle r="80" fill="url(#moonL)" fill-opacity="0.95"/>
+    <circle r="74" fill="none" stroke="#5A3E1B" stroke-opacity="0.35" stroke-width="1.2"/>
+    <circle r="88" fill="none" stroke="#FFF6E6" stroke-opacity="0.55" stroke-width="0.8" stroke-dasharray="2 5"/>
+    <!-- 火焰 -->
+    <path d="M0 -58 C14 -38 30 -30 26 -6 C24 8 14 18 0 20 C-14 18 -26 8 -26 -8 C-26 -24 -12 -30 -10 -46 C-4 -36 0 -30 4 -26 C6 -36 4 -46 0 -58 Z" fill="url(#emberL)" stroke="#5A3E1B" stroke-opacity="0.45" stroke-width="0.9"/>
+    <path d="M0 -20 C8 -10 12 -2 8 8 C4 14 -4 14 -8 8 C-12 0 -6 -8 0 -20 Z" fill="#FFF6E6" fill-opacity="0.75"/>
+    <!-- 柴薪一束 -->
+    <g stroke="#5A3E1B" stroke-linecap="round">
+      <path d="M-46 44 L44 24" stroke-width="7" stroke-opacity="0.45"/>
+      <path d="M-44 30 L46 40" stroke-width="7" stroke-opacity="0.5"/>
+      <path d="M-40 52 L40 34" stroke-width="6" stroke-opacity="0.38"/>
+      <path d="M-14 22 V54 M14 22 V52" stroke-width="2" stroke-opacity="0.6"/>
+    </g>
+    <path d="M-34 -62 q8 -3 14 0" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </g>
+</g>
+<rect x="0" y="282" width="900" height="12" fill="url(#fretL)" opacity="0.22"/>
+<path d="M0 279.5 H900 M0 296.5 H900" stroke="#5A3E1B" stroke-opacity="0.22" stroke-width="0.8"/>
+<rect width="900" height="300" filter="url(#grainL)"/>
+</svg><div class="hero-tag">文言教學筆記</div><h1>《六國論》</h1><div class="sub"><span class="nb">蘇洵</span>　<span class="nb">香港中學文憑試　指定文言篇章精讀</span></div><p>潘SIR中文教室編撰</p></div>
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>先認識蘇洵和這篇文章<span class="kind">教學</span></a><a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：作者與背景<span class="kind">練習</span></a><a class="toc-item" href="#s3"><span class="toc-num">03</span>原文逐段讀<span class="kind">教學</span></a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：字詞與語譯<span class="kind">練習</span></a><a class="toc-item" href="#s5"><span class="toc-num">05</span>蘇洵怎樣一步步說理<span class="kind">教學</span></a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：內容理解<span class="kind">練習</span></a><a class="toc-item" href="#s7"><span class="toc-num">07</span>蘇洵用了哪些寫法<span class="kind">教學</span></a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習四：寫作手法與主旨<span class="kind">練習</span></a><a class="toc-item" href="#s9"><span class="toc-num">09</span>DSE 模擬試題<span class="kind">模擬試題</span></a></nav>
+<div class="section-header first" id="s1"><div class="icon">🏯</div><div><div class="chap">CHAPTER 01　教學</div><h2>先認識蘇洵和這篇文章</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>這篇文章在講甚麼</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">六國滅亡，關鍵在於割地討好秦國。蘇洵寫這段歷史，是要提醒北宋朝廷：不要再用財物向外敵求和。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body">全文五段：<ol class="tight"><li><b>第1段　提出論點：</b>六國滅亡，弊在賂秦。賂秦的國家國力虧損；不賂秦的國家失去強援。</li><li><b>第2段　證明一：</b>賂秦的韓、魏、楚越割越弱，秦國越得越強，好比抱薪救火。</li><li><b>第3段　證明二：</b>不賂秦的齊、燕、趙，因為其他國家先亡，最後也保不住。</li><li><b>第4段　假設與感歎：</b>如果六國把賂秦的土地用來招攬人才、合力抗秦，秦國也會寢食難安。</li><li><b>第5段　借古諷今：</b>統一天下的大國如果重蹈六國覆轍，就連六國也不如。</li></ol></div></div><div class="tri-row t3"><div class="tri-tag">必背</div><div class="tri-body">本文論述六國破滅「弊在賂秦」，指出賂秦者力虧而亡，不賂者失去強援而亡；並借古諷今，諷諭北宋朝廷不要向遼、西夏納幣求和，以免重蹈六國覆轍。</div></div></div>
+<svg class="chart" viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="戰國末年形勢示意圖"><defs><marker id="arL1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#d0654a"/></marker></defs><rect x="0" y="0" width="760" height="400" rx="14" fill="var(--amber-bg)"/><path d="M30 60 C40 30 150 26 200 50 C236 70 246 120 236 170 C250 220 240 300 196 336 C150 370 60 360 36 320 C16 270 24 120 30 60 Z" fill="#96702F" fill-opacity="0.85"/><text x="130" y="186" text-anchor="middle" font-size="34" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">秦</text><text x="130" y="214" text-anchor="middle" font-size="12" fill="#FFF6E6">在西方，國力最強</text><rect x="400" y="28" width="130" height="70" rx="18" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="1.6"/><text x="465" y="63" text-anchor="middle" font-size="20" font-weight="700" fill="#3a6ea5" font-family="Noto Serif TC,serif">燕</text><text x="465" y="83" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">小國，較後才亡</text><rect x="250" y="64" width="130" height="80" rx="18" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="1.6"/><text x="315" y="104" text-anchor="middle" font-size="20" font-weight="700" fill="#3a6ea5" font-family="Noto Serif TC,serif">趙</text><text x="315" y="124" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">李牧連卻秦軍</text><rect x="610" y="140" width="130" height="90" rx="18" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="1.6"/><text x="675" y="185" text-anchor="middle" font-size="20" font-weight="700" fill="#3a6ea5" font-family="Noto Serif TC,serif">齊</text><text x="675" y="205" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">親秦，不助五國</text><rect x="270" y="168" width="100" height="64" rx="18" fill="var(--coral-bg)" stroke="#d0654a" stroke-width="1.6"/><text x="320" y="207" text-anchor="middle" font-size="20" font-weight="700" fill="#d0654a" font-family="Noto Serif TC,serif">韓</text><rect x="400" y="170" width="120" height="70" rx="18" fill="var(--coral-bg)" stroke="#d0654a" stroke-width="1.6"/><text x="460" y="212" text-anchor="middle" font-size="20" font-weight="700" fill="#d0654a" font-family="Noto Serif TC,serif">魏</text><rect x="300" y="264" width="260" height="90" rx="18" fill="var(--coral-bg)" stroke="#d0654a" stroke-width="1.6"/><text x="430" y="316" text-anchor="middle" font-size="20" font-weight="700" fill="#d0654a" font-family="Noto Serif TC,serif">楚</text><g stroke="#d0654a" stroke-width="2.2" fill="none"><path d="M268 200 H246" marker-end="url(#arL1)"/><path d="M398 220 C330 248 290 246 248 232" marker-end="url(#arL1)"/><path d="M298 304 C270 300 254 290 240 272" marker-end="url(#arL1)"/></g><text x="258" y="252" font-size="12" font-weight="700" fill="#d0654a">割地</text><rect x="560" y="276" width="186" height="88" rx="10" fill="var(--color-background-primary)" stroke="var(--color-border-tertiary)"/><rect x="574" y="292" width="16" height="16" rx="4" fill="var(--coral-bg)" stroke="#d0654a"/><text x="598" y="305" font-size="12.5" fill="var(--color-text-primary)">賂秦：韓、魏、楚</text><rect x="574" y="318" width="16" height="16" rx="4" fill="var(--blue-bg)" stroke="#3a6ea5"/><text x="598" y="331" font-size="12.5" fill="var(--color-text-primary)">不賂秦：燕、趙、齊</text><text x="574" y="354" font-size="11" fill="var(--color-text-secondary)">示意圖，不按實際疆界</text></svg>
+<p class="small">記法：紅色的韓、魏、楚是「賂秦三國」；藍色的燕、趙、齊是「不賂秦三國」。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>作者蘇洵：記住三件事</h3>
+<div class="trait-grid">
+<div class="trait"><div class="trait-h">北宋散文家</div><div class="trait-e">字明允，號老泉，眉州眉山（今四川眉山）人。與兒子蘇軾、蘇轍合稱「三蘇」，三人都是「唐宋八大家」之一。</div></div>
+<div class="trait"><div class="trait-h">二十七歲才發憤</div><div class="trait-e">年輕時不喜歡讀書，二十七歲才發憤苦讀。《三字經》說：「蘇老泉，二十七，始發憤，讀書籍。」</div></div>
+<div class="trait"><div class="trait-h">擅長議論文章</div><div class="trait-e">文章多論古今成敗和治國用兵，見解獨到，氣勢雄健。著作收入《嘉祐集》，本文是他《權書》中的一篇。</div></div>
+</div>
+<svg class="chart" viewBox="0 0 760 226" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="北宋與蘇洵時間線"><rect x="0" y="0" width="760" height="226" rx="14" fill="var(--color-background-secondary)"/><path d="M30 108 H730" stroke="#96702F" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="108" r="8" fill="#c0392b"/><path d="M70 108 V80" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="3 3"/><text x="70" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#c0392b">1004年</text><text x="70" y="46" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">澶淵之盟</text><text x="70" y="66" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">每年送遼國歲幣</text><circle cx="190" cy="108" r="8" fill="#96702F"/><path d="M190 108 V126" stroke="#96702F" stroke-width="1.4" stroke-dasharray="3 3"/><text x="190" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">1009年</text><text x="190" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">蘇洵出生</text><text x="190" y="186" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">眉州眉山人</text><circle cx="310" cy="108" r="8" fill="#96702F"/><path d="M310 108 V80" stroke="#96702F" stroke-width="1.4" stroke-dasharray="3 3"/><text x="310" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">二十七歲</text><text x="310" y="46" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">發憤讀書</text><text x="310" y="66" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">「蘇老泉，二十七」</text><circle cx="430" cy="108" r="8" fill="#c0392b"/><path d="M430 108 V126" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="3 3"/><text x="430" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#c0392b">1042年</text><text x="430" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">增加歲幣</text><text x="430" y="186" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">給遼國的銀、絹再增</text><circle cx="550" cy="108" r="8" fill="#c0392b"/><path d="M550 108 V80" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="3 3"/><text x="550" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#c0392b">1044年</text><text x="550" y="46" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">與西夏議和</text><text x="550" y="66" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">每年送西夏銀、絹、茶</text><circle cx="670" cy="108" r="8" fill="#96702F"/><path d="M670 108 V126" stroke="#96702F" stroke-width="1.4" stroke-dasharray="3 3"/><text x="670" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">1056年</text><text x="670" y="166" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">父子入京</text><text x="670" y="186" text-anchor="middle" font-size="11.5" fill="var(--color-text-secondary)">得歐陽修賞識</text><text x="740" y="216" text-anchor="end" font-size="11" fill="var(--color-text-secondary)">紅點：北宋向外敵送財物求和；金點：蘇洵生平</text></svg>
+<div class="compare-grid" style="margin-top:10px">
+<div class="compare-card a"><div class="ct">父子同入京</div>蘇洵帶着蘇軾、蘇轍到京城汴京，得到歐陽修賞識和推薦，父子三人的文章很快傳遍京城。</div>
+<div class="compare-card b"><div class="ct">一家三人寫六國</div>蘇洵、蘇軾、蘇轍父子三人都寫過《六國論》，討論的角度各不相同。文憑試指定的是蘇洵這一篇。</div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>時代背景：北宋花錢買和平</h3>
+<div class="flow">
+<div class="flow-step"><b>外敵壓境</b>北宋北面有遼國，西北有西夏，兩國不時入侵。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>花錢求和</b>宋真宗時與遼訂立「澶淵之盟」，每年送遼國銀十萬兩、絹二十萬匹，稱為「歲幣」。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>越送越多</b>後來給遼國的歲幣增加，又每年送西夏銀、絹和茶，國庫負擔越來越重。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>蘇洵寫文章</b>他借六國賂秦而亡的歷史，提醒朝廷這種做法的後果。</div>
+</div>
+<svg class="chart" viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="六國與北宋對照">
+<defs><marker id="arL2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs>
+<rect x="8" y="8" width="300" height="284" rx="14" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.5"/>
+<text x="158" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#d0654a">文章表面寫：戰國</text>
+<rect x="452" y="8" width="300" height="284" rx="14" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-opacity="0.5"/>
+<text x="602" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#3a6ea5">蘇洵心裏想：北宋</text>
+<g font-size="14" text-anchor="middle" fill="var(--color-text-primary)">
+<rect x="28" y="62" width="260" height="50" rx="10" fill="var(--color-background-primary)"/><text x="158" y="92">六國</text>
+<rect x="472" y="62" width="260" height="50" rx="10" fill="var(--color-background-primary)"/><text x="602" y="92">北宋朝廷</text>
+<rect x="28" y="130" width="260" height="50" rx="10" fill="var(--color-background-primary)"/><text x="158" y="160">強秦</text>
+<rect x="472" y="130" width="260" height="50" rx="10" fill="var(--color-background-primary)"/><text x="602" y="160">遼、西夏</text>
+<rect x="28" y="198" width="260" height="50" rx="10" fill="var(--color-background-primary)"/><text x="158" y="228">割地賂秦</text>
+<rect x="472" y="198" width="260" height="50" rx="10" fill="var(--color-background-primary)"/><text x="602" y="228">每年送銀、絹（歲幣）</text>
+</g>
+<g stroke="#96702F" stroke-width="2"><path d="M292 87 H466" marker-end="url(#arL2)"/><path d="M292 155 H466" marker-end="url(#arL2)"/><path d="M292 223 H466" marker-end="url(#arL2)"/></g>
+<text x="380" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#96702F">比照</text>
+<text x="380" y="313" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">寫古代的事，諷刺當時的朝廷：借古諷今</text>
+</svg>
+<p class="small">文章通篇只寫六國，到最後一段才用「苟以天下之大」一句，暗指統一天下的北宋。</p>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>六國怎樣一個接一個滅亡</h3>
+<svg class="chart" viewBox="0 0 760 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="六國滅亡次序">
+<rect x="0" y="0" width="760" height="170" rx="14" fill="var(--color-background-secondary)"/>
+<path d="M50 84 H710" stroke="#96702F" stroke-width="3" stroke-linecap="round"/>
+<g text-anchor="middle">
+<circle cx="70" cy="84" r="24" fill="var(--coral-bg)" stroke="#d0654a" stroke-width="2"/><text x="70" y="91" font-size="19" font-weight="700" fill="#d0654a">韓</text><text x="70" y="134" font-size="12" fill="var(--color-text-secondary)">前230年</text>
+<circle cx="194" cy="84" r="24" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="2"/><text x="194" y="91" font-size="19" font-weight="700" fill="#3a6ea5">趙</text><text x="194" y="134" font-size="12" fill="var(--color-text-secondary)">前228年</text><text x="194" y="152" font-size="11" fill="var(--color-text-secondary)">邯鄲被攻破</text>
+<circle cx="318" cy="84" r="24" fill="var(--coral-bg)" stroke="#d0654a" stroke-width="2"/><text x="318" y="91" font-size="19" font-weight="700" fill="#d0654a">魏</text><text x="318" y="134" font-size="12" fill="var(--color-text-secondary)">前225年</text>
+<circle cx="442" cy="84" r="24" fill="var(--coral-bg)" stroke="#d0654a" stroke-width="2"/><text x="442" y="91" font-size="19" font-weight="700" fill="#d0654a">楚</text><text x="442" y="134" font-size="12" fill="var(--color-text-secondary)">前223年</text>
+<circle cx="566" cy="84" r="24" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="2"/><text x="566" y="91" font-size="19" font-weight="700" fill="#3a6ea5">燕</text><text x="566" y="134" font-size="12" fill="var(--color-text-secondary)">前222年</text><text x="566" y="152" font-size="11" fill="var(--color-text-secondary)">小國而後亡</text>
+<circle cx="690" cy="84" r="24" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="2"/><text x="690" y="91" font-size="19" font-weight="700" fill="#3a6ea5">齊</text><text x="690" y="134" font-size="12" fill="var(--color-text-secondary)">前221年</text><text x="690" y="152" font-size="11" fill="var(--color-text-secondary)">最後滅亡</text>
+</g>
+<text x="380" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">十年之間，六國先後滅亡；前221年，秦統一天下</text>
+</svg>
+<p class="small">燕國國力弱小，卻排在第五個滅亡，所以蘇洵說「燕雖小國而後亡」；齊國最後才亡，但始終「不免」。</p>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>先弄懂四個關鍵詞</h3>
+<div class="trait-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="trait"><div class="trait-h">賂</div><div class="trait-e">送財物討好別人。本文的「賂秦」，指六國割讓土地給秦國，換取一時的和平。</div></div>
+<div class="trait"><div class="trait-h">史論</div><div class="trait-e">評論歷史事件的文章。作者選取歷史事實，分析成敗原因，提出自己的看法。</div></div>
+<div class="trait"><div class="trait-h">中心論點和分論點</div><div class="trait-e">中心論點是全文要證明的道理（弊在賂秦）；分論點是從不同方面支持中心論點的小論點。</div></div>
+<div class="trait"><div class="trait-h">借古諷今</div><div class="trait-e">借評論古代的事，委婉地批評當時的人和事。本文表面評論六國，實際上勸諫北宋朝廷。</div></div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot green"></span>這是一篇怎樣的文章</h3>
+<p>本文是一篇<b>議論文</b>，而且是史論。讀議論文，先找三樣東西：</p>
+<table>
+<tr><th class="c">要找的東西</th><th>意思</th><th>本文的答案</th></tr>
+<tr><td class="c">論點</td><td>作者想證明的道理</td><td>中心論點：六國破滅，弊在賂秦。分論點：賂秦而力虧；不賂者以賂者喪</td></tr>
+<tr><td class="c">論據</td><td>用來證明道理的材料</td><td>秦國受賂得地多於戰勝得地；六國子孫割地求安；齊、燕、趙滅亡的史實；古人「抱薪救火」的說法</td></tr>
+<tr><td class="c">論證方法</td><td>作者怎樣用材料證明道理</td><td>對比論證、引用論證、比喻論證、舉例論證、假設論證（第七章詳細講解）</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot blue"></span>考試會怎樣考</h3>
+<table>
+<tr><th class="c">考試範圍</th><td>文憑試中國語文科卷一甲部「指定文言篇章」，十二篇範文之一</td></tr>
+<tr><th class="c">常考題型</th><td>字詞解釋、語譯、中心論點與分論點、「抱薪救火」的比喻、齊燕趙滅亡的原因、對比和假設的作用、「借古諷今」的寄意</td></tr>
+</table>
+</div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">閱讀時留意</div><div class="alert-text">全文最重要的是兩個字「賂秦」。讀每一段時都問自己：這一段在講「賂秦的國家」，還是「不賂秦的國家」？</div></div></div>
+<div class="section-header ex" id="s2"><div class="icon">✏️</div><div><div class="chap">CHAPTER 02　練習</div><h2>練習一：作者與背景</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>蘇洵是哪一個朝代的人？<ul class="opts"><li><b>A</b>唐</li><li><b>B</b>北宋</li><li><b>C</b>南宋</li><li><b>D</b>明</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「三蘇」不包括：<ul class="opts"><li><b>A</b>蘇洵</li><li><b>B</b>蘇軾</li><li><b>C</b>蘇轍</li><li><b>D</b>蘇武</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D<br><span class="ex">「三蘇」指蘇洵和兒子蘇軾、蘇轍。蘇武是西漢人，曾出使匈奴。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>下列哪一位屬於「唐宋八大家」？<ul class="opts"><li><b>A</b>杜甫</li><li><b>B</b>李白</li><li><b>C</b>柳宗元</li><li><b>D</b>王維</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>判斷以下說法是否正確。正確的寫「✓」，錯誤的寫「✗」。<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr><tr><td>（1）蘇洵自小勤奮好學，年少已以文章聞名。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（2）蘇洵曾得到歐陽修賞識和推薦。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（3）《六國論》是蘇洵《權書》中的一篇。</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）✗　（2）✓　（3）✓<br><span class="ex">（1）蘇洵二十七歲才發憤讀書。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>根據本文內容，把左邊的國家與右邊的事件配對，把代表答案的英文字母填在括號內。<table><tr><th>國家</th><th class="c ctr">答案</th><th>事件</th></tr><tr><td class="c">（1）齊</td><td class="ctr">（　　）</td><td>A　名將被讒言所害</td></tr><tr><td class="c">（2）燕</td><td class="ctr">（　　）</td><td>B　割地賂秦</td></tr><tr><td class="c">（3）趙</td><td class="ctr">（　　）</td><td>C　親附秦國，不助五國</td></tr><tr><td class="c">（4）韓、魏、楚</td><td class="ctr">（　　）</td><td>D　派刺客行刺秦王</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）C　（2）D　（3）A　（4）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>北宋每年送給遼國、西夏的銀和絹，稱為：<ul class="opts"><li><b>A</b>歲幣</li><li><b>B</b>賦稅</li><li><b>C</b>俸祿</li><li><b>D</b>軍餉</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>根據第一章內容填空。<p>本文表面評論（1）<span class="blank"></span>滅亡的原因，實際上是要勸諫（2）<span class="blank"></span>朝廷。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1）六國　（2）北宋</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>解釋下列兩個詞語。<p>（1）史論：<span class="blank l"></span>　（2）借古諷今：<span class="blank l"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）評論歷史事件的文章　（2）借評論古代的事，委婉地批評當時的人和事</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>為甚麼說本文是「借古諷今」的作品？試結合寫作背景說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）北宋每年向遼、西夏送銀、絹求和（1分）；蘇洵表面評論六國割地賂秦而亡（1分），實際上借此諷諭北宋朝廷不要用財物向外敵求和（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>蘇洵說「燕雖小國而後亡」。根據六國滅亡的次序，燕國是第幾個滅亡的國家？最後滅亡的是哪一國？<p>（1）燕國：第<span class="blank s"></span>個　（2）最後滅亡：<span class="blank s"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）五　（2）齊</div></div></div>
+<div class="section-header" id="s3"><div class="icon">📜</div><div><div class="chap">CHAPTER 03　教學</div><h2>原文逐段讀</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>怎樣用這一章</h3>
+<p>全文共五段，分成14個小場景。每個場景都按同一次序讀：</p>
+<div class="flow">
+<div class="flow-step"><b>① 讀原文</b>先讀米色框內的原文，看到小數字先不用停。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>② 讀白話</b>對照下面的白話，粗體字是考試常考的字詞。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>③ 查字詞卡</b>回頭查小數字的意思，再讀一次原文。</div>
+</div>
+<p class="small">原文及分段依據教育局提供的參考版本，全文共5段。白話中的圓括號是補充說明，原文沒有這些字。</p>
+</div>
+<div class="poem"><div class="ttl">六國論</div><div class="au">蘇洵</div>
+<div class="pblock"><div class="layer-tag">第一部分　提出論點</div><div class="pb-head"><span class="pnum">1</span>第1段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 1</span>開門見山：六國為甚麼滅亡</div>
+<div class="pb-orig">六國<sup class="n">1</sup>破滅，非兵<sup class="n">2</sup>不利<sup class="n">3</sup>，戰不善<sup class="n">4</sup>，弊<sup class="n">5</sup>在賂<sup class="n">6</sup>秦。賂秦而力虧<sup class="n">7</sup>，破滅之道<sup class="n">8</sup>也。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>六國滅亡，原因不在兵器不鋒利、仗打得不好，<b>弊端</b>在於用土地<b>賄賂</b>秦國。賄賂秦國，使自己的國力<b>損耗</b>，這是滅亡的<b>原因</b>。</div>
+<details class="kwbox" open><summary>字詞卡（8個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">1　六國</div><div class="kw-def">戰國末年被秦國先後消滅的韓、趙、魏、楚、燕、齊六個諸侯國。</div></div><div class="kw"><div class="kw-word">2　兵</div><div class="kw-def">兵器，也可借指軍隊。</div></div><div class="kw"><div class="kw-word">3　利</div><div class="kw-def">鋒利。</div></div><div class="kw"><div class="kw-word">4　戰不善</div><div class="kw-def">仗打得不好，作戰不得法。</div></div><div class="kw"><div class="kw-word">5　弊</div><div class="kw-def">毛病、癥結。</div></div><div class="kw"><div class="kw-word">6　賂<span class="py">粵音「路」</span></div><div class="kw-def">贈送財物討好別人，這裏指割讓土地討好秦國。</div></div><div class="kw"><div class="kw-word">7　力虧</div><div class="kw-def">國力損耗。虧，損失、減少。</div></div><div class="kw"><div class="kw-word">8　道</div><div class="kw-def">原因、途徑。</div></div></div></details><svg class="chart" viewBox="0 0 760 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="先破後立"><defs><marker id="arP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs><rect x="0" y="0" width="760" height="160" rx="14" fill="var(--color-background-secondary)"/><text x="140" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-secondary)">先破：一般人的看法</text><g font-size="15" text-anchor="middle"><rect x="20" y="42" width="110" height="70" rx="12" fill="var(--color-background-primary)" stroke="var(--color-border-tertiary)"/><text x="75" y="74" fill="var(--color-text-primary)">兵不利</text><text x="75" y="96" font-size="11.5" fill="var(--color-text-secondary)">兵器不鋒利</text><rect x="150" y="42" width="110" height="70" rx="12" fill="var(--color-background-primary)" stroke="var(--color-border-tertiary)"/><text x="205" y="74" fill="var(--color-text-primary)">戰不善</text><text x="205" y="96" font-size="11.5" fill="var(--color-text-secondary)">仗打得不好</text></g><g stroke="#c0392b" stroke-width="1.6" opacity="0.7"><path d="M44 70 H106 M174 70 H236"/></g><circle cx="124" cy="44" r="12" fill="#c0392b"/><path d="M118 38 l12 12 M130 38 l-12 12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><circle cx="254" cy="44" r="12" fill="#c0392b"/><path d="M248 38 l12 12 M260 38 l-12 12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><text x="140" y="138" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c0392b">「非」：兩個都否定</text><path d="M282 77 H360" stroke="#96702F" stroke-width="2.4" marker-end="url(#arP)"/><text x="321" y="66" text-anchor="middle" font-size="12" fill="#96702F">推翻後</text><text x="540" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">後立：蘇洵的看法</text><rect x="372" y="38" width="336" height="80" rx="16" fill="#96702F"/><text x="540" y="74" text-anchor="middle" font-size="22" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">弊在賂秦</text><text x="540" y="100" text-anchor="middle" font-size="12.5" fill="#FFF6E6">中心論點：毛病出在割地討好秦國</text><path d="M676 52 l6 8 l12 -16" fill="none" stroke="#FFF6E6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="540" y="142" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">先否定別人的說法，再提出自己的說法，論點更突出</text></svg></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 2</span>有人追問：不賂秦的國家呢？</div>
+<div class="pb-orig">或<sup class="n">9</sup>曰：「六國互喪<sup class="n">10</sup>，率<sup class="n">11</sup>賂秦耶？」曰：「不賂者以<sup class="n">12</sup>賂者喪。蓋<sup class="n">13</sup>失強援<sup class="n">14</sup>，不能獨完<sup class="n">15</sup>，故曰『弊在賂秦』也。」</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>有人問：「六國相繼<b>滅亡</b>，<b>全都</b>是因為賄賂秦國嗎？」回答說：「不賄賂秦國的國家，<b>因為</b>賄賂秦國的國家滅亡而跟着滅亡。<b>因為</b>它們失去了強大的援助，不能單獨<b>保全</b>，所以說『弊端在於賄賂秦國』。」</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">9　或</div><div class="kw-def">有人。</div></div><div class="kw"><div class="kw-word">10　互喪<span class="py">喪，讀「喪失」的「喪」</span></div><div class="kw-def">相繼滅亡。喪，滅亡。</div></div><div class="kw"><div class="kw-word">11　率<span class="py">粵音「恤」</span></div><div class="kw-def">全都、一概。</div></div><div class="kw"><div class="kw-word">12　以</div><div class="kw-def">因為。</div></div><div class="kw"><div class="kw-word">13　蓋</div><div class="kw-def">句首語氣詞，帶出原因，相當於「因為」「原來是」。</div></div><div class="kw"><div class="kw-word">14　強援</div><div class="kw-def">強大的援助，指賂秦的韓、魏、楚三國。</div></div><div class="kw"><div class="kw-word">15　完</div><div class="kw-def">保全。</div></div></div></details><svg class="chart" viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="不賂者以賂者喪"><defs><marker id="arD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#c0392b"/></marker></defs><rect x="0" y="0" width="760" height="250" rx="14" fill="var(--amber-bg)"/><path d="M40 172 H730" stroke="#96702F" stroke-width="2"/><text x="56" y="92" text-anchor="middle" font-size="26" font-weight="700" fill="#96702F" font-family="Noto Serif TC,serif">秦</text><path d="M78 100 H112" stroke="#c0392b" stroke-width="3" marker-end="url(#arD)"/><text x="95" y="128" text-anchor="middle" font-size="11" fill="#c0392b">推</text><g transform="rotate(52 170 170)"><rect x="124" y="62" width="46" height="108" rx="6" fill="var(--coral-bg)" stroke="#d0654a" stroke-width="2"/><text x="147" y="124" text-anchor="middle" font-size="22" font-weight="700" fill="#d0654a" font-family="Noto Serif TC,serif">韓</text></g><g transform="rotate(38 260 170)"><rect x="214" y="62" width="46" height="108" rx="6" fill="var(--coral-bg)" stroke="#d0654a" stroke-width="2"/><text x="237" y="124" text-anchor="middle" font-size="22" font-weight="700" fill="#d0654a" font-family="Noto Serif TC,serif">魏</text></g><g transform="rotate(24 350 170)"><rect x="304" y="62" width="46" height="108" rx="6" fill="var(--coral-bg)" stroke="#d0654a" stroke-width="2"/><text x="327" y="124" text-anchor="middle" font-size="22" font-weight="700" fill="#d0654a" font-family="Noto Serif TC,serif">楚</text></g><g transform="rotate(14 470 170)"><rect x="424" y="62" width="46" height="108" rx="6" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="2"/><text x="447" y="124" text-anchor="middle" font-size="22" font-weight="700" fill="#3a6ea5" font-family="Noto Serif TC,serif">趙</text></g><g transform="rotate(7 560 170)"><rect x="514" y="62" width="46" height="108" rx="6" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="2"/><text x="537" y="124" text-anchor="middle" font-size="22" font-weight="700" fill="#3a6ea5" font-family="Noto Serif TC,serif">燕</text></g><g transform="rotate(2 650 170)"><rect x="604" y="62" width="46" height="108" rx="6" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="2"/><text x="627" y="124" text-anchor="middle" font-size="22" font-weight="700" fill="#3a6ea5" font-family="Noto Serif TC,serif">齊</text></g><path d="M128 190 H352" stroke="#d0654a" stroke-width="1.6"/><path d="M128 184 V190 M352 184 V190" stroke="#d0654a" stroke-width="1.6"/><text x="240" y="210" text-anchor="middle" font-size="13" font-weight="700" fill="#d0654a">賂秦三國：力虧，先倒下</text><path d="M428 190 H652" stroke="#3a6ea5" stroke-width="1.6"/><path d="M428 184 V190 M652 184 V190" stroke="#3a6ea5" stroke-width="1.6"/><text x="540" y="210" text-anchor="middle" font-size="13" font-weight="700" fill="#3a6ea5">不賂秦三國：失去強援，跟着倒下</text><text x="380" y="238" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">「不賂者以賂者喪」：失去強援，不能獨自保全</text></svg></div>
+<div class="pb-gist"><b>第1段一句話：</b>開篇推翻「兵不利、戰不善」的看法，提出中心論點「弊在賂秦」，再分出兩個分論點：賂秦的國家國力虧損；不賂秦的國家因失去強援而滅亡。</div></div>
+<div class="pblock"><div class="layer-tag">第二部分　論證「賂秦而力虧」</div><div class="pb-head"><span class="pnum">2</span>第2段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 3</span>秦國的土地從哪裏來</div>
+<div class="pb-orig">秦以<sup class="n">16</sup>攻取之外，小則獲邑<sup class="n">17</sup>，大則得城，較秦之所得與戰勝而得者，其實<sup class="n">18</sup>百倍；諸侯之所亡與戰敗而亡者，其實亦百倍。則秦之所大欲<sup class="n">19</sup>，諸侯之所大患<sup class="n">20</sup>，固<sup class="n">21</sup>不在戰矣。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>秦國除了<b>用</b>攻戰奪取土地之外（還接受諸侯割讓的土地），小的得到<b>城鎮</b>，大的得到城池。拿秦國因受賄賂所得的土地，和它戰勝所得的相比，<b>實際數量</b>有百倍之多；諸侯因賄賂秦國所失去的土地，和戰敗所失去的相比，實際數量也有百倍之多。那麼秦國<b>最想要的</b>，諸侯<b>最大的禍患</b>，<b>本來</b>就不在戰爭。</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">16　以</div><div class="kw-def">憑藉、用。</div></div><div class="kw"><div class="kw-word">17　邑</div><div class="kw-def">小城鎮。</div></div><div class="kw"><div class="kw-word">18　其實</div><div class="kw-def">它的實際數量。與今天「其實」（事實上）的意思不同。</div></div><div class="kw"><div class="kw-word">19　大欲</div><div class="kw-def">最想要的東西。</div></div><div class="kw"><div class="kw-word">20　大患</div><div class="kw-def">最大的禍患。</div></div><div class="kw"><div class="kw-word">21　固</div><div class="kw-def">本來。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 4</span>祖先辛苦得來，子孫隨手送人</div>
+<div class="pb-orig">思厥<sup class="n">22</sup>先祖父<sup class="n">23</sup>，暴<sup class="n">24</sup>霜露，斬荊棘<sup class="n">25</sup>，以有尺寸之地<sup class="n">26</sup>。子孫視之不甚惜，舉<sup class="n">27</sup>以予<sup class="n">28</sup>人，如棄草芥<sup class="n">29</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>想想<b>他們的</b>祖先，<b>冒着</b>霜露，斬除荊棘，才擁有一點點土地。子孫卻不怎樣珍惜這些土地，<b>拿</b>來送給別人，好像丟棄<b>小草</b>一樣。</div>
+<details class="kwbox" open><summary>字詞卡（8個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">22　厥<span class="py">粵音「缺」</span></div><div class="kw-def">他們的。</div></div><div class="kw"><div class="kw-word">23　先祖父</div><div class="kw-def">祖先，指祖輩和父輩。</div></div><div class="kw"><div class="kw-word">24　暴<span class="py">粵音「僕」</span></div><div class="kw-def">同「曝」，暴露、冒着。</div></div><div class="kw"><div class="kw-word">25　荊棘</div><div class="kw-def">帶刺的灌木叢。</div></div><div class="kw"><div class="kw-word">26　尺寸之地</div><div class="kw-def">一點點土地。</div></div><div class="kw"><div class="kw-word">27　舉</div><div class="kw-def">拿起。</div></div><div class="kw"><div class="kw-word">28　予<span class="py">粵音「余」</span></div><div class="kw-def">給予。</div></div><div class="kw"><div class="kw-word">29　草芥<span class="py">芥，粵音「介」</span></div><div class="kw-def">小草，比喻毫不值錢的東西。</div></div></div></details><svg class="chart" viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="先祖得地與子孫棄地"><defs><marker id="arA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker><marker id="arA2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#c0392b"/></marker></defs><rect x="8" y="8" width="360" height="214" rx="14" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.45"/><text x="188" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#3d8b4f">先祖：一點一點辛苦得來</text><g transform="translate(70 96)"><g stroke="#3a6ea5" stroke-width="2" stroke-linecap="round"><path d="M0 -18 V18 M-16 -9 L16 9 M-16 9 L16 -9"/></g><text x="0" y="46" text-anchor="middle" font-size="12.5" fill="var(--color-text-primary)">暴霜露</text></g><g transform="translate(170 96)"><path d="M-20 18 Q-8 -6 0 -20 Q8 -6 20 18" fill="none" stroke="#3d8b4f" stroke-width="2.4"/><path d="M-12 4 l-7 -4 M-6 -8 l-7 -3 M12 4 l7 -4 M6 -8 l7 -3 M0 -20 v-6" stroke="#3d8b4f" stroke-width="1.8"/><text x="0" y="46" text-anchor="middle" font-size="12.5" fill="var(--color-text-primary)">斬荊棘</text></g><path d="M102 96 H134" stroke="#96702F" stroke-width="2" marker-end="url(#arA)"/><path d="M202 96 H234" stroke="#96702F" stroke-width="2" marker-end="url(#arA)"/><g transform="translate(290 96)"><rect x="-24" y="-18" width="48" height="36" rx="4" fill="#3d8b4f" fill-opacity="0.35" stroke="#3d8b4f"/><path d="M-24 -6 H24 M-24 6 H24 M-8 -18 V18 M8 -18 V18" stroke="#3d8b4f" stroke-opacity="0.45"/><text x="0" y="46" text-anchor="middle" font-size="12.5" fill="var(--color-text-primary)">尺寸之地</text></g><text x="188" y="196" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">土地只有一點點，卻得來不易</text><rect x="392" y="8" width="360" height="214" rx="14" fill="var(--coral-bg)" stroke="#c0392b" stroke-opacity="0.45"/><text x="572" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#c0392b">子孫：隨手送給別人</text><g transform="translate(450 96)"><rect x="-24" y="-18" width="48" height="36" rx="4" fill="#3d8b4f" fill-opacity="0.35" stroke="#3d8b4f"/><path d="M-24 -6 H24 M-24 6 H24 M-8 -18 V18 M8 -18 V18" stroke="#3d8b4f" stroke-opacity="0.45"/></g><g transform="translate(540 88) rotate(-12) scale(0.8)" opacity="0.75"><rect x="-24" y="-18" width="48" height="36" rx="4" fill="#3d8b4f" fill-opacity="0.35" stroke="#3d8b4f"/><path d="M-24 -6 H24 M-24 6 H24 M-8 -18 V18 M8 -18 V18" stroke="#3d8b4f" stroke-opacity="0.45"/></g><g transform="translate(616 80) rotate(-24) scale(0.6)" opacity="0.5"><rect x="-24" y="-18" width="48" height="36" rx="4" fill="#3d8b4f" fill-opacity="0.35" stroke="#3d8b4f"/><path d="M-24 -6 H24 M-24 6 H24 M-8 -18 V18 M8 -18 V18" stroke="#3d8b4f" stroke-opacity="0.45"/></g><path d="M478 118 Q560 150 664 108" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arA2)"/><text x="702" y="112" text-anchor="middle" font-size="24" font-weight="700" fill="#96702F" font-family="Noto Serif TC,serif">秦</text><g stroke="#3d8b4f" stroke-width="1.6" stroke-linecap="round" opacity="0.7"><path d="M414 200 q2 -12 6 -16 M424 200 q-1 -10 -6 -14 M440 200 q2 -10 8 -12"/></g><text x="572" y="172" text-anchor="middle" font-size="12.5" fill="var(--color-text-primary)">舉以予人，如棄草芥</text><text x="572" y="196" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">把祖先的土地當作小草一樣丟掉</text></svg></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 5</span>割一次地，只換一晚安睡</div>
+<div class="pb-orig">今日割五城，明日割十城，然後得一夕<sup class="n">30</sup>安寢，起視四境<sup class="n">31</sup>，而秦兵又至矣。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>今天割讓五座城，明天割讓十座城，然後才換來一晚安睡；第二天起來察看四方邊境，秦國的軍隊又來了。</div>
+<details class="kwbox" open><summary>字詞卡（2個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">30　一夕</div><div class="kw-def">一個晚上。</div></div><div class="kw"><div class="kw-word">31　四境</div><div class="kw-def">四方的邊境。</div></div></div></details><svg class="chart" viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="今日割五城，明日割十城"><defs><marker id="arK" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs><rect x="14" y="14" width="160" height="186" rx="12" fill="var(--color-background-primary)" stroke="#d0654a" stroke-opacity="0.6"/><rect x="14" y="14" width="160" height="30" rx="12" fill="#d0654a"/><rect x="14" y="32" width="160" height="12" fill="#d0654a"/><text x="94" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">今日</text><text x="94" y="78" text-anchor="middle" font-size="17" font-weight="700" fill="#d0654a" font-family="Noto Serif TC,serif">割五城</text><text x="94" y="100" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">送出五座城</text><text x="26" y="140" font-size="11" fill="var(--color-text-secondary)">六國</text><rect x="58" y="131" width="100" height="10" rx="5" fill="var(--color-background-secondary)"/><rect x="58" y="131" width="86" height="10" rx="5" fill="#d0654a"/><text x="26" y="168" font-size="11" fill="var(--color-text-secondary)">秦</text><rect x="58" y="159" width="100" height="10" rx="5" fill="var(--color-background-secondary)"/><rect x="58" y="159" width="40" height="10" rx="5" fill="#96702F"/><rect x="202" y="14" width="160" height="186" rx="12" fill="var(--color-background-primary)" stroke="#d0654a" stroke-opacity="0.6"/><rect x="202" y="14" width="160" height="30" rx="12" fill="#d0654a"/><rect x="202" y="32" width="160" height="12" fill="#d0654a"/><text x="282" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">明日</text><text x="282" y="78" text-anchor="middle" font-size="17" font-weight="700" fill="#d0654a" font-family="Noto Serif TC,serif">割十城</text><text x="282" y="100" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">再送出十座城</text><text x="214" y="140" font-size="11" fill="var(--color-text-secondary)">六國</text><rect x="246" y="131" width="100" height="10" rx="5" fill="var(--color-background-secondary)"/><rect x="246" y="131" width="64" height="10" rx="5" fill="#d0654a"/><text x="214" y="168" font-size="11" fill="var(--color-text-secondary)">秦</text><rect x="246" y="159" width="100" height="10" rx="5" fill="var(--color-background-secondary)"/><rect x="246" y="159" width="62" height="10" rx="5" fill="#96702F"/><rect x="390" y="14" width="160" height="186" rx="12" fill="var(--color-background-primary)" stroke="#96702F" stroke-opacity="0.6"/><rect x="390" y="14" width="160" height="30" rx="12" fill="#96702F"/><rect x="390" y="32" width="160" height="12" fill="#96702F"/><text x="470" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">當晚</text><text x="470" y="78" text-anchor="middle" font-size="17" font-weight="700" fill="#96702F" font-family="Noto Serif TC,serif">一夕安寢</text><text x="470" y="100" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">換來一晚安睡</text><path d="M522 112 a10 10 0 1 0 12 14 a8 8 0 1 1 -12 -14 Z" fill="#D9B07C"/><text x="402" y="140" font-size="11" fill="var(--color-text-secondary)">六國</text><rect x="434" y="131" width="100" height="10" rx="5" fill="var(--color-background-secondary)"/><rect x="434" y="131" width="64" height="10" rx="5" fill="#d0654a"/><text x="402" y="168" font-size="11" fill="var(--color-text-secondary)">秦</text><rect x="434" y="159" width="100" height="10" rx="5" fill="var(--color-background-secondary)"/><rect x="434" y="159" width="62" height="10" rx="5" fill="#96702F"/><rect x="578" y="14" width="160" height="186" rx="12" fill="var(--color-background-primary)" stroke="#c0392b" stroke-opacity="0.6"/><rect x="578" y="14" width="160" height="30" rx="12" fill="#c0392b"/><rect x="578" y="32" width="160" height="12" fill="#c0392b"/><text x="658" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">翌日</text><text x="658" y="78" text-anchor="middle" font-size="17" font-weight="700" fill="#c0392b" font-family="Noto Serif TC,serif">秦兵又至</text><text x="658" y="100" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">起視四境，敵人又來</text><text x="590" y="140" font-size="11" fill="var(--color-text-secondary)">六國</text><rect x="622" y="131" width="100" height="10" rx="5" fill="var(--color-background-secondary)"/><rect x="622" y="131" width="64" height="10" rx="5" fill="#d0654a"/><text x="590" y="168" font-size="11" fill="var(--color-text-secondary)">秦</text><rect x="622" y="159" width="100" height="10" rx="5" fill="var(--color-background-secondary)"/><rect x="622" y="159" width="62" height="10" rx="5" fill="#96702F"/><g stroke="#96702F" stroke-width="2"><path d="M176 107 H198" marker-end="url(#arK)"/><path d="M364 107 H386" marker-end="url(#arK)"/><path d="M552 107 H574" marker-end="url(#arK)"/></g><text x="380" y="224" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">六國的土地越來越少，秦國的土地越來越多；換來的平安，只有一個晚上</text></svg></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 6</span>地有限，欲無厭</div>
+<div class="pb-orig">然則<sup class="n">32</sup>諸侯之地有限，暴秦之欲無厭<sup class="n">33</sup>，奉<sup class="n">34</sup>之彌<sup class="n">35</sup>繁，侵之愈急，故不戰而強弱勝負已判<sup class="n">36</sup>矣。至於顛覆<sup class="n">37</sup>，理固宜然<sup class="n">38</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>既然這樣，那麼諸侯的土地有限，殘暴秦國的慾望卻沒有<b>滿足</b>的時候，送給它的土地<b>越</b>多，它就侵略得越急。所以還沒有打仗，誰強誰弱、誰勝誰負已經<b>分出</b>了。到了<b>滅亡</b>的地步，按道理本來就應該這樣。</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">32　然則</div><div class="kw-def">既然這樣，那麼。</div></div><div class="kw"><div class="kw-word">33　厭</div><div class="kw-def">同「饜」，滿足。</div></div><div class="kw"><div class="kw-word">34　奉</div><div class="kw-def">送上，這裏指割地給秦國。</div></div><div class="kw"><div class="kw-word">35　彌</div><div class="kw-def">越、更加。</div></div><div class="kw"><div class="kw-word">36　判</div><div class="kw-def">分出、決定。</div></div><div class="kw"><div class="kw-word">37　顛覆</div><div class="kw-def">滅亡。</div></div><div class="kw"><div class="kw-word">38　宜然</div><div class="kw-def">應該這樣。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 7</span>抱薪救火</div>
+<div class="pb-orig">古人云：「以地事<sup class="n">39</sup>秦，猶抱薪<sup class="n">40</sup>救火，薪不盡，火不滅。」此言得之<sup class="n">41</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>古人說：「用土地<b>侍奉</b>秦國，就像抱着<b>柴草</b>去救火，柴草沒有燒完，火就不會熄滅。」這句話說得<b>對</b>。</div>
+<details class="kwbox" open><summary>字詞卡（3個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">39　事</div><div class="kw-def">侍奉、討好。</div></div><div class="kw"><div class="kw-word">40　薪</div><div class="kw-def">柴草。</div></div><div class="kw"><div class="kw-word">41　得之</div><div class="kw-def">說得對、說中了道理。</div></div></div></details></div>
+<div class="pb-gist"><b>第2段一句話：</b>論證「賂秦而力虧」：秦國靠賄賂得到的土地是戰勝所得的百倍；子孫輕易割地，秦國卻越得越要，所以未戰已分勝負，正如抱薪救火。</div></div>
+<div class="pblock"><div class="layer-tag">第三部分　論證「不賂者以賂者喪」</div><div class="pb-head"><span class="pnum">3</span>第3段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 8</span>齊國：親附秦國，不助五國</div>
+<div class="pb-orig">齊人未嘗<sup class="n">42</sup>賂秦，終繼五國遷滅<sup class="n">43</sup>，何哉？與<sup class="n">44</sup>嬴<sup class="n">45</sup>而不助五國也。五國既喪，齊亦不免矣。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>齊國<b>不曾</b>賄賂秦國，最終也繼五國之後<b>滅亡</b>，為甚麼呢？因為它<b>親附</b>秦國，不幫助其他五國。五國滅亡以後，齊國也不能倖免了。</div>
+<details class="kwbox" open><summary>字詞卡（4個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">42　未嘗</div><div class="kw-def">不曾。</div></div><div class="kw"><div class="kw-word">43　遷滅</div><div class="kw-def">滅亡。齊王建投降後被秦國遷走，故稱「遷滅」。</div></div><div class="kw"><div class="kw-word">44　與</div><div class="kw-def">親附、結交。</div></div><div class="kw"><div class="kw-word">45　嬴<span class="py">粵音「盈」</span></div><div class="kw-def">秦王姓嬴，這裏借指秦國。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 9</span>燕國：本來守得住，刺客惹禍</div>
+<div class="pb-orig">燕趙之君，始<sup class="n">46</sup>有遠略<sup class="n">47</sup>，能守其土，義不賂秦<sup class="n">48</sup>。是故燕雖小國而後亡，斯<sup class="n">49</sup>用兵之效<sup class="n">50</sup>也。至丹<sup class="n">51</sup>以荊卿<sup class="n">52</sup>為計，始<sup class="n">53</sup>速<sup class="n">54</sup>禍焉。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>燕國和趙國的君主，<b>起初</b>有<b>長遠的謀略</b>，能夠守住自己的國土，堅持道義，不賄賂秦國。所以燕國雖然是小國，卻較遲才滅亡，<b>這</b>就是用武力抵抗的<b>成效</b>。到了燕太子丹採用派荊軻行刺秦王的計策，<b>才</b><b>招致</b>禍患。</div>
+<details class="kwbox" open><summary>字詞卡（9個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">46　始</div><div class="kw-def">起初。</div></div><div class="kw"><div class="kw-word">47　遠略</div><div class="kw-def">長遠的謀略。</div></div><div class="kw"><div class="kw-word">48　義不賂秦</div><div class="kw-def">堅持道義，不賄賂秦國。</div></div><div class="kw"><div class="kw-word">49　斯</div><div class="kw-def">這。</div></div><div class="kw"><div class="kw-word">50　效</div><div class="kw-def">成效、效果。</div></div><div class="kw"><div class="kw-word">51　丹</div><div class="kw-def">燕國太子丹。</div></div><div class="kw"><div class="kw-word">52　荊卿</div><div class="kw-def">荊軻。燕國人尊稱他為「荊卿」。</div></div><div class="kw"><div class="kw-word">53　始</div><div class="kw-def">才。</div></div><div class="kw"><div class="kw-word">54　速</div><div class="kw-def">招致，令禍患更快來臨。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 10</span>趙國：良將被殺，邯鄲為郡</div>
+<div class="pb-orig">趙嘗<sup class="n">55</sup>五戰于<sup class="n">56</sup>秦，二敗而三勝，後秦擊趙者再<sup class="n">57</sup>，李牧<sup class="n">58</sup>連卻<sup class="n">59</sup>之；洎<sup class="n">60</sup>牧以讒<sup class="n">61</sup>誅，邯鄲<sup class="n">62</sup>為郡，惜其用武而不終也。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>趙國<b>曾經</b>與秦國五次交戰，敗了兩次，勝了三次。後來秦國<b>兩次</b>攻打趙國，李牧接連把秦軍<b>擊退</b>；<b>等到</b>李牧因讒言被殺，都城邯鄲成了秦國的一個郡，可惜趙國用武力抵抗卻沒有堅持到底。</div>
+<details class="kwbox" open><summary>字詞卡（8個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">55　嘗</div><div class="kw-def">曾經。</div></div><div class="kw"><div class="kw-word">56　于</div><div class="kw-def">與、跟。</div></div><div class="kw"><div class="kw-word">57　再</div><div class="kw-def">兩次。</div></div><div class="kw"><div class="kw-word">58　李牧</div><div class="kw-def">趙國名將，曾多次擊退秦軍。</div></div><div class="kw"><div class="kw-word">59　卻</div><div class="kw-def">擊退。</div></div><div class="kw"><div class="kw-word">60　洎<span class="py">粵音「既」</span></div><div class="kw-def">及、等到。</div></div><div class="kw"><div class="kw-word">61　讒</div><div class="kw-def">讒言，說人壞話、陷害別人的話。</div></div><div class="kw"><div class="kw-word">62　邯鄲</div><div class="kw-def">趙國都城。</div></div></div></details><svg class="chart" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="趙國由勝到亡"><defs><linearGradient id="zg" gradientUnits="userSpaceOnUse" x1="100" y1="0" x2="660" y2="0"><stop offset="0" stop-color="#3d8b4f"/><stop offset="0.45" stop-color="#3d8b4f"/><stop offset="0.62" stop-color="#c0392b"/><stop offset="1" stop-color="#c0392b"/></linearGradient></defs><rect x="0" y="0" width="760" height="200" rx="14" fill="var(--color-background-secondary)"/><path d="M100 70 H660" stroke="url(#zg)" stroke-width="5" stroke-linecap="round"/><circle cx="100" cy="70" r="26" fill="#3d8b4f"/><text x="100" y="78" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">①</text><text x="100" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#3d8b4f">五戰于秦</text><text x="100" y="148" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">二敗而三勝</text><circle cx="286" cy="70" r="26" fill="#3d8b4f"/><text x="286" y="78" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">②</text><text x="286" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#3d8b4f">秦擊趙者再</text><text x="286" y="148" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">李牧連卻之</text><circle cx="474" cy="70" r="26" fill="#c0392b"/><text x="474" y="78" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">③</text><text x="474" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#c0392b">牧以讒誅</text><text x="474" y="148" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">趙王聽信讒言殺良將</text><circle cx="660" cy="70" r="26" fill="#c0392b"/><text x="660" y="78" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">④</text><text x="660" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#c0392b">邯鄲為郡</text><text x="660" y="148" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">都城被攻破，趙亡</text><text x="193" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#3d8b4f">能戰：用武有效</text><text x="567" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c0392b">自毀良將：「惜其用武而不終也」</text></svg></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 11</span>孤立無援；假如六國……</div>
+<div class="pb-orig">且燕趙處秦革滅<sup class="n">63</sup>殆<sup class="n">64</sup>盡之際，可謂智力孤危<sup class="n">65</sup>，戰敗而亡，誠<sup class="n">66</sup>不得已。向使<sup class="n">67</sup>三國<sup class="n">68</sup>各愛其地，齊人勿附於秦，刺客不行，良將猶在，則勝負之數<sup class="n">69</sup>，存亡之理，當與秦相較，或未易量<sup class="n">70</sup>。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>而且燕國和趙國處於秦國把其他國家<b>消滅</b>得<b>幾乎</b>淨盡的時候，可說是智謀窮盡、力量孤單、處境危急，戰敗而滅亡，<b>確實</b>是迫不得已。<b>假使</b>韓、魏、楚三國各自愛惜自己的土地，齊國不依附秦國，燕國的刺客不去行刺，趙國的良將仍然在世，那麼勝負的<b>命運</b>，存亡的道理，如果拿來和秦國比較，或許還不容易<b>估量</b>呢。</div>
+<details class="kwbox" open><summary>字詞卡（8個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">63　革滅</div><div class="kw-def">消滅。</div></div><div class="kw"><div class="kw-word">64　殆</div><div class="kw-def">幾乎。</div></div><div class="kw"><div class="kw-word">65　智力孤危</div><div class="kw-def">智謀窮盡，力量孤單，處境危急。</div></div><div class="kw"><div class="kw-word">66　誠</div><div class="kw-def">確實。</div></div><div class="kw"><div class="kw-word">67　向使</div><div class="kw-def">假使。</div></div><div class="kw"><div class="kw-word">68　三國</div><div class="kw-def">指賂秦的韓、魏、楚三國。</div></div><div class="kw"><div class="kw-word">69　數<span class="py">粵音「素」</span></div><div class="kw-def">命運、定數。</div></div><div class="kw"><div class="kw-word">70　量<span class="py">粵音「良」</span></div><div class="kw-def">估量。</div></div></div></details></div>
+<div class="pb-gist"><b>第3段一句話：</b>論證「不賂者以賂者喪」：齊國親秦而不助五國，燕國因刺客而招禍，趙國因錯殺李牧而亡；假如六國各自堅守，勝負未可預料。</div></div>
+<div class="pblock"><div class="layer-tag">第四部分　假設與感歎</div><div class="pb-head"><span class="pnum">4</span>第4段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 12</span>如果把賂秦的土地拿來用人</div>
+<div class="pb-orig">嗚呼！以賂秦之地，封<sup class="n">71</sup>天下之謀臣；以事秦之心，禮<sup class="n">72</sup>天下之奇才；幷力西嚮<sup class="n">73</sup>，則吾恐秦人食之不得下嚥<sup class="n">74</sup>也。</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>唉！如果用賄賂秦國的土地，<b>封賞</b>天下的謀臣；用侍奉秦國的心思，<b>禮待</b>天下的奇才；<b>齊心合力</b>向西對付秦國，那麼我恐怕秦國人連飯也<b>吞不下</b>了。</div>
+<details class="kwbox" open><summary>字詞卡（4個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">71　封</div><div class="kw-def">封賞，賜給土地或爵位。</div></div><div class="kw"><div class="kw-word">72　禮</div><div class="kw-def">禮待、以禮相待。</div></div><div class="kw"><div class="kw-word">73　幷力西嚮<span class="py">嚮，粵音「向」</span></div><div class="kw-def">合力向西（對付秦國）。幷，同「并」，合在一起。嚮，同「向」。秦國在六國的西面。</div></div><div class="kw"><div class="kw-word">74　下嚥<span class="py">嚥，粵音「燕」</span></div><div class="kw-def">吞下去。嚥，同「咽」。</div></div></div></details></div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 13</span>可悲：被秦國的威勢嚇倒</div>
+<div class="pb-orig">悲夫<sup class="n">75</sup>！有如此之勢，而為秦人積威<sup class="n">76</sup>之所劫<sup class="n">77</sup>，日削月割，以趨<sup class="n">78</sup>於亡。為國者<sup class="n">79</sup>無<sup class="n">80</sup>使為積威之所劫哉！</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>可悲啊！有這樣有利的形勢，卻被秦國長期積累的威勢所<b>脅迫</b>，一天天、一月月地割讓土地，以致<b>走向</b>滅亡。<b>治理國家的人</b>，<b>不要</b>被敵人長期積累的威勢所脅迫啊！</div>
+<details class="kwbox" open><summary>字詞卡（6個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">75　悲夫</div><div class="kw-def">可悲啊！夫，句末語氣詞，表示感歎。</div></div><div class="kw"><div class="kw-word">76　積威</div><div class="kw-def">長期積累起來的威勢。</div></div><div class="kw"><div class="kw-word">77　劫</div><div class="kw-def">脅迫、威嚇。</div></div><div class="kw"><div class="kw-word">78　趨</div><div class="kw-def">走向。</div></div><div class="kw"><div class="kw-word">79　為國者</div><div class="kw-def">治理國家的人。</div></div><div class="kw"><div class="kw-word">80　無</div><div class="kw-def">不要。</div></div></div></details></div>
+<div class="pb-gist"><b>第4段一句話：</b>假設六國以賂秦之地封謀臣、以事秦之心禮奇才，合力抗秦，秦國恐怕會寢食難安；慨歎六國被積威所劫而亡，告誡治國者不要被敵人的威勢嚇倒。</div></div>
+<div class="pblock"><div class="layer-tag">第五部分　借古諷今</div><div class="pb-head"><span class="pnum">5</span>第5段</div>
+<div class="scn"><div class="scn-h"><span class="scn-no">場景 14</span>借古諷今：寫給北宋朝廷的警告</div>
+<div class="pb-orig">夫<sup class="n">81</sup>六國與秦皆諸侯，其勢弱於秦，而猶有可以不賂而勝之之勢；苟<sup class="n">82</sup>以天下之大<sup class="n">83</sup>，而從<sup class="n">84</sup>六國破亡之故事<sup class="n">85</sup>，是<sup class="n">86</sup>又在六國下<sup class="n">87</sup>矣！</div>
+<div class="scn-tr"><span class="scn-tag">白話</span>六國和秦國都是諸侯國，六國的勢力比秦國弱，卻仍然有可以不賄賂秦國而戰勝它的形勢；<b>如果</b>憑着統一天下的強大國力，卻<b>重蹈</b>六國滅亡的<b>舊事</b>，這就連六國也<b>不如</b>了！</div>
+<details class="kwbox" open><summary>字詞卡（7個）</summary><div class="keyword-grid sm"><div class="kw"><div class="kw-word">81　夫<span class="py">粵音「扶」</span></div><div class="kw-def">句首發語詞，表示要發議論，不用翻譯。</div></div><div class="kw"><div class="kw-word">82　苟</div><div class="kw-def">如果。</div></div><div class="kw"><div class="kw-word">83　以天下之大</div><div class="kw-def">憑着統一天下的強大國力。</div></div><div class="kw"><div class="kw-word">84　從</div><div class="kw-def">跟從，這裏有「重蹈」的意思。</div></div><div class="kw"><div class="kw-word">85　故事</div><div class="kw-def">舊事、前例。與今天「故事」（有情節的敍述）的意思不同。</div></div><div class="kw"><div class="kw-word">86　是</div><div class="kw-def">這，指這種做法。</div></div><div class="kw"><div class="kw-word">87　下</div><div class="kw-def">在……之下，即不如。</div></div></div></details></div>
+<div class="pb-gist"><b>第5段一句話：</b>六國勢弱，尚且有不賂而勝的可能；統一天下的大國如果重蹈覆轍，就連六國也不如。蘇洵借古諷今，警告北宋朝廷。</div></div>
+</div>
+<div class="card"><h3><span class="dot purple"></span>重點字詞：五類必溫</h3>
+<div class="duo">
+<div class="duo-col wen"><div class="duo-h">A　通假字和異體字</div><p class="small">古人借用了另一個字，或用了同一個字的另一種寫法。翻譯時要按右邊的字解釋。</p>
+<table><tr><th class="c">原文</th><th class="c">同</th><th>解釋</th></tr>
+<tr><td class="c"><b>暴</b>霜露</td><td class="c">曝</td><td>暴露、冒着</td></tr>
+<tr><td class="c">暴秦之欲無<b>厭</b></td><td class="c">饜</td><td>滿足</td></tr>
+<tr><td class="c"><b>幷</b>力西嚮</td><td class="c">并</td><td>合在一起</td></tr>
+<tr><td class="c">幷力西<b>嚮</b></td><td class="c">向</td><td>向着</td></tr>
+<tr><td class="c">不得下<b>嚥</b></td><td class="c">咽</td><td>吞下</td></tr></table></div>
+<div class="duo-col wu"><div class="duo-h">B　古今意思不一樣</div><p class="small">字面和今天一樣，意思卻不同。用今天的意思去翻譯就會錯。</p>
+<table><tr><th class="c">詞語</th><th>古代意思</th><th>今天意思</th></tr>
+<tr><td class="c">其實</td><td>它的實際數量</td><td>事實上</td></tr>
+<tr><td class="c">故事</td><td>舊事、前例</td><td>有情節的敍述</td></tr>
+<tr><td class="c">祖父</td><td>祖輩和父輩</td><td>爸爸的爸爸</td></tr>
+<tr><td class="c">智力</td><td>智謀和力量</td><td>智慧和思考能力</td></tr>
+<tr><td class="c">劫</td><td>脅迫、威嚇</td><td>搶劫</td></tr>
+<tr><td class="c">下</td><td>不如</td><td>下面</td></tr></table></div>
+</div>
+<h3 style="margin-top:14px"><span class="dot amber"></span>C　同一個字，不同意思</h3>
+<svg class="chart" viewBox="0 0 760 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="「以」字的五個意思"><rect x="0" y="0" width="760" height="270" rx="14" fill="var(--color-background-secondary)"/><path d="M380 140 L380 44" stroke="#d0654a" stroke-width="2" stroke-opacity="0.5"/><path d="M380 140 L650 104" stroke="#3a6ea5" stroke-width="2" stroke-opacity="0.5"/><path d="M380 140 L600 214" stroke="#3d8b4f" stroke-width="2" stroke-opacity="0.5"/><path d="M380 140 L160 214" stroke="#6b5ca5" stroke-width="2" stroke-opacity="0.5"/><path d="M380 140 L110 104" stroke="#96702F" stroke-width="2" stroke-opacity="0.5"/><circle cx="380" cy="140" r="44" fill="#96702F"/><text x="380" y="152" text-anchor="middle" font-size="34" font-weight="700" fill="#FFF6E6" font-family="Noto Serif TC,serif">以</text><rect x="285" y="19" width="190" height="50" rx="12" fill="var(--color-background-primary)" stroke="#d0654a" stroke-width="1.6"/><text x="380" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#d0654a">因為</text><text x="380" y="60" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">不賂者以賂者喪</text><rect x="555" y="79" width="190" height="50" rx="12" fill="var(--color-background-primary)" stroke="#3a6ea5" stroke-width="1.6"/><text x="650" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#3a6ea5">用、憑藉</text><text x="650" y="120" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">秦以攻取之外</text><rect x="505" y="189" width="190" height="50" rx="12" fill="var(--color-background-primary)" stroke="#3d8b4f" stroke-width="1.6"/><text x="600" y="210" text-anchor="middle" font-size="14" font-weight="700" fill="#3d8b4f">用</text><text x="600" y="230" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">以地事秦</text><rect x="65" y="189" width="190" height="50" rx="12" fill="var(--color-background-primary)" stroke="#6b5ca5" stroke-width="1.6"/><text x="160" y="210" text-anchor="middle" font-size="14" font-weight="700" fill="#6b5ca5">以致</text><text x="160" y="230" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">日削月割，以趨於亡</text><rect x="15" y="79" width="190" height="50" rx="12" fill="var(--color-background-primary)" stroke="#96702F" stroke-width="1.6"/><text x="110" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#96702F">憑着</text><text x="110" y="120" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">苟以天下之大</text></svg>
+<table><tr><th class="c">字</th><th>例句</th><th>意思</th><th>記法</th></tr>
+<tr><td class="c" rowspan="5">以</td><td>不賂者<b>以</b>賂者喪</td><td>因為</td><td rowspan="5">「以」最多變化，先看它後面接的是原因、工具還是結果</td></tr>
+<tr><td>秦<b>以</b>攻取之外</td><td>用、憑藉</td></tr>
+<tr><td><b>以</b>地事秦</td><td>用</td></tr>
+<tr><td>日削月割，<b>以</b>趨於亡</td><td>以致</td></tr>
+<tr><td>苟<b>以</b>天下之大</td><td>憑着</td></tr>
+<tr><td class="c" rowspan="4">之</td><td>子孫視<b>之</b>不甚惜</td><td>代詞，指先祖得來的土地</td><td rowspan="4">「之」在動詞後面多是代詞，先問它指甚麼</td></tr>
+<tr><td>奉<b>之</b>彌繁，侵<b>之</b>愈急</td><td>前一個指秦國，後一個指諸侯</td></tr>
+<tr><td>李牧連卻<b>之</b></td><td>代詞，指秦軍</td></tr>
+<tr><td>不賂而勝<b>之之</b>勢</td><td>前一個指秦國，後一個解作「的」</td></tr>
+<tr><td class="c" rowspan="4">為</td><td>以荊卿<b>為</b>計</td><td>作為</td><td rowspan="4">「為……所……」的「為」解作「被」，最常考</td></tr>
+<tr><td>邯鄲<b>為</b>郡</td><td>成為</td></tr>
+<tr><td><b>為</b>秦人積威之所劫</td><td>被</td></tr>
+<tr><td><b>為</b>國者</td><td>治理</td></tr>
+<tr><td class="c" rowspan="2">始</td><td><b>始</b>有遠略</td><td>起初</td><td rowspan="2">同在第3段，相距不遠，意思不同</td></tr>
+<tr><td><b>始</b>速禍焉</td><td>才</td></tr>
+</table>
+<h3 style="margin-top:14px"><span class="dot teal"></span>D　句式跟今天不同</h3>
+<div class="order"><div class="order-h">① 「……，……也」表示「……是……」　<span class="small">（判斷句）</span></div><div class="order-row"><span class="chip">賂秦而力虧</span><span class="chip">破滅之道</span><span class="chip hot">也</span><span class="oarr">⇒</span><span class="chip">賂秦而力虧</span><span class="chip hot">是</span><span class="chip">滅亡的原因</span></div><div class="small">「斯用兵之效也」同理：這是用武力抵抗的成效。</div></div><div class="order"><div class="order-h">② 「為……所……」表示「被……」　<span class="small">（被動句）</span></div><div class="order-row"><span class="chip hot">為</span><span class="chip">秦人積威</span><span class="chip">之</span><span class="chip hot">所</span><span class="chip">劫</span><span class="oarr">⇒</span><span class="chip hot">被</span><span class="chip">秦國長期積累的威勢</span><span class="chip">脅迫</span></div><div class="small">「為國者無使為積威之所劫哉」的第二個「為」也解作「被」；第一個「為」解作治理。</div></div><div class="order"><div class="order-h">③ 沒有「被」字，意思卻是「被」　<span class="small">（意念被動句）</span></div><div class="order-row"><span class="chip">牧</span><span class="chip">以讒</span><span class="chip hot">誅</span><span class="oarr">⇒</span><span class="chip">李牧</span><span class="chip">因為讒言</span><span class="chip hot">被</span><span class="chip">殺</span></div><div class="small">李牧是被殺的一方。翻譯時要補上「被」字，否則意思會反過來。</div></div><div class="order"><div class="order-h">④ 「比較」或「對象」的部分放到了後面　<span class="small">（介詞結構後置）</span></div><div class="order-row"><span class="chip">其勢</span><span class="chip">弱</span><span class="chip hot">於秦</span><span class="oarr">⇒</span><span class="chip">它們的勢力</span><span class="chip hot">比秦國</span><span class="chip">弱</span></div><div class="small">「趙嘗五戰于秦」也一樣：趙國曾經跟秦國打了五次仗。翻譯時要把「於秦」「于秦」移到前面。</div></div>
+<h3 style="margin-top:14px"><span class="dot coral"></span>E　與本文有關的成語</h3>
+<table><tr><th class="c">成語</th><th>相關原文</th><th>今天的意思</th></tr>
+<tr><td class="c">抱薪救火</td><td>以地事秦，猶抱薪救火</td><td>用錯誤的方法消除禍患，反而令禍患擴大</td></tr>
+<tr><td class="c">日削月割</td><td>日削月割，以趨於亡</td><td>國土不斷被侵佔，一天比一天少</td></tr>
+<tr><td class="c">視如草芥</td><td>子孫視之不甚惜……如棄草芥</td><td>把東西看得像小草一樣，毫不珍惜</td></tr>
+<tr><td class="c">食不下嚥</td><td>秦人食之不得下嚥</td><td>憂慮得吃不下東西</td></tr>
+</table>
+<h3 style="margin-top:14px"><span class="dot red"></span>容易讀錯的字</h3>
+<table><tr><th>字（詞）</th><th class="c">粵音</th><th>字（詞）</th><th class="c">粵音</th></tr>
+<tr><td><b>賂</b>秦</td><td class="c">路</td><td><b>率</b>賂秦耶</td><td class="c">恤</td></tr>
+<tr><td>思<b>厥</b>先祖父</td><td class="c">缺</td><td><b>暴</b>霜露</td><td class="c">僕</td></tr>
+<tr><td>舉以<b>予</b>人</td><td class="c">余</td><td>草<b>芥</b></td><td class="c">介</td></tr>
+<tr><td>與<b>嬴</b></td><td class="c">盈</td><td><b>洎</b>牧以讒誅</td><td class="c">既</td></tr>
+<tr><td>勝負之<b>數</b></td><td class="c">素</td><td>或未易<b>量</b></td><td class="c">良</td></tr>
+<tr><td>幷力西<b>嚮</b></td><td class="c">向</td><td>不得下<b>嚥</b></td><td class="c">燕</td></tr>
+</table>
+</div>
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">最常失分的三處</div><div class="alert-text">（1）「其實百倍」的「其實」解作「它的實際數量」，不可解作「事實上」。<br>（2）「不賂者以賂者喪」的「以」解作「因為」，要譯出「因為賂秦的國家滅亡而滅亡」。<br>（3）「從六國破亡之故事」的「故事」解作「舊事、前例」，「從」有「重蹈」的意思。</div></div></div>
+<div class="section-header ex" id="s4"><div class="icon">✏️</div><div><div class="chap">CHAPTER 04　練習</div><h2>練習二：字詞與語譯</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（5分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>解釋下列文句中的粗體字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）非兵不<b>利</b></td><td><span class="blank l"></span></td></tr><tr><td>（2）六國互喪，<b>率</b>賂秦耶</td><td><span class="blank l"></span></td></tr><tr><td>（3）不能獨<b>完</b></td><td><span class="blank l"></span></td></tr><tr><td>（4）奉之<b>彌</b>繁</td><td><span class="blank l"></span></td></tr><tr><td>（5）李牧連<b>卻</b>之</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分，每項1分）（1）鋒利　（2）全都、一概　（3）保全　（4）越、更加　（5）擊退</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>寫出與下列粗體字相同的字。<table><tr><th>文句</th><th class="c ctr">同</th></tr><tr><td>（1）<b>暴</b>霜露</td><td class="ctr"><span class="blank s"></span></td></tr><tr><td>（2）暴秦之欲無<b>厭</b></td><td class="ctr"><span class="blank s"></span></td></tr><tr><td>（3）幷力西<b>嚮</b></td><td class="ctr"><span class="blank s"></span></td></tr><tr><td>（4）秦人食之不得下<b>嚥</b></td><td class="ctr"><span class="blank s"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）曝　（2）饜　（3）向　（4）咽</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv2">理解</span>「不賂者<b>以</b>賂者喪」中「以」的意思是：<ul class="opts"><li><b>A</b>用</li><li><b>B</b>因為</li><li><b>C</b>以致</li><li><b>D</b>憑着</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>「而<b>為</b>秦人積威之所劫」中「為」的意思是：<ul class="opts"><li><b>A</b>作為</li><li><b>B</b>成為</li><li><b>C</b>治理</li><li><b>D</b>被</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>「較秦之所得與戰勝而得者，<b>其實</b>百倍」中「其實」的意思是：<ul class="opts one"><li><b>A</b>它的實際數量</li><li><b>B</b>事實上</li><li><b>C</b>其中的果實</li><li><b>D</b>確實</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「至丹以荊卿為計，<b>始</b>速禍焉」中「始」的意思是：<ul class="opts"><li><b>A</b>開始</li><li><b>B</b>起初</li><li><b>C</b>才</li><li><b>D</b>始終</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C<br><span class="ex">同段「始有遠略」的「始」解作起初，兩者不同。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">賂秦而力虧，破滅之道也。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）賄賂秦國，使自己的國力損耗，這是滅亡的原因。<br><span class="ex">「力虧」譯為國力損耗（1分）；「道」譯為原因，並譯出「……是……」的判斷語氣（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">諸侯之地有限，暴秦之欲無厭，奉之彌繁，侵之愈急。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）諸侯的土地有限，殘暴秦國的慾望卻沒有滿足的時候，送給秦國的土地越多，秦國侵略得越急。<br><span class="ex">「無厭」譯為沒有滿足（1分）；「奉之彌繁」譯為送給它的越多（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>把以下文句譯為語體文。<div class="excerpt">苟以天下之大，而從六國破亡之故事，是又在六國下矣！</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）如果憑着統一天下的強大國力，卻重蹈六國滅亡的舊事，這就連六國也不如了！<br><span class="ex">「苟」譯為如果（1分）；「故事」譯為舊事、前例，「在六國下」譯為不如六國（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">10.</span><span class="lv lv2">理解</span>「洎牧以讒誅」屬於哪一種句式？<ul class="opts"><li><b>A</b>判斷句</li><li><b>B</b>意念被動句</li><li><b>C</b>倒裝句</li><li><b>D</b>疑問句</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">句中沒有「被」字，但李牧是被殺的一方。</span></div></div></div>
+<div class="section-header" id="s5"><div class="icon">🧭</div><div><div class="chap">CHAPTER 05　教學</div><h2>蘇洵怎樣一步步說理</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>全文結構圖</h3>
+<svg class="chart" viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全文論證結構圖"><defs><marker id="arM" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker></defs><rect x="220" y="10" width="320" height="76" rx="14" fill="#96702F"/><text x="380" y="36" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF6E6">第1段　中心論點</text><text x="380" y="62" text-anchor="middle" font-size="18" font-weight="700" fill="#FFF6E6">六國破滅，弊在賂秦</text><rect x="30" y="128" width="320" height="112" rx="12" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.55"/><text x="190" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="#d0654a">第2段　分論點一</text><text x="190" y="176" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">賂秦而力虧</text><text x="190" y="198" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">韓、魏、楚：越割越弱</text><text x="190" y="220" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">秦國越得越強</text><rect x="410" y="128" width="320" height="112" rx="12" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-opacity="0.55"/><text x="570" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="#3a6ea5">第3段　分論點二</text><text x="570" y="176" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">不賂者以賂者喪</text><text x="570" y="198" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">齊、燕、趙：失去強援</text><text x="570" y="220" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">孤立無援而亡</text><rect x="30" y="284" width="320" height="100" rx="12" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.55"/><text x="190" y="310" text-anchor="middle" font-size="13" font-weight="700" fill="#3d8b4f">第4段　假設出路</text><text x="190" y="332" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">封謀臣，禮奇才，幷力西嚮</text><text x="190" y="354" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">如果不賂秦，秦人食不下嚥</text><rect x="410" y="284" width="320" height="100" rx="12" fill="var(--amber-bg)" stroke="#96702F" stroke-opacity="0.55"/><text x="570" y="310" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">第5段　借古諷今</text><text x="570" y="332" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">是又在六國下矣</text><text x="570" y="354" text-anchor="middle" font-size="12.5" font-weight="400" fill="var(--color-text-primary)">警告統一天下的北宋</text><g stroke="#96702F" stroke-width="2" fill="none"><path d="M330 86 L220 124" marker-end="url(#arM)"/><path d="M430 86 L540 124" marker-end="url(#arM)"/><path d="M190 240 V280" marker-end="url(#arM)"/><path d="M570 240 V280" marker-end="url(#arM)"/><path d="M350 334 H406" marker-end="url(#arM)"/></g><text x="380" y="114" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">分兩方面證明</text><text x="380" y="270" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">由歷史推到現實</text></svg>
+<table>
+<tr><th class="c">段落</th><th>一句話說明</th><th>要記的關鍵句</th></tr>
+<tr><td class="c">第1段</td><td>提出中心論點，再分出兩個分論點</td><td>弊在賂秦；賂秦而力虧；不賂者以賂者喪</td></tr>
+<tr><td class="c">第2段</td><td>賂秦的國家越割越弱，秦國越得越強</td><td>其實百倍；奉之彌繁，侵之愈急；抱薪救火</td></tr>
+<tr><td class="c">第3段</td><td>不賂秦的國家失去強援，終於滅亡</td><td>與嬴而不助五國；始速禍焉；洎牧以讒誅</td></tr>
+<tr><td class="c">第4段</td><td>假如六國不賂秦而重用人才，秦國也會害怕</td><td>封天下之謀臣；禮天下之奇才；幷力西嚮</td></tr>
+<tr><td class="c">第5段</td><td>統一天下的大國若重蹈覆轍，就連六國也不如</td><td>苟以天下之大……是又在六國下矣</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>第一步：先推翻舊看法，再提出新看法</h3>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">一般人以為六國是打不過秦國才滅亡。蘇洵開首就說：原因不在兵器和打仗，在於割地賂秦。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>先破：</b>「非兵不利，戰不善」，先否定「兵器不好、仗打得差」這個常見的看法。<br><b>後立：</b>「弊在賂秦」，再提出自己的看法，開門見山點出中心論點。<br><b>分兩路：</b>接着把六國分成兩類，一類賂秦，一類不賂秦，分別說明它們怎樣因「賂秦」而亡。「賂秦而力虧」和「不賂者以賂者喪」兩句，就是下面兩段的提綱。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">文章開首先破後立，否定「兵不利，戰不善」的一般看法，提出「弊在賂秦」的中心論點，再分出「賂秦而力虧」和「不賂者以賂者喪」兩個分論點，提綱挈領，統領下文。</div></div></div>
+
+<p style="margin:12px 0 4px"><b>蘇洵預先想到別人會反駁，於是自問自答：</b></p>
+<div class="chat"><div><div class="who">有人問</div><div class="bubble"><span class="bo">六國互喪，率賂秦耶？</span><span class="bp">六國相繼滅亡，全都是因為賄賂秦國嗎？</span></div></div><div class="row-r"><div class="who">蘇洵答</div><div class="bubble"><span class="bo">不賂者以賂者喪。蓋失強援，不能獨完，故曰『弊在賂秦』也。</span><span class="bp">不賄賂秦國的國家，因為賄賂秦國的國家滅亡而跟着滅亡。它們失去強大的援助，不能單獨保全，所以說「弊端在於賄賂秦國」。</span></div></div></div>
+
+<p class="small">齊、燕、趙沒有賂秦，為甚麼也說「弊在賂秦」？蘇洵用一問一答補上這個漏洞：它們是被賂秦的國家拖累的。</p>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>第二步：賂秦的國家怎樣越割越弱</h3>
+<svg class="chart" viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="百倍的對比"><rect x="0" y="0" width="760" height="210" rx="14" fill="var(--color-background-secondary)"/><g transform="translate(30 0)"><text x="160" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#96702F">秦國：得到的土地</text><rect x="20" y="56" width="280" height="40" rx="8" fill="#96702F" fill-opacity="0.8"/><text x="30" y="82" font-size="13" font-weight="700" fill="#fff">受賄賂所得</text><text x="292" y="82" text-anchor="end" font-size="13" font-weight="700" fill="#fff">100</text><rect x="20" y="112" width="6" height="40" rx="2" fill="#96702F"/><text x="36" y="138" font-size="13" fill="var(--color-text-primary)">戰勝所得　1</text><text x="160" y="186" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">「較秦之所得與戰勝而得者，其實百倍」</text></g><g transform="translate(400 0)"><text x="160" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#d0654a">諸侯：失去的土地</text><rect x="20" y="56" width="280" height="40" rx="8" fill="#d0654a" fill-opacity="0.8"/><text x="30" y="82" font-size="13" font-weight="700" fill="#fff">賂秦所失</text><text x="292" y="82" text-anchor="end" font-size="13" font-weight="700" fill="#fff">100</text><rect x="20" y="112" width="6" height="40" rx="2" fill="#d0654a"/><text x="36" y="138" font-size="13" fill="var(--color-text-primary)">戰敗所失　1</text><text x="160" y="186" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">「諸侯之所亡與戰敗而亡者，其實亦百倍」</text></g><text x="380" y="204" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">「百倍」是誇張的說法，用來強調相差極大</text></svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">秦國靠六國送的土地，比靠打仗搶來的土地多得多。所以秦國最想要的、六國最大的禍患，都不在戰場上。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body">蘇洵用兩組數字比較：秦國受賂所得，是戰勝所得的百倍；諸侯賂秦所失，是戰敗所失的百倍。一個越得越多，一個越失越多。<br><b>由此推出：</b>「秦之所大欲，諸侯之所大患，固不在戰矣」。六國的危機，在於不斷把土地送出去。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者以秦國受賂所得與戰勝所得、諸侯賂秦所失與戰敗所失作對比，突出賂秦使六國力虧、秦國坐大，論證「賂秦而力虧，破滅之道也」。</div></div></div>
+
+<div class="compare-grid" style="margin-top:10px">
+<div class="compare-card a"><div class="ct">先祖：辛苦得來</div>「暴霜露，斬荊棘，以有尺寸之地」：冒着霜露，斬除荊棘，才得到一點點土地。</div>
+<div class="compare-card b"><div class="ct">子孫：隨手送人</div>「子孫視之不甚惜，舉以予人，如棄草芥」：不珍惜祖先的土地，好像丟棄小草一樣送給別人。</div>
+</div>
+<p class="small">先祖得地艱難，子孫棄地輕易，兩者對比，帶出蘇洵的惋惜和批評。</p>
+</div>
+
+<div class="card"><h3><span class="dot red"></span>第三步：割地只換來一晚安睡</h3>
+<svg class="chart" viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="割地的惡性循環">
+<defs><marker id="arC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#c0392b"/></marker></defs>
+<rect x="0" y="0" width="680" height="330" rx="14" fill="var(--coral-bg)"/>
+<circle cx="340" cy="165" r="74" fill="var(--color-background-primary)" stroke="#c0392b" stroke-width="2"/>
+<text x="340" y="156" text-anchor="middle" font-size="15" font-weight="700" fill="#c0392b">地有限</text>
+<text x="340" y="182" text-anchor="middle" font-size="15" font-weight="700" fill="#c0392b">欲無厭</text>
+<g text-anchor="middle">
+<rect x="250" y="14" width="180" height="56" rx="12" fill="#96702F"/><text x="340" y="38" font-size="14" font-weight="700" fill="#FFF6E6">① 割地</text><text x="340" y="58" font-size="12" fill="#FFF6E6">今日割五城，明日割十城</text>
+<rect x="476" y="138" width="190" height="56" rx="12" fill="var(--color-background-primary)" stroke="#96702F"/><text x="571" y="162" font-size="14" font-weight="700" fill="#96702F">② 暫時平安</text><text x="571" y="182" font-size="12" fill="var(--color-text-primary)">然後得一夕安寢</text>
+<rect x="250" y="260" width="180" height="56" rx="12" fill="var(--color-background-primary)" stroke="#c0392b"/><text x="340" y="284" font-size="14" font-weight="700" fill="#c0392b">③ 敵人又來</text><text x="340" y="304" font-size="12" fill="var(--color-text-primary)">起視四境，而秦兵又至矣</text>
+<rect x="14" y="138" width="190" height="56" rx="12" fill="var(--color-background-primary)" stroke="#96702F"/><text x="109" y="162" font-size="14" font-weight="700" fill="#96702F">④ 再割更多</text><text x="109" y="182" font-size="12" fill="var(--color-text-primary)">奉之彌繁，侵之愈急</text>
+</g>
+<g stroke="#c0392b" stroke-width="2" fill="none">
+<path d="M432 50 C500 64 540 96 560 132" marker-end="url(#arC)"/>
+<path d="M560 198 C540 236 500 266 436 282" marker-end="url(#arC)"/>
+<path d="M246 282 C180 266 136 236 118 198" marker-end="url(#arC)"/>
+<path d="M118 134 C136 96 180 64 246 50" marker-end="url(#arC)"/>
+</g>
+</svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">今天割五城，明天割十城，只換來一晚安睡；第二天醒來，秦兵又到了。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>惡性循環：</b>六國以為割地就能換來和平，結果秦國得了土地，下一次要得更多。<br><b>關鍵一句：</b>「諸侯之地有限，暴秦之欲無厭」。土地會割完，秦國的貪心卻沒有滿足的時候，所以「奉之彌繁，侵之愈急」。<br><b>結論：</b>「不戰而強弱勝負已判矣」。還沒有開戰，勝負已經決定了，六國滅亡是「理固宜然」。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者以「今日割五城，明日割十城」的誇張筆法，寫出六國割地求安的苟且，並以「諸侯之地有限，暴秦之欲無厭」的對比，說明賂秦只會令秦國的侵略越來越急，六國必然滅亡。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>第四步：古人早就說過「抱薪救火」</h3>
+<svg class="chart" viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="抱薪救火的比喻">
+<defs><marker id="arF" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#96702F"/></marker>
+<radialGradient id="flF" cx="0.5" cy="0.8" r="0.7"><stop offset="0" stop-color="#FFE7B8"/><stop offset="0.6" stop-color="#E8964A"/><stop offset="1" stop-color="#C0392B"/></radialGradient></defs>
+<rect x="0" y="0" width="760" height="260" rx="14" fill="var(--amber-bg)"/>
+<text x="190" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#96702F">比喻</text>
+<text x="570" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#96702F">要說明的事</text>
+<g transform="translate(190 140)">
+<path d="M0 -84 C20 -56 44 -44 38 -10 C34 12 20 26 0 28 C-20 26 -38 12 -38 -12 C-38 -36 -18 -44 -14 -66 C-6 -52 0 -44 6 -38 C8 -52 6 -66 0 -84 Z" fill="url(#flF)"/>
+<g stroke="#7A5524" stroke-width="9" stroke-linecap="round"><path d="M-70 64 L60 36"/><path d="M-66 44 L66 60"/></g>
+<text x="0" y="104" text-anchor="middle" font-size="13" fill="var(--color-text-primary)">抱着柴草去救火</text>
+</g>
+<g font-size="14" text-anchor="middle">
+<rect x="430" y="52" width="280" height="44" rx="10" fill="var(--color-background-primary)"/><text x="570" y="80"><tspan font-weight="700" fill="#7A5524">薪（柴草）</tspan> → 六國的土地</text>
+<rect x="430" y="108" width="280" height="44" rx="10" fill="var(--color-background-primary)"/><text x="570" y="136"><tspan font-weight="700" fill="#c0392b">火</tspan> → 秦國的侵略野心</text>
+<rect x="430" y="164" width="280" height="62" rx="10" fill="var(--color-background-primary)"/><text x="570" y="190"><tspan font-weight="700">薪不盡，火不滅</tspan></text><text x="570" y="212" font-size="12.5">土地未割完，秦國不會停止侵略</text>
+</g>
+<g stroke="#96702F" stroke-width="2"><path d="M290 74 H424" marker-end="url(#arF)"/><path d="M290 130 H424" marker-end="url(#arF)"/><path d="M290 195 H424" marker-end="url(#arF)"/></g>
+</svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">用土地討好秦國，好比抱着柴草去救火：柴草越多，火燒得越旺，直到柴草燒完為止。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>引用：</b>「古人云」帶出前人的說法。這句話在《史記‧魏世家》中已有記載，是戰國時人勸魏王不要割地求和的話。<br><b>比喻：</b>「薪」比喻六國的土地，「火」比喻秦國的侵略野心。救火本來要減少可燒的東西，抱着柴草去救火，反而令火更旺。<br><b>作用：</b>用前人的話作證，增加說服力；用生活中容易明白的事作比喻，令道理具體淺白。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者引用古人「以地事秦，猶抱薪救火，薪不盡，火不滅」的說法，以「薪」喻六國土地，以「火」喻秦國的侵略野心，說明割地賂秦只會助長秦國的貪欲，加速自身滅亡；引用兼比喻，令論點更具說服力，又生動易明。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot blue"></span>第五步：不賂秦的國家為甚麼也滅亡</h3>
+<div class="story"><div class="sp"><div class="sp-n">1</div><div class="sp-e">🤝</div><div class="sp-t">齊國：親秦</div><div class="sp-x">齊國討好秦國，眼看其他五國被滅也不出手幫忙。五國滅亡後，齊國也保不住。</div><div class="sp-q">與嬴而不助五國也</div></div><div class="sp"><div class="sp-n">2</div><div class="sp-e">🛡</div><div class="sp-t">燕國：守住國土</div><div class="sp-x">燕國國力不強，卻堅持不割地，用武力守衞，所以雖是小國，卻較遲滅亡。</div><div class="sp-q">是故燕雖小國而後亡</div></div><div class="sp"><div class="sp-n">3</div><div class="sp-e">🗡</div><div class="sp-t">燕國：刺客惹禍</div><div class="sp-x">燕太子丹派荊軻行刺秦王，失敗後秦國大舉進攻，燕國更快招來禍患。</div><div class="sp-q">至丹以荊卿為計，始速禍焉</div></div><div class="sp"><div class="sp-n">4</div><div class="sp-e">⚔️</div><div class="sp-t">趙國：自毀長城</div><div class="sp-x">名將李牧多次擊退秦軍，趙王卻聽信讒言殺了他。不久都城邯鄲被攻破。</div><div class="sp-q">洎牧以讒誅，邯鄲為郡</div></div></div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">齊國親秦而不助五國，燕國用刺客惹禍，趙國錯殺良將。三國都失去了強大的援助，最後孤立無援。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>齊國：</b>從沒賂秦，卻「與嬴而不助五國」。其他五國滅亡後，齊國也無法獨存。<br><b>燕國：</b>國小卻後亡，是「用兵之效」，證明不賂秦是對的；直到太子丹派荊軻行刺，才「速禍」。<br><b>趙國：</b>五戰三勝，李牧連卻秦軍，證明趙國有能力抵抗；可惜李牧被讒言所害，「用武而不終」。<br><b>總結：</b>燕、趙處於秦國把其他國家「革滅殆盡」之際，孤立無援，戰敗而亡是「誠不得已」。這正好證明「不賂者以賂者喪」。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者分述齊、燕、趙三國的史實：齊國親秦不助五國，燕國以荊軻行刺而速禍，趙國錯殺李牧而亡；並指出燕、趙在其他國家相繼滅亡後孤立無援，論證「不賂者以賂者喪」的分論點。</div></div></div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">蘇洵也有讚許</div><div class="alert-text">蘇洵批評燕、趙的失誤，也肯定它們「始有遠略，能守其土，義不賂秦」。燕國「小國而後亡」、趙國「二敗而三勝」，都證明不賂秦、以武力抵抗是可行的。</div></div></div>
+<svg class="chart" viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="四個假如">
+<defs><marker id="arI" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#3d8b4f"/></marker></defs>
+<rect x="0" y="0" width="760" height="250" rx="14" fill="var(--green-bg)"/>
+<text x="20" y="30" font-size="14" font-weight="700" fill="#3d8b4f">向使（假如）……</text>
+<g font-size="13.5">
+<rect x="20" y="44" width="330" height="40" rx="10" fill="var(--color-background-primary)"/><text x="34" y="70"><tspan font-weight="700" fill="#d0654a">韓、魏、楚</tspan>　三國各愛其地</text>
+<rect x="20" y="94" width="330" height="40" rx="10" fill="var(--color-background-primary)"/><text x="34" y="120"><tspan font-weight="700" fill="#3a6ea5">齊</tspan>　齊人勿附於秦</text>
+<rect x="20" y="144" width="330" height="40" rx="10" fill="var(--color-background-primary)"/><text x="34" y="170"><tspan font-weight="700" fill="#3a6ea5">燕</tspan>　刺客不行</text>
+<rect x="20" y="194" width="330" height="40" rx="10" fill="var(--color-background-primary)"/><text x="34" y="220"><tspan font-weight="700" fill="#3a6ea5">趙</tspan>　良將猶在</text>
+</g>
+<g stroke="#3d8b4f" stroke-width="2" fill="none"><path d="M352 64 C420 64 420 139 470 139"/><path d="M352 114 C410 114 420 139 470 139"/><path d="M352 164 C410 164 420 139 470 139"/><path d="M352 214 C420 214 420 139 470 139"/><path d="M470 139 H500" marker-end="url(#arI)"/></g>
+<rect x="504" y="94" width="236" height="90" rx="14" fill="#3d8b4f"/>
+<text x="622" y="128" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">勝負之數，存亡之理</text>
+<text x="622" y="154" text-anchor="middle" font-size="14" fill="#fff">或未易量</text>
+<text x="622" y="174" text-anchor="middle" font-size="11.5" fill="#fff">誰勝誰負，還很難說</text>
+</svg>
+<p class="small">第3段最後連用四個假設，由反面說明：如果六國都不犯錯，誰勝誰負還很難說。</p>
+</div>
+
+<div class="card"><h3><span class="dot green"></span>第六步：如果把賂秦的土地拿來用人</h3>
+<div class="stage-row">
+<div class="stage s-a"><div class="stage-key">地</div><div class="stage-t">以賂秦之地</div>封天下之謀臣<br><span class="stage-w">土地用來封賞人才</span></div>
+<div class="stage-arrow">＋</div>
+<div class="stage s-b"><div class="stage-key">心</div><div class="stage-t">以事秦之心</div>禮天下之奇才<br><span class="stage-w">誠意用來禮待人才</span></div>
+<div class="stage-arrow">＋</div>
+<div class="stage s-c"><div class="stage-key">力</div><div class="stage-t">幷力西嚮</div>六國合力向西抗秦<br><span class="stage-w">團結一致</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-a" style="background:var(--amber-bg)"><div class="stage-key">果</div><div class="stage-t">秦人食之不得下嚥</div>秦國憂慮得吃不下飯<br><span class="stage-w">結果</span></div>
+</div><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">如果用割給秦國的土地封賞謀臣，用討好秦國的心思禮待人才，六國團結起來向西抗秦，秦國人恐怕連飯也吃不下。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>由批評轉為建議：</b>前兩段說六國做錯了甚麼，這一段說六國本來可以怎樣做。<br><b>對偶工整：</b>「以賂秦之地，封天下之謀臣；以事秦之心，禮天下之奇才」，兩句結構相同，把「賂秦」和「用人」放在一起比較。<br><b>兩聲感歎：</b>「嗚呼」「悲夫」，寫出蘇洵對六國坐失良機的惋惜。最後一句「為國者無使為積威之所劫哉」，由六國轉向所有治國的人。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">作者假設六國以賂秦之地封謀臣、以事秦之心禮奇才，幷力西嚮，則秦國恐怕寢食難安，從正面指出六國本有抗秦之勢；再以「嗚呼」「悲夫」抒發惋惜之情，告誡治國者勿為敵國積威所劫，為下文借古諷今作鋪墊。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>第七步：最後一句，才說出真正的對象</h3>
+<svg class="chart" viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="六國、秦國與北宋的比較"><defs><marker id="arL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#c0392b"/></marker></defs><rect x="0" y="0" width="760" height="290" rx="14" fill="var(--amber-bg)"/><path d="M30 236 H730" stroke="#96702F" stroke-width="2"/><rect x="70" y="146" width="150" height="90" rx="8" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-width="1.6"/><text x="145" y="184" text-anchor="middle" font-size="18" font-weight="700" fill="#3a6ea5">六國</text><text x="145" y="208" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">諸侯，勢弱於秦</text><rect x="260" y="106" width="150" height="130" rx="8" fill="#96702F" fill-opacity="0.85"/><text x="335" y="150" text-anchor="middle" font-size="18" font-weight="700" fill="#FFF6E6">秦</text><text x="335" y="174" text-anchor="middle" font-size="12" fill="#FFF6E6">諸侯中最強</text><rect x="450" y="40" width="150" height="196" rx="8" fill="var(--green-bg)" stroke="#3d8b4f" stroke-width="1.6"/><text x="525" y="80" text-anchor="middle" font-size="18" font-weight="700" fill="#3d8b4f">天下之大</text><text x="525" y="104" text-anchor="middle" font-size="12" fill="var(--color-text-primary)">統一天下的北宋</text><text x="525" y="124" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">條件最好</text><rect x="70" y="246" width="150" height="34" rx="8" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="5 4"/><text x="145" y="268" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c0392b">在六國下</text><path d="M600 140 C700 150 700 262 226 262" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arL)"/><text x="684" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">若從六國</text><text x="684" y="214" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">破亡之故事</text><text x="145" y="132" text-anchor="middle" font-size="11.5" fill="#3a6ea5">尚有不賂而勝之勢</text></svg><table>
+<tr><th class="c">比較</th><th>六國</th><th>北宋</th></tr>
+<tr><td class="c">地位</td><td>與秦同是諸侯（「六國與秦皆諸侯」）</td><td>統一天下的大國（「天下之大」）</td></tr>
+<tr><td class="c">形勢</td><td>勢力比秦弱，仍有不賂而勝的可能</td><td>條件比六國好得多</td></tr>
+<tr><td class="c">如果賂敵</td><td>國力虧損，終於滅亡</td><td>重蹈覆轍，「是又在六國下矣」</td></tr>
+</table><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">六國比秦國弱，尚且有機會不賂而勝；統一天下的大國如果還走六國的老路，就連六國也不如。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>「天下之大」指誰：</b>六國只是諸侯，北宋卻是統一天下的大國。蘇洵沒有直接說出「北宋」，讀者卻明白他在說甚麼。<br><b>為甚麼不直說：</b>直接批評朝廷，語氣太重，未必容易被接受。借評論六國來勸諫，語氣委婉，道理一樣清楚。<br><b>「是又在六國下矣」：</b>語氣強烈，是全文最重的一句警告。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">末段將六國與統一天下的大國作比較，指出後者若「從六國破亡之故事」，便「在六國下矣」，借古諷今，委婉地諷諭北宋朝廷不要向遼、西夏納幣求和，點明寫作目的。</div></div></div>
+
+</div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">五段怎樣連起來</div><div class="alert-text">第1段提出「賂秦而力虧」和「不賂者以賂者喪」兩句，第2、3段就按這個次序逐一證明；第4段由「做錯了甚麼」轉到「本來可以怎樣做」；第5段由六國轉到北宋。全文前後相承，到最後一段才點明寫作目的。</div></div></div>
+<div class="section-header ex" id="s6"><div class="icon">✏️</div><div><div class="chap">CHAPTER 06　練習</div><h2>練習三：內容理解</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>蘇洵認為六國滅亡的主要原因是：<ul class="opts"><li><b>A</b>兵器不鋒利</li><li><b>B</b>作戰不得法</li><li><b>C</b>割地賂秦</li><li><b>D</b>秦國太強大</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>根據文章內容，判斷以下陳述。<table><tr><th>陳述</th><th class="c ctr">正確</th><th class="c ctr">錯誤</th><th class="c ctr">無從判斷</th></tr><tr><td>（1）齊國曾割地賂秦。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（2）燕太子丹派荊軻行刺秦王，加速了燕國滅亡。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（3）韓國割給秦國的土地比楚國多。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（4）蘇洵認為燕、趙戰敗而亡，責任全在兩國君主。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）錯誤　（2）正確　（3）無從判斷　（4）錯誤<br><span class="ex">（1）文中說「齊人未嘗賂秦」。（2）文中說「至丹以荊卿為計，始速禍焉」。（3）文中沒有比較各國割地的多少。（4）蘇洵說燕、趙處於其他國家「革滅殆盡之際」，戰敗而亡「誠不得已」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>第1段哪兩句是全文的分論點？試摘錄原文。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）賂秦而力虧，破滅之道也　（2）不賂者以賂者喪</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>蘇洵為甚麼說「秦之所大欲，諸侯之所大患，固不在戰矣」？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）秦國受賄賂所得的土地，是戰勝所得的百倍；諸侯賂秦所失的土地，也是戰敗所失的百倍（1分）。可見秦國最想要的、諸侯最大的禍患，都在割地賂秦，而不在戰爭（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>「子孫視之不甚惜，舉以予人，如棄草芥」表現了六國子孫：<ul class="opts one"><li><b>A</b>慷慨大方，樂於助人</li><li><b>B</b>不珍惜祖先艱辛得來的土地</li><li><b>C</b>重視與鄰國的友誼</li><li><b>D</b>懂得審時度勢</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>試用自己的話，說明齊、燕、趙三國滅亡的原因。<table><tr><th class="c">國家</th><th>滅亡原因</th></tr><tr><td class="c">齊</td><td>（1）<span class="blank l"></span></td></tr><tr><td class="c">燕</td><td>（2）<span class="blank l"></span></td></tr><tr><td class="c">趙</td><td>（3）<span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）親附秦國，不幫助其他五國，五國亡後孤立無援　（2）太子丹派荊軻行刺秦王，招致禍患　（3）趙王聽信讒言，殺了名將李牧</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>蘇洵為甚麼說「燕雖小國而後亡，斯用兵之效也」？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）燕國國力弱小，卻能堅持不賂秦，以武力守住國土（1分），所以比韓、趙、魏、楚遲滅亡，這是用兵抵抗的成效（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>「以賂秦之地，封天下之謀臣」的意思是：<ul class="opts one"><li><b>A</b>把天下的謀臣送給秦國</li><li><b>B</b>用天下的謀臣換取秦國的土地</li><li><b>C</b>把賄賂秦國的土地封鎖起來</li><li><b>D</b>用賄賂秦國的土地，封賞天下的謀臣</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>「為秦人積威之所劫」中的「積威」指甚麼？六國怎樣被它「所劫」？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「積威」指秦國長期積累起來的威勢（1分）；六國害怕秦國，不敢抵抗，一天天、一月月地割地求和，以致滅亡（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>第5段「苟以天下之大」中的「天下之大」暗指甚麼？「是又在六國下矣」是甚麼意思？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）暗指統一天下的北宋（1分）；意思是如果北宋重蹈六國覆轍，就連六國也不如（1分）。</div></div></div>
+<div class="section-header" id="s7"><div class="icon">🖌</div><div><div class="chap">CHAPTER 07　教學</div><h2>蘇洵用了哪些寫法</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>先看全局：圍繞一個中心論點</h3>
+<svg class="chart" viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="五種論證方法">
+<rect x="0" y="0" width="720" height="330" rx="14" fill="var(--color-background-secondary)"/>
+<g stroke="#96702F" stroke-opacity="0.4" stroke-width="2"><path d="M360 165 L130 70 M360 165 L590 70 M360 165 L130 260 M360 165 L590 260 M360 165 V292"/></g>
+<rect x="250" y="128" width="220" height="74" rx="37" fill="#96702F"/>
+<text x="360" y="160" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF6E6">中心論點</text>
+<text x="360" y="184" text-anchor="middle" font-size="13" fill="#FFF6E6">六國破滅，弊在賂秦</text>
+<g text-anchor="middle">
+<rect x="20" y="24" width="220" height="84" rx="12" fill="var(--coral-bg)" stroke="#d0654a" stroke-opacity="0.5"/>
+<text x="130" y="52" font-size="15" font-weight="700" fill="#d0654a">① 對比論證</text>
+<text x="130" y="76" font-size="12.5" fill="var(--color-text-primary)">得地百倍；先祖與子孫</text>
+<text x="130" y="96" font-size="12" fill="var(--color-text-secondary)">突出賂秦的害處</text>
+<rect x="480" y="24" width="220" height="84" rx="12" fill="var(--amber-bg)" stroke="#96702F" stroke-opacity="0.5"/>
+<text x="590" y="52" font-size="15" font-weight="700" fill="#96702F">② 引用兼比喻</text>
+<text x="590" y="76" font-size="12.5" fill="var(--color-text-primary)">古人云：抱薪救火</text>
+<text x="590" y="96" font-size="12" fill="var(--color-text-secondary)">以前人的話作證</text>
+<rect x="20" y="222" width="220" height="84" rx="12" fill="var(--blue-bg)" stroke="#3a6ea5" stroke-opacity="0.5"/>
+<text x="130" y="250" font-size="15" font-weight="700" fill="#3a6ea5">③ 舉例論證</text>
+<text x="130" y="274" font-size="12.5" fill="var(--color-text-primary)">齊、燕、趙的史實</text>
+<text x="130" y="294" font-size="12" fill="var(--color-text-secondary)">用事實證明分論點</text>
+<rect x="480" y="222" width="220" height="84" rx="12" fill="var(--green-bg)" stroke="#3d8b4f" stroke-opacity="0.5"/>
+<text x="590" y="250" font-size="15" font-weight="700" fill="#3d8b4f">④ 假設論證</text>
+<text x="590" y="274" font-size="12.5" fill="var(--color-text-primary)">向使……；以賂秦之地……</text>
+<text x="590" y="294" font-size="12" fill="var(--color-text-secondary)">指出本來可行的出路</text>
+<rect x="270" y="270" width="180" height="50" rx="12" fill="var(--purple-bg)" stroke="#6b5ca5" stroke-opacity="0.5"/>
+<text x="360" y="292" font-size="14" font-weight="700" fill="#6b5ca5">⑤ 先破後立</text>
+<text x="360" y="311" font-size="11.5" fill="var(--color-text-secondary)">非兵不利 → 弊在賂秦</text>
+</g>
+</svg><p style="margin:12px 0 4px"><b>除了論證方法，還要留意四種寫法：</b></p>
+<div class="tk-grid">
+<div class="tk-c"><b>❓ 設問</b>自問自答，回應別人的疑問</div>
+<div class="tk-c"><b>📏 誇張</b>「百倍」「今日割五城，明日割十城」</div>
+<div class="tk-c"><b>💬 感歎</b>「嗚呼」「悲夫」，抒發惋惜</div>
+<div class="tk-c"><b>🪞 借古諷今</b>寫六國，勸北宋</div>
+</div>
+
+<p class="small">議論文考寫法，最常考論證方法。答題時要寫出三樣東西：用了甚麼方法、文中哪一句、有甚麼作用。</p>
+</div>
+<div class="card"><h3><span class="dot purple"></span>寫法一：先破後立</h3>
+<div class="tk"><div class="tk-i">🔨</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>先否定一種常見的看法（破），再提出自己的看法（立）。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「六國破滅，非兵不利，戰不善」：否定「兵器不好、仗打得差」的看法。</li><li>「弊在賂秦」：提出自己的看法，作為中心論點。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>開門見山，觀點鮮明；推翻舊說，令人覺得見解新穎，引起讀者追看。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot coral"></span>寫法二：對比論證</h3>
+<div class="tk"><div class="tk-i">↔️</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>把兩種相反的情況放在一起比較，突出要說明的道理。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>得失的對比：秦國受賂所得與戰勝所得「其實百倍」；諸侯賂秦所失與戰敗所失「其實亦百倍」。</li><li>先祖與子孫的對比：先祖「暴霜露，斬荊棘，以有尺寸之地」；子孫「舉以予人，如棄草芥」。</li><li>有限與無厭的對比：「諸侯之地有限，暴秦之欲無厭」。</li><li>六國與大國的對比：六國「弱於秦」尚有勝算；「天下之大」若重蹈覆轍，便「在六國下」。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>突出賂秦令六國越來越弱、秦國越來越強，有力地證明「賂秦而力虧」；先祖與子孫的對比，更帶出作者的惋惜和批評。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot amber"></span>寫法三：引用論證兼比喻論證</h3>
+<div class="tk"><div class="tk-i">🔥</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>引用前人的話作論據；那句話本身又是一個比喻。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「古人云：『以地事秦，猶抱薪救火，薪不盡，火不滅。』此言得之。」</li><li>「薪」比喻六國的土地，「火」比喻秦國的侵略野心。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>引用前人的話，增加說服力；比喻把抽象的道理說得具體易明：割地只會助長秦國的野心，土地割完，侵略才會停止。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot blue"></span>寫法四：舉例論證</h3>
+<div class="tk"><div class="tk-i">📚</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>用具體的事例證明論點。本文的例子全是歷史事實。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>齊國：「與嬴而不助五國也。五國既喪，齊亦不免矣。」</li><li>燕國：「至丹以荊卿為計，始速禍焉。」</li><li>趙國：「李牧連卻之；洎牧以讒誅，邯鄲為郡。」</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>以齊、燕、趙的史實，證明「不賂者以賂者喪」；燕國「小國而後亡」、趙國「二敗而三勝」，又證明不賂秦、以武力抵抗是可行的。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot green"></span>寫法五：假設論證</h3>
+<div class="tk"><div class="tk-i">💭</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>假設一種與事實不同的情況，推想可能的結果，從而證明論點。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「向使三國各愛其地，齊人勿附於秦，刺客不行，良將猶在，則勝負之數，存亡之理，當與秦相較，或未易量。」</li><li>「以賂秦之地，封天下之謀臣；以事秦之心，禮天下之奇才；幷力西嚮，則吾恐秦人食之不得下嚥也。」</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>從反面說明六國本來不一定滅亡，突出賂秦和種種失誤的禍害；第4段的假設更指出出路，為借古諷今作準備。</div>
+</div></div></div>
+<div class="card"><h3><span class="dot red"></span>寫法六：設問</h3>
+<div class="tk"><div class="tk-i">❓</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>自己提出問題，再自己回答。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>「或曰：『六國互喪，率賂秦耶？』曰：『不賂者以賂者喪……』」</li><li>「齊人未嘗賂秦，終繼五國遷滅，何哉？與嬴而不助五國也。」</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>預先回應讀者可能的疑問，令論證更周密；又能引起讀者注意，突出答案。</div>
+</div></div><table>
+<tr><th class="c">問</th><th>答</th><th>作用</th></tr>
+<tr><td class="c">六國互喪，率賂秦耶？</td><td>不賂者以賂者喪。</td><td rowspan="2">先代讀者提出疑問，再自己解答，令讀者留意，也令論證更周密。</td></tr>
+<tr><td class="c">齊人未嘗賂秦，終繼五國遷滅，何哉？</td><td>與嬴而不助五國也。</td></tr>
+</table></div>
+<div class="card"><h3><span class="dot teal"></span>寫法七：借古諷今</h3>
+<div class="tk"><div class="tk-i">🪞</div><div class="tk-b">
+<div class="tk-row"><span class="tk-l">是甚麼</span>借評論古代的人和事，委婉地批評當時的現實。</div>
+<div class="tk-row"><span class="tk-l">文中例子</span><ul class="tight"><li>全文評論六國賂秦而亡，最後一段說「苟以天下之大，而從六國破亡之故事，是又在六國下矣」。</li><li>「天下之大」暗指統一天下的北宋；「賂秦」暗指北宋向遼、西夏每年送銀、絹。</li></ul></div>
+<div class="tk-row"><span class="tk-l">有甚麼用</span>不直接批評朝廷，語氣委婉，卻令讀者明白作者的用意；以六國滅亡的教訓作警告，令勸諫更有力。</div>
+</div></div></div>
+
+<div class="card"><h3><span class="dot pink"></span>寫法八：情感和語氣</h3>
+<table>
+<tr><th class="c">寫法</th><th>文中例子</th><th>表達效果</th></tr>
+<tr><td class="c">誇張</td><td>「其實百倍」；「今日割五城，明日割十城」</td><td>強調賂秦的土地極多、割地極頻密，突出六國的苟且</td></tr>
+<tr><td class="c">對偶</td><td>「以賂秦之地，封天下之謀臣；以事秦之心，禮天下之奇才」</td><td>句式工整，節奏鏗鏘，把「賂秦」和「用人」對照</td></tr>
+<tr><td class="c">感歎</td><td>「嗚呼！」「悲夫！」「為國者無使為積威之所劫哉！」</td><td>抒發對六國坐失良機的惋惜，語氣沉痛</td></tr>
+<tr><td class="c">語氣詞</td><td>「破滅之道也」「固不在戰矣」「是又在六國下矣」</td><td>「也」表示肯定判斷，「矣」表示已成定局，語氣斬釘截鐵</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>結構：由論點到論證，由古代到當今</h3>
+<div class="stage-row">
+<div class="stage s-a"><div class="stage-key">一</div><div class="stage-t">提出論點</div>弊在賂秦，分出兩個分論點<br><span class="stage-w">第1段</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-b"><div class="stage-key">二</div><div class="stage-t">分別論證</div>賂秦三國；不賂秦三國<br><span class="stage-w">第2、3段</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-c"><div class="stage-key">三</div><div class="stage-t">假設出路</div>用人、合力，秦人難安<br><span class="stage-w">第4段</span></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-a" style="background:var(--amber-bg)"><div class="stage-key">四</div><div class="stage-t">借古諷今</div>由六國轉到北宋<br><span class="stage-w">第5段</span></div>
+</div>
+<div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">第1段先總說，第2、3段分說，第4段提出出路，第5段才點明寫作目的。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>總分結構：</b>第1段的「賂秦而力虧」和「不賂者以賂者喪」，分別由第2段和第3段論證，次序一致，條理分明。<br><b>層層推進：</b>先說六國錯在哪裏，再說六國本來可以怎樣做，最後才說到北宋。讀到最後一句，讀者才明白作者的用意。</div></div><div class="tri-row t3"><div class="tri-tag">考試這樣答</div><div class="tri-body">全文先提出中心論點及兩個分論點，再於第2、3段分別論證，第4段以假設指出出路，末段借古諷今，結構嚴謹，層層推進，首尾連貫。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot red"></span>主旨：蘇洵最想說甚麼</h3>
+<svg class="chart" viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="主旨三層"><rect x="0" y="0" width="760" height="250" rx="14" fill="var(--color-background-secondary)"/><path d="M220 26 H540 L580 86 H180 Z" fill="#96702F"/><text x="380" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF6E6">第三層　寄意（最深）</text><text x="380" y="74" text-anchor="middle" font-size="13.5" fill="#FFF6E6">北宋不應向遼、西夏納幣求和</text><path d="M176 92 H584 L624 152 H136 Z" fill="#D9B07C" fill-opacity="0.75"/><text x="380" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#3B2A14">第二層　道理</text><text x="380" y="140" text-anchor="middle" font-size="13.5" fill="#3B2A14">治國者不可被敵人的威勢嚇倒；割地只會助長敵人</text><path d="M132 158 H628 L668 218 H92 Z" fill="var(--amber-bg)" stroke="#96702F" stroke-opacity="0.5"/><text x="380" y="184" text-anchor="middle" font-size="13" font-weight="700" fill="#96702F">第一層　史實（表面）</text><text x="380" y="206" text-anchor="middle" font-size="13.5" fill="var(--color-text-primary)">六國破滅，弊在賂秦</text><g font-size="12" fill="var(--color-text-secondary)"><text x="700" y="60" text-anchor="middle">讀得越深</text><text x="700" y="196" text-anchor="middle">字面意思</text></g><path d="M700 178 V78" stroke="var(--color-text-secondary)" stroke-width="2"/><path d="M694 86 L700 74 L706 86" fill="none" stroke="var(--color-text-secondary)" stroke-width="2"/><text x="380" y="240" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">答主旨題時，三層都要寫：先說史實，再說道理，最後點出寄意</text></svg><div class="tri"><div class="tri-row t1"><div class="tri-tag">一句明白</div><div class="tri-body">六國亡於賂秦；北宋如果繼續花錢向外敵求和，結果會比六國更差。</div></div><div class="tri-row t2"><div class="tri-tag">再講清楚</div><div class="tri-body"><b>第一層（史實）：</b>六國滅亡的關鍵在於賂秦：賂秦的國家國力虧損，不賂秦的國家失去強援。<br><b>第二層（道理）：</b>治國的人不可被敵人的威勢嚇倒，割地求和只會助長敵人的野心。<br><b>第三層（寄意）：</b>北宋統一天下，條件比六國好，更不應向遼、西夏納幣求和。</div></div><div class="tri-row t3"><div class="tri-tag">必背</div><div class="tri-body">本文論證六國破滅「弊在賂秦」，指出賂秦者力虧而亡，不賂者因失強援而亡；並借古諷今，諷諭北宋朝廷切勿向遼、西夏納幣求和，以免重蹈六國覆轍。</div></div></div>
+
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>延伸知識：同一段歷史，不同的看法</h3>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">蘇轍《六國論》</div>蘇洵的兒子蘇轍認為，六國不明白天下的形勢：韓、魏是擋住秦國東進的屏障，其他國家卻沒有全力支援韓、魏。</div>
+<div class="compare-card b"><div class="ct">杜牧《阿房宮賦》</div>唐代杜牧寫道：「滅六國者六國也，非秦也。」意思是六國的滅亡，責任在六國自己。</div>
+</div>
+<p class="small">三篇文章都把六國滅亡的原因歸到六國自身。讀《六國論》時要記住，蘇洵的重點是「賂秦」，答題時不可混淆。</p>
+</div>
+
+<div class="section-header ex" id="s8"><div class="icon">✏️</div><div><div class="chap">CHAPTER 08　練習</div><h2>練習四：寫作手法與主旨</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「六國破滅，非兵不利，戰不善，弊在賂秦」運用了：<ul class="opts"><li><b>A</b>先破後立</li><li><b>B</b>先抑後揚</li><li><b>C</b>倒敘</li><li><b>D</b>欲擒故縱</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「古人云：『以地事秦，猶抱薪救火，薪不盡，火不滅。』」運用了：<ul class="opts one"><li><b>A</b>舉例論證</li><li><b>B</b>假設論證</li><li><b>C</b>引用論證兼比喻論證</li><li><b>D</b>對比論證</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>把左邊的文句與右邊的寫法配對，把代表答案的英文字母填在括號內。<table><tr><th>文句</th><th class="c ctr">答案</th><th>寫法</th></tr><tr><td>（1）齊人未嘗賂秦，終繼五國遷滅，何哉？與嬴而不助五國也。</td><td class="ctr">（　　）</td><td>A　舉例論證</td></tr><tr><td>（2）向使三國各愛其地，齊人勿附於秦……或未易量。</td><td class="ctr">（　　）</td><td>B　設問</td></tr><tr><td>（3）思厥先祖父，暴霜露……舉以予人，如棄草芥。</td><td class="ctr">（　　）</td><td>C　對比論證</td></tr><tr><td>（4）趙嘗五戰于秦，二敗而三勝，後秦擊趙者再，李牧連卻之。</td><td class="ctr">（　　）</td><td>D　假設論證</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）B　（2）D　（3）C　（4）A</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">4.</span><span class="lv lv2">理解</span>本文的中心論點是甚麼？試摘錄原文，並用自己的話解釋。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「六國破滅，非兵不利，戰不善，弊在賂秦」（1分）；六國滅亡的原因不在兵器和作戰，在於割地討好秦國（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>「今日割五城，明日割十城」運用了甚麼修辭手法？有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）誇張（1分）；強調六國割地頻密、數量越來越多，突出它們苟且求安（1分）。<br><span class="ex">答「對偶」並說明句式工整、節奏明快，亦可給分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「以地事秦，猶抱薪救火，薪不盡，火不滅」中，「薪」和「火」分別比喻甚麼？這個比喻說明了甚麼道理？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）「薪」比喻六國的土地（1分），「火」比喻秦國的侵略野心（1分）；說明割地賂秦只會助長秦國的野心，土地割完，侵略才會停止，六國終必滅亡（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>蘇洵寫作本文的目的是：<ul class="opts"><li><b>A</b>讚揚秦國統一天下</li><li><b>B</b>批評燕太子丹魯莽</li><li><b>C</b>惋惜李牧被殺</li><li><b>D</b>諷諭北宋朝廷不要賂敵求和</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv3">進階</span>第4段的「嗚呼」「悲夫」表達了蘇洵怎樣的感情？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）表達對六國的惋惜（1分）：六國本來有不賂秦而抗秦的形勢，卻被秦國的積威嚇倒，日削月割，終於滅亡（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>第1段與第2、3段在結構上有甚麼關係？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）第1段提出「賂秦而力虧」和「不賂者以賂者喪」兩個分論點（1分）；第2段論證前者，第3段論證後者，次序一致，是總分結構（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>第3段「惜其用武而不終也」表達了蘇洵怎樣的看法？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）蘇洵肯定趙國用武力抵抗秦國的做法（1分）；可惜趙王錯殺李牧，未能堅持到底，終於滅亡（1分）。</div></div></div>
+<div class="section-header ex" id="s9"><div class="icon">📝</div><div><div class="chap">CHAPTER 09　模擬試題</div><h2>DSE 模擬試題</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">作答提示</div><div class="alert-text">本卷共20題，滿分70分。題型參照文憑試卷一甲部「指定文言篇章」：第1至13題為短答題，包括字詞解釋、語譯、選擇、判斷及填表；第14至20題為長問答，每題6分，分別考核論證結構、對比論證、引用及比喻、內容理解、文意評鑒、寫作手法及句式語氣。<br>（1）解釋字詞要按句意作答，通假字要寫出相同的字和意思。<br>（2）語譯要把關鍵字詞逐一譯出，句子要通順。<br>（3）長問答要「先答重點，再引原文，後加說明」，不可只抄原文。</div></div></div>
+<div class="qsub">甲　短答題（第1至13題）</div>
+<div class="qbox"><span class="mark">（5分）</span><span class="qn">1.</span>解釋下列文句中的粗體字。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）<b>弊</b>在賂秦</td><td><span class="blank l"></span></td></tr><tr><td>（2）<b>固</b>不在戰矣</td><td><span class="blank l"></span></td></tr><tr><td>（3）<b>與</b>嬴而不助五國也</td><td><span class="blank l"></span></td></tr><tr><td>（4）<b>洎</b>牧以讒誅</td><td><span class="blank l"></span></td></tr><tr><td>（5）無使為積威之所<b>劫</b>哉</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（5分，每項1分）（1）毛病、癥結　（2）本來　（3）親附、結交　（4）及、等到　（5）脅迫、威嚇</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">2.</span>解釋下列文句中的粗體字詞。<table><tr><th>文句</th><th>解釋</th></tr><tr><td>（1）<b>向使</b>三國各愛其地</td><td><span class="blank l"></span></td></tr><tr><td>（2）是又在六國<b>下</b>矣</td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）假使　（2）不如</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span>「後秦擊趙者<b>再</b>」中「再」的意思是：<ul class="opts"><li><b>A</b>再一次</li><li><b>B</b>兩次</li><li><b>C</b>繼續</li><li><b>D</b>重新</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">古文的「再」多解作兩次。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span>下列哪一項中的「之」，用法與「李牧連卻<b>之</b>」的「之」相同？<ul class="opts one"><li><b>A</b>破滅<strong>之</strong>道也</li><li><b>B</b>子孫視<strong>之</strong>不甚惜</li><li><b>C</b>為秦人積威<strong>之</strong>所劫</li><li><b>D</b>有如此<strong>之</strong>勢</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B<br><span class="ex">「李牧連卻之」和「子孫視之不甚惜」的「之」都是代詞，分別指秦軍和土地；其餘三項的「之」都是助詞。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">5.</span>「故不戰而強弱勝負已<b>判</b>矣」中「判」的意思是：<ul class="opts"><li><b>A</b>判決</li><li><b>B</b>批判</li><li><b>C</b>判斷</li><li><b>D</b>分出</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span>把以下文句譯為語體文。<div class="excerpt">且燕趙處秦革滅殆盡之際，可謂智力孤危，戰敗而亡，誠不得已。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）而且燕國和趙國處於秦國把其他國家消滅得幾乎淨盡的時候，可說是智謀窮盡、力量孤單、處境危急，戰敗而滅亡，確實是迫不得已。<br><span class="ex">「革滅殆盡」譯為消滅得幾乎淨盡（1分）；「誠不得已」譯為確實是迫不得已（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span>把以下文句譯為語體文。<div class="excerpt">今日割五城，明日割十城，然後得一夕安寢，起視四境，而秦兵又至矣。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）今天割讓五座城，明天割讓十座城，然後才換來一晚安睡；起來察看四方邊境，秦國的軍隊又來了。<br><span class="ex">「一夕安寢」譯為一晚安睡（1分）；「起視四境」譯為起來察看四方邊境（1分）。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">8.</span>根據文章內容，判斷以下陳述。<table><tr><th>陳述</th><th class="c ctr">正確</th><th class="c ctr">錯誤</th><th class="c ctr">無從判斷</th></tr><tr><td>（1）秦國所得的土地，全部來自六國賂秦。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（2）蘇洵認為六國與秦國同是諸侯。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（3）荊軻在行刺秦王時身亡。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr><tr><td>（4）蘇洵認為齊國因親附秦國而得以保存。</td><td class="ctr">○</td><td class="ctr">○</td><td class="ctr">○</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）錯誤　（2）正確　（3）無從判斷　（4）錯誤<br><span class="ex">（1）秦國也從「攻取」「戰勝」中得地，只是受賂所得是戰勝所得的百倍。（2）文中說「六國與秦皆諸侯」。（3）文中只說「刺客」，沒有交代荊軻的下場。（4）文中說「五國既喪，齊亦不免矣」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">9.</span>試根據第2段，完成下表。<table><tr><th class="c">對比的內容</th><th>一方</th><th>另一方</th></tr><tr><td class="c">先祖與子孫</td><td>先祖：暴霜露，斬荊棘，以有尺寸之地</td><td>子孫：（1）<span class="blank l"></span></td></tr><tr><td class="c">兩種得地的方法</td><td>秦國受賄賂所得的土地</td><td>是戰勝所得的（2）<span class="blank s"></span>倍</td></tr><tr><td class="c">土地與慾望</td><td>諸侯之地：（3）<span class="blank s"></span></td><td>暴秦之欲：（4）<span class="blank s"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）視之不甚惜，舉以予人，如棄草芥　（2）百　（3）有限　（4）無厭</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">10.</span>「則吾恐秦人食之不得下嚥也」的意思是：<ul class="opts one"><li><b>A</b>秦國人會憂慮得吃不下飯</li><li><b>B</b>秦國缺乏糧食</li><li><b>C</b>秦國人生病，不能進食</li><li><b>D</b>秦國的食物難以下嚥</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">11.</span>「蓋失強援，不能獨完」中的「強援」指甚麼？為甚麼說這些國家「不能獨完」？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）「強援」指賂秦的韓、魏、楚三國（1分）；這三國因賂秦而先後滅亡，齊、燕、趙失去它們的援助，孤立無援，不能單獨保全（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">12.</span>「苟以天下之大」中的「天下之大」暗指：<ul class="opts"><li><b>A</b>秦國</li><li><b>B</b>六國</li><li><b>C</b>北宋</li><li><b>D</b>遼國</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">13.</span>「是故燕雖小國而後亡，斯用兵之效也」中的「斯」指甚麼？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）指燕國雖是小國，卻較遲才滅亡（1分）；這是燕國堅持不賂秦、以武力抵抗的結果（1分）。</div></div></div>
+
+<div class="qsub">乙　長問答（第14至20題，每題6分）</div>
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">14.</span><span class="qtag">論證結構</span>蘇洵如何在第1段提出全文的論點，並在第2、3段加以論證？試加以析述。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）第1段先否定「兵不利，戰不善」的一般看法，提出中心論點「弊在賂秦」（1分）；再分出「賂秦而力虧」和「不賂者以賂者喪」兩個分論點（1分），並以設問回應不賂秦的國家為何也滅亡的疑問（1分）。第2段論證前者：秦國受賂所得、諸侯賂秦所失均是戰爭得失的百倍，割地越多，秦國侵略越急，正如抱薪救火（1分）。第3段論證後者：齊國親秦不助五國，燕、趙在其他國家「革滅殆盡」後孤立無援（1分）。兩段次序與第1段一致，總分分明，論證嚴密（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">15.</span><span class="qtag">對比論證</span>第2段如何運用對比論證「賂秦而力虧」？試舉兩例加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）例一：作者將秦國受賂所得與戰勝所得、諸侯賂秦所失與戰敗所失作對比（1分），指出兩者「其實百倍」（1分），突出賂秦令秦國越來越強，六國越來越弱，論證賂秦使六國「力虧」（1分）。例二：作者將先祖「暴霜露，斬荊棘，以有尺寸之地」與子孫「舉以予人，如棄草芥」作對比（1分），突出先祖得地艱難、子孫棄地輕易（1分），批評六國輕率割地，自招滅亡（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table><br><span class="ex">亦可舉「諸侯之地有限，暴秦之欲無厭」為例，說明土地有限而秦國貪欲無窮，割地只會令秦國「侵之愈急」。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">16.</span><span class="qtag">引用及比喻</span>試析「古人云：『以地事秦，猶抱薪救火，薪不盡，火不滅。』此言得之」一句在文中的作用。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）此句運用引用論證，借古人的說法作論據（1分），並以「此言得之」表示認同，增加說服力（1分）。引文本身是比喻：「薪」比喻六國的土地，「火」比喻秦國的侵略野心（1分），說明割地賂秦只會助長秦國的貪欲，土地割完，侵略才會停止（1分）。這個比喻把抽象的道理說得具體淺白（1分）；放在第2段末，總結「奉之彌繁，侵之愈急」的道理，有力地論證「賂秦而力虧，破滅之道也」（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">17.</span><span class="qtag">內容理解</span>蘇洵如何以齊、燕、趙三國的史實，論證「不賂者以賂者喪」？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）齊國從未賂秦，卻「與嬴而不助五國」，五國滅亡後，齊國孤立無援，終於「不免」（1分）。燕、趙起初「能守其土，義不賂秦」，燕國「小國而後亡」，趙國「二敗而三勝」，可見不賂秦是可以抵抗秦國的（1分）。後來燕國以荊軻行刺而「速禍」，趙國錯殺李牧而「邯鄲為郡」（1分）。作者指出燕、趙身處秦國把其他國家「革滅殆盡之際」，「智力孤危」，戰敗而亡是「誠不得已」（1分）。三國滅亡，都因賂秦的韓、魏、楚先亡，令它們失去強援（1分），從而論證「不賂者以賂者喪」（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">18.</span><span class="qtag">文意評鑒</span>有人認為，第3段指出燕國亡於派遣刺客、趙國亡於錯殺良將，與第1段「弊在賂秦」的中心論點互相矛盾。你是否同意？試結合文意加以析述。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）不同意（1分）。蘇洵第1段已指出，不賂秦的國家「以賂者喪」，因「失強援，不能獨完」（1分）。第3段寫燕、趙的失誤，是說明它們在孤立無援時再犯錯，加速了滅亡（1分）；作者同時強調燕、趙「處秦革滅殆盡之際」，「智力孤危」，戰敗是「誠不得已」，滅亡的根源仍在賂秦的國家先亡（1分）。而且燕國「小國而後亡」、趙國「二敗而三勝」，正好證明不賂秦是有效的（1分）。所以第3段補充了燕、趙的具體亡因，仍然支持「弊在賂秦」的中心論點（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>立場清晰，能扣連第1段的分論點和第3段的史實，具體說明兩者的關係，闡述完備</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>立場清晰，能引用部分原文說明，闡述一般</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能表明立場，或說明粗疏，未能扣連文意</td></tr></table><br><span class="ex">答「同意」亦可，例如指出蘇洵在第3段把燕、趙的滅亡歸於刺客和錯殺良將，令「賂秦」只是原因之一；但須結合文意說明，並回應作者「誠不得已」「失強援」等說法，再按品第給分。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">19.</span><span class="qtag">寫作手法</span>試分析末段「夫六國與秦皆諸侯……是又在六國下矣」的寄意，並說明作者運用了甚麼寫作手法表達這個寄意。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）寄意：「天下之大」暗指統一天下的北宋（1分）。北宋向遼、西夏每年送銀、絹求和，作者藉此警告朝廷，如果重蹈六國賂秦的覆轍，便連六國也不如（1分）。手法一：借古諷今，全文評論六國，到末段才轉向現實，不直接批評朝廷，語氣委婉而用意明確（1分）。手法二：對比，以六國「與秦皆諸侯」「其勢弱於秦」與「天下之大」相比（1分），突出北宋的條件遠勝六國，更不應賂敵（1分）。末句以「矣」作結，語氣斬釘截鐵，加強警告的力量（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+
+<div class="qbox"><span class="mark">（6分）</span><span class="qn">20.</span><span class="qtag">句式語氣</span>試分析第4段「嗚呼！以賂秦之地，封天下之謀臣；以事秦之心，禮天下之奇才；幷力西嚮，則吾恐秦人食之不得下嚥也。悲夫！……為國者無使為積威之所劫哉！」的句式特點及表達效果。<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（6分，示例）「以賂秦之地，封天下之謀臣；以事秦之心，禮天下之奇才」兩句結構相同，構成對偶（1分），句式工整，把「賂秦」與「用人」對照，突出六國本來可以把土地和心思用在對的地方（1分）。全段以「則吾恐秦人食之不得下嚥也」作假設的結果（1分），說明六國若團結用人，秦國也會寢食難安，突出六國坐失良機（1分）。段中以「嗚呼」「悲夫」感歎，抒發作者的惋惜和悲痛（1分）；末句「為國者無使為積威之所劫哉」以「哉」作結，語氣懇切，由六國轉向所有治國者，為末段借古諷今作鋪墊（1分）。<table style="margin-top:6px"><tr><th class="c">品第</th><th class="c">分數</th><th>描述</th></tr><tr><td class="c">上品</td><td class="c">5–6</td><td>理解準確，能扣連原文作具體分析，要點齊全，條理分明</td></tr><tr><td class="c">中品</td><td class="c">3–4</td><td>理解大致準確，能引用部分原文分析，要點欠完整</td></tr><tr><td class="c">下品</td><td class="c">1–2</td><td>只能寫出個別要點，分析粗疏，或只抄錄原文而欠說明</td></tr></table></div></div></div>
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
