@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGCSE 中文閱讀與寫作模擬卷（三）| 潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;
+  --color-text-secondary:#555;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --hero-bg:#4F6072;
+  --hero-text:#ffffff;
+  --accent:#4F6072;
+  --accent-soft:#dfe5ec;
+  --purple:#7c5cbf;--purple-bg:#f5f0fa;
+  --teal:#2a9d8f;--teal-bg:#e6f5f3;
+  --coral:#e76f51;--coral-bg:#fdece7;
+  --amber:#e0a030;--amber-bg:#fff6e5;
+  --pink:#d6537a;--pink-bg:#fdeaf1;
+  --blue:#5b8bc4;--blue-bg:#eaf3fc;
+  --green:#2f9e6c;--green-bg:#eafaf0;
+  --red:#c0392b;--red-bg:#fdeaea;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-text-primary:#eee;
+    --color-text-secondary:#aaa;
+    --color-background-primary:#1c1c1e;
+    --color-background-secondary:#242426;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --accent-soft:#2c3540;
+    --purple-bg:#2a2335;--teal-bg:#1d2e2c;--coral-bg:#35241f;--amber-bg:#33291a;
+    --pink-bg:#33202a;--blue-bg:#1d2833;--green-bg:#1c2e25;--red-bg:#352020;
+  }
+  .alert,.example-box,.compare-card{color:var(--color-text-primary) !important;}
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;background:var(--color-background-secondary);color:var(--color-text-primary);line-height:1.8;}
+h1,h2,h3,h4{font-family:"Noto Serif TC",serif;}
+.wrap{max-width:920px;margin:0 auto;padding:24px 16px 100px;}
+
+/* Hero：汴京暮色藍，暗花為古錢錦紋，交點綴金色菱花 */
+.hero{position:relative;overflow:hidden;background-color:var(--hero-bg);color:var(--hero-text);border-radius:var(--border-radius-lg);padding:42px 28px;margin-bottom:26px;text-align:center;
+  background-image:
+    radial-gradient(ellipse at 15% 0%,rgba(255,255,255,.10),transparent 55%),
+    radial-gradient(ellipse at 100% 100%,rgba(197,160,89,.16),transparent 50%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.10' stroke-width='1'%3E%3Ccircle cx='0' cy='0' r='32'/%3E%3Ccircle cx='64' cy='0' r='32'/%3E%3Ccircle cx='0' cy='64' r='32'/%3E%3Ccircle cx='64' cy='64' r='32'/%3E%3Ccircle cx='32' cy='32' r='32'/%3E%3Ccircle cx='32' cy='32' r='5' stroke-opacity='0.14'/%3E%3C/g%3E%3Cg fill='%23E2C98F' fill-opacity='0.22'%3E%3Cpath d='M32 0l3 3-3 3-3-3z'/%3E%3Cpath d='M0 32l3 3-3 3-3-3z'/%3E%3Cpath d='M64 32l3 3-3 3-3-3z'/%3E%3Cpath d='M32 64l3-3 3 3-3 3z'/%3E%3Ccircle cx='32' cy='32' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:auto,auto,64px 64px;}
+.hero::after{content:"";position:absolute;right:-30px;bottom:-30px;width:170px;height:170px;border-radius:50%;border:1px solid rgba(255,255,255,.14);box-shadow:0 0 0 14px rgba(255,255,255,.04),0 0 0 28px rgba(255,255,255,.03);pointer-events:none;}
+.hero > *{position:relative;z-index:1;}
+.hero-tag{display:inline-block;border:1px solid rgba(255,255,255,0.35);color:rgba(255,255,255,0.82);border-radius:20px;padding:4px 16px;font-size:13px;letter-spacing:1px;margin-bottom:14px;}
+.hero h1{font-size:26px;font-weight:900;margin:0 0 6px;line-height:1.5;}
+.hero .sub{font-size:14px;color:rgba(255,255,255,0.78);margin-bottom:4px;}
+.hero p{margin:0;font-size:14px;color:rgba(255,255,255,0.6);}
+
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px;}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:10px;}
+.toc-item{display:block;padding:6px 0;font-size:14px;color:var(--color-text-primary);text-decoration:none;border-bottom:0.5px dashed var(--color-border-tertiary);}
+.toc-item:last-child{border-bottom:none;}
+.toc-num{color:var(--color-text-secondary);margin-right:8px;}
+
+.section-header{display:flex;align-items:center;gap:12px;margin:34px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--accent);}
+.section-header .icon{font-size:24px;}
+.section-header h2{font-size:19px;margin:0;flex:1;}
+.section-header .chno{font-size:12px;color:var(--color-text-secondary);background:var(--color-background-primary);padding:3px 10px;border-radius:12px;white-space:nowrap;}
+
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;}
+.subsection-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:8px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.dot.blue{background:var(--blue);} .dot.teal{background:var(--teal);} .dot.coral{background:var(--coral);}
+.dot.amber{background:var(--amber);} .dot.pink{background:var(--pink);} .dot.purple{background:var(--purple);}
+.card p{font-size:14px;margin:0 0 6px;}
+
+.passage{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:5px solid var(--accent);border-radius:var(--border-radius-lg);padding:20px 24px;margin-bottom:18px;font-family:"Noto Serif TC",serif;}
+.passage .p-title{font-weight:700;font-size:17px;margin-bottom:12px;text-align:center;}
+.passage p{font-size:15px;line-height:2;margin:0 0 10px;display:flex;gap:10px;}
+.pnum{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-family:"Noto Sans TC",sans-serif;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;margin-top:6px;}
+.passage-label{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:3px 10px;margin-bottom:10px;}
+
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:12px 14px;margin:10px 0;align-items:flex-start;}
+.alert-icon{font-size:18px;flex-shrink:0;}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px;}
+.alert-text{font-size:13.5px;line-height:1.7;}
+.alert.tip{background:var(--blue-bg);color:#1c3d5a;} .alert.tip .alert-label{color:#2a6bab;}
+.alert.warn{background:var(--red-bg);color:#5a1c1c;} .alert.warn .alert-label{color:var(--red);}
+.alert.amber{background:var(--amber-bg);color:#5a3d10;} .alert.amber .alert-label{color:#c98a1a;}
+
+.formula{background:#2b3642;color:#eef4f5;border-radius:var(--border-radius-lg);padding:18px 22px;margin:14px 0;font-size:14px;line-height:2;}
+.formula b{color:#e2c98f;}
+
+.viewpoint-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.viewpoint-bubble{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 16px;font-size:14px;text-align:center;border:1px solid var(--color-border-tertiary);}
+.viewpoint-bubble .vp-tag{font-size:11px;color:var(--color-text-secondary);display:block;margin-top:6px;}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.compare-card{border-radius:var(--border-radius-md);padding:14px 16px;font-size:13.5px;line-height:1.75;}
+.compare-card .cc-label{font-weight:700;font-size:13px;margin-bottom:6px;display:block;}
+.compare-card.good{background:var(--green-bg);} .compare-card.good .cc-label{color:var(--green);}
+.compare-card.bad{background:var(--red-bg);} .compare-card.bad .cc-label{color:var(--red);}
+
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0;}
+.flow-step{background:var(--accent-soft);color:var(--color-text-primary);border-radius:20px;padding:8px 16px;font-size:13px;}
+.flow-arrow{font-size:16px;color:var(--color-text-secondary);}
+
+table.level-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;}
+.level-table th,.level-table td{border:0.5px solid var(--color-border-tertiary);padding:8px 10px;text-align:left;vertical-align:top;}
+.level-table th{background:var(--color-background-secondary);font-weight:700;}
+.level-table .c{white-space:nowrap;}
+
+.qsub{font-weight:700;font-size:14.5px;margin:6px 0 10px;color:var(--color-text-secondary);}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px;}
+.qn{font-weight:700;margin-right:6px;}
+.mark{font-size:12.5px;color:var(--color-text-secondary);margin-left:4px;white-space:nowrap;}
+.line{border-bottom:1px solid var(--color-border-tertiary);height:30px;}
+.box{display:inline-block;width:14px;height:14px;border:1.5px solid var(--color-text-secondary);border-radius:3px;vertical-align:-2px;margin:0 4px 0 2px;}
+.opts{margin:8px 0 4px;}
+.opts span{margin-right:20px;white-space:nowrap;}
+.formhead{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;font-size:14px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:12px;}
+
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .note{font-size:13px;color:var(--color-text-secondary);}
+.ans .model{font-family:"Noto Serif TC",serif;line-height:2;}
+
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:8px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-primary);box-shadow:0 3px 12px rgba(0,0,0,.18)}
+.tb-btn.primary{background:#4F6072;color:#fff;font-weight:700}
+.ans-bar .tb-btn{box-shadow:none;border:1px solid var(--green);color:var(--green);padding:4px 14px;font-size:12.5px;background:transparent}
+
+@media (max-width:600px){
+  .viewpoint-grid,.compare-grid,.formhead{grid-template-columns:1fr;}
+  .hero h1{font-size:21px;}
+  .passage{padding:16px 16px;}
+}
+
+@media print{
+  @page{margin:12mm 10mm;}
+  body{background:white;}
+  .wrap{max-width:100%;padding:0;}
+  .toc{display:none;}
+  a{color:inherit;text-decoration:none;}
+  .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .card,.qbox,.example-box,.alert,.formula{page-break-inside:avoid;}
+  .section-header{page-break-before:always;page-break-after:avoid;}
+  .section-header.first{page-break-before:auto;}
+  .hero{page-break-after:avoid;}
+  .qsub{page-break-after:avoid;}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .toolbar,.ans-bar,.ans-btn{display:none !important;}
+  .ans-wrap{margin-top:6px;}
+  body.print-student .ans-wrap{display:none !important;}
+  body.print-teacher .ans{display:block !important;}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">閱讀與寫作模擬練習</div>
+    <h1>IGCSE 中文閱讀與寫作模擬卷（三）</h1>
+    <div class="sub">Chinese as a Second Language 0523 Paper 1　練習一、二、四、五</div>
+    <p>潘SIR中文教室編撰</p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">目錄</div>
+    <a class="toc-item" href="#s1"><span class="toc-num">01</span>考生須知</a>
+    <a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：填空式閱讀理解——〈攀石少女江雨桐〉</a>
+    <a class="toc-item" href="#s3"><span class="toc-num">03</span>練習二：問答式閱讀理解——〈四天工作週〉</a>
+    <a class="toc-item" href="#s4"><span class="toc-num">04</span>練習四：引導式寫作——博客</a>
+    <a class="toc-item" href="#s5"><span class="toc-num">05</span>練習五：引導式寫作——書信（表明立場）</a>
+  </nav>
+
+  <!-- ============ 01 考生須知 ============ -->
+  <div class="section-header first" id="s1">
+    <div class="icon">📋</div>
+    <h2>考生須知</h2>
+    <div class="chno">CHAPTER 01</div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot blue"></span>本卷結構</div>
+    <p>本模擬卷按 IGCSE 0523 Paper 1 的題型擬定，略去練習三（人物配對題），全卷共 50 分，建議作答時間為 1 小時 30 分鐘。</p>
+    <div class="formula">
+      <b>練習一</b>　填空式閱讀理解（第1–8題）── 8 分　建議 12 分鐘<br>
+      <b>練習二</b>　問答式閱讀理解（第9–18題）── 12 分　建議 20 分鐘<br>
+      <b>練習四</b>　引導式寫作：博客，100–120字（第19題）── 8 分　建議 18 分鐘<br>
+      <b>練習五</b>　引導式寫作：書信，250–300字（第20題）── 22 分　建議 40 分鐘<br>
+      合計：8 + 12 + 8 + 22 = <b>50 分</b>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot teal"></span>作答提示</div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">閱讀部分</div>
+        <div class="alert-text">用詞與參考答案不同但意思相同，亦可得分。題目寫明「兩項」的，每項各佔一分。問感受的題目，須用自己的話概括，只抄原文句子不一定得分。</div>
+      </div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">寫作部分</div>
+        <div class="alert-text">必須回應題目列出的全部要點，並注意文體格式及字數。練習五必須表明立場。寫作部分會評核錯別字及語句是否通順。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 02 練習一 ============ -->
+  <div class="section-header" id="s2">
+    <div class="icon">📖</div>
+    <h2>練習一：填空式閱讀理解</h2>
+    <div class="chno">CHAPTER 02　8分</div>
+  </div>
+  <div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+  <div class="card">
+    <p>閱讀以下短文，然後代江雨桐填寫《國際青少年攀石邀請賽報名表》。答案只須寫關鍵詞語，毋須寫完整句子。</p>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文</div>
+    <div class="p-title">攀石少女江雨桐</div>
+    <p><span class="pnum">1</span><span>江雨桐二〇一〇年生於雲南昆明，十歲隨父母移居香港，現於九龍一所中學讀中四。她的父親是登山嚮導，母親是游泳教練，她從小便常在郊外跑跳。真正讓她迷上攀石的，是十二歲那年在商場看見的一面人工攀石牆。</span></p>
+    <p><span class="pnum">2</span><span>攀石比賽分為抱石、先鋒和速度三個項目。雨桐最初練習速度攀，後來教練發現她手指力量強，又善於預先想好路線，便建議她改練抱石。她每星期在西貢一間攀石館訓練五天，週末則到戶外岩場練習。去年，她在全港青少年攀石錦標賽中奪得女子抱石冠軍，在速度賽則只得第五名。</span></p>
+    <p><span class="pnum">3</span><span>明年三月，她將代表香港，參加在瑞士伯爾尼舉行的國際青少年攀石邀請賽女子抱石項目。主辦單位為選手提供選手村住宿，但母親擔心她第一次出國比賽不習慣，替她安排入住當地一個華人寄宿家庭。父母因工作關係不能同行，這次只有教練陪同出賽。</span></p>
+    <p><span class="pnum">4</span><span>雨桐說，比賽結束後，她會留在瑞士多三天，跟隨當地教練學習岩石保育知識。她希望將來在香港開辦免費的攀石體驗班，讓更多女孩子愛上這項運動。</span></p>
+  </div>
+
+  <div class="qsub">《國際青少年攀石邀請賽報名表》</div>
+  <div class="formhead"><div>姓名：江雨桐</div><div>比賽地點：瑞士伯爾尼</div></div>
+
+  <div class="qbox"><span class="qn">1.</span>出生地點：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）雲南昆明<br><span class="note">接受：昆明。不接受：「香港」（那是她十歲後居住的地方）。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">2.</span>現讀年級：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）中四<br><span class="note">接受：中學四年級。只寫「中學」不給分。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">3.</span>參賽項目：<span class="mark">［1］</span>
+    <div class="opts"><span><span class="box"></span>抱石</span><span><span class="box"></span>先鋒</span><span><span class="box"></span>速度</span></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）抱石 ✓<br><span class="note">第3段寫明她參加的是「女子抱石項目」。她最初練習速度攀，後來才聽從教練建議改練抱石。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">4.</span>平日主要訓練地點：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）西貢的攀石館<br><span class="note">只寫「攀石館」不給分，須寫出「西貢」。不接受：「戶外岩場」（她只在週末去，每星期在攀石館練五天）。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">5.</span>最佳成績：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）全港青少年攀石錦標賽女子抱石冠軍<br><span class="note">須寫出比賽名稱及名次；只寫「冠軍」不給分。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">6.</span>比賽期間住宿：<span class="mark">［1］</span>
+    <div class="opts"><span><span class="box"></span>選手村</span><span><span class="box"></span>酒店</span><span><span class="box"></span>寄宿家庭</span></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）寄宿家庭 ✓<br><span class="note">主辦單位雖提供選手村住宿，但母親另外替她安排了寄宿家庭。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">7.</span>隨行人員：<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）教練<br><span class="note">不接受：「父母」或「教練和父母」。原文寫明父母不能同行。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">8.</span>賽後安排：<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）留在瑞士三天，跟當地教練學習岩石保育知識<br><span class="note">不接受：「在香港開辦免費攀石體驗班」。這是她將來的心願，題目問的是比賽結束後的安排。</span></div>
+    </div>
+  </div>
+
+  <!-- ============ 03 練習二 ============ -->
+  <div class="section-header" id="s3">
+    <div class="icon">📖</div>
+    <h2>練習二：問答式閱讀理解</h2>
+    <div class="chno">CHAPTER 03　12分</div>
+  </div>
+  <div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+  <div class="card">
+    <p>閱讀以下短文，然後回答問題。</p>
+  </div>
+
+  <div class="passage">
+    <div class="passage-label">閱讀短文</div>
+    <div class="p-title">四天工作週</div>
+    <p><span class="pnum">1</span><span>近年，英國、冰島、日本等地都有機構試行「四天工作週」，即員工每星期只上班四天，薪金維持不變。支持者認為，員工休息充足，工作效率也會隨之提高。</span></p>
+    <p><span class="pnum">2</span><span>英國一家設計公司在二〇二二年參加了為期半年的試驗。老闆露西起初最擔心客戶找不到人，於是把員工分成兩組，一組星期一放假，另一組星期五放假，確保每個工作天都有人當值。半年後，公司的營業額不跌反升，員工請病假的日數也減少了三成。</span></p>
+    <p><span class="pnum">3</span><span>員工的感受各有不同。設計師阿明說，多出來的一天讓他可以陪伴年幼的女兒，也重拾了荒廢多年的油畫。同事凱特卻說：「以前五天做完的工作，現在要擠進四天，午飯也只能在電腦前匆匆解決。」</span></p>
+    <p><span class="pnum">4</span><span>經濟學家韋恩指出，四天工作週未必適合所有行業。辦公室工作可以透過減少會議、改善流程來提高效率；醫院、學校和餐廳卻需要有人在場服務，員工少上一天班，僱主便要多聘人手，成本隨之增加。</span></p>
+    <p><span class="pnum">5</span><span>有些公司採用折衷方案，例如把每天的工作時間延長兩小時，以換取一天休假，或者只在夏季試行。韋恩認為，延長工時的做法未必能減輕員工的負擔，因為長時間工作同樣令人疲倦。</span></p>
+    <p><span class="pnum">6</span><span>各地推行的方式也不一樣。冰島在試驗後，由工會與僱主商討，讓大部分員工可以縮短工時而不減薪；日本則由政府鼓勵企業自願參與。有日本媒體訪問上班族，不少人表示即使公司容許，也不敢申請，擔心被上司視為不夠投入。</span></p>
+  </div>
+
+  <div class="qbox"><span class="qn">9.</span>根據第1段，甚麼是「四天工作週」？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）員工每星期只上班四天，薪金維持不變<br><span class="note">須寫出「上班四天」及「薪金不變」兩部分；只寫「一星期做四天」不給分。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">10.</span>試驗開始時，露西最擔心甚麼？<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）客戶找不到人（處理事務）<br><span class="note">不接受：「營業額下跌」。原文沒有提到她擔心營業額。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">11.</span>露西用甚麼方法解決這個問題？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）把員工分成兩組，分別在星期一和星期五放假，令每個工作天都有人當值<br><span class="note">只寫「分組」不給分，須寫出兩組在不同日子放假。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">12.</span>試驗半年後，公司出現了哪兩項轉變？<span class="mark">［2］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）<br>①營業額上升；②員工請病假的日數減少（三成）<br><span class="note">不接受：「效率提高」。這是第1段支持者的看法；第2段交代的結果是營業額和病假日數。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">13.</span>阿明怎樣運用多出來的一天？列舉兩項。<span class="mark">［2］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）<br>①陪伴年幼的女兒；②重拾（荒廢多年的）油畫</div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">14.</span>凱特對四天工作週有甚麼感受？<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）壓力更大／吃力／辛苦<br><span class="note">只抄「午飯也只能在電腦前匆匆解決」不給分。這是她描述的情況，題目要求概括她的感受。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">15.</span>為甚麼醫院、學校和餐廳較難實行四天工作週？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）這些行業需要有人在場服務，員工少上一天班，僱主便要多聘人手，成本增加<br><span class="note">寫出「需要有人在場服務」或「要多聘人手／成本增加」其中一項即可。不接受：「可以減少會議」，這是辦公室工作的做法。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">16.</span>韋恩為甚麼認為「延長每天工時」的方案未必有用？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）長時間工作同樣令人疲倦，未必能減輕員工的負擔<br><span class="note">不接受：「只在夏季試行」。這是另一個折衷方案，與題目無關。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">17.</span>冰島和日本推行縮短工時的方式有甚麼分別？<span class="mark">［1］</span>
+    <div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）冰島由工會與僱主商討，讓大部分員工縮短工時而不減薪；日本由政府鼓勵企業自願參與<br><span class="note">須寫出兩國的做法；只寫其中一國不給分。</span></div>
+    </div>
+  </div>
+
+  <div class="qbox"><span class="qn">18.</span>為甚麼有日本員工不敢申請？<span class="mark">［1］</span>
+    <div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）擔心被上司視為不夠投入（工作）<br><span class="note">不接受：「公司不容許」。原文寫明「即使公司容許」也不敢申請。</span></div>
+    </div>
+  </div>
+
+  <!-- ============ 04 練習四 ============ -->
+  <div class="section-header" id="s4">
+    <div class="icon">✍️</div>
+    <h2>練習四：引導式寫作——博客</h2>
+    <div class="chno">CHAPTER 04　8分</div>
+  </div>
+  <div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+  <div class="qbox"><span class="qn">19.</span>你參加了學校舉辦的「一日小廚師」烹飪班。寫一篇博客，分享這次經歷。<span class="mark">［8］</span>
+    <p style="margin:10px 0 4px;">在博客中，你必須：</p>
+    <p style="margin:0;">① 介紹你學做的菜式；<br>② 描述過程中出現的一個小意外；<br>③ 說說你會不會再參加，並說明原因。</p>
+    <p style="margin:8px 0 0;font-size:13px;color:var(--color-text-secondary);">字數：100–120個漢字。滿分8分：內容3分，語言5分。</p>
+    <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">示範範文</span>（正文約120字，潘SIR示範，非官方範文）<br>
+        <div class="model" style="font-weight:700;">我的第一碗雲吞麵</div>
+        <div class="model">上星期六，我參加了學校的「一日小廚師」烹飪班，學做雲吞麵。老師先教我們調餡，再示範怎樣把雲吞包成金魚尾形。輪到我下鍋時，水太滾，有三隻雲吞散開了，蝦肉浮滿一鍋，同學都笑了。老師教我調小火，再輕輕推動湯水。下次再有烹飪班，我一定會參加，因為我想把這道菜學好，回家煮給媽媽吃。</div>
+        <span class="ans-tag">要點對照</span><br>
+        ①菜式：雲吞麵（調餡、包雲吞）<br>
+        ②小意外：水太滾，三隻雲吞散開，蝦肉浮滿一鍋<br>
+        ③會再參加，原因：想學好這道菜，煮給媽媽吃<br>
+        <span class="note">評分提示：博客要有標題，可用輕鬆的語氣與讀者分享。要點③要同時回答「會不會」和「為甚麼」，只寫「我會再參加」只完成一半。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot purple"></span>審題及寫作提示</div>
+    <div class="flow">
+      <div class="flow-step">標題</div><div class="flow-arrow">→</div>
+      <div class="flow-step">①菜式（約30字）</div><div class="flow-arrow">→</div>
+      <div class="flow-step">②小意外及處理（約50字）</div><div class="flow-arrow">→</div>
+      <div class="flow-step">③會否再參加＋原因（約30字）</div>
+    </div>
+    <div class="alert warn">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-label">常見失分</div>
+        <div class="alert-text">要點②要寫「一個」小意外，寫出發生了甚麼事和結果。只寫「過程中出了點問題」太空泛，內容分會受影響。博客是公開給網友看的，不用寫稱呼和署名，但要有標題。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 05 練習五 ============ -->
+  <div class="section-header" id="s5">
+    <div class="icon">✍️</div>
+    <h2>練習五：引導式寫作——書信</h2>
+    <div class="chno">CHAPTER 05　22分</div>
+  </div>
+  <div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+
+  <div class="qbox"><span class="qn">20.</span>你家附近的社區中心計劃把圖書室改建為電競室，街坊意見不一。寫一封信給社區中心的陳主任，說說你的看法。<span class="mark">［22］</span>
+    <p style="margin:10px 0 4px;">以下是一些街坊的觀點，你可以參考，也可以提出自己的意見，但必須表示傾向性。</p>
+    <div class="viewpoint-grid">
+      <div class="viewpoint-bubble">電競室可以吸引年輕人到社區中心，增加交流。<span class="vp-tag">（街坊觀點）</span></div>
+      <div class="viewpoint-bubble">圖書室是長者和小朋友安靜看書的地方，不應取消。<span class="vp-tag">（街坊觀點）</span></div>
+    </div>
+    <p style="margin:8px 0 0;font-size:13px;color:var(--color-text-secondary);">字數：250–300個漢字。滿分22分：內容10分，語言12分。</p>
+    <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button>
+      <div class="ans" hidden><span class="ans-tag">示範範文</span>（正文約260字，立場：反對把圖書室改建為電競室，潘SIR示範，非官方範文）<br>
+        <div class="model">陳主任：<br>
+        　　您好！得悉社區中心計劃把二樓圖書室改建為電競室，我想就此表達一點意見。<br>
+        　　有街坊認為，電競室可以吸引年輕人到社區中心，增加交流；也有街坊擔心，長者和小朋友會失去一個安靜看書的地方。我反對把圖書室改建為電競室。<br>
+        　　首先，圖書室是區內少有的免費閱讀空間。每天下午，都有不少長者在那裏看報紙，放學後也有小學生在長桌上做功課。如果圖書室改建了，他們便無處可去。其次，電競室聲浪大，而圖書室樓上就是長者活動室，難免影響其他使用者。<br>
+        　　誠然，社區中心應該照顧年輕人的需要。我建議中心善用晚上和週末的時段，在多用途禮堂舉辦電競比賽或興趣班。這樣既能吸引年輕人，又能保留圖書室。<br>
+        　　懇請主任考慮以上意見。<br>
+        　　祝<br>
+        工作順利<br>
+        <div style="text-align:right">居民　李家明　謹上<br>二〇二六年十一月二十日</div></div>
+        <span class="ans-tag">評分要點對照</span><br>
+        ✓ 上款、問候、祝頌語、署名、日期齊全，符合書信格式<br>
+        ✓ 第二段引出兩方觀點後表明立場，全文貫徹<br>
+        ✓ 兩項理由（閱讀空間、聲浪影響）各配具體情況：長者看報、小學生做功課、樓上是長者活動室<br>
+        ✓ 第四段先承認年輕人的需要，再提出改用禮堂的建議，回應了另一方的觀點<br>
+        ✓ 寫給主任，語氣禮貌，用「得悉」「誠然」「善用」等較正式的詞語；運用「首先……其次……」「既……又……」等句式
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot purple"></span>審題及寫作提示</div>
+    <div class="flow">
+      <div class="flow-step">上款＋問候</div><div class="flow-arrow">→</div>
+      <div class="flow-step">寫信目的</div><div class="flow-arrow">→</div>
+      <div class="flow-step">兩方觀點＋表明立場</div><div class="flow-arrow">→</div>
+      <div class="flow-step">理由一、理由二</div><div class="flow-arrow">→</div>
+      <div class="flow-step">讓步＋建議</div><div class="flow-arrow">→</div>
+      <div class="flow-step">結語＋祝頌語＋署名</div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📌</div>
+      <div>
+        <div class="alert-label">書信的格式</div>
+        <div class="alert-text">上款寫收信人的姓氏和職銜，例如「陳主任：」，下一行寫問候。結尾寫祝頌語：「祝」字前空兩格，「工作順利」另起一行頂格書寫，然後在右下方寫署名和日期。收信人是社區中心主任，語氣要禮貌，避免命令式的句子，例如把「你們不可以改建」改為「希望中心再作考慮」。</div>
+      </div>
+    </div>
+    <div class="alert tip">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-label">理由要寫得具體</div>
+        <div class="alert-text">「圖書室很重要」只是一句判斷。寫出誰在用、甚麼時候用、用來做甚麼，例如「每天下午都有長者在那裏看報紙」，評卷員才看得出論點有發展。</div>
+      </div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card bad"><span class="cc-label">✗ 立場模糊</span>「電競室和圖書室都有好處，希望中心兩樣都照顧到。」<br>沒有說明支持哪一方，不符合「必須表示傾向性」的要求。</div>
+      <div class="compare-card good"><span class="cc-label">✓ 表態後再提建議</span>「我反對把圖書室改建為電競室……我建議中心善用晚上和週末的時段，在多用途禮堂舉辦電競比賽。」<br>先表明反對，再提出另一個地方給年輕人用，立場沒有改變。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subsection-title"><span class="dot coral"></span>評分準則（按官方等級描述撮要）</div>
+    <table class="level-table">
+      <tr><th class="c">內容（10分）</th><th>描述</th></tr>
+      <tr><td class="c">8–10分</td><td>緊扣題目，立場清晰，論點發展充分，文體及語氣始終恰當，段落組織連貫。</td></tr>
+      <tr><td class="c">5–7分</td><td>緊扣題目，立場清楚，論點有一定發展，組織良好，分段大致恰當。</td></tr>
+      <tr><td class="c">3–4分</td><td>大致完成任務，立場不夠鮮明或論點發展不足，文體偶有不一致。</td></tr>
+      <tr><td class="c">1–2分</td><td>只能有限地回應題目，論點零散，組織欠連貫，分段不足。</td></tr>
+    </table>
+    <table class="level-table">
+      <tr><th class="c">語言（12分）</th><th>描述</th></tr>
+      <tr><td class="c">10–12分</td><td>句式多樣，包括複雜句式及較少見的詞彙，準確度高。</td></tr>
+      <tr><td class="c">7–9分</td><td>恰當運用一系列句式及詞彙，大致準確，嘗試較難的語言時或略見生硬。</td></tr>
+      <tr><td class="c">4–6分</td><td>主要運用簡單句式，嘗試較難的語言時出現錯誤，但意思大致清楚。</td></tr>
+      <tr><td class="c">1–3分</td><td>只能運用簡單句式，錯誤較多，意思常不清楚。</td></tr>
+    </table>
+  </div>
+
+  <footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+    <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+      <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+      版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+    </div>
+  </footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
