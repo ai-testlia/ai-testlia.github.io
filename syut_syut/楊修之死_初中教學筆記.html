@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="pansir-category" content="文言">
+<meta name="pansir-type" content="筆記">
+<title>《楊修之死》教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2a8a80;--teal-bg:#e4f3f1;
+  --coral:#d0654a;--coral-bg:#fbebe6;
+  --amber:#c48612;--amber-bg:#fbf2df;
+  --pink:#c2557f;--pink-bg:#f9e8ef;
+  --blue:#3a6ea5;--blue-bg:#e6eef7;
+  --green:#3d8b4f;--green-bg:#e7f3ea;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero:#B56A58;--hero-text:#F1EADF;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2124;--color-background-secondary:#151618;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a89be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c302e;
+    --coral:#f08c72;--coral-bg:#3a2520;
+    --amber:#e8b04a;--amber-bg:#36301f;
+    --pink:#ea8ab0;--pink-bg:#382430;
+    --blue:#7fa9d8;--blue-bg:#1f2a38;
+    --green:#74c286;--green-bg:#1e3124;
+    --red:#ee7b6e;--red-bg:#3a2220;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC','Songti TC',serif}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:44px 36px 46px;margin-bottom:22px;min-height:230px;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 10px 28px rgba(94,46,36,.18)}
+.hero .pattern{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:9px;border:1px solid rgba(241,234,223,.28);border-radius:8px;pointer-events:none}
+.hero>*:not(.pattern){position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;border:1px solid rgba(241,234,223,.5);
+  color:rgba(241,234,223,.9);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:rgba(94,46,36,.18)}
+.hero h1{font-size:34px;margin:0 0 6px;line-height:1.35;color:var(--hero-text);font-weight:700;text-shadow:0 1px 10px rgba(94,46,36,.35);max-width:78%}
+.hero .sub{font-size:15px;color:rgba(241,234,223,.85);margin-bottom:16px}
+.hero .sub .nb,.hero h1 .nb{display:inline-block}
+.hero p{margin:0;font-size:13px;color:rgba(241,234,223,.7);letter-spacing:2px}
+@media (max-width:640px){.hero h1{font-size:27px;max-width:100%}.hero{padding:34px 24px 40px}.hero .sub{font-size:13.5px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(181,106,88,.88) 0%,rgba(181,106,88,.55) 62%,rgba(181,106,88,0) 100%);pointer-events:none}}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:0}
+.toc-item:hover{color:var(--blue)}
+.toc-num{font-weight:700;color:var(--hero);font-size:13px;min-width:22px}
+.toc-item .kind{margin-left:auto;font-size:11.5px;color:var(--color-text-secondary);white-space:nowrap}
+@media (prefers-color-scheme:dark){.toc-num{color:var(--blue)}}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;border-radius:var(--border-radius-lg);
+  background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:6px solid var(--hero)}
+.section-header.ex{border-left-color:var(--amber)}
+.section-header .icon{font-size:26px;line-height:1}
+.section-header h2{margin:0;font-size:21px;line-height:1.4}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);font-weight:700}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin:0 0 10px}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--blue)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.hl{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);font-weight:700}
+.em{color:var(--coral);font-weight:700}
+.small{font-size:12.5px;color:var(--color-text-secondary)}
+ul.tight,ol.tight{margin:4px 0 8px;padding-left:1.4em}
+ul.tight li,ol.tight li{margin-bottom:3px}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:3px}
+.example-text{font-size:14px}
+
+/* Alerts */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.bad .ct{color:var(--red)}
+.compare-card.good{background:var(--green-bg)}.compare-card.good .ct{color:var(--green)}
+.compare-card.a{background:var(--blue-bg)}.compare-card.a .ct{color:var(--blue)}
+.compare-card.b{background:var(--coral-bg)}.compare-card.b .ct{color:var(--coral)}
+@media (max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:13px;margin-bottom:2px}
+.flow-arrow{align-self:center;color:var(--teal);font-weight:700}
+
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px}
+.kw-word .py{font-weight:400;font-size:11.5px;color:var(--color-text-secondary);margin-left:4px;font-family:'Noto Sans TC',sans-serif}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* formula */
+.formula{background:#2d3a47;color:#f4f1ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:1.9;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.formula .fl{font-size:12px;letter-spacing:2px;color:#d9c48f;font-weight:700;margin-bottom:4px}
+.formula b{color:#ffe08a}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left;line-height:1.65}
+th{background:var(--color-background-secondary);font-weight:700}
+.c,th.c,td.c{white-space:nowrap}
+td.ctr,th.ctr{text-align:center}
+
+/* poem text */
+.poem{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.poem .ttl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
+.poem .au{text-align:center;font-size:13px;color:var(--color-text-secondary);margin-bottom:12px}
+.poem .ln{font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15;margin:0 0 6px;display:flex;gap:10px;align-items:flex-start}
+.pnum{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-top:7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:1px 12px;margin:6px 0 4px}
+sup.n{color:var(--coral);font-size:10px;font-family:'Noto Sans TC',sans-serif;margin:0 1px}
+.preface{font-size:15px;color:var(--color-text-secondary)}
+
+/* line-by-line */
+.lbl{border-left:3px solid var(--blue);padding:4px 0 4px 14px;margin:12px 0}
+.lbl .orig{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700}
+.lbl .tr{font-size:14px;color:var(--color-text-secondary)}
+.lbl .note{font-size:13.5px;margin-top:3px}
+
+/* chat bubbles (fun) */
+.chat{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0}
+.chat .who{font-size:11.5px;color:var(--color-text-secondary);margin:6px 4px 2px}
+.bubble{display:inline-block;max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.65;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary)}
+.row-r{text-align:right}.row-r .bubble{background:var(--green-bg)}
+.row-r .who{text-align:right}
+
+/* Exercises */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);margin-left:8px}
+.lv{display:inline-block;font-size:11px;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px;font-weight:700}
+.lv1{background:var(--green-bg);color:var(--green)}.lv2{background:var(--amber-bg);color:var(--amber)}.lv3{background:var(--red-bg);color:var(--red)}
+.opts{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.opts.one{grid-template-columns:1fr}
+.opts li{font-size:14px}
+.opts li b{display:inline-block;width:22px}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.line{border-bottom:1px solid #999;height:30px;margin:2px 0}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+.circle{display:inline-block;width:26px;height:26px;border:1px solid #888;border-radius:50%;vertical-align:middle;margin:0 3px}
+.box{display:inline-block;width:15px;height:15px;border:1px solid #888;vertical-align:-2px;margin-right:4px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.extotal{font-size:13px;color:var(--color-text-secondary);margin:-6px 0 12px}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;clear:both}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .ex{font-size:13px;color:var(--color-text-secondary)}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);
+  border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+/* svg charts */
+.chart{width:100%;height:auto;display:block;margin:8px 0}
+.chart text{font-family:'Noto Sans TC',sans-serif}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;font-size:13.5px}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.lbl,.poem,table,.chat{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* 本筆記附加 */
+.dotw{font-weight:700;-webkit-text-emphasis:filled dot;text-emphasis:filled dot;-webkit-text-emphasis-position:under;text-emphasis-position:under right}
+.serif{font-family:'Noto Serif TC',serif;font-size:15.5px}
+.stage-row{display:flex;align-items:stretch;gap:8px;margin:8px 0 4px}
+.stage{flex:1;border-radius:var(--border-radius-md);padding:12px 14px;position:relative;border:1px solid var(--color-border-tertiary)}
+.stage.s-a{background:var(--coral-bg)}.stage.s-b{background:var(--blue-bg)}.stage.s-c{background:var(--green-bg)}
+.stage-key{position:absolute;right:10px;top:4px;font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;opacity:.18}
+.stage-t{font-weight:700;margin-bottom:4px}
+.stage-w{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:0 10px;background:var(--color-background-primary);color:var(--color-text-secondary)}
+.stage-arrow{align-self:center;font-weight:700;color:var(--hero)}
+@media (max-width:640px){.stage-row{flex-direction:column}.stage-arrow{transform:rotate(90deg);text-align:center}}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+.duo-col{border-radius:var(--border-radius-md);padding:12px 14px}
+.duo-col p{margin:0 0 8px;font-size:14px}
+.duo-col.wen{background:var(--blue-bg)}.duo-col.wu{background:var(--coral-bg)}
+.duo-h{font-weight:700;font-size:15px;margin-bottom:6px}
+@media (max-width:640px){.duo{grid-template-columns:1fr}}
+.moon-row{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 12px}
+.moon-box{display:flex;align-items:center;gap:10px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 14px;font-size:14px;line-height:1.6}
+.trait-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.trait{border-radius:var(--border-radius-md);padding:10px 12px;background:var(--amber-bg);border-top:3px solid var(--amber)}
+.trait:nth-child(n+3){background:var(--green-bg);border-top-color:var(--green)}
+.trait-h{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15.5px}
+.trait-e{font-size:12.5px;color:var(--color-text-secondary)}
+@media (max-width:480px){.trait-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* 本筆記附加 */
+.pb-orig{display:block}
+.lbl-head{font-weight:700;color:var(--hero);font-family:'Noto Serif TC',serif;font-size:15.5px;margin:18px 0 4px;padding-bottom:4px;border-bottom:1px dashed var(--color-border-tertiary)}
+.lbl-head:first-of-type{margin-top:4px}
+.lbl .note{color:var(--color-text-secondary)}
+.sboard{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sb{border-radius:var(--border-radius-md);border:1px solid var(--color-border-tertiary);padding:10px 12px;background:var(--color-background-primary);border-top:4px solid #e9b44c;font-size:13.5px;line-height:1.7}
+.sb.sbl2{border-top-color:#dc9a44}.sb.sbl3{border-top-color:#cf7a3e}.sb.sbl4{border-top-color:#c0563a}.sb.sbl5{border-top-color:#b03a2e}
+.sb-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.sb-h b{font-family:'Noto Serif TC',serif;font-size:16px}.sb-h span{font-size:12px;color:var(--color-text-secondary)}
+.sb-row{margin:2px 0}
+.sb-k{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:0 8px;margin-right:6px;background:var(--hero);color:#fff}
+.sb-k.y{background:var(--amber)}
+.sb-r{margin-top:6px;padding-top:6px;border-top:1px dashed var(--color-border-tertiary);color:var(--red)}
+@media (max-width:640px){.sboard{grid-template-columns:1fr}}
+.tc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tc{border-radius:var(--border-radius-md);padding:12px 14px;font-size:13.5px;line-height:1.7;border-left:4px solid var(--blue);background:var(--blue-bg)}
+.tc.amber{border-color:var(--amber);background:var(--amber-bg)}.tc.red{border-color:var(--red);background:var(--red-bg)}
+.tc.purple{border-color:var(--purple);background:var(--purple-bg)}.tc.teal{border-color:var(--teal);background:var(--teal-bg)}
+.tc.green{border-color:var(--green);background:var(--green-bg)}
+.tc-h{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:2px}
+.tc-i{margin-bottom:6px}
+.tc-e,.tc-f{margin-top:4px}
+.tc-e span,.tc-f span{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:0 8px;margin-right:6px;background:var(--color-background-primary);color:var(--color-text-secondary)}
+@media (max-width:640px){.tc-grid{grid-template-columns:1fr}}
+.trait-grid.t3 .trait{background:var(--amber-bg);border-top-color:var(--amber)}
+.trait-grid.cao .trait{background:var(--red-bg);border-top-color:var(--red)}
+@media print{.sb,.tc,.trait{page-break-inside:avoid}}
+@media (max-width:640px){.hero .pattern{opacity:.4}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><svg class="pattern" viewBox="0 0 900 300" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<filter id="grainx" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0.09 0"/>
+</filter>
+<linearGradient id="fadex" x1="0" x2="1" y1="0" y2="0">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.36" stop-color="#fff" stop-opacity="0.25"/><stop offset="0.62" stop-color="#fff" stop-opacity="1"/>
+</linearGradient>
+<mask id="maskX"><rect width="900" height="300" fill="url(#fadex)"/></mask>
+<radialGradient id="moonX" cx="0.42" cy="0.38" r="0.7"><stop offset="0" stop-color="#FFF8EC"/><stop offset="0.7" stop-color="#F1EADF"/><stop offset="1" stop-color="#E6D3BC"/></radialGradient>
+<radialGradient id="haloX"><stop offset="0" stop-color="#F1EADF" stop-opacity="0.4"/><stop offset="1" stop-color="#F1EADF" stop-opacity="0"/></radialGradient>
+<linearGradient id="hillX" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5E2E24" stop-opacity="0.18"/><stop offset="1" stop-color="#5E2E24" stop-opacity="0.6"/></linearGradient>
+<pattern id="fretX" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0 11 H10 V3 H4 V7 H7 M12 1 H22 V9 H16 V5 H19" fill="none" stroke="#F1EADF" stroke-width="1.1"/></pattern>
+<pattern id="iceX" width="60" height="60" patternUnits="userSpaceOnUse">
+  <path d="M0 18 L22 10 L40 24 L60 14 M22 10 L18 0 M40 24 L36 44 L60 50 M36 44 L14 40 L0 52 M14 40 L22 10 M36 44 L44 60" fill="none" stroke="#F1EADF" stroke-width="0.9"/>
+</pattern>
+<clipPath id="gateX"><circle cx="468" cy="168" r="60"/></clipPath>
+<g id="cloudX" fill="none" stroke="#F1EADF" stroke-width="1.6" stroke-linecap="round">
+  <path d="M0 0 C-2 -14 16 -20 24 -10 C28 -22 50 -22 52 -8 C64 -14 76 -4 70 6 C78 10 74 20 62 18 L4 18 C-10 18 -12 4 0 0 Z"/>
+  <path d="M24 -10 C20 -2 28 4 34 0 M52 -8 C48 0 54 6 60 4"/>
+</g>
+</defs>
+<g mask="url(#maskX)">
+  <circle cx="806" cy="74" r="100" fill="url(#haloX)"/>
+  <circle cx="806" cy="74" r="44" fill="url(#moonX)" fill-opacity="0.92"/>
+  <circle cx="806" cy="74" r="51" fill="none" stroke="#F1EADF" stroke-opacity="0.35" stroke-width="0.8"/>
+  <circle cx="806" cy="74" r="59" fill="none" stroke="#F1EADF" stroke-opacity="0.18" stroke-width="0.8" stroke-dasharray="2 5"/>
+  <use href="#cloudX" transform="translate(712 112) scale(1.05)" stroke-opacity="0.5"/>
+  <use href="#cloudX" transform="translate(520 52) scale(0.78)" stroke-opacity="0.3"/>
+  <!-- 遠山 -->
+  <path d="M330 300 V250 C380 232 420 214 470 236 C520 206 560 196 610 226 C650 204 700 192 760 222 C800 206 850 212 900 226 V300 Z" fill="url(#hillX)"/>
+  <!-- 月洞門與「活」字 -->
+  <g clip-path="url(#gateX)"><rect x="400" y="100" width="140" height="140" fill="#5E2E24" fill-opacity="0.32"/><rect x="400" y="100" width="140" height="140" fill="url(#iceX)" opacity="0.32"/></g>
+  <circle cx="468" cy="168" r="60" fill="none" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="3"/>
+  <circle cx="468" cy="168" r="68" fill="none" stroke="#F1EADF" stroke-opacity="0.28" stroke-width="1"/>
+  <text x="468" y="185" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="50" font-weight="700" fill="#F1EADF" fill-opacity="0.72">活</text>
+  <!-- 營帳與軍旗 -->
+  <g transform="translate(640 0)">
+    <path d="M-12 96 V176" stroke="#F1EADF" stroke-opacity="0.7" stroke-width="2"/>
+    <circle cx="-12" cy="93" r="3" fill="#F1EADF" fill-opacity="0.7"/>
+    <path d="M-10 100 C8 94 22 106 46 98 L46 132 C22 140 8 128 -10 134 Z" fill="#5E2E24" fill-opacity="0.55" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1"/>
+    <text x="18" y="125" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="21" font-weight="700" fill="#F1EADF" fill-opacity="0.85">曹</text>
+    <path d="M-70 256 L-12 176 L46 256 Z" fill="#5E2E24" fill-opacity="0.55" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1.3"/>
+    <path d="M-12 176 L-26 256 M-12 176 L2 256" stroke="#F1EADF" stroke-opacity="0.45" stroke-width="1"/>
+    <path d="M-26 256 C-20 232 -4 232 2 256" fill="#F1EADF" fill-opacity="0.18"/>
+    <path d="M-56 236 H32" stroke="#F1EADF" stroke-opacity="0.25" stroke-width="0.8" stroke-dasharray="3 4"/>
+  </g>
+  <!-- 酥盒 -->
+  <g transform="translate(786 236)">
+    <ellipse cx="0" cy="10" rx="34" ry="10" fill="#5E2E24" fill-opacity="0.7"/>
+    <path d="M-34 -6 V10 A34 10 0 0 0 34 10 V-6" fill="#5E2E24" fill-opacity="0.75" stroke="#F1EADF" stroke-opacity="0.5" stroke-width="1"/>
+    <ellipse cx="0" cy="-6" rx="34" ry="10" fill="#5E2E24" fill-opacity="0.85" stroke="#F1EADF" stroke-opacity="0.6" stroke-width="1.1"/>
+    <ellipse cx="0" cy="-6" rx="22" ry="5.5" fill="none" stroke="#F1EADF" stroke-opacity="0.35" stroke-width="0.8"/>
+    <text x="0" y="-1.5" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" font-weight="700" fill="#F1EADF" fill-opacity="0.85">一合酥</text>
+  </g>
+</g>
+<rect x="0" y="282" width="900" height="12" fill="url(#fretX)" opacity="0.28"/>
+<path d="M0 279.5 H900 M0 296.5 H900" stroke="#F1EADF" stroke-opacity="0.25" stroke-width="0.8"/>
+<rect width="900" height="300" filter="url(#grainx)"/>
+</svg><div class="hero-tag">文言教學筆記</div><h1>《楊修之死》</h1><div class="sub"><span class="nb">初中中國語文</span>　<span class="nb">古典小說精讀</span></div><p>潘SIR中文教室編撰</p></div>
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>認識人物和故事背景<span class="kind">教學</span></a><a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：人物與背景<span class="kind">練習</span></a><a class="toc-item" href="#s3"><span class="toc-num">03</span>原文、註釋與語譯<span class="kind">教學</span></a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：字詞與語譯<span class="kind">練習</span></a><a class="toc-item" href="#s5"><span class="toc-num">05</span>結構與內容理解<span class="kind">教學</span></a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：內容理解<span class="kind">練習</span></a><a class="toc-item" href="#s7"><span class="toc-num">07</span>寫法、人物與主旨<span class="kind">教學</span></a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習四：寫法賞析與比較閱讀<span class="kind">練習</span></a></nav>
+<div class="section-header first" id="s1"><div class="icon">⚔️</div><div><div class="chap">CHAPTER 01　教學</div><h2>認識人物和故事背景</h2></div></div>
+<div class="card"><h3><span class="dot"></span>先想一想</h3>
+<p>班上有一位同學，每次老師一發問，他總是第一個搶答，還常常把老師沒說完的話先說出來。他確實聰明，可是同學和老師會怎樣看他？</p>
+<p>這篇課文的主角楊修，正是這樣一個聰明過人、又很愛表現的人。他多次猜中上司曹操的心思，最後卻被曹操殺了。讀的時候，可以一邊找事件，一邊問自己：楊修做錯了甚麼？曹操又是個怎樣的人？</p>
+</div>
+<div class="card"><h3><span class="dot purple"></span>出處</h3>
+<p>本文節錄自元末明初<b>羅貫中</b>的長篇歷史小說<b>《三國演義》</b>第七十二回，題目〈楊修之死〉是後人所加。</p>
+</div>
+<div class="card"><h3><span class="dot teal"></span>人物關係圖</h3>
+<svg class="chart" viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="人物關係圖">
+<defs><marker id="arR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#999"/></marker></defs>
+<g stroke="#999" stroke-width="1.6" fill="none">
+<path d="M380 74 L200 158" marker-end="url(#arR)"/><path d="M380 74 L560 158" marker-end="url(#arR)"/>
+<path d="M300 40 L150 40" marker-end="url(#arR)"/><path d="M460 40 L610 40" marker-end="url(#arR)"/>
+<path d="M140 210 L140 262" marker-end="url(#arR)"/><path d="M620 210 L620 262" marker-end="url(#arR)"/>
+</g>
+<path d="M226 186 H534" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="336" y="174" width="88" height="24" rx="12" fill="#c0392b"/>
+<text x="380" y="191" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">爭做世子</text>
+<rect x="300" y="14" width="160" height="58" rx="10" fill="#B56A58"/><text x="380.0" y="41.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">曹操</text><text x="380.0" y="59.0" text-anchor="middle" font-size="11.5" fill="#fff" fill-opacity="0.9">魏王、丞相</text>
+<rect x="26" y="14" width="124" height="52" rx="10" fill="#6b5ca5"/><text x="88.0" y="38.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">夏侯惇</text><text x="88.0" y="56.0" text-anchor="middle" font-size="11.5" fill="#fff" fill-opacity="0.9">大將，傳令</text>
+<rect x="610" y="14" width="124" height="52" rx="10" fill="#555"/><text x="672.0" y="38.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">近侍</text><text x="672.0" y="56.0" text-anchor="middle" font-size="11.5" fill="#fff" fill-opacity="0.9">被曹操所殺</text>
+<rect x="80" y="160" width="140" height="52" rx="10" fill="#3a6ea5"/><text x="150.0" y="184.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">曹丕</text><text x="150.0" y="202.0" text-anchor="middle" font-size="11.5" fill="#fff" fill-opacity="0.9">曹操之子</text>
+<rect x="540" y="160" width="140" height="52" rx="10" fill="#2a8a80"/><text x="610.0" y="184.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">曹植</text><text x="610.0" y="202.0" text-anchor="middle" font-size="11.5" fill="#fff" fill-opacity="0.9">曹操第三子</text>
+<rect x="70" y="262" width="140" height="52" rx="10" fill="#6e8fb5"/><text x="140.0" y="286.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">吳質</text><text x="140.0" y="304.0" text-anchor="middle" font-size="11.5" fill="#fff" fill-opacity="0.9">朝歌縣長</text>
+<rect x="550" y="262" width="140" height="52" rx="10" fill="#c48612"/><text x="620.0" y="286.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">楊修</text><text x="620.0" y="304.0" text-anchor="middle" font-size="11.5" fill="#fff" fill-opacity="0.9">曹操的主簿</text>
+<g font-size="12" fill="var(--color-text-secondary)">
+<text x="248" y="112" text-anchor="middle">父子</text><text x="512" y="112" text-anchor="middle">父子</text>
+<text x="225" y="32" text-anchor="middle">部下</text><text x="535" y="32" text-anchor="middle">部下</text>
+<text x="150" y="242">好友，替他出計</text><text x="456" y="242">好友，替他出計</text>
+</g>
+</svg><p class="small">課文人物不少，先記住兩條線：曹操和楊修是<span class="hl">上司與下屬</span>；曹丕和曹植兩兄弟在<span class="hl">爭做世子</span>，楊修站在曹植一邊。</p>
+</div>
+<div class="card"><h3><span class="dot coral"></span>主要人物小檔案</h3>
+<table>
+<tr><th class="c">人物</th><th>身份</th><th>在本文中的角色</th></tr>
+<tr><td class="c"><b>曹操</b></td><td>任丞相，受封魏王。</td><td>楊修的上司。課文稱他「丞相」「魏王」「大王」。</td></tr>
+<tr><td class="c"><b>楊修</b></td><td>曹操的主簿（掌管文書的官員），才思敏捷。</td><td>主角。多次猜中曹操心意，最後被殺。</td></tr>
+<tr><td class="c"><b>曹丕</b></td><td>曹操之子，曹植的哥哥。</td><td>和曹植爭做世子，得吳質相助。</td></tr>
+<tr><td class="c"><b>曹植</b></td><td>曹操第三子，以文才著名。</td><td>欣賞楊修，得楊修出謀。</td></tr>
+<tr><td class="c"><b>夏侯惇</b></td><td>曹操手下的大將。</td><td>向楊修問話，後來也跟着收拾行裝。</td></tr>
+<tr><td class="c"><b>吳質</b></td><td>朝歌縣長，曹丕的好友。</td><td>替曹丕想出以絹迷惑搜查者的辦法。</td></tr>
+</table>
+</div>
+<div class="card"><h3><span class="dot blue"></span>故事背景：進退兩難的漢中之戰</h3>
+<div class="flow">
+<div class="flow-step"><b>爭奪漢中</b>劉備佔領漢中，曹操親自帶兵來爭奪。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>屯兵斜谷</b>曹軍屢次失利，退守斜谷，攻也攻不下，退又怕失面子。</div>
+</div><svg class="chart" viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="曹軍進退兩難">
+<defs><marker id="arS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="context-stroke"/></marker></defs>
+<rect x="320" y="70" width="120" height="58" rx="10" fill="#B56A58"/><text x="380.0" y="97.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">曹軍</text><text x="380.0" y="115.0" text-anchor="middle" font-size="11.5" fill="#fff" fill-opacity="0.9">屯兵日久</text>
+<path d="M444 99 H580" stroke="#d0654a" stroke-width="3" marker-end="url(#arS)"/>
+<text x="512" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#d0654a">進兵？</text>
+<path d="M600 60 V140" stroke="#c0392b" stroke-width="6" stroke-linecap="round"/>
+<rect x="610" y="72" width="130" height="54" rx="10" fill="#3d8b4f"/><text x="675.0" y="97.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">馬超拒守</text><text x="675.0" y="115.0" text-anchor="middle" font-size="11.5" fill="#fff" fill-opacity="0.9">蜀兵擋路</text>
+<text x="512" y="124" text-anchor="middle" font-size="12.5" fill="var(--color-text-primary)">進不能勝</text>
+<path d="M316 99 H180" stroke="#3a6ea5" stroke-width="3" marker-end="url(#arS)"/>
+<text x="250" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#3a6ea5">退兵？</text>
+<text x="250" y="124" text-anchor="middle" font-size="12.5" fill="var(--color-text-primary)">退恐人笑</text>
+<rect x="20" y="66" width="150" height="66" rx="12" fill="#3a6ea5" fill-opacity="0.12" stroke="#3a6ea5" stroke-dasharray="4 4"/>
+<text x="95" y="94" text-anchor="middle" font-size="13" fill="var(--color-text-primary)">怕被蜀兵恥笑</text>
+<text x="95" y="114" text-anchor="middle" font-size="13" fill="var(--color-text-primary)">面子掛不住</text>
+<text x="380" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#B56A58">留在這裏：在此無益</text>
+</svg><p>課文就從這個尷尬的時刻開始：曹操心中煩悶，喝雞湯時看見碗中的雞肋，便隨口說了「雞肋」二字。</p>
+</div>
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">閱讀時留意</div><div class="alert-text">楊修一共有幾件事觸怒了曹操？每一次，曹操的反應有甚麼不同？</div></div></div>
+<div class="section-header ex" id="s2"><div class="icon">✏️</div><div><div class="chap">CHAPTER 02　練習</div><h2>練習一：人物與背景</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>本文節錄自哪一部作品？<ul class="opts"><li><b>A</b>《三國志》</li><li><b>B</b>《世說新語》</li><li><b>C</b>《三國演義》</li><li><b>D</b>《水滸傳》</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>在課文中，楊修和曹植是甚麼關係？<ul class="opts"><li><b>A</b>父子</li><li><b>B</b>好友，楊修替曹植出計</li><li><b>C</b>兄弟</li><li><b>D</b>上司與下屬</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>楊修在曹操手下擔任甚麼職位？<ul class="opts"><li><b>A</b>主簿</li><li><b>B</b>世子</li><li><b>C</b>縣長</li><li><b>D</b>庖官</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>課文開始時，曹操正和哪一方的軍隊爭奪漢中？<ul class="opts"><li><b>A</b>孫權</li><li><b>B</b>袁紹</li><li><b>C</b>劉備</li><li><b>D</b>董卓</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>把左邊的人物與右邊的身份配對，把代表答案的英文字母填在括號內。<table><tr><th>人物</th><th class="c ctr">答案</th><th>身份</th></tr><tr><td class="c">（1）曹丕</td><td class="ctr">（　　）</td><td>A　曹操第三子，以文才著名</td></tr><tr><td class="c">（2）曹植</td><td class="ctr">（　　）</td><td>B　朝歌縣長，曹丕的好友</td></tr><tr><td class="c">（3）吳質</td><td class="ctr">（　　）</td><td>C　曹操之子，曹植的哥哥</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）C　（2）A　（3）B</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>根據課文填空。<p>曹操當時受封為（1）<span class="blank"></span>，所以夏侯惇稱他為「大王」；他在朝廷的官職是（2）<span class="blank"></span>，所以楊修解釋「活」字時這樣稱呼他。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1）魏王　（2）丞相</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>判斷以下說法是否正確。正確的寫「✓」，錯誤的寫「✗」。<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr><tr><td>（1）曹軍在斜谷屯兵時，很快便打敗了蜀軍。</td><td class="ctr"><span class="circle"></span></td></tr><tr><td>（2）曹丕和曹植是兄弟，兩人都想做曹操的繼承人。</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）✗　（2）✓<br><span class="ex">（1）曹軍「屯兵日久」，進兵又被馬超擋住，一直打不贏。</span></div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>課文的人物關係可以分成兩條線。試指出是哪兩條，並說明楊修在兩條線中各處於甚麼位置。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）第一條是曹操和楊修，兩人是上司與下屬，楊修是曹操的主簿（1分）。第二條是曹丕和曹植兩兄弟爭做世子（1分），楊修站在曹植一邊，替他出計（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>曹操屯兵斜谷時，處境怎樣？試用自己的話說明，並指出這和「雞肋」有甚麼相似的地方。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）曹操想進兵，卻被馬超擋住，打不贏（1分）；想退兵，又怕被蜀兵恥笑（1分）。這和雞肋「食之無肉，棄之有味」相似：吃下去沒有肉，丟掉又覺可惜，正如曹軍進退兩難（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>楊修是曹操的主簿，又和曹植非常親近。你認為這樣的身份有甚麼危險？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，示例）學生自由作答，言之成理即可。<br>楊修常在曹操身邊，容易看穿曹操的心思，一不小心就會觸犯他的忌諱（1分）。他和曹植親近，在曹丕、曹植爭做世子時，很容易被捲入其中（1分）；一旦曹操不滿曹植，或曹丕一方得勢，楊修便會首當其衝（1分）。<br><span class="ex">評分原則：指出主簿身份的危險1分，指出捲入世子之爭1分，說明後果1分。</span></div></div></div>
+<div class="section-header" id="s3"><div class="icon">📜</div><div><div class="chap">CHAPTER 03　教學</div><h2>原文、註釋與語譯</h2></div></div>
+<div class="poem"><div class="ttl">楊修之死</div><div class="au">羅貫中</div>
+<span class="layer-tag">第一部分　結局：楊修之死（第1–3段）</span>
+<div class="ln"><span class="pnum">1</span><div class="pb-orig">操屯兵日久<sup class="n">1</sup>，欲要進兵，又被馬超<sup class="n">2</sup>拒守；欲收兵回，又恐被蜀兵<sup class="n">3</sup>恥笑，心中猶豫不決。適<sup class="n">4</sup>庖官<sup class="n">5</sup>進雞湯，操見碗中有雞肋<sup class="n">6</sup>，因而有感於懷<sup class="n">7</sup>。正沈吟<sup class="n">8</sup>間，夏侯惇<sup class="n">9</sup>入帳，稟請<sup class="n">10</sup>夜間口號<sup class="n">11</sup>，操隨口曰：「雞肋，雞肋。」惇傳令眾官，都稱「雞肋」。</div></div>
+<div class="ln"><span class="pnum">2</span><div class="pb-orig">行軍主簿<sup class="n">12</sup>楊修見傳「雞肋」二字，便教<sup class="n">13</sup>隨行軍士，各收拾行裝，準備歸程。有人報知夏侯惇，惇大驚，遂<sup class="n">14</sup>請楊修至帳中，問曰：「公<sup class="n">15</sup>何收拾行裝？」修曰：「以今夜號令，便知魏王<sup class="n">16</sup>不日<sup class="n">17</sup>將退兵歸也。雞肋者，食之無肉，棄之有味。今進不能勝，退恐人笑，在此無益，不如早歸。來日<sup class="n">18</sup>魏王必班師<sup class="n">19</sup>矣，故先收拾行裝，免得臨時慌亂。」夏侯惇曰：「公真知魏王肺腑<sup class="n">20</sup>也。」遂亦收拾行裝，於是寨<sup class="n">21</sup>中諸將，無不準備歸計。</div></div>
+<div class="ln"><span class="pnum">3</span><div class="pb-orig">當夜曹操心亂，不能穩睡，遂手提鋼斧，遶寨私行<sup class="n">22</sup>。只見夏侯惇寨內軍士，各準備行裝。操大驚，急回帳召惇問其故<sup class="n">23</sup>。惇曰：「主簿楊德祖<sup class="n">24</sup>，先知大王欲歸之意。」操喚楊修問之，修以雞肋之意對<sup class="n">25</sup>。操大怒曰：「汝怎敢造言<sup class="n">26</sup>亂我軍心！」喝<sup class="n">27</sup>刀斧手推出斬之，將首級<sup class="n">28</sup>號令<sup class="n">29</sup>於轅門<sup class="n">30</sup>外。</div></div>
+<span class="layer-tag">第二部分　前因：楊修屢犯曹操之忌（第4–9段）</span>
+<div class="ln"><span class="pnum">4</span><div class="pb-orig">原來楊修為人，恃才放曠<sup class="n">31</sup>，數<sup class="n">32</sup>犯曹操之忌<sup class="n">33</sup>。操嘗<sup class="n">34</sup>造花園一所，造成，操往觀之，不置褒貶<sup class="n">35</sup>，只取筆於門上書一「活」字而去，人皆不曉其意。修曰：「門內添『活』字，乃<sup class="n">36</sup>『闊』字也，丞相嫌園門闊耳<sup class="n">37</sup>。」於是再築牆圍，改造停當<sup class="n">38</sup>，又請操觀之。操大喜，問曰：「誰知吾意？」左右<sup class="n">39</sup>曰：「楊修也。」操雖稱美<sup class="n">40</sup>，心甚忌之。</div></div>
+<div class="ln"><span class="pnum">5</span><div class="pb-orig">又一日，塞北<sup class="n">41</sup>送酥<sup class="n">42</sup>一盒至，操自寫「一合酥」三字於盒上，置之案頭<sup class="n">43</sup>。修入見之，竟<sup class="n">44</sup>取匙與眾分食訖<sup class="n">45</sup>。操問其故，修答曰：「盒上明書『一人一口酥』，豈敢違丞相之命乎<sup class="n">46</sup>？」操雖喜而笑，心惡<sup class="n">47</sup>之。</div></div>
+<div class="ln"><span class="pnum">6</span><div class="pb-orig">操恐人暗中謀害己身，常吩咐左右：「吾夢中好殺人<sup class="n">48</sup>，凡吾睡著，汝等切勿近前。」一日，晝寢<sup class="n">49</sup>帳中，落被於地，一近侍<sup class="n">50</sup>慌取覆蓋，操躍起拔劍斬之，復上牀睡，半晌<sup class="n">51</sup>而起，佯<sup class="n">52</sup>驚問：「何人殺吾近侍？」眾以實對，操痛哭，命厚葬之。人皆以為操果<sup class="n">53</sup>夢中殺人，惟修<sup class="n">54</sup>知其意，臨葬時指而歎曰：「丞相非在夢中，君乃在夢中耳。」操聞而愈<sup class="n">55</sup>惡之。</div></div>
+<div class="ln"><span class="pnum">7</span><div class="pb-orig">操第三子曹植，愛修之才，常邀修談論，終夜不息。操與眾商議，欲立植為世子<sup class="n">56</sup>，曹丕知之，密請朝歌長<sup class="n">57</sup>吳質<sup class="n">58</sup>入內府<sup class="n">59</sup>商議。因恐有人知覺，乃用大簏<sup class="n">60</sup>藏吳質於中，只說是絹疋<sup class="n">61</sup>在內，載入府中。修知其事，逕<sup class="n">62</sup>來告操，操令人於丕府門伺察<sup class="n">63</sup>之。丕慌告吳質，質曰：「無憂也，明日用大簏裝絹，再入以惑之。」丕如其言，以大簏載絹入，使者搜看簏中，果絹也，回報曹操，操因疑修譖害<sup class="n">64</sup>曹丕，愈惡之。</div></div>
+<div class="ln"><span class="pnum">8</span><div class="pb-orig">操欲試曹丕、曹植之才幹，一日令各出鄴<sup class="n">65</sup>城門，卻密使人吩咐門吏<sup class="n">66</sup>，令勿放出。曹丕先至，門吏阻之，丕只得退回。植聞之，問計於修，修曰：「君奉王命而出，如有阻當<sup class="n">67</sup>者，竟<sup class="n">68</sup>斬之可也。」植然<sup class="n">69</sup>其言。及至<sup class="n">70</sup>門，門吏阻住。植叱<sup class="n">71</sup>曰：「吾奉王命，誰敢阻當！」立斬之。於是曹操以植為能<sup class="n">72</sup>。後有人告操曰：「此乃楊修之所教也。」操大怒，因此亦不喜植。</div></div>
+<div class="ln"><span class="pnum">9</span><div class="pb-orig">修又嘗為曹植作答教<sup class="n">73</sup>十餘條，但<sup class="n">74</sup>操有問，植即依條答之。操每以軍國之事問植，植對答如流，操心中甚疑。後曹丕暗買<sup class="n">75</sup>植左右，偷答教來告操，操見了，大怒曰：「匹夫<sup class="n">76</sup>安敢<sup class="n">77</sup>欺我耶！」此時已有殺修之心，今乃借<sup class="n">78</sup>惑亂軍心之罪殺之。</div></div>
+<p class="small" style="margin:8px 0 0">原文依據教育局建議篇章參考版本。</p></div>
+<div class="card"><h3><span class="dot coral"></span>註釋</h3>
+<div class="keyword-grid"><div class="kw"><div class="kw-word">1 屯兵日久<span class="py">屯音團</span></div><div class="kw-def">駐軍很久。屯：駐紮。當時曹軍駐守斜谷（在今陝西省）。</div></div><div class="kw"><div class="kw-word">2 馬超</div><div class="kw-def">劉備手下的大將。</div></div><div class="kw"><div class="kw-word">3 蜀兵</div><div class="kw-def">指劉備的軍隊。劉備以蜀地（今四川一帶）為根據地。</div></div><div class="kw"><div class="kw-word">4 適</div><div class="kw-def">恰巧、剛好。</div></div><div class="kw"><div class="kw-word">5 庖官<span class="py">庖音咆</span></div><div class="kw-def">掌管飲食的官員。庖：廚房。</div></div><div class="kw"><div class="kw-word">6 雞肋<span class="py">肋音勒</span></div><div class="kw-def">雞的肋骨，上面的肉不多。</div></div><div class="kw"><div class="kw-word">7 有感於懷</div><div class="kw-def">心中有所感觸。懷：心中。</div></div><div class="kw"><div class="kw-word">8 沈吟<span class="py">沈音沉</span></div><div class="kw-def">低聲自言自語，拿不定主意。沈：同「沉」。</div></div><div class="kw"><div class="kw-word">9 夏侯惇<span class="py">惇音敦</span></div><div class="kw-def">曹操手下的大將。</div></div><div class="kw"><div class="kw-word">10 稟請<span class="py">稟音品</span></div><div class="kw-def">向上級報告並請示。</div></div><div class="kw"><div class="kw-word">11 口號</div><div class="kw-def">軍中夜間通行用的口令、暗號。</div></div><div class="kw"><div class="kw-word">12 行軍主簿<span class="py">簿音部</span></div><div class="kw-def">隨軍掌管文書的官員。</div></div><div class="kw"><div class="kw-word">13 教<span class="py">音交</span></div><div class="kw-def">叫、讓。</div></div><div class="kw"><div class="kw-word">14 遂<span class="py">音睡</span></div><div class="kw-def">於是、就。</div></div><div class="kw"><div class="kw-word">15 公</div><div class="kw-def">您，對人的尊稱。</div></div><div class="kw"><div class="kw-word">16 魏王</div><div class="kw-def">指曹操。曹操當時已受封為魏王。</div></div><div class="kw"><div class="kw-word">17 不日</div><div class="kw-def">過不了幾天。</div></div><div class="kw"><div class="kw-word">18 來日</div><div class="kw-def">明天。</div></div><div class="kw"><div class="kw-word">19 班師</div><div class="kw-def">把出征的軍隊撤回。</div></div><div class="kw"><div class="kw-word">20 肺腑<span class="py">腑音府</span></div><div class="kw-def">比喻內心的想法。</div></div><div class="kw"><div class="kw-word">21 寨</div><div class="kw-def">軍營。</div></div><div class="kw"><div class="kw-word">22 遶寨私行<span class="py">遶音繞</span></div><div class="kw-def">繞着軍營，獨自巡視。遶：同「繞」。</div></div><div class="kw"><div class="kw-word">23 故</div><div class="kw-def">原因。</div></div><div class="kw"><div class="kw-word">24 楊德祖</div><div class="kw-def">即楊修。楊修，字德祖。</div></div><div class="kw"><div class="kw-word">25 對</div><div class="kw-def">回答。</div></div><div class="kw"><div class="kw-word">26 造言</div><div class="kw-def">捏造謠言。</div></div><div class="kw"><div class="kw-word">27 喝<span class="py">音渴</span></div><div class="kw-def">大聲命令。</div></div><div class="kw"><div class="kw-word">28 首級</div><div class="kw-def">被砍下的人頭。</div></div><div class="kw"><div class="kw-word">29 號令</div><div class="kw-def">這裏指把人頭掛起來示眾。</div></div><div class="kw"><div class="kw-word">30 轅門<span class="py">轅音元</span></div><div class="kw-def">軍營的大門。</div></div><div class="kw"><div class="kw-word">31 恃才放曠<span class="py">恃音似</span></div><div class="kw-def">倚仗自己有才華，言行放縱，不知收斂。</div></div><div class="kw"><div class="kw-word">32 數<span class="py">音朔</span></div><div class="kw-def">屢次、多次。</div></div><div class="kw"><div class="kw-word">33 犯……之忌</div><div class="kw-def">觸犯……的忌諱，做了對方不喜歡的事。</div></div><div class="kw"><div class="kw-word">34 嘗</div><div class="kw-def">曾經。</div></div><div class="kw"><div class="kw-word">35 不置褒貶<span class="py">褒音煲；貶音扁</span></div><div class="kw-def">不作稱讚，也不作批評。</div></div><div class="kw"><div class="kw-word">36 乃</div><div class="kw-def">是、就是。</div></div><div class="kw"><div class="kw-word">37 耳</div><div class="kw-def">罷了。</div></div><div class="kw"><div class="kw-word">38 停當</div><div class="kw-def">妥當。</div></div><div class="kw"><div class="kw-word">39 左右</div><div class="kw-def">身邊侍候的人。</div></div><div class="kw"><div class="kw-word">40 稱美</div><div class="kw-def">稱讚。</div></div><div class="kw"><div class="kw-word">41 塞北</div><div class="kw-def">長城以北的地方。</div></div><div class="kw"><div class="kw-word">42 酥<span class="py">音蘇</span></div><div class="kw-def">用牛奶或羊奶製成的食品。</div></div><div class="kw"><div class="kw-word">43 案頭</div><div class="kw-def">桌上。案：桌子。</div></div><div class="kw"><div class="kw-word">44 竟</div><div class="kw-def">竟然。指楊修沒有得到曹操准許，就自行把酥分給眾人吃。</div></div><div class="kw"><div class="kw-word">45 訖<span class="py">音迄</span></div><div class="kw-def">完畢。</div></div><div class="kw"><div class="kw-word">46 豈敢……乎</div><div class="kw-def">怎敢……呢？用反問語氣表示「不敢」。</div></div><div class="kw"><div class="kw-word">47 惡<span class="py">粵音 wu3</span></div><div class="kw-def">討厭、憎恨。與「兇惡」的「惡」（粵音 ok3）讀音不同。</div></div><div class="kw"><div class="kw-word">48 好<span class="py">音耗</span></div><div class="kw-def">喜歡。</div></div><div class="kw"><div class="kw-word">49 晝寢<span class="py">晝音咒</span></div><div class="kw-def">白天睡覺。寢：睡覺。</div></div><div class="kw"><div class="kw-word">50 近侍</div><div class="kw-def">在身邊服侍的人。</div></div><div class="kw"><div class="kw-word">51 半晌<span class="py">晌音響</span></div><div class="kw-def">好一會兒。</div></div><div class="kw"><div class="kw-word">52 佯<span class="py">音羊</span></div><div class="kw-def">假裝。</div></div><div class="kw"><div class="kw-word">53 果</div><div class="kw-def">果真、真的。</div></div><div class="kw"><div class="kw-word">54 惟</div><div class="kw-def">只有。</div></div><div class="kw"><div class="kw-word">55 愈<span class="py">音預</span></div><div class="kw-def">更加。</div></div><div class="kw"><div class="kw-word">56 世子</div><div class="kw-def">王位的繼承人。</div></div><div class="kw"><div class="kw-word">57 朝歌長<span class="py">朝音招；長音掌</span></div><div class="kw-def">朝歌縣的縣長。朝歌：地名。</div></div><div class="kw"><div class="kw-word">58 吳質</div><div class="kw-def">曹丕的好友，以文才受曹丕器重。</div></div><div class="kw"><div class="kw-word">59 內府</div><div class="kw-def">這裏指曹丕的府第。</div></div><div class="kw"><div class="kw-word">60 簏<span class="py">音碌</span></div><div class="kw-def">竹編的箱子。</div></div><div class="kw"><div class="kw-word">61 絹疋<span class="py">疋音匹</span></div><div class="kw-def">成匹的絲織品。疋：同「匹」。</div></div><div class="kw"><div class="kw-word">62 逕<span class="py">音徑</span></div><div class="kw-def">直接。</div></div><div class="kw"><div class="kw-word">63 伺察<span class="py">伺音自</span></div><div class="kw-def">暗中察看。</div></div><div class="kw"><div class="kw-word">64 譖害<span class="py">譖音浸</span></div><div class="kw-def">說別人壞話，加以陷害。</div></div><div class="kw"><div class="kw-word">65 鄴<span class="py">音業</span></div><div class="kw-def">地名，在今河北省臨漳縣一帶，是曹操的根據地。</div></div><div class="kw"><div class="kw-word">66 門吏</div><div class="kw-def">看守城門的官吏。</div></div><div class="kw"><div class="kw-word">67 阻當<span class="py">當音擋</span></div><div class="kw-def">阻擋。當：同「擋」。</div></div><div class="kw"><div class="kw-word">68 竟</div><div class="kw-def">直接、乾脆。</div></div><div class="kw"><div class="kw-word">69 然</div><div class="kw-def">認為……對，贊同。</div></div><div class="kw"><div class="kw-word">70 及至</div><div class="kw-def">等到。</div></div><div class="kw"><div class="kw-word">71 叱<span class="py">音斥</span></div><div class="kw-def">大聲責罵。</div></div><div class="kw"><div class="kw-word">72 以植為能</div><div class="kw-def">認為曹植有才能。以……為……：認為……是……。</div></div><div class="kw"><div class="kw-word">73 答教</div><div class="kw-def">預先寫好、用來回答問題的答案。</div></div><div class="kw"><div class="kw-word">74 但</div><div class="kw-def">只要。</div></div><div class="kw"><div class="kw-word">75 買</div><div class="kw-def">收買。</div></div><div class="kw"><div class="kw-word">76 匹夫</div><div class="kw-def">原指平民百姓，這裏是罵人的話，含輕蔑意味。</div></div><div class="kw"><div class="kw-word">77 安</div><div class="kw-def">怎麼。</div></div><div class="kw"><div class="kw-word">78 借</div><div class="kw-def">假借。這裏指以某個罪名作藉口。</div></div></div>
+</div>
+<div class="card"><h3><span class="dot"></span>一句一句拆開讀</h3>
+<div class="lbl-head">第1段　曹操進退兩難，隨口以「雞肋」作夜間口令。</div><div class="lbl"><div class="orig">操屯兵日久，欲要進兵，又被馬超拒守；欲收兵回，又恐被蜀兵恥笑，心中猶豫不決。</div><div class="tr">曹操在斜谷駐軍已經很久。他想進兵，卻被馬超擋住；想收兵回去，又怕被蜀兵恥笑，心裏猶豫，拿不定主意。</div><div class="note">💡 一開頭就交代曹操「進也難，退也難」的處境，「雞肋」二字由此而來。</div></div><div class="lbl"><div class="orig">適庖官進雞湯，操見碗中有雞肋，因而有感於懷。</div><div class="tr">恰巧廚官送上雞湯，曹操看見碗中有雞肋，心中因此有所感觸。</div></div><div class="lbl"><div class="orig">正沈吟間，夏侯惇入帳，稟請夜間口號，操隨口曰：「雞肋，雞肋。」惇傳令眾官，都稱「雞肋」。</div><div class="tr">他正低聲自語、拿不定主意，夏侯惇走進營帳，請示當晚的口令。曹操隨口說：「雞肋，雞肋。」夏侯惇把命令傳給各官員，大家都以「雞肋」作口令。</div><div class="note">💡 「隨口」二字要留意：曹操只是隨口說出心中所想，還未正式下令退兵。</div></div><div class="lbl-head">第2段　楊修從口令猜出曹操想退兵，叫軍士收拾行裝，諸將跟着準備回去。</div><div class="lbl"><div class="orig">行軍主簿楊修見傳「雞肋」二字，便教隨行軍士，各收拾行裝，準備歸程。</div><div class="tr">隨軍主簿楊修見傳下來的口令是「雞肋」二字，便叫隨行的軍士各自收拾行裝，準備回程。</div></div><div class="lbl"><div class="orig">有人報知夏侯惇，惇大驚，遂請楊修至帳中，問曰：「公何收拾行裝？」</div><div class="tr">有人把這件事報告夏侯惇。夏侯惇大吃一驚，於是請楊修到營帳中，問他：「您為甚麼收拾行裝？」</div></div><div class="lbl"><div class="orig">修曰：「以今夜號令，便知魏王不日將退兵歸也。雞肋者，食之無肉，棄之有味。今進不能勝，退恐人笑，在此無益，不如早歸。來日魏王必班師矣，故先收拾行裝，免得臨時慌亂。」</div><div class="tr">楊修說：「從今晚的口令，就知道魏王過不了幾天便要退兵回去了。雞肋這東西，吃起來沒有肉，丟掉又覺得還有點味道。現在進攻不能取勝，退兵又怕被人恥笑，留在這裏沒有好處，不如早點回去。明天魏王一定會帶兵回去，所以我先收拾行裝，免得到時手忙腳亂。」</div><div class="note">💡 楊修把「雞肋」的特點和曹軍的處境一一對應，推理清楚，可見他十分聰明。</div></div><div class="lbl"><div class="orig">夏侯惇曰：「公真知魏王肺腑也。」遂亦收拾行裝，於是寨中諸將，無不準備歸計。</div><div class="tr">夏侯惇說：「您真了解魏王的心思啊。」於是他也收拾行裝。這樣一來，營中的將領全都在準備回去。</div><div class="note">💡 「無不」是雙重否定，表示「全都」。楊修一句話，影響了整個軍營。</div></div><div class="lbl-head">第3段　曹操發現後大怒，以「造言亂我軍心」為罪名斬了楊修。</div><div class="lbl"><div class="orig">當夜曹操心亂，不能穩睡，遂手提鋼斧，遶寨私行。</div><div class="tr">當晚曹操心煩意亂，睡不安穩，於是手提鋼斧，獨自繞着軍營巡視。</div></div><div class="lbl"><div class="orig">只見夏侯惇寨內軍士，各準備行裝。操大驚，急回帳召惇問其故。</div><div class="tr">只見夏侯惇營中的軍士都在準備行裝。曹操大吃一驚，急忙回到營帳，召夏侯惇來問原因。</div></div><div class="lbl"><div class="orig">惇曰：「主簿楊德祖，先知大王欲歸之意。」操喚楊修問之，修以雞肋之意對。</div><div class="tr">夏侯惇說：「主簿楊德祖事先看出大王想回去的心意。」曹操叫楊修來問話，楊修就用雞肋的意思回答。</div></div><div class="lbl"><div class="orig">操大怒曰：「汝怎敢造言亂我軍心！」喝刀斧手推出斬之，將首級號令於轅門外。</div><div class="tr">曹操大怒說：「你怎麼敢捏造謠言，擾亂我的軍心！」喝令刀斧手把楊修推出去斬了，並把他的人頭掛在軍營大門外示眾。</div><div class="note">💡 楊修猜中了曹操的心意，曹操卻說他「造言」，罪名和事實並不相符。</div></div><div class="lbl-head">第4段　中心句點出楊修恃才放曠；造園門一事，曹操「心甚忌之」。</div><div class="lbl"><div class="orig">原來楊修為人，恃才放曠，數犯曹操之忌。</div><div class="tr">原來楊修為人倚仗自己有才華，言行放縱，不知收斂，多次觸犯曹操的忌諱。</div><div class="note">💡 「原來」二字把時間拉回從前，下面開始交代楊修被殺的前因。這一句是全文的中心句。</div></div><div class="lbl"><div class="orig">操嘗造花園一所，造成，操往觀之，不置褒貶，只取筆於門上書一「活」字而去，人皆不曉其意。</div><div class="tr">曹操曾經建造一座花園。花園建成後，曹操去看，沒有說好，也沒有說不好，只拿筆在門上寫了一個「活」字就走了。大家都不明白他的意思。</div></div><div class="lbl"><div class="orig">修曰：「門內添『活』字，乃『闊』字也，丞相嫌園門闊耳。」於是再築牆圍，改造停當，又請操觀之。</div><div class="tr">楊修說：「『門』字裏面加一個『活』字，就是『闊』字，丞相只是嫌園門太闊罷了。」於是重新砌牆，把園門改造妥當，再請曹操來看。</div></div><div class="lbl"><div class="orig">操大喜，問曰：「誰知吾意？」左右曰：「楊修也。」操雖稱美，心甚忌之。</div><div class="tr">曹操十分高興，問道：「誰明白我的意思？」身邊的人說：「是楊修。」曹操口頭上雖然稱讚，心裏卻很忌恨他。</div><div class="note">💡 「雖……心……」的句式，寫出曹操表面一套，心裏一套。下一段「操雖喜而笑，心惡之」也用同樣寫法。</div></div><div class="lbl-head">第5段　一合酥一事，楊修自作主張分酥，曹操「心惡之」。</div><div class="lbl"><div class="orig">又一日，塞北送酥一盒至，操自寫「一合酥」三字於盒上，置之案頭。</div><div class="tr">又有一天，塞北送來一盒酥。曹操親手在盒上寫了「一合酥」三個字，把它放在桌上。</div></div><div class="lbl"><div class="orig">修入見之，竟取匙與眾分食訖。</div><div class="tr">楊修進來看見了，竟然拿起匙子，和大家把酥分着吃完了。</div></div><div class="lbl"><div class="orig">操問其故，修答曰：「盒上明書『一人一口酥』，豈敢違丞相之命乎？」操雖喜而笑，心惡之。</div><div class="tr">曹操問他為甚麼這樣做，楊修回答：「盒上明明寫着『一人一口酥』，我們怎敢違背丞相的命令呢？」曹操雖然高興得笑了，心裏卻討厭他。</div><div class="note">💡 楊修用反問句回答，說得理直氣壯，聽起來像在炫耀自己猜中了謎底。</div></div><div class="lbl-head">第6段　曹操假裝夢中殺人，楊修當眾點破，曹操「愈惡之」。</div><div class="lbl"><div class="orig">操恐人暗中謀害己身，常吩咐左右：「吾夢中好殺人，凡吾睡著，汝等切勿近前。」</div><div class="tr">曹操擔心有人暗中謀害自己，常常吩咐身邊的人：「我在睡夢中喜歡殺人。只要我睡着了，你們千萬不要走近。」</div></div><div class="lbl"><div class="orig">一日，晝寢帳中，落被於地，一近侍慌取覆蓋，操躍起拔劍斬之，復上牀睡，半晌而起，佯驚問：「何人殺吾近侍？」</div><div class="tr">有一天，曹操白天在營帳中睡覺，被子掉到地上，一個近侍連忙拾起被子替他蓋上。曹操跳起來拔劍把他殺了，又上牀再睡。過了好一會兒才起來，假裝吃驚地問：「誰殺了我的近侍？」</div></div><div class="lbl"><div class="orig">眾以實對，操痛哭，命厚葬之。人皆以為操果夢中殺人，</div><div class="tr">眾人把實情告訴他，曹操痛哭一場，下令隆重地安葬那個近侍。大家都以為曹操真的在夢中殺人，</div></div><div class="lbl"><div class="orig">惟修知其意，臨葬時指而歎曰：「丞相非在夢中，君乃在夢中耳。」操聞而愈惡之。</div><div class="tr">只有楊修知道他的用意。下葬的時候，楊修指着死者歎息說：「丞相沒有在做夢，你才是在夢中啊。」曹操聽到後，更加討厭楊修。</div><div class="note">💡 「君」指被殺的近侍。這句話表面在可憐近侍糊塗送命，同時揭穿曹操假裝夢中殺人，語帶雙關。</div></div><div class="lbl-head">第7段　楊修告發曹丕藏吳質，反被吳質以絹化解，曹操疑他陷害曹丕，「愈惡之」。</div><div class="lbl"><div class="orig">操第三子曹植，愛修之才，常邀修談論，終夜不息。</div><div class="tr">曹操的第三個兒子曹植欣賞楊修的才華，常常邀請楊修來談論，整夜不停。</div></div><div class="lbl"><div class="orig">操與眾商議，欲立植為世子，曹丕知之，密請朝歌長吳質入內府商議。</div><div class="tr">曹操和眾人商量，想立曹植為世子。曹丕知道了，就秘密地請朝歌縣長吳質到府中商量對策。</div></div><div class="lbl"><div class="orig">因恐有人知覺，乃用大簏藏吳質於中，只說是絹疋在內，載入府中。</div><div class="tr">因為怕被人發覺，便把吳質藏在一個大竹箱裏，只說箱內裝的是絲綢，把他運進府中。</div></div><div class="lbl"><div class="orig">修知其事，逕來告操，操令人於丕府門伺察之。</div><div class="tr">楊修知道這件事，直接來報告曹操。曹操派人在曹丕的府門暗中察看。</div></div><div class="lbl"><div class="orig">丕慌告吳質，質曰：「無憂也，明日用大簏裝絹，再入以惑之。」</div><div class="tr">曹丕慌忙告訴吳質。吳質說：「不用擔心。明天用大竹箱裝着絲綢，再運進府裏，迷惑他們。」</div></div><div class="lbl"><div class="orig">丕如其言，以大簏載絹入，使者搜看簏中，果絹也，回報曹操，操因疑修譖害曹丕，愈惡之。</div><div class="tr">曹丕照他的話去做，用大竹箱裝着絲綢運進府中。曹操派去的人搜查箱子，裏面果然是絲綢，便回去報告曹操。曹操因此懷疑楊修說壞話陷害曹丕，更加討厭楊修。</div><div class="note">💡 楊修這次說的是實話，可是吳質技高一籌，反令楊修顯得像在誣告。</div></div><div class="lbl-head">第8段　楊修教曹植斬門吏出城，曹操「大怒」，連曹植也不喜歡。</div><div class="lbl"><div class="orig">操欲試曹丕、曹植之才幹，一日令各出鄴城門，卻密使人吩咐門吏，令勿放出。</div><div class="tr">曹操想試探曹丕和曹植的才幹。有一天，他命令兩人各自走出鄴城的城門，卻暗中派人吩咐看門的官吏，不准放他們出去。</div></div><div class="lbl"><div class="orig">曹丕先至，門吏阻之，丕只得退回。</div><div class="tr">曹丕先到，門吏攔住他，曹丕只好退回去。</div></div><div class="lbl"><div class="orig">植聞之，問計於修，修曰：「君奉王命而出，如有阻當者，竟斬之可也。」植然其言。</div><div class="tr">曹植聽說了，向楊修請教辦法。楊修說：「您是奉了魏王的命令出城，如果有人阻擋，直接把他斬了就可以。」曹植認為他說得對。</div></div><div class="lbl"><div class="orig">及至門，門吏阻住。植叱曰：「吾奉王命，誰敢阻當！」立斬之。於是曹操以植為能。</div><div class="tr">到了城門，門吏把他攔住。曹植大聲喝罵：「我奉了魏王的命令，誰敢阻擋！」立刻把門吏斬了。曹操因此認為曹植有才能。</div></div><div class="lbl"><div class="orig">後有人告操曰：「此乃楊修之所教也。」操大怒，因此亦不喜植。</div><div class="tr">後來有人告訴曹操：「這是楊修教的。」曹操大怒，因此連曹植也不喜歡了。</div><div class="note">💡 楊修出主意，連累了曹植。曹操這一次的反應已經升到「大怒」。</div></div><div class="lbl-head">第9段　楊修替曹植寫答教，被曹丕揭發，曹操動了殺機，終借罪名殺楊修。</div><div class="lbl"><div class="orig">修又嘗為曹植作答教十餘條，但操有問，植即依條答之。</div><div class="tr">楊修又曾經替曹植預先寫好十多條答案，只要曹操有問題，曹植就按着條文回答。</div></div><div class="lbl"><div class="orig">操每以軍國之事問植，植對答如流，操心中甚疑。</div><div class="tr">曹操每次拿軍事和國家大事問曹植，曹植都回答得很流暢，曹操心裏很懷疑。</div></div><div class="lbl"><div class="orig">後曹丕暗買植左右，偷答教來告操，操見了，大怒曰：「匹夫安敢欺我耶！」</div><div class="tr">後來曹丕暗中收買曹植身邊的人，偷了答案來向曹操告發。曹操看了大怒說：「這傢伙怎麼敢欺騙我！」</div></div><div class="lbl"><div class="orig">此時已有殺修之心，今乃借惑亂軍心之罪殺之。</div><div class="tr">那時曹操已經有殺楊修的念頭，現在就借「惑亂軍心」這個罪名把他殺了。</div><div class="note">💡 全文最後一句把結尾接回開頭：曹操早有殺心，「雞肋」只是藉口。</div></div>
+</div>
+<div class="card"><h3><span class="dot amber"></span>圖解：「雞肋」為甚麼能代表退兵？</h3>
+<svg class="chart" viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="雞肋與曹軍處境對照">
+<g transform="translate(150 110)">
+<ellipse cx="0" cy="40" rx="110" ry="22" fill="var(--color-background-secondary)" stroke="#b9a58b" stroke-width="2"/>
+<path d="M-110 40 C-104 74 104 74 110 40" fill="none" stroke="#b9a58b" stroke-width="2"/>
+<g stroke="#d8c7a8" stroke-width="7" stroke-linecap="round" fill="none">
+<path d="M-60 24 C-40 -10 -6 -24 30 -22"/><path d="M-44 34 C-26 4 6 -8 40 -6"/><path d="M-28 42 C-10 18 18 10 48 12"/>
+</g>
+<path d="M-70 30 L56 -30" stroke="#c9b48f" stroke-width="9" stroke-linecap="round"/>
+<g fill="#d0654a" fill-opacity="0.55"><circle cx="20" cy="-14" r="3"/><circle cx="34" cy="4" r="2.5"/></g>
+<text x="0" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">雞肋</text>
+</g>
+<g font-size="14">
+<rect x="300" y="30" width="200" height="66" rx="12" fill="#d0654a" fill-opacity="0.13"/>
+<text x="400" y="58" text-anchor="middle" font-weight="700" fill="#d0654a">食之無肉</text>
+<text x="400" y="80" text-anchor="middle" fill="var(--color-text-primary)">吃下去，沒有肉</text>
+<rect x="300" y="120" width="200" height="66" rx="12" fill="#3a6ea5" fill-opacity="0.13"/>
+<text x="400" y="148" text-anchor="middle" font-weight="700" fill="#3a6ea5">棄之有味</text>
+<text x="400" y="170" text-anchor="middle" fill="var(--color-text-primary)">丟掉，又有點可惜</text>
+<path d="M506 63 H546" stroke="#999" stroke-width="2"/><path d="M506 153 H546" stroke="#999" stroke-width="2"/>
+<text x="526" y="56" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">好比</text><text x="526" y="146" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">好比</text>
+<rect x="552" y="30" width="190" height="66" rx="12" fill="#d0654a" fill-opacity="0.13"/>
+<text x="647" y="58" text-anchor="middle" font-weight="700" fill="#d0654a">進不能勝</text>
+<text x="647" y="80" text-anchor="middle" fill="var(--color-text-primary)">打下去，贏不了</text>
+<rect x="552" y="120" width="190" height="66" rx="12" fill="#3a6ea5" fill-opacity="0.13"/>
+<text x="647" y="148" text-anchor="middle" font-weight="700" fill="#3a6ea5">退恐人笑</text>
+<text x="647" y="170" text-anchor="middle" fill="var(--color-text-primary)">撤回去，怕人取笑</text>
+</g>
+</svg><p>楊修把雞肋的兩個特點，和曹軍的處境逐一對應：吃下去沒有肉，等於打下去贏不了；丟掉又可惜，等於撤退會被人取笑。所以他推斷曹操心裏已經想退兵，只是怕被人恥笑，不肯明說。</p>
+</div>
+<div class="card"><h3><span class="dot purple"></span>圖解：楊修怎樣破解曹操的字謎？</h3>
+<svg class="chart" viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="拆字圖解">
+<g font-family="Noto Serif TC,serif" font-weight="700" text-anchor="middle">
+<text x="190" y="22" font-size="14" font-family="Noto Sans TC,sans-serif" fill="#B56A58">造園門：曹操寫「活」</text>
+<rect x="40" y="40" width="84" height="84" rx="10" fill="#B56A58" fill-opacity="0.12" stroke="#B56A58"/>
+<text x="82" y="102" font-size="52" fill="var(--color-text-primary)">門</text>
+<text x="146" y="96" font-size="28" fill="var(--color-text-secondary)">＋</text>
+<rect x="168" y="40" width="84" height="84" rx="10" fill="#c48612" fill-opacity="0.14" stroke="#c48612"/>
+<text x="210" y="102" font-size="52" fill="#c48612">活</text>
+<text x="274" y="96" font-size="28" fill="var(--color-text-secondary)">＝</text>
+<rect x="296" y="40" width="84" height="84" rx="10" fill="#3d8b4f" fill-opacity="0.14" stroke="#3d8b4f"/>
+<text x="338" y="102" font-size="52" fill="#3d8b4f">闊</text>
+<text x="210" y="152" font-size="14" font-weight="400" font-family="Noto Sans TC,sans-serif" fill="var(--color-text-primary)">把「活」字寫在門上，</text>
+<text x="210" y="172" font-size="14" font-weight="400" font-family="Noto Sans TC,sans-serif" fill="var(--color-text-primary)">意思是：這道門太「闊」了。</text>
+</g>
+<line x1="404" y1="20" x2="404" y2="220" stroke="var(--color-border-tertiary)" stroke-width="1.5" stroke-dasharray="4 5"/>
+<g font-family="Noto Serif TC,serif" font-weight="700" text-anchor="middle">
+<text x="582" y="22" font-size="14" font-family="Noto Sans TC,sans-serif" fill="#B56A58">一合酥：曹操寫「一合酥」</text>
+<text x="500" y="88" font-size="40" fill="var(--color-text-primary)">一</text>
+<rect x="530" y="44" width="62" height="62" rx="10" fill="#c48612" fill-opacity="0.14" stroke="#c48612"/>
+<text x="561" y="90" font-size="40" fill="#c48612">合</text>
+<text x="622" y="88" font-size="40" fill="var(--color-text-primary)">酥</text>
+<path d="M561 112 V136" stroke="#c48612" stroke-width="2"/>
+<path d="M556 130 L561 138 L566 130" fill="none" stroke="#c48612" stroke-width="2"/>
+<g font-size="30">
+<text x="456" y="182" fill="var(--color-text-primary)">一</text>
+<text x="500" y="182" fill="#c48612">人</text><text x="544" y="182" fill="#c48612">一</text><text x="588" y="182" fill="#c48612">口</text>
+<text x="634" y="182" fill="var(--color-text-primary)">酥</text>
+</g>
+<path d="M480 194 H608" stroke="#c48612" stroke-width="2"/>
+<text x="544" y="214" font-size="13" font-weight="400" font-family="Noto Sans TC,sans-serif" fill="#c48612">「合」字拆開：人、一、口</text>
+</g>
+</svg><p>兩件事都是<span class="hl">拆字遊戲</span>。曹操故意不把話說明，楊修一眼就看穿，還要當眾揭開謎底。猜中謎底本來是好事，可是楊修一再在人前顯示自己比主公聰明，曹操自然不高興。</p>
+</div>
+<div class="card"><h3><span class="dot teal"></span>字詞小錦囊</h3>
+<p><b>一、同一個字，意思不同</b></p>
+<table>
+<tr><th class="c">字</th><th>例句</th><th>意思</th></tr>
+<tr><td class="c" rowspan="2"><b>竟</b></td><td>修入見之，<span class="dotw">竟</span>取匙與眾分食訖。</td><td>竟然</td></tr>
+<tr><td>如有阻當者，<span class="dotw">竟</span>斬之可也。</td><td>直接、乾脆</td></tr>
+<tr><td class="c" rowspan="2"><b>惡</b></td><td>操雖喜而笑，心<span class="dotw">惡</span>之。</td><td>討厭（粵音 wu3）</td></tr>
+<tr><td>常見詞：兇<span class="dotw">惡</span>、罪<span class="dotw">惡</span></td><td>壞、兇狠（粵音 ok3）</td></tr>
+<tr><td class="c" rowspan="2"><b>教</b></td><td>便<span class="dotw">教</span>隨行軍士，各收拾行裝。</td><td>叫、讓（音交）</td></tr>
+<tr><td>此乃楊修之所<span class="dotw">教</span>也。</td><td>教導、指點（音較）</td></tr>
+<tr><td class="c" rowspan="2"><b>乃</b></td><td>門內添「活」字，<span class="dotw">乃</span>「闊」字也。</td><td>是、就是</td></tr>
+<tr><td><span class="dotw">乃</span>用大簏藏吳質於中。</td><td>於是、就</td></tr>
+</table>
+<p><b>二、古今意思不同</b></p>
+<table>
+<tr><th class="c">詞語</th><th>課文中的意思</th><th>今天常見的意思</th></tr>
+<tr><td class="c"><b>左右</b></td><td>身邊侍候的人</td><td>方向（左邊和右邊）；大約</td></tr>
+<tr><td class="c"><b>來日</b></td><td>明天</td><td>將來</td></tr>
+<tr><td class="c"><b>口號</b></td><td>軍中的口令、暗號</td><td>宣傳用的簡短句子</td></tr>
+<tr><td class="c"><b>匹夫</b></td><td>罵人的話，指這個傢伙</td><td>普通人（如「天下興亡，匹夫有責」）</td></tr>
+</table>
+<p><b>三、通用字</b></p>
+<div class="moon-row">
+<div class="moon-box"><b>遶</b>＝繞</div><div class="moon-box"><b>當</b>（阻當）＝擋</div><div class="moon-box"><b>疋</b>＝匹</div><div class="moon-box"><b>沈</b>＝沉</div>
+</div>
+</div>
+<div class="alert tip"><div class="alert-icon">🔎</div><div><div class="alert-label">讀書方法：看稱呼，認人物</div><div class="alert-text">文言文常用表字或官銜稱呼人物。楊修又叫「楊德祖」「主簿」；曹操又叫「操」「魏王」「大王」「丞相」。遇到陌生的稱呼，先想想是誰在說話、對誰說話。</div></div></div>
+<div class="section-header ex" id="s4"><div class="icon">✏️</div><div><div class="chap">CHAPTER 04　練習</div><h2>練習二：字詞與語譯</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「數犯曹操之忌」中，「數」的意思是：<ul class="opts"><li><b>A</b>數目</li><li><b>B</b>計算</li><li><b>C</b>幾個</li><li><b>D</b>屢次</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「適庖官進雞湯」中，「適」的意思是：<ul class="opts"><li><b>A</b>舒適</li><li><b>B</b>恰巧</li><li><b>C</b>前往</li><li><b>D</b>適合</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「操雖喜而笑，心惡之」中，「惡」的讀音和意思是：<ul class="opts"><li><b>A</b>讀 ok3，兇惡</li><li><b>B</b>讀 ok3，罪惡</li><li><b>C</b>讀 wu1，怎麼</li><li><b>D</b>讀 wu3，討厭</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>「佯驚問：『何人殺吾近侍？』」中，「佯」的意思是：<ul class="opts"><li><b>A</b>假裝</li><li><b>B</b>非常</li><li><b>C</b>突然</li><li><b>D</b>慌忙</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>從方框中選出句中加點字的意思，把代表答案的英文字母填在括號內。<div class="excerpt" style="font-family:inherit;font-size:14px">A　竟然　　B　直接、乾脆　　C　認為……對　　D　這樣</div><table><tr><th>句子</th><th class="c ctr">答案</th></tr><tr><td>（1）修入見之，<span class="dotw">竟</span>取匙與眾分食訖。</td><td class="ctr">（　　）</td></tr><tr><td>（2）如有阻當者，<span class="dotw">竟</span>斬之可也。</td><td class="ctr">（　　）</td></tr><tr><td>（3）植<span class="dotw">然</span>其言。</td><td class="ctr">（　　）</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）A　（2）B　（3）C</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>寫出以下詞語在課文中的意思。<p>（1）「<span class="dotw">左右</span>曰：『楊修也。』」：<span class="blank l"></span></p><p>（2）「<span class="dotw">來日</span>魏王必班師矣」：<span class="blank l"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）身邊侍候的人　（2）明天</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>根據課文填空。<p>「遶寨私行」的「遶」同（1）<span class="blank s"></span>字；「如有阻當者」的「當」同（2）<span class="blank s"></span>字。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1）繞　（2）擋</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>把以下句子譯成白話文。<div class="excerpt">今進不能勝，退恐人笑，在此無益，不如早歸。</div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）現在進攻不能取勝（1分），退兵又怕被人恥笑（1分），留在這裏沒有好處，不如早點回去（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>把以下句子譯成白話文，並說明句中的「君」指誰。<div class="excerpt">丞相非在夢中，君乃在夢中耳。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）語譯：丞相沒有在做夢（1分），你才是在夢中啊（1分）。「君」指被曹操殺死的近侍（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>把以下句子譯成白話文。句中的「借」字，透露了曹操殺楊修的甚麼真相？<div class="excerpt">此時已有殺修之心，今乃借惑亂軍心之罪殺之。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）語譯：那時曹操已經有殺楊修的念頭（1分），現在就借「惑亂軍心」這個罪名把他殺了（1分）。「借」字說明「惑亂軍心」只是藉口，曹操早已想殺楊修（1分）。</div></div></div>
+<div class="section-header" id="s5"><div class="icon">🧭</div><div><div class="chap">CHAPTER 05　教學</div><h2>結構與內容理解</h2></div></div>
+<div class="card"><h3><span class="dot"></span>每段一句話</h3>
+<table><tr><th class="c ctr">段</th><th>內容</th></tr><tr><td class="c ctr">1</td><td>曹操進退兩難，隨口以「雞肋」作夜間口令。</td></tr><tr><td class="c ctr">2</td><td>楊修從口令猜出曹操想退兵，叫軍士收拾行裝，諸將跟着準備回去。</td></tr><tr><td class="c ctr">3</td><td>曹操發現後大怒，以「造言亂我軍心」為罪名斬了楊修。</td></tr><tr><td class="c ctr">4</td><td>中心句點出楊修恃才放曠；造園門一事，曹操「心甚忌之」。</td></tr><tr><td class="c ctr">5</td><td>一合酥一事，楊修自作主張分酥，曹操「心惡之」。</td></tr><tr><td class="c ctr">6</td><td>曹操假裝夢中殺人，楊修當眾點破，曹操「愈惡之」。</td></tr><tr><td class="c ctr">7</td><td>楊修告發曹丕藏吳質，反被吳質以絹化解，曹操疑他陷害曹丕，「愈惡之」。</td></tr><tr><td class="c ctr">8</td><td>楊修教曹植斬門吏出城，曹操「大怒」，連曹植也不喜歡。</td></tr><tr><td class="c ctr">9</td><td>楊修替曹植寫答教，被曹丕揭發，曹操動了殺機，終借罪名殺楊修。</td></tr></table>
+</div>
+<div class="card"><h3><span class="dot coral"></span>全文結構：先寫結果，再交代原因</h3>
+<div class="stage-row">
+<div class="stage s-a"><div class="stage-key">果</div><div class="stage-t">第1–3段　結局</div><span class="stage-w">近因</span><p style="margin:6px 0 0">「雞肋」事件：楊修猜中曹操想退兵，曹操以「造言亂我軍心」為罪名把他斬首。</p></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-b"><div class="stage-key">因</div><div class="stage-t">第4段開頭　中心句</div><span class="stage-w">總說</span><p style="margin:6px 0 0">「原來楊修為人，恃才放曠，數犯曹操之忌。」</p></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-c"><div class="stage-key">例</div><div class="stage-t">第4–9段　六件事</div><span class="stage-w">遠因</span><p style="margin:6px 0 0">造園門、一合酥、夢中殺人、藏吳質、出城門、答教。</p></div>
+</div>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">近因</div>直接導致事情發生的原因。楊修被殺，直接的導火線是「雞肋」一事。</div>
+<div class="compare-card b"><div class="ct">遠因</div>早已埋下、慢慢累積的原因。六件事令曹操對楊修越來越不滿。</div>
+</div>
+</div>
+<div class="card"><h3><span class="dot amber"></span>中心句：一句話統領全文</h3>
+<svg class="chart" viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="中心句統領全文">
+<rect x="150" y="14" width="460" height="62" rx="12" fill="#B56A58"/>
+<text x="380" y="40" text-anchor="middle" font-size="13" fill="#fff" fill-opacity="0.9">中心句（第4段開頭）</text>
+<text x="380" y="63" text-anchor="middle" font-size="17" font-weight="700" fill="#fff" font-family="Noto Serif TC,serif">原來楊修為人，恃才放曠，數犯曹操之忌。</text>
+<g stroke="#B56A58" stroke-width="1.6" fill="none" stroke-opacity="0.7">
+<path d="M380 78 C380 120 70 120 70 150"/><path d="M380 78 C380 120 194 120 194 150"/><path d="M380 78 C380 120 318 120 318 150"/><path d="M380 78 C380 120 442 120 442 150"/><path d="M380 78 C380 120 566 120 566 150"/><path d="M380 78 C380 120 690 120 690 150"/>
+</g>
+<rect x="18" y="152" width="104" height="44" rx="9" fill="#c48612" fill-opacity="0.16" stroke="#c48612"/><text x="70" y="179" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">造園門</text><rect x="142" y="152" width="104" height="44" rx="9" fill="#c48612" fill-opacity="0.16" stroke="#c48612"/><text x="194" y="179" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">一合酥</text><rect x="266" y="152" width="104" height="44" rx="9" fill="#c48612" fill-opacity="0.16" stroke="#c48612"/><text x="318" y="179" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">夢中殺人</text><rect x="390" y="152" width="104" height="44" rx="9" fill="#c48612" fill-opacity="0.16" stroke="#c48612"/><text x="442" y="179" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">藏吳質</text><rect x="514" y="152" width="104" height="44" rx="9" fill="#c48612" fill-opacity="0.16" stroke="#c48612"/><text x="566" y="179" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">出城門</text><rect x="638" y="152" width="104" height="44" rx="9" fill="#c48612" fill-opacity="0.16" stroke="#c48612"/><text x="690" y="179" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">答教</text>
+<text x="380" y="226" text-anchor="middle" font-size="13" fill="var(--color-text-secondary)">六件事都是「數犯曹操之忌」的例子；它們合起來，解釋了開頭的「雞肋」為何會招來殺身之禍。</text>
+</svg>
+</div>
+<div class="card"><h3><span class="dot blue"></span>記敍的六要素：以「雞肋」事件為例</h3>
+<p>記敍文通常包括<span class="hl">時間、地點、人物，以及事情的起因、經過、結果</span>。找出六要素，就能把一件事說清楚。</p>
+<table>
+<tr><th class="c">要素</th><th>「雞肋」事件</th></tr>
+<tr><td class="c">時間</td><td>曹操屯兵斜谷期間的一個晚上</td></tr>
+<tr><td class="c">地點</td><td>曹軍的軍營</td></tr>
+<tr><td class="c">人物</td><td>曹操、楊修、夏侯惇</td></tr>
+<tr><td class="c">起因</td><td>曹操進退兩難，看見雞湯中的雞肋，隨口以「雞肋」作口令。</td></tr>
+<tr><td class="c">經過</td><td>楊修從口令推斷曹操想退兵，叫軍士收拾行裝；諸將跟着準備回去。</td></tr>
+<tr><td class="c">結果</td><td>曹操巡營時發現，大怒，以「造言亂我軍心」為罪名殺了楊修。</td></tr>
+</table>
+
+</div>
+<div class="card"><h3><span class="dot purple"></span>六件事故事板</h3>
+<div class="sboard"><div class="sb sbl1"><div class="sb-h"><b>造園門</b><span>第4段</span></div><div class="sb-row"><span class="sb-k">起因</span>曹操在園門寫「活」字，不說明意思。</div><div class="sb-row"><span class="sb-k y">楊修</span>楊修說破：「門」內添「活」字，就是「闊」字。</div><div class="sb-r">曹操反應：<b>「心甚忌之」</b></div></div><div class="sb sbl2"><div class="sb-h"><b>一合酥</b><span>第5段</span></div><div class="sb-row"><span class="sb-k">起因</span>曹操在酥盒寫「一合酥」，放在桌上。</div><div class="sb-row"><span class="sb-k y">楊修</span>楊修不等吩咐，拿匙與眾人分吃。</div><div class="sb-r">曹操反應：<b>「心惡之」</b></div></div><div class="sb sbl3"><div class="sb-h"><b>夢中殺人</b><span>第6段</span></div><div class="sb-row"><span class="sb-k">起因</span>曹操假裝夢中殺死替他蓋被的近侍。</div><div class="sb-row"><span class="sb-k y">楊修</span>楊修在葬禮上說：「丞相非在夢中，君乃在夢中耳。」</div><div class="sb-r">曹操反應：<b>「愈惡之」</b></div></div><div class="sb sbl3"><div class="sb-h"><b>藏吳質</b><span>第7段</span></div><div class="sb-row"><span class="sb-k">起因</span>曹丕用大竹箱偷運吳質入府商議。</div><div class="sb-row"><span class="sb-k y">楊修</span>楊修告發，吳質教曹丕改運絹入府，楊修反被懷疑陷害曹丕。</div><div class="sb-r">曹操反應：<b>「愈惡之」</b></div></div><div class="sb sbl4"><div class="sb-h"><b>出城門</b><span>第8段</span></div><div class="sb-row"><span class="sb-k">起因</span>曹操命兩個兒子出城，暗令門吏阻攔。</div><div class="sb-row"><span class="sb-k y">楊修</span>楊修教曹植斬門吏出城，事後被人揭發。</div><div class="sb-r">曹操反應：<b>「大怒」</b></div></div><div class="sb sbl5"><div class="sb-h"><b>答教</b><span>第9段</span></div><div class="sb-row"><span class="sb-k">起因</span>曹操常以軍國大事考問曹植。</div><div class="sb-row"><span class="sb-k y">楊修</span>楊修預先替曹植寫好答案，被曹丕揭發。</div><div class="sb-r">曹操反應：<b>「大怒」「已有殺修之心」</b></div></div></div>
+</div>
+<div class="card"><h3><span class="dot red"></span>曹操的怒氣，一級一級升高</h3>
+<svg class="chart" viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="曹操對楊修的反應層層升級">
+<defs><linearGradient id="heat" x1="0" x2="1"><stop offset="0" stop-color="#e9b44c"/><stop offset="1" stop-color="#b03a2e"/></linearGradient></defs><rect x="14" y="250" width="100" height="50" rx="8" fill="url(#heat)" fill-opacity="0.45"/><text x="64.0" y="272" text-anchor="middle" font-size="13.5" font-weight="700" fill="#7a3b22">忌恨</text><text x="64.0" y="318" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">造園門</text><text x="64.0" y="240" text-anchor="middle" font-size="12.5" fill="#B56A58" font-family="Noto Serif TC,serif">「心甚忌之」</text><rect x="120" y="220" width="100" height="80" rx="8" fill="url(#heat)" fill-opacity="0.54"/><text x="170.0" y="242" text-anchor="middle" font-size="13.5" font-weight="700" fill="#7a3b22">討厭</text><text x="170.0" y="318" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">一合酥</text><text x="170.0" y="210" text-anchor="middle" font-size="12.5" fill="#B56A58" font-family="Noto Serif TC,serif">「心惡之」</text><rect x="226" y="190" width="100" height="110" rx="8" fill="url(#heat)" fill-opacity="0.63"/><text x="276.0" y="212" text-anchor="middle" font-size="13.5" font-weight="700" fill="#7a3b22">更討厭</text><text x="276.0" y="318" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">夢中殺人</text><text x="276.0" y="180" text-anchor="middle" font-size="12.5" fill="#B56A58" font-family="Noto Serif TC,serif">「愈惡之」</text><rect x="332" y="160" width="100" height="140" rx="8" fill="url(#heat)" fill-opacity="0.72"/><text x="382.0" y="182" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff">更討厭</text><text x="382.0" y="318" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">藏吳質</text><text x="382.0" y="150" text-anchor="middle" font-size="12.5" fill="#B56A58" font-family="Noto Serif TC,serif">「愈惡之」</text><rect x="438" y="130" width="100" height="170" rx="8" fill="url(#heat)" fill-opacity="0.81"/><text x="488.0" y="152" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff">大怒</text><text x="488.0" y="318" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">出城門</text><text x="488.0" y="120" text-anchor="middle" font-size="12.5" fill="#B56A58" font-family="Noto Serif TC,serif">「大怒」</text><rect x="544" y="100" width="100" height="200" rx="8" fill="url(#heat)" fill-opacity="0.90"/><text x="594.0" y="122" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff">動殺機</text><text x="594.0" y="318" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">答教</text><text x="594.0" y="74" text-anchor="middle" font-size="12.5" fill="#B56A58" font-family="Noto Serif TC,serif">「大怒」</text><text x="594.0" y="90" text-anchor="middle" font-size="12.5" fill="#B56A58" font-family="Noto Serif TC,serif">「已有殺修之心」</text><rect x="650" y="70" width="100" height="230" rx="8" fill="url(#heat)" fill-opacity="0.99"/><text x="700.0" y="92" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff">殺</text><text x="700.0" y="318" text-anchor="middle" font-size="13" font-weight="700" fill="var(--color-text-primary)">雞肋</text><text x="700.0" y="60" text-anchor="middle" font-size="12.5" fill="#B56A58" font-family="Noto Serif TC,serif">「推出斬之」</text><text x="14" y="24" font-size="13" fill="var(--color-text-secondary)">曹操的反應</text></svg><p>把六件事後曹操的反應連起來讀，可以看到他對楊修的不滿越積越深：由心裏忌恨、討厭，到大怒，再到起了殺心。到了「雞肋」一事，曹操終於下手。</p>
+</div>
+<div class="card"><h3><span class="dot green"></span>楊修做的事，可以分成兩類</h3>
+<div class="duo">
+<div class="duo-col wen"><div class="duo-h">🧩 第一類：猜中曹操的心思</div>
+<p>造園門、一合酥、夢中殺人、雞肋</p>
+<p class="small">楊修看穿曹操不願明說的意思，還當眾說破。曹操覺得自己的心事被人看透，臉上無光。</p></div>
+<div class="duo-col wu"><div class="duo-h">⚖️ 第二類：插手世子之爭</div>
+<p>藏吳質、出城門、答教</p>
+<p class="small">楊修幫曹植爭做世子，替他出計，甚至弄虛作假。這關係到曹家的繼承大事，曹操更不能容忍。</p></div>
+</div><svg class="chart" viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="曹丕與曹植爭做世子">
+<rect x="20" y="20" width="200" height="74" rx="12" fill="#3a6ea5"/>
+<text x="120" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">曹丕</text>
+<text x="120" y="76" text-anchor="middle" font-size="12.5" fill="#fff">謀士：吳質</text>
+<rect x="540" y="20" width="200" height="74" rx="12" fill="#2a8a80"/>
+<text x="640" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">曹植</text>
+<text x="640" y="76" text-anchor="middle" font-size="12.5" fill="#fff">謀士：楊修</text>
+<path d="M224 57 H536" stroke="#c48612" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round"/>
+<circle cx="380" cy="57" r="26" fill="#B56A58"/>
+<text x="380" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">世子</text>
+<g font-size="13">
+<rect x="20" y="114" width="720" height="44" rx="10" fill="var(--color-background-secondary)"/>
+<text x="36" y="141" font-weight="700" fill="var(--color-text-primary)">第一回　藏吳質</text>
+<text x="190" y="141" fill="var(--color-text-primary)">楊修告發 → 吳質以絹「惑之」→ 曹操反疑楊修陷害曹丕</text>
+<text x="724" y="141" text-anchor="end" font-weight="700" fill="#3a6ea5">曹丕佔上風</text>
+<rect x="20" y="166" width="720" height="44" rx="10" fill="var(--color-background-secondary)"/>
+<text x="36" y="193" font-weight="700" fill="var(--color-text-primary)">第二回　出城門</text>
+<text x="190" y="193" fill="var(--color-text-primary)">楊修教曹植斬門吏 → 曹操以植為能 → 被揭發是楊修所教</text>
+<text x="724" y="193" text-anchor="end" font-weight="700" fill="#2a8a80">曹植受牽連</text>
+<rect x="20" y="218" width="720" height="44" rx="10" fill="var(--color-background-secondary)"/>
+<text x="36" y="245" font-weight="700" fill="var(--color-text-primary)">第三回　答教</text>
+<text x="190" y="245" fill="var(--color-text-primary)">楊修替曹植寫答案 → 曹丕收買曹植身邊人揭發</text>
+<text x="724" y="245" text-anchor="end" font-weight="700" fill="#c0392b">曹操動殺機</text>
+</g>
+</svg>
+</div>
+<div class="card"><h3><span class="dot teal"></span>細看「夢中殺人」：誰在做夢？</h3>
+<div class="chat"><div class=""><div class="who">曹操（對左右）</div><div class="bubble">我在睡夢中喜歡殺人。我睡着的時候，你們千萬不要走近。</div></div><div class=""><div class="who">旁白</div><div class="bubble">一個近侍好心替曹操拾起被子，被曹操跳起來一劍殺死。曹操睡了好一會兒才起來。</div></div><div class=""><div class="who">曹操（假裝吃驚）</div><div class="bubble">誰殺了我的近侍？（聽到實情後痛哭，下令厚葬）</div></div><div class="row-r"><div class="who">眾人（心想）</div><div class="bubble">原來丞相真的會在夢中殺人，以後千萬不要靠近他。</div></div><div class="row-r"><div class="who">楊修（指着死者）</div><div class="bubble">丞相非在夢中，君乃在夢中耳。</div></div></div>
+<p>曹操殺近侍，是要嚇唬身邊的人，讓大家不敢在他睡覺時靠近，以防有人行刺。眾人都中了計，只有楊修看穿，還在葬禮上當眾點破。曹操的計謀被揭穿，自然「愈惡之」。</p>
+</div>
+<div class="card"><h3><span class="dot coral"></span>想深一層：為甚麼到「雞肋」才殺楊修？</h3>
+<ol class="tight">
+<li><b>事關軍心：</b>曹操只是隨口說出口令，還未下令退兵，楊修已叫軍士收拾行裝，全營將領跟着準備回去。這等於替主帥作了決定。</li>
+<li><b>罪名現成：</b>答教一事後，曹操「已有殺修之心」，但前幾件事多屬小事或曹家內部的事，不便公開治罪。擾亂軍心是軍中大罪，殺楊修就顯得名正言順。</li>
+<li><b>借題發揮：</b>末段一句「今乃借惑亂軍心之罪殺之」，「借」字說明這個罪名只是藉口。</li>
+</ol>
+</div>
+<div class="section-header ex" id="s6"><div class="icon">✏️</div><div><div class="chap">CHAPTER 06　練習</div><h2>練習三：內容理解</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>楊修根據甚麼，推斷曹操想退兵？<ul class="opts"><li><b>A</b>曹操親口下令收拾行裝</li><li><b>B</b>夜間的口令「雞肋」</li><li><b>C</b>夏侯惇的報告</li><li><b>D</b>曹操在營中巡視</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>曹操怎樣發現軍士在準備行裝？<ul class="opts"><li><b>A</b>楊修親自告訴他</li><li><b>B</b>庖官向他報告</li><li><b>C</b>曹植向他告密</li><li><b>D</b>他睡不着，繞營巡視時看見</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>在「造園門」一事中，曹操在門上寫「活」字，是嫌園門：<ul class="opts"><li><b>A</b>太闊</li><li><b>B</b>太窄</li><li><b>C</b>太高</li><li><b>D</b>太舊</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>曹丕第二天再用大竹箱裝絹運入府中，目的是：<ul class="opts one"><li><b>A</b>把絹送給曹操</li><li><b>B</b>把吳質運走</li><li><b>C</b>讓搜查的人以為箱中只有絹，令楊修的話落空</li><li><b>D</b>試探楊修是否忠心</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>試根據第6段，完成以下「夢中殺人」事件的記敍要素。<table><tr><th class="c">要素</th><th>內容</th></tr><tr><td class="c">時間</td><td>一日（白天）</td></tr><tr><td class="c">地點</td><td>（1）<span class="blank l"></span></td></tr><tr><td class="c">人物</td><td>曹操、近侍、楊修、眾人</td></tr><tr><td class="c">起因</td><td>（2）<span class="blank l"></span><span class="blank l"></span></td></tr><tr><td class="c">經過</td><td>近侍替曹操蓋被，曹操躍起殺死他，醒來後假裝吃驚，又痛哭厚葬。</td></tr><tr><td class="c">結果</td><td>（3）<span class="blank l"></span><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）曹操的營帳中　（2）曹操怕有人暗中謀害自己，便說自己在夢中好殺人，叫左右不要走近　（3）楊修點破曹操是假裝在夢中殺人，曹操聽到後更加討厭他</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>「雞肋」事件寫在課文的最前面。在七件事之中，它是最先發生，還是最後發生？試引用文中一句話作為證據。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）最後發生（1分）。證據：「此時已有殺修之心，今乃借惑亂軍心之罪殺之。」（1分）<br><span class="ex">只引「今乃借惑亂軍心之罪殺之」亦可給分。</span></div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>摘錄原文，寫出曹操在以下兩件事後的反應。<p>（1）造園門：<span class="blank l"></span></p><p>（2）夢中殺人：<span class="blank l"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）「操雖稱美，心甚忌之」（答「心甚忌之」亦可）　（2）「操聞而愈惡之」（答「愈惡之」亦可）</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>在「出城門」一事中，曹操本來「以植為能」，後來卻「大怒」。試解釋曹操大怒的原因。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）曹操本想藉此試探兒子的才幹（1分），曹植斬門吏出城的辦法卻是楊修所教，曹操被蒙騙了（1分）；楊修身為臣子，竟插手曹家選立世子的大事（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>楊修說「丞相非在夢中」，揭穿了曹操甚麼？為甚麼這句話令曹操更加討厭他？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）揭穿曹操假裝在夢中殺人，他是故意殺死近侍的（1分）。曹操本想藉此警告身邊的人，防止有人行刺（1分）；楊修當眾說破，令曹操的計謀落空，又顯得自己的心思被人看透，所以更加討厭他（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>楊修在「雞肋」一事中只是猜中曹操的心意，曹操卻殺了他。試從當時軍中的情況，分析曹操不能容忍這件事的原因。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）曹操只是隨口說出口令，還未下令退兵，楊修已叫軍士收拾行裝（1分）；結果全營將領都準備回去，動搖軍心，等於替主帥作決定（1分）。擾亂軍心是軍中大罪，曹操早有殺心，正好借這個罪名名正言順地殺掉楊修（1分）。</div></div></div>
+<div class="section-header" id="s7"><div class="icon">🖋️</div><div><div class="chap">CHAPTER 07　教學</div><h2>寫法、人物與主旨</h2></div></div>
+<div class="card"><h3><span class="dot coral"></span>寫法一：倒敍法</h3>
+<svg class="chart" viewBox="0 0 760 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="寫作次序與事情發生次序對照">
+<text x="10" y="34" font-size="13.5" font-weight="700" fill="#B56A58">課文的寫作次序</text>
+<text x="10" y="214" font-size="13.5" font-weight="700" fill="#3a6ea5">事情的發生次序</text><rect x="18" y="46" width="92" height="40" rx="8" fill="#B56A58" fill-opacity="0.9"/><text x="64.0" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">雞肋</text><rect x="18" y="226" width="92" height="40" rx="8" fill="#3a6ea5" fill-opacity="0.16"/><text x="64.0" y="251" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">造園門</text><rect x="120" y="46" width="92" height="40" rx="8" fill="#c48612" fill-opacity="0.18"/><text x="166.0" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">造園門</text><rect x="120" y="226" width="92" height="40" rx="8" fill="#3a6ea5" fill-opacity="0.16"/><text x="166.0" y="251" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">一合酥</text><rect x="222" y="46" width="92" height="40" rx="8" fill="#c48612" fill-opacity="0.18"/><text x="268.0" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">一合酥</text><rect x="222" y="226" width="92" height="40" rx="8" fill="#3a6ea5" fill-opacity="0.16"/><text x="268.0" y="251" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">夢中殺人</text><rect x="324" y="46" width="92" height="40" rx="8" fill="#c48612" fill-opacity="0.18"/><text x="370.0" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">夢中殺人</text><rect x="324" y="226" width="92" height="40" rx="8" fill="#3a6ea5" fill-opacity="0.16"/><text x="370.0" y="251" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">藏吳質</text><rect x="426" y="46" width="92" height="40" rx="8" fill="#c48612" fill-opacity="0.18"/><text x="472.0" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">藏吳質</text><rect x="426" y="226" width="92" height="40" rx="8" fill="#3a6ea5" fill-opacity="0.16"/><text x="472.0" y="251" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">出城門</text><rect x="528" y="46" width="92" height="40" rx="8" fill="#c48612" fill-opacity="0.18"/><text x="574.0" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">出城門</text><rect x="528" y="226" width="92" height="40" rx="8" fill="#3a6ea5" fill-opacity="0.16"/><text x="574.0" y="251" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">答教</text><rect x="630" y="46" width="92" height="40" rx="8" fill="#c48612" fill-opacity="0.18"/><text x="676.0" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">答教</text><rect x="630" y="226" width="92" height="40" rx="8" fill="#B56A58" fill-opacity="0.9"/><text x="676.0" y="251" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">雞肋</text><path d="M64.0 88 C64.0 170 676.0 150 676.0 222" fill="none" stroke="#B56A58" stroke-width="2.2" stroke-dasharray="6 5"/><rect x="250" y="118" width="260" height="56" rx="12" fill="var(--color-background-primary)" stroke="#B56A58"/><text x="380" y="141" text-anchor="middle" font-size="13.5" font-weight="700" fill="#B56A58">最後發生的結局，放在最前面寫</text><text x="380" y="162" text-anchor="middle" font-size="12.5" fill="var(--color-text-secondary)">這就是倒敍法</text></svg><p><b>倒敍</b>是先寫事情的結果或後來發生的事，再回頭交代前因。本文第1–3段先寫楊修被殺，第4段用「原來」二字把時間拉回從前，再逐件交代原因。</p>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">如果用順敍</div>從造園門寫起，一件一件寫到雞肋，讀者要讀到最後才知道楊修會死。</div>
+<div class="compare-card b"><div class="ct">本文用倒敍</div>開頭楊修已經被殺，讀者會追問：楊修只是猜中口令，為何要死？於是一路讀下去找答案。</div>
+</div>
+</div>
+<div class="card"><h3><span class="dot amber"></span>其他寫法</h3>
+<div class="tc-grid"><div class="tc amber"><div class="tc-h">寫法二：層層遞進</div><div class="tc-i">六件事的次序經過安排，曹操的反應一次比一次強烈。</div><div class="tc-e"><span>例子</span>「心甚忌之」→「心惡之」→「愈惡之」→「大怒」→「已有殺修之心」</div><div class="tc-f"><span>效果</span>曹操殺楊修的結局顯得合情合理，讀者明白殺機是慢慢累積起來的。</div></div><div class="tc blue"><div class="tc-h">寫法三：語言描寫</div><div class="tc-i">借人物說的話，表現他的性格。</div><div class="tc-e"><span>例子</span>楊修解釋雞肋時，一口氣說出「食之無肉，棄之有味」等推斷；分酥時反問「豈敢違丞相之命乎？」</div><div class="tc-f"><span>效果</span>寫出楊修反應快、口才好，也寫出他自以為是、愛在人前表現。</div></div><div class="tc red"><div class="tc-h">寫法四：動作細節</div><div class="tc-i">用幾個關鍵動作，寫出人物的真面目。</div><div class="tc-e"><span>例子</span>曹操「躍起拔劍斬之，復上牀睡」，起來後「佯驚問」，又「痛哭」「命厚葬之」。</div><div class="tc-f"><span>效果</span>「佯」字點明曹操在做戲，寫出他陰險、虛偽和殘忍。</div></div><div class="tc purple"><div class="tc-h">寫法五：一語雙關</div><div class="tc-i">一句話同時有兩層意思。</div><div class="tc-e"><span>例子</span>「丞相非在夢中，君乃在夢中耳。」</div><div class="tc-f"><span>效果</span>表面說死者糊塗，暗裏揭穿曹操假裝做夢；一句話就顯出楊修的聰明，也令曹操更加憎恨他。</div></div><div class="tc teal"><div class="tc-h">寫法六：表裏對照</div><div class="tc-i">寫曹操表面的反應，再寫他內心的真實感受。</div><div class="tc-e"><span>例子</span>「操雖稱美，心甚忌之」「操雖喜而笑，心惡之」</div><div class="tc-f"><span>效果</span>一表一裏，寫出曹操喜怒不形於色、城府很深。</div></div><div class="tc green"><div class="tc-h">寫法七：借楊修寫曹操</div><div class="tc-i">題目寫楊修，每件事卻都寫到曹操的反應。</div><div class="tc-e"><span>例子</span>夢中殺人一事，大部分篇幅都在寫曹操。</div><div class="tc-f"><span>效果</span>讀者在看楊修怎樣犯忌的同時，也看清曹操多疑、忌才的性格。</div></div></div>
+</div>
+<div class="card"><h3><span class="dot pink"></span>人物形象</h3>
+<p><b>楊修</b></p>
+<div class="trait-grid t3">
+<div class="trait"><div class="trait-h">聰明機敏</div><div class="trait-e">一看就懂「活」字、「一合酥」的謎底，又從「雞肋」推斷曹操想退兵。</div></div>
+<div class="trait"><div class="trait-h">恃才放曠</div><div class="trait-e">猜中了就當眾說破，不等吩咐就分酥，處處顯示自己比主公聰明。</div></div>
+<div class="trait"><div class="trait-h">不懂自保</div><div class="trait-e">曹操心裏一次比一次不滿，他仍不知收斂，還插手世子之爭，最後招來殺身之禍。</div></div>
+</div>
+<p><b>曹操</b></p>
+<div class="trait-grid t3 cao">
+<div class="trait"><div class="trait-h">多疑忌才</div><div class="trait-e">怕人暗害，假裝夢中殺人；見楊修處處猜中他的心思，便「心甚忌之」。</div></div>
+<div class="trait"><div class="trait-h">陰險虛偽</div><div class="trait-e">殺近侍後「佯驚」「痛哭」「厚葬」；對楊修表面「稱美」「喜而笑」，心裏卻厭惡。</div></div>
+<div class="trait"><div class="trait-h">殘忍狠辣</div><div class="trait-e">拔劍殺死好心替他蓋被的近侍；早有殺心，便借「惑亂軍心」之罪殺楊修。</div></div>
+</div>
+</div>
+<div class="formula"><div class="fl">本文主旨</div>作者透過楊修<b>恃才放曠、屢次觸犯曹操忌諱而終被殺害</b>的經過，說明才華外露、不懂收斂，會為自己招來禍患；同時揭示曹操<b>多疑、陰險、忌才</b>的性格。</div>
+<div class="card"><h3><span class="dot purple"></span>延伸知識：歷史上的楊修</h3>
+<p>據史書《三國志》及裴松之的注釋記載，楊修確實才思敏捷，深得曹植賞識。曹操擔心自己死後，曹植一派會生出事端，加上楊修是袁術的外甥，終在公元219年秋天，以泄露機密、結交諸侯的罪名殺了楊修，事情發生在漢中撤軍之後。</p>
+<p>史書雖然記載了「雞肋」一事，卻沒有說楊修因此被殺。羅貫中把多件事集中在楊修身上，又把「雞肋」安排為導火線，令故事更緊湊、更具戲劇性。這就是歷史小說的寫法：以史實為骨幹，再加入想像和改編。</p>
+</div>
+<div class="card"><h3><span class="dot amber"></span>比較閱讀：《世說新語‧捷悟》（節錄）</h3>
+<div class="excerpt">人餉魏武一杯酪，魏武噉少許，蓋頭上題「合」字以示眾，眾莫能解。次至楊脩，脩便噉，曰：「公教人噉一口也，復何疑？」<div class="src">南朝宋　劉義慶《世說新語‧捷悟》</div></div>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word">餉<span class="py">音享</span></div><div class="kw-def">送食物給人。</div></div>
+<div class="kw"><div class="kw-word">魏武</div><div class="kw-def">即曹操。曹丕稱帝後，追尊曹操為魏武帝。</div></div>
+<div class="kw"><div class="kw-word">杯</div><div class="kw-def">原作「桮」，同「杯」。</div></div>
+<div class="kw"><div class="kw-word">酪</div><div class="kw-def">用牛奶、羊奶製成的食品。</div></div>
+<div class="kw"><div class="kw-word">噉<span class="py">音淡</span></div><div class="kw-def">吃。</div></div>
+<div class="kw"><div class="kw-word">脩</div><div class="kw-def">同「修」。楊脩即楊修。</div></div>
+<div class="kw"><div class="kw-word">復何疑</div><div class="kw-def">還有甚麼可懷疑的呢？</div></div>
+</div>
+<p><b>語譯：</b>有人送了一杯酪給曹操，曹操吃了一點，就在蓋子上寫了一個「合」字給眾人看，眾人都不明白是甚麼意思。輪到楊修，楊修便吃了，說：「曹公叫每人吃一口，還有甚麼可懷疑的呢？」</p>
+<table>
+<tr><th class="c">比較項目</th><th>《世說新語》</th><th>《楊修之死》</th></tr>
+<tr><td class="c">食物</td><td>一杯酪</td><td>一盒酥</td></tr>
+<tr><td class="c">曹操寫的字</td><td>「合」</td><td>「一合酥」</td></tr>
+<tr><td class="c">寫作重點</td><td>只寫楊修破解字謎，表現他反應敏捷，屬「捷悟」一類</td><td>加上「操雖喜而笑，心惡之」，寫曹操表面歡喜、內心厭惡</td></tr>
+<tr><td class="c">作用</td><td>記一則聰明人的小故事</td><td>成為楊修「數犯曹操之忌」的一例，為他被殺埋下伏筆</td></tr>
+</table>
+<p class="small">羅貫中多寫一句曹操的反應，就把一則趣事變成了殺機的伏線。</p>
+</div>
+<div class="section-header ex" id="s8"><div class="icon">✏️</div><div><div class="chap">CHAPTER 08　練習</div><h2>練習四：寫法賞析與比較閱讀</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>本文先寫楊修被殺，再交代他被殺的原因，運用了哪一種記敍方法？<ul class="opts"><li><b>A</b>順敍</li><li><b>B</b>插敍</li><li><b>C</b>倒敍</li><li><b>D</b>補敍</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>下列哪一句是全文的中心句？<ul class="opts one"><li><b>A</b>操屯兵日久，欲要進兵，又被馬超拒守。</li><li><b>B</b>原來楊修為人，恃才放曠，數犯曹操之忌。</li><li><b>C</b>操聞而愈惡之。</li><li><b>D</b>於是曹操以植為能。</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「丞相非在夢中，君乃在夢中耳。」這句話運用了哪一種修辭手法？<ul class="opts"><li><b>A</b>雙關</li><li><b>B</b>比喻</li><li><b>C</b>誇張</li><li><b>D</b>對偶</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>在《世說新語》的節錄中，楊修怎樣理解曹操寫的「合」字？<ul class="opts"><li><b>A</b>把蓋子合上</li><li><b>B</b>大家合作</li><li><b>C</b>合乎心意</li><li><b>D</b>每人吃一口</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>曹操殺死近侍後，「佯驚問」，又「痛哭」，並「命厚葬之」。這些動作細節表現了曹操甚麼性格？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）表現曹操陰險虛偽（1分）。他明知近侍是自己殺的，卻假裝吃驚，又痛哭、厚葬，在眾人面前做戲（1分），令大家相信他真的會在夢中殺人，不敢走近，達到防人行刺的目的（1分）。<br><span class="ex">答「殘忍」並能說明亦可給分。</span></div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>根據課文填空。<p>七件事之中，曹操的反應由「心甚忌之」逐步升級到「已有殺修之心」，這種寫法叫（1）<span class="blank"></span>；它令曹操最後殺楊修的結局顯得（2）<span class="blank"></span>。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1）層層遞進　（2）合情合理（答「合理」亦可）</div></div></div>
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>如果本文改用順敍，由「造園門」寫起，到「雞肋」才寫楊修被殺，讀者的閱讀感受會有甚麼不同？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）讀者要到最後才知道楊修被殺，開頭欠缺懸念，吸引力較弱（1分）。本文先寫楊修被殺，讀者會急於知道原因，於是追讀下去（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">8.</span><span class="lv lv3">進階</span>比較《世說新語》的節錄和課文第5段，兩者寫楊修分吃食物的事，有甚麼不同？課文多寫了曹操哪一句反應？這句有甚麼作用？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）《世說新語》只寫楊修破解字謎，表現他聰明敏捷（1分）。課文多寫了「操雖喜而笑，心惡之」（1分），寫出曹操表面高興、內心厭惡，令這件事成為楊修觸犯曹操忌諱的例子，為他被殺埋下伏筆（1分）。</div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>班上有一位同學很聰明，但常常搶着在人前顯示自己。試以楊修的經歷為例，寫一段約60字的話，給這位同學一些建議。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，示例）學生自由作答，言之成理即可。<br>楊修很聰明，卻常常當眾說破曹操的心思，令人難堪，最後招來殺身之禍（1分）。你很聰明，這是好事，但不用每次都搶着表現，要顧及別人的感受（1分）。懂得謙虛和收斂，大家會更願意和你相處（1分）。<br><span class="ex">評分原則：引用楊修的經歷1分，指出同學的問題1分，提出合理建議1分。</span></div></div></div>
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>有人說：「楊修是被自己的聰明害死的。」也有人說：「楊修是被曹操的猜忌害死的。」你較同意哪一種說法？試結合課文說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，示例）學生可選擇任何一方，言之成理即可。<br>我較同意前者（1分）。楊修一再當眾說破曹操的心思，又插手世子之爭（1分）；曹操心裏越來越不滿，他仍不知收斂，終於招來殺身之禍（1分）。<br>或：我較同意後者（1分）。楊修猜中曹操心意本無大錯，曹操卻因忌才而心生厭惡（1分）；最後更借「惑亂軍心」為藉口殺他，可見曹操猜忌心重（1分）。<br><span class="ex">評分原則：表明立場1分，引用課文例子1分，說明理由1分。</span></div></div></div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權屬潘SIR中文教室所有。未經書面同意，不得以任何形式複製、印刷、轉載、轉售或分享，亦不得作營利用途。
+  </div>
+</footer>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
