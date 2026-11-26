@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="pansir-category" content="文言">
+<meta name="pansir-type" content="筆記">
+<title>《岳飛之少年時代》教學筆記｜潘SIR中文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-text-primary:#1a1a1a;--color-text-secondary:#555;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-border-tertiary:rgba(0,0,0,0.1);
+  --border-radius-md:8px;--border-radius-lg:12px;
+  --purple:#6b5ca5;--purple-bg:#efecf8;
+  --teal:#2a8a80;--teal-bg:#e4f3f1;
+  --coral:#d0654a;--coral-bg:#fbebe6;
+  --amber:#c48612;--amber-bg:#fbf2df;
+  --pink:#c2557f;--pink-bg:#f9e8ef;
+  --blue:#3a6ea5;--blue-bg:#e6eef7;
+  --green:#3d8b4f;--green-bg:#e7f3ea;
+  --red:#c0392b;--red-bg:#fbe9e7;
+  --hero:#B56A58;--hero-text:#F1EADF;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --color-text-primary:#ececec;--color-text-secondary:#b4b4b4;
+    --color-background-primary:#1f2124;--color-background-secondary:#151618;
+    --color-border-tertiary:rgba(255,255,255,0.12);
+    --purple:#a89be0;--purple-bg:#2a2638;
+    --teal:#5cc2b6;--teal-bg:#1c302e;
+    --coral:#f08c72;--coral-bg:#3a2520;
+    --amber:#e8b04a;--amber-bg:#36301f;
+    --pink:#ea8ab0;--pink-bg:#382430;
+    --blue:#7fa9d8;--blue-bg:#1f2a38;
+    --green:#74c286;--green-bg:#1e3124;
+    --red:#ee7b6e;--red-bg:#3a2220;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-background-secondary);color:var(--color-text-primary);
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;font-size:15px;line-height:1.8}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 90px}
+h1,h2,h3,.serif{font-family:'Noto Serif TC','Songti TC',serif}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-text);border-radius:var(--border-radius-lg);
+  padding:44px 36px 46px;margin-bottom:22px;min-height:230px;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 10px 28px rgba(94,46,36,.18)}
+.hero .pattern{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:9px;border:1px solid rgba(241,234,223,.28);border-radius:8px;pointer-events:none}
+.hero>*:not(.pattern){position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;border:1px solid rgba(241,234,223,.5);
+  color:rgba(241,234,223,.9);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:rgba(94,46,36,.18)}
+.hero h1{font-size:34px;margin:0 0 6px;line-height:1.35;color:var(--hero-text);font-weight:700;text-shadow:0 1px 10px rgba(94,46,36,.35);max-width:78%}
+.hero .sub{font-size:15px;color:rgba(241,234,223,.85);margin-bottom:16px}
+.hero .sub .nb,.hero h1 .nb{display:inline-block}
+.hero p{margin:0;font-size:13px;color:rgba(241,234,223,.7);letter-spacing:2px}
+@media (max-width:640px){.hero h1{font-size:27px;max-width:100%}.hero{padding:34px 24px 40px}.hero .sub{font-size:13.5px}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(181,106,88,.88) 0%,rgba(181,106,88,.55) 62%,rgba(181,106,88,0) 100%);pointer-events:none}}
+
+/* TOC */
+.toc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 22px;margin-bottom:26px}
+.toc-title{font-weight:700;font-size:15px;margin-bottom:8px;font-family:'Noto Serif TC',serif}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:5px 0;color:var(--color-text-primary);text-decoration:none;border-bottom:1px dashed var(--color-border-tertiary);font-size:14.5px}
+.toc-item:last-child{border-bottom:0}
+.toc-item:hover{color:var(--blue)}
+.toc-num{font-weight:700;color:var(--hero);font-size:13px;min-width:22px}
+.toc-item .kind{margin-left:auto;font-size:11.5px;color:var(--color-text-secondary);white-space:nowrap}
+@media (prefers-color-scheme:dark){.toc-num{color:var(--blue)}}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:14px;margin:38px 0 16px;padding:14px 18px;border-radius:var(--border-radius-lg);
+  background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:6px solid var(--hero)}
+.section-header.ex{border-left-color:var(--amber)}
+.section-header .icon{font-size:26px;line-height:1}
+.section-header h2{margin:0;font-size:21px;line-height:1.4}
+.section-header .chap{font-size:11.5px;letter-spacing:2px;color:var(--color-text-secondary);font-weight:700}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.8}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin:0 0 10px}
+.card p{margin:0 0 10px}
+.card p:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--blue)}
+.dot.purple{background:var(--purple)}.dot.teal{background:var(--teal)}.dot.coral{background:var(--coral)}
+.dot.amber{background:var(--amber)}.dot.pink{background:var(--pink)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.hl{background:linear-gradient(transparent 58%,var(--amber-bg) 58%);font-weight:700}
+.em{color:var(--coral);font-weight:700}
+.small{font-size:12.5px;color:var(--color-text-secondary)}
+ul.tight,ol.tight{margin:4px 0 8px;padding-left:1.4em}
+ul.tight li,ol.tight li{margin-bottom:3px}
+
+/* Example box */
+.example-box{border-left:4px solid var(--purple);background:var(--purple-bg);border-radius:var(--border-radius-md);padding:10px 14px;margin:10px 0}
+.example-box.teal{border-color:var(--teal);background:var(--teal-bg)}
+.example-box.coral{border-color:var(--coral);background:var(--coral-bg)}
+.example-box.amber{border-color:var(--amber);background:var(--amber-bg)}
+.example-box.pink{border-color:var(--pink);background:var(--pink-bg)}
+.example-box.blue{border-color:var(--blue);background:var(--blue-bg)}
+.example-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--color-text-secondary);margin-bottom:3px}
+.example-text{font-size:14px}
+
+/* Alerts */
+.alert{display:flex;gap:10px;border-radius:var(--border-radius-md);padding:10px 14px;margin:12px 0;font-size:14px}
+.alert-icon{font-size:18px;line-height:1.5}
+.alert-label{font-weight:700;font-size:13px;margin-bottom:2px}
+.alert.tip{background:var(--blue-bg)}.alert.tip .alert-label{color:var(--blue)}
+.alert.warn{background:var(--red-bg)}.alert.warn .alert-label{color:var(--red)}
+.alert.success{background:var(--green-bg)}.alert.success .alert-label{color:var(--green)}
+.alert.amber{background:var(--amber-bg)}.alert.amber .alert-label{color:var(--amber)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-card{border-radius:var(--border-radius-md);padding:12px 14px;font-size:14px;border:1px solid var(--color-border-tertiary)}
+.compare-card .ct{font-weight:700;margin-bottom:4px}
+.compare-card.bad{background:var(--red-bg)}.compare-card.bad .ct{color:var(--red)}
+.compare-card.good{background:var(--green-bg)}.compare-card.good .ct{color:var(--green)}
+.compare-card.a{background:var(--blue-bg)}.compare-card.a .ct{color:var(--blue)}
+.compare-card.b{background:var(--coral-bg)}.compare-card.b .ct{color:var(--coral)}
+@media (max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.flow-step{flex:1 1 120px;background:var(--teal-bg);border-radius:var(--border-radius-md);padding:8px 10px;font-size:13.5px;line-height:1.6}
+.flow-step b{display:block;color:var(--teal);font-size:13px;margin-bottom:2px}
+.flow-arrow{align-self:center;color:var(--teal);font-weight:700}
+
+/* keyword grid */
+.keyword-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:10px 0}
+.kw{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;border:0.5px solid var(--color-border-tertiary)}
+.kw-word{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15px}
+.kw-word .py{font-weight:400;font-size:11.5px;color:var(--color-text-secondary);margin-left:4px;font-family:'Noto Sans TC',sans-serif}
+.kw-def{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* formula */
+.formula{background:#2d3a47;color:#f4f1ea;border-radius:var(--border-radius-lg);padding:16px 20px;margin:14px 0;font-size:15px;line-height:1.9;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.formula .fl{font-size:12px;letter-spacing:2px;color:#d9c48f;font-weight:700;margin-bottom:4px}
+.formula b{color:#ffe08a}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;background:var(--color-background-primary)}
+th,td{border:1px solid var(--color-border-tertiary);padding:7px 9px;vertical-align:top;text-align:left;line-height:1.65}
+th{background:var(--color-background-secondary);font-weight:700}
+.c,th.c,td.c{white-space:nowrap}
+td.ctr,th.ctr{text-align:center}
+
+/* poem text */
+.poem{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px 22px;margin-bottom:16px}
+.poem .ttl{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
+.poem .au{text-align:center;font-size:13px;color:var(--color-text-secondary);margin-bottom:12px}
+.poem .ln{font-family:'Noto Serif TC',serif;font-size:17px;line-height:2.15;margin:0 0 6px;display:flex;gap:10px;align-items:flex-start}
+.pnum{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--hero);color:#fff;font-size:12px;font-family:'Noto Sans TC',sans-serif;margin-top:7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.layer-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:1px 12px;margin:6px 0 4px}
+sup.n{color:var(--coral);font-size:10px;font-family:'Noto Sans TC',sans-serif;margin:0 1px}
+.preface{font-size:15px;color:var(--color-text-secondary)}
+
+/* line-by-line */
+.lbl{border-left:3px solid var(--blue);padding:4px 0 4px 14px;margin:12px 0}
+.lbl .orig{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700}
+.lbl .tr{font-size:14px;color:var(--color-text-secondary)}
+.lbl .note{font-size:13.5px;margin-top:3px}
+
+/* chat bubbles (fun) */
+.chat{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px;margin:12px 0}
+.chat .who{font-size:11.5px;color:var(--color-text-secondary);margin:6px 4px 2px}
+.bubble{display:inline-block;max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.65;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary)}
+.row-r{text-align:right}.row-r .bubble{background:var(--green-bg)}
+.row-r .who{text-align:right}
+
+/* Exercises */
+.qsub{font-weight:700;font-size:15px;margin:18px 0 8px;color:var(--amber);font-family:'Noto Serif TC',serif}
+.qbox{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-left:4px solid var(--amber);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:12px;font-size:14.5px}
+.qn{font-weight:700;color:var(--amber);margin-right:4px}
+.mark{float:right;font-size:12.5px;color:var(--color-text-secondary);margin-left:8px}
+.lv{display:inline-block;font-size:11px;border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:2px;font-weight:700}
+.lv1{background:var(--green-bg);color:var(--green)}.lv2{background:var(--amber-bg);color:var(--amber)}.lv3{background:var(--red-bg);color:var(--red)}
+.opts{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.opts.one{grid-template-columns:1fr}
+.opts li{font-size:14px}
+.opts li b{display:inline-block;width:22px}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.line{border-bottom:1px solid #999;height:30px;margin:2px 0}
+.blank{display:inline-block;border-bottom:1px solid #888;min-width:90px;height:1.2em;vertical-align:-2px;margin:0 2px}
+.blank.s{min-width:56px}.blank.l{min-width:180px}
+.circle{display:inline-block;width:26px;height:26px;border:1px solid #888;border-radius:50%;vertical-align:middle;margin:0 3px}
+.box{display:inline-block;width:15px;height:15px;border:1px solid #888;vertical-align:-2px;margin-right:4px}
+.excerpt{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;margin:8px 0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:2}
+.excerpt .src{text-align:right;font-size:12.5px;color:var(--color-text-secondary);font-family:'Noto Sans TC',sans-serif}
+.extotal{font-size:13px;color:var(--color-text-secondary);margin:-6px 0 12px}
+
+/* answers */
+.ans-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--green-bg);border-radius:var(--border-radius-md);padding:8px 14px;margin:0 0 14px;font-size:13px;color:var(--color-text-secondary)}
+.ans-wrap{margin-top:10px;clear:both}
+.ans-btn{font:inherit;font-size:12.5px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:3px 14px;cursor:pointer}
+.ans-btn.on{background:var(--green);color:#fff}
+.ans{background:var(--green-bg);border-left:4px solid var(--green);border-radius:var(--border-radius-md);padding:10px 14px;margin:8px 0 0;font-size:14px}
+.ans-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:1px;margin-right:6px}
+.ans .ex{font-size:13px;color:var(--color-text-secondary)}
+
+/* toolbar */
+.toolbar{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tb-menu{display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.toolbar.open .tb-menu{display:flex}
+.tb-btn{font:inherit;font-size:13px;border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);
+  border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.tb-btn.primary{background:#2f5f6e;color:#fff;border-color:#2f5f6e}
+
+/* svg charts */
+.chart{width:100%;height:auto;display:block;margin:8px 0}
+.chart text{font-family:'Noto Sans TC',sans-serif}
+
+@media print{
+  @page{margin:12mm 10mm}
+  body{background:white;font-size:13.5px}
+  .wrap{max-width:100%;padding:0}
+  .toc{display:none}
+  a{color:inherit;text-decoration:none}
+  .card,.qbox,.example-box,.alert,.formula,.lbl,.poem,table,.chat{page-break-inside:avoid}
+  .section-header{page-break-before:always;page-break-after:avoid}
+  .section-header.first{page-break-before:auto}
+  .hero{page-break-after:avoid}
+  .section-divider,.qsub{page-break-after:avoid}
+  .formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.ans-bar,.ans-btn{display:none !important}
+  .ans-wrap{margin-top:6px}
+  body.print-student .ans-wrap{display:none !important}
+  body.print-teacher .ans{display:block !important}
+  .ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* 本筆記附加 */
+.dotw{font-weight:700;-webkit-text-emphasis:filled dot;text-emphasis:filled dot;-webkit-text-emphasis-position:under;text-emphasis-position:under right}
+.serif{font-family:'Noto Serif TC',serif;font-size:15.5px}
+.stage-row{display:flex;align-items:stretch;gap:8px;margin:8px 0 4px}
+.stage{flex:1;border-radius:var(--border-radius-md);padding:12px 14px;position:relative;border:1px solid var(--color-border-tertiary)}
+.stage.s-a{background:var(--coral-bg)}.stage.s-b{background:var(--blue-bg)}.stage.s-c{background:var(--green-bg)}
+.stage-key{position:absolute;right:10px;top:4px;font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;opacity:.18}
+.stage-t{font-weight:700;margin-bottom:4px}
+.stage-w{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:0 10px;background:var(--color-background-primary);color:var(--color-text-secondary)}
+.stage-arrow{align-self:center;font-weight:700;color:var(--hero)}
+@media (max-width:640px){.stage-row{flex-direction:column}.stage-arrow{transform:rotate(90deg);text-align:center}}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+.duo-col{border-radius:var(--border-radius-md);padding:12px 14px}
+.duo-col p{margin:0 0 8px;font-size:14px}
+.duo-col.wen{background:var(--blue-bg)}.duo-col.wu{background:var(--coral-bg)}
+.duo-h{font-weight:700;font-size:15px;margin-bottom:6px}
+@media (max-width:640px){.duo{grid-template-columns:1fr}}
+.moon-row{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 12px}
+.moon-box{display:flex;align-items:center;gap:10px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 14px;font-size:14px;line-height:1.6}
+.trait-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.trait{border-radius:var(--border-radius-md);padding:10px 12px;background:var(--amber-bg);border-top:3px solid var(--amber)}
+.trait:nth-child(n+3){background:var(--green-bg);border-top-color:var(--green)}
+.trait-h{font-weight:700;font-family:'Noto Serif TC',serif;font-size:15.5px}
+.trait-e{font-size:12.5px;color:var(--color-text-secondary)}
+@media (max-width:480px){.trait-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><svg class="pattern" viewBox="0 0 900 300" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<filter id="grainy" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="n"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0.09 0"/>
+</filter>
+<linearGradient id="fadey" x1="0" x2="1" y1="0" y2="0">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+  <stop offset="0.34" stop-color="#fff" stop-opacity="0.25"/>
+  <stop offset="0.6" stop-color="#fff" stop-opacity="1"/>
+</linearGradient>
+<mask id="maskY"><rect width="900" height="300" fill="url(#fadey)"/></mask>
+<radialGradient id="moonY" cx="0.42" cy="0.38" r="0.7">
+  <stop offset="0" stop-color="#FFF8EC"/><stop offset="0.7" stop-color="#F1EADF"/><stop offset="1" stop-color="#E6D3BC"/>
+</radialGradient>
+<radialGradient id="haloY"><stop offset="0" stop-color="#F1EADF" stop-opacity="0.42"/><stop offset="1" stop-color="#F1EADF" stop-opacity="0"/></radialGradient>
+<linearGradient id="waterY" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5E2E24" stop-opacity="0.15"/><stop offset="1" stop-color="#5E2E24" stop-opacity="0.55"/></linearGradient>
+<pattern id="waveY" width="40" height="20" patternUnits="userSpaceOnUse">
+  <g fill="none" stroke="#F1EADF" stroke-width="1.1">
+    <path d="M0 20 A20 20 0 0 1 40 20"/><path d="M6 20 A14 14 0 0 1 34 20"/><path d="M12 20 A8 8 0 0 1 28 20"/>
+    <path d="M-20 10 A20 20 0 0 1 20 10"/><path d="M-14 10 A14 14 0 0 1 14 10"/><path d="M-8 10 A8 8 0 0 1 8 10"/>
+    <path d="M20 10 A20 20 0 0 1 60 10"/><path d="M26 10 A14 14 0 0 1 54 10"/><path d="M32 10 A8 8 0 0 1 48 10"/>
+  </g>
+</pattern>
+<pattern id="fretY" width="24" height="12" patternUnits="userSpaceOnUse">
+  <path d="M0 11 H10 V3 H4 V7 H7 M12 1 H22 V9 H16 V5 H19" fill="none" stroke="#F1EADF" stroke-width="1.1"/>
+</pattern>
+<g id="cloudY" fill="none" stroke="#F1EADF" stroke-width="1.6" stroke-linecap="round">
+  <path d="M0 0 C-2 -14 16 -20 24 -10 C28 -22 50 -22 52 -8 C64 -14 76 -4 70 6 C78 10 74 20 62 18 L4 18 C-10 18 -12 4 0 0 Z"/>
+  <path d="M24 -10 C20 -2 28 4 34 0 M52 -8 C48 0 54 6 60 4" />
+</g>
+</defs>
+<g mask="url(#maskY)">
+  <!-- 望月 -->
+  <circle cx="792" cy="78" r="104" fill="url(#haloY)"/>
+  <circle cx="792" cy="78" r="46" fill="url(#moonY)" fill-opacity="0.92"/>
+  <circle cx="792" cy="78" r="52" fill="none" stroke="#F1EADF" stroke-opacity="0.35" stroke-width="0.8"/>
+  <circle cx="792" cy="78" r="60" fill="none" stroke="#F1EADF" stroke-opacity="0.18" stroke-width="0.8" stroke-dasharray="2 5"/>
+  <!-- 祥雲 -->
+  <use href="#cloudY" transform="translate(700 118) scale(1.05)" stroke-opacity="0.55"/>
+  <use href="#cloudY" transform="translate(470 54) scale(0.8)" stroke-opacity="0.32"/>
+  <!-- 鵠 -->
+  <g transform="translate(560 120) scale(1.25) rotate(-8)" fill="#F1EADF">
+    <path fill-opacity="0.28" d="M8 -2 C-2 -26 -22 -46 -58 -58 C-40 -40 -30 -22 -14 2 Z"/>
+    <path fill-opacity="0.5" d="M14 -2 C10 -30 2 -52 -20 -74 C-16 -48 -10 -26 -2 2 Z"/>
+    <path fill-opacity="0.7" d="M-34 6 C-22 0 -6 -2 10 -2 C28 -2 44 -8 58 -16 C64 -20 70 -22 76 -20 L88 -18 L77 -14 C70 -12 64 -6 56 0 C42 10 26 14 8 14 C-8 14 -22 12 -34 6 Z"/>
+    <path fill-opacity="0.45" d="M-34 6 L-52 0 L-40 10 Z"/>
+  </g>
+  <g transform="translate(676 46) scale(0.55) rotate(-8)" fill="#F1EADF" fill-opacity="0.45">
+    <path d="M14 -2 C10 -30 2 -52 -20 -74 C-16 -48 -10 -26 -2 2 Z"/>
+    <path d="M-34 6 C-22 0 -6 -2 10 -2 C28 -2 44 -8 58 -16 C64 -20 70 -22 76 -20 L88 -18 L77 -14 C70 -12 64 -6 56 0 C42 10 26 14 8 14 C-8 14 -22 12 -34 6 Z"/>
+  </g>
+  <!-- 箭靶 -->
+  <g transform="translate(838 198)">
+    <circle r="40" fill="#5E2E24" fill-opacity="0.35"/>
+    <circle r="40" fill="none" stroke="#F1EADF" stroke-opacity="0.55" stroke-width="1.2"/>
+    <circle r="29" fill="none" stroke="#F1EADF" stroke-opacity="0.5" stroke-width="1"/>
+    <circle r="18" fill="none" stroke="#F1EADF" stroke-opacity="0.5" stroke-width="1"/>
+    <circle r="7" fill="#F1EADF" fill-opacity="0.6"/>
+    <g stroke="#F1EADF" stroke-opacity="0.85" stroke-width="1.6" stroke-linecap="round">
+      <path d="M-2 -2 L-58 -24"/><path d="M2 -1 L-54 -6"/><path d="M0 2 L-52 14"/>
+    </g>
+    <g fill="#F1EADF" fill-opacity="0.75">
+      <path d="M-58 -24 l-8 -6 l3 6 l-6 2 Z"/><path d="M-54 -6 l-9 -4 l4 5 l-5 4 Z"/><path d="M-52 14 l-9 -1 l5 4 l-4 5 Z"/>
+    </g>
+  </g>
+  <!-- 長弓 -->
+  <g transform="translate(470 210)" fill="none" stroke="#F1EADF" stroke-linecap="round">
+    <path d="M0 -60 C36 -40 36 40 0 60" stroke-opacity="0.55" stroke-width="3"/>
+    <path d="M0 -60 L0 60" stroke-opacity="0.35" stroke-width="0.9"/>
+    <path d="M-4 -64 q4 2 4 4 M-4 64 q4 -2 4 -4" stroke-opacity="0.55" stroke-width="2"/>
+  </g>
+  <!-- 洪水波紋 -->
+  <path d="M330 300 V246 C380 236 420 252 470 244 C530 234 570 252 630 242 C700 230 760 250 830 238 C860 234 885 238 900 236 V300 Z" fill="url(#waterY)"/>
+  <rect x="330" y="244" width="570" height="56" fill="url(#waveY)" opacity="0.32"/>
+  <!-- 巨甕 -->
+  <g transform="translate(640 236)">
+    <path d="M-20 -14 C-28 -6 -26 8 -14 14 L14 14 C26 8 28 -6 20 -14 Z" fill="#5E2E24" fill-opacity="0.8"/>
+    <rect x="-17" y="-19" width="34" height="6" rx="2" fill="#5E2E24" fill-opacity="0.85"/>
+    <path d="M-12 -2 H12" stroke="#F1EADF" stroke-opacity="0.35" stroke-width="1"/>
+  </g>
+</g>
+<rect x="0" y="282" width="900" height="12" fill="url(#fretY)" opacity="0.28"/>
+<path d="M0 279.5 H900 M0 296.5 H900" stroke="#F1EADF" stroke-opacity="0.25" stroke-width="0.8"/>
+<rect width="900" height="300" filter="url(#grainy)"/>
+</svg><div class="hero-tag">文言教學筆記</div><h1>《岳飛之少年時代》</h1><div class="sub"><span class="nb">初中中國語文</span>　<span class="nb">文言篇章精讀</span></div><p>潘SIR中文教室編撰</p></div>
+<nav class="toc"><div class="toc-title">目錄</div><a class="toc-item" href="#s1"><span class="toc-num">01</span>認識岳飛和他的時代<span class="kind">教學</span></a><a class="toc-item" href="#s2"><span class="toc-num">02</span>練習一：人物與背景<span class="kind">練習</span></a><a class="toc-item" href="#s3"><span class="toc-num">03</span>原文、註釋與語譯<span class="kind">教學</span></a><a class="toc-item" href="#s4"><span class="toc-num">04</span>練習二：字詞與語譯<span class="kind">練習</span></a><a class="toc-item" href="#s5"><span class="toc-num">05</span>結構與內容理解<span class="kind">教學</span></a><a class="toc-item" href="#s6"><span class="toc-num">06</span>練習三：內容理解<span class="kind">練習</span></a><a class="toc-item" href="#s7"><span class="toc-num">07</span>寫法、主旨與比較閱讀<span class="kind">教學</span></a><a class="toc-item" href="#s8"><span class="toc-num">08</span>練習四：寫法賞析與比較閱讀<span class="kind">練習</span></a></nav>
+<div class="section-header first" id="s1"><div class="icon">🏹</div><div><div class="chap">CHAPTER 01　教學</div><h2>認識岳飛和他的時代</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>先想一想</h3>
+<p>你認識的名人當中，有沒有人小時候已經很特別？有人從小愛畫畫，有人從小肯練琴。替名人寫傳記的人，通常會挑幾件少年時的事，讓讀者看出這個人日後為甚麼會成功。</p>
+<p>這篇課文寫的是南宋名將岳飛。讀的時候，可以一邊找事件，一邊問自己：這件事讓我看到岳飛哪一方面的特點？</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>作者：佚名</h3>
+<p>「佚」是失去，「佚名」就是作者的名字已經失傳。本文記述岳飛少年時的事跡，內容大致取材自史書中的岳飛傳記，文字簡潔，一句一事。</p>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>岳飛小檔案</h3>
+<table>
+<tr><th class="c">姓名</th><td>岳飛，字鵬舉</td></tr>
+<tr><th class="c">生卒</th><td>公元1103年至1142年</td></tr>
+<tr><th class="c">籍貫</th><td>相州湯陰（今河南省湯陰縣）</td></tr>
+<tr><th class="c">家境</th><td>農家出身，家境貧窮</td></tr>
+<tr><th class="c">身份</th><td>南宋抗金名將。他帶領的軍隊紀律嚴明，作戰勇猛，人稱「岳家軍」。</td></tr>
+<tr><th class="c">結局</th><td>朝廷一心與金國議和，把岳飛從前線召回。宰相秦檜等人誣陷他謀反，卻拿不出證據，只說事情「莫須有」（意思是「也許有」）。岳飛最終被害。</td></tr>
+<tr><th class="c">後世評價</th><td>被後人尊為忠臣良將，「精忠報國」的故事家喻戶曉。</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>岳飛一生時間線</h3>
+<svg class="chart" viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="岳飛一生時間線">
+<line x1="40" y1="100" x2="720" y2="100" stroke="var(--color-text-secondary)" stroke-width="2"/>
+<path d="M720 94 L734 100 L720 106 Z" fill="var(--color-text-secondary)"/>
+<rect x="40" y="88" width="200" height="24" rx="12" fill="#B56A58" fill-opacity="0.18"/>
+<text x="140" y="132" text-anchor="middle" font-size="12.5" fill="#B56A58" font-weight="700">本課所寫的少年時期</text>
+<g font-size="13">
+<circle cx="60" cy="100" r="8" fill="#B56A58"/>
+<text x="60" y="66" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">1103年</text>
+<text x="60" y="32" text-anchor="middle" fill="var(--color-text-secondary)">出生；未滿月</text>
+<text x="60" y="48" text-anchor="middle" fill="var(--color-text-secondary)">遇上洪水</text>
+<circle cx="250" cy="100" r="8" fill="#c48612"/>
+<text x="250" y="140" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">約1122年</text>
+<text x="250" y="160" text-anchor="middle" fill="var(--color-text-secondary)">二十歲左右</text>
+<text x="250" y="178" text-anchor="middle" fill="var(--color-text-secondary)">應募從軍</text>
+<circle cx="390" cy="100" r="8" fill="#3a6ea5"/>
+<text x="390" y="66" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">1127年</text>
+<text x="390" y="32" text-anchor="middle" fill="var(--color-text-secondary)">靖康之難</text>
+<text x="390" y="48" text-anchor="middle" fill="var(--color-text-secondary)">北宋滅亡</text>
+<circle cx="540" cy="100" r="8" fill="#3d8b4f"/>
+<text x="540" y="140" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">1140年</text>
+<text x="540" y="160" text-anchor="middle" fill="var(--color-text-secondary)">大敗金兵</text>
+<text x="540" y="178" text-anchor="middle" fill="var(--color-text-secondary)">被朝廷召回</text>
+<circle cx="680" cy="100" r="8" fill="#555"/>
+<text x="680" y="66" text-anchor="middle" font-weight="700" fill="var(--color-text-primary)">1142年</text>
+<text x="680" y="48" text-anchor="middle" fill="var(--color-text-secondary)">遭誣陷被害</text>
+</g>
+</svg>
+<p class="small">本課所寫的，是圖中紅色一段：岳飛從出生到成年從軍之前的經歷。</p>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>時代背景：國家危難的年代</h3>
+<div class="flow">
+<div class="flow-step"><b>北宋末年</b>北方的金國日漸強大，不斷南侵。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>1127年</b>金兵攻陷首都汴京，擄走宋徽宗、宋欽宗，北宋滅亡。</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>南宋初年</b>宋室南遷，北方國土落入金人手中，朝廷急需能抗敵的將領。</div>
+</div>
+<p>岳飛少年時，國家正一步步走向危難。他日後成為抗金名將，靠的是少年時打下的根基：讀書明理，練武強身，又立下報國的志向。</p>
+</div>
+
+<div class="alert amber"><div class="alert-icon">📌</div><div><div class="alert-label">閱讀時留意</div><div class="alert-text">作者挑了哪幾件事來寫岳飛？每件事反映他甚麼特點？</div></div></div>
+
+<div class="section-header ex" id="s2"><div class="icon">✏️</div><div><div class="chap">CHAPTER 02　練習</div><h2>練習一：人物與背景</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>岳飛生活在哪一個時代？<ul class="opts"><li><b>A</b>北宋末年至南宋初年</li><li><b>B</b>唐朝初年</li><li><b>C</b>明朝末年</li><li><b>D</b>三國時代</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>本文作者「佚名」，意思是：<ul class="opts"><li><b>A</b>作者是岳飛本人</li><li><b>B</b>作者的名字已經失傳</li><li><b>C</b>作者是岳飛的老師</li><li><b>D</b>作者不想寫上名字</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>岳飛帶領的軍隊，人稱：<ul class="opts"><li><b>A</b>楊家將</li><li><b>B</b>戚家軍</li><li><b>C</b>羽林軍</li><li><b>D</b>岳家軍</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>把左邊的年份與右邊的事件配對，把代表答案的英文字母填在括號內。<table><tr><th>年份</th><th class="c ctr">答案</th><th>事件</th></tr>
+<tr><td class="c">（1）1103年</td><td class="ctr">（　　）</td><td>A　靖康之難，北宋滅亡</td></tr>
+<tr><td class="c">（2）1127年</td><td class="ctr">（　　）</td><td>B　岳飛遭誣陷被害</td></tr>
+<tr><td class="c">（3）1142年</td><td class="ctr">（　　）</td><td>C　岳飛出生</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）C　（2）A　（3）B</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>判斷以下說法是否正確。正確的寫「✓」，錯誤的寫「✗」。<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr>
+<tr><td>（1）岳飛，字鵬舉。</td><td class="ctr"><span class="circle"></span></td></tr>
+<tr><td>（2）岳飛是相州湯陰人，相州湯陰即今天的河北省。</td><td class="ctr"><span class="circle"></span></td></tr>
+<tr><td>（3）岳飛最後在戰場上與金兵作戰而死。</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）✓　（2）✗　（3）✗<br><span class="ex">（2）相州湯陰在今河南省。（3）岳飛被秦檜等人誣陷殺害。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>秦檜等人誣陷岳飛，卻拿不出證據，只說事情「莫須有」。「莫須有」的意思是：<ul class="opts"><li><b>A</b>一定有</li><li><b>B</b>完全沒有</li><li><b>C</b>也許有</li><li><b>D</b>不必有</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>根據本章內容填空。<p>本課寫的是岳飛（1）<span class="blank"></span>的經歷，那時他還未從軍，也未成為抗金的（2）<span class="blank"></span>。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每空1分）（1）少年時期（從出生到成年前）　（2）名將（答「將領」亦可）</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>岳飛長大的時候，國家面對甚麼處境？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）金國強大，不斷南侵（1分）；後來金兵攻陷汴京，北宋滅亡，北方國土失陷，國家十分危難（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>替名人寫傳記時，作者通常會挑選他少年時的事件來寫。作者挑選事件時，會考慮甚麼？這樣做對讀者有甚麼好處？<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）作者會挑選最能顯出人物特點的事件（1分）。讀者從具體事件中，容易看出人物是個怎樣的人（1分），也能明白他日後為甚麼會成功（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>岳飛生前遭人陷害，死後卻被後人一直紀念。你認為原因是甚麼？試舉出兩項並加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，示例）學生自由作答，言之成理即可。<br>他忠心報國，在國家危難時帶兵抗金，多次取勝（1分）；他被冤枉而死，後人同情他的遭遇，更敬佩他的忠誠（1分）。他的事跡提醒後人要愛護國家、堅守正義，所以一直被紀念（1分）。<br><span class="ex">評分原則：每項原因及說明1分，總結1分。</span></div></div></div>
+
+<div class="section-header" id="s3"><div class="icon">📜</div><div><div class="chap">CHAPTER 03　教學</div><h2>原文、註釋與語譯</h2></div></div>
+
+<div class="poem"><div class="ttl">岳飛之少年時代</div><div class="au">佚名</div>
+<span class="layer-tag">第一部分　出生（第1段）</span>
+<div class="ln"><span class="pnum">1</span><span>岳飛，字鵬舉，相州　湯陰人也。生時，有大禽若鵠<sup class="n">①</sup>，飛鳴室上，因以為名。未彌月<sup class="n">②</sup>，河決<sup class="n">③</sup>內黃，水暴<sup class="n">④</sup>至，母姚氏抱飛坐巨甕<sup class="n">⑤</sup>中，衝濤乘流而下，及岸，得不死。</span></div>
+<span class="layer-tag">第二部分　學習（第2段）</span>
+<div class="ln"><span class="pnum">2</span><span>飛少負<sup class="n">⑥</sup>氣節<sup class="n">⑦</sup>，沉厚寡言<sup class="n">⑧</sup>。天資敏悟<sup class="n">⑨</sup>，強記書傳<sup class="n">⑩</sup>，尤好《左氏春秋》<sup class="n">⑪</sup>及孫　吳兵法<sup class="n">⑫</sup>。家貧，拾薪<sup class="n">⑬</sup>為燭，誦習達旦<sup class="n">⑭</sup>，不寐<sup class="n">⑮</sup>。生有神力，未冠<sup class="n">⑯</sup>，能挽<sup class="n">⑰</sup>弓三百斤。學射於周同。同射三矢，皆中的<sup class="n">⑱</sup>，以示飛；飛引弓一發，破其筈<sup class="n">⑲</sup>；再發，又中。同大驚，以所愛良弓贈之。飛由是益<sup class="n">⑳</sup>自練習，盡得同術。</span></div>
+<span class="layer-tag">第三部分　敬師與述志（第3段）</span>
+<div class="ln"><span class="pnum">3</span><span>未幾，同死，飛悲慟不已<sup class="n">㉑</sup>。每值朔望<sup class="n">㉒</sup>，必具酒肉，詣<sup class="n">㉓</sup>同墓，奠<sup class="n">㉔</sup>而泣；又引同所贈弓，發三矢，乃酹<sup class="n">㉕</sup>。父知而義之<sup class="n">㉖</sup>，撫其背曰：「使汝異日<sup class="n">㉗</sup>得為時用<sup class="n">㉘</sup>，其殉國死義<sup class="n">㉙</sup>乎？」應曰：「惟<sup class="n">㉚</sup>大人<sup class="n">㉛</sup>許兒以身報國家，何事不可為？」</span></div>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>註釋</h3>
+<div class="keyword-grid">
+<div class="kw"><div class="kw-word">① 鵠<span class="py">音酷</span></div><div class="kw-def">天鵝。若鵠：像天鵝。</div></div>
+<div class="kw"><div class="kw-word">② 未彌月</div><div class="kw-def">嬰兒出生還未滿一個月。</div></div>
+<div class="kw"><div class="kw-word">③ 河決</div><div class="kw-def">黃河決堤。內黃：地名。</div></div>
+<div class="kw"><div class="kw-word">④ 暴</div><div class="kw-def">突然而猛烈。</div></div>
+<div class="kw"><div class="kw-word">⑤ 甕<span class="py">音蕹</span></div><div class="kw-def">陶製的大缸。</div></div>
+<div class="kw"><div class="kw-word">⑥ 負</div><div class="kw-def">具有。</div></div>
+<div class="kw"><div class="kw-word">⑦ 氣節</div><div class="kw-def">志氣和節操。</div></div>
+<div class="kw"><div class="kw-word">⑧ 沉厚寡言</div><div class="kw-def">性格沉着厚重，不多說話。</div></div>
+<div class="kw"><div class="kw-word">⑨ 敏悟</div><div class="kw-def">思考敏捷，領悟力高。</div></div>
+<div class="kw"><div class="kw-word">⑩ 強記書傳</div><div class="kw-def">善於記誦書本的內容。強：善於。傳：解釋經書的著作，泛指典籍，粵音 zyun6，與「傳遞」的「傳」讀音不同。</div></div>
+<div class="kw"><div class="kw-word">⑪ 《左氏春秋》</div><div class="kw-def">即《左傳》，記載春秋時代歷史的史書。</div></div>
+<div class="kw"><div class="kw-word">⑫ 孫吳兵法</div><div class="kw-def">孫武和吳起的兵法書。二人都是古代著名的軍事家。</div></div>
+<div class="kw"><div class="kw-word">⑬ 薪</div><div class="kw-def">柴枝。拾薪為燭：撿柴生火，當作蠟燭照明。</div></div>
+<div class="kw"><div class="kw-word">⑭ 達旦</div><div class="kw-def">直到天亮。旦：早晨。</div></div>
+<div class="kw"><div class="kw-word">⑮ 寐<span class="py">音味</span></div><div class="kw-def">睡覺。</div></div>
+<div class="kw"><div class="kw-word">⑯ 未冠<span class="py">冠音灌</span></div><div class="kw-def">古代男子二十歲行冠禮，表示成年。未冠：未滿二十歲。</div></div>
+<div class="kw"><div class="kw-word">⑰ 挽</div><div class="kw-def">拉開（弓）。</div></div>
+<div class="kw"><div class="kw-word">⑱ 中的<span class="py">中音眾</span></div><div class="kw-def">射中箭靶的中心。中：射中；的：靶心。</div></div>
+<div class="kw"><div class="kw-word">⑲ 筈<span class="py">音括</span></div><div class="kw-def">箭的尾部，扣在弓弦上的位置。</div></div>
+<div class="kw"><div class="kw-word">⑳ 益</div><div class="kw-def">更加。</div></div>
+<div class="kw"><div class="kw-word">㉑ 悲慟不已<span class="py">慟音洞</span></div><div class="kw-def">悲痛得停不下來。已：停止。</div></div>
+<div class="kw"><div class="kw-word">㉒ 朔望</div><div class="kw-def">農曆每月初一（朔）和十五（望）。</div></div>
+<div class="kw"><div class="kw-word">㉓ 詣<span class="py">音藝</span></div><div class="kw-def">到、前往。</div></div>
+<div class="kw"><div class="kw-word">㉔ 奠</div><div class="kw-def">用酒食祭祀死者。</div></div>
+<div class="kw"><div class="kw-word">㉕ 酹<span class="py">音賴</span></div><div class="kw-def">把酒灑在地上，表示祭奠。</div></div>
+<div class="kw"><div class="kw-word">㉖ 義之</div><div class="kw-def">認為他有道義。</div></div>
+<div class="kw"><div class="kw-word">㉗ 異日</div><div class="kw-def">將來、他日。</div></div>
+<div class="kw"><div class="kw-word">㉘ 為時用</div><div class="kw-def">被當時的朝廷重用。</div></div>
+<div class="kw"><div class="kw-word">㉙ 殉國死義</div><div class="kw-def">為國家捐軀，為正義犧牲。</div></div>
+<div class="kw"><div class="kw-word">㉚ 惟</div><div class="kw-def">只要。</div></div>
+<div class="kw"><div class="kw-word">㉛ 大人</div><div class="kw-def">對父親的尊稱。</div></div>
+</div>
+</div>
+
+<div class="card"><h3><span class="dot"></span>一句一句拆開讀</h3>
+<div class="lbl"><div class="orig">岳飛，字鵬舉，相州湯陰人也。</div>
+<div class="tr">岳飛，表字鵬舉，是相州湯陰人。</div>
+<div class="note">傳記慣常的開頭：先交代姓名、表字和籍貫。「鵬」是傳說中的大鳥，和「飛」字意思相配。</div></div>
+
+<div class="lbl"><div class="orig">生時，有大禽若鵠，飛鳴室上，因以為名。</div>
+<div class="tr">他出生的時候，有一隻像天鵝的大鳥在屋頂上一邊飛一邊叫，家人因此用「飛」字為他命名。</div></div>
+
+<div class="lbl"><div class="orig">未彌月，河決內黃，水暴至，母姚氏抱飛坐巨甕中，衝濤乘流而下，及岸，得不死。</div>
+<div class="tr">還未滿月，黃河在內黃決堤，洪水突然猛烈地湧來。母親姚氏抱着岳飛坐在一個大甕裏，衝着波濤，隨水流漂下去，到了岸邊，母子才保住性命。</div></div>
+
+<div class="lbl"><div class="orig">飛少負氣節，沉厚寡言。天資敏悟，強記書傳，尤好《左氏春秋》及孫吳兵法。</div>
+<div class="tr">岳飛年少時已經有志氣和節操，性格沉着厚重，不多說話。他天資聰明，領悟力高，善於記誦書本，特別喜愛《左氏春秋》和孫武、吳起的兵法。</div></div>
+
+<div class="lbl"><div class="orig">家貧，拾薪為燭，誦習達旦，不寐。</div>
+<div class="tr">他家裏貧窮，就撿柴生火當作蠟燭照明，誦讀溫習到天亮，整夜不睡。</div></div>
+
+<div class="lbl"><div class="orig">生有神力，未冠，能挽弓三百斤。</div>
+<div class="tr">他天生力氣很大，還未滿二十歲，已經能拉開三百斤的強弓。</div></div>
+
+<div class="lbl"><div class="orig">學射於周同。同射三矢，皆中的，以示飛；飛引弓一發，破其筈；再發，又中。</div>
+<div class="tr">他跟周同學習射箭。周同射了三箭，三箭都射中靶心，用來給岳飛示範。岳飛拉弓射出第一箭，射破了周同那支箭的箭尾；再射一箭，又射中靶心。</div></div>
+
+<div class="lbl"><div class="orig">同大驚，以所愛良弓贈之。飛由是益自練習，盡得同術。</div>
+<div class="tr">周同大為驚訝，把自己心愛的好弓送給岳飛。岳飛從此更加努力練習，把周同的箭術全部學會了。</div></div>
+
+<div class="lbl"><div class="orig">未幾，同死，飛悲慟不已。每值朔望，必具酒肉，詣同墓，奠而泣；又引同所贈弓，發三矢，乃酹。</div>
+<div class="tr">不久，周同去世，岳飛悲痛不已。每逢初一、十五，他必定準備酒肉，到周同的墓前祭奠，一邊祭一邊哭；又拉開周同送給他的弓，射出三箭，然後把酒灑在地上。</div></div>
+
+<div class="lbl"><div class="orig">父知而義之，撫其背曰：「使汝異日得為時用，其殉國死義乎？」</div>
+<div class="tr">父親知道這件事，認為他很有道義，撫着他的背說：「假如你將來被朝廷重用，你會為國家捐軀、為正義犧牲嗎？」</div></div>
+
+<div class="lbl"><div class="orig">應曰：「惟大人許兒以身報國家，何事不可為？」</div>
+<div class="tr">岳飛回答說：「只要父親允許兒子用生命報效國家，還有甚麼事不可以做呢？」</div>
+<div class="note">「何事不可為」是反問句：用問句的形式說出肯定的意思，即「甚麼事都可以做」。反問比直接說出來語氣更堅定。</div></div>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>圖解：甚麼是「筈」？</h3>
+<p>要明白「破其筈」，先看清楚一支箭的各部分：</p>
+<svg class="chart" viewBox="0 0 760 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="箭的結構">
+<line x1="120" y1="60" x2="640" y2="60" stroke="#8a6a4a" stroke-width="5" stroke-linecap="round"/>
+<path d="M640 46 L690 60 L640 74 Z" fill="#555"/>
+<path d="M140 60 L154 34 L196 34 L250 60 Z" fill="#c2557f" fill-opacity="0.65"/>
+<path d="M140 60 L154 86 L196 86 L250 60 Z" fill="#c2557f" fill-opacity="0.45"/>
+<path d="M104 52 L122 60 L104 68" fill="none" stroke="#B56A58" stroke-width="4" stroke-linecap="round"/>
+<circle cx="112" cy="60" r="16" fill="none" stroke="#B56A58" stroke-width="1.5" stroke-dasharray="4 3"/>
+<g font-size="13" text-anchor="middle">
+<text x="110" y="110" fill="#B56A58" font-weight="700">筈（箭尾）</text>
+<text x="200" y="110" fill="var(--color-text-secondary)">羽（箭羽）</text>
+<text x="420" y="110" fill="var(--color-text-secondary)">桿（箭桿）</text>
+<text x="665" y="110" fill="var(--color-text-secondary)">鏃（箭頭）</text>
+</g>
+</svg>
+<p>筈是箭尾扣住弓弦的小缺口，只有手指般粗細。周同三箭都射中靶心，箭尾向外；岳飛的第一箭正好射中其中一支的箭尾，把它射破。</p>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>讀書方法：用上文下理推測詞義</h3>
+<p>遇到不懂的文言字詞，先別急着查字典。看看前後文提供了甚麼線索，往往已能推測出大概意思。</p>
+<div class="flow">
+<div class="flow-step"><b>第一步</b>圈出不懂的字詞</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>第二步</b>找上文和下文有關的字句</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>第三步</b>想想甚麼意思最合理</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>第四步</b>把意思放回句子，讀通才算</div>
+</div>
+<table>
+<tr><th class="c">字詞</th><th>上文下理的線索</th><th class="c">推測意思</th></tr>
+<tr><td class="c">筈</td><td>上文說周同三箭「皆中的」，靶心已有三支箭；下文說岳飛再發「又中」。第一箭射破的，應是靶心上那支箭的某個部分。</td><td class="c">箭尾</td></tr>
+<tr><td class="c">朔望</td><td>「每值」表示每逢某個時候；下文是帶酒肉到墓前拜祭，應是定期的日子。</td><td class="c">初一、十五</td></tr>
+<tr><td class="c">酹</td><td>上文「必具酒肉」「奠而泣」都和祭祀有關；「發三矢，乃酹」是祭祀的最後一步。</td><td class="c">灑酒祭奠</td></tr>
+<tr><td class="c">未冠</td><td>前面說「生有神力」，後面說「能挽弓三百斤」，作者要強調他年紀輕輕已經力大。</td><td class="c">未滿二十歲</td></tr>
+</table>
+</div>
+
+<div class="card"><h3><span class="dot green"></span>全文語譯</h3>
+<p>岳飛，表字鵬舉，是相州湯陰人。他出生的時候，有一隻像天鵝的大鳥在屋頂上一邊飛一邊叫，家人因此用「飛」字為他命名。還未滿月，黃河在內黃決堤，洪水突然猛烈地湧來。母親姚氏抱着岳飛坐在一個大甕裏，衝着波濤，隨水流漂下去，到了岸邊，母子才保住性命。</p>
+<p>岳飛年少時已經有志氣和節操，性格沉着厚重，不多說話。他天資聰明，領悟力高，善於記誦書本，特別喜愛《左氏春秋》和孫武、吳起的兵法。他家裏貧窮，就撿柴生火照明，誦讀溫習到天亮，整夜不睡。他天生力氣很大，還未滿二十歲，已經能拉開三百斤的強弓。他跟周同學習射箭。周同射了三箭，三箭都射中靶心，用來給岳飛示範。岳飛拉弓射出第一箭，射破了周同那支箭的箭尾；再射一箭，又射中靶心。周同大為驚訝，把自己心愛的好弓送給岳飛。岳飛從此更加努力練習，把周同的箭術全部學會了。</p>
+<p>不久，周同去世，岳飛悲痛不已。每逢初一、十五，他必定準備酒肉，到周同的墓前祭奠，一邊祭一邊哭；又拉開周同送給他的弓，射出三箭，然後把酒灑在地上。父親知道這件事，認為他很有道義，撫着他的背說：「假如你將來被朝廷重用，你會為國家捐軀、為正義犧牲嗎？」岳飛回答說：「只要父親允許兒子用生命報效國家，還有甚麼事不可以做呢？」</p>
+</div>
+
+<div class="alert warn"><div class="alert-icon">⚠</div><div><div class="alert-label">常見讀錯字</div><div class="alert-text">鵠讀「酷」，甕讀「蕹」，未冠的「冠」讀「灌」，中的的「中」讀「眾」，筈讀「括」，詣讀「藝」，酹讀「賴」（不讀「淚」）。書傳的「傳」讀 zyun6，不讀「傳遞」的 cyun4。</div></div></div>
+
+<div class="section-header ex" id="s4"><div class="icon">✏️</div><div><div class="chap">CHAPTER 04　練習</div><h2>練習二：字詞與語譯</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>「生時，有大禽若鵠」中，「若」字的意思是：<ul class="opts"><li><b>A</b>如果</li><li><b>B</b>像</li><li><b>C</b>你</li><li><b>D</b>及</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>「未彌月」的意思是：<ul class="opts"><li><b>A</b>出生還未滿一個月</li><li><b>B</b>月亮還未圓</li><li><b>C</b>出生還未滿一年</li><li><b>D</b>不記得是哪一個月</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>「每值朔望」中，「朔望」指：<ul class="opts"><li><b>A</b>每月初十和二十</li><li><b>B</b>每年春天和秋天</li><li><b>C</b>每月的最後一天</li><li><b>D</b>農曆每月初一和十五</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>解釋以下句子中加點的字。
+<table><tr><th>句子</th><th>解釋</th></tr>
+<tr><td>（1）飛少<b class="dotw">負</b>氣節</td><td><span class="blank l"></span></td></tr>
+<tr><td>（2）飛由是<b class="dotw">益</b>自練習</td><td><span class="blank l"></span></td></tr>
+</table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）具有　（2）更加</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">5.</span><span class="lv lv1">基礎</span>寫出與以下各字粵音相同的字。<p>（1）筈：<span class="blank s"></span>　（2）酹：<span class="blank s"></span></p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分，每項1分）（1）括　（2）賴</div></div></div>
+
+<div class="qbox"><span class="mark">（4分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>同一個字，在不同句子中可以有不同意思。解釋以下加點的字。
+<table><tr><th>句子</th><th>解釋</th></tr>
+<tr><td>（1）同射三矢，皆<b class="dotw">中</b>的</td><td><span class="blank l"></span></td></tr>
+<tr><td>（2）母姚氏抱飛坐巨甕<b class="dotw">中</b></td><td><span class="blank l"></span></td></tr>
+<tr><td>（3）拾薪<b class="dotw">為</b>燭</td><td><span class="blank l"></span></td></tr>
+<tr><td>（4）何事不可<b class="dotw">為</b></td><td><span class="blank l"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（4分，每項1分）（1）射中　（2）裏面　（3）當作　（4）做</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>把以下句子譯成白話文。<p class="serif">家貧，拾薪為燭，誦習達旦，不寐。</p><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）家裏貧窮，撿柴生火當作蠟燭照明（1分），誦讀溫習到天亮，整夜不睡（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>把以下句子譯成白話文。<p class="serif">同大驚，以所愛良弓贈之。</p><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）周同大為驚訝（1分），把自己心愛的好弓送給岳飛（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>假如課文沒有為「破其筈」的「筈」作註，你會怎樣用上文下理推測它的意思？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）上文說周同三箭「皆中的」，靶心上已插着他的箭（1分）；岳飛第一箭「破其筈」，第二箭「又中」，可推測第一箭射破的是周同那支箭的一部分，即箭尾（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>閱讀以下句子，然後回答問題。<p class="serif">惟大人許兒以身報國家，何事不可為？</p><p>（1）把句子譯成白話文。（2分）</p><div class="line"></div><div class="line"></div><p>（2）這句用了哪一種句式？表達了怎樣的語氣？（1分）</p><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）（1）只要父親允許兒子用生命報效國家（1分），還有甚麼事不可以做呢（1分）？（2）反問句，語氣堅定，表示甚麼事都願意做（句式和語氣皆答對，得1分）。</div></div></div>
+
+<div class="section-header" id="s5"><div class="icon">🧭</div><div><div class="chap">CHAPTER 05　教學</div><h2>結構與內容理解</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>全文三段，按時間順序寫</h3>
+<div class="stage-row">
+<div class="stage s-a"><div class="stage-key">生</div><div class="stage-t">第1段　出生</div><ul class="tight"><li>表字和籍貫</li><li>名字的由來</li><li>洪水中大難不死</li></ul><div class="stage-w">略寫</div></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-b"><div class="stage-key">學</div><div class="stage-t">第2段　學習</div><ul class="tight"><li>性格和天資</li><li>修文：刻苦讀書</li><li>習武：拜師學射</li></ul><div class="stage-w">詳寫</div></div>
+<div class="stage-arrow">→</div>
+<div class="stage s-c"><div class="stage-key">志</div><div class="stage-t">第3段　敬師與述志</div><ul class="tight"><li>朔望拜祭周同</li><li>父子對話</li><li>立志報國</li></ul><div class="stage-w">以對話收結</div></div>
+</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">記憶方法</div><div class="alert-text">三段用三個字記：生 → 學 → 志。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>岳飛的成長路線</h3>
+<svg class="chart" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="岳飛成長路線">
+<path d="M40 160 C140 160 160 120 240 120 C320 120 340 80 420 80 C500 80 520 40 600 40 L720 40" fill="none" stroke="#B56A58" stroke-width="3" stroke-dasharray="6 5"/>
+<g font-size="12.5" text-anchor="middle">
+<circle cx="60" cy="160" r="22" fill="var(--color-background-primary)"/><circle cx="60" cy="160" r="22" fill="#B56A58" fill-opacity="0.15" stroke="#B56A58"/><text x="60" y="165" fill="#B56A58" font-weight="700">出生</text>
+<text x="60" y="196" fill="var(--color-text-secondary)">大鳥飛鳴、洪水脫險</text>
+<circle cx="240" cy="120" r="22" fill="var(--color-background-primary)"/><circle cx="240" cy="120" r="22" fill="#3a6ea5" fill-opacity="0.15" stroke="#3a6ea5"/><text x="240" y="125" fill="#3a6ea5" font-weight="700">讀書</text>
+<text x="240" y="160" fill="var(--color-text-secondary)">拾薪為燭，誦習達旦</text>
+<circle cx="420" cy="80" r="22" fill="var(--color-background-primary)"/><circle cx="420" cy="80" r="22" fill="#3d8b4f" fill-opacity="0.15" stroke="#3d8b4f"/><text x="420" y="85" fill="#3d8b4f" font-weight="700">學射</text>
+<text x="420" y="120" fill="var(--color-text-secondary)">破其筈，盡得同術</text>
+<circle cx="600" cy="40" r="22" fill="var(--color-background-primary)"/><circle cx="600" cy="40" r="22" fill="#c48612" fill-opacity="0.15" stroke="#c48612"/><text x="600" y="45" fill="#c48612" font-weight="700">敬師</text>
+<text x="600" y="80" fill="var(--color-text-secondary)">朔望拜祭周同</text>
+<circle cx="715" cy="40" r="22" fill="var(--color-background-primary)"/><circle cx="715" cy="40" r="22" fill="#c0392b" fill-opacity="0.15" stroke="#c0392b"/><text x="715" y="45" fill="#c0392b" font-weight="700">述志</text>
+<text x="700" y="80" fill="var(--color-text-secondary)">以身報國</text>
+</g>
+</svg>
+<p class="small">路線越走越高：由天生不凡，到後天努力，最後立下志向。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>第1段：不平凡的出生</h3>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">事件一：名字的由來</div>出生時，有像天鵝的大鳥在屋頂飛鳴，家人便以「飛」為他命名。</div>
+<div class="compare-card b"><div class="ct">事件二：大難不死</div>未滿月時黃河決堤，母親抱着他坐在大甕裏隨水漂流，到岸後母子平安。</div>
+</div>
+<p>兩件事都帶傳奇色彩，暗示岳飛將來不會是普通人。事件二同時寫出母親姚氏勇敢、機警，在危急中想到用大甕逃生。</p>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>第2段：修文和習武</h3>
+<div class="duo">
+<div class="duo-col wen"><div class="duo-h">📚 修文</div>
+<p><b>天資敏悟，強記書傳</b><br><span class="small">→ 聰明，記性好</span></p>
+<p><b>尤好《左氏春秋》及孫吳兵法</b><br><span class="small">→ 愛讀史書和兵書</span></p>
+<p><b>拾薪為燭，誦習達旦，不寐</b><br><span class="small">→ 家貧仍刻苦讀書</span></p>
+</div>
+<div class="duo-col wu"><div class="duo-h">🏹 習武</div>
+<p><b>生有神力，未冠，能挽弓三百斤</b><br><span class="small">→ 天生力大</span></p>
+<p><b>飛引弓一發，破其筈；再發，又中</b><br><span class="small">→ 箭術比老師更準</span></p>
+<p><b>由是益自練習，盡得同術</b><br><span class="small">→ 得老師贈弓後更加努力</span></p>
+</div>
+</div>
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">重點</div><div class="alert-text">《左氏春秋》是史書，記載許多忠臣義士的事跡；孫武、吳起的兵法講行軍打仗。作者特別寫出這兩類書，交代岳飛忠義精神和軍事知識的來源，也預示他日後成為名將。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>射箭比試：誰更準？</h3>
+<svg class="chart" viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="周同與岳飛射箭比較">
+<g transform="translate(170 115)">
+<circle r="80" fill="#fbf2df" stroke="#c48612"/><circle r="58" fill="none" stroke="#c48612"/><circle r="36" fill="none" stroke="#c48612"/><circle r="14" fill="#c48612" fill-opacity="0.35" stroke="#c48612"/>
+<circle cx="-5" cy="-3" r="4.5" fill="#3a6ea5"/><circle cx="5" cy="-2" r="4.5" fill="#3a6ea5"/><circle cx="0" cy="6" r="4.5" fill="#3a6ea5"/>
+<text y="112" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--color-text-primary)">周同：三箭皆中的</text>
+</g>
+<g transform="translate(500 115)">
+<circle r="80" fill="#fbf2df" stroke="#c48612"/><circle r="58" fill="none" stroke="#c48612"/><circle r="36" fill="none" stroke="#c48612"/><circle r="14" fill="#c48612" fill-opacity="0.35" stroke="#c48612"/>
+<circle cx="-5" cy="-3" r="4.5" fill="#3a6ea5"/><circle cx="5" cy="-2" r="4.5" fill="#3a6ea5"/><circle cx="0" cy="6" r="4.5" fill="#3a6ea5"/>
+<circle cx="-5" cy="-3" r="2.6" fill="#c0392b"/>
+<path d="M-5 -3 l-8 -8 M-5 -3 l9 -7 M-5 -3 l-9 6 M-5 -3 l8 7" stroke="#c0392b" stroke-width="1.6"/>
+<circle cx="8" cy="9" r="4.5" fill="#c0392b"/>
+<text x="92" y="-40" font-size="12.5" fill="#c0392b">第一箭：射破周同的箭尾</text>
+<path d="M88 -44 L2 -6" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="92" y="40" font-size="12.5" fill="#c0392b">第二箭：又中靶心</text>
+<path d="M88 36 L12 12" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text y="112" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--color-text-primary)">岳飛：破其筈，再發又中</text>
+</g>
+</svg>
+<p>周同三箭都中靶心，已經是高手。岳飛要射中的，是靶心上一支箭的箭尾，目標只有手指般大小，比靶心小得多。他射中了，第二箭又中，可見箭術比老師更高。作者接着寫「同大驚」，借老師的反應，再一次說明岳飛的天分。</p>
+</div>
+
+<div class="card"><h3><span class="dot pink"></span>第3段：敬師和述志</h3>
+<div class="moon-row">
+<div class="moon-box"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true"><circle cx="30" cy="30" r="22" fill="#2d3a47" stroke="#8a8f99"/></svg><div><b>朔</b>　農曆初一<br><span class="small">月亮幾乎看不見</span></div></div>
+<div class="moon-box"><svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true"><circle cx="30" cy="30" r="22" fill="#f6e7b8" stroke="#c48612"/></svg><div><b>望</b>　農曆十五<br><span class="small">滿月</span></div></div>
+</div>
+<p><b>不忘師恩：</b>周同死後，岳飛每月初一、十五都帶酒肉到墓前祭奠，邊祭邊哭；又用周同所贈的弓射三箭，才灑酒祭奠。周同生前射三箭給他示範，岳飛在墓前也射三箭，可以理解為用老師教的本領來紀念老師。原文用「每值」「必具」，說明他每月兩次，從不間斷，可見他重情重義、尊師重道。</p>
+<div class="chat">
+<div class="who">父親（撫其背）</div>
+<div><span class="bubble">假如你將來被朝廷重用，你會為國家捐軀、為正義犧牲嗎？</span></div>
+<div class="row-r"><div class="who">岳飛</div><span class="bubble">只要父親允許兒子用生命報效國家，還有甚麼事不可以做呢？</span></div>
+</div>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">見其「忠」</div>願意以身報國，為國家犧牲也在所不惜。</div>
+<div class="compare-card b"><div class="ct">見其「孝」</div>報國之前，先要得到父親允許，不擅自作主。</div>
+</div>
+<p>父親知道兒子拜祭老師，便「義之」；接着問兒子會否「殉國死義」。兩處都提到「義」，可見父親本身也重視忠義。岳飛立志報國，相信也受到父親的影響。</p>
+</div>
+
+<div class="section-header ex" id="s6"><div class="icon">✏️</div><div><div class="chap">CHAPTER 06　練習</div><h2>練習三：內容理解</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>岳飛的名字是怎樣來的？<ul class="opts one"><li><b>A</b>父親希望他將來飛黃騰達</li><li><b>B</b>出生時，有像天鵝的大鳥在屋頂上飛鳴</li><li><b>C</b>母親在他出生前夢見飛鳥</li><li><b>D</b>他小時候跑得很快，像在飛</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>洪水湧至時，岳飛怎樣得救？<ul class="opts one"><li><b>A</b>父親背着他游到岸邊</li><li><b>B</b>鄰居划船把他救起</li><li><b>C</b>母親抱着他坐在大甕裏隨水漂流</li><li><b>D</b>家人抱着他爬上大樹</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>岳飛特別喜愛讀哪些書？<ul class="opts one"><li><b>A</b>《詩經》和《楚辭》</li><li><b>B</b>《論語》和《孟子》</li><li><b>C</b>李白和杜甫的詩</li><li><b>D</b>《左氏春秋》和孫武、吳起的兵法</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>完成下表，寫出各段的主要內容。
+<table><tr><th class="c">段落</th><th>主要內容</th></tr>
+<tr><td class="c">第1段</td><td>岳飛的表字、籍貫，以及（1）<span class="blank l"></span></td></tr>
+<tr><td class="c">第2段</td><td>岳飛的性格、天資，以及（2）<span class="blank l"></span></td></tr>
+<tr><td class="c">第3段</td><td>岳飛（3）<span class="blank l"></span>，並向父親表明報國的志向</td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）名字的由來和出生時大難不死的經歷　（2）刻苦讀書和學習射箭的經歷　（3）不忘師恩，定時拜祭周同</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>判斷以下說法是否正確。正確的寫「✓」，錯誤的寫「✗」。<table><tr><th>說法</th><th class="c ctr">✓／✗</th></tr>
+<tr><td>（1）岳飛家境富裕，可以讀很多書。</td><td class="ctr"><span class="circle"></span></td></tr>
+<tr><td>（2）周同看見岳飛射箭後，十分驚訝。</td><td class="ctr"><span class="circle"></span></td></tr>
+<tr><td>（3）岳飛拜祭周同時，會用周同送的弓射三箭。</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）✗　（2）✓　（3）✓<br><span class="ex">（1）原文說「家貧」，他要撿柴照明讀書。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>岳飛第一箭「破其筈」，為甚麼能證明他的箭術比周同更高？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）周同的箭已射中靶心（1分）；岳飛射中的是周同那支箭的箭尾，目標比靶心小得多，所以更準確（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>從「家貧，拾薪為燭，誦習達旦，不寐」，可見岳飛有甚麼特點？試加以說明。<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）勤奮好學（1分）。他家境貧窮，仍撿柴生火照明，讀書到天亮也不睡（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>周同死後，岳飛每逢朔望都到墓前祭奠。這件事最能反映岳飛哪一種品格？<ul class="opts"><li><b>A</b>尊師重道</li><li><b>B</b>好勝心強</li><li><b>C</b>沉默寡言</li><li><b>D</b>天生神力</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>岳飛回答父親：「惟大人許兒以身報國家，何事不可為？」這句話同時表現了他哪兩種品德？試加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）忠：他願意以身報國，為國家犧牲也在所不惜（1分）。孝：他報國之前先要得到父親允許，尊重父親，不擅自作主（1分）。能引原文說明（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>父親「撫其背」，問岳飛將來會否「殉國死義」。從父親的反應和說話，可以看出他是一個怎樣的人？試舉出兩點，並加以說明。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）重視忠義：他知道兒子拜祭老師便「義之」，又問兒子會否為國家和正義犧牲（1分）。疼愛和欣賞兒子：「撫其背」這個動作溫和親切，帶着讚許（1分）。能引原文說明（1分）。</div></div></div>
+
+<div class="section-header" id="s7"><div class="icon">✍️</div><div><div class="chap">CHAPTER 07　教學</div><h2>寫法、主旨與比較閱讀</h2></div></div>
+
+<div class="card"><h3><span class="dot"></span>寫法一：以事寫人</h3>
+<p>除了開首用「少負氣節」「天資敏悟」等幾句概括岳飛的性格和天資，作者多數只把事情寫出來，讓讀者自己看出岳飛勤奮、尊師、忠孝等特點。分析人物時，可以用以下三步：</p>
+<div class="flow">
+<div class="flow-step"><b>找事件</b>拾薪為燭，誦習達旦</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>看做法</b>家貧仍想辦法讀書，讀到天亮</div><div class="flow-arrow">→</div>
+<div class="flow-step"><b>得特點</b>勤奮好學</div>
+</div>
+<div class="alert tip"><div class="alert-icon">💡</div><div><div class="alert-label">答題格式</div><div class="alert-text">回答「人物特點」題，用「特點＋事例」：先寫兩至四字的特點（如「尊師重道」），再引原文或概述事件作證明。只寫特點，答案便不完整。</div></div></div>
+</div>
+
+<div class="card"><h3><span class="dot coral"></span>寫法二：襯托</h3>
+<p>用別人或別的事物作陪襯，突出主角，叫「襯托」。用同樣出色的人來陪襯，令主角顯得更出色，稱為「正襯」。本文用周同的箭術來正襯岳飛：</p>
+<div class="compare-grid">
+<div class="compare-card a"><div class="ct">陪襯：周同</div>射三箭，三箭都中靶心，已經是高手。</div>
+<div class="compare-card b"><div class="ct">主角：岳飛</div>第一箭射破周同的箭尾，第二箭又中，比高手更高。</div>
+</div>
+<p>老師越厲害，學生勝過老師就越顯得難得。作者再加上「同大驚」和贈弓，借老師的反應從側面寫出岳飛的天分，這是側面描寫。</p>
+</div>
+
+<div class="card"><h3><span class="dot purple"></span>寫法三：語言描寫</h3>
+<p>岳飛的志向由文末父子對話帶出，作者沒有另加總結。岳飛的回答用反問句，比直接說「甚麼事都願意做」更有力，讀者從他自己的話感受到報國的決心。</p>
+</div>
+
+<div class="card"><h3><span class="dot teal"></span>詳寫和略寫</h3>
+<svg class="chart" viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="三段篇幅比較">
+<g font-size="13">
+<text x="0" y="30" fill="var(--color-text-primary)">第1段　出生</text><rect x="150" y="16" width="223" height="22" rx="4" fill="#B56A58" fill-opacity="0.45"/><text x="383" y="32" fill="var(--color-text-secondary)">略寫：兩件傳奇事，一筆帶過</text>
+<text x="0" y="72" fill="var(--color-text-primary)">第2段　學習</text><rect x="150" y="58" width="420" height="22" rx="4" fill="#B56A58"/><text x="580" y="74" fill="var(--color-text-secondary)">詳寫：學射寫得最細</text>
+<text x="0" y="114" fill="var(--color-text-primary)">第3段　敬師述志</text><rect x="150" y="100" width="310" height="22" rx="4" fill="#B56A58" fill-opacity="0.7"/><text x="470" y="116" fill="var(--color-text-secondary)">以對話收結</text>
+</g>
+<text x="150" y="145" font-size="11" fill="var(--color-text-secondary)">（橫條長度按各段原文字數比例繪畫：約61字、115字、85字）</text>
+</svg>
+<p>第2段最長，因為「學習」是少年岳飛成材的關鍵，作者把力氣花在這裏：讀書寫家貧苦讀，習武寫學射的過程，連第一箭、第二箭都分開交代。</p>
+</div>
+
+<div class="card"><h3><span class="dot amber"></span>岳飛的形象</h3>
+<div class="trait-grid">
+<div class="trait"><div class="trait-h">天資聰敏</div><div class="trait-e">天資敏悟，強記書傳</div></div>
+<div class="trait"><div class="trait-h">天生神力</div><div class="trait-e">未冠，能挽弓三百斤</div></div>
+<div class="trait"><div class="trait-h">勤奮好學</div><div class="trait-e">拾薪為燭；益自練習</div></div>
+<div class="trait"><div class="trait-h">尊師重義</div><div class="trait-e">朔望拜祭周同</div></div>
+<div class="trait"><div class="trait-h">孝順</div><div class="trait-e">先得父親允許才報國</div></div>
+<div class="trait"><div class="trait-h">忠心報國</div><div class="trait-e">以身報國，何事不可為</div></div>
+</div>
+<p class="small">前兩項是天生的條件，後四項是後天的努力和品德。兩者加起來，才成就日後的名將。</p>
+</div>
+
+<div class="card"><h3><span class="dot green"></span>次要人物</h3>
+<svg class="chart" viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="人物關係圖">
+<g stroke="var(--color-text-secondary)" stroke-width="1.2" stroke-dasharray="4 4"><line x1="380" y1="115" x2="130" y2="60"/><line x1="380" y1="115" x2="630" y2="60"/><line x1="380" y1="115" x2="380" y2="200"/></g>
+<circle cx="380" cy="115" r="42" fill="#B56A58"/><text x="380" y="121" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">岳飛</text>
+<g font-size="13" text-anchor="middle">
+<rect x="40" y="28" width="180" height="62" rx="10" fill="#fbebe6" stroke="#d0654a"/><text x="130" y="52" font-weight="700" fill="#d0654a">母親姚氏</text><text x="130" y="74" fill="#1a1a1a">洪水中抱子坐甕：勇敢、機警</text>
+<rect x="540" y="28" width="180" height="62" rx="10" fill="#e6eef7" stroke="#3a6ea5"/><text x="630" y="52" font-weight="700" fill="#3a6ea5">老師周同</text><text x="630" y="74" fill="#1a1a1a">以良弓相贈：愛才、慷慨</text>
+<rect x="270" y="170" width="220" height="56" rx="10" fill="#e7f3ea" stroke="#3d8b4f"/><text x="380" y="193" font-weight="700" fill="#3d8b4f">父親</text><text x="380" y="214" fill="#1a1a1a">義之、問殉國死義：重視忠義</text>
+</g>
+</svg>
+<p>三個次要人物都在岳飛成長中出現：母親救了他的命，老師教他本領，父親勉勵他立志。</p>
+</div>
+
+<div class="formula"><div class="fl">主旨一句記</div>
+本文記敍岳飛<b>出生不凡</b>、少年時<b>文武兼修</b>、<b>不忘師恩</b>和<b>立志報國</b>的事跡，表現他刻苦學習的精神、尊師重道的態度和忠心報國的志向。
+</div>
+
+<div class="card"><h3><span class="dot pink"></span>比較閱讀：王安石《傷仲永》（節錄）</h3>
+<div class="excerpt">❶ 金溪民方仲永，世隸耕<sup class="n">①</sup>。仲永生五年，未嘗識書具，忽啼求之。父異焉，借旁近與之，即書詩四句，并自為其名。……自是指物作詩立就，其文理皆有可觀者。邑人奇之，稍稍賓客其父<sup class="n">②</sup>，或以錢幣乞之。父利其然也，日扳<sup class="n">③</sup>仲永環謁<sup class="n">④</sup>於邑人，不使學。<br>
+❷ 余聞之也久。明道中，從先人還家，於舅家見之，十二三矣。令作詩，不能稱<sup class="n">⑤</sup>前時之聞。又七年，還自揚州，復到舅家問焉，曰：「泯然眾人<sup class="n">⑥</sup>矣。」<br>
+❸ 王子曰：仲永之通悟，受之天也。……卒之為眾人，則其受於人者不至也。
+<div class="src">王安石（北宋）《傷仲永》</div></div>
+<p class="small">① 世隸耕：世代務農。② 賓客其父：以賓客之禮對待他的父親。③ 扳：通「攀」，拉着。④ 環謁：四處拜訪。⑤ 稱：相稱、比得上。⑥ 泯然眾人：才能消失，和普通人沒有分別。</p>
+<div class="example-box pink"><div class="example-label">大意</div><div class="example-text">方仲永五歲已能寫詩，鄉人都覺得驚奇，有人花錢請他作詩。他的父親貪圖這些好處，天天拉着他四處拜訪，不讓他讀書。到了十二三歲，他寫的詩已配不上從前的名聲；再過七年，他已和普通人沒有分別。王安石認為：仲永的聰明是天生的，最後變成普通人，是因為後天沒有好好學習。</div></div>
+<table>
+<tr><th class="c">比較項目</th><th>岳飛</th><th>方仲永</th></tr>
+<tr><td class="c">天資</td><td>天資敏悟，生有神力</td><td>五歲已能寫詩，後來指物作詩立就</td></tr>
+<tr><td class="c">家人的做法</td><td>母親在洪水中救了他；父親以忠義勉勵他</td><td>父親貪圖錢財，「不使學」</td></tr>
+<tr><td class="c">後天學習</td><td>拾薪為燭讀書；益自練習，盡得同術</td><td>沒有繼續學習</td></tr>
+<tr><td class="c">結果</td><td>成為一代名將</td><td>泯然眾人</td></tr>
+</table>
+<div class="alert success"><div class="alert-icon">✅</div><div><div class="alert-label">兩篇合讀</div><div class="alert-text">兩人都天資過人，結局卻相反，分別就在後天是否努力學習，以及家人怎樣引導。</div></div></div>
+</div>
+
+<div class="section-header ex" id="s8"><div class="icon">✏️</div><div><div class="chap">CHAPTER 08　練習</div><h2>練習四：寫法賞析與比較閱讀</h2></div></div>
+<div class="ans-bar"><span>每題答案已隱藏，可按題目下方「顯示答案」逐題核對。</span><button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button></div>
+<div class="extotal">共10題，滿分20分。</div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">1.</span><span class="lv lv1">基礎</span>本文主要用哪一種方法表現岳飛的特點？<ul class="opts"><li><b>A</b>通過具體事件</li><li><b>B</b>大段外貌描寫</li><li><b>C</b>借景物抒情</li><li><b>D</b>作者直接評論</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）A</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">2.</span><span class="lv lv1">基礎</span>作者寫周同「射三矢，皆中的」，主要作用是：<ul class="opts"><li><b>A</b>介紹周同的生平</li><li><b>B</b>襯托岳飛的箭術更高</li><li><b>C</b>批評周同驕傲</li><li><b>D</b>交代比試的時間</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）B</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">3.</span><span class="lv lv1">基礎</span>文末用父子對話表達岳飛的志向，屬於哪一種描寫？<ul class="opts"><li><b>A</b>外貌描寫</li><li><b>B</b>景物描寫</li><li><b>C</b>語言描寫</li><li><b>D</b>環境描寫</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）C</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">4.</span><span class="lv lv1">基礎</span>根據本文主旨填空。<p>本文記敍岳飛少年時文武兼修、不忘師恩和立志報國的事跡，表現他（1）<span class="blank"></span>的精神、（2）<span class="blank"></span>的態度和（3）<span class="blank"></span>的志向。</p><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每空1分）（1）刻苦學習　（2）尊師重道　（3）忠心報國</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">5.</span><span class="lv lv2">理解</span>以下哪些內容帶有傳奇色彩？是的寫「✓」，不是的寫「✗」。<table><tr><th>內容</th><th class="c ctr">✓／✗</th></tr>
+<tr><td>（1）有大禽若鵠，飛鳴室上</td><td class="ctr"><span class="circle"></span></td></tr>
+<tr><td>（2）河決內黃，母子坐巨甕中，得不死</td><td class="ctr"><span class="circle"></span></td></tr>
+<tr><td>（3）家貧，拾薪為燭，誦習達旦</td><td class="ctr"><span class="circle"></span></td></tr></table><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，每項1分）（1）✓　（2）✓　（3）✗<br><span class="ex">（3）是刻苦讀書的實際行動，不屬於傳奇。</span></div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">6.</span><span class="lv lv2">理解</span>第1段記述岳飛出生時的兩件事，對全文有甚麼作用？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）兩件事帶傳奇色彩，令文章更吸引（1分）；暗示岳飛將來會成為不平凡的人物（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（2分）</span><span class="qn">7.</span><span class="lv lv2">理解</span>作者特別寫出岳飛愛讀《左氏春秋》和孫吳兵法，有甚麼用意？<div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（2分）《左氏春秋》記載忠臣義士的事跡，交代岳飛忠義精神的來源（1分）；兵法講行軍打仗，交代他軍事知識的來源，預示他日後成為名將（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（1分）</span><span class="qn">8.</span><span class="lv lv2">理解</span>根據《傷仲永》，方仲永長大後變成怎樣？<ul class="opts"><li><b>A</b>成為著名詩人</li><li><b>B</b>考中進士做官</li><li><b>C</b>離家四處遊歷</li><li><b>D</b>才能消失，和普通人沒有分別</li></ul><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（1分）D</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">9.</span><span class="lv lv3">進階</span>岳飛和方仲永都天資過人，結局卻不同。試從「後天學習」比較二人，並說明你從中得到的啟示。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分）方仲永的父親貪圖錢財，「不使學」，仲永沒有繼續學習（1分）；岳飛家貧仍「拾薪為燭，誦習達旦」，學射後又「益自練習」（1分）。啟示：天資要配合後天努力，才能成材（1分）。</div></div></div>
+
+<div class="qbox"><span class="mark">（3分）</span><span class="qn">10.</span><span class="lv lv3">進階</span>有同學說：「我天生不聰明，再努力也沒有用。」試結合《岳飛之少年時代》和《傷仲永》，寫一段話回應他。<div class="line"></div><div class="line"></div><div class="line"></div><div class="ans-wrap"><button type="button" class="ans-btn" onclick="toggleAns(this)">👁 顯示答案</button><div class="ans" hidden><span class="ans-tag">參考答案</span>（3分，示例）學生自由作答，言之成理即可。<br>方仲永天生聰明，因為不再學習，最後和普通人沒有分別，可見天資不能決定一切（1分）。岳飛雖然天資好，但家貧仍苦讀，又不斷練箭，才學盡老師的本領（1分）。所以成績好壞，很大程度看後天是否努力，你不必因為天資而放棄（1分）。<br><span class="ex">評分原則：引用兩篇文章各1分，總結回應1分。</span></div></div></div>
+
+<footer style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); text-align:center;">
+  <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.9;">
+    <span style="font-weight:500; color:var(--color-text-primary);">© 潘SIR中文教室</span><br>
+    版權歸潘SIR中文教室所有，未經允許，嚴禁以任何形式進行複製、印刷、轉載、轉售、營利或分享。<br>如需使用，請事先取得潘SIR中文教室的書面同意。
+  </div>
+</footer>
+
+
+
+</div>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-menu">
+    <button type="button" class="tb-btn ans-all" onclick="setAll(!allShown())">👁 全部顯示答案</button>
+    <button type="button" class="tb-btn" onclick="printVersion('student')">🖨 列印學生版（不含答案）</button>
+    <button type="button" class="tb-btn" onclick="printVersion('teacher')">🖨 列印教師版（含答案）</button>
+  </div>
+  <button type="button" class="tb-btn primary" onclick="document.getElementById('toolbar').classList.toggle('open')">⚙ 答案及列印</button>
+</div>
+
+<script>
+function showOne(w,show){
+  var a=w.querySelector('.ans'),b=w.querySelector('.ans-btn');
+  a.hidden=!show; b.textContent=show?'🙈 隱藏答案':'👁 顯示答案'; b.classList.toggle('on',show);
+}
+function allShown(){
+  return [].every.call(document.querySelectorAll('.ans-wrap .ans'),function(a){return !a.hidden;});
+}
+function syncAll(){
+  var s=allShown();
+  document.querySelectorAll('.ans-all').forEach(function(b){b.textContent=s?'🙈 全部隱藏答案':'👁 全部顯示答案';});
+}
+function toggleAns(btn){
+  var w=btn.parentNode; showOne(w,w.querySelector('.ans').hidden); syncAll();
+}
+function setAll(show){
+  document.querySelectorAll('.ans-wrap').forEach(function(w){showOne(w,show);}); syncAll();
+}
+function printVersion(v){
+  document.body.classList.remove('print-student','print-teacher');
+  document.body.classList.add('print-'+v);
+  var done=function(){document.body.classList.remove('print-student','print-teacher');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}
+</script>
+</body>
+</html>
